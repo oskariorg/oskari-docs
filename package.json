@@ -1,0 +1,16 @@
+{
+  "name": "oskari.org",
+  "description": "Oskari map application framework's website",
+  "version": "0.1.0",
+  "dependencies": {
+    "express": "3.4.8",
+    "jade": "1.1.5",
+    "marked": "0.3.0"
+  },
+  "devDependencies": {
+    "gulp-util": "~2.2.12",
+    "gulp": "~3.4.0",
+    "gulp-less": "~1.1.10",
+    "gulp-uglify": "~0.1.0"
+  }
+}

@@ -1,0 +1,58 @@
+.centered-layout(@padding: 0) {
+    max-width: 1000px;
+    min-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: @padding;
+}
+
+div.nav-content {
+    .centered-layout(0 0 2em 0);
+    height: 50px;
+}
+
+div.oskari-logo {
+    float: left;
+    font-size: 3em;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+nav {
+    float: right;
+    font-size: 1.2em;
+    ul {
+        padding: 0;
+        li {
+            display: inline-block;
+            margin-left: 1em;
+            list-style-type: none;
+            padding-top: 10px;
+            border-top: 5px solid transparent;
+            a:hover {
+                text-decoration: none;
+            }
+        }
+        li:hover {
+            border-top: 5px solid red;
+
+        }
+    }
+}
+
+div.main-content {
+    .centered-layout(1em);
+}
+
+div.footer-content {
+    .centered-layout(1em);
+}
+
+a.github-ribbon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    img {
+        border: 0;
+    }
+}

@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    title Oskari map application framework
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" type="text/css" href="/css/bootstrap.min.css")
+    link(rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css")
+    link(rel="stylesheet" type="text/css" href="/css/layout.css")
+    link(rel="stylesheet" type="text/css" href="/css/prism.css")
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  body
+    div.nav-content
+      div.oskari-logo
+        p Oskari
+      include _navigation
+
+    a(href="https://github.com/nls-oskari/" class="github-ribbon"): img(src="/images/forkme_left_red.png" alt="Fork me on GitHub")
+
+    div.main-content
+      block main
+
+    div.footer-content
+      include _footer
+
+    script(type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js")
+    script(type="text/javascript" src="/js/prism.js")
+    script(type="text/javascript" src="/js/main.js")
