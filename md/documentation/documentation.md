@@ -12,20 +12,18 @@
 * [Oskari core and sandbox](/documentation/core-concepts/oskari-core)
 * [Bundle communication: Request](/documentation/core-concepts/oskari-request)
 * [Bundle communication: Event](/documentation/core-concepts/oskari-event)
-* MapPlugin
-* Oskari Bundle Manager/Loader
+* [Map plugin](/documentation/core-concepts/map-plugin)
+* [Oskari bundle manager/loader](/documentation/core-concepts/bundle-manager)
 
 ## Development
 
 * [How to contribute](/documentation/development/how-to-contribute)
 * [Architecture](/documentation/development/architecture)
 * [Oskari API documentation](http://demo.paikkatietoikkuna.fi/Oskari/latest/api/)
-* Guidelines
-* Localization
-* Tools
-* License
-* IRC channel #Oskari on the freenode network (irc.freenode.net)
-* IE vs. CSS
+* [Guidelines](/documentation/development/guidelines)
+* [Localization](/documentation/development/localization)
+* [Tools](/documentation/development/tools)
+* [License](/documentation/development/license)
 * Feature: changing mode
 
 ## Bundles
@@ -34,34 +32,30 @@ Oskari bundle documentation is located in ​http://demo.paikkatietoikkuna.fi/Os
 
 ## Components
 
-All components are currently part of the divmanazer bundle.
+All components are currently part of the `divmanazer` bundle.
 
-* Popup
-* Button
-* Overlay
-* Accordion(AccordionPanel)
-* Form (FormInput)
-* Grid (GridModel)
-* TabContainer/TabDropdownContainer (TabPanel)
+* [Popup](/documentation/components/popup)
+* [Button](/documentation/components/button)
+* [Overlay](/documentation/components/overlay)
+* [Accordion](/documentation/components/accordion)
+* [Form](/documentation/components/form)
+* [Grid](/documentation/components/grid)
+* [Tab container](/documentation/components/tab-container)
 
 ## Data
 
-* Application startup sequence
-* Bundle configuration
-* Maplayer definitions
+* [Application startup sequence](/documentation/core-concepts/oskari-application#startup-sequence)
+* [Bundle configuration](/documentation/core-concepts/oskari-bundle-configuration)
+* [Maplayer definitions](/documentation/data/maplayer-definitions)
 
 ## Protocols
 
-* Oskari.mapframework.module.Module
+* [Module](/documentation/protocol/module)
 
 ## Other
 
 * [Folder structure in code](/documentation/directory-structure)
-* Supported/used 3rd party Javascript libraries
-* Adding 3rd party Javascript libraries
-* Case study: Paikkatietoikkuna backend architecture
-* Live sites using Oskari
-
-## Backend
-
-* Backend architecture
+* [Supported/used 3rd party Javascript libraries](/documentation/libraries)
+* [Adding 3rd party Javascript libraries](/documentation/development/adding-libraries)
+* [Paikkatietoikkuna backend architecture](/documentation/paikkatietoikkuna)
+* [Live sites using Oskari](/documentation/live-sites)

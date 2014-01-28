@@ -1,0 +1,38 @@
+extends layout
+
+block main
+  :markdown
+    # Developer Web Site for Oskari Platform
+
+    Geographic data is often offered through stardard OGC interfaces or as Inspire Network services. Such interface services are meant to be consumed by computer applications. The use cases for data and maps are in browser-based applications, such as eGovernment services for different domains. To make these services work, various data sources need to be combined, data needs to be visualized and new information created by data analysis.
+
+    The mission of Oskari platform is to offer easy-to-use, browser-based tools to access and re-use information from various data sources, including the Inspire Spatial Data Infrastructure (SDI) and the Finnish National SDI.
+
+  div.row
+    div.col-md-6
+      div.well
+        :markdown
+          ### Getting started
+
+          * [Quick start](/guides/quick-start)
+          * [Documentation](/documentation)
+
+    div.col-md-6
+      div.well
+        :markdown
+          ### Current version
+
+          The current stable version of Oskari is **1.17** which was released 21st of January 2014. Get it from [here](/download)!
+
+  div.alert.alert-warning
+    :markdown
+      Previous released version schemes have been numbered 6-12 and may still be referenced to from the documentation. Any development should be based on the new versioning scheme starting from 1.0. The older versions are no longer available through this site.
+
+  :markdown
+    ## How is Oskari implemented?
+
+    Oskari user interface is implemented as a collection of reusable bundles. Bundles are used as uniform containers to ship and share new functionality to the application setups. Additions to existing functionality are implemented as Plugins shipped within the bundles. Server-side functionality of the platform is implemented as a Java servlet, which can also be extended to handle new functionality. Oskari uses standard Open Source components such as OpenLayers, GeoTools, GeoServer, Jackson and jQuery. The developed Open Source code stitches these applications together and makes it possible to extend the functionality of the platform in a coordinated manner.
+
+    Starting from the new Oskari versioning scheme 1.0+ provides applications with loose coupling and inter-bundle messaging with Requests and Events, configuration, application state and localization support. Loose coupling enables reusing bundles in different application setups.
+
+    See [JavaScript libraries](/documentation/libraries) for a more complete list of libraries used and to be used.

@@ -1,3 +1,24 @@
+html {
+  min-height: 100%;
+}
+body {
+  background: #e8ecef;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #e8ecef 0%, #fcfcfc 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e8ecef), color-stop(100%, #fcfcfc));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #e8ecef 0%, #fcfcfc 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #e8ecef 0%, #fcfcfc 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #e8ecef 0%, #fcfcfc 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #e8ecef 0%, #fcfcfc 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8ecef', endColorstr='#fcfcfc', GradientType=0);
+  /* IE6-9 */
+}
 div.nav-content {
   max-width: 1000px;
   min-width: 500px;

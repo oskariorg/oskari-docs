@@ -67,7 +67,8 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-    readMdFile(req, res, 'index');
+    res.render('index');
+    //readMdFile(req, res, 'index', 'index');
 });
 
 app.use(function(err, req, res, next) {
