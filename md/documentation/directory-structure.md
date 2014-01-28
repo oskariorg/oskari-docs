@@ -1,18 +1,18 @@
 # Directory structure for Oskari
 
-`/applications` - Definitions for application setups combining bundles into a specific application
+* `/applications` - Definitions for application setups combining bundles into a specific application
 
-`/bundles` - Implementation files for extension bundles
+* `/bundles` - Implementation files for extension bundles
 
-`/packages` - Definition files for extension bundles
+* `/packages` - Definition files for extension bundles
 
-`/resources` - CSS styles/images for extension bundles
+* `/resources` - CSS styles/images for extension bundles
 
-`/sources` - Oskari core
+* `/sources` - Oskari core
 
-`/libraries` - jQuery plugins and other dependencies/libraries
+* `/libraries` - jQuery plugins and other dependencies/libraries
 
-The folder structure follows a pattern where the first folder under the base-folder is a namespace folder. Oskari uses framework for the main bundles, but this is optional and you can separate your bundles to own namespace. The next folder in the structure is named `bundle`. This is just a convention and is not a functional requirement. The next folder is named after the bundle-identifier.
+The folder structure follows a pattern where the first folder under the base folder is a namespace folder. Oskari uses framework for the main bundles, but this is optional and you can separate your bundles to own namespace. The next folder in the structure is named `bundle`. This is just a convention and is not a functional requirement. The next folder is named after the `<bundle-identifier>`.
 
 ```
 <your root dir>

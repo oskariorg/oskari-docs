@@ -78,3 +78,6 @@ a.github-ribbon {
 a.github-ribbon img {
   border: 0;
 }
+div.well h3 {
+  margin-top: 0;
+}

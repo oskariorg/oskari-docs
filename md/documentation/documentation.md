@@ -24,7 +24,7 @@
 * [Localization](/documentation/development/localization)
 * [Tools](/documentation/development/tools)
 * [License](/documentation/development/license)
-* Feature: changing mode
+* [Feature: changing mode](/documentation/development/changing-mode)
 
 ## Bundles
 
