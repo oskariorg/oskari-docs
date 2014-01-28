@@ -1,37 +1,38 @@
-# Sample Definition for a bundle called MyBundle
+# Sample definition for a bundle
 
 A file named `bundle.js` under `/packages/<mynamespace>/bundle/<bundle-identifier>/` folder should contain this sort of content. It defines that the bundles implementation file `instance.js` is located under `/bundles/mynamespace/bundle/<bundle-identifier>/` and localization data under that in `locale/<lang>.js` files. At the end it installs the bundle to the Oskari framework so it can be started by the Oskari loader. Change the `<bundle-identifier>` and `<mynamespace>` to the identifiers of your choosing for actually using this sample-template.
 
 ```javascript
 /**
- * @class Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundle
- *
  * Definition for bundle. See source for details.
+ *
+ * @class Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundle
  */
 Oskari.clazz.define("Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundle",
 
 /**
- * @contructor
  * Called automatically on construction. At this stage bundle sources have been
  * loaded, if bundle is loaded dynamically.
+ *
+ * @contructor
  * @static
  */
 function() {
 
 }, {
     /*
-     * @method create
      * called when a bundle instance will be created
+     *
+     * @method create
      */
     "create" : function() {
-        var me = this;
-        var inst = Oskari.clazz.create("Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundleInstance");
-        return inst;
+        return Oskari.clazz.create("Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundleInstance");
 
     },
     /**
-     * @method update
      * Called by Bundle Manager to provide state information to
+     *
+     * @method update
      * bundle
      */
     "update" : function(manager, bundle, bi, info) {

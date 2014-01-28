@@ -30,4 +30,4 @@ The modified/ready bundle configuration is in file `/applications/sample/mythird
 
 ## Next steps
 
-[Create your own bundle](/quick-start/create-your-own-bundle)
+[Create your own bundle](/guides/quick-start/create-your-own-bundle)

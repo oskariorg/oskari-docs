@@ -34,23 +34,36 @@ var readMdFile = function(req, res, mdDoc, jadePage) {
     });
 };
 
+app.get('/guides/:guidepath/:doc?', function(req, res) {
+    var docFilePath = path.join('guides', req.params.guidepath, (req.params.doc || 'my-first-bundle'));
+    readMdFile(req, res, docFilePath);
+});
+
 app.get('/guides/:doc?', function(req, res) {
-    var docFilePath = ('guides/' + (req.params.doc || 'guides'));
+    var docFilePath = path.join('guides', (req.params.doc || 'guides'));
     readMdFile(req, res, docFilePath);
 });
 
 app.get('/documentation/:doc?', function(req, res) {
-    var docFilePath = ('documentation/' + (req.params.doc || 'documentation'));
+    var docFilePath = path.join('documentation', (req.params.doc || 'documentation'));
     readMdFile(req, res, docFilePath);
 });
 
-app.get('/quick-start/:doc?', function(req, res) {
-    var docFilePath = ('quick_start/' + (req.params.doc || 'my-first-bundle'));
+app.get('/documentation/:docpath/:doc', function(req, res) {
+    var docFilePath = path.join('documentation', req.params.docpath, req.params.doc);
     readMdFile(req, res, docFilePath);
-})
+});
 
-app.get('/:doc?', function(req, res) {
-    readMdFile(req, res, (req.params.doc || 'index'));
+app.get('/download', function(req, res) {
+    readMdFile(req, res, 'download');
+});
+
+app.get('/about', function(req, res) {
+    readMdFile(req, res, 'about');
+});
+
+app.get('/', function(req, res) {
+    readMdFile(req, res, 'index');
 });
 
 app.use(function(err, req, res, next) {

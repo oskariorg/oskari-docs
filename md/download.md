@@ -2,22 +2,18 @@
 
 ## Frontend
 
-Oskari is available on GitHub:
+[Oskari JavaScript framework](https://github.com/nls-oskari/oskari) is available on GitHub.
 
-​Oskari on github ( git@github.com:nls-oskari/oskari.git )
-
-* releases ​https://github.com/nls-oskari/oskari/tags
-* master ​tarball, ​zip
-* develop ​tarball, ​zip
+* [releases](https://github.com/nls-oskari/oskari/tags)
+* master [​tarball](https://github.com/nls-oskari/oskari/tarball/master), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
+* develop [​tarball](https://github.com/nls-oskari/oskari/tarball/develop), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
 
 Master branch has stable production ready code that is in use at ​http://www.paikkatietoikkuna.fi/ while develop is the most recent code which is more of a work in progress and might contain bugs.
 
 ## Backend
 
-Oskari-server (backend) is available on GitHub:
+[Oskari-server](https://github.com/nls-oskari/oskari-server) and [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) (backend) are available on GitHub.
 
-​Oskari-server on github ( git@github.com:nls-oskari/oskari-server.git )
-
-* releases ​https://github.com/nls-oskari/oskari-server/tags
-* master ​tarball, ​zip
-* develop ​tarball, ​zip
+* [releases](​https://github.com/nls-oskari/oskari-server/tags)
+* master [​tarball](https://github.com/nls-oskari/oskari-server/tarball/master), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
+* develop [​tarball](https://github.com/nls-oskari/oskari-server/tarball/develop), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)

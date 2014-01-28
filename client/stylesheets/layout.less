@@ -8,7 +8,8 @@
 
 div.nav-content {
     .centered-layout(0 0 2em 0);
-    height: 50px;
+    height: 60px;
+    border-bottom: 3px solid red;
 }
 
 div.oskari-logo {
@@ -19,6 +20,7 @@ div.oskari-logo {
 }
 
 nav {
+    margin-right: 1em;
     float: right;
     font-size: 1.2em;
     ul {
@@ -33,9 +35,8 @@ nav {
                 text-decoration: none;
             }
         }
-        li:hover {
+        li:hover, li.active {
             border-top: 5px solid red;
-
         }
     }
 }

@@ -38,8 +38,8 @@ To add new funtionality to the application we add another bundle to it:
 
 ## Next steps
 
-[Working with Tiles and Flyouts](/quick-start/working-with-tiles-and-flyouts)
+[Working with Tiles and Flyouts](/guides/quick-start/working-with-tiles-and-flyouts)
 
-[Requesting Toolbar for a new button](/quick-start/using-toolbar)
+[Requesting Toolbar for a new button](/guides/quick-start/using-toolbar)
 
-[Create your own bundle](/quick-start/create-your-own-bundle)
+[Create your own bundle](/guides/quick-start/create-your-own-bundle)

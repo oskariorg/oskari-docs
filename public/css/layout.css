@@ -4,7 +4,8 @@ div.nav-content {
   margin-right: auto;
   margin-left: auto;
   padding: 0 0 2em 0;
-  height: 50px;
+  height: 60px;
+  border-bottom: 3px solid red;
 }
 div.oskari-logo {
   float: left;
@@ -13,6 +14,7 @@ div.oskari-logo {
   padding-top: 10px;
 }
 nav {
+  margin-right: 1em;
   float: right;
   font-size: 1.2em;
 }
@@ -29,7 +31,8 @@ nav ul li {
 nav ul li a:hover {
   text-decoration: none;
 }
-nav ul li:hover {
+nav ul li:hover,
+nav ul li.active {
   border-top: 5px solid red;
 }
 div.main-content {

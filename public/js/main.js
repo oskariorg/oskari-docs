@@ -1,1 +1,1 @@
-$(function(){$("pre").addClass("line-numbers")});
+$(function(){var a=function(){var a=document.location.pathname,t=a.split("/")[1],c=$('nav ul li a[href="/'+t+'"');$("nav ul li").removeClass("active"),c.parent().addClass("active")};a(),$("code.lang-javascript").attr("class","language-javascript"),$("pre code").each(function(a,t){hljs.highlightBlock(t)})});

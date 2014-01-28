@@ -1,3 +1,18 @@
 $(function() {
-    $('pre').addClass('line-numbers');
+    var addActiveClassToNav = function() {
+        var pathName = document.location.pathname,
+            activePath = pathName.split('/')[1],
+            activeNavLink = $('nav ul li a[href="/' + activePath + '"');
+
+        $('nav ul li').removeClass('active');
+        activeNavLink.parent().addClass('active');
+    };
+
+    addActiveClassToNav();
+
+    $('code.lang-javascript').attr('class', 'language-javascript');
+
+    $('pre code').each(function(i, e) {
+        hljs.highlightBlock(e);
+    });
 });
