@@ -17,6 +17,10 @@ app.set('view options', {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
+md.setOptions({
+    langPrefix: 'language-'
+})
+
 var readMdFile = function(req, res, mdDoc, jadePage) {
     var mdDocPath = path.join(__dirname, mdDir, (mdDoc + '.md'));
     jadePage = jadePage || 'page';

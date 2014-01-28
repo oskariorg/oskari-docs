@@ -10,8 +10,6 @@ $(function() {
 
     addActiveClassToNav();
 
-    $('code.lang-javascript').attr('class', 'language-javascript');
-
     $('pre code').each(function(i, e) {
         hljs.highlightBlock(e);
     });

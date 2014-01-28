@@ -1,1 +1,1 @@
-$(function(){var a=function(){var a=document.location.pathname,t=a.split("/")[1],c=$('nav ul li a[href="/'+t+'"');$("nav ul li").removeClass("active"),c.parent().addClass("active")};a(),$("code.lang-javascript").attr("class","language-javascript"),$("pre code").each(function(a,t){hljs.highlightBlock(t)})});
+$(function(){var a=function(){var a=document.location.pathname,n=a.split("/")[1],e=$('nav ul li a[href="/'+n+'"');$("nav ul li").removeClass("active"),e.parent().addClass("active")};a(),$("pre code").each(function(a,n){hljs.highlightBlock(n)})});
