@@ -64,7 +64,7 @@ The create method returns an instance of the class which you specify as paramete
 
 ## Protocol
 
-Classes can declare implementing a protocol (none to many) or classes can also be used to define a protocol. A protocol can be thought of as an interface declaration and contract for a set of functions that a class must provide/implement. For example for a class to register to [Oskari sandbox](/documentation/core-concepts/oskari-core) it needs to implement the Oskari.mapframework.module.Module protocol which defines that the class must have for example a `getName()` and `onEvent()` methods. This way we can depend that any registered component can handle operations that will be expected from registered components.
+Classes can declare implementing a protocol (none to many) or classes can also be used to define a protocol. A protocol can be thought of as an interface declaration and contract for a set of functions that a class must provide/implement. For example for a class to register to [Oskari sandbox](documentation/core-concepts/oskari-core) it needs to implement the Oskari.mapframework.module.Module protocol which defines that the class must have for example a `getName()` and `onEvent()` methods. This way we can depend that any registered component can handle operations that will be expected from registered components.
 
 ```javascript
 Oskari.clazz.define('Oskari.mynamespace.MyProtocol', function() {}, {

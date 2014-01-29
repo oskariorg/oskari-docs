@@ -14,7 +14,7 @@ This document describes the source management process used by the Oskari project
 
 ### Overview
 
-![Oskari git overview](/images/documentation/git_overview.png)
+![Oskari git overview](images/documentation/git_overview.png)
 
 ### Branches & Repos
 

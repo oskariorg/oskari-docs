@@ -4,7 +4,7 @@
 
 A Grid can render a given GridModel as a table. Its features include column aliases, calling external handlers for nested tables, field-specific value renderers, sorting and selections. A GridModel is a simple data container that keeps track of key fields and provides convenience methods for addition of structured data.
 
-![Sample grid](/images/documentation/components/grid.png)
+![Sample grid](images/documentation/components/grid.png)
 
 Usage
 

@@ -8,7 +8,7 @@
     * a bundle should not hard code references to other bundles or modules
     * a bundle should not poke other bundles' internal structures
 * Bundles should not have hard coded references to any backend etc outside source
-    * any such references should be given to the bundle via [configuration](/documentation/core-concepts/oskari-bundle-configuration)
+    * any such references should be given to the bundle via [configuration](documentation/core-concepts/oskari-bundle-configuration)
 * Use jQuery with `jQuery()`, not `$()`
 * Attach event handling functions to DOM with JavaScript assignments rather than HTML markup:
 

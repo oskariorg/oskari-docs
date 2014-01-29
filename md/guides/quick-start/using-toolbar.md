@@ -26,8 +26,8 @@ This bundle sends out a request on startup for `toolbar` bundle asking it to sho
 
 The modified/ready bundle configuration is in file `/applications/sample/mythird/my4th_appsetup.json`. You can replace the file `appsetup.json` with it and see the end result:
 
-![Custom toolbar](/images/quick-start/custom_toolbar.png)
+![Custom toolbar](images/quick-start/custom_toolbar.png)
 
 ## Next steps
 
-[Create your own bundle](/guides/quick-start/create-your-own-bundle)
+[Create your own bundle](guides/quick-start/create-your-own-bundle)
