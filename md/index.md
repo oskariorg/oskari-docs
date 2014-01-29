@@ -6,8 +6,8 @@ The mission of Oskari platform is to offer easy-to-use, browser-based tools to a
 
 ## Getting started
 
-* [Quick start](/guides/quick-start)
-* [Documentation](/documentation)
+* [Quick start](guides/quick-start)
+* [Documentation](documentation)
 
 ## Current version
 
@@ -19,4 +19,4 @@ Oskari user interface is implemented as a collection of reusable bundles. Bundle
 
 Starting from the new Oskari versioning scheme 1.0+ provides applications with loose coupling and inter-bundle messaging with Requests and Events, configuration, application state and localization support. Loose coupling enables reusing bundles in different application setups.
 
-See [JavaScript libraries](/documentation/libraries) for a more complete list of libraries used and to be used.
+See [JavaScript libraries](documentation/libraries) for a more complete list of libraries used and to be used.

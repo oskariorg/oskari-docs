@@ -4,4 +4,4 @@
 
 (note: Oskari framework is distributed with Apache and executed in browser's JavaScript engine)
 
-![Paikkatietoikkuna architecture](/images/documentation/paikkis_architecture.png)
+![Paikkatietoikkuna architecture](images/documentation/paikkis_architecture.png)

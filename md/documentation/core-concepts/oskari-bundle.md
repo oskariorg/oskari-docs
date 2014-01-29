@@ -1,16 +1,16 @@
 # Oskari bundle
 
-A bundle is a component in an Oskari application. A bundle is a selection of [Oskari classes](/documentation/core-concepts/oskari-class) which form a component that offers additional functionality for an application. A bundle can offer multiple implementations for a functionality which can then be divided into smaller packages for different application setups. Packages can be used to offer a multiple views for the same functionality for example search functionality as a small on-map textfield or a window-like UI (see Tile/Flyout) for the same functionality. For a short introduction see [create your own bundle](/guides/quick-start/create-your-own-bundle).
+A bundle is a component in an Oskari application. A bundle is a selection of [Oskari classes](documentation/core-concepts/oskari-class) which form a component that offers additional functionality for an application. A bundle can offer multiple implementations for a functionality which can then be divided into smaller packages for different application setups. Packages can be used to offer a multiple views for the same functionality for example search functionality as a small on-map textfield or a window-like UI (see Tile/Flyout) for the same functionality. For a short introduction see [create your own bundle](guides/quick-start/create-your-own-bundle).
 
 ## Directory structure
 
-See [here](/documentation/directory-structure) for info about structure and conventions.
+See [here](documentation/directory-structure) for info about structure and conventions.
 
 ## Definition
 
 The bundle definition (or package) should be located in `bundle.js` file under the `/packages` folder. The bundle package definition should not implement any actual functionality. It should only declare the JavaScript, CSS and localization resources (== files) and metadata if any. If the bundle package can be instantiated the package's `create` method should create the bundle's instance. The bundle doesn't need to have an instance and can be used to import dependency files that can be instantiated elsewhere. In that case the create method should return the bundle class itself (`return this;`).
 
-[Sample bundle definition](/guides/quick-start/sample-bundle-definition)
+[Sample bundle definition](guides/quick-start/sample-bundle-definition)
 
 Bundle should install itself to Oskari framework by calling `installBundleClass` at the end of `bundle.js`
 

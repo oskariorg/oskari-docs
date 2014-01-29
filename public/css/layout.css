@@ -52,6 +52,9 @@ nav ul li {
 nav ul li a:hover {
   text-decoration: none;
 }
+nav ul li:first-child {
+  margin-left: 0;
+}
 nav ul li:hover,
 nav ul li.active {
   border-top: 5px solid red;
@@ -73,7 +76,7 @@ div.footer-content {
 a.github-ribbon {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 }
 a.github-ribbon img {
   border: 0;

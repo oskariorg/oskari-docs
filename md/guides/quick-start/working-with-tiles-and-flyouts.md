@@ -6,7 +6,7 @@ Let's try it out:
 
 * Open `/applications/sample/mythird/index.html` in your browser and you should see:
 
-![My third bundle](/images/quick-start/mythird.png)
+![My third bundle](images/quick-start/mythird.png)
 
 If you compare the `mythird/index.html` to `myfirst/index.html` you'll notice that it has some additional placeholder elements that divmanazer requires.
 
@@ -57,7 +57,7 @@ Find the a bundle block for `mythirdbundle` and append the following `toolbar` b
 
 Reload `index.html` on your browser and you have a generic toolbar UI component that you can use to add new functionalities that don't require a Tile/Flyout:
 
-![My third bundle with a toolbar](/images/quick-start/mythird_with_toolbar.png)
+![My third bundle with a toolbar](images/quick-start/mythird_with_toolbar.png)
 
 You can add different bundles having a Tile/Flyout to the startupsequence and they will appear in that order on the left side menu. Note that you need to add them after `divmanazer` because that is the bundle that adds the Tile and Flyout functionalities. Another example is a bundle that shows which layers are on the map - added with:
 
@@ -83,6 +83,6 @@ You can add different bundles having a Tile/Flyout to the startupsequence and th
 
 ## Next steps
 
-[Requesting Toolbar for a new button](/guides/quick-start/using-toolbar)
+[Requesting Toolbar for a new button](guides/quick-start/using-toolbar)
 
-[Create your own bundle](/guides/quick-start/create-your-own-bundle)
+[Create your own bundle](guides/quick-start/create-your-own-bundle)

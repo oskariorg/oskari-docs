@@ -1,6 +1,6 @@
 # Oskari application
 
-Applications are formed by starting one or more [bundles](/documentation/core-concepts/oskari-bundle) which create the application. Bundles are defined as individual components and referenced in an applications startup sequence to tie them together to a complete application. Oskari provides a method to give bundles configuration properties on application startup. This is how e.g. the map is moved to a given location and zoom level on startup and layers are preselected. See more from [configuration](/documentation/core-concepts/oskari-bundle-configuration).
+Applications are formed by starting one or more [bundles](documentation/core-concepts/oskari-bundle) which create the application. Bundles are defined as individual components and referenced in an applications startup sequence to tie them together to a complete application. Oskari provides a method to give bundles configuration properties on application startup. This is how e.g. the map is moved to a given location and zoom level on startup and layers are preselected. See more from [configuration](documentation/core-concepts/oskari-bundle-configuration).
 
 Application is started by calling:
 
