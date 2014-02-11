@@ -1,12 +1,14 @@
 var gulp    = require('gulp');
 var uglify  = require('gulp-uglify');
+var concat  = require('gulp-concat');
 var less    = require('gulp-less');
 var path    = require('path');
 
 gulp.task('scripts', function() {
-    // Minify and copy all JavaScript (except vendor scripts)
+    // Minify and concatenate all JavaScript files (except vendor scripts)
     return gulp
         .src(['./client/js/**/*.js', '!client/js/vendor/**'])
+        .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
 });
@@ -34,3 +36,5 @@ gulp.task('watch', function () {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'stylesheets', 'watch']);
+// The build task
+gulp.task('build', ['scripts', 'stylesheets']);
