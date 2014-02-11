@@ -49,7 +49,7 @@ Bundle Player processes the startup sequence in declared order to implement a si
 }
 ```
 
-## 1. OpenLayers Bundle
+### 1. OpenLayers Bundle
 
 This JSON loads and prepares OpenLayers. Also instantiates and starts OpenLayers theming (which initialises CSS and image paths for OpenLayers). It's usually first bundle to load since it's a dependency for the map.
 
@@ -76,14 +76,14 @@ This JSON loads and prepares OpenLayers. Also instantiates and starts OpenLayers
 }
 ```
 
-## 2. Main Map with Framework Bundles
+### 2. Main Map with Framework Bundles
 
-This player JSON:
+This JSON:
 
-loads any required Oskari Map framework bundles and Oskari core files from sources
-loads main map bundle for this application
-instantiates and starts main map bundle which creates and initialises the map for the framework
-After this the application is ready to support any map operations, add/remove layers of various kinds etc. The dependencies here can be altered to fit your needs. For example if you don't need WFS or WMTS support you can remove "mapwfs" and "mapwmts" from the imports.
+* loads any required Oskari Map framework bundles and Oskari core files from sources
+* loads main map bundle for this application
+* instantiates and starts main map bundle which creates and initialises the map for the framework
+* After this the application is ready to support any map operations, add/remove layers of various kinds etc. The dependencies here can be altered to fit your needs. For example if you don't need WFS or WMTS support you can remove `mapwfs` and `mapwmts` from the imports.
 
 ```json
 {
@@ -160,7 +160,7 @@ After this the application is ready to support any map operations, add/remove la
 }
 ```
 
-## 3. Oskari DIV Manager
+### 3. Oskari DIV Manager
 
 This JSON loads and prepares Oskari DIV Manager. Oskari DIV Manager extends the application providing support for Tile and Flyout based User Interface. After this the application supports Extensions.
 
@@ -184,7 +184,7 @@ This JSON loads and prepares Oskari DIV Manager. Oskari DIV Manager extends the 
 }
 ```
 
-## 4. Extensions
+### 4. Extensions
 
 One or more Bundles that uses Tiles and Flyouts can be now started since Oskari DIV Manager is available at this stage. A Bundle instance *may* register as Extension to the Oskari DIV Manager when started (notifying it has Tile and/or Flyout content).
 
