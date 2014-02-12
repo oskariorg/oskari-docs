@@ -4,6 +4,12 @@ For getting a grasp of the basics of Oskari front-end development, we recommend 
 
 ## For front-end developers
 
+Work in progress.
+
 ## For Oskari contributors
 
+Work in progress.
+
 ## For back-end developers
+
+Work in progress.
