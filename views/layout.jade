@@ -2,12 +2,12 @@ doctype html
 html(lang="en")
   head
     title Oskari map application framework
-    base(href="/")
+    base(href=(baseUrl || '/'))
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css")
-    link(rel="stylesheet" type="text/css" href="css/vendor/bootstrap-theme.min.css")
+    link(rel="stylesheet" type="text/css" href=assetFingerprint("css/vendor/bootstrap.min.css"))
+    link(rel="stylesheet" type="text/css" href=assetFingerprint("css/vendor/bootstrap-theme.min.css"))
     link(rel="stylesheet" type="text/css" href=assetFingerprint("css/main.min.css"))
-    link(rel="stylesheet" type="text/css" href="css/vendor/highlight-styles/monokai_sublime.css")
+    link(rel="stylesheet" type="text/css" href=assetFingerprint("css/vendor/highlight-styles/monokai_sublime.css"))
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -26,6 +26,5 @@ html(lang="en")
 
     a(href="https://github.com/nls-oskari/" class="github-ribbon"): img(src="images/forkme_right_red.png" alt="Fork me on GitHub")
 
-    script(type="text/javascript" src="js/vendor/highlight.pack.js")
     script(type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js")
     script(type="text/javascript" src=assetFingerprint("js/main.min.js"))

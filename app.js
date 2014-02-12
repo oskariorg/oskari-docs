@@ -5,12 +5,14 @@ var md      = require('marked');
 var asset   = require('static-asset');
 
 var mdDir = 'md';
-var port = 3003;
+var port = process.env.NODE_PORT || 3003;
+var environment = process.env.NODE_ENV || 'development';
+var baseUrl = environment === 'production' ? '/beta/' : '/';
 
 var app = express();
 
 // Configurations
-app.set('port', process.env.PORT || port);
+app.set('port', port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('view options', {
@@ -20,8 +22,11 @@ app.use(asset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 md.setOptions({
-    langPrefix: 'language-'
-})
+    langPrefix: 'language-',
+    highlight: function(code) {
+        return require('highlight.js').highlightAuto(code).value;
+    }
+});
 
 var readMdFile = function(req, res, mdDoc, jadePage) {
     var mdDocPath = path.join(__dirname, mdDir, (mdDoc + '.md'));
@@ -35,7 +40,8 @@ var readMdFile = function(req, res, mdDoc, jadePage) {
 
         var html = md(mdFile);
         res.render(jadePage, {
-            content: html
+            content: html,
+            baseUrl: baseUrl
         });
     });
 };
@@ -69,7 +75,9 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-    res.render('index');
+    res.render('index', {
+        baseUrl: baseUrl
+    });
 });
 
 app.use(function(err, req, res, next) {
@@ -78,4 +86,4 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(app.get('port'));
-console.log('Listening on port ' + app.get('port') + ' on ' + process.env.NODE_ENV + ' environment');
+console.log('Listening on port ' + app.get('port') + ' on ' + environment + ' environment');
