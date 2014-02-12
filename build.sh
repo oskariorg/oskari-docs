@@ -23,11 +23,14 @@ git checkout -- .
 git checkout ${BRANCH}
 git pull
 
+# copy the archived oskari distributions if they exist
+test -d /tmp/oskari && mkdir -p ${OSKARI_DIR}/public/release && cp /tmp/oskari/* ${OSKARI_DIR}/public/release/
+
 # Packing
 PACKED=$( mktemp -p . )
 
 # archive oskari.org to temporary package directory
-tar czf ${PACKED} .
+tar czf ${PACKED} ./ --exclude=${PACKED}
 
 # Deploy
 unset COMMANDS
