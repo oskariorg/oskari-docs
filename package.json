@@ -13,7 +13,8 @@
     "gulp-uglify": "~0.1.0",
     "gulp-concat": "~2.1.7",
     "gulp-minify-css": "~0.3.0",
-    "static-asset": "~0.5.2"
+    "static-asset": "~0.5.2",
+    "highlight.js": "~8.0.0"
   },
   "devDependencies": {}
 }
