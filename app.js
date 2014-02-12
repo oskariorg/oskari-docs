@@ -2,6 +2,7 @@ var express = require('express');
 var fs      = require('fs');
 var path    = require('path');
 var md      = require('marked');
+var asset   = require('static-asset');
 
 var mdDir = 'md';
 var port = 3003;
@@ -15,6 +16,7 @@ app.set('view engine', 'jade');
 app.set('view options', {
     layout: false
 });
+app.use(asset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 md.setOptions({
@@ -76,5 +78,4 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(app.get('port'));
-console.log('Listening on port ' + app.get('port'));
-console.log(process.env.NODE_ENV);
+console.log('Listening on port ' + app.get('port') + ' on ' + process.env.NODE_ENV + ' environment');
