@@ -2,13 +2,17 @@ var gulp    = require('gulp');
 var uglify  = require('gulp-uglify');
 var concat  = require('gulp-concat');
 var less    = require('gulp-less');
+var minify  = require('gulp-minify-css');
 var path    = require('path');
+
+var minJs   = 'main.min.js';
+var minCss  = 'main.min.css';
 
 gulp.task('scripts', function() {
     // Minify and concatenate all JavaScript files (except vendor scripts)
     return gulp
         .src(['./client/js/**/*.js', '!client/js/vendor/**'])
-        .pipe(concat('main.js'))
+        .pipe(concat(minJs))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
 });
@@ -19,6 +23,8 @@ gulp.task('stylesheets', function() {
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
+        .pipe(concat(minCss))
+        .pipe(minify())
         .pipe(gulp.dest('./public/css'));
 });
 
