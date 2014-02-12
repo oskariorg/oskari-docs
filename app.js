@@ -8,6 +8,7 @@ var mdDir = 'md';
 var port = process.env.NODE_PORT || 3003;
 var environment = process.env.NODE_ENV || 'development';
 var baseUrl = environment === 'production' ? '/beta/' : '/';
+var releaseDir = path.join(__dirname, 'public', 'release');
 
 var app = express();
 
@@ -67,7 +68,16 @@ app.get('/documentation/:docpath/:doc', function(req, res) {
 });
 
 app.get('/download', function(req, res) {
-    readMdFile(req, res, 'download');
+    fs.readdir(releaseDir, function(err, files) {
+        if (err) {
+            console.log(err);
+
+        }    
+        res.render('download', {
+            baseUrl: baseUrl,
+            files: files
+        });
+    })
 });
 
 app.get('/about', function(req, res) {
