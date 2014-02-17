@@ -2,7 +2,7 @@
 
 ## Oskari JavaScript framework
 
-![Oskari front-end architecture](images/documentation/oskari_architecture_frontend.png)
+![Oskari front-end architecture](/images/documentation/oskari_architecture_frontend.png)
 
 1. Oskari-loader is started up when the browser signals the DOM is ready.
 2. The loader is passed the Oskari application startup sequence and configuration as JSON.
@@ -14,7 +14,7 @@
 
 ### Bundle communication
 
-![Bundle communication](images/documentation/bundle_communications.png)
+![Bundle communication](/images/documentation/bundle_communications.png)
 
 1. Bundles can provide a an interface for other bundles to request some operation through a request handler.
 2. A bundle can provide a request class and register a handler for the request in the Oskari core.
@@ -24,4 +24,4 @@
 
 ## Oskari backend
 
-![Oskari backend architecture](images/documentation/oskari_architecture_backend.png)
+![Oskari backend architecture](/images/documentation/oskari_architecture_backend.png)

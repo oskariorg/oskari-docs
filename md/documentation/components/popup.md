@@ -2,7 +2,7 @@
 
 ##Description
 
-The popup component is defined in `divmanazer` bundle and provides basic popup functionality. It can be used to show messages that will be shown for given time before removing and messages that user needs to react to by clicking a button. It can also be used in a modal mode (uses the [Overlay](documentation/components/overlay) component internally) and it can be used to show for example a form for user input. The popup can be associated with a given element so it will point at the element or as generic location on the middle of the screen.
+The popup component is defined in `divmanazer` bundle and provides basic popup functionality. It can be used to show messages that will be shown for given time before removing and messages that user needs to react to by clicking a button. It can also be used in a modal mode (uses the [Overlay](/documentation/components/overlay) component internally) and it can be used to show for example a form for user input. The popup can be associated with a given element so it will point at the element or as generic location on the middle of the screen.
 
 # TODO
 
