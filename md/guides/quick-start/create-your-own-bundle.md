@@ -4,7 +4,7 @@ Decide `<bundle-identifier>` which is unique and describes the functionality the
 
 Create a folder with the name of your `<bundle-identifier>` under `/packages/framework/bundle/` and `/bundles/framework/bundle/`. If you require styling/images create one under `/resources/framework/bundle/` also. The `/framework/` folder isn't enforced and you can replace it with something fitting your bundle compilation.
 
-Create a `bundle.js` file under `/packages/framework/bundle/<bundle-identifier>/`. You can use [this sample](guides/quick-start/sample-bundle-definition) as a template:
+Create a `bundle.js` file under `/packages/framework/bundle/<bundle-identifier>/`. You can use [this sample](/guides/quick-start/sample-bundle-definition) as a template:
 
 * Change all the `<bundle-identifier>`s
 * Change the bundle name (MyBundle) to something more describing.

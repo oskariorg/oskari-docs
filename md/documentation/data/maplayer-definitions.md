@@ -14,13 +14,13 @@ Abstract Layer implements common functionality for all layers. All layers should
 
 WMS layer are used to display data from OGC Web Mapping Services. It consists of image tiles forming up the map. The domain class can be found here. The plugin displaying the layer is under `mapmodule/plugins`.
 
-[data format explained](documentation/data/wms-layer)
+[data format explained](/documentation/data/wms-layer)
 
 #### Base Layer and Group Layer
 
 Baselayer is a a group of WMS layers that has a common parent/metadata layer with concrete WMS layers with wmsurls as sublayers. Baselayers are always added to the bottom of the layer stack on map. Grouplayer is basically the same thing as baselayer but it is treated as a normal layer when added to the stack of layers on map. Both use the same domain/mapplugin classes than WMS-layer.
 
-[data format explained](documentation/data/base-layer)
+[data format explained](/documentation/data/base-layer)
 
 ### WFS Layer
 

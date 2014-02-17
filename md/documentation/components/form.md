@@ -6,7 +6,7 @@ A Form is a passive container for zero or more FormInputs. It can trigger valida
 
 A FormInput is a smart wrapper for an input, capable of, for example, validating values with regexp, reporting errors and triggering functions on events like keypresses and focus changes.
 
-![Form](images/documentation/components/form.png)
+![Form](/images/documentation/components/form.png)
 
 ## Usage
 

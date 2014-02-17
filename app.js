@@ -7,7 +7,6 @@ var asset   = require('static-asset');
 var mdDir = 'md';
 var port = process.env.NODE_PORT || 3003;
 var environment = process.env.NODE_ENV || 'development';
-var baseUrl = environment === 'production' ? '/beta/' : '/';
 var releaseDir = path.join(__dirname, 'public', 'release');
 
 var app = express();
@@ -41,8 +40,7 @@ var readMdFile = function(req, res, mdDoc, jadePage) {
 
         var html = md(mdFile);
         res.render(jadePage, {
-            content: html,
-            baseUrl: baseUrl
+            content: html
         });
     });
 };
@@ -74,7 +72,6 @@ app.get('/download', function(req, res) {
 
         }    
         res.render('download', {
-            baseUrl: baseUrl,
             files: files
         });
     })
@@ -85,9 +82,7 @@ app.get('/about', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-    res.render('index', {
-        baseUrl: baseUrl
-    });
+    res.render('index');
 });
 
 app.use(function(err, req, res, next) {

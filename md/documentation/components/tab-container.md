@@ -4,7 +4,7 @@
 
 A TabPanel is a wrapper for a title, a header and content (html) and can call a handler when the tab is selected or unselected. A TabContainer renders TabPanels as selectable tabs whereas a TabDropdownContainer represents the TabPanel collection as a dropdown list. A callback for panel changes can be registered for both.
 
-![Tabs and TabContainer in action](images/documentation/components/tabcontainer.png) 
+![Tabs and TabContainer in action](/images/documentation/components/tabcontainer.png) 
 
 ## Usage
 
