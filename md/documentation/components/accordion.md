@@ -6,7 +6,7 @@ An Accordion is a passive vertical container for zero or more AccordionPanels. I
 
 An AccordionPanel consists of a header and a content area. It can be visible or (entirely) hidden and open or closed. When the panel is visible, the header is always displayed. When open, the content is rendered underneath it. An icon next to the header shows the current state and acts as an open/close button.
 
-![Accordion in use](images/documentation/components/accordion.png)
+![Accordion in use](/images/documentation/components/accordion.png)
 
 ## How to use
 

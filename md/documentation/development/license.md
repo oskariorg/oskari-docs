@@ -9,7 +9,7 @@ Oskari Source code is released with a dual license
 
 * Open Source libraries are used to develop Oskari framework with one exception (for version 7.4):
     * National Land Survey has purchased a development license for ExtJS 4. Contact Sencha for information on ExtJS 4 licensing.
-* see Open Source [JavaScript libraries](documentation/libraries) for a list of used JavaScript frameworks
+* see Open Source [JavaScript libraries](/documentation/libraries) for a list of used JavaScript frameworks
 
 Oskari Web Site content (graphics and texts)
 

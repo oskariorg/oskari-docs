@@ -1,10 +1,10 @@
 # Quick Start to Oskari development
 
-* Download sources from [here](download)
+* Download sources from [here](/download)
 * Extract the files from the downloaded archive
 * Open `/applications/sample/myfirst/index.html` in your browser and you should see:
 
-![My first bundle](images/quick-start/myfirst.png)
+![My first bundle](/images/quick-start/myfirst.png)
 
 This is the map application with only OpenLayers and the core of Oskari downloaded with a custom 'Hello World' bundle added as extension.
 
@@ -38,8 +38,8 @@ To add new funtionality to the application we add another bundle to it:
 
 ## Next steps
 
-[Working with Tiles and Flyouts](guides/quick-start/working-with-tiles-and-flyouts)
+[Working with Tiles and Flyouts](/guides/quick-start/working-with-tiles-and-flyouts)
 
-[Requesting Toolbar for a new button](guides/quick-start/using-toolbar)
+[Requesting Toolbar for a new button](/guides/quick-start/using-toolbar)
 
-[Create your own bundle](guides/quick-start/create-your-own-bundle)
+[Create your own bundle](/guides/quick-start/create-your-own-bundle)
