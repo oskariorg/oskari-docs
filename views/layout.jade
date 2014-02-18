@@ -3,6 +3,7 @@ html(lang="en")
   head
     title Oskari map application framework
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lily+Script+One")
     link(rel="stylesheet" type="text/css" href=assetFingerprint("/css/vendor/bootstrap.min.css"))
     link(rel="stylesheet" type="text/css" href=assetFingerprint("/css/vendor/bootstrap-theme.min.css"))
     link(rel="stylesheet" type="text/css" href=assetFingerprint("/css/main.min.css"))
@@ -12,10 +13,11 @@ html(lang="en")
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   body
-    div.nav-content
-      div.oskari-logo
-        p Oskari
-      include _navigation
+    div.header
+      div.nav-content
+        div.oskari-logo
+          p Oskari
+        include _navigation
 
     div.main-content
       block main
