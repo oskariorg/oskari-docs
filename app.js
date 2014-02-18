@@ -50,9 +50,13 @@ app.get('/guides/:guidepath/:doc?', function(req, res) {
     readMdFile(req, res, docFilePath);
 });
 
-app.get('/guides/:doc?', function(req, res) {
-    var docFilePath = path.join('guides', (req.params.doc || 'guides'));
+app.get('/guides/:doc', function(req, res) {
+    var docFilePath = path.join('guides', req.params.doc);
     readMdFile(req, res, docFilePath);
+});
+
+app.get('/guides', function(req, res) {
+    res.render('guides');
 });
 
 app.get('/documentation/:doc?', function(req, res) {
