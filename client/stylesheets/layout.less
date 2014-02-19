@@ -1,3 +1,8 @@
+@font-face {
+    font-family: LondonBetween;
+    src: url('/fonts/LondonBetween.ttf');    
+}
+
 @header-color: #e8ecef;
 
 .centered-layout(@padding: 0) {
@@ -15,11 +20,21 @@ html {
 body {
     background-image: url('/images/main-bg.png');
 }
+
+body, p {
+    color: #525252;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: LondonBetween;
+    color: #260303;
+}
+
 div.header {
     width: 100%;
     background-image: url('/images/header-bg.png');
-    border-bottom: 1px solid #AC0000;
-    box-shadow: 0px 3px 20px 0px rgba(50, 50, 50, 0.3);
+    border-bottom: 1px solid #800000;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
 
     div.nav-content {
         .centered-layout(0 0 2em 0);
@@ -27,14 +42,14 @@ div.header {
     }
 
     div.oskari-logo {
-        color: @header-color;
-        font-family: 'Lily Script One', cursive;
-        -webkit-font-smoothing: antialiased;
-        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+        p {
+            color: @header-color;
+            font-family: 'Lily Script One', cursive;
+            -webkit-font-smoothing: antialiased;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+            font-size: 3em;
+        }
         float: left;
-        font-size: 3em;
-        font-weight: bold;
-        padding-top: 0px;
     }
 
     nav {
@@ -66,8 +81,13 @@ div.header {
     }
 }
 
-div.main-content {
-    .centered-layout(1em);
+div.main {
+    width: 100%;
+    border-top: 1px solid #969696;
+
+    div.main-content {
+        .centered-layout(1em);
+    }
 }
 
 div.footer-content {

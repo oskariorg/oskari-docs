@@ -3,6 +3,7 @@ var uglify  = require('gulp-uglify');
 var concat  = require('gulp-concat');
 var less    = require('gulp-less');
 var minify  = require('gulp-minify-css');
+var prefix  = require('gulp-autoprefixer');
 var path    = require('path');
 
 var minJs   = 'main.min.js';
@@ -25,6 +26,7 @@ gulp.task('stylesheets', function() {
         }))
         .pipe(concat(minCss))
         .pipe(minify())
+        .pipe(prefix('last 2 versions', '> 1%', 'ie 8'))
         .pipe(gulp.dest('./public/css'));
 });
 
