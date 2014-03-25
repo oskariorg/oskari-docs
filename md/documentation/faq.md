@@ -1,12 +1,12 @@
 # FAQ
 
-##  Why there are no layers in a published map?
+##  Why are there no layers in a published map?
 
 Check access rights. See [Oskari permissions](/documentation/backend/permissions)
 
 ##  Why there are broken tiles instead of my own places on the map?
 
-Check that myplaces ajax url and namespace are properly configured.  See [Enabling My Places](EnablingMyPlacesWithPostgis.md) (sections 3 & 7)
+Check that myplaces ajax url and namespace are properly configured.  See [enabling My Places](/documentation/backend/enabling-myplaces) (sections 3 & 7)
 
 ##  Why are the myplaces timestamps not updated?
 	
@@ -18,4 +18,4 @@ Run `mvn -N versions:set -DnewVersion={NEW-VERSION}` on oskari-server root. It u
 
 ## Transport doesn't draw all geometries in tiles?
 
-Check that the layers maxfeatures number is high enough in database. If the transport returns a tile, but some geometries are missing, usually its because there are more features than the maxfeatures count permits.
+Check that the layer's maxfeatures number is high enough in database. If the transport returns a tile, but some geometries are missing, usually its because there are more features than the maxfeatures count permits.

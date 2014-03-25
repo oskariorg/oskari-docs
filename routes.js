@@ -48,24 +48,6 @@ var readBundleDir = function(cb) {
             .filter(function(file) {
                 return file !== '';
             })
-            /*
-            .reduce(function(fileMap, file) {
-                var fileArr = file.split('/'),
-                    mdDoc = fileArr.pop(),
-                    obj = fileMap;
-
-                for (var i = 0, fLen = fileArr.length-1; i < fLen; ++i) {
-                    var path = fileArr[i];
-                    if (!(path in obj)) obj[path] = {};
-                    obj = obj[path];
-                }
-
-                obj[fileArr[i]] = obj[fileArr[i]] || [];
-                obj[fileArr[i]].push(mdDoc);
-
-                return fileMap;
-            }, {})
-            */
             .value();
 
         cb(files);
@@ -74,7 +56,7 @@ var readBundleDir = function(cb) {
 
 module.exports = {
     about: function (req, res) {
-        readMdFile(req, res, 'about');
+        res.render('about');
     },
     bundles: function (req, res) {
         readBundleDir(function(files) {
