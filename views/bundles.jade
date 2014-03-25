@@ -1,0 +1,22 @@
+extends layout
+
+block main
+  div.row
+    div.col-md-2
+      div.dropdown.bundle-menu
+        button.btn.btn-danger.dropdown-toggle(data-toggle="dropdown") Bundle docs
+          span.caret
+        ul.dropdown-menu.bundle-navigation
+            - files.forEach(function(file) {
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href='/documentation/bundles/' + file) #{file}
+            - });
+
+    div.col-md-10(role="main")
+      - if (content)
+        != content
+      - else
+        :markdown
+          # Oskari bundle documentation
+
+          Use the menu to the left to navigate.
