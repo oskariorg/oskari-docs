@@ -29,6 +29,13 @@ var readMdFile = function(req, res, mdDoc, jadePage, options) {
     });
 };
 
+/**
+ * Reads the contents of the `bundles` directory under documentation.
+ * 
+ * @param  {Function} cb function to be executed with the files
+ * @return {String[]} returns the file names with relative paths in relation
+ *                            to the `bundles` directory.
+ */
 var readBundleDir = function(cb) {
     var execFile = require('child_process').execFile;
     var bundleDir = path.join(__dirname, mdDir, 'documentation', 'bundles');
