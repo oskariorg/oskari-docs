@@ -1,13 +1,11 @@
 var express = require('express');
-var fs      = require('fs');
 var path    = require('path');
-var md      = require('marked');
 var asset   = require('static-asset');
+var routes  = require('./routes');
 
-var mdDir = 'md';
 var port = process.env.NODE_PORT || 3003;
 var environment = process.env.NODE_ENV || 'development';
-var releaseDir = path.join(__dirname, 'public', 'release');
+var publicDir = path.join(__dirname, 'public');
 
 var app = express();
 
@@ -18,76 +16,18 @@ app.set('view engine', 'jade');
 app.set('view options', {
     layout: false
 });
-app.use(asset(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(asset(publicDir));
+app.use(express.static(publicDir));
 
-md.setOptions({
-    langPrefix: 'language-',
-    highlight: function(code) {
-        return require('highlight.js').highlightAuto(code).value;
-    }
-});
-
-var readMdFile = function(req, res, mdDoc, jadePage) {
-    var mdDocPath = path.join(__dirname, mdDir, (mdDoc + '.md'));
-    jadePage = jadePage || 'page';
-
-    fs.readFile(mdDocPath, 'utf8', function(err, mdFile) {
-        if (err) {
-            console.error(err);
-            return res.render('404');
-        }
-
-        var html = md(mdFile);
-        res.render(jadePage, {
-            content: html
-        });
-    });
-};
-
-app.get('/guides/:guidepath/:doc?', function(req, res) {
-    var docFilePath = path.join('guides', req.params.guidepath, (req.params.doc || 'my-first-bundle'));
-    readMdFile(req, res, docFilePath);
-});
-
-app.get('/guides/:doc', function(req, res) {
-    var docFilePath = path.join('guides', req.params.doc);
-    readMdFile(req, res, docFilePath);
-});
-
-app.get('/guides', function(req, res) {
-    res.render('guides');
-});
-
-app.get('/documentation/:doc?', function(req, res) {
-    var docFilePath = path.join('documentation', (req.params.doc || 'documentation'));
-    readMdFile(req, res, docFilePath);
-});
-
-app.get('/documentation/:docpath/:doc', function(req, res) {
-    var docFilePath = path.join('documentation', req.params.docpath, req.params.doc);
-    readMdFile(req, res, docFilePath);
-});
-
-app.get('/download', function(req, res) {
-    fs.readdir(releaseDir, function(err, files) {
-        if (err) {
-            console.log(err);
-
-        }    
-        res.render('download', {
-            files: files
-        });
-    })
-});
-
-app.get('/about', function(req, res) {
-    readMdFile(req, res, 'about');
-});
-
-app.get('/', function(req, res) {
-    res.render('index');
-});
+app.get('/guides', routes.guides);
+app.get('/guides/*', routes.md);
+app.get('/documentation', routes.documentation);
+app.get('/documentation/bundles', routes.bundles);
+app.get('/documentation/bundles/*', routes.bundledoc);
+app.get('/documentation/*', routes.md);
+app.get('/download', routes.download);
+app.get('/about', routes.about);
+app.get('/', routes.root);
 
 app.use(function(err, req, res, next) {
     console.error(err);

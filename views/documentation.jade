@@ -1,0 +1,105 @@
+extends layout
+
+block main
+  :markdown
+    # Documentation
+
+  div.row
+    div.col-md-4
+      :markdown
+        ## Fundamentals
+
+        * [FAQ](/documentation/faq)
+        * [Oskari Features](/documentation/features)
+        * [Vagrant guide](/documentation/vagrant-guide)
+
+        ### Development
+
+        * [How to contribute](/documentation/development/how-to-contribute)
+        * [Architecture](/documentation/development/architecture)
+        * [Oskari API documentation](http://demo.paikkatietoikkuna.fi/Oskari/latest/api/)
+        * [Guidelines](/documentation/development/guidelines)
+        * [Localization](/documentation/development/localization)
+        * [Tools](/documentation/development/tools)
+        * [License](/documentation/development/license)
+        * [Feature: changing mode](/documentation/development/changing-mode)
+
+        ### Other
+
+        * [Folder structure in code](/documentation/directory-structure)
+        * [Supported/used 3rd party Javascript libraries](/documentation/libraries)
+        * [Adding 3rd party Javascript libraries](/documentation/development/adding-libraries)
+        * [Paikkatietoikkuna backend architecture](/documentation/paikkatietoikkuna)
+        * [Live sites using Oskari](/documentation/live-sites)
+
+    div.col-md-4
+      :markdown
+        ## Frontend
+
+        * [Bundle docs](/documentation/bundles)
+
+        ### Core Concepts
+
+        * [Oskari class](/documentation/core-concepts/oskari-class)
+        * [Oskari Bundle](/documentation/core-concepts/oskari-bundle)
+        * [Oskari Application](/documentation/core-concepts/oskari-application)
+        * [Oskari core and sandbox](/documentation/core-concepts/oskari-core)
+        * [Bundle communication: Request](/documentation/core-concepts/oskari-request)
+        * [Bundle communication: Event](/documentation/core-concepts/oskari-event)
+        * [Map plugin](/documentation/core-concepts/map-plugin)
+        * [Oskari bundle manager/loader](/documentation/core-concepts/bundle-manager)
+
+        ### Data
+
+        * [Application startup sequence](/documentation/core-concepts/oskari-application#startup-sequence)
+        * [Bundle configuration](/documentation/core-concepts/oskari-bundle-configuration)
+        * [Maplayer definitions](/documentation/data/maplayer-definitions)
+
+        ### Protocols
+
+        * [Module](/documentation/protocol/module)
+
+        ### Components
+
+        All components are currently part of the `divmanazer` bundle.
+
+        * [Popup](/documentation/components/popup)
+        * [Button](/documentation/components/button)
+        * [Overlay](/documentation/components/overlay)
+        * [Accordion](/documentation/components/accordion)
+        * [Form](/documentation/components/form)
+        * [Grid](/documentation/components/grid)
+        * [Tab container](/documentation/components/tab-container)
+
+    div.col-md-4
+      :markdown
+        ## Backend
+
+        ### Basics
+
+        * [Standalone backend](/documentation/backend/standalonebackend)
+        * [Basic installation with PostgreSQL](/documentation/backend/basic-install-with-postgres)
+        * [Customize properties](/documentation/backend/customize-properties)
+        * [Installing transport (WFS backend)](/documentation/backend/installing-transport)
+        * [Setup PostgreSQL](/documentation/backend/setup-postgres)
+        * [Enable my places](/documentation/backend/enabling-myplaces)
+
+        ### Advanced
+        
+        * [Action routes](/documentation/backend/actionroutes)
+        * [User management](/documentation/backend/usermanagement)
+        * [Layer permissions](/documentation/backend/permissions)
+        * [Adding bundles based on role](/documentation/backend/adding-bundles)
+        * [Search channels](/documentation/backend/searchchannels)
+        * [Upgrading backend](/documentation/backend/upgrading)
+        * [Adding user guide](/documentation/backend/adding-user-guide)
+
+        ### Architecture
+
+        * [Database structure](/documentation/architecture/database)
+        * [WFS backend (transport)](/documentation/architecture/wfs)
+
+        ### Other
+
+        * [Modify initial demo data](/documentation/backend/modifying-initial-data)
+        * [Installing Parcel application](/documentation/backend/custom-install-parcel)
