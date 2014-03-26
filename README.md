@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-git clone ssh://git@haisulike01/oskari.org
+// clone the repository
 cd oskari.org
 npm install
 node app
