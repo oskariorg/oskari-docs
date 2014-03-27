@@ -34,7 +34,7 @@ var readMdFile = function(req, res, mdDoc, jadePage, options) {
  * 
  * @param  {Function} cb function to be executed with the files
  * @return {String[]} returns the file names with relative paths in relation
- *                            to the `bundles` directory.
+ *                            to the `md` directory.
  */
 var readBundleDir = function(cb) {
     var execFile = require('child_process').execFile;
@@ -43,17 +43,11 @@ var readBundleDir = function(cb) {
     execFile('find', [bundleDir], function(err, stdout, stderr) {
         var files = _.chain(stdout.split('\n'))
             .map(function(file) {
-                var baseName = file.split('bundles/')[1];
-                if (baseName) {
-                    var mdDoc = baseName.split('.md');
-                    if (mdDoc.length === 2) {
-                        return mdDoc[0];
-                    }
-                }
-                return '';
+                var regex = /bundles\/(.*)\.md$/;
+                return _.last(regex.exec(file));
             })
-            .filter(function(file) {
-                return file !== '';
+            .reject(function(file) {
+                return file === undefined;
             })
             .value();
 
@@ -73,11 +67,8 @@ module.exports = {
         });
     },
     bundledoc: function(req, res) {
-        var bundleDoc = req.path.split('/documentation')[1];
-        bundleDoc = path.join('documentation' + bundleDoc);
-
         readBundleDir(function(files) {
-            readMdFile(req, res, bundleDoc, 'bundles', {
+            readMdFile(req, res, req.path, 'bundles', {
                 files: files
             });
         });
