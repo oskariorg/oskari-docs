@@ -11,3 +11,5 @@ Sandbox offers access to the core methods. It can be used to register modules, s
     var sandbox = Oskari.getSandbox();
 
 Bundles should take the reference at start and pass it along to functionalities and not reference it through the global variable after that since it can change at some point.
+
+![Sandbox](/images/documentation/sandbox.png)
