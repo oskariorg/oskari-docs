@@ -18,6 +18,4 @@ deploy the web application to an external web server.
 
 [Instructions for adding your own ajax endpoints/action routes](/documentation/backend/adding-action-routes)
 
-[Replacing HSQLDB with PostgreSQL](/documentation/backend/setup-postgres)
-
-[Adding admin bundles for admin role](/documentation/backend/adding-bundles) (requires PostgreSQL)
+[Adding admin bundles for admin role](/documentation/backend/adding-bundles)

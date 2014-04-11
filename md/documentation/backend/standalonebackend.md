@@ -13,7 +13,7 @@ Assumes pre-installed:
 * Cygwin32 or 64, if Windows environment (Windows 7 tested)
 * [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * Git client
-* PostgreSQL 9.1+ (tested with 9.3)
+* [PostgreSQL 9.1+](http://www.postgresql.org/) (tested with 9.3)
 
 ## B. Quick Start
 
