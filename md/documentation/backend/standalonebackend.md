@@ -36,14 +36,13 @@ Assumes pre-installed:
 
 ### 3. Install maven dependencies not found in common repositories
 
-    `oskari-server/external-libs/mvn-install.txt`
-    * This adds maven dependencies not found in common repositories to your local maven repository
+Run maven installation instructions documented in `oskari-server/external-libs/mvn-install.txt`
 
-### 3. Make Oskari front-end code accessible to Oskari server
+### 4. Make Oskari front-end code accessible to Oskari server
 
     mv <work-dir>/oskari <work-dir>/Oskari
 
-### 4. Build Oskari server
+### 5. Build Oskari server
 
 This will build all modules that Oskari server is composed of.
 One of the modules is `standalone-jetty` which we will use to run Oskari server with.
@@ -51,7 +50,7 @@ One of the modules is `standalone-jetty` which we will use to run Oskari server 
     cd <work-dir>/oskari-server
     mvn clean install
 
-### 5. Setup data fixture
+### 6. Setup data fixture
 
 In order for Oskari to work we will need to add some content into the PostgreSQL database that you just created in step 1.
 
@@ -62,7 +61,7 @@ Replace `db-username` and `db-password` with username and password you want to u
 The above assumes that you are running the PostgreSQL in localhost in port 5432. In case PostgreSQL is running in different host and/or port
 modify `url` in `db.properties` - file in `<work-dir>/oskari-server/content-resources/src/main/resources` to refer to your PostgreSQL - instance.
 
-### 6. Start Oskari server using standalone Jetty
+### 7. Start Oskari server using standalone Jetty
 
 Start server:
 
@@ -79,7 +78,7 @@ To see Oskari in action direct your browser to `http://localhost:2373/`.
 
 You can login with username "user" and password "user" as a normal user or "admin"/"oskari" as an admin user.
 
-### 7. Properties
+### 8. Properties
 
 File `<work-dir>/oskari-server/servlet-map/src/main/resources/fi/nls/oskari/map/servlet/oskari.properties`: setup of various url links for search service, GIS metadata, GeoServer myplaces, print service, etc
 
