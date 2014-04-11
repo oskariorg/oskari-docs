@@ -1,24 +1,17 @@
 # Modifying the demo data
 
-The HSQLDB is created on first call of the servlet. It creates a data folder under oskari-server with the populated tables if it doesn't exist
-(or the directory the server is started from).
-
-NOTE! Any modifications to the initial data SQL statements dont have any effect if the data dir is not
-removed and the server is restarted.
-
 Database recreation can be forced on startup by giving a system.property 'oskari.dropdb' with value 'true':
 
-    mvn clean install -f servlet-map-pom.xml -Doskari.dropdb=true -Pjetty-profile
+    cd <work-dir>/standalone-jetty
+    mvn clean exec:java -Doskari.dropdb=true
 
 NOTE! All comment lines need to end with ; character or the next SQL statement will not be run!
-
-The safe SQL file to edit for these is `/oskari-server/content-resources/src/main/resources/sql/exampleLayersAndRoles.sql`
 
 # Adding a maplayer
 
 Examples for adding a layer of type:
 
-- WMS in `/oskari-server/content-resources/src/main/resources/sql/exampleLayersAndRoles.sql`.
+- WMS in `/oskari-server/content-resources/src/main/resources/sql/PostgreSQL/exampleLayers.sql`.
 - WMTS in `/oskari-server/content-resources/src/main/resources/sql/nlsfi-background-map-wmtslayer.sql`.
 - WFS in `/oskari-server/content-resources/src/main/resources/sql/PostgreSQL/example-wfslayer.sql`.
 
@@ -28,90 +21,37 @@ For users to see a registered maplayer the layer needs to have permissions. Perm
 
 # Users management
 
-### 1. Add new users and roles
+### 1. Adding new users
 
-* edit user.json and roles.json files in resource path `oskari-server/control-example/src/main/resources/users/`
+* Add user to `oskari_users` - table:
 
-* role ids must match the ones referenced in oskari_permission (see next subsection)
+    INSERT INTO oskari_users(user_name, first_name, last_name, uuid) VALUES('username', 'Oskari', 'Olematon', 'fdsa-fdsa-fdsa-fdsa-fdsa');
 
-Sample `user.json`
+* Add user to `oskari_jaas_users` - table for authentication:
 
-    {
-        "users": [
-            {
-                "id": 2,
-                "firstName": "Antti",
-                "lastName": "Aalto",
-                "uuid": "some-generated-uuid-1",
-                "user": "admin",
-                "pass": "oskari",
-                "roles": [
-                    3,
-                    4
-                ]
-            },
-            {
-                "id": 3,
-                "firstName": "Oskari",
-                "lastName": "Olematon",
-                "uuid": "some-generated-uuid-2",
-                "user": "user",
-                "pass": "user",
-                "roles": [
-                    3
-                ]
-            }
-        ]
-    }
+    INSERT INTO oskari_jaas_users(login, password) VALUES('username', 'MD5:xyzxyzxyz...');
 
-Sample `role.json`
+Note that username needs to match in these two tables. Passwords should be encrypted in the database table. For more information see http://www.eclipse.org/jetty/documentation/current/configuring-security-secure-passwords.html
 
-    {
-      "roles": [
-        {
-            "id": 3,
-            "name": "User"
-        },
-        {
-            "id": 4,
-            "name": "Admin"
-        }
-      ]
-    }
+`oskari_jaas_users` is used for JAAS authentication only.
 
-* Login handling is implemented in `fi.nls.oskari.user.StandaloneUserService`
-* The Java class handling user related operations is configurable in `oskari-server/servlet-map/src/main/resources/oskari.properties`
+### 2. Adding new roles
 
-### 2. Add new user roles and permissions
+* Add role to `oskari_roles` - table:
 
-Add a role with an unique id to `role.json`
+    INSERT INTO oskari_roles(name) VALUES('MyRole');
 
-        {
-            "id": 5,
-            "name": "MyRole"
-        }
+### 3. Map users to roles
 
-Add a user to `user.json` and link the new role to the user
+* Add mapping to `oskari_role_oskari_user` - table:
 
-            {
-                "id": 3,
-                "firstName": "My",
-                "lastName": "User",
-                "uuid": "some-generated-uuid-3",
-                "user": "myuser",
-                "pass": "mypass",
-                "roles": [
-                    5
-                ]
-            }
+    INSERT INTO oskari_role_oskari_user(user_name, role_id) VALUES('username', (SELECT id FROM oskari_roles WHERE name = 'MyRole'));
 
+### 4. Map permissions to roles
 
-Edit script file `oskari-server/content-resources/src/main/resources/sql/exampleLayersAndRoles.sql`
+* Add permission to `oskari_permission` - table:
 
-Add row to oskari_permission table, e.g. (change [YOUR ROLE ID] to 5 as in role.json)
-
-    -- give view_layer permission for the resource to ROLE 2 (logged in user);
     INSERT INTO oskari_permission(oskari_resource_id, external_type, permission, external_id) values
-    ((SELECT MAX(id) FROM oskari_resource), 'ROLE', 'VIEW_LAYER', '[YOUR ROLE ID]');
+    (<resource-id>, 'ROLE', 'VIEW_LAYER', (SELECT id FROM oskari_roles WHERE name = 'MyRole'));
 
-Remove the HSQLDB data directory (or reset the database with oskari.dropdb=true system property when restarting) and restart the server. You should now be able to login with "myuser"/"mypass" and see the layer
+Note that `<resource-id>` needs to point to an existing resource in `oskari-resource` - table.
