@@ -1,4 +1,4 @@
-# Oskari server libraries and example servlet implementation
+# Oskari server libraries and servlet implementation
 
 ## A. Overview
 
