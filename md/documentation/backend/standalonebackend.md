@@ -11,7 +11,7 @@ Assumes pre-installed:
 
 * JDK 1.7+ (tested with Oracle Java 1.7.0_51)
 * Cygwin32 or 64, if Windows environment (Windows 7 tested)
-* Maven 3+ (tested with 3.0.5)
+* [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * Git client
 * PostgreSQL 9.1+ (tested with 9.3)
 
@@ -41,6 +41,8 @@ Run maven installation instructions documented in `oskari-server/external-libs/m
 ### 4. Make Oskari front-end code accessible to Oskari server
 
     mv <work-dir>/oskari <work-dir>/Oskari
+
+* Note! Both oskari-server and oskari folders need to be on the same folder level for example `/work/oskari-server/` and `/work/Oskari/`
 
 ### 5. Build Oskari server
 
@@ -80,7 +82,7 @@ You can login with username "user" and password "user" as a normal user or "admi
 
 ### 8. Properties
 
-File `<work-dir>/oskari-server/servlet-map/src/main/resources/fi/nls/oskari/map/servlet/oskari.properties`: setup of various url links for search service, GIS metadata, GeoServer myplaces, print service, etc
+File `<work-dir>/oskari-server/servlet-map/src/main/resources/oskari.properties`: setup of various url links for search service, GIS metadata, GeoServer myplaces, print service, etc
 
 ## C. Authorization
 
