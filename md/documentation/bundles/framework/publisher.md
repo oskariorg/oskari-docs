@@ -56,6 +56,16 @@ Some configuration is needed for URLs:
 
 No statehandling has been implemented.
 
+## PublisherTools state
+
+Published map tools state is managed by the PublisherToolsForm. When starting the Publisher bundle, the PublisherToolsForm uses the default state configs. These are preset with the preset state configs. The toolbar and publishedmyplaces2 configs are changed using the tools form (UI) and stored when published. When editing an existing published map, the PublisherToolsForm uses the default state configs and loads the stored state configs. The toolbar and publishermyplaces2 configs are changed using the tools form (UI) and uses the same preset default state config values instead of using the stored values as preset.
+
+![publishertools](/images/bundles/publisher_toolsform.png)
+
+Default values has no tools selected and can be used to reset the tools state configs.
+
+Preset values allow typically used tools to be selected as a result of activating another tool setting. E.g. selecting draw tools also selects all types of draw tools.
+
 ## Requests the bundle handles
 <table class="table">
 <tr>
@@ -135,6 +145,11 @@ No statehandling has been implemented.
     <td> [jQuery](http://api.jquery.com/) </td>
     <td> Linked in portal theme </td>
     <td> Used to create the component UI from begin to end</td>
+  </tr>
+  <tr>
+    <td> [Lo-Dash](http://lodash.com/) </td>
+    <td> Linked in oskariui </td>
+    <td> Used to deep clone state objects</td>
   </tr>
   <tr>
     <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
