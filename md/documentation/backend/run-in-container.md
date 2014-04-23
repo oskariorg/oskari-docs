@@ -1,29 +1,16 @@
-# Standalone Jetty installation - Base for Oskari application with Postgres
+# Deploy Oskari to a servlet container
 
-This document helps to set up the environment. It does NOT instruct how to tune for performance or how things would be optimally configured for a production server.
-
-Assumes pre-installed:
-
-* JDK 1.6+ (tested with 1.6.18)
-* Cygwin32 or 64, if Windows environment (Windows 7 tested)
-* Maven 3+ (tested with 3.0.5)
-* PostgreSQL 9.1+ (tested with 9.3) with a oskaridb created for Oskari
-
-# Create oskaridb data base with pgAdmin or with psql
-
-     CREATE DATABASE oskaridb
-     WITH OWNER = postgres
-       ENCODING = 'UTF8'
-       TABLESPACE = pg_default
-       CONNECTION LIMIT = -1;
+## Jetty
 
 # Setting up Jetty Hightide 8.1.14
+*TODO: Verify that this still works with new webapplication war - module*
 
 1) Download http://dist.codehaus.org/jetty/jetty-hightide-8.1.14/
 
 2) unpack to selected location (referred as `{jetty.home}`)
 
 3) Configure database connection pool by adding the following snippet in `{jetty.home}/etc/jetty.xml`:
+*TODO: This can be removed since jetty-env.xml in webapplication war - module already defines these (unless they need to be overwritten). jetty-env.xml is included in the war - package.*
 
     <New id="OskariPool" class="org.eclipse.jetty.plus.jndi.Resource">
        <Arg></Arg>
@@ -40,8 +27,10 @@ Assumes pre-installed:
     </New>
 
 4) Edit the previous snippet to include actual database properties specific for your environment
+*TODO: Can be removed (see previous point)*
 
 5) Download PostgreSQL JDBC driver jar-file and copy it to {jetty.home}/lib/jdbc
+*TODO: Can be removed since PostgreSQL driver is already included in the war - package*
 
     http://jdbc.postgresql.org/download/postgresql-9.3-1100.jdbc4.jar
 
@@ -57,9 +46,9 @@ Assumes pre-installed:
 
 ---------------------------------------------
 
-# Setting up static frontend code to be served by Jetty 
+# Setting up static frontend code to be served by Jetty
 
-1) Go to jettys static content webapp
+1) Go to Jetty static content webapp
 
     cd {jetty.home}\webapps\root
 
@@ -73,32 +62,18 @@ Assumes pre-installed:
 
 ---------------------------------------------
 
-# Setting up and packaging the oskari backend 
+# Setting up and packaging the oskari backend
 
-1) Get the backend code from github:
+1) Complete the *Quick Start* of [Running Oskari in standalone mode](/documentation/backend/standalonebackend)
 
-    git clone https://github.com/nls-oskari/oskari-server.git
+2) Compile and package the servlet
 
+    cd <work-dir>/oskari-server/webapplication
+    mvn install
 
+3) Copy the war package from under `<work-dir>/oskari-server/webapplication/target/` to `{jetty.home}/webapps`
 
-2) Run all Maven commands listed in `oskari-server/external-libs/mvn-install.txt`
-
-  This adds maven dependencies not found in common repositories to your local maven repository
-
-3) Ignore `jetty-env.xml` in `oskari-server/servlet-map` path, if exists
-    e.g. `mv jetty-env.xml jetty-env-ignore.xml`
-
-
-4) Compile and package the servlet by running 
-
-    cd oskari-server
-    mvn clean package -f servlet-map-pom.xml
-
-
-5) Copy the war package from under `oskari-server/servlet-map/target/` to `{jetty.home}/webapps`
-
-6) Setup override properties for Oskari. Add an `oskari-ext.properties` in `{jetty.home}/resources/oskari-ext.properties` (`oskari.trustAllCerts/oskari.trustAllHosts` bypasses certificate errors on ssl requests):
-
+4) Setup override properties for Oskari. Add an `oskari-ext.properties` in `{jetty.home}/resources/oskari-ext.properties` (`oskari.trustAllCerts/oskari.trustAllHosts` bypasses certificate errors on ssl requests):
 
 Copy `oskari-server/servlet-map/src/main/resources/oskari.properties` to `{jetty.home}/resources/oskari-ext.properties`
 
@@ -120,37 +95,19 @@ Replace below property values in `.properties` file
 
 -------------------------------------------
 
-# Generate/populate database
-
-1) `cd oskari-server/content-resources`
-
-2) Configure your database settings in `oskari-server/content-resources/src/main/resources/db.properties`:
-
-    url=jdbc:postgresql://localhost:5432/oskaridb
-    user=postgres
-    pass=[your pw]
-
-3) Ignore `jetty-env.xml` in `oskari-server/servlet-map` path, if exists
-    e.g. `mv jetty-env.xml jetty-env-ignore.xml`
-
-4) Simple one-step setup
-
-Create the initial db with default view (this isn't perfect but gets you started) 
-
-    mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-default
-
--------------------------------------------
-
 # Startup application
 
 1) Startup Jetty  (`cmd.exe` in Windows)
 
     cd {jetty.home}
     java -jar start.jar
-   
+
    (or start with proxy setup, if any  eg. java -jar start.jar -Dhttp.proxyHost=wwwp.xxx.xx -Dhttp.proxyPort=800 -Dhttp.nonProxyHosts="*.yyy.xx|*.foo.fi" --exec)
 
 2) Start application
-   *http://localhost:8888/oskari-map* in your browser
+   *http://localhost:8888/webapplication-<version>* in your browser, where version is the version number of oskari that you deployed. This is the same as the `war` - package name.
 
-   You can login with username "user" and password "user" as a normal user or "admin"/"oskari" as an admin user (no real difference yet)
+   You can login with username "user" and password "user" as a normal user or "admin"/"oskari" as an admin user.
+
+## Tomcat
+TBD

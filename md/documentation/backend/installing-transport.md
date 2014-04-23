@@ -1,4 +1,4 @@
-# Setting up transport wfs service (requires postgresql)
+# Setting up transport wfs service
 
 1) Install Redis: http://redis.io/ (tested with version 2.6.14 for linux and 2.4.5 for Windows (available in https://github.com/dmajkic/redis))
 

@@ -2,122 +2,91 @@
 
 ## A. Overview
 
-This package serves a standalone platform for to use and apply Oskari frontend/backend software.
-Standalone package uses HSQL database for backend application data and Jetty servlet for web services.
+This document describes how to run Oskari server and serve Oskari content without setting up external web server
+or deploying servlets to existing servlet container.
+
+Standalone Oskari server depends on PostgreSQL for serving content and authenticating users.
+
+Assumes pre-installed:
+
+* JDK 1.7+ (tested with Oracle Java 1.7.0_51)
+* Cygwin32 or 64, if Windows environment (Windows 7 tested)
+* [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
+* Git client
+* [PostgreSQL 9.1+](http://www.postgresql.org/) (tested with 9.3)
 
 ## B. Quick Start
 
-### 1. Before installation
+### 1. Create oskaridb data base with pgAdmin or with psql
 
-1. Install `Cygwin` (Windows)
-2. Install `git`
-3. Install `maven`
+     CREATE DATABASE oskaridb
+     WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
 
-### 2. Oskari installation
+
+### 2. Fetch Oskari source code
 
     # Install Oskari frontend
     cd <work-dir>
-    git clone ssh://git@haisulike01.nls.fi/Oskari
+    git clone https://github.com/nls-oskari/oskari
     # Install Oskari backend
-    git clone ssh://git@haisulike01.nls.fi/oskari-server
-    # Create jetty configuration file
-    cd oskari-server/servlet-map/src/main/webapp/WEB-INF
-    cp jetty-env.sample.xml jetty-env.xml
+    git clone https://github.com/nls-oskari/oskari-server.git
 
-#### Installed items:
+### 3. Install maven dependencies not found in common repositories
 
-- Oskari frontend
-- servlet software
-- database init software
-- Oskari backend libraries
-- Jetty
-- HSQL
-- etc
+Run maven installation instructions documented in `oskari-server/external-libs/mvn-install.txt`
 
-### 3. Start  (build all)
+### 4. Make Oskari front-end code accessible to Oskari server
 
-    cd <work-dir>/oskari-server/external-libs
-    # run all commands in mvn-install.txt
-    cd ..
-    mvn -f servlet-map-pom.xml install
+    mv <work-dir>/oskari <work-dir>/Oskari
 
-#### Build actions:
+* Note! Both oskari-server and oskari folders need to be on the same folder level for example `/work/oskari-server/` and `/work/Oskari/`
 
-- creates Oskaridb HSQL database, if not created
-- inserts minimal data to the database tables for to use Oskari
-- starts Jetty and servlet
-- webapp directory: `<work-dir>/oskari-server/servlet-map/src/main/webapp`
+### 5. Build Oskari server
 
-Start Oskari  ( http://localhost:2373 )
+This will build all modules that Oskari server is composed of.
+One of the modules is `standalone-jetty` which we will use to run Oskari server with.
 
-### 4. Properties
+    cd <work-dir>/oskari-server
+    mvn clean install
 
-File `<work-dir>/oskari-server/servlet-map/src/main/resources/fi/nls/oskari/map/servlet/oskari.properties`: setup of various url links for search service, GIS metadata, GeoServer myplaces, print service, etc
+### 6. Setup data fixture
+
+In order for Oskari to work we will need to add some content into the PostgreSQL database that you just created in step 1.
+
+    cd <work-dir>/oskari-server/content-resources
+    mvn compile exec:java -Ddb.username=<db-username> -Ddb.password=<db-password> -Doskari.dropdb=true -Doskari.setup=postgres-default
+
+Replace `db-username` and `db-password` with username and password you want to use to access the PostgreSQL with.
+The above assumes that you are running the PostgreSQL in localhost in port 5432. In case PostgreSQL is running in different host and/or port
+modify `url` in `db.properties` - file in `<work-dir>/oskari-server/content-resources/src/main/resources` to refer to your PostgreSQL - instance.
+
+### 7. Start Oskari server using standalone Jetty
+
+Start server:
+
+    cd <work-dir>/oskari-server/standalone-jetty
+    mvn -Ddb.username=<db-username> -Ddb.password=<db-password> exec:java
+
+The above assumes that you are running the PostgreSQL in localhost in port 5432. In case PostgreSQL is running in different host and/or port
+modify `db.jndi.url` in `standalone.properties` - file in `<work-dir>/oskari-server/standalone-jetty/src/main/resources` to refer to your PostgreSQL - instance.
+
+Now Oskari server is running in 2373. To change the port where Oskari is running modify `standalone.properties` - file
+in `<work-dir>/oskari-server/standalone-jetty/src/main/resources` to refer to your PostgreSQL - instance.
+
+To see Oskari in action direct your browser to `http://localhost:2373/`.
+
+You can login with username "user" and password "user" as a normal user or "admin"/"oskari" as an admin user.
+
+### 8. Properties
+
+File `<work-dir>/oskari-server/servlet-map/src/main/resources/oskari.properties`: setup of various url links for search service, GIS metadata, GeoServer myplaces, print service, etc
 
 ## C. Authorization
 
-### 1. Add new users and roles
-   
-* edit user.json and roles.json files in resource path `<work-dir>/oskari-server/servlet-map/src/main/resources/fi/nls/oskari/user/user.json`
-* role data for user must be in `portti_permission` and `portti_recource_user` tables (see next subsection)
-
-sample `user.json`:
-       
-    {
-        "users": [
-            {
-                "firstName": "Antti",
-                "id": 2,
-                "lastName": "Aalto",
-                "pass": "oskari",
-                "roles": [
-                    3,
-                    4
-                ],
-                "user": "admin"
-            },
-            {
-                "firstName": "Oskari",
-                "id": 3,
-                "lastName": "Olematon",
-                "pass": "user",
-                "roles": [
-                    3
-                ],
-                "user": "user"
-            }
-        ]
-    }
-
-sample `role.json`:
-
-    {
-      "roles": [
-        {
-            "id": 3,
-            "name": "Karttakäyttäjä"
-        },
-        {
-            "id": 4,
-            "name": "Admin"
-        }
-      ]
-    }
-
-
-
-### 2. Add new user roles and permissions
-
-* edit script file `<work-dir>/oskari-server/servlet-map/src/main/resources/fi/nls/oskari/map/servlet/db/exampleLayersAndRoles.sql`
-* add row to `portti_resource_user` table, e.g.
-
-      INSERT INTO portti_resource_user (resource_name, resource_namespace, resource_type, externalid, externalid_type) values ('Osoitekartta', 'http://wms.w.paikkatietoikkuna.fi/wms/kartat.espoo.fi/TeklaOgcWeb/WMS.ashx?', 'WMS_LAYER', 10114, 'ROLE');
-
-* add row to `portti_permissions` table, e.g.
-
-      INSERT INTO portti_permissions (resource_user_id, permissions_type) values (10, 'PUBLISH');
-
-* execute F. Tips and Tricks 1
+See Users Management in [Instructions for modifying the initial demo data](/documentation/backend/modifying-initial-data)
 
 ## D. Map layers
 
@@ -137,7 +106,7 @@ sample `role.json`:
 
 ## E. Database
 
-The SQL scripts that generate the HSQL database are located in the directory `<work-dir>/servlet-map/src/main/resources/fi/nls/oskari/map/servlet/db/`. The actual database files will be generated into the directory `<work-dir/oskari-server/data`. The database structure is documented in detail [here](/architecture/database).
+The SQL scripts that generate the PostgreSQL database are located in the directory `<work-dir>/content-resources/src/main/resources/sql/PostgreSQL/`. The database structure is documented in detail [here](/architecture/database).
 
 ### 1. Bundle tables
 
@@ -151,11 +120,11 @@ The SQL scripts that generate the HSQL database are located in the directory `<w
 
 ### 3. Authorization tables
 
-User authorizing is fixed in this version in the source code (`MapFullServlet.java`)
-* Roles: GUEST_ROLE = 10110, MAP_ROLE = 2, ADMIN_ROLE = 3
-* User: "user" -> MAP_ROLE, "admin" -> MAP_ROLE+ADMIN_ROLE, else GUEST_ROLE
-* `portti_permissions` (user permissions for layers: 'VIEW_LAYER','PUBLISH', 'VIEW_PUBLISHED' )
-* `portti_resource_user` (the resources (layers), which the user can access )
+* `oskari_jaas_users` Used to authenticate user with JAAS and `org.eclipse.jetty.jaas.spi.DataSourceLoginModule`
+* `oskari_users` Used to store user information
+* `oskari_roles` Used to store roles
+* `oskari_user_oskari_role` Mapping between users and their roles
+* `oskari_permission` Permissions granted to roles
 
 ### 4. Map layer tables
 
@@ -169,11 +138,4 @@ User authorizing is fixed in this version in the source code (`MapFullServlet.ja
 ## F. Tips and Tricks
 
 1. Recreate database
-  - delete files under `<work-dir/oskari-server/data`
-  - rebuild all `mvn -f servlet-map-pom.xml clean install`
-
-2. Start Oskari without rebuilding
-  - start Jetty:
-    - `cd <work-dir>/oskari-server/servlet-map`
-    - `mvn jetty:run`
-  - start Oskari: [http://localhost:2373](http://localhost:2373)
+  - Run `mvn compile exec:java -Ddb.username=<db-username> -Ddb.password=<db-password> -Doskari.dropdb=true -Doskari.setup=<fixture-id>` in `<work-dir>/oskari-server/content-resources`. Replace `<fixture-id>` with fixture you want to use (for instance postgres-default).
