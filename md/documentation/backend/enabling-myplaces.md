@@ -1,13 +1,20 @@
 # Enabling My Places With Postgis
 
-Assumes pre-installed:
+---------------
+
+## NOTE! This document is outdated. The current setup guide creates a postgis database that is used for my places by default.
+
+---------------
+
+### Assumes pre-installed:
 
 * JDK 1.6+ (tested with 1.6.18)
 * Maven 3+ (tested with 3.0.5)
-* PostgresSQL 9.1+ (tested with 9.3) with a oskaridb created for Oskari
-* Jetty (http://dist.codehaus.org/jetty/jetty-hightide-8.1.14/)
-* See BasicInstall-OskariServletPostgres.md
+* database available: [Instructions for setting up database](/documentation/backend/database-create)
+* existing server: [Instructions for setting up Jetty](/documentation/backend/server-configuration-jetty)
+* existing development environment: [Instructions](/documentation/backend/server-embedded-developer)
 
+### Configuration
 
 1) Create postgis extension for the database. 
 
