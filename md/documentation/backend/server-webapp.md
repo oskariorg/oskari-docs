@@ -49,6 +49,22 @@ To build the webapp with profile `jetty` for example run:
     cd <work-dir>/oskari-server/webapp-map
     mvn clean install -Pjetty
 
+#### NOTE! For any profile including database configuration INSIDE the WAR-file
+
+Edit the db-properties to match your environment in one of the previously mentioned properties files used for filtering the build.
+
+    # Defines database connection url for Oskari content
+    db.url=jdbc:postgresql://localhost:5432/oskaridb
+
+    # Defines database connection username for Oskari content
+    db.username=<username>
+
+    # Defines database connection password for Oskari content
+    db.password=<password>
+
+This can be also avoided by declaring the connection pool in server configuration rather than inside the webapp.
+If you encounter problems building the correct setup you can always see the end-product under `/oskari-server/webapp-map/target/oskari-map/`
+
 #### Default
 
 Assumes the servlet container will provide JNDI resource named `jdbc/OskariPool` (name configurable with filter property: `db.jndi.name`).
