@@ -30,9 +30,9 @@ Download frontend as a zip-file from github: https://github.com/nls-oskari/oskar
 
     mv oskari-master Oskari
 
-### 3. Modify properties to match our environment
+### 3. Modify properties to match your environment
 
-Modify oskari-ext.properties located in `<work dir>` for example database connection parameters:
+Modify `oskari-ext.properties` located in `<work dir>` for example database connection parameters:
 
     db.url=jdbc:postgresql://localhost:5432/oskaridb
     db.username=<username>

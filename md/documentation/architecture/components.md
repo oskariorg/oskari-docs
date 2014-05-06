@@ -94,23 +94,23 @@ Responsible for:
 * Browser
     * Oskari frontend
 
-* viuhtidmztu - proxy
+* Proxy server
     * HAProxy
     * Apache
 
-* nipsutu01/02 - Oskari-map
+* Application servers - Oskari-map
     * Tomcat/Liferay
     * Jetty/Geoserver
 
-* solmudmztu
+* dmz
     * Jetty/Transport
     * Redis
 
-* viljonkkatu01/02
+* Services
     * Jetty/Printout
     * Redis
 
-* niiskutu01
+* Database server
     * Postgres/Database
 
 ### Case ELF (front-servlet-postgresql)

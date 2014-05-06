@@ -122,7 +122,9 @@ Startup Jetty  (`cmd.exe` in Windows)
     cd {jetty.home}
     java -jar start.jar
 
-   (or start with proxy setup, if any  eg. java -jar start.jar -Dhttp.proxyHost=wwwp.xxx.xx -Dhttp.proxyPort=800 -Dhttp.nonProxyHosts="*.yyy.xx|*.foo.fi" --exec)
+or start with proxy setup, if any  eg.
+
+    java -jar start.jar -Dhttp.proxyHost=wwwp.xxx.xx -Dhttp.proxyPort=800 -Dhttp.nonProxyHosts="*.yyy.xx|*.foo.fi" --exec
 
 To see Oskari in action direct your browser to http://localhost:8888/oskari-map (server port based on server configuration).
 You can login with username "user" and password "user" as a normal user or "admin"/"oskari" as an admin user.

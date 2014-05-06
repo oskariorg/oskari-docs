@@ -1,8 +1,8 @@
 # Customizing the application for your environment
 
-Maven modifies/filters some properties and xml files during compile/build as described in [Existing server setup](/documentation/backend/server-webapp).
+Maven modifies/filters some properties and xml files during compile/build as described in [existing server setup](/documentation/backend/server-webapp).
 
-Most settings can and should be overridden to match your environment by including an oskari-ext.properties in the server classpath for example in Jetty
+Most settings can and should be overridden to match your environment by including an `oskari-ext.properties` in the server classpath for example in Jetty
 you can add the custom properties as `{jetty.home}/resources/oskari-ext.properties`.
 
 ## Properties
