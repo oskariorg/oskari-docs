@@ -10,10 +10,10 @@
 
     Redis configuration can be found in `oskari-server/servlet-map/src/main/resources/oskari.properties` but using default values nothing needs to be changed:
 
-            # redis
-            redis.hostname=localhost
-            redis.port=6379
-            redis.pool.size=100
+        # redis
+        redis.hostname=localhost
+        redis.port=6379
+        redis.pool.size=100
 
 3. Start redis (`redis-server`). You may use `redis-cli` for cleaning the cache (`flushall` command).
 
@@ -47,7 +47,7 @@ Open your browser with http://localhost:2373/?viewId=4 or http://localhost:2373/
 
 You should now see a new map layer of type WFS listed on the maplayers flyout. Add it to map, zoom close to Helsinki for example and you should see points appearing to the map from the wfs service
 
-If WFS layer doesn't work, you might need to configure view setup for wfslayer plugin (`mapwfs2-view.json` or `postgres-myplaces2-view.json`) and reprepare the database `mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-mapwfs2`
+If WFS layer doesn't work, you might need to configure view setup for wfslayer plugin (`mapwfs2-view.json` or `postgres-myplaces2-view.json`) and reprepare the database with `mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-mapwfs2`
 
     {
         "id" : "Oskari.mapframework.bundle.mapwfs2.plugin.WfsLayerPlugin",
@@ -78,7 +78,7 @@ Sample config for transport (setup as `transport-ext.properties` in server class
     # Supported locales, comma separated and default first
     oskari.locales=fi_FI,sv_SE,en_EN
 
-    # base WFS layer id s
+    # base WFS layer ids
     analysis.baselayer.id=387
     myplaces.baselayer.id=14
 

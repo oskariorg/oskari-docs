@@ -19,11 +19,14 @@ Provides (address etc) search functionality with a flyout UI.
 
 ## Bundle configuration
 
-No configuration is required, but it can be used to set ajax URL. If not set, sandbox.getAjaxUrl() with action_route#GetSearchResult is used instead.
+No configuration is required, but it can be used to set ajax URL. If not set, `sandbox.getAjaxUrl()` with `action_route=GetSearchResult` is used instead.
+
+The default search UI can be disable through config.
 
 ```javascript
 {
-  "url" : "http://www.google.com"
+  "url" : "http://www.google.com",
+  "disableDefault": "<boolean>"
 }
 ```
 
