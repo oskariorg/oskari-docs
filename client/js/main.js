@@ -13,4 +13,6 @@ $(function() {
     $('pre code').each(function(i, e) {
         $(this).addClass('hljs');
     });
+
+    $('table.oskari-sortable').stupidtable();
 });

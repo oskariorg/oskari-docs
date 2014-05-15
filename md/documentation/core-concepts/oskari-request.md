@@ -1,6 +1,8 @@
 # Request
 
-Requests are used by bundles to ask another component in an Oskari application to do something. Request and requesthandlers can be defined in bundles so you need to be certain that you have the bundle included in your application setup if you are going to use its requests. You can test if a certain request can be sent by checking if a request builder can be constructed by `sandbox`
+Requests are used by bundles to ask another component in an Oskari application to do something. Request and requesthandlers can be defined in bundles so you need to be certain that you have the bundle included in your application setup if you are going to use its requests. See the list of all requests [here](/documentation/core-concepts/request-list).
+
+You can test if a certain request can be sent by checking if a request builder can be constructed by `sandbox`
 
 ```javascript
 var sandbox = Oskari.getSandbox(),
