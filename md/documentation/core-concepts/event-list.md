@@ -71,6 +71,16 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`framework/backendstatus`</td>
         </tr>
         <tr>
+            <td>`DrawFilterPlugin.ActiveDrawFilteringEvent`</td>
+            <td></td>
+            <td>`framework/geometryeditor`</td>
+        </tr>
+        <tr>
+            <td>`DrawFilterPlugin.FinishedDrawFilteringEvent`</td>
+            <td></td>
+            <td>`framework/geometryeditor`</td>
+        </tr>
+        <tr>
             <td>`DrawPlugin.ActiveDrawingEvent`</td>
             <td></td>
             <td>`framework/mapmodule-plugin/drawplugin`</td>
@@ -121,6 +131,11 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`framework/infobox`</td>
         </tr>
         <tr>
+            <td>`LayerToolsEditModeEvent`</td>
+            <td></td>
+            <td>`framework/mapmodule-plugin`</td>
+        </tr>
+        <tr>
             <td>`MapAnalysis.AnalysisVisualizationChangeEvent`</td>
             <td></td>
             <td>`analysis/analyse`</td>
@@ -144,6 +159,11 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`MapMoveStartEvent`</td>
             <td></td>
             <td>`core`</td>
+        </tr>
+        <tr>
+            <td>`MapMyPlaces.MyPlacesVisualizationChangeEvent`</td>
+            <td></td>
+            <td>`framework/mapmyplaces`</td>
         </tr>
         <tr>
             <td>`MapSizeChangedEvent`</td>
@@ -171,6 +191,16 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`core`</td>
         </tr>
         <tr>
+            <td>`MyPlaces.MyPlaceHoverEvent`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.MyPlacesChangedEvent`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
             <td>`Printout.PrintableContentEvent`</td>
             <td></td>
             <td>`framework/printout`</td>
@@ -184,6 +214,26 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`Printout.PrintWithParcelUIEvent`</td>
             <td></td>
             <td>`framework/printout`</td>
+        </tr>
+        <tr>
+            <td>`Publisher.ColourSchemeChangedEvent`</td>
+            <td></td>
+            <td>`framework/publisher`</td>
+        </tr>
+        <tr>
+            <td>`Publisher.FontChangedEvent`</td>
+            <td></td>
+            <td>`framework/publisher`</td>
+        </tr>
+        <tr>
+            <td>`Publisher.MapPublishedEvent`</td>
+            <td></td>
+            <td>`framework/publisher`</td>
+        </tr>
+        <tr>
+            <td>`Publisher.ToolStyleChangedEvent`</td>
+            <td></td>
+            <td>`framework/publisher`</td>
         </tr>
         <tr>
             <td>`StateSavedEvent`</td>

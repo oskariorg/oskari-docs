@@ -25,8 +25,13 @@ Search the [api](/api/latest/) for more info of a particular request.
     <tbody>
         <tr>
             <td>`AddMapLayerRequest`</td>
-            <td></td>
+            <td>Adds a layer to the map</td>
             <td>`core`</td>
+        </tr>
+        <tr>
+            <td>`analyse.AnalyseRequest`</td>
+            <td></td>
+            <td>`analysis/analyse`</td>
         </tr>
         <tr>
             <td>`catalogue.ShowMetadataRequest`</td>
@@ -35,7 +40,7 @@ Search the [api](/api/latest/) for more info of a particular request.
         </tr>
         <tr>
             <td>`ChangeMapLayerOpacityRequest`</td>
-            <td></td>
+            <td>Changes the opacity of given layer to the given value</td>
             <td>`core`</td>
         </tr>
         <tr>
@@ -67,6 +72,16 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`DisableMapMouseMovementRequest`</td>
             <td></td>
             <td>`framework/mapmodule-plugin`</td>
+        </tr>
+        <tr>
+            <td>`DrawFilterPlugin.StartDrawFilteringRequest`</td>
+            <td></td>
+            <td>`framework/geometryeditor`</td>
+        </tr>
+        <tr>
+            <td>`DrawFilterPlugin.StopDrawFilteringRequest`</td>
+            <td></td>
+            <td>`framework/geometryeditor`</td>
         </tr>
         <tr>
             <td>`DrawPlugin.GetGeometryRequest`</td>
@@ -160,13 +175,53 @@ Search the [api](/api/latest/) for more info of a particular request.
         </tr>
         <tr>
             <td>`MapMoveRequest`</td>
-            <td></td>
+            <td>Moves the map to given coordinates and zooms to given zoom level</td>
             <td>`framework/mapmodule-plugin`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.DeleteCategoryRequest`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.DeletePlaceRequest`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.EditCategoryRequest`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.EditPlaceRequest`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.OpenAddLayerDialogRequest`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`MyPlaces.PublishCategoryRequest`</td>
+            <td></td>
+            <td>`framework/myplaces2`</td>
+        </tr>
+        <tr>
+            <td>`PersonalData.AddTabRequest`</td>
+            <td></td>
+            <td>`framework/personaldata`</td>
         </tr>
         <tr>
             <td>`printout.PrintMapRequest`</td>
             <td></td>
             <td>`framework/printout`</td>
+        </tr>
+        <tr>
+            <td>`Publisher.PublishMapEditorRequest`</td>
+            <td></td>
+            <td>`framework/publisher`</td>
         </tr>
         <tr>
             <td>`RearrangeSelectedMapLayerRequest`</td>
@@ -175,22 +230,22 @@ Search the [api](/api/latest/) for more info of a particular request.
         </tr>
         <tr>
             <td>`RemoveMapLayerRequest`</td>
-            <td></td>
+            <td>Removes a layer from the map</td>
             <td>`core`</td>
         </tr>
         <tr>
             <td>`Search.AddSearchResultActionRequest`</td>
-            <td></td>
+            <td>Adds an action link/button to a search results popup</td>
             <td>`framework/search`</td>
         </tr>
         <tr>
             <td>`Search.AddTabRequest`</td>
-            <td></td>
+            <td>Adds a new tab to the search Flyout</td>
             <td>`framework/search`</td>
         </tr>
         <tr>
             <td>`Search.RemoveSearchResultActionRequest`</td>
-            <td></td>
+            <td>Removes an action link/button from a search results popup</td>
             <td>`framework/search`</td>
         </tr>
         <tr>
@@ -226,17 +281,17 @@ Search the [api](/api/latest/) for more info of a particular request.
         <tr>
             <td>`StatsGrid.IndicatorsRequest`</td>
             <td></td>
-            <td>`statistics/statsgrid`</td>
+            <td>`statistics/statsgrid`, `statistics/publishedgrid`</td>
         </tr>
         <tr>
             <td>`StatsGrid.StatsGridRequest`</td>
             <td></td>
-            <td>`statistics/statsgrid`</td>
+            <td>`statistics/statsgrid`, `statistics/publishedgrid`</td>
         </tr>
         <tr>
             <td>`StatsGrid.TooltipContentRequest`</td>
             <td></td>
-            <td>`statistics/statsgrid`</td>
+            <td>`statistics/statsgrid`, `statistics/publishedgrid`</td>
         </tr>
         <tr>
             <td>`Toolbar.AddToolButtonRequest`</td>
