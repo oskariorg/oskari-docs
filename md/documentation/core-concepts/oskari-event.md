@@ -1,6 +1,8 @@
 # Event
 
-Events are used by bundles to notify other components in an Oskari application that something has happened. Of course it's good practice to only send out events about things that other components might be interested in. You don't need or want to spam the framework about every gory detail. Bundles implementing the `Oskari.mapframework.module.Module` protocol can register to Oskari framework and start receiving events. Events are handled by module protocol's `onEvent(event)` method. Common practice is that it checks the modules `eventHandlers` definition with the events name and calls the matching method if it founds one. See the list of all Oskari events [here](/documentation/core-concepts/event-list)
+*List of all Oskari events can be found [here](/documentation/core-concepts/event-list).*
+
+Events are used by bundles to notify other components in an Oskari application that something has happened. Of course it's good practice to only send out events about things that other components might be interested in. You don't need or want to spam the framework about every gory detail. Bundles implementing the `Oskari.mapframework.module.Module` protocol can register to Oskari framework and start receiving events. Events are handled by module protocol's `onEvent(event)` method. Common practice is that it checks the modules `eventHandlers` definition with the events name and calls the matching method if it founds one.
 
 Oskari and the map module send out some events that extension bundles can listen and react to for example if the map moves or if the map is clicked. Chances are if you are sending a custom event none but your own components care about it so you need to implement an event handler as well. Technically the main difference between events and requests is that requests can have only one handler where as events can be handled by any number of handlers.
 

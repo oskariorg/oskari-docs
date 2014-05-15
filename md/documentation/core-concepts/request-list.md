@@ -335,7 +335,7 @@ Search the [api](/api/latest/) for more info of a particular request.
         </tr>
         <tr>
             <td>`userinterface.AddExtensionRequest`</td>
-            <td></td>
+            <td>Adds an extension (eg. Flyout) to a bundle</td>
             <td>`framework/divmanazer`</td>
         </tr>
         <tr>
@@ -345,12 +345,12 @@ Search the [api](/api/latest/) for more info of a particular request.
         </tr>
         <tr>
             <td>`userinterface.RemoveExtensionRequest`</td>
-            <td></td>
+            <td>Removes an extension (eg. Flyout) from a bundle</td>
             <td>`framework/divmanazer`</td>
         </tr>
         <tr>
             <td>`userinterface.UpdateExtensionRequest`</td>
-            <td></td>
+            <td>Updates the state of an extension (eg. 'attach' for a Flyout, which opens it)</td>
             <td>`framework/divmanazer`</td>
         </tr>
     </tbody>

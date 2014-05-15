@@ -17,12 +17,12 @@ Search the [api](/api/latest/) for more info of a particular event.
     <tbody>
         <tr>
             <td>`AfterChangeMapLayerOpacityEvent`</td>
-            <td></td>
+            <td>Sent after the opacity of a map layer is changed</td>
             <td>`core`</td>
         </tr>
         <tr>
             <td>`AfterChangeMapLayerStyleEvent`</td>
-            <td></td>
+            <td>Sent after the style of a map layer is changed</td>
             <td>`core`</td>
         </tr>
         <tr>
@@ -42,12 +42,12 @@ Search the [api](/api/latest/) for more info of a particular event.
         </tr>
         <tr>
             <td>`AfterMapLayerAddEvent`</td>
-            <td></td>
+            <td>Sent after a map layer is added to the map</td>
             <td>`core`</td>
         </tr>
         <tr>
             <td>`AfterMapLayerRemoveEvent`</td>
-            <td></td>
+            <td>Sent after a map layer is removed from the map</td>
             <td>`core`</td>
         </tr>
         <tr>
@@ -82,17 +82,17 @@ Search the [api](/api/latest/) for more info of a particular event.
         </tr>
         <tr>
             <td>`DrawPlugin.ActiveDrawingEvent`</td>
-            <td></td>
+            <td>Sent whenever the geometry of a drawn feature is edited</td>
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
             <td>`DrawPlugin.AddedFeatureEvent`</td>
-            <td></td>
+            <td>Sent when a new geometry was added whilst drawing a multigeometry feature</td>
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
             <td>`DrawPlugin.FinishedDrawingEvent`</td>
-            <td></td>
+            <td>Sent when the user has finished the drawing</td>
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
@@ -122,7 +122,7 @@ Search the [api](/api/latest/) for more info of a particular event.
         </tr>
         <tr>
             <td>`GetInfoResultEvent`</td>
-            <td></td>
+            <td>Sent when there's content for infobox</td>
             <td>`framework/mapmodule-plugin`</td>
         </tr>
         <tr>
@@ -142,17 +142,17 @@ Search the [api](/api/latest/) for more info of a particular event.
         </tr>
         <tr>
             <td>`MapClickedEvent`</td>
-            <td></td>
+            <td>Sent when the map is clicked</td>
             <td>`framework/mapmodule-plugin`</td>
         </tr>
         <tr>
             <td>`MapLayerEvent`</td>
-            <td></td>
+            <td>Sent whenever a layer is created, edited or deleted.</td>
             <td>`core`</td>
         </tr>
         <tr>
             <td>`MapLayerVisibilityChangedEvent`</td>
-            <td></td>
+            <td>Sent after the visibility of a map layer has changed</td>
             <td>`framework/mapmodule-plugin`</td>
         </tr>
         <tr>
