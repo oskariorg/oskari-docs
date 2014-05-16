@@ -17,5 +17,8 @@
     "highlight.js": "~8.0.0",
     "gulp-autoprefixer": "0.0.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp-livereload": "^1.5.0",
+    "tiny-lr": "0.0.7"
+  }
 }
