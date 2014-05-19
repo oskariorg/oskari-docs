@@ -98,3 +98,14 @@ For jetty 9 it's basically the same but the class packages have dropped `plus`:
     org.eclipse.jetty.plus.jaas.JAASLoginService -> org.eclipse.jetty.jaas.JAASLoginService
     org.eclipse.jetty.plus.jaas.spi.LdapLoginModule -> org.eclipse.jetty.jaas.spi.LdapLoginModule
 
+### Adding new users based on external authentication
+
+`fi.nls.oskari.map.servlet.PrincipalAuthenticationFilter` tries to add users to Oskari database based on information in the request by default.
+To disable this add `auth.add.missing.users=false` to `oskari-ext.properties`. The users will have:
+ - username as `request.getUserPrincipal().getName()`
+ - first- and lastname is not set
+ - uuid is generated automatically.
+ - roles are mapped using `request.isUserInRole("{{role name}}")`
+
+The role mapping is by default done against role names specified in oskari_roles, but can be mapped to external role name with a database table
+ `oskari_role_external_mapping`. Set the role_id to point to role in oskari_roles and name to have the external role name.
