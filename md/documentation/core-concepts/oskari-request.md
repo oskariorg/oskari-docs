@@ -18,7 +18,7 @@ if (requestBuilder) {
 }
 ```
 
-If a request builder is returned, it's safe to assume that the bundle handling the request is part of the application setup. Guidelines rule that files defining requests and requesthandlers are located under a request folder under the bundle implementation.
+If a request builder is returned, it's safe to assume that the bundle handling the request is part of the application setup. If the request handler has not been registered, the `sandbox#getRequestBuilder` returns `undefined`. Guidelines rule that files defining requests and requesthandlers are located under a request folder under the bundle implementation.
 
 Some basic requests (mostly map related) are defined and handled in the frameworks core and are always present. For example you can request the map to move to a certain location by sending a `MapMoveRequest`:
 

@@ -2,15 +2,7 @@
 
 In order to start sending requests, you need the implementing bundle - that is, the one which registers a handler for the request - to be present in your application setup. The ones that are implemented in `core` are automatically available.
 
-The availability of a request when sending one can always be checked from the sandbox: `Oskari.getSandbox().getRequestBuilder('requestName')` which returns `undefined` if the request is not available.
-
-**NOTE!** It's still not totally guaranteed that the implementing bundle will actually handle the request, since the handler might not have been registered, for instance if the bundle hasn't started yet. The `sandbox#getRequestBuilder` function returns the request builder if the code is loaded and thus the request can be instantiated. In case a handler is missing, there will be a warning logged into the console:
-
-```
-!!!
-  There is no handler for
-  'requestName'
-```
+The availability of a request when sending one can always be checked from the sandbox: `Oskari.getSandbox().getRequestBuilder('requestName')` which returns `undefined` if the request is not available or if the handler has not been registered.
 
 Search the [api](/api/latest/) for more info of a particular request.
 
