@@ -10,7 +10,7 @@ The `tools` directory in `Oskari` contains `Gruntfile.js` which has a grunt task
     grunt.task.run('copy');
     // concatenates and minifies the JavaScript files
     grunt.task.run('compile');
-    // compiles and minifies the .less files
+    // compiles and minifies the stylesheets files
     grunt.task.run('compileAppCSS');
     // creates icons.png (optional)
     // assumes individual icon images to be found under your-application/icons
