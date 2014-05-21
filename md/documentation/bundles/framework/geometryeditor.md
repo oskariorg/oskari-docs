@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>ID</td><td>featuredata2</td>
+    <td>ID</td><td>geometryeditor</td>
   </tr>
   <tr>
     <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.ui.module.common.geometryeditor.html)</td>
