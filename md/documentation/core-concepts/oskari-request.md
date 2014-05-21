@@ -1,6 +1,10 @@
 # Request
 
-Requests are used by bundles to ask another component in an Oskari application to do something. Request and requesthandlers can be defined in bundles so you need to be certain that you have the bundle included in your application setup if you are going to use its requests. You can test if a certain request can be sent by checking if a request builder can be constructed by `sandbox`
+*List of all Oskari requests can be found [here](/documentation/core-concepts/request-list).*
+
+Requests are used by bundles to ask another component in an Oskari application to do something. Request and requesthandlers can be defined in bundles so you need to be certain that you have the bundle included in your application setup if you are going to use its requests.
+
+You can test if a certain request can be sent by checking if a request builder can be constructed by `sandbox`
 
 ```javascript
 var sandbox = Oskari.getSandbox(),
@@ -14,7 +18,7 @@ if (requestBuilder) {
 }
 ```
 
-If a request builder is returned, it's safe to assume that the bundle handling the request is part of the application setup. Guidelines rule that files defining requests and requesthandlers are located under a request folder under the bundle implementation.
+If a request builder is returned, it's safe to assume that the bundle handling the request is part of the application setup. If the request handler has not been registered, the `sandbox#getRequestBuilder` returns `undefined`. Guidelines rule that files defining requests and requesthandlers are located under a request folder under the bundle implementation.
 
 Some basic requests (mostly map related) are defined and handled in the frameworks core and are always present. For example you can request the map to move to a certain location by sending a `MapMoveRequest`:
 
