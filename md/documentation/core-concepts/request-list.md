@@ -271,6 +271,11 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`framework/statehandler`</td>
         </tr>
         <tr>
+            <td>`StatsGrid.AddDataSourceRequest`</td>
+            <td>Adds a new data source to statsgrid</td>
+            <td>`statistics/statsgrid`, `statistics/publishedgrid`</td>
+        </tr>
+        <tr>
             <td>`StatsGrid.IndicatorsRequest`</td>
             <td></td>
             <td>`statistics/statsgrid`, `statistics/publishedgrid`</td>
