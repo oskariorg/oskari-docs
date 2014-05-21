@@ -7,19 +7,54 @@ Map View Plugins are used to add required functionality to the map view without 
 
 ## Registering and starting a Plugin
 
-```javascript
-// 1) Access MapModule
-// Find mapmodule using sandbox or a stored reference depending on your coding style
-var mapmodule = Oskari.getSandbox().findRegisteredModuleInstance('MainMapModule');
+### Example 1: WMTS layer plugin
 
-// 2) Instantiate plugin
-var wmtsPlugin = Oskari.clazz.create('Oskari.mapframework.wmts.mapmodule.plugin.WmtsLayerPlugin', {
-    configOption: 'foo'
-});
+WMTS layer plugin is used to add WMTS layers to the map.
 
-// 3) Register Plugin
-mapmodule.registerPlugin(wmtsPlugin);
+    // 1) Access MapModule
+    // Find mapmodule using sandbox or a stored reference depending on your coding style
+    var mapmodule = Oskari.getSandbox().findRegisteredModuleInstance('MainMapModule');
 
-// 4) Start Plugin. Note: Shall be called AFTER mapmodule is started. Map module starts any registered plugins if those are registered before start.
-mapmodule.startPlugin(wmtsPlugin);
-```
+    // 2) Instantiate plugin
+    var wmtsPlugin = Oskari.clazz.create('Oskari.mapframework.wmts.mapmodule.plugin.WmtsLayerPlugin', {
+        configOption: 'foo'
+    });
+
+    // 3) Register Plugin
+    mapmodule.registerPlugin(wmtsPlugin);
+
+    // 4) Start Plugin. Note: Shall be called AFTER mapmodule is started. Map module starts any registered plugins if those are registered before start.
+    mapmodule.startPlugin(wmtsPlugin);
+
+After this the plugin is usable and its methods can be called and events can be listened to.
+
+### Example 2: draw plugin
+
+Draw plugin can be used to enable drawing of different types of features on the map. The plugin sends various events in different phases of the draw.
+
+    // get reference to mapmodule
+    var mapModule = sandbox.findRegisteredModuleInstance('MainMapModule');
+     
+    // create drawplugin with conf (id should be used if we have multiple drawplugins, defaults to "DrawPlugin")
+    var pluginConfig = {
+        id: 'Something',
+        multipart: true
+    };
+    var drawPlugin = Oskari.clazz.create('Oskari.mapframework.ui.module.common.mapmodule.DrawPlugin', pluginConfig);
+    // register drawplugin for map
+    mapModule.registerPlugin(drawPlugin);
+    mapModule.startPlugin(drawPlugin);
+     
+     
+    drawPlugin.startDrawing({ drawMode : 'point' }); // or 'line' or 'area'
+     
+    // clicks ..  on ... map
+    // double click to end drawing or programmatically call "drawPlugin.forceFinishDraw();"
+     
+    // will result in "DrawPlugin.FinishedDrawingEvent" being sent. Listen to it and: 
+    eventHandlers : {
+        "DrawPlugin.FinishedDrawingEvent" : function (event) {
+            // preferred to use sandbox.printDebug()
+             console.log("User drew:", event.getDrawing());
+        }
+    }
