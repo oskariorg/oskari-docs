@@ -86,7 +86,7 @@ for (var p in this.eventHandlers) {
 
     <p>Copy and paste the following code to console and move the map. The event should get logged into the console</p>
 
-<pre><code>(function() {
+<pre><code>(function (sb) {
     var fakeModule = {
         init: function (sb) {
             sb.registerForEventByName(this, 'AfterMapMoveEvent');
@@ -99,6 +99,6 @@ for (var p in this.eventHandlers) {
         }
     };
 
-    Oskari.getSandbox().register(fakeModule);
-})();</code></pre>
+    sb.register(fakeModule);
+})(Oskari.getSandbox());</code></pre>
 </div>

@@ -3,13 +3,6 @@ var path = require('path');
 var md = require('marked');
 var _ = require('lodash-node');
 
-md.setOptions({
-    langPrefix: 'language-',
-    highlight: function(code) {
-        return require('highlight.js').highlightAuto(code).value;
-    }
-});
-
 var mdDir = 'md';
 var releaseDir = path.join(__dirname, 'public', 'release');
 
