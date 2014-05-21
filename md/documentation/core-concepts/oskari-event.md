@@ -1,5 +1,7 @@
 # Event
 
+*List of all Oskari events can be found [here](/documentation/core-concepts/event-list).*
+
 Events are used by bundles to notify other components in an Oskari application that something has happened. Of course it's good practice to only send out events about things that other components might be interested in. You don't need or want to spam the framework about every gory detail. Bundles implementing the `Oskari.mapframework.module.Module` protocol can register to Oskari framework and start receiving events. Events are handled by module protocol's `onEvent(event)` method. Common practice is that it checks the modules `eventHandlers` definition with the events name and calls the matching method if it founds one.
 
 Oskari and the map module send out some events that extension bundles can listen and react to for example if the map moves or if the map is clicked. Chances are if you are sending a custom event none but your own components care about it so you need to implement an event handler as well. Technically the main difference between events and requests is that requests can have only one handler where as events can be handled by any number of handlers.
@@ -78,3 +80,25 @@ for (var p in this.eventHandlers) {
     sandbox.registerForEventByName(this, p);
 }
 ```
+
+<div class="bs-callout bs-callout-info">
+    <h4>Try this out in console!</h4>
+
+    <p>Copy and paste the following code to console and move the map. The event should get logged into the console</p>
+
+<pre><code>(function (sb) {
+    var fakeModule = {
+        init: function (sb) {
+            sb.registerForEventByName(this, 'AfterMapMoveEvent');
+        },
+        getName: function () {
+            return 'FakeModule';
+        }, 
+        onEvent: function (event) {
+            console.log(event);
+        }
+    };
+
+    sb.register(fakeModule);
+})(Oskari.getSandbox());</code></pre>
+</div>

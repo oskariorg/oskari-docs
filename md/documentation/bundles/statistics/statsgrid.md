@@ -11,7 +11,7 @@
 
 ## Description
 
-Bundle fetches data from the SotkaNET statistics and indicator bank (www.sotkanet.fi) and displays the data in a grid and visualizes it on the map. Users can select different indicators from a menu and classify the data in multiple ways, including specifying class breaks by hand (manual breaks).
+Bundle fetches data from the [SOTKAnet](http://uusi.sotkanet.fi/portal/page/portal/etusivu) statistics and indicator bank and displays the data in a grid and visualizes it on the map. Users can select different indicators from a menu and classify the data in multiple ways, including specifying class breaks by hand (manual breaks).
 
 The grid and the classifier are initialized as plugins so they can be used individually as well. They both use the StatisticsService to send events and make the actual AJAX calls to fetch the data.
 
@@ -20,6 +20,10 @@ Map section: selected regions are hilighted in the grid.
 Select hilighted mode: selected regions (map) are also selected in the grid.
 
 Each data column has a menu from where the user can filter the values in the grid and on the map. Filtering is possible based on values (equals, greater than etc.) or regions (at the moment regions from the SOTKANet service are supported. Refer to the REST API documentation [here](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=26001.HTML) (only in Finnish)).
+
+## Screenshot
+
+![Statsgrid](/images/bundles/statsgrid.png)
 
 ## TODO
 
@@ -75,6 +79,10 @@ state : {
   <tr>
     <td>StatsGrid.TooltipContentRequest</td>
     <td>Sends tooltip info for currently hovered region.</td>
+  </tr>
+  <tr>
+      <td>StatsGrid.AddDataSourceRequest</td>
+      <td>Adds a new data source to statsgrid</td>
   </tr>
 </table>
 

@@ -10,7 +10,7 @@ $(function() {
 
     addActiveClassToNav();
 
-    $('pre code').each(function(i, e) {
-        $(this).addClass('hljs');
-    });
+    hljs.initHighlightingOnLoad();
+
+    $('table.oskari-sortable').stupidtable();
 });
