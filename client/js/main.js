@@ -9,8 +9,6 @@ $(function() {
     };
 
     addActiveClassToNav();
-
     hljs.initHighlightingOnLoad();
-
     $('table.oskari-sortable').stupidtable();
 });

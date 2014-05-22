@@ -7,10 +7,10 @@ block main
         button.btn.btn-danger.dropdown-toggle(data-toggle="dropdown") Bundle docs
           span.caret
         ul.dropdown-menu.bundle-navigation
-            - files.forEach(function(file) {
-              li(role="presentation")
-                a(role="menuitem" tabindex="-1" href='/documentation/bundles/' + file) #{file}
-            - });
+          - files.forEach(function(file) {
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href='/documentation/bundles/' + file) #{file}
+          - });
 
     div.col-md-10(role="main")
       - if (content)
