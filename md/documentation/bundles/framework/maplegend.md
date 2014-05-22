@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>ID</td><td>maplegend</td>
+    <td>ID</td><td>`maplegend`</td>
   </tr>
   <tr>
     <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.maplegend.MapLegendBundleInstance.html)</td>
@@ -11,48 +11,21 @@
 
 ## Description
 
-''Describe what the bundle does.''
+Displays legend images of selected map layers in a Flyout if the layers have legend image urls set.
 
-## TODO
+## Screenshot
 
-* ''List any planned features''
+![Map legend](/images/bundles/maplegends.png)
 
 ## Bundle configuration
-
-```javascript
-config : {
-  test : 1
-}
-```
-
-OR
 
 No configuration is required.
 
 ## Bundle state
 
-```javascript
-state : {
-  test : 2
-}
-```
-
-OR
-
 No statehandling has been implemented.
 
 ## Requests the bundle handles
-
-<table class="table">
-  <tr>
-    <th>Request</th><th>How does the bundle react</th>
-  </tr>
-  <tr>
-    <td>tbd</td><td>tbd</td>
-  </tr>
-</table>
-
-OR
 
 This bundle doesn't handle any requests.
 
@@ -63,13 +36,10 @@ This bundle doesn't handle any requests.
     <th>Request</th><th>Why/when</th>
   </tr>
   <tr>
-    <td>tbd</td><td>tbd</td>
+    <td>`userinterface.RemoveExtensionRequest`</td>
+    <td>Unregisters the extensions (Flyout, Tile) when the bundle gets stopped</td>
   </tr>
 </table>
-
-OR
-
-This bundle doesn't send out any requests.
 
 ## Events the bundle listens to
 
@@ -78,26 +48,24 @@ This bundle doesn't send out any requests.
     <th>Event</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>tbd</td><td>tbd</td>
+    <td>`AfterMapLayerRemoveEvent`</td>
+    <td>Refreshes the Flyout</td>
+  </tr>
+  <tr>
+    <td>`AfterMapLayerAddEvent`</td>
+    <td>Refreshes the Flyout</td>
+  </tr>
+  <tr>
+    <td>`AfterChangeMapLayerStyleEvent`</td>
+    <td>Refreshes the Flyout</td>
+  </tr>
+  <tr>
+    <td>`MapLayerEvent`</td>
+    <td>Refreshes the Flyout</td>
   </tr>
 </table>
-
-OR
-
-This bundle doesn't listen to any events.
 
 ## Events the bundle sends out
-
-<table class="table">
-  <tr>
-    <th>Event</th><th>Why/when</th>
-  </tr>
-  <tr>
-    <td>tbd</td><td>tbd</td>
-  </tr>
-</table>
-
-OR
 
 This bundle doesn't send out any events.
 
@@ -108,10 +76,13 @@ This bundle doesn't send out any events.
     <th>Dependency</th><th>Linked from</th><th>Purpose</th>
   </tr>
   <tr>
-    <td>[Library name](#link)</td><td>src where its linked from</td><td>*why/where we need this dependency*</td>
+    <td> [jQuery](http://api.jquery.com/) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
+    <td> Used to create the component UI from begin to end</td>
+  </tr>
+  <tr>
+    <td> `divmanazer` </td>
+    <td> Assumes to be present in the application setup</td>
+    <td> Used to create the Flyout and the Tile</td>
   </tr>
 </table>
-
-OR
-
-This bundle doesn't have any dependencies.

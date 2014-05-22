@@ -13,23 +13,9 @@
 
 Adds support for analysis layers. The analysisLayerPlugin needs to be registered for the map in order to visualize analysis layers
 
-
-## TODO
-
-* Real functionality for visualization after the analyse storage is available
-
-## Screenshot
-
-![screenshot](/images/bundles/mapanalysis.png)
-
 ## Bundle configuration
 
-```javascript
-config : {
-  ajaxUrl : [url]
-}
-```
-* ajaxUrl defaults to sandbox.getAjaxUrl() + 'action_route=Get?'.
+No configuration is required.
 
 ## Bundle state
 

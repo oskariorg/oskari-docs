@@ -99,11 +99,7 @@ This bundle doesn't send any events.
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-  </tr>
-  <tr>
     <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
-  </tr>
-  <tr>
     <td> Used to create the UI</td>
   </tr>
 </table>
