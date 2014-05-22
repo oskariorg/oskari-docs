@@ -57,7 +57,7 @@ This bundle doesn't send out any requests.
   </tr>
   <tr>
     <td>`BackendStatus.BackendStatusChangedEvent`</td>
-    <td>Sends the event when the status of a map layer has changed or if it's status is 'DOWN'</td>
+    <td>Sends the event when the status of a map layer has changed or if it's status is 'DOWN'. If the number of changed layers exceeds 100, sends a "bulk update" instead of single ones.</td>
   </tr>
 </table>
 
