@@ -10,7 +10,7 @@ The button component is defined in divmanazer bundle and provides a generic butt
 
 ## How to use
 
-Creates a button with label "Alert" and binds a handler to it that shows an alert when clicked. addClass('primary') makes it visually a "primary" button == blue.
+Creates a button with label "Alert" and binds a handler to it that shows an alert when clicked. `addClass('primary')` makes it visually a "primary" button (colored blue).
 
 ```javascript
 var alertBtn = Oskari.clazz.create('Oskari.userinterface.component.Button');
@@ -42,7 +42,7 @@ alertBtn.destroy();
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end</td>
   </tr>
 </table>

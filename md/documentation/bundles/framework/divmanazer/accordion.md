@@ -50,9 +50,4 @@ accordion.insertTo(someContainer);
     <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end</td>
   </tr>
-  <tr>
-    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
-    <td> Expects to be present in application setup </td>
-    <td> Used extensively</td>
-  </tr>
 </table>
