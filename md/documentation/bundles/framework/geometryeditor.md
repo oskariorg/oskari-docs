@@ -13,8 +13,6 @@
 
 The bundle provides tools for geometry editing. Currently supported functionality includes line splitting with two markers and area splitting by another area or by dividing lines.
 
-## Usage
-
 ## Screenshot
 
 ![screenshot](/images/bundles/geometryeditor.png)
