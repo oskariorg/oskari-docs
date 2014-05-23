@@ -12,13 +12,13 @@ This plugin adds an indexmap for the map it is registered to.
 
 ## Screenshot
 
-## Closed
-
 ![closed](/images/bundles/indexmap_closed.png)
 
-## Open
+Closed
 
 ![open](/images/bundles/indexmap_open.png)
+
+Open
 
 ## Bundle configuration
 

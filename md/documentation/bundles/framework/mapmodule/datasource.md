@@ -8,7 +8,7 @@
 
 ## Description
 
-''Renders a pop-up that contains a list of data providers based on selected layers.''
+Renders a pop-up that contains a list of data providers based on selected layers.
 
 
 ## Screenshot
