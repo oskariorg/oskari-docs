@@ -57,7 +57,7 @@
 
 - [GetFeatureInfoWMS](/documentation/backend/actionroutes/getfeatureinfowms)
 - [GetSearchResult](/documentation/backend/actionroutes/getsearchresult)
-- [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/GetGeoLocatorSearchResult)
+- [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/getGeoLocatorSearchResult)
 - [GetSotkaData](/documentation/backend/actionroutes/getsotkadata)
 - GetFeatureDataXML
 - GetInspireThemes
