@@ -32,23 +32,27 @@ Each data column has a menu from where the user can filter the values in the gri
 
 ## Bundle configuration
 
-Enabling tile:
+* `defaultLayerId` is optional, the first registered layer of type `statslayer` will be used if not configured
+* `tileClazz` is optional and will add a tile to menu for easier access if configured
+* `sandbox` is optional, uses the default sandbox if not configured
+
 ```javascript
-config : {
-  "tileClazz": "Oskari.statistics.bundle.statsgrid.Tile",
-  "defaultLayerId": 274
+"config" : {
+    "name" : "StatsGrid",
+    "sandbox" : "sandbox",
+    "stateful" : true,
+    "tileClazz" : "Oskari.statistics.bundle.statsgrid.Tile",
+    "viewClazz" : "Oskari.statistics.bundle.statsgrid.StatsView"
+    "defaultLayerId": 274
 }
 ```
 
-* defaultLayerId is optional, first registered layer of type 'STATS' will be used if not configured
-* tileClazz is optional and will add a tile to menu for easier access if configured
-
 Configuration for `ManageStatsPlugin`:
 ```javascript
-config : {
-  state : "<following keys are the same as in bundle state: layerId, indicators, currentColumn (optional, defaults to an empty object)>",
-  layer : "<id of the layer where the visualizations should be applied to (optional, defaults to null)>",
-  published : "<true for a published map so the indicators selection is not included (optional, defaults to false)>"
+"config" : {
+  "state" : <following keys are the same as in bundle state: layerId, indicators, currentColumn (optional, defaults to an empty object)>,
+  "layer" : <id of the layer where the visualizations should be applied to (optional, defaults to null)>,
+  "published" : <true for a published map so the indicators selection is not included (optional, defaults to false)>
 }
 ```
 
