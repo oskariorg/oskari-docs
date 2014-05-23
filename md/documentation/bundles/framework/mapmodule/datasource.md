@@ -58,7 +58,7 @@ This bundle doesn't send out any events.
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the UI and to sort the layers</td>
   </tr>
   <tr>

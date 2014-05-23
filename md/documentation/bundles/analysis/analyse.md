@@ -1,8 +1,8 @@
-q# Analyse
+# Analyse
 
 <table class="table">
   <tr>
-    <td>ID</td><td>analyse</td>
+    <td>ID</td><td>`analyse`</td>
   </tr>
   <tr>
     <td>API</td><td>[link here](<%= apiurl %>link/here)</td>
@@ -11,12 +11,7 @@ q# Analyse
 
 ## Description
 
-Bundle manages analyse parameter and data setups, requests analyse execute actions and stores analyse results to DB through backend action route
-
-
-## TODO
-
-* ONLY parameter adn data setup management is finalized 
+Bundle manages analyse parameter and data setups, requests analyse execute actions and stores analyse results to DB through backend action route.
 
 ## Screenshot
 
@@ -24,16 +19,9 @@ Bundle manages analyse parameter and data setups, requests analyse execute actio
 
 ## Bundle configuration
 
-Configuration for `/analyse/instance`:
-```javascript
-config : {
-  state : "<not yet designed>"
-}
-```
+No configuration is required.
 
 ## Bundle state
-
-* NOT YET designed/implemented
 
 ```javascript
 state : {
@@ -53,7 +41,7 @@ state : {
     <th>Request</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>analyse.AnalyseRequest</td><td>NOT YET implemented</td>
+    <td>`analyse.AnalyseRequest`</td><td>*NOT IMPLEMENTED YET*</td>
   </tr>
 </table>
 
@@ -64,43 +52,47 @@ state : {
     <th>Request</th><th>Why/when</th>
   </tr>
   <tr>
-    <td>userinterface.AddExtensionRequest</td><td>Extends the basic UI view.</td>
+    <td>`userinterface.AddExtensionRequest`</td><td>Extends the basic UI view.</td>
   </tr>
 </table>
 
-### StartAnalyse
+### Analyse view
 
 <table class="table">
   <tr>
     <th>Request</th><th>Why/when</th>
   </tr>
   <tr>
-    <td>userinterface.UpdateExtensionRequest</td><td>Extends the basic UI view.</td>
+    <td>`userinterface.UpdateExtensionRequest`</td><td>Extends the basic UI view.</td>
   </tr>
   <tr>
-    <td>catalogue.ShowMetadataRequest</td><td>layer metadata info request</td>
+    <td>`catalogue.ShowMetadataRequest`</td><td>layer metadata info request</td>
   </tr>
   <tr>
-    <td>DisableMapKeyboardMovementRequest</td><td>for text input in flyout</td>
+    <td>`DisableMapKeyboardMovementRequest`</td><td>for text input in flyout</td>
   </tr>
   <tr>
-    <td>EnableMapKeyboardMovementRequest</td><td>for text input in flyout</td>
+    <td>`EnableMapKeyboardMovementRequest`</td><td>for text input in flyout</td>
   </tr>
 </table>
 
-### Plugins (not yet implemented)
-
-
-
-## Events the bundle listens to  (not all events yet)
+## Events the bundle listens to
 
 <table class="table">
   <tr>
     <th>Event</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>userinterface.ExtensionUpdatedEvent</td>
+    <td>`userinterface.ExtensionUpdatedEvent`</td>
     <td>Enters/exits the analysis mode.</td>
+  </tr>
+  <tr>
+    <td>`AfterMapLayerAddEvent`</td>
+    <td>Refreshes the data panel</td>
+  </tr>
+  <tr>
+    <td>`AfterMapLayerRemoveEvent`</td>
+    <td>Refreshes the data panel</td>
   </tr>
 </table>
 
@@ -118,18 +110,23 @@ state : {
     <th>Dependency</th><th>Linked from</th><th>Purpose</th>
   </tr>
   <tr>
-    <td> [OpenLayers](http://openlayers.org/) </td>
-    <td> Expects OpenLayers already to be linked </td>
-    <td> To modify map</td>
+    <td> [jQuery](http://api.jquery.com/) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
+    <td> Used to create the UI</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html)</td>
+    <td> [OpenLayers](http://openlayers.org/) </td>
+    <td> Expects OpenLayers already to be linked </td>
+    <td> Temp feature drawing and selected geometry editing</td>
+  </tr>
+  <tr>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule)</td>
     <td> Expects to be present in the application setup </td>
     <td> To gain control to OpenLayers map</td>
   </tr>
   <tr>
-    <td> [Oskari mapstats](<%= docsurl %>framework/mapanalysis.html)</td>
+    <td> [Oskari mapanalysis](/documentation/bundles/framework/mapanalysis)</td>
     <td> Expects to be present in the application setup</td>
-    <td> Needed to support the STATS layer type.</td>
+    <td> Needed to support the ANALYSIS layer type.</td>
   </tr>
 </table>
