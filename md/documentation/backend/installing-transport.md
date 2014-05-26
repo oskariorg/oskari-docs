@@ -32,8 +32,8 @@ Just populate the database:
 ## 3. Compile
 
 * Go to `oskari-server`
-* You may need to change `config.properties` under `/transport` OR add a 'transport-ext.properties' file with the properties you need on your own environment to override the defaults.
-* Compile the transport service with `mvn clean install -f transport-pom.xml` or `mvn clean install -f transport-pom.xml -DskipTests`
+* You may need to change `config.properties` under `/transport` OR add a `transport-ext.properties` file with the properties you need on your own environment to override the defaults.
+* Compile the transport service with `mvn clean install -f transport-pom.xml` (add `-DskipTests` in case you don't want the tests run)
 * Start the jetty service with `mvn jetty:run` or use other jetty installation (`cd {jetty.home}/bin && java -jar start.jar`)
 
 With the default settings you now have:

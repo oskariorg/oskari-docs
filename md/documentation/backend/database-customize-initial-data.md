@@ -7,7 +7,7 @@
 * database available: [Instructions for setting up database](/documentation/backend/database-create)
 * existing development environment: [Instructions](/documentation/backend/server-embedded-developer)
 
-## 1. Recreating database
+## 1. Recreating the database
 
 The database is created by default when the server is first called. The database content can be recreated without dropping the database
 using the same method that is used by the servlet.
@@ -28,7 +28,7 @@ Database connection params defined in `<work-dir>/oskari-server/content-resource
     cd <work-dir>/oskari-server/content-resources
     mvn clean exec:java -Doskari.dropdb=true
 
-##### NOTE! When modifying SQL files: all comment lines need to end with ; character or the next SQL statement will not be run! SQL files are parsed by splitting with ; character at the moment.
+***NOTE! When modifying SQL files: all comment lines need to end with ; character or the next SQL statement will not be run! SQL files are parsed by splitting with ; character at the moment.***
 
 ## 2. Customizing data
 
@@ -43,7 +43,7 @@ Examples for adding a layer of type:
 - WMTS in `/oskari-server/content-resources/src/main/resources/sql/nlsfi-background-map-wmtslayer.sql`.
 - WFS in `/oskari-server/content-resources/src/main/resources/sql/PostgreSQL/example-wfslayer.sql`.
 
-Layers have reference to a layer group (oskari_layergroup db-table) which currently means the data producer,
+Layers have reference to a layer group (`oskari_layergroup` db-table) which currently means the data producer,
 but it might become a more generic grouping table in the future. They also can have a link to a list of inspire themes
 (themes listed in portti_inspiretheme, links to maplayers via oskari_maplayer_themes).
 
@@ -63,4 +63,4 @@ To use another setup file for example `app-parcel` run:
     cd <work-dir>/oskari-server/content-resources
     mvn compile exec:java -Doskari.dropdb=true -Doskari.setup=app-parcel
 
-For more thorough documentation about setup-files see [DB populator documentation](https://github.com/nls-oskari/oskari-server/blob/master/content-resources/README.md)
+For more thorough documentation about setup-files see [DB populator documentation](/documentation/backend/database-populate)

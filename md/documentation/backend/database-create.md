@@ -22,7 +22,7 @@ The database will be prepopulated when the oskari-server is called for the first
 
 To learn how to populate the database with your own content instead of demo content
 see:
-* [Instructions for modifying the initial demo data](/documentation/backend/modifying-initial-data)
+* [Instructions for modifying the initial demo data](/documentation/backend/database-customize-initial-data)
 * [Documentation for DB populator](/documentation/backend/database-populate)
 
 

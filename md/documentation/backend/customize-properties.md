@@ -19,7 +19,6 @@ Examples:
 
     # true all ssl certs/hosts for debugging! configure certs on the server for production
     oskari.trustAllCerts=true
-    # true all ssl certs/hosts for debugging! configure certs on the server for production
     oskari.trustAllHosts=true
 
     # url path to call for ajax requests/action routes

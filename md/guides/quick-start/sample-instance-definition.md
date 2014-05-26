@@ -1,11 +1,14 @@
 # Sample definition for a bundle instance file
 
-The `instance.js` file is usually responsible for creating all the classes a bundle might need during its lifetime and also for registering the bundle to the sandbox to be able to listen to events.
+The `instance.js` file is usually responsible for creating all the classes a bundle might need during its lifetime, registering possible request handlers and registering the bundle to the sandbox to be able to listen to events.
+
+By extending `DefaultExtension` you can forget the nitty gritty details and can focus on writing the application logic instead. All the functions can be overridden though should you need to do something differently (in the example below, we override the `getName` function as it returns the name from config by default). Refer to the [API documentation](/api/latest/) to see all the functions of `DefaultExtension`.
+
+***NOTE!*** *Function `afterStart` was added in version* ***1.21.***
 
 ```javascript
 /**
- * This bundle demonstrates how bundle can react to events by 
- * registering itself to sandbox as a module.
+ * This bundle logs the map click coordinates to the console. This is a demonstration of using DefaultExtension.
  *
  * @class Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundleInstance
  */
@@ -14,9 +17,9 @@ Oskari.clazz.define('Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundleIns
  * @method create called automatically on construction
  * @static
  */
-function() {
-    this.sandbox = null;
-    this.enabled = true;
+function () {
+    // Best practice is to initialize instance variables here.
+    this.myVar = undefined;
 }, {
     /**
      * @static
@@ -28,87 +31,55 @@ function() {
      *
      * @method getName
      */
-    getName : function() {
+    getName : function () {
         return this.__name;
     },
-    /**
-     * BundleInstance protocol method
-     *
-     * @method update
-     */
-    update : function() {},
-    /**
-     * BundleInstance protocol method
-     *
-     * @method start
-     */
-    start : function() {
-        var conf = this.conf,
-            sandboxName = ( conf ? conf.sandbox : null ) || 'sandbox',
-            sandbox = Oskari.getSandbox(sandboxName);
-
-        this.sandbox = sandbox;
-        // register to sandbox as a module
-        sandbox.register(this);
-    },
-    /**
-     * Module protocol method
-     *
-     * @method init
-     */
-    init : function() {
-        // headless module so nothing to return
-        return null;
-    },
-    /**
-     * @static
-     * @property eventHandlers
-     */
-    eventHandlers : {
-        '<mynamespace>.MyEvent' : function (event) {
-            // do something with the event
+    eventHandlers: {
+        'MapClickedEvent': function (event) {
+            console.log('Map clicked at', event.getLonLat());
         }
     },
     /**
-     * Module protocol method/Event dispatch
-     *
-     * @method onEvent
-     */
-    onEvent : function(event) {
-        var handler = this.eventHandlers[event.getName()];
-        if (handler) return handler.apply(this, [event]);
-    },
-    /**
-     * BundleInstance protocol method
-     *
-     * @method stop
-     */
-    stop : function() {
-        // unregister module from sandbox
-        this.sandbox && this.sandbox.unregister(this);
-    },
-    /**
-     * Convenience method to call from Tile and Flyout
-     * Returns JSON presentation of bundles localization data for current language.
-     * If key-parameter is not given, returns the whole localization data.
+     * DefaultExtension method for doing stuff after the bundle has started.
      * 
-     * @method getLocalization
-     * @param {String} key (optional) if given, returns the value for key
-     * @return {String/Object} returns single localization string or
-     *      JSON object for complete data depending on localization
-     *      structure and if parameter key is given
+     * @method afterStart
      */
-    getLocalization : function(key) {
-        if (!this._localization) {
-            this._localization = Oskari.getLocalization(this.getName());
-        }
-        if (key) {
-            return this._localization[key];
-        }
-        return this._localization;
+    afterStart: function (sandbox) {
+        console.log('Bundle', this.getName(), 'started');
+        this.myVar = 'foobar';
     }
 }, {
-    protocol : [ 'Oskari.bundle.BundleInstance', 
-                 'Oskari.mapframework.module.Module']
+    "extend" : ["Oskari.userinterface.extension.DefaultExtension"]
 });
+
+```
+
+If you're using version 1.20 or below, replace the `afterStart` function with following:
+
+```javascript
+start: function () {
+    var conf = this.conf,
+        sandboxName = (conf ? conf.sandbox : null) || 'sandbox',
+        sandbox = Oskari.getSandbox(sandboxName),
+        request;
+
+    this.sandbox = sandbox;
+    /* Register to sandbox in order to be able to listen to events */
+    sandbox.register(this);
+
+    /* Register as stateful if configured so */
+    if (conf && conf.stateful === true) {
+        sandbox.registerAsStateful(this.mediator.bundleId, this);
+    }
+
+    /* Add extensions (Tile, Flyout, View). */
+    /* Localization should have keys 'tile', 'flyout' and 'view' to start these, respectively. */
+    /* Missing key means no extension for you. */
+    request = sandbox.getRequestBuilder('userinterface.AddExtensionRequest');
+    sandbox.request(this, request(this));
+
+    /* Necessities done, let's get to business */
+    console.log('Bundle', this.getName(), 'started');
+    this.myVar = 'foobar';
+}
 ```

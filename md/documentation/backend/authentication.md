@@ -1,6 +1,6 @@
 # Authentication in oskari-server
 
-This document describes how to setup a authentication for oskari-server.
+This document describes how to setup an authentication for oskari-server.
 
 ## Database based custom authentication
 

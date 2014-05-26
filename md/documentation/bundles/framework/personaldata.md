@@ -15,7 +15,7 @@ The bundle lists user's account information and saved data in the application. C
 
 ![Personal data](/images/bundles/personaldata.png)
 
-*Here shown with added tabs by `statistics/statsgrid`, `analysis/analyse` and `myplacesimport` bundles*
+*Here shown with tabs added by `statistics/statsgrid`, `analysis/analyse` and `myplacesimport` bundles*
 
 ## TODO
 

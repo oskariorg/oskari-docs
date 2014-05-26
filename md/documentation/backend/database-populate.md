@@ -14,7 +14,7 @@ After the database connection parameters have been configured the database can b
     mvn clean install exec:java -Doskari.dropdb=true
 
 **NOTE!** `oskari.dropdb=true` doesn't actually mean that the DB is dropped as is. The DB handler checks at the beginning if the DB has any tables it recognizes.
-If tables exist the setup file is **NOT** run. The setup file can be *FORCED* to run with `oskari.dropdb=true`. Setup files *CAN* drop DB tables so it's important to know what you are doing, hence the  safety measure.
+If tables exist the setup file is **NOT** run. The setup file can be *FORCED* to run with `oskari.dropdb=true`. Setup files ***CAN*** drop DB tables so it's important to know what you are doing, hence the  safety measure.
 
 ## Setup files
 
@@ -54,7 +54,7 @@ After that the bundle config/startup/state is overwritten with the value in the 
 Array of generic sql statements to add map layers/permissions and other content.
 These are similar to the ones in create-step but now we can assume tables are created, bundles are registered and views created.
 
-# Adding a new view
+## Adding a new view
 
 Views can be added without running whole setup-files. Add a postgres sample view with the following command:
 

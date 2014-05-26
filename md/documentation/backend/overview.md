@@ -4,11 +4,11 @@
 
 The `oskari-server` repository contains Java backend used by [Oskari](https://github.com/nls-oskari/oskari) javascript framework. The backend is modularized and tiered into
 different types of Maven modules:
-* HTTP API tier: webapps, servlets (also portlets in oskari-liferay repository)
+* HTTP API tier: webapps, servlets (also portlets in `oskari-liferay` repository)
 * Control tier: maps HTTP requests into service/database calls.
 * Service tier: component libraries usable in other contexts as well and used by control tier to form a response.
 
-These are described more thoroughly [architecture components](/documentation/architecture/components)
+These are described more thoroughly in [architecture components](/documentation/architecture/components) document.
 
 The repository also contains standalone Jetty runner module `standalone-jetty` to embed the backend functionality into single runnable JAR-file. In addition a module `webapp-map`
 is provided to generate a `war` package with servlet handling the basic map backend functionality and its dependencies so that one can deploy the web application to an

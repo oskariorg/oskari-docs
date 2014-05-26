@@ -36,8 +36,7 @@ Oskari backend maps ajax services to specific handler classes based on a http pa
 
 
 
-Adding your own view modifiers for GetAppSetup action route
---
+## Adding your own view modifiers for GetAppSetup action route
 
 If the Oskari application view loaded from database needs to be modified based on request parameters, it can be done by implementing a `fi.nls.oskari.control.view.modifier.param.ParamHandler`. This can be used to modify startupsequence and bundle configurations. For example http parameter coords modifies the mapfull configuration so that map location is changed based on the parameter value.
 
