@@ -11,6 +11,8 @@ an open/close button.
 
 ## Screenshot
 
+*Example use from `publisher` bundle*
+
 ![screenshot](/images/bundles/accordion.png)
 
 ## How to use
@@ -19,17 +21,22 @@ an open/close button.
 
 ```javascript
 var accordion = Oskari.clazz.create('Oskari.userinterface.component.Accordion');
-var panels = [];
-for (var i = 0; i < this.panelData.length; i++) {
-  var panel = null;
+var panelData = [
+  {title: 'A panel', content: 'Example panel', isVisible: true, isOpen: true},
+  {title: 'Another panel', content: 'Example panel', isVisible: true, isOpen: false}
+];
+var panel;
+var i = 0;
+
+for (; i < panelData.length; i++) {
   panel = Oskari.clazz.create('Oskari.userinterface.component.AccordionPanel');
-  panel.setTitle(this.panelData[i].title);
-  panel.setContent(this.panelData[i].content);
-  panel.setVisible(this.panelData[i].isVisible);
-  this.panelData[i].isOpen ? panel.open() : panel.close();
+  panel.setTitle(panelData[i].title);
+  panel.setContent(panelData[i].content);
+  panel.setVisible(panelData[i].isVisible);
+  panelData[i].isOpen ? panel.open() : panel.close();
   accordion.addPanel(panel);
 }
-accordion.insertTo(someContainer.find('div.accordion'));
+accordion.insertTo(someContainer);
 ```
 
 ## Dependencies
@@ -40,12 +47,7 @@ accordion.insertTo(someContainer.find('div.accordion'));
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end</td>
-  </tr>
-  <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
-    <td> Expects to be present in application setup </td>
-    <td> Used extensively</td>
   </tr>
 </table>

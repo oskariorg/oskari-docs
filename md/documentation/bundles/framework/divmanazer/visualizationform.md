@@ -4,6 +4,10 @@
 
 Creates ui and functionality to define geometry visualizations for eg. my places bundle.
 
+## Screenshot
+
+![Form](/images/bundles/visualization-form_2.png)
+
 ## Usage
 
 Class creation (parameters are discussed below):
@@ -115,12 +119,7 @@ formValues: {
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end</td>
-  </tr>
-  <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
-    <td> Expects to be present in application setup </td>
-    <td> Used extensively</td>
   </tr>
 </table>

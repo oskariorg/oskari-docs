@@ -12,12 +12,6 @@ This plugin provides a maplayer selection "dropdown" on top of the map.
 
 ## Screenshot
 
-## Closed
-
-![closed](/images/bundles/layerselection_closed.png)
-
-## Open
-
 ![open](/images/bundles/layerselection_open.png)
 
 ## Bundle configuration

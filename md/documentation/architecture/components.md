@@ -4,11 +4,11 @@
 
 There are three different web applications for Oskari backend functionality at the moment:
 
-* `servlet-map` is the basis for Oskari backend functionality. It produces the map pages and handles AJAX requests.
+* `webapp-map` is the basis for Oskari backend functionality. It produces the map pages and handles AJAX requests.
 * `servlet-printout` handles PDF/PNG print functionalities and print preview images.
 * `transport` handles most of the WFS operations.
 
-The backend components are layered as services, controls, interfaces (though only `servlet-map` uses this extensively at the moment).
+The backend components are layered as services, controls, interfaces (though only `webapp-map` uses this extensively at the moment).
 
 ![Component layers](/images/architecture/components.png)
 
@@ -45,6 +45,7 @@ Functions:
 The interface-modules build on top of the control-modules. Basically an HTTP interface with reference implementations for:
 
 * HTTP Servlet: `oskari-server/servlet-map`
+* Webapp: `oskari-server/webapp-map`
 * Portlet: `oskari-liferay/portlet-map-example` (deployable to Liferay Portal)
 
 Responsible for:
@@ -93,23 +94,23 @@ Responsible for:
 * Browser
     * Oskari frontend
 
-* viuhtidmztu - proxy
+* Proxy server
     * HAProxy
     * Apache
 
-* nipsutu01/02 - Oskari-map
+* Application servers - Oskari-map
     * Tomcat/Liferay
     * Jetty/Geoserver
 
-* solmudmztu
+* dmz
     * Jetty/Transport
     * Redis
 
-* viljonkkatu01/02
+* Services
     * Jetty/Printout
     * Redis
 
-* niiskutu01
+* Database server
     * Postgres/Database
 
 ### Case ELF (front-servlet-postgresql)

@@ -17,7 +17,7 @@ The maplayer needs to be registered as a resource for permissions db (since the 
 ### oskari_resource
 
     | resource_type | resource_mapping              |
-    | --------------|:-----------------------------:|
+    |---------------|-------------------------------|
     | maplayer      | http://www.oskari.org+oskari  |
 
 
@@ -30,7 +30,7 @@ After the layer has been added as a resouce we need to map the actual permission
 ### oskari_permission
 
     | oskari_resource_id | permission    | external_type | external_id |
-    | -------------------|:-------------:|:-------------:|:-----------:|
+    |--------------------|---------------|---------------|-------------|
     | 1                  | EDIT_LAYER    | ROLE          | 10110       |
 
 
@@ -57,13 +57,13 @@ Adding layers is currently a generic permission (not mapped to data producer or 
 ### oskari_resource
 
     | resource_type | Resource_mapping              |
-    | --------------|:-----------------------------:|
+    |---------------|-------------------------------|
     | Bundle        | generic-functionality         |
 
 ### oskari_permission
 
     | oskari_resource_id | permission    | external_type | external_id |
-    | -------------------|:-------------:|:-------------:|:-----------:|
+    |--------------------|---------------|---------------|-------------|
     | 2                  | ADD_MAPLAYER  | ROLE          | 10110       |
 
 

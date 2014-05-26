@@ -31,6 +31,7 @@
 - [GetWSFDescribeFeature](/documentation/backend/actionroutes/GetWSFDescribeFeature)
 - [GetMapLayerClasses](/documentation/backend/actionroutes/getMapLayerClasses)
 - [GetAnalysisLayers](/documentation/backend/actionroutes/getAnalysisLayers)
+- [GetUserLayers](/documentation/backend/actionroutes/getUserLayers)
 - GetWmsServices
 - [SaveLayer](/documentation/backend/actionroutes/saveLayer)
 - [SaveOrganization](/documentation/backend/actionroutes/saveOrganization)
@@ -56,6 +57,7 @@
 
 - [GetFeatureInfoWMS](/documentation/backend/actionroutes/getfeatureinfowms)
 - [GetSearchResult](/documentation/backend/actionroutes/getsearchresult)
+- [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/getGeoLocatorSearchResult)
 - [GetSotkaData](/documentation/backend/actionroutes/getsotkadata)
 - GetFeatureDataXML
 - GetInspireThemes
@@ -79,3 +81,7 @@ GetProxyRequest
 ## ANALYSIS
 
 - [CreateAnalysisLayer](/documentation/backend/actionroutes/createanalysislayer)
+
+## USERLAYER (data import)
+
+- [CreateUserLayer](/documentation/backend/actionroutes/createauserlayer)

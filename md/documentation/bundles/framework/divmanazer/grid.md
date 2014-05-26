@@ -15,18 +15,23 @@ A GridModel is a simple data container that keeps track of key fields and provid
 
 ```javascript
 var gridModel = Oskari.clazz.create('Oskari.userinterface.component.GridModel');
+var grid = Oskari.clazz.create('Oskari.userinterface.component.Grid');
+var idRenderer = function(id, data) {
+  // set what happens when the 'id' field is clicked
+  var idLink = jQuery('<span class="idlink">' + id '</span>');
+  idLink.bind('click', function() {
+    showDetails(data);
+    return false;
+  });
+  return idLink;
+};
+
 for (var i = 0; i < dataArray.length; ++i) {
   gridModel.addData(dataArray[i]);
 }
 gridModel.setIdField('id');
-var grid = Oskari.clazz.create('Oskari.userinterface.component.Grid');
 grid.setDataModel(gridModel);
-grid.setVisibleFields([ 'id, 'afield', 'anotherfield' ]);
-var idRenderer = function(id, data) {
-  var idLink = jQuery('<span class="idlink">' + id '</span>');
-  idLink.bind('click', function() { showDetails(id); return false; });
-  return idLink;
-};
+grid.setVisibleFields([ 'id', 'afield', 'anotherfield' ]);
 grid.setColumnValueRenderer('id', idRenderer);
 grid.setColumnUIName('afield', localisations.afield);
 grid.setColumnUIName('anotherfield', localisations.anotherfield);
@@ -41,12 +46,7 @@ grid.renderTo(someElement);
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end</td>
-  </tr>
-  <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
-    <td> Expects to be present in application setup </td>
-    <td> Used extensively</td>
   </tr>
 </table>

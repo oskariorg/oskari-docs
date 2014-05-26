@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>ID</td><td>divmanazer</td>
+    <td>ID</td><td>`divmanazer`</td>
   </tr>
   <tr>
     <td>API</td><td>[link](<%= apiurl %>Oskari.userinterface.bundle.ui.UserInterfaceBundleInstance.html)</td>
@@ -13,9 +13,25 @@
 
 Manages menutiles, flyouts and other UI related funtionalities for other bundles to use. Also provides UI components. The tiles are rendered to a HTML element with id "menubar". The bundle doesn't create it but assumes it exists on the page.
 
+Bundle also includes extensions for bundle instance, flyout, tile, layout and view. Other Oskari classes can extend these to avoid writing tons of boilerplate code:
+
+```javascript
+Oskari.clazz.define(
+'Oskari.myframework.bundle.mybundle.MyBundleInstance',
+function () {
+    // constructor function
+}, {
+    // the methods of the bundle
+}, {
+    "extend": ["Oskari.userinterface.extension.DefaultExtension"]
+});
+```
+
+A full example can be found [here](https://github.com/nls-oskari/oskari/blob/master/bundles/framework/bundle/myplacesimport/instance.js).
+
 ## TODO
 
-Document divmanazer basics, JSAPI, deps
+* Make the element id where the tiles are rendered configurable
 
 ## Screenshot
 
@@ -23,19 +39,11 @@ Document divmanazer basics, JSAPI, deps
 
 ## Bundle configuration
 
-```javascript
-{JSON : config}
-```
-
-OR
-
 No configuration is required.
 
 ## Bundle state
 
-```javascript
-{JSON : state}
-```
+No state handling has been implemented.
 
 ## Requests the bundle handles
 
@@ -44,43 +52,9 @@ No configuration is required.
     <th>Request</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>ModalDialogRequest</td><td>*Pops up a modal dialog*</td>
+    <td>`userinterface.ModalDialogRequest`</td><td>*Pops up a modal dialog*</td>
   </tr>
 </table>
-
-```javascript
-var ok = {
-  name : "ok",
-  text : "Ok",
-  close : true,
-  onclick : function() { /* ... */ }
-};
-
-var cancel = {
-  name : "cancel",
-  text : "No",
-  close : false,
-  onclick : function() {
-    alert("Please say yes.");
-    if (phase_of_moon === just_right) {
-      $.modal.close();
-    }
-  }
-};
-
-var onShow = function(dialog) {
-  if ($.dontshowmodaldialogs) {
-    dialog.close();
-  }
-}
-
-var buttons = [ ok, cancel ];
-var title = "Click ok";
-var msg = "Lorem ipsum"
-var reqName = 'userinterface.ModalDialogRequest';
-var reqBuilder = sandbox.getRequestBuilder(reqName);
-var req = reqBuilder(title, msg, buttons, onShow);
-```
 
 ## Requests the bundle sends out
 
@@ -126,8 +100,8 @@ This bundle doesn't send any events.
     <th>Dependency</th><th>Linked from</th><th>Purpose</th>
   </tr>
   <tr>
-    <td>Library name</td>
-    <td>src where its linked from</td>
-    <td>*why/where we need this dependency*</td>
+    <td> [jQuery](http://api.jquery.com/) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
+    <td> Used to create the component UI from begin to end</td>
   </tr>
 </table>

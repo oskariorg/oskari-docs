@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>ID</td><td>infobox</td>
+    <td>ID</td><td>`infobox`</td>
   </tr>
   <tr>
     <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.infobox.InfoBoxBundleInstance.html)</td>
@@ -49,10 +49,10 @@ state : {
     <th>Request</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td> InfoBox.ShowInfoBoxRequest </td><td> Infobox is opened on given location and with given content based on request data</td>
+    <td> `InfoBox.ShowInfoBoxRequest` </td><td> Infobox is opened on given location and with given content based on request data</td>
   </tr>
   <tr>
-    <td> InfoBox.HideInfoBoxRequest </td><td> Infobox is removed - single box if id is given or all if not specified</td>
+    <td> `InfoBox.HideInfoBoxRequest` </td><td> Infobox is removed - single box if id is given or all if not specified</td>
   </tr>
 </table>
 
@@ -76,7 +76,7 @@ This bundle doesn't send out any events.
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end </td>
   </tr>
   <tr>

@@ -16,11 +16,7 @@ Adds support for statistics layers. The StatsLayerPlugin needs to be registered 
 
 ## TODO
 
-* ''Remove hard-coded properties, e.g. kuntakoodi.''
-
-## Screenshot
-
-![screenshot](/images/bundles/mapstats.png)
+* Remove hard-coded properties, e.g. `kuntakoodi`.
 
 ## Bundle configuration
 

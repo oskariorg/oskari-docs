@@ -11,7 +11,7 @@
 
 ## Description
 
-Bundle fetches data from the SotkaNET statistics and indicator bank (www.sotkanet.fi) and displays the data in a grid and visualizes it on the map. Users can select different indicators from a menu and classify the data in multiple ways, including specifying class breaks by hand (manual breaks).
+Bundle fetches data from the [SOTKAnet](http://uusi.sotkanet.fi/portal/page/portal/etusivu) statistics and indicator bank and displays the data in a grid and visualizes it on the map. Users can select different indicators from a menu and classify the data in multiple ways, including specifying class breaks by hand (manual breaks).
 
 The grid and the classifier are initialized as plugins so they can be used individually as well. They both use the StatisticsService to send events and make the actual AJAX calls to fetch the data.
 
@@ -21,6 +21,10 @@ Select hilighted mode: selected regions (map) are also selected in the grid.
 
 Each data column has a menu from where the user can filter the values in the grid and on the map. Filtering is possible based on values (equals, greater than etc.) or regions (at the moment regions from the SOTKANet service are supported. Refer to the REST API documentation [here](http://uusi.sotkanet.fi/portal/pls/portal/!PORTAL.wwpob_page.show?_docname=26001.HTML) (only in Finnish)).
 
+## Screenshot
+
+![Statsgrid](/images/bundles/statsgrid.png)
+
 ## TODO
 
 * remove hilighted borders when going away from select hilighted mode
@@ -28,23 +32,27 @@ Each data column has a menu from where the user can filter the values in the gri
 
 ## Bundle configuration
 
-Enabling tile:
+* `defaultLayerId` is optional, the first registered layer of type `statslayer` will be used if not configured
+* `tileClazz` is optional and will add a tile to menu for easier access if configured
+* `sandbox` is optional, uses the default sandbox if not configured
+
 ```javascript
-config : {
-  "tileClazz": "Oskari.statistics.bundle.statsgrid.Tile",
-  "defaultLayerId": 274
+"config" : {
+    "name" : "StatsGrid",
+    "sandbox" : "sandbox",
+    "stateful" : true,
+    "tileClazz" : "Oskari.statistics.bundle.statsgrid.Tile",
+    "viewClazz" : "Oskari.statistics.bundle.statsgrid.StatsView"
+    "defaultLayerId": 274
 }
 ```
 
-* defaultLayerId is optional, first registered layer of type 'STATS' will be used if not configured
-* tileClazz is optional and will add a tile to menu for easier access if configured
-
 Configuration for `ManageStatsPlugin`:
 ```javascript
-config : {
-  state : "<following keys are the same as in bundle state: layerId, indicators, currentColumn (optional, defaults to an empty object)>",
-  layer : "<id of the layer where the visualizations should be applied to (optional, defaults to null)>",
-  published : "<true for a published map so the indicators selection is not included (optional, defaults to false)>"
+"config" : {
+  "state" : <following keys are the same as in bundle state: layerId, indicators, currentColumn (optional, defaults to an empty object)>,
+  "layer" : <id of the layer where the visualizations should be applied to (optional, defaults to null)>,
+  "published" : <true for a published map so the indicators selection is not included (optional, defaults to false)>
 }
 ```
 
@@ -75,6 +83,10 @@ state : {
   <tr>
     <td>StatsGrid.TooltipContentRequest</td>
     <td>Sends tooltip info for currently hovered region.</td>
+  </tr>
+  <tr>
+      <td>StatsGrid.AddDataSourceRequest</td>
+      <td>Adds a new data source to statsgrid</td>
   </tr>
 </table>
 

@@ -19,6 +19,7 @@ events like keypresses and focus changes.
 ```javascript
 var form = Oskari.clazz.create('Oskari.userinterface.component.Form');
 var anInput = Oskari.clazz.create('Oskari.userinterface.component.FormInput', 'input');
+
 anInput.setPlaceholder('Placeholder text');
 anInput.setRequired(true, 'Required field');
 anInput.setContentCheck(true, 'Input contains illegal characters');
@@ -35,12 +36,7 @@ someElement.append(form.getForm());
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
-    <td> Version 1.7.1 assumed to be linked (on page locally in portal) </td>
+    <td> Version 1.7.1 assumed to be linked on the page</td>
     <td> Used to create the component UI from begin to end</td>
-  </tr>
-  <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
-    <td> Expects to be present in application setup </td>
-    <td> Used extensively</td>
   </tr>
 </table>

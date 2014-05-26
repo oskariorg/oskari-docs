@@ -41,10 +41,10 @@ This bundle doesn't send any requests.
     <th>Event</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>MouseHoverEvent</td><td>Updates the coordinates gotten from event to the UI.</td>
+    <td>`MouseHoverEvent`</td><td>Updates the coordinates gotten from event to the UI.</td>
   </tr>
   <tr>
-    <td>AfterMapMoveEvent</td><td>Updates the updated coordinates for map center.</td>
+    <td>`AfterMapMoveEvent`</td><td>Updates the updated coordinates for map center.</td>
   </tr>
 </table>
 
@@ -60,7 +60,7 @@ This bundle doesn't send any events.
   </tr>
   <tr>
     <td>[jQuery](http://api.jquery.com/)</td>
-    <td>Linked in portal theme</td>
+    <td>Assumes to be linked in the page</td>
     <td>Used to create the component UI from begin to end</td>
   </tr>
 </table>

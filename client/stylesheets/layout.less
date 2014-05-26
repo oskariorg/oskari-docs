@@ -109,9 +109,54 @@ div.well h3 {
 
 div.bundle-menu {
     margin-top: 20px;
+
+    ul.bundle-navigation {
+        height: auto;
+        max-height: 400px;
+        overflow-y: auto;
+    }
 }
-ul.bundle-navigation {
-    height: auto;
-    max-height: 400px;
-    overflow-y: auto;
+
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+ 
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+
+  h4 {
+    color: #B94A48;
+  }
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+
+  h4 {
+    color: #C09853;
+  }
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+
+  h4 {
+    color: #3A87AD;
+  }
+}
+
+.oskari-sortable-th {
+    cursor: pointer;
 }
