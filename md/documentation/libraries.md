@@ -2,10 +2,10 @@
 
 ## Libraries currently used in Oskari
 
-* [​OpenLayers](http://www.openlayers.org/)
-* [​jQuery](http://jquery.com/)
+* [OpenLayers](http://www.openlayers.org/)
+* [jQuery](http://jquery.com/)
 * [jQuery UI](http://jqueryui.com/)
-* [lodash](http://lodash.com/)
+* [Lo-Dash](http://lodash.com/)
 * [geostats.js](https://github.com/simogeo/geostats)
 
 ## Libraries proven to work with Oskari

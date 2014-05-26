@@ -14,7 +14,7 @@
 
 ### Create a view
 
-[Create a new view](/documentation/backend/database-populate#adding-a-new-view) with `myplaces2` and `mapwfs2` bundles (edit the view to match your environment):
+[Create a new view](/documentation/backend/database-populate#adding-a-new-view) with `myplaces2` and `mapwfs2` bundles (edit the view to match your environment and remove the config for `myplaces2` if you prefer to cofigure using properties file instead):
 
     cd oskari-server/content-resources
     mvn clean install exec:java -Doskari.addview=postgres-myplaces2-view
@@ -32,7 +32,7 @@ Use unique port for GeoServer e.g. 8082 (not equal to the Jetty port where `oska
 Replace GeoServer data directory, add `OskariMarkFactory` extension and start GeoServer:
 
 * Replace `{geoserver}\data_dir` with `oskari-server\content-resources\config\geoserver\data`
-* Add GeoServer symbolizer extension `OskariMarkFactory-1.0.jar` to `{geoserver}\webapps\WEB-INF\lib` and `geoserver-ext\OskariMarkFactory\src\main\resources\dot-markers.ttf` to `{geoserver}\data_dir\styles` (see `oskari-server\geoserver-ext\OskariMarkFactory\readme.txt`)
+* Add GeoServer symbolizer extension `oskari-server/geoserver-ext/OskariMarkFactory/target/OskariMarkFactory-1.0.jar` to `{geoserver}\webapps\WEB-INF\lib` (see `oskari-server\geoserver-ext\OskariMarkFactory\readme.txt`)
 * Start GeoServer (e.g. `{geoserver}\bin\startup`)
 * Check data configuration with GeoServer admin interface: http://localhost:8082/geoserver/web -> layer preview -> layers: `my_places` and `my_places_categories` (these are empty in the initial state)
 * If there are problems in layer preview, check workspace and store setups with GeoServer admin interface (see guidelines below).
@@ -41,6 +41,9 @@ Replace GeoServer data directory, add `OskariMarkFactory` extension and start Ge
 ### Configure properties
 
 Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add the following settings and set them point to your geoserver url:
+
+    # Add 'myplacestile' to proxy services
+    oskari.proxyservices = myplacestile [, ...]
 
 	oskari.proxy.myplacestile.url=http://localhost:8082/geoserver/wms?CQL_FILTER=
 	oskari.proxy.myplacestile.handler=fi.nls.oskari.proxy.MyPlacesProxyHandler 
@@ -51,13 +54,28 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
 	myplaces.wms.url=http://localhost:8082/geoserver/oskari/wms?buffer=128&tiled=yes&tilesorigin=0,0&CQL_FILTER=
 	myplaces.user=admin
 	myplaces.password=geoserver
-	# Base WFS layer id for myplaces (portti_maplayer and portti_wfs_layer tables)
-	# Find correct id layer later on when my_places wfs base layer is inserted
+	# Base WFS layer id for myplaces (from portti_maplayer table)
+	# Find the correct layer id from the database or create a myplaces layer if not found
     myplaces.baselayer.id=14
     # My places namespace
     myplaces.xmlns=http://www.oskari.org
     # My places namespace prefix
     myplaces.xmlns.prefix=oskari
+
+The config for `myplaces2` bundle gets generated from the properties above. You can always override them by writing to the config of `myplaces2` in `portti_view_bundle_seq`.
+
+    # This always comes from the properties:
+    queryUrl : <oskari.ajax.url.prefix> + 'action_route=MyPlaces'
+
+    # Default if not defined: <oskari.ajax.url.prefix> + 'action_route=MyPlacesTile&myCat='
+    wmsUrl : <myplaces.client.wmsurl>
+
+    # Default if not defined: 'http://www.oskari.org'
+    featureNS : <myplaces.xmlns>
+
+    # Default if not defined: 'oskari:my_places_categories'
+    layerDefaults.wmsName : <myplaces.xmlns.prefix> + ':my_places_categories'
+
 
 ### Install WFS transport service
 
@@ -69,10 +87,11 @@ Start e.g. http://localhost:8888/oskari-map?viewId={id} in your browser. Replace
 
 ## Troubleshooting
 
-If there are troubles to add myplaces you should check that `featureNS` (default namespace should be *http://www.oskari.org* with prefix *oskari*) and ajax url are correct according to your environment. `wmsUrl` should be normal ajax url (default is `/?` or `/oskari-map/?`) + `action_route=MyPlacesTile&myCat=`.
+If there are troubles to add myplaces you should check that `featureNS` (default namespace should be *http://www.oskari.org* with prefix *oskari*) and ajax url are correct according to your environment. `wmsUrl` should be normal ajax url (default is `/?` or `/oskari-map/?`) + `action_route=MyPlacesTile&myCat=`. The easiest way to verify these are correct is to check what gets returned to the browser from `GetAppSetup`.
 
 If you need to correct some of these settings, do one of the following:
 
+* edit the properties in `oskari-ext.properties`
 * edit `postgres-myplaces2-view.json` and recreate the view
 * use psql or pgAdmin and run the following sql:
 ```sql
@@ -91,49 +110,61 @@ You may also need to change `oskari-server/service-map/src/main/resources/fi/nls
 
 ## Guidelines for GeoServer configuration
 
-* Open GeoServer admin interface (e.g. http://localhost:8082/geoserver, default credentials: admin/geoserver)
-* Create a new workspace *oskari* . Set it as default and enable WFS and WMS services. Set namespace URI: (e.g. http://www.oskari.org)
-* Add your database as a new postgis store
-	* Store -> Add new Store -> PostGIS
-	* Select *oskari* as workspace and name the data source "my_places_categories" 
-	* Check it as enabled
-	* Set the connection parameters, for example: 
-		* host: localhost, port: 5432
-		* database: oskaridb, schema: public
-		* user: *username*, passwd: *password* (sample default postgres/postgres)
-* Create and select style		
-	* You can create your own style choosing Styles and modifying existing style or uploading a new style file.
-		You can find an example file at `oskari-server/docs/example-server-conf/MyPlacesSampleStyle.sld` 
-* Add layers `categories`, `my_places`, and `my_places_gategories`
-	* Layers -> Add a new resource -> Add layer from "ows:my_places_categories"
-	* Publish `categories` (no geometry field):
-		* Set Declared SRS (e.g. EPSG:3067)
-		* Set Native bbox (50 000, 6400000, 800000, 8000000)
-		* Set Lat/Lon Bounding Box (e.g. press compute from native bounds)
-		* Publishing -> Set Default Style (e.g. "MyPlacesSampleStyle")
-		* Save
-	* Publish `my_places`:
-		* Set Declared SRS (e.g. EPSG:3067)
-		* Set Native bbox (50 000, 6400000, 800000, 8000000)
-		* Set Lat/Lon Bounding Box (e.g. press compute from native bounds)
-		* Publishing -> Set Default Style (e.g. "MyPlacesSampleStyle")
-		* Save
-	* Publish `my_places_categories`:
-		* Set Declared SRS (e.g. EPSG:3067)
-		* Set Lat/Lon Bounding Box (e.g. press compute from native bounds)
-		* Publishing -> Set Default Style (e.g. "MyPlacesSampleStyle")
-		* Save
-* Set security items for data / add new rule:
+Open GeoServer admin interface (e.g. http://localhost:8082/geoserver, default credentials: admin/geoserver).
 
-        *.*.r                     *
-        oskari.categories.w       *
-        oskari.my_places.w        *
-        GeoServer Admin
+### Create a workspace
 
-* Set `oskari:my_places_categories` layer / tile caching setup:
+Create a new workspace *oskari* . Set it as default and enable WFS and WMS services. Set namespace URI to e.g. http://www.oskari.org.
 
-        Create a cached layer for this layer
-         - use default values
-         - set
-           Gutter size in pixels
-           100
+### Create a store
+
+Add your database as a new postgis store:
+
+* Store -> Add new Store -> PostGIS
+* Select *oskari* as workspace and name the data source "my_places_categories" 
+* Check it as enabled
+* Set the connection parameters, for example: 
+    * host: localhost, port: 5432
+    * database: oskaridb, schema: public
+    * user: *username*, passwd: *password* (sample default postgres/postgres)
+
+### Create a style
+
+
+You can create your own style choosing Styles and modifying existing style or uploading a new style file.
+
+You can find an example file at `oskari-server/docs/example-server-conf/MyPlacesSampleStyle.sld`
+
+### Add layers
+
+Add layers `categories`, `my_places`, and `my_places_gategories`
+
+* Layers -> Add a new resource -> Add layer from "ows:my_places_categories"
+* Publish `categories` (no geometry field):
+    * Set Declared SRS (e.g. EPSG:3067)
+    * Set Native bbox (50 000, 6400000, 800000, 8000000)
+    * Set Lat/Lon Bounding Box (e.g. press compute from native bounds)
+    * Publishing -> Set Default Style (e.g. "MyPlacesSampleStyle")
+    * Save
+* Publish `my_places`:
+    * Set Declared SRS (e.g. EPSG:3067)
+    * Set Native bbox (50 000, 6400000, 800000, 8000000)
+    * Set Lat/Lon Bounding Box (e.g. press compute from native bounds)
+    * Publishing -> Set Default Style (e.g. "MyPlacesSampleStyle")
+    * Save
+* Publish `my_places_categories`:
+    * Set Declared SRS (e.g. EPSG:3067)
+    * Set Lat/Lon Bounding Box (e.g. press compute from native bounds)
+    * Publishing -> Set Default Style (e.g. "MyPlacesSampleStyle")
+    * Save
+
+### Add a security rule
+
+Add read access to everyone and write access to authenticated role.
+
+### Setup cache
+
+Select `oskari:my_places_categories` layer -> tile caching setup:
+
+* Create a cached layer for this layer (use default values)
+* Set gutter size in pixels to 100
