@@ -62,7 +62,7 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
     # My places namespace prefix
     myplaces.xmlns.prefix=oskari
 
-The config for `myplaces2` bundle gets generated from the properties above. You can always override them by writing to the config of `myplaces2` in `portti_view_bundle_seq`.
+The config for `myplaces2` bundle gets generated from the properties above. You can always override them for different views by writing to the config of `myplaces2` in `portti_view_bundle_seq` table.
 
     # This always comes from the properties:
     queryUrl : <oskari.ajax.url.prefix> + 'action_route=MyPlaces'

@@ -24,6 +24,14 @@ app.get('/guides/*', routes.md);
 app.get('/documentation', routes.documentation);
 app.get('/documentation/bundles', routes.bundles);
 app.get('/documentation/bundles/*', routes.bundledoc);
+// <remove this after oskari-server release>
+app.get('/documentation/backend/basic-install', function (req, res) {
+    // As the README in oskari-server currently points to
+    // /documentation/backend/basic-install
+    // let's do a temporary redirect
+    res.redirect('/documentation/backend/overview');
+});
+// </remove this after oskari-server release>
 app.get('/documentation/*', routes.md);
 app.get('/download', routes.download);
 app.get('/about', routes.about);
