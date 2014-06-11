@@ -15,26 +15,16 @@
         redis.port=6379
         redis.pool.size=100
 
+    These can also be overridden with `oskari-ext.properties` or `transport-ext.properties` that are places in server classpath.
+
 3. Start redis (`redis-server`). You may use `redis-cli` for cleaning the cache (`flushall` command).
 
-## 2. Configure oskaridb
-
-**NOTE!** *skip this, if my places configuration is already done*
-
-Start the server with `mvn clean install -f servlet-map-pom.xml -Doskari.dropdb=true -Doskari.setup=postgres-mapwfs2  -Pjetty-profile`
-
-OR
-
-Just populate the database:
-* `cd  oskari-server/content-resources`
-* `mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-mapwfs2`
-
-## 3. Compile
+## 2. Compile
 
 * Go to `oskari-server`
-* You may need to change `config.properties` under `/transport` OR add a `transport-ext.properties` file with the properties you need on your own environment to override the defaults.
 * Compile the transport service with `mvn clean install -f transport-pom.xml` (add `-DskipTests` in case you don't want the tests run)
-* Start the jetty service with `mvn jetty:run` or use other jetty installation (`cd {jetty.home}/bin && java -jar start.jar`)
+* Deploy the WAR-file under `/webapp-transport/target/transport-0.0.1.war` on a jetty installation (`cd {jetty.home} && java -jar start.jar`)
+* Note! You can rename the war file to `transport.war` on deploy to skip some configuration later
 
 With the default settings you now have:
 
@@ -43,44 +33,54 @@ With the default settings you now have:
 * transport wfs service running on port 2374 or any port
  
 
-Open your browser with http://localhost:2373/?viewId=4 or http://localhost:2373/oskari-map?viewId=4  to see a new view loaded from the database.
+Open your browser with the url for oskari-map (http://localhost:2373/oskari-map or similar).
 
-You should now see a new map layer of type WFS listed on the maplayers flyout. Add it to map, zoom close to Helsinki for example and you should see points appearing to the map from the wfs service
+You should see a map layer of type WFS listed on the maplayers flyout.
+Add it to map, zoom close to Helsinki for example and you should see points appearing to the map from the wfs service.
 
-If WFS layer doesn't work, you might need to configure view setup for wfslayer plugin (`mapwfs2-view.json` or `postgres-myplaces2-view.json`) and reprepare the database with `mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-mapwfs2`
+If WFS layer doesn't work, you might need to configure view setup for wfslayer plugin (`default-view.json`)
+ and reset the database with `mvn clean install exec:java -Doskari.dropdb=true` OR edit the view configuration by hand in
+ database table `portti_view_bundle_seq`:
+
+    UPDATE table portti_view_bundle_seq
+    SET config='<updated value>'
+    WHERE view_id=<the view id> AND bundle_id = (SELECT id FROM portti_bundle WHERE name='mapfull'))
+
+The plugin can be configured by adding config JSON element:
 
     {
         "id" : "Oskari.mapframework.bundle.mapwfs2.plugin.WfsLayerPlugin",
         "config" : {
             "contextPath" : "/transport",
             "hostname" : "localhost",
-            "port" : "2374",
-            "lazy" : true,
-            "disconnectTime" : 30000,
-            "backoffIncrement": 1000,
-            "maxBackoff": 60000,
-            "maxNetworkDelay": 10000
+            "port" : "2374"
         }
     }
 
+Where:
+
+* contextPath = usually the name of the war file you deployed transport to (defaults to "/transport")
+* hostname = server domain part or the url where the transport webapp is deployed (defaults to current domain)
+* port = port of the jetty hosting transport webapp (defaults to current port)
+
+You may need to change the backend configuration as well.
+The available configurations are listed in `/servlet-transport/src/main/resources/transport.properties`. You can override
+any of these by adding a `transport-ext.properties` file to servers classpath. Add the properties you want to override
+based on your own environment with the same property key as in transport.properties.
+
 Sample config for transport (setup as `transport-ext.properties` in server classpath to override defaults)
 
-    serviceURL=http://localhost:8888
-
-    serviceURLParam=/oskari-map
-    serviceURLSessionParam=jsessionid
-    serviceURLLiferayPath=?action_route=
-
-    workerCount=10
-    redisHostname=localhost
-    redisPort=6379
-
-    # Supported locales, comma separated and default first
-    oskari.locales=fi_FI,sv_SE,en_EN
+    oskari.domain=http://localhost:8888
+    oskari.ajax.url.prefix=/oskari-map?
 
     # base WFS layer ids
-    analysis.baselayer.id=387
-    myplaces.baselayer.id=14
+    analysis.baselayer.id=<based on your DBs layer id>
+    myplaces.baselayer.id=<based on your DBs layer id>
 
-    wfs.extension.analysis=fi.nls.oskari.wfs.extension.AnalysisFilter
-    wfs.extension.myplaces=fi.nls.oskari.wfs.extension.MyPlacesFilter
+Transport inherits properties from oskari-map configuration so if you have both deployed on the same server you don't need
+to configure things twice. Properties are read in order with later overriding the previous:
+
+* oskari.properties
+* transport.properties
+* oskari-ext.properties
+* transport-ext.properties
