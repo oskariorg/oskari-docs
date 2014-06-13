@@ -236,6 +236,11 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`framework/publisher`</td>
         </tr>
         <tr>
+            <td>`Realtime.RefreshLayerEvent`</td>
+            <td>Sent for each real time layer at the time it's due to refresh</td>
+            <td>`framework/mapmodule-plugin`</td>
+        </tr>
+        <tr>
             <td>`StateSavedEvent`</td>
             <td></td>
             <td>`framework/statehandler`</td>
