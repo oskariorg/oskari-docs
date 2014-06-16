@@ -114,7 +114,11 @@ Calculates buffers based on Cartesian distances.
 
 ## Aggregate (WPS vec:Aggregate)
 Computes one or more aggregation functions on a feature attribute. 
-Functions include Count, Average, Max, Median, Min, StdDev, and Sum.
+Functions include Count, Average, Max, Median, Min, StdDev, Sum and NoDataCnt.
+NoDataCnt is not WPS aggregate method. It is a Count method with special filter.
+NoDataCnt is calculated only when there is wps_params no_data setup in portti_wfs_layer table for wfs layer.
+(e.g. {"input_type":"gs_vector","no_data":-1} or {"no_data":-1}
+No data values are skipped in aggregate computation when definition is available
 
 ## Union (WPS vec:UnionFeatureCollection)
 Returns single feature collection containing all features from two input feature collections. 
