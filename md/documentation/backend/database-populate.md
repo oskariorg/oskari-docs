@@ -20,7 +20,7 @@ If tables exist the setup file is **NOT** run. The setup file can be *FORCED* to
 
 You can configure a specific setup file to run by adding a parameter `-Doskari.setup=[setup file under resources/setup]`. The setup file that is used if the parameter is NOT defined is `default` (`src/main/resources/setup/app-default.json`).
 
-The parameter `-Doskari.setup=postgres-default` references a setup file located in `oskari-server/content-resources/src/main/resources/setup/`.
+The parameter `-Doskari.setup=app-default` references a setup file located in `oskari-server/content-resources/src/main/resources/setup/`.
 
 The value of the parameter is the filename without extension so the actual file referenced is `app-default.json` in the above link.
 

@@ -6,7 +6,7 @@ This document describes how to setup an authentication for oskari-server.
 
 `fi.nls.oskari.map.servlet.OskariRequestFilter` under `oskari-server/servlet-map` can handle setting principal in http request based on http-parameter.
 It uses `UserService.login(username, password)` method to check password. Check the class `fi.nls.oskari.user.DatabaseUserService` (under `oskari-server/service-users`)
-for reference or implement your own. The custom authentication is by default turned. To have for example JAAS determine the user principal you can
+for reference or implement your own. The custom authentication is enabled by default. To have for example JAAS determine the user principal you can
 disable it by adding `oskari.request.handlePrincipal=false` to `oskari-ext.properties`.
 
 The user credentials are stored in database table `oskari_jaas_users`.
@@ -19,41 +19,53 @@ The user credentials are stored in database table `oskari_jaas_users`.
 
 ### 1. Build webapp-map
 
-Use the profile jetty-jaas:
+Use the profile `jetty-jaas` for Jetty 8 Hightide:
 
     mvn clean install -Pjetty-jaas
 
+
+Use the profile `jetty9-jaas` for Jetty 9:
+
+    mvn clean install -Pjetty9-jaas
+
 ### 2. Setup the server
 
-For Jetty 8 Hightide:
+Enable JAAS in Jetty 8 Hightide:
 
-a) Copy the `jndi-login.conf` from `oskari-server/webapp-map/target/oskari-map/WEB-INF/jndi-login.conf` to `{JETTY_HOME}/etc/jndi-login.conf`
+a) Copy `jetty8-login.conf` from `oskari-server/webapp-map/external/jetty8-login.conf` to `{JETTY_HOME}/etc/login.conf`
 
-b) Check that the class referenced in `jndi-login.conf` is `org.eclipse.jetty.plus.jaas.spi.DataSourceLoginModule`
+b) Ensure `dbJNDIName` in `{JETTY_HOME}/etc/login.conf` is the used DB Pool, the default value is `jdbc/OskariPool`
 
-c) Check that the class referenced in `jetty-env.xml` securityHandler is `org.eclipse.jetty.plus.jaas.JAASLoginService`
-- If not -> change the template in `oskari-server\webapp-map\env\jetty-jaas\WEB-INF` and compile again
+c) Copy `jetty-jaas.xml` from `oskari-server/webapp-map/external/jetty-jaas.xml` to `{JETTY_HOME}/etc/jetty-jaas.xml`
 
-d) Setup Jetty JAAS support by modifying `{JETTY_HOME}/etc/jetty-jaas.xml` and add the following:
+d) Ensure 'jetty-jaas.xml' is included in `{JETTY_HOME}/start.ini`
 
-    <Call class="java.lang.System" name="setProperty">
-      <Arg>java.security.auth.login.config</Arg>
-      <Arg><SystemProperty name="jetty.home" default="." />/etc/jndi-login.conf</Arg>
-    </Call>
+Enable JAAS in Jetty 9:
 
-    <Call name="addBean">
-      <Arg>
-          <New class="org.eclipse.jetty.plus.jaas.JAASLoginService">
-           <Set name="Name">OskariRealm</Set>
-           <Set name="LoginModuleName">oskariLoginModule</Set>
-          </New>
-      </Arg>
-    </Call>
+a) Copy `jetty9-login.conf` from `oskari-server/webapp-map/external/jetty9-login.conf` to `{JETTY_HOME}/etc/login.conf`
 
-For jetty 9 it's basically the same but the class packages have dropped `plus`:
+b) Ensure `dbJNDIName` in `{JETTY_HOME}/etc/login.conf` is the used DB Pool, the default value is `jdbc/OskariPool`
 
-    org.eclipse.jetty.plus.jaas.JAASLoginService -> org.eclipse.jetty.jaas.JAASLoginService
-    org.eclipse.jetty.plus.jaas.spi.DataSourceLoginModule -> org.eclipse.jetty.jaas.spi.DataSourceLoginModule
+c) Enable JAAS by running:
+
+    java -jar start.jar --add-to-startd=jaas
+
+d) Ensure `{JETTY_HOME}/start.d/jaas.ini` contains the correct path to `login.conf`
+
+### Common mistakes
+
+Error: _java.lang.ClassNotFoundException: org.eclipse.jetty.plus.jaas.JAASLoginService_
+
+  Compiled using 'jetty-jaas' maven profile and deployed to Jetty 9. Compile again with the 'jetty9-jaas' maven profile and deploy again.
+
+Error: _java.lang.ClassNotFoundException: org.eclipse.jetty.jaas.JAASLoginService_
+
+  Compiled using 'jetty9-jaas' maven profile and deployed to Jetty 8 Hightide. Compile again with the 'jetty-jaas' maven profile and deploy again.
+
+Error: _Error creating db content!_
+
+  Check username and password are defined in `oskari-server/webapp-map/target/oskari-map/WEB-INF/jetty-env.xml`, if these are [username] and [password]. Add the correct credentails to `oskari-server/servlet-map/filter/filter-base.properties` and compile again.
+
 
 ## LDAP based JAAS
 
@@ -67,36 +79,28 @@ Use the profile jetty-ldap-jaas:
 
 ### 2. Setup the server
 
-For Jetty 8 Hightide:
+Enable LDAP-JAAS in Jetty 8 Hightide:
 
-a) Copy the `jndi-login.conf` from `oskari-server/webapp-map/target/oskari-map/WEB-INF/jndi-login.conf` to `{JETTY_HOME}/etc/jndi-login.conf`
+a) Copy `jetty8-ldap-login.conf` from `oskari-server/webapp-map/external/jetty8-ldap-login.conf` to `{JETTY_HOME}/etc/login.conf`
 
-b) Check that the class referenced in `jndi-login.conf` is `org.eclipse.jetty.plus.jaas.spi.LdapLoginModule`
-    and modify the content marked with {{key}} to match your LDAP
+b) Modify `{JETTY_HOME}/etc/login.conf` to match your LDAP configuration using the field marked with {{key}}
 
-c) Check that the class referenced in `jetty-env.xml` securityHandler is `org.eclipse.jetty.plus.jaas.JAASLoginService`
-- If not -> change the template in `oskari-server\webapp-map\env\jetty-ldap-jaas\WEB-INF` and compile again
+c) Copy `jetty-jaas.xml` from `oskari-server/webapp-map/external/jetty-jaas.xml` to `{JETTY_HOME}/etc/jetty-jaas.xml`
 
-d) Setup Jetty JAAS support by modifying `{JETTY_HOME}/etc/jetty-jaas.xml` and add the following:
+d) Ensure 'jetty-jaas.xml' is included in `{JETTY_HOME}/start.ini`
 
-    <Call class="java.lang.System" name="setProperty">
-      <Arg>java.security.auth.login.config</Arg>
-      <Arg><SystemProperty name="jetty.home" default="." />/etc/jndi-login.conf</Arg>
-    </Call>
+Enable LDAP-JAAS in Jetty 9:
 
-    <Call name="addBean">
-      <Arg>
-          <New class="org.eclipse.jetty.plus.jaas.JAASLoginService">
-           <Set name="Name">OskariRealm</Set>
-           <Set name="LoginModuleName">oskariLoginModule</Set>
-          </New>
-      </Arg>
-    </Call>
+a) Copy `jetty9-ldap-login.conf` from `oskari-server/webapp-map/external/jetty9-ldap-login.conf` to `{JETTY_HOME}/etc/login.conf`
 
-For jetty 9 it's basically the same but the class packages have dropped `plus`:
+b) Modify `{JETTY_HOME}/etc/login.conf` to match your LDAP configuration using the field marked with {{key}}
 
-    org.eclipse.jetty.plus.jaas.JAASLoginService -> org.eclipse.jetty.jaas.JAASLoginService
-    org.eclipse.jetty.plus.jaas.spi.LdapLoginModule -> org.eclipse.jetty.jaas.spi.LdapLoginModule
+c) Enable JAAS by running:
+
+    java -jar start.jar --add-to-startd=jaas
+
+d) Ensure `{JETTY_HOME}/start.d/jaas.ini` contains the correct path to `login.conf`
+
 
 ### Adding new users based on external authentication
 
