@@ -125,8 +125,14 @@ Returns single feature collection containing all features from two input feature
 The output attribute schema is a combination of the attributes from the inputs. 
 Attributes with same name but different types will be converted to strings.
 
-## Intersection (WPS vec:IntersectionFeatureCollection)
-Spatial intersection of two feature collections, incuding combining attributes from both.
+## Intersection (WPS gs:IntersectionFeatureCollection2) (oskari extension to WPS)
+Spatial intersection of two feature collections, incuding attributes of first.
+Spatial contains of two feature collections, incuding attributes of first.
+
+## Intersection (WPS gs:ZoneSectorFeatureCollection2) (oskari extension to WPS)
+Creates zones around features in one feature collections incuding attributes.
+input is zone size (unit m) and count of zones
+
 ## Response
 
 ### Raw example
