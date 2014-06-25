@@ -56,41 +56,6 @@ Responsible for:
 * Generating an ActionParameters object based on incoming request abstracting/normalizing the request for control layer
 * Forwarding the request to control layer
 
-## Full stack
-
-* Browser - Oskari frontend
-    - Firefox
-    - Chrome
-    - Internet Explorer
-    - Safari
-
-* Proxy/Load balancer
-    - HAProxy
-    - Apache
-    - Nginx
-    - F5 load balancer
-
-* Oskari-map
-    - Jetty
-    - Tomcat
-    - Liferay
-
-* Transport/Redis
-    - Jetty
-
-* Geoserver
-    - Jetty
-    - Tomcat
-
-* Printout/Redis
-    - Jetty
-
-* Database
-    - PostgreSQL
-
-
-![Full stack](/images/architecture/full-stack.png)
-
 ### Case www.paikkatietoikkuna.fi
 
 * Browser

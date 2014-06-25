@@ -4,65 +4,84 @@ block main
   :markdown
     # Documentation
 
+
   div.row
     div.col-md-4
       :markdown
-        ## Fundamentals
+        ## Oskari Platform
 
-        * [FAQ](/documentation/faq)
-        * [Oskari Features](/documentation/features)
-        * [Vagrant guide](/documentation/vagrant-guide)
+        #### Basics
+        * [Architecture](/documentation/architecture_basics)
+        * [Features](/documentation/features)
+        * [Development basics](/documentation/development_basics)
 
-        ### Development
+        #### Setup
+        * [Creating the database](/documentation/backend/database-create)
+        * [Populating the database](/documentation/backend/database-populate)
+        * [Server: The easy way (outdated)](/documentation/backend/server-embedded-precompiled)
+        * [Server: For developers](/documentation/backend/server-embedded-developer)
+        * [Server: As webapp for servlet container](/documentation/backend/server-webapp)
+
+        #### Configuration
+        * [Customize properties](/documentation/backend/customize-properties)
+        * [Customize initial demo data](/documentation/backend/database-customize-initial-data)
+        * [Customize demo users](/documentation/backend/database-customize-users)
+
+        #### Adding functionalities
+        * [Installing transport (WFS backend)](/documentation/backend/installing-transport)
+        * [Enable my places](/documentation/backend/enabling-myplaces)
+        * [User authentication](/documentation/backend/authentication)
+        * [Setting up thematic map mode support](/documentation/backend/thematic-maps-setup)
+        * [Installing Parcel application](/documentation/backend/custom-install-parcel)
+
+        #### Development
 
         * [How to contribute](/documentation/development/how-to-contribute)
-        * [Architecture](/documentation/development/architecture)
         * [Oskari API documentation](/api/latest)
         * [Guidelines](/documentation/development/guidelines)
         * [Localization](/documentation/development/localization)
         * [Tools](/documentation/development/tools)
-        * [License](/documentation/development/license)
         * [Feature: changing mode](/documentation/development/changing-mode)
-
-        ### Other
-
-        * [Folder structure in code](/documentation/directory-structure)
-        * [Minifying code for production](/documentation/minification)
         * [Supported/used 3rd party Javascript libraries](/documentation/libraries)
         * [Adding 3rd party Javascript libraries](/documentation/development/adding-libraries)
-        * [Paikkatietoikkuna backend architecture](/documentation/paikkatietoikkuna)
-        * [Live sites using Oskari](/documentation/live-sites)
+        * [Minifying code for production](/documentation/minification)
 
     div.col-md-4
       :markdown
         ## Frontend
 
-        * [Bundle docs](/documentation/bundles)
+        #### Overview
 
-        ### Core Concepts
+        * [Architecture](/documentation/development/architecture)
+        * [Folder structure in code](/documentation/directory-structure)
 
-        * [Oskari class](/documentation/core-concepts/oskari-class)
-        * [Oskari Bundle](/documentation/core-concepts/oskari-bundle)
+        #### Core Concepts
+
         * [Oskari Application](/documentation/core-concepts/oskari-application)
+        * [Oskari Bundle](/documentation/core-concepts/oskari-bundle)
+         * [Oskari bundle manager/loader](/documentation/core-concepts/bundle-manager)
+         * [Bundle docs](/documentation/bundles)
+        * [Oskari class](/documentation/core-concepts/oskari-class)
         * [Oskari core and sandbox](/documentation/core-concepts/oskari-core)
         * [Bundle communication: Request](/documentation/core-concepts/oskari-request)
+         * [List of Oskari requests](/documentation/core-concepts/request-list)
         * [Bundle communication: Event](/documentation/core-concepts/oskari-event)
-        * [List of Oskari requests](/documentation/core-concepts/request-list)
-        * [List of Oskari events](/documentation/core-concepts/event-list)
+         * [List of Oskari events](/documentation/core-concepts/event-list)
         * [Map plugin](/documentation/core-concepts/map-plugin)
-        * [Oskari bundle manager/loader](/documentation/core-concepts/bundle-manager)
 
-        ### Data
 
-        * [Application startup sequence](/documentation/core-concepts/oskari-application#startup-sequence)
+        #### Data
+
         * [Bundle configuration](/documentation/core-concepts/oskari-bundle-configuration)
         * [Maplayer definitions](/documentation/data/maplayer-definitions)
+         * [WMS layer data structure](/documentation/data/wms-layer)
+         * [Base/Group layer data structure](/documentation/data/base-layer)
 
-        ### Protocols
+        #### Protocols
 
         * [Module](/documentation/protocol/module)
 
-        ### Components
+        #### UI Components
 
         All components are currently part of the `divmanazer` bundle.
 
@@ -78,25 +97,19 @@ block main
       :markdown
         ## Backend
         
-        * [Overview](/documentation/backend/overview)
+        #### Overview
+        * [Architecture](/documentation/backend/architecture_backend)
+         * [Components](/documentation/architecture/components)
+         * [Database tables](/documentation/backend/database-tables)
+         * [Database structure (outdated)](/documentation/architecture/database)
+         * [WFS backend (transport)](/documentation/architecture/wfs)
+        * [Folder structure in code (requires updating)](/documentation/backend/overview)
 
-        ### Setup
+        #### Basics
 
-        * [Creating the database](/documentation/backend/database-create)
-        * [Populating the database](/documentation/backend/database-populate)
-        * [Server: The easy way](/documentation/backend/server-embedded-precompiled)
-        * [Server: For developers](/documentation/backend/server-embedded-developer)
-        * [Server: As webapp for servlet container](/documentation/backend/server-webapp)
-        * [Customize properties](/documentation/backend/customize-properties)
-        * [Customize initial demo data](/documentation/backend/database-customize-initial-data)
-        * [Customize demo users](/documentation/backend/database-customize-users)
-        * [Installing transport (WFS backend)](/documentation/backend/installing-transport)
-        * [Enable my places](/documentation/backend/enabling-myplaces)
-
-        ### Basics
-        
-        * [Action routes](/documentation/backend/actionroutes)
-        * [Adding action routes](/documentation/backend/adding-action-routes)
+        * Action routes
+         * [Adding action routes](/documentation/backend/adding-action-routes)
+         * [Action routes](/documentation/backend/actionroutes)
         * [User management (outdated)](/documentation/backend/usermanagement)
         * [Layer permissions](/documentation/backend/permissions)
         * [Adding bundles based on role](/documentation/backend/adding-bundles)
@@ -104,15 +117,6 @@ block main
         * [Upgrading backend](/documentation/backend/upgrading)
         * [Adding user guide](/documentation/backend/adding-user-guide)
 
-        ### Architecture
 
-        * [Components](/documentation/architecture/components)
-        * [Database tables](/documentation/backend/database-tables)
-        * [Database structure (outdated)](/documentation/architecture/database)
-        * [WFS backend (transport)](/documentation/architecture/wfs)
 
-        ### Other
-
-        * [Installing Parcel application](/documentation/backend/custom-install-parcel)
-        * [User authentication](/documentation/backend/authentication)
-        * [Setting up thematic map mode support](/documentation/backend/thematic-maps-setup)
+       

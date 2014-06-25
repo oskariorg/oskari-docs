@@ -1,9 +1,41 @@
-# Getting Started
+# [Guides](/guides) - Taking full advantage of Oskari Platform
+#### This guide is still under development and is currently based on the documents found under [Documentation](/views/documentation) 
+### Oskari software consists of web mapping application (frontend) and service platform (backend). This guide gives instructions on how to setup them both and how to start developing Oskari Platform. It is assumed that the reader is familiar with [Oskari Platform - basics](/documentation).
+<br>
 
-Follow the installation [guide](https://github.com/nls-oskari/oskari-server)
+### 1. Setting up database
+#### 1.1 [Creating database](/documentation/backend/database-create)
+#### 1.2 [Populating database](/documentation/backend/database-populate)
+### 2. Setting up server
+#### 2.1 [Standalone Oskari backend/frontend developer setup](/documentation/backend/server-embedded-developer)
+### 3. Configuration
+#### 3.1 [Modifying the initial demo data](/documentation/backend/database-customize-initial-data)
+### 4. Setting up transport WFS service
+#### 4.1 [Installing WFS backend](/documentation/backend/installing-transport)
+<br>
 
-Adding your own action routes [guide](https://github.com/nls-oskari/oskari-server/tree/master/service-control)
+Now you have the basic functionality.
 
-Customize the application property values for your environment [guide](https://github.com/nls-oskari/oskari-server/blob/master/docs/CustomizingPropertyValues.md)
+For **developing backend**, see the following documentation:
+* [Enable my places](/documentation/backend/enabling-myplaces)
+* [Add user authentication](/documentation/backend/authentication)
+* [Setting up thematic map mode support](/documentation/backend/thematic-maps-setup)
+* [Installing Parcel application](/documentation/backend/custom-install-parcel)
+* [Adding user guide](/documentation/backend/adding-user-guide)
 
-Creating new location search channel services [guide](https://github.com/nls-oskari/oskari/blob/master/docs/md/backend/searchchannels.md)
+
+For **developing frontend**, see the following documentation:
+* [Oskari Application](/documentation/core-concepts/oskari-application)
+* [Oskari Bundle](/documentation/core-concepts/oskari-bundle)
+ * [Oskari bundle manager/loader](/documentation/core-concepts/bundle-manager)
+ * [Bundle docs](/documentation/bundles)
+* [Oskari class](/documentation/core-concepts/oskari-class)
+* [Oskari core and sandbox](/documentation/core-concepts/oskari-core)
+* [Bundle communication: Request](/documentation/core-concepts/oskari-request)
+ * [List of Oskari requests](/documentation/core-concepts/request-list)
+* [Bundle communication: Event](/documentation/core-concepts/oskari-event)
+ * [List of Oskari events](/documentation/core-concepts/event-list)
+* [Map plugin](/documentation/core-concepts/map-plugin)
+
+
+

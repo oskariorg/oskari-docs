@@ -72,6 +72,9 @@ module.exports = {
     documentation: function (req, res) {
         res.render('documentation');
     },
+    examples: function (req, res) {
+        res.render('examples');
+    },
     download: function (req, res) {
         fs.readdir(releaseDir, function(err, files) {
             if (err) {

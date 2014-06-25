@@ -7,6 +7,7 @@
 * The interface should work with modern tablets and smartphones, currently there is no separate mobile/tablet-optimized version
 * Some Oskari modules can make use of role-based user management. Users belonging to different roles can be given access to specific functionality
 
+
 ### Map window
 
 * Supported layer types:

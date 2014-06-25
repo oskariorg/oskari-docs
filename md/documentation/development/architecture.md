@@ -1,4 +1,4 @@
-# Oskari architecture
+# Oskari frontend architecture
 
 ## Oskari JavaScript framework
 
@@ -22,6 +22,3 @@
 4. Another way to communicate with other bundles is to send out an event through Oskari core.
 5. Any bundle registered as an eventlistener for the given event is then notified about the event.
 
-## Oskari backend
-
-![Oskari backend architecture](/images/documentation/oskari_architecture_backend.png)

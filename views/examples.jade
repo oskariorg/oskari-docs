@@ -1,0 +1,55 @@
+extends layout
+
+block main
+  :markdown
+    # Examples
+
+  div.container
+    div.row
+      :markdown
+        ## Live sites using Oskari
+
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. Paikkatietoikkuna.fi
+
+          div.panel-body
+            :markdown
+              The most recent release version of Oskari is in use at Paikkatietoikkuna.
+              <a href="http://demo.oskari.org/" target="_blank"><img src="/images/example_paikkatietoikkuna.PNG" width=320px>
+              </a>
+              [Technical details](/documentation/examples/technical_details_paikkatietoikkuna)
+
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. Lupapiste
+
+          div.panel-body
+            :markdown
+              A service for permits, in the early stage only construction permits are handled. The map is available after registration.
+              <a href="https://www.lupapiste.fi/" target="_blank"><img src="/images/example_lupapiste.PNG" width=320px>
+              </a>
+              
+
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. harava
+
+          div.panel-body
+            :markdown
+              A survey service for residents to participate in the local planning and construction. The map is used for example in the ​[Harava proto](http://www.eharava.fi/325?lang=en) (click next to get to the 2nd page with the map).
+              <a href="http://www.eharava.fi/325?lang=en" target="_blank"><img src="/images/example_harava.PNG" width=320px>
+              </a>
+
+    <hr>
+
+    div.row
+      div.col-md-6
+        :markdown
+          ## Other examples:
+          * [Sample request definition](/documentation/core-concepts/oskari-request)
+          * [Sample request handler definition](/documentation/core-concepts/oskari-request)
+

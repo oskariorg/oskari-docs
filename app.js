@@ -34,6 +34,7 @@ app.get('/documentation/backend/basic-install', function (req, res) {
 // </remove this after oskari-server release>
 app.get('/documentation/*', routes.md);
 app.get('/download', routes.download);
+app.get('/examples', routes.examples);
 app.get('/about', routes.about);
 app.get('/', routes.root);
 

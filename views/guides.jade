@@ -3,28 +3,56 @@ extends layout
 block main
   :markdown
     # Guides
+    If you are not familiar with Oskari we recommend that you first take a look at [Oskari Platform - Basics](/documentation)
 
-  div.row
-    div.col-md-4
+  div.container
+    div.row
       :markdown
-        ## Front-end developers
-        
-        For getting a grasp of the basics of Oskari front-end development, we recommend you begin with our [quick start guide](/guides/quick-start/my-first-bundle). It covers setting up the application setup, working with tiles and flyouts, using toolbar and creating your own bundle.
+        ## Getting started
+        #### What is your aim?
 
-    div.col-md-4
-      :markdown
-        ## Back-end developers
-        
-        1. Follow the [basic installation guide](/documentation/backend/server-embedded-developer)
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. I want to take the full advantage of Oskari Platform
 
-        2. Adding your own [action routes](/documentation/backend/adding-action-routes)
+          div.panel-body
+            :markdown
+              This guide gives instructions on how to setup backend and frontend and how to start developing Oskari Platform.
+              <br>
+              <br>
+              [To the guide!](/guides/backend/getting-started)
 
-        3. [Customize the application property values for your environment](/documentation/backend/customize-properties)
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. I want to develop only the User Interface
 
-        4. [Creating new location search channel services](/documentation/backend/searchchannels)
+          div.panel-body
+            :markdown
+              This guide gives you a quick start to Oskari UI development.
+              
+              [To the guide](/guides/quick-start/my-first-bundle)
 
-    div.col-md-4
-      :markdown
-        ## Oskari contributors
-        
-        For now, see our [how to contribute document](/documentation/development/how-to-contribute).
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. I want to use virtual environment (Vagrant)
+
+          div.panel-body
+            :markdown
+              Follow this guide when you want to develop Oskari with Vagrant.
+
+              [To the guide](/documentation/vagrant-guide)
+    <hr>
+
+    div.row
+      div.col-md-6
+        :markdown
+          ## Other guides:
+          * [Oskari 2.0 Migration Guide](/guides/Oskari_2_Migration_Guide)
+      div.col-md-6
+        :markdown
+          ## See frequently asked questions for getting advice!
+          * [FAQ](/documentation/faq)
+
