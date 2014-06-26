@@ -58,3 +58,14 @@ dialog.show('Note', 'Something happened at this component');
 dialog.moveTo(myComponent, 'top');
 dialog.fadeout();
 ```
+
+Catching event when the popup is closed:
+
+```javascript
+var dialog = Oskari.clazz.create('Oskari.userinterface.component.Popup');
+dialog.show('Note', 'I will alert when closed');
+dialog.onClose(function() {
+   alert('Dialog closed!');
+});
+dialog.fadeout();
+```
