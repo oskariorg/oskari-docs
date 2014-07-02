@@ -12,21 +12,11 @@ Standalone Oskari server depends on PostgreSQL with PostGIS extension for servin
 
 ### 1. Fetch Oskari-server
 
-Download backend as a zip-file from github: https://github.com/nls-oskari/oskari-server/archive/master.zip
+[Download as a zip-file](/build/server/oskari-server.zip)
 
-* Unzip the file
-* copy contents of `oskari-server-master/standalone-jetty/dist` folder to `<work dir>` (somewhere you want the server to be located)
+* Unzip the file to `<work dir>` (somewhere you want the server to be located)
 
-### 2. Fetch Oskari frontend
-
-Download frontend as a zip-file from github: https://github.com/nls-oskari/oskari/archive/master.zip
-
-* Unzip the file so that `<work dir>/public` has the folder `oskari-master` under it
-* Rename folder `oskari-master` to `Oskari` with capital O letter
-
-    mv oskari-master Oskari
-
-### 3. Modify properties to match your environment
+### 2. Modify properties to match your environment
 
 Modify `oskari-ext.properties` located in `<work dir>` for example database connection parameters:
 
@@ -41,7 +31,7 @@ You can also modify the location of static frontend codes with:
 
 The folder referenced should contain at least the Oskari frontend code
 
-### 4. Start the server
+### 3. Start the server
 
 Change the `[version]` in below to match the filename. Java 7 or higher should be in the path variable of your operating system.
 
