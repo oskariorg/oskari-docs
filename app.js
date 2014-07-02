@@ -36,7 +36,10 @@ app.get('/documentation/*', routes.md);
 app.get('/download', routes.download);
 app.get('/examples', routes.examples);
 app.get('/about', routes.about);
+app.get('/search', routes.search);
 app.get('/', routes.root);
+
+app.post('/search', routes.search);
 
 app.use(function(err, req, res, next) {
     console.error(err);

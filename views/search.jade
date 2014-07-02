@@ -1,0 +1,9 @@
+extends layout
+
+block main
+    h3 Showing results: #{result.length} / #{numFound}
+    p
+         - result.forEach(function(item) {
+            li(role="presentation")
+              a(role="menuitem" tabindex="-1" href=item.url) #{item.id}
+          - });

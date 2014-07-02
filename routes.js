@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var md = require('marked');
 var _ = require('lodash-node');
+var http = require('http');
 
 var mdDir = 'md';
 var releaseDir = path.join(__dirname, 'public', 'release');
@@ -75,6 +76,41 @@ module.exports = {
     examples: function (req, res) {
         res.render('examples');
     },
+    search: function (req, res) {
+        var q = req.param('q');
+        if(!q) {
+            res.render('search', {
+                result:[]});
+            return;
+        }
+        var options = {
+          host: 'localhost',
+          path: '/solr/collection1/select?wt=json&rows=30&q=' + q, 
+          port: '8983'
+        };
+
+        console.log(options.path);
+        callback = function(response) {
+          var str = '';
+
+          //another chunk of data has been recieved, so append it to `str`
+          response.on('data', function (chunk) {
+            str += chunk;
+          });
+
+          //the whole response has been recieved, so we just print it out here
+          response.on('end', function () {
+            var rspse=JSON.parse(str);
+            res.render('search', {
+                result:rspse.response.docs,
+                numFound:rspse.response.numFound});
+          });
+        }
+
+        http.request(options, callback).end();
+            
+    },
+
     download: function (req, res) {
         fs.readdir(releaseDir, function(err, files) {
             if (err) {
