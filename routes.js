@@ -68,13 +68,13 @@ module.exports = {
         });
     },
     guides: function (req, res) {
-        res.render('guides');
+        res.render('guides')
     },
     documentation: function (req, res) {
-        res.render('documentation');
+        res.render('documentation')
     },
     examples: function (req, res) {
-        res.render('examples');
+        res.render('examples')
     },
     search: function (req, res) {
         var q = req.param('q');
@@ -126,5 +126,5 @@ module.exports = {
     },
     root: function (req, res) {
         res.render('index');
-    }
+    },
 };
