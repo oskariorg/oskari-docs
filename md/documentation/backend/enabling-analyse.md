@@ -77,19 +77,21 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
     db.password=postgres
 
     # mark any addition pool property tokens so we can check/add them automagically
-    db.additional.pools=myplaces,analysis
+    # jdbc/OskariPool is used for myplaces and analysis, if there is no definition for extra pools
+    #
+    #db.additional.pools=myplaces,analysis
 
     # jdbc/omat_paikatPool
-    db.myplaces.jndi.name=jdbc/OskariPool
-    db.myplaces.url=jdbc:postgresql://localhost:5432/oskaridb
-    db.myplaces.username=postgres
-    db.myplaces.password=postgres
+    #db.myplaces.jndi.name=jdbc/OskariPool
+    #db.myplaces.url=jdbc:postgresql://localhost:5432/oskaridb
+    #db.myplaces.username=postgres
+    #db.myplaces.password=postgres
 
     # jdbc/analysisPool
-    db.analysis.jndi.name=jdbc/OskariPool
-    db.analysis.url=jdbc:postgresql://localhost:5432/oskaridb
-    db.analysis.username=postgres
-    db.analysis.password=postgres
+    #db.analysis.jndi.name=jdbc/OskariPool
+    #db.analysis.url=jdbc:postgresql://localhost:5432/oskaridb
+    #db.analysis.username=postgres
+    #db.analysis.password=postgres
     ##################################
 
     ....
@@ -109,10 +111,20 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
     # Analysis base proxy url because proxy denies geoservers requests -> routed through this server
     # analysis.baseproxy.url=http://dev.paikkatietoikkuna.fi
 
-    # Analysis rendering Url
-    analysis.rendering.url=/karttatiili/analysis?
+    # Analysis rendering Url for Liferay
+    # analysis.rendering.url=/karttatiili/analysis?
+
     # Analysis rendering Element (view table)
     analysis.rendering.element=oskari:analysis_data_style
+
+    oskari.proxy.analysistile.url=http://localhost:8082/geoserver/wms?buffer=128&tiled=yes&tilesorigin=0,0&CQL_FILTER=
+    oskari.proxy.analysistile.handler=fi.nls.oskari.proxy.AnalysisProxyHandler
+    oskari.proxy.analysistile.user=admin
+    oskari.proxy.analysistile.pass=geoserver
+
+    # oskari.proxyservices = print, property, wfsquery, myplacestile, analysistile
+    oskari.proxyservices = wfsquery, myplacestile, analysistile
+
 
 
 
