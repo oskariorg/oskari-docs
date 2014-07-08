@@ -131,7 +131,9 @@ Start e.g. `http://localhost:2373/oskari-map?viewId={id}` in your browser. Repla
 
 ## Troubleshooting
 
-    ....
+    * Database operations failed --> look at Jetty (oskari-map.war) log stream  or Postgres log (/var/lib/pgsql/9.3/data/pg_log/)
+    * Database permission problems --> edit /var/lib/pgsql/9.3/data/pg_hba.conf
+    * Is there password for postgres  --> use psql  / passwd postgres
 
 ## Guidelines for GeoServer configuration
 
