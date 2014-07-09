@@ -1,4 +1,4 @@
-# Enabling Analysis With Postgis
+# Enabling Analysis With Postgis (BETA)
 
 **NOTE!** This document describes setup with [GeoServer](http://geoserver.org/). In case you have a different WMS service installed, adjust accordingly.
 
