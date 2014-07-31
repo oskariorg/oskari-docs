@@ -22,7 +22,16 @@ Open
 
 ## Bundle configuration
 
-No configuration is required.
+No configuration is required, in which case the indexmap appears on the right bottom corner of the map by default. If there are many elements in the same location (containerClasses), variable position defines the order of elements. Below are the default values.
+
+```javascript
+var containerClasses = 'bottom right',
+var position = 5;
+```
+
+If you wish to change to location of the indexmap, you have two possibilities: <br>
+1) define location on a map by changing value of variables containerClasses and position <br>
+2) define container for the indexmap by configuring containerId
 
 ## Requests the plugin handles
 
@@ -36,7 +45,7 @@ This plugin doesn't sends any requests.
 
 <table class="table">
   <tr>
-    <td> Event </td><td> How does the bundle react</td>
+    <th> Event </th><th> How does the bundle react</th>
   </tr>
   <tr>
     <td> AfterMapMoveEvent </td><td> Updates ui to current map location</td>
@@ -45,13 +54,20 @@ This plugin doesn't sends any requests.
 
 ## Events the plugin sends out
 
-This bundle doesn't send any events.
+<table class="table">
+  <tr>
+    <th> Event </th><th> Why/When</th>
+  </tr>
+  <tr>
+    <td> AfterMapMoveEvent </td><td> After map has moved</td>
+  </tr>
+</table>
 
 ## Dependencies
 
 <table class="table">
   <tr>
-    <td> Dependency </td><td> Linked from </td><td> Purpose</td>
+    <th> Dependency </th><th> Linked from </th><th> Purpose</th>
   </tr>
   <tr>
     <td> [OpenLayers](http://openlayers.org/) </td>

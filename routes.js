@@ -85,7 +85,7 @@ module.exports = {
         }
         var options = {
           host: 'localhost',
-          path: '/solr/collection1/select?wt=json&rows=30&q=' + q, 
+          path: '/solr/collection1/select?wt=json&rows=200&q=' + q, 
           port: '8983'
         };
 
