@@ -20,18 +20,35 @@ Closed
 
 Open
 
+## TO DO
+
+The bundle is currently limited internationally, because Finland is hardcoded to the picture and extent.
+
 ## Bundle configuration
 
-No configuration is required, in which case the indexmap appears on the right bottom corner of the map by default. If there are many elements in the same location (containerClasses), variable position defines the order of elements. Below are the default values.
+No configuration is required, in which case the indexmap appears on the lower right corner of the map by default. If there are many elements in the same location, variable 'position' defines the order of the elements. 
+
+
+If you wish to change the location of the indexmap, you have two possibilities:
+
+1) Define location on a map by configuring variables 'classes' and 'position'. Below are the default values.
 
 ```javascript
-var containerClasses = 'bottom right',
-var position = 5;
+{
+  "location" : {
+        "classes" : "bottom right",
+        "position" : 5
+  }
+};
 ```
 
-If you wish to change to location of the indexmap, you have two possibilities: <br>
-1) define location on a map by changing value of variables containerClasses and position <br>
-2) define container for the indexmap by configuring containerId
+2) Define container for the indexmap by configuring containerId.
+
+```javascript
+{
+  "containerId" = "mycontainerId"
+} 
+```
 
 ## Requests the plugin handles
 
@@ -59,7 +76,7 @@ This plugin doesn't sends any requests.
     <th> Event </th><th> Why/When</th>
   </tr>
   <tr>
-    <td> AfterMapMoveEvent </td><td> After map has moved</td>
+    <td> AfterMapMoveEvent </td><td> After map has moved within the indexmap</td>
   </tr>
 </table>
 
