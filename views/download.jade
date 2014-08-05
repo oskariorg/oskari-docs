@@ -3,45 +3,59 @@ extends layout
 block main
   :markdown
     # Download
-    ## Github
-    
-    Master branch has stable production ready code that is in use at ​[Paikkatietoikkuna](http://www.paikkatietoikkuna.fi/web/en) while develop is the most recent code which is more of a work in progress and most likely contains bugs.
 
-    ### Frontend
+  div.row
+      div.col-md-6
+          div.panel.panel-warning
+            div.panel-heading
+              :markdown
+                #### Install Oskari quickly by [downloading the zip-file](/build/server/oskari-server.zip)! Includes both backend and frontend!
+                - NB! Assumes pre-installed JDK 1.7+ and database available ([Instructions for setting up database](/documentation/backend/database-create))
 
-    [Oskari JavaScript framework](https://github.com/nls-oskari/oskari) is available on GitHub.
+                - See instructions on how to run Oskari server and serve Oskari content from [here](/documentation/backend/server-embedded-precompiled).
 
-    * [releases](https://github.com/nls-oskari/oskari/tags)
-    * master [​tarball](https://github.com/nls-oskari/oskari/tarball/master), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
-    * develop [​tarball](https://github.com/nls-oskari/oskari/tarball/develop), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
-
-    ### Backend
-
-    [Oskari-server](https://github.com/nls-oskari/oskari-server) and [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) are available on GitHub.
-
-    * [releases](​https://github.com/nls-oskari/oskari-server/tags)
-    * master [​tarball](https://github.com/nls-oskari/oskari-server/tarball/master), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
-    * develop [​tarball](https://github.com/nls-oskari/oskari-server/tarball/develop), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
-
-  - if (files && files.length)
-
+  div.row
     :markdown
-      ## Direct download
 
-      Oskari packages are available on this site in `.zip` and `.tgz` formats.
+      ## Github
+      
+      Master branch has stable production ready code that is in use at ​[Paikkatietoikkuna](http://www.paikkatietoikkuna.fi/web/en) while develop is the most recent code which is more of a work in progress and most likely contains bugs.
 
-      Packages include:
-        * minified oskari build (`/min/oskari.min.js` and `min/oskari.min.css` files)
-        * language files (located under `/min`)
-        * sample `index.html` and `index.js` files
-        * sample `appsetup.json` and `config.json`
-        * stylesheets and image files
+      ### Frontend
 
-      To get started, extract the package and open `index.html` in your web browser.
-      Note that the `appsetup.json` and `config.json` are fetched via ajax so you might need a web server to serve these.
+      [Oskari JavaScript framework](https://github.com/nls-oskari/oskari) is available on GitHub.
 
-    ul
-      - files.forEach(function(file) {
-        li
-          a(href='/release/' + file) #{file}
-      - });
+      * [releases](https://github.com/nls-oskari/oskari/tags)
+      * master [​tarball](https://github.com/nls-oskari/oskari/tarball/master), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
+      * develop [​tarball](https://github.com/nls-oskari/oskari/tarball/develop), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
+
+      ### Backend
+
+      [Oskari-server](https://github.com/nls-oskari/oskari-server) and [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) are available on GitHub.
+
+      * [releases](​https://github.com/nls-oskari/oskari-server/tags)
+      * master [​tarball](https://github.com/nls-oskari/oskari-server/tarball/master), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
+      * develop [​tarball](https://github.com/nls-oskari/oskari-server/tarball/develop), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
+
+    - if (files && files.length)
+
+      :markdown
+        ## Direct download
+
+        Oskari packages are available on this site in `.zip` and `.tgz` formats.
+
+        Packages include:
+          * minified oskari build (`/min/oskari.min.js` and `min/oskari.min.css` files)
+          * language files (located under `/min`)
+          * sample `index.html` and `index.js` files
+          * sample `appsetup.json` and `config.json`
+          * stylesheets and image files
+
+        To get started, extract the package and open `index.html` in your web browser.
+        Note that the `appsetup.json` and `config.json` are fetched via ajax so you might need a web server to serve these.
+
+      ul
+        - files.forEach(function(file) {
+          li
+            a(href='/release/' + file) #{file}
+        - });
