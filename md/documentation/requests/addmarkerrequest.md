@@ -57,8 +57,8 @@ Markers are rendered using Raphael fonts. A default font is provided and the sha
 
 0: ![stud](/images/documentation/requests/marker-stud.png)  
 1: ![square](/images/documentation/requests/marker-square.png)  
-2: ![wide pin](/images/documentation/requests/marker-pin.png)  
-3: ![narrow pin](/images/documentation/requests/marker-pin2.png)  
+2: ![wide pin](/images/documentation/requests/marker-pin2.png)  
+3: ![narrow pin](/images/documentation/requests/marker-pin.png)  
 4: ![flag](/images/documentation/requests/marker-flag.png)  
 5: ![dot](/images/documentation/requests/marker-dot.png)  
 6: ![arrow](/images/documentation/requests/marker-arrow.png)  
