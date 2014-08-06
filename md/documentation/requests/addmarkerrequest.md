@@ -67,7 +67,7 @@ Markers are rendered using Raphael fonts. A default font is provided and the sha
 ### Custom shapes
 
 **The easiest way to use custom graphics is to give a url to any icon file as done in the first example. In that case, the 
-size in pixels of the graphics can be controlled by the `size` parameters. The default size is 32x32 pixels.**
+size in pixels of the graphics can be controlled by the `size` parameter. The default size is 32x32 pixels.**
 
 Another, currently much more complicated method, is to create new vector based marker shapes. They provide high quality 
 scaling and dynamic color selection, but before much more flexible OpenLayers 3 implementation extending them might not be 
