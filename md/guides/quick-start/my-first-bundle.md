@@ -10,7 +10,7 @@ This is the map application with only OpenLayers and the core of Oskari download
 
 To add new funtionality to the application we add another bundle to it:
 
-* Open `/applications/sample/myfirst/appsetup.json` file to an editor
+* Open `/applications/sample/myfirst/appsetupconfig.json` file to an editor
 * Find the a bundle block for `myfirstbundle` and append the following `mysecondbundle` after it (remember to separate the blocks with a comma):
 
 ```javascript

@@ -6,18 +6,18 @@ Application is started by calling:
 
 ```javascript
 var app = Oskari.app,
-    appSetup = {
-        startupSequence : [...<bundle references>...]
-    },
-    appConfig = {
-        "mapfull" : {
-            "conf": {...<configuration for bundle mapfull>...}
-            "state" : {...<state for bundle mapfull>...}
+    appSetupConfig = {
+        startupSequence : [...<bundle references>...],
+        "configuration" : {
+          "mapfull" : {
+              "conf": {...<configuration for bundle mapfull>...}
+              "state" : {...<state for bundle mapfull>...}
+          }
         }
     };
     
-app.setApplicationSetup(appSetup);
-app.setConfiguration(appConfig);
+app.setApplicationSetup(appSetupConfig);
+app.setConfiguration(appSetupConfig.configuration);
 app.startApplication(function(startupInfos) {
     alert('all bundles loaded');
 });

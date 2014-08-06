@@ -32,7 +32,7 @@ Oskari.registerLocalization({
 
 Reload the `index.html` on your browser and notice that the flyouts title has changed.
 To add new funtionality to the application we add another bundle to it:
-Open `/applications/sample/mythird/appsetup.json` file to an editor
+Open `/applications/sample/mythird/appsetupconfig.json` file to an editor
 Find the a bundle block for `mythirdbundle` and append the following `toolbar` bundle after it to load it after `mythirdbundle` or before to load it before it (remember to separate the blocks with a comma):
 
 ```javascript

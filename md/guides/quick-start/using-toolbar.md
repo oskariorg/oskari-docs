@@ -24,7 +24,7 @@ This example continues the `mythird` sample application by adding new functional
 
 This bundle sends out a request on startup for `toolbar` bundle asking it to show another button. What happens when you click the button is handled by `myfourthbundle`. You can see what you can do with the toolbar requests by looking at the toolbar bundles documentation.
 
-The modified/ready bundle configuration is in file `/applications/sample/mythird/my4th_appsetup.json`. You can replace the file `appsetup.json` with it and see the end result:
+The modified/ready bundle configuration is in file `/applications/sample/mythird/my4th_appsetupconfig.json`. You can replace the file `appsetupconfig.json` with it and see the end result:
 
 ![Custom toolbar](/images/quick-start/custom_toolbar.png)
 
