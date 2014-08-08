@@ -21,6 +21,11 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`core`</td>
         </tr>
         <tr>
+            <td>[AddMarkerRequest](/documentation/requests/addmarkerrequest)</td>
+            <td></td>
+            <td>`framework/mapmodule-plugin/markersplugin`</td>
+        </tr>
+        <tr>
             <td>`analyse.AnalyseRequest`</td>
             <td></td>
             <td>`analysis/analyse`</td>
