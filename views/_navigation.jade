@@ -1,11 +1,14 @@
 nav
-  ul
+  ul(class="nav navbar-nav" role="navigation")
     li: a(href="/guides") Guides
     li: a(href="/documentation") Documentation
     li: a(href="/examples") Examples
     li: a(href="/download") Download
     li: a(href="/about") About
-
+    li
+        form(method="GET", class="navbar-form navbar-right", action="/search") 
+            div(class="form-group")
+                input(type="text", name="q", placeholder="Search...", class="form-control")
 
 
 
