@@ -89,7 +89,6 @@ module.exports = {
           port: '8983'
         };
 
-        console.log(options.path);
         callback = function(response) {
           var str = '';
 
