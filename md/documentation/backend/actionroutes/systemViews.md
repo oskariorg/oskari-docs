@@ -7,7 +7,7 @@ layers of a view.
 ## Parameters
 
 GET doesn't need/use any parameters.
-POST has uses the following:
+POST uses the following:
 
 <table>
   <tr>
