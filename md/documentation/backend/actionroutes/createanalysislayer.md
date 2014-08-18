@@ -106,7 +106,7 @@
         ]
     }
 }
-### Methods (status 13.8.2013)
+### Methods (status 18.8.2014)
 
 ## Buffer (WPS vec:BufferFeatureCollection)
 Buffers features by a distance value supplied either as a parameter or by a feature attribute. 
@@ -116,13 +116,29 @@ Calculates buffers based on Cartesian distances.
 Computes one or more aggregation functions on a feature attribute. 
 Functions include Count, Average, Max, Median, Min, StdDev, and Sum.
 
-## Union (WPS vec:UnionFeatureCollection)
-Returns single feature collection containing all features from two input feature collections. 
-The output attribute schema is a combination of the attributes from the inputs. 
-Attributes with same name but different types will be converted to strings.
+## Union
+Combines two equal structured analysis to one analysis via db operations
 
-## Intersection (WPS vec:IntersectionFeatureCollection)
-Spatial intersection of two feature collections, incuding combining attributes from both.
+## Clipping (WPS gs:IntersectionFeatureCollection2)
+Clip feature collection and returns new feature collection with clipped geometrys and original properties.
+
+## Intersect (WPS gs:IntersectionFeatureCollection2)
+Spatial intersection of two feature collections, incuding attributes of 2nd collection.
+1st feature collection is for geometry select.
+There is no geometry clipping. Two modes available:
+
+ *within* (takes 2nd collection features, which are totally inside 1st features
+ *intersect* (takes inside and intertecting features)
+
+## Multiple buffers (WPS gs:ZoneSectorFeatureCollection)
+Returns zones feature collection of input feature collection.
+
+## Difference
+Returns feature collection of differences in one property of two input collections.
+Method uses WFS GetFeature join request and GeoTools encoding/parsing.
+
+
+
 ## Response
 
 ### Raw example
