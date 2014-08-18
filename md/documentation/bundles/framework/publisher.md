@@ -30,6 +30,7 @@ Users can select styling for the published map in 'Layout' panel. The colour sch
 ## Bundle configuration
 
 Some configuration is needed for URLs:
+Built-in plugin tools can be configured and values are unvalidated, therefore ensure valid values before use. The ´id´ must match the plugin class name. ´selected´ is true when the tool is selected by default. ´lefthanded´ is the config.location.classes definition for left handed layout. ´righthanded´ is the config.location.classes definition for right handed layout. ´config´ contains individual plugin tool configurations. ´classes´ accepts corners such as ´bottom left´ and ´top right´. When several plugins has the same ´classes´ value, then ´position´ is used for ordering the plugins. These are default values and users can change them using the publisher.
 
 ```javascript
 "conf": {
@@ -48,7 +49,79 @@ Some configuration is needed for URLs:
     "fi": "www.paikkatietoikkuna.fi/published/fi/",
     "sv": "www.paikkatietoikkuna.fi/published/sv/"
   },
-  "urlPrefix": "www.paikkatietoikkuna.fi"
+  "urlPrefix": "www.paikkatietoikkuna.fi",
+  "tools": [{
+            "id": "Oskari.mapframework.bundle.mapmodule.plugin.ScaleBarPlugin",
+            "selected": false,
+            "lefthanded": "bottom left",
+            "righthanded": "bottom right",
+            "config": {
+                "location": {
+                    "classes": "bottom left"
+                }
+            }
+        }, {
+            "id": "Oskari.mapframework.bundle.mapmodule.plugin.IndexMapPlugin",
+            "selected": false,
+            "lefthanded": "bottom right",
+            "righthanded": "bottom left",
+            "config": {
+                "location": {
+                    "classes": "bottom right"
+                }
+            }
+        }, {
+            "id": "Oskari.mapframework.bundle.mapmodule.plugin.PanButtons",
+            "selected": false,
+            "lefthanded": "top left",
+            "righthanded": "top right",
+            "config": {
+                "location": {
+                    "classes": "top left"
+                }
+            }
+        }, {
+            "id": "Oskari.mapframework.bundle.mapmodule.plugin.Portti2Zoombar",
+            "selected": true,
+            "lefthanded": "top left",
+            "righthanded": "top right",
+            "config": {
+                "location": {
+                    "classes": "top left"
+                }
+            }
+        }, {
+            "id": "Oskari.mapframework.bundle.mapmodule.plugin.SearchPlugin",
+            "selected": false,
+            "lefthanded": "top right",
+            "righthanded": "top left",
+            "config": {
+                "location": {
+                    "classes": "top right"
+                }
+            }
+        }, {
+            "id": "Oskari.mapframework.bundle.mapmodule.plugin.PublisherToolbarPlugin",
+            "selected": false,
+            "lefthanded": "top right",
+            "righthanded": "top left",
+            "config": {
+                "location": {
+                    "classes": "top right"
+                },
+                "toolbarId": "PublisherToolbar"
+            }
+        }, {
+            "id": "Oskari.mapframework.mapmodule.ControlsPlugin",
+            "selected": true
+        }, {
+            "id": "Oskari.mapframework.mapmodule.GetInfoPlugin",
+            "selected": true,
+            "config": {
+                "ignoredLayerTypes": ["WFS"],
+                "infoBox": false
+            }
+        }]
 }
 ```
 

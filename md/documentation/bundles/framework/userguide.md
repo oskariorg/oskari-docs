@@ -11,35 +11,54 @@
 
 ## Description
 
-''Describe what the bundle does.''
-
-## TODO
-
-* ''List any planned features''
+Creates the Userguide flyout with title and content. 
 
 ## Bundle configuration
 
-```javascript
-config : {
-  test : 1
-}
-```
+Bundle needs title(s) and data as configuration. There are two options to make the configuration:
 
-OR
-
-No configuration is required.
-
-## Bundle state
+1) If you have only one document to show and you don't need any tabs, you can make the configuration to the locale. 
 
 ```javascript
-state : {
-  test : 2
-}
+{
+  "help": {
+      tags: "tag1, tag2",
+      contentPart: "body"
+  }
+};
 ```
+The bundle will create basic flyout with content defined by tags.
 
-OR
+2) If you wish to have tabs, they should be found in configuration as follows:
 
-No statehandling has been implemented.
+```javascript
+{
+  "tabs": [
+      {title: "title1", tags: "tag1"},
+      {title: "title2", tags: "tag2"},
+      {title: "title3", tags: "tag3"},
+      {title: "title4", tags: "tag4"}
+  ]
+};
+```
+The bundle creates as many tabs as there are them in configuration. If there is no configuration, the bundle gets tags from locale.
+
+Method getHelpArticle fetches an article from the server using getAjaxUrl method. 
+
+```javascript
+jQuery.ajax({
+        url: me.sandbox.getAjaxUrl() + 'action_route=GetArticlesByTag',
+        data: {
+            tags: taglist
+        },
+        type: 'GET',
+        dataType: 'json'
+});
+```
+Example of Request URL:
+
+`http://www.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=GetArticlesByTag&tags=tag1%2Ctag2`
+
 
 ## Requests the bundle handles
 
@@ -48,13 +67,9 @@ No statehandling has been implemented.
     <th>Request</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>tbd</td><td>tbd</td>
+    <td>userguide.ShowUserGuideRequest</td><td>Shows userguide</td>
   </tr>
 </table>
-
-OR
-
-This bundle doesn't handle any requests.
 
 ## Requests the bundle sends out
 
@@ -63,13 +78,9 @@ This bundle doesn't handle any requests.
     <th>Request</th><th>Why/when</th>
   </tr>
   <tr>
-    <td>tbd</td><td>tbd</td>
+    <td>userinterface.RemoveExtensionRequest</td><td>When the bundle is stopped, defaultExtension is removed</td>
   </tr>
 </table>
-
-OR
-
-This bundle doesn't send out any requests.
 
 ## Events the bundle listens to
 
@@ -78,40 +89,10 @@ This bundle doesn't send out any requests.
     <th>Event</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>tbd</td><td>tbd</td>
+    <td>userinterface.ExtensionUpdatedEvent</td><td>Handles the updated event</td>
   </tr>
 </table>
-
-OR
-
-This bundle doesn't listen to any events.
 
 ## Events the bundle sends out
 
-<table class="table">
-  <tr>
-    <th>Event</th><th>Why/when</th>
-  </tr>
-  <tr>
-    <td>tbd</td><td>tbd</td>
-  </tr>
-</table>
-
-OR
-
 This bundle doesn't send out any events.
-
-## Dependencies
-
-<table class="table">
-  <tr>
-    <th>Dependency</th><th>Linked from</th><th>Purpose</th>
-  </tr>
-  <tr>
-    <td>[Library name](#link)</td><td>src where its linked from</td><td>*why/where we need this dependency*</td>
-  </tr>
-</table>
-
-OR
-
-This bundle doesn't have any dependencies.

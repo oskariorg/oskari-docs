@@ -56,18 +56,10 @@ div.header {
     }
 
     div.oskari-logo {
-        p {
-            color: @header-color;
-            font-family: 'Lily Script One', cursive;
-            -webkit-font-smoothing: antialiased;
-            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-            font-size: 3em;
-        }
         float: left;
     }
 
     nav {
-        float: right;
         font-size: 1.2em;
         ul {
             padding: 0;
@@ -75,19 +67,20 @@ div.header {
                 display: inline-block;
                 margin-left: 1em;
                 list-style-type: none;
-                padding-top: 10px;
+                padding-bottom: 5px;
                 border-top: 5px solid transparent;
                 a {
                     color: @header-color;
                 }
             }
             li:first-child {
-                margin-left: 0;
+                margin-left: 5;
             }
             li:hover, li.active {
                 a {
-                    text-decoration: none;
-                    text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+                    text-decoration: underline;
+                    background-color:transparent;
+                    text-shadow: 0px 0px 8px rgba(0, 0, 0, 4);
                 }
             }
         }

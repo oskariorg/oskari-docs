@@ -1,4 +1,4 @@
-# Component architecture
+# Component architecture 
 
 ## Backend components in oskari-server
 
