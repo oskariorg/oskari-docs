@@ -76,6 +76,9 @@ module.exports = {
     examples: function (req, res) {
         res.render('examples')
     },
+    challenge: function (req, res) {
+        res.render('challenge')
+    },
     search: function (req, res) {
         var q = req.param('q');
         if(!q) {
