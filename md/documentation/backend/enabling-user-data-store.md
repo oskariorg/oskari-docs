@@ -24,8 +24,11 @@
 
         \content-resources\src\main\resources\sql\PostgreSQL\example-userlayer-wfs-baselayer.sql
 
- Remeber layer id of this new inserted layer for properties configuration
+ Remember layer id of this new inserted layer for properties configuration
 
+### Configure default view and bundle config for to add `myplacesimport`  or create new view according to lastest oskari.org documentation
+
+        \content-resources\src\main\resources\sql\PostgreSQL\add_userlayer_to_default_view.sql
 
 ### Configure GeoServer
 
