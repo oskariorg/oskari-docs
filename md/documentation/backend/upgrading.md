@@ -1,6 +1,10 @@
 # Upgrading
 
-Database upgrade SQL scripts are located under `oskari-server/content-resources/src/main/resources/sql/upgrade/{version}`. There's also `node.js` based upgrade tool under `oskari-server/content-resources/db-upgrade` which is mainly used for updating database content, for instance for adding plugins to the default view.
+Database upgrade SQL scripts are located under `oskari-server/content-resources/src/main/resources/sql/upgrade/{version}`. SQL scripts can also be found behind these links in github:
+- https://github.com/nls-oskari/oskari-server/tree/master/content-resources/src/main/resources/sql/upgrade
+- https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/resources/sql/upgrade
+
+There's also `node.js` based upgrade tool under `oskari-server/content-resources/db-upgrade` which is mainly used for updating database content, for instance for adding plugins to the default view.
 
 Additional upgrade instuctions are located under `oskari-server/docs/upgrade/{version}.md`
 
