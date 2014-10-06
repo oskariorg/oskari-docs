@@ -1,17 +1,19 @@
 # [Guides](/guides) - Taking full advantage of Oskari Platform
-#### This guide is still under development and is currently based on the documents found under [Documentation](/views/documentation) 
+
+#### This guide is still under development and is currently based on the documents found under [Documentation](/views/documentation)
+
 ### Oskari software consists of web mapping application (frontend) and service platform (backend). This guide gives instructions on how to setup them both and how to start developing Oskari Platform. It is assumed that the reader is familiar with [Oskari Platform - basics](/documentation).
 <br>
 
 ### 1. Setting up database
-#### 1.1 [Creating database](/documentation/backend/database-create)
-#### 1.2 [Populating database](/documentation/backend/database-populate)
-### 2. Setting up server
+#### 1.1 [Creating the database](/documentation/backend/database-create)
+#### 1.2 [Populating the database](/documentation/backend/database-populate)
+### 2. Setting up the server
 #### 2.1 [Standalone Oskari backend/frontend developer setup](/documentation/backend/server-embedded-developer)
 ### 3. Configuration
 #### 3.1 [Modifying the initial demo data](/documentation/backend/database-customize-initial-data)
 ### 4. Setting up transport WFS service
-#### 4.1 [Installing WFS backend](/documentation/backend/installing-transport)
+#### 4.1 [Installing the WFS backend](/documentation/backend/installing-transport)
 <br>
 
 Now you have the basic functionality.
@@ -36,6 +38,3 @@ For **developing frontend**, see the following documentation:
 * [Bundle communication: Event](/documentation/core-concepts/oskari-event)
  * [List of Oskari events](/documentation/core-concepts/event-list)
 * [Map plugin](/documentation/core-concepts/map-plugin)
-
-
-
