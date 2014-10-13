@@ -18,7 +18,7 @@ Thematic map mode displays statistical indicators in a grid and on the map for v
 
 ### 1. Add the necessary bundles to the app setup
 
-Create a view with the following included in the view json. You can use one of the existing views as a basis. Please refer [here](http://localhost:3003/documentation/backend/database-populate) for advice on how to add views.
+Create a view with the following included in the view json. You can use one of the existing views as a basis. Please refer [here](/documentation/backend/database-populate) for advice on how to add views.
 
 * `mapstats` bundle should be imported by `mapfull`. Add this to the `Import-Bundle` section of `mapfull`'s `startup`:
 ```json
