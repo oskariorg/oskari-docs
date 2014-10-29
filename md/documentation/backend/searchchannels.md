@@ -52,7 +52,7 @@ If you want to whitelist search channels and use only relevant ones for your app
     search.channels=OPENSTREETMAP_CHANNEL,MyChannel
 
 If you don't want to specify searches to use your channel explicitly you can add it to a list of default channels to be used.
-These channels are used for searching if no channels are explicitly defined when making a search:
+These channels are *always* added as target channels when making searches in addition to the ones defined explicitly:
 
     search.channels.default=MyChannel
 
