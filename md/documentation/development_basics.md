@@ -1,6 +1,11 @@
 # Development (basics)
 
-Oskari platform is developed originally by National Land Survey of Fin-land but nowadays there are also other parties developing Oskari in their projects. NLS is still the coordinator of Oskari.org and is developing the platform actively. The developed code is Open Source so it can be ex-ploited freely by anyone interested. It is desirable that the developments made by other parties would be integrated with the latest NLS version of Oskari platform. The preferred way of contributing Oskari is described in [How to contribute](/documentation/development/how_to_contribute)
+Oskari platform is developed originally by National Land Survey of Finland but nowadays there are also other parties developing Oskari in their projects. NLS is still the coordinator of Oskari.org and is developing the platform actively. The developed code is Open Source so it can be exploited freely by anyone interested. It is desirable that the developments made by other parties would be integrated with the latest NLS version of Oskari platform. The preferred way of contributing Oskari is described in [How to contribute](/documentation/development/how_to_contribute)
+
+## Requirements
+
+* experience in JavaScript and/or Java development
+* knowledge of basic geographical protocols used extensively in GIS applications, such as WMS (Web Map Service) and WFS (Web Feature Service)
 
 ## Developing frontend
 

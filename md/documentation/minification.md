@@ -34,3 +34,10 @@ Assumes `grunt-cli` is set in the path:
     grunt release:<version>:<path/to/minifier/application/setup.json>
 
 As a result, a new directory `dist` is created where the task generates the minified code for the application under `<version>` directory.
+
+## Troubleshooting
+
+Graphicsmagick has to be installed for minification task. If not, you will probably get the following error:
+
+    Generating CSS Sprite...
+    Fatal error: spawn ENOENT

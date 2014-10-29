@@ -114,6 +114,11 @@ module.exports = {
     },
 
     download: function (req, res) {
+        res.render('download');
+        // files are not updated currently so removing files from render model
+        // should get rid of the direct download part of the page
+        // TODO: enable when we actually have something relevant to show here
+        /*
         fs.readdir(releaseDir, function(err, files) {
             if (err) {
                 console.log(err);
@@ -122,11 +127,12 @@ module.exports = {
                 files: files
             });
         })
+        */
     },
     md: function (req, res) {
         readMdFile(req, res, req.path);
     },
     root: function (req, res) {
         res.render('index');
-    },
+    }
 };
