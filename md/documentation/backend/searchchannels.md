@@ -60,9 +60,12 @@ If you only want to use it when GetSearchResult action handler is called. You ca
 
     actionhandler.GetSearchResult.channels=MyChannel, OPENSTREETMAP_CHANNEL
 
+## More examples
+
 There is an example search channel for OpenStreetMap available in the
-file `servlet-map/src/main/java/fi/nls/oskari/search/OpenStreetMapSearchService.java`. Notice that when returning
-results the location should be in the same projection as specified in the criteria.
+file `servlet-map/src/main/java/fi/nls/oskari/search/OpenStreetMapSearchService.java` and several more in service-search-nls.
+
+Notice that when returning results the location should be in the same projection as specified in the criteria!
 
 ## Things to improve (TODO)
 
