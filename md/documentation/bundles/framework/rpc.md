@@ -193,10 +193,8 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
 
 ## Bundle configuration
 
-No configuration is required, but it can be used to defined allowed functions, events and requests.
-If not set, sane defaulst will be used instead.
-
-The default search UI can be disable through config.
+No configuration is required, but it can be used to define allowed functions, events and requests.
+If not set, sane defaults will be used instead.
 
 ## Bundle state
 
@@ -226,7 +224,7 @@ This bundle doesn't send any events.
   </tr>
   <tr>
     <td> [JSChannel](https://github.com/mozilla/jschannel) </td>
-    <td> RPC library </td>
+    <td> RPC bundle </td>
     <td> Used at both ends of the pipe for the RPC communication.</td>
   </tr>
 </table>
