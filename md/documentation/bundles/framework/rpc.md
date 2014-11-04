@@ -29,6 +29,15 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
         width: 700px;
         height: 525px;
     }
+    #rpcControls {
+        text-align: center;
+        width: 700px;   
+    }
+
+    #rpcControls button, #rpcControls output, #rpcControls input {
+        display: inline-block;
+        margin-top: 6px;
+    }
 </style>
 <iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/8184"></iframe>
 <div id="rpcControls">
