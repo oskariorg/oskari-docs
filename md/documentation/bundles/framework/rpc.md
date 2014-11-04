@@ -31,9 +31,11 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
     }
 </style>
 <iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/8184"></iframe>
-<button id="helsinki">Messukeskus</button>
-<button id="lehka">Lehijärvi</button>
-<output id="coords"></output>
+<div id="rpcControls">
+    <button id="helsinki">Messukeskus</button>
+    <button id="lehka">Lehijärvi</button>
+    <output id="coords"></output>
+</div>
 <script>
     var channel = OskariRPC.connect(
             document.getElementById('Oskari'),
@@ -82,7 +84,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                     }
                 );
             };
-            document.body.appendChild(zoombar);
+            document.getElementById('rpcControls').appendChild(zoombar);
         },
         function(error, message) {
             console.log('error', error, message);
@@ -126,7 +128,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                         );
                     });
                 };
-                document.body.appendChild(layerButton);
+                document.getElementById('rpcControls').appendChild(layerButton);
             });
         },
         function(error, message) {
