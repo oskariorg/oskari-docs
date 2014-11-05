@@ -193,8 +193,124 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
 
 ## Bundle configuration
 
-No configuration is required, but it can be used to define allowed functions, events and requests.
+No configuration is required, but it can be used to define allowed functions,
+events and requests.
 If not set, sane defaults will be used instead.
+
+### Allowed functions
+
+Allowed functions (config.allowedFunctions) lists all the functions that can be called over rpc.
+Defaults at the moment are:
+```javascript
+{
+    "getAllLayers": true,
+    "getMapPosition": true,
+    "getSupportedEvents": true,
+    "getSupportedFunctions": true,
+    "getSupportedRequests": true,
+    "getZoomRange": true
+}
+```
+
+### Allowed events
+
+Allowed events (config.allowedEvents) lists all the events that can be listened to over rpc.
+Defaults at the moment are:
+```javascript
+{
+    "AfterMapMoveEvent": true,
+    "MapClickedEvent": true
+}
+```
+
+### Allowed requests
+
+Allowed requests (config.allowedRequests) lists all the requests that can be sent over rpc.
+Defaults at the moment are:
+```javascript
+{
+    "MapModulePlugin.AddMarkerRequest": true,
+    "MapModulePlugin.MapLayerVisibilityRequest": true,
+    "MapModulePlugin.RemoveMarkersRequest": true,
+    "MapMoveRequest": true
+}
+```
+
+## Using the bundle functionality
+
+First of all, the bundle's configuration must have a "domain" value, that will be checked against the communication origin.
+```javascript
+{
+    "domain": "oskari.org"
+}
+```
+Next we'll need a map and the required libraries:
+```html
+<script src="/js/rpc/JSChannel/jschannel.js"></script>
+<script src="/js/rpc/OskariRPC/OskariRPC.js"></script>
+<iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/8184"></iframe>
+```
+
+Here we open communications with the published map:
+```html
+<script>
+var channel = OskariRPC.connect(
+    document.getElementById('Oskari'),
+    'http://demo.paikkatietoikkuna.fi'
+);
+</script>
+```
+
+Then we call a function:
+```javascript
+// Get current map position
+channel.getMapPosition(
+    function(data) {
+        console.log(
+            'getMapPosition',
+            data.centerX,
+            data.centerY
+        );
+    },
+    function(error, message) {
+        console.log('error', error, message);
+    }
+);
+```
+
+Then add an event listener:
+```javascript
+channel.handleEvent(
+    'AfterMapMoveEvent',
+    function(data) {
+        console.log(
+            'AfterMapMoveEvent',
+            data.centerX,
+            data.centerY
+        );
+    },
+    function(error, message) {
+        console.log('error', error, message);
+    }
+);
+```
+
+And post a request:
+```javascript
+channel.postRequest(
+    'MapModulePlugin.AddMarkerRequest',
+    [
+        {
+            x: 354490.70442968,
+            y: 6770658.0402485
+        },
+        'RPCMarker'
+    ],
+    function(error, message) {
+        console.log('error', error, message);
+    }
+);
+```
 
 ## Bundle state
 
