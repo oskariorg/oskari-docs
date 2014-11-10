@@ -5,7 +5,7 @@
     <td>ID</td><td>search</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.search.SearchBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.search.SearchBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -83,12 +83,12 @@ This bundle doesn't send any events.
     <td> To control map and show an Openlayers popup on it</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> DivManazerBundle </td>
     <td> Provides flyout/tile functionality</td>
   </tr>
   <tr>
-    <td> [Backend API](<%= docsurl %>backend/search.html) </td>
+    <td> [Backend API](/documentation/backend/searchchannels) </td>
     <td> N/A </td>
     <td> Search is handled in backend</td>
   </tr>

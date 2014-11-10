@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>Oskari.mapframework.mapmodule.ControlsPlugin.html)</td>
+    <td>API</td><td>[link here](/api/latest/classes/Oskari.mapframework.mapmodule.ControlsPlugin.html)</td>
   </tr>
 </table>
 
@@ -80,7 +80,7 @@ This bundle doesn't send out any events.
     <th>Dependency</th><th>Linked from</th><th>Purpose</th>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> Controls will be added to map module </td>
   </tr>

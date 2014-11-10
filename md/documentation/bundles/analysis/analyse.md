@@ -5,7 +5,7 @@
     <td>ID</td><td>`analyse`</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>link/here)</td>
+    <td>API</td><td>[link here](/api/latest/classes/link/here)</td>
   </tr>
 </table>
 

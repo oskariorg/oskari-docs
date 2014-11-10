@@ -5,7 +5,7 @@
     <td>ID</td><td>parcelselector</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.parcelselector.ParcelSelectorInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.parcelselector.ParcelSelectorInstance.html)</td>
   </tr>
 </table>
 
@@ -75,7 +75,7 @@ This bundle doesn't listen to any events.
     <td> Used to create UI component</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for flyout/tile functionality.</td>
   </tr>

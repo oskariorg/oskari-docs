@@ -5,7 +5,7 @@
     <td>ID</td><td>rpc</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.rpc.RemoteProcedureCallInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.rpc.RemoteProcedureCallInstance.html)</td>
   </tr>
 </table>
 

@@ -5,7 +5,7 @@
     <td>ID</td><td>digiroad-featureselector</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>docs/oskari/api/#!/api/Oskari.digiroad.bundle.featureselector.FeatureSelectorBundleInstance)</td>
+    <td>API</td><td>[link here](/api/latest/classes/docs/oskari/api/Oskari.digiroad.bundle.featureselector.FeatureSelectorBundleInstance)</td>
   </tr>
 </table>
 
@@ -121,17 +121,17 @@ This bundle doesn't send out any requests.
     <td> Uses SlickGrid for rendering the features. </td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> DivManazerBundle </td>
     <td> Provides flyout/tile functionality</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> To initialize and show the map on UI </td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule plugins](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule plugins](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> Any bundle providing a map plugin referenced in config needs to be loaded before starting this bundle </td>
   </tr>

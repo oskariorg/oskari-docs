@@ -5,7 +5,7 @@
     <td>ID</td><td>geometryeditor</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.ui.module.common.geometryeditor.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.ui.module.common.geometryeditor.html)</td>
   </tr>
 </table>
 
