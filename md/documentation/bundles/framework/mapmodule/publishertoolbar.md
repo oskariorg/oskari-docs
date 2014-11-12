@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.mapmodule.plugin.PublisherToolbarPlugin.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.mapmodule.plugin.PublisherToolbarPlugin.html)</td>
   </tr>
 </table>
 
@@ -80,7 +80,7 @@ This bundle doesn't send any events.
     <td> Uses Openlayers to parse WKT geometry, detect if it matches to current maps viewport and to get the centerpoint for layers geometry. Also controls Openlayers to show/hide layers.</td>
   </tr>
   <tr>
-    <td> [Oskari toolbar](<%= docsurl %>framework/toolbar.html) </td>
+    <td> [Oskari toolbar](/documentation/bundles/framework/toolbar) </td>
     <td> Oskari's ToolbarBundle </td>
     <td> That handles the toolbar functionality</td>
   </tr>

@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.mapwfs2.plugin.WfsLayerPlugin.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.mapwfs2.plugin.WfsLayerPlugin.html)</td>
   </tr>
 </table>
 
@@ -93,7 +93,7 @@ This bundle doesn't send any events.
     <td> Used to create the UI</td>
   </tr>
   <tr>
-    <td> [Oskari infobox](<%= docsurl %>framework/infobox.html) </td>
+    <td> [Oskari infobox](/documentation/bundles/framework/infobox) </td>
     <td> Oskari's InfoBoxBundle </td>
     <td> That handles the infobox as an Openlayers popup with customized UI</td>
   </tr>

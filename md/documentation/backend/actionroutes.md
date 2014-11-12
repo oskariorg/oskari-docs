@@ -40,6 +40,7 @@
 - [GetSearchResult](/documentation/backend/actionroutes/getsearchresult)
 - [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/getGeoLocatorSearchResult)
 - [GetSotkaData](/documentation/backend/actionroutes/getsotkadata)
+- [GetAnalysisData](/documentation/backend/actionroutes/getAnalysisData)
 - GetFeatureDataXML
 - GetInspireThemes
 - [GetPreview](/documentation/backend/actionroutes/getpreview)

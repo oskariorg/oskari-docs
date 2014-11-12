@@ -5,7 +5,7 @@
     <td>ID</td><td>statsgrid</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>link/here)</td>
+    <td>API</td><td>[link here](/api/latest/classes/link/here)</td>
   </tr>
 </table>
 
@@ -240,12 +240,12 @@ state : {
     <td> To modify map</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html)</td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule)</td>
     <td> Expects to be present in the application setup </td>
     <td> To gain control to OpenLayers map</td>
   </tr>
   <tr>
-    <td> [Oskari mapstats](<%= docsurl %>framework/mapstats.html)</td>
+    <td> [Oskari mapstats](/documentation/bundles/framework/mapstats)</td>
     <td> Expects to be present in the application setup</td>
     <td> Needed to support the STATS layer type.</td>
   </tr>

@@ -5,7 +5,7 @@
     <td>ID</td><td>printout</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>Oskari.mapframework.bundle.printout.PrintoutBundleInstance.html)</td>
+    <td>API</td><td>[link here](/api/latest/classes/Oskari.mapframework.bundle.printout.PrintoutBundleInstance.html)</td>
   </tr>
 </table>
 
