@@ -244,6 +244,8 @@ First of all, the bundle's configuration must have a "domain" value, that will b
     "domain": "oskari.org"
 }
 ```
+If you're using the Oskari backend, this is injected automatically based on the domain set for the published map.
+
 Next we'll need a map and the required libraries:
 ```html
 <script src="/js/rpc/JSChannel/jschannel.js"></script>
