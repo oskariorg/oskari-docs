@@ -130,8 +130,9 @@ There is no geometry clipping. Two modes available:
  *within* (takes 2nd collection features, which are totally inside 1st features
  *intersect* (takes inside and intertecting features)
 
-## Multiple buffers (WPS gs:ZoneSectorFeatureCollection)
-Returns zones feature collection of input feature collection.
+## Multiple buffers and Sectors (WPS gs:ZoneSectorFeatureCollection)
+Returns sectorised zones feature collection of input feature collection.
+Sector count must be between 0-12
 
 ## Difference
 Returns feature collection of differences in one property of two input collections.
