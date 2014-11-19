@@ -69,12 +69,12 @@ dialog.fadeout();
     <td> Used to create the component UI from begin to end</td>
   </tr>
   <tr>
-    <td> [Oskari overlay component](<%= docsurl %>framework/divmanazer/overlay.html) </td>
+    <td> [Oskari overlay component](/documentation/bundles/framework/divmanazer/overlay) </td>
     <td> Expects to be present in application setup </td>
     <td> Used on `makeModal()` call to overlay the window. </td>
   </tr>
   <tr>
-    <td> [Oskari button component](<%= docsurl %>framework/divmanazer/button.html) </td>
+    <td> [Oskari button component](/documentation/bundles/framework/divmanazer/button) </td>
     <td> Expects to be present in application setup </td>
     <td> Used on `createCloseButton()` call to create a button. </td>
   </tr>

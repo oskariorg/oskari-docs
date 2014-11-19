@@ -106,7 +106,7 @@
         ]
     }
 }
-### Methods (status 18.8.2014)
+### Methods (status 12.11.2014)
 
 ## Buffer (WPS vec:BufferFeatureCollection)
 Buffers features by a distance value supplied either as a parameter or by a feature attribute. 
@@ -130,12 +130,18 @@ There is no geometry clipping. Two modes available:
  *within* (takes 2nd collection features, which are totally inside 1st features
  *intersect* (takes inside and intertecting features)
 
-## Multiple buffers (WPS gs:ZoneSectorFeatureCollection)
-Returns zones feature collection of input feature collection.
+## Multiple buffers and Sectors (WPS gs:ZoneSectorFeatureCollection)
+Returns sectorised zones feature collection of input feature collection.
+Sector count must be between 0-12
 
 ## Difference
 Returns feature collection of differences in one property of two input collections.
 Method uses WFS GetFeature join request and GeoTools encoding/parsing.
+
+## Spatial join (WPS gs:IntersectionFeatureCollection2)
+Spatial intersection of two feature collections, incuding selected attributes of 1st and 2nd collection.
+1st feature collection is for geometry select.
+There is no geometry clipping. Two modes available:
 
 
 

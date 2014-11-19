@@ -5,7 +5,7 @@
     <td>ID</td><td>mapfull</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.mapfull.MapFullBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.mapfull.MapFullBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -169,17 +169,17 @@ This bundle doesn't send out any events, but initializes Oskari.mapframework.cor
     <td> Sets proj4js defs for map module </td>
   </tr>
   <tr>
-    <td> [Oskari mapwmts](<%= docsurl %>framework/mapwmts.html) </td>
+    <td> [Oskari mapwmts](/documentation/bundles/framework/mapwmts) </td>
     <td> Expects to be present in application setup </td>
     <td> Adds support for WMTS maplayers in maplayer service and map module. </td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> To initialize and show the map on UI </td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule plugins](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule plugins](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> Any bundle providing a map plugin referenced in config needs to be loaded before starting this bundle </td>
   </tr>

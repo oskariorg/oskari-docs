@@ -5,7 +5,7 @@
     <td>ID</td><td>promote</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.promote.PromoteBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.promote.PromoteBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -107,12 +107,12 @@ This bundle doesn't send out any events.
     <td> Used to create the component UI from begin to end</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for flyout/tile functionality and accordion/form components</td>
   </tr>
   <tr>
-    <td> [Oskari toolbar](<%= docsurl %>framework/divmanazer/toolbar.html) </td>
+    <td> [Oskari toolbar](/documentation/bundles/framework/divmanazer/toolbar) </td>
     <td> Expects to be present in application setup when configured to add buttons</td>
     <td> Needed for adding configured buttons</td>
   </tr>

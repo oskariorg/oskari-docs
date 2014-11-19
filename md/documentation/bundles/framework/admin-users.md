@@ -5,7 +5,7 @@
     <td>ID</td><td>admin-users</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>Oskari.mapframework.bundle.admin-users.AdminUsersBundleInstance.html)</td>
+    <td>API</td><td>[link here](/api/latest/classes/Oskari.mapframework.bundle.admin-users.AdminUsersBundleInstance.html)</td>
   </tr>
 </table>
 

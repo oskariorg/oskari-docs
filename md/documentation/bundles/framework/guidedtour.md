@@ -5,7 +5,7 @@
     <td>ID</td><td>guidedtour</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.guidedtour.GuidedTourBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.guidedtour.GuidedTourBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -60,52 +60,52 @@ This bundle doesn't send out any events.
     <td> Used to create the component UI from begin to end</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for flyout/tile functionality</td>
   </tr>
   <tr>
-    <td> [Oskari toolbar](<%= docsurl %>framework/toolbar.html) </td>
+    <td> [Oskari toolbar](/documentation/bundles/framework/toolbar) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari search](<%= docsurl %>framework/search.html) </td>
+    <td> [Oskari search](/documentation/bundles/framework/search) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari layerselector](<%= docsurl %>framework/layerselector.html) </td>
+    <td> [Oskari layerselector](/documentation/bundles/framework/layerselector) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari layerselection](<%= docsurl %>framework/layerselection.html) </td>
+    <td> [Oskari layerselection](/documentation/bundles/framework/layerselection) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari personaldata](<%= docsurl %>framework/personaldata.html) </td>
+    <td> [Oskari personaldata](/documentation/bundles/framework/personaldata) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari publisher](<%= docsurl %>framework/publisher.html) </td>
+    <td> [Oskari publisher](/documentation/bundles/framework/publisher) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule/portti2zoombar](<%= docsurl %>framework/mapmodule/portti2zoombar.html) </td>
+    <td> [Oskari mapmodule/portti2zoombar](/documentation/bundles/framework/mapmodule/portti2zoombar) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule/panbuttons](<%= docsurl %>framework/mapmodule/panbuttons.html) </td>
+    <td> [Oskari mapmodule/panbuttons](/documentation/bundles/framework/mapmodule/panbuttons) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for demonstrating functionality</td>
   </tr>

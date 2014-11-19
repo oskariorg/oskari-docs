@@ -5,7 +5,7 @@
     <td>ID</td><td>metadata</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.metadata.MetadataSearchInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.metadata.MetadataSearchInstance.html)</td>
   </tr>
 </table>
 
@@ -84,7 +84,7 @@ This bundle doesn't handle any requests.
     <td> Used to create the component UI from begin to end</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> To register plugin to map/gain control to Openlayers map</td>
   </tr>
@@ -94,7 +94,7 @@ This bundle doesn't handle any requests.
     <td></td>
   </tr>
   <tr>
-    <td> [Oskari toolbar](<%= docsurl %>framework/toolbar.html) </td>
+    <td> [Oskari toolbar](/documentation/bundles/framework/toolbar) </td>
     <td> Expects to be present in application setup </td>
     <td> To register plugin to toolbar</td>
   </tr>
