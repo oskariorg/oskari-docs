@@ -5,7 +5,7 @@
     <td>ID</td><td>postprocessor</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.postprocessor.PostProcessorBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.postprocessor.PostProcessorBundleInstance.html)</td>
   </tr>
 </table>
 

@@ -367,7 +367,7 @@ This table maps resource user to permission type. permission_type can be for exa
 
 ### Resource user
 
-This table describes wms layer or base layer resources. Check [user management documentation](<%=docsurl %>/md/backend/usermanagement.md).
+This table describes wms layer or base layer resources. Check [user management documentation](/documentation/backend/usermanagement).
 
 	-- Table: portti_resource_user
 

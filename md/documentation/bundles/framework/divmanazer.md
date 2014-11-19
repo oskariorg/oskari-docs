@@ -5,7 +5,7 @@
     <td>ID</td><td>`divmanazer`</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.userinterface.bundle.ui.UserInterfaceBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.userinterface.bundle.ui.UserInterfaceBundleInstance.html)</td>
   </tr>
 </table>
 

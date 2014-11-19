@@ -5,7 +5,7 @@
     <td>ID</td><td>`infobox`</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.infobox.InfoBoxBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.infobox.InfoBoxBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -85,7 +85,7 @@ This bundle doesn't send out any events.
     <td> To control map and show an Openlayers popup on it</td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html)</td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule)</td>
     <td> Expects to be present in application setup </td>
     <td> To register plugin to map/gain control to Openlayers map</td>
   </tr>

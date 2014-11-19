@@ -5,7 +5,7 @@
     <td>ID</td><td>statehandler</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.statehandler.StateHandlerBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.statehandler.StateHandlerBundleInstance.html)</td>
   </tr>
 </table>
 

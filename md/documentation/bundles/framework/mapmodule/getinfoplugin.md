@@ -2,7 +2,7 @@
 
 <table class="table">
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.mapmodule.GetInfoPlugin.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.mapmodule.GetInfoPlugin.html)</td>
   </tr>
 </table>
 
@@ -78,13 +78,13 @@ This plugin doesn't sends out any requests
     <td> Used to create the UI</td>
   </tr>
   <tr>
-    <td> [Oskari infobox](<%= docsurl %>framework/infobox.html) </td>
+    <td> [Oskari infobox](/documentation/bundles/framework/infobox) </td>
     <td> Oskari's InfoBoxBundle </td>
     <td> That handles the infobox as an Openlayers popup with customized UI
   </td>
   </tr>
   <tr>
-    <td> [Backend API](<%= docsurl %>backend/mapmodule/getinfoplugin.html) </td>
+    <td> [Backend API](/documentation/backend/mapmodule/getinfoplugin) </td>
     <td> N/A </td>
     <td> Get info is handle in backend</td>
   </tr>

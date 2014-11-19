@@ -5,7 +5,7 @@
     <td>ID</td><td>publisher</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>classes/Oskari.mapframework.bundle.publisher.PublisherBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/classes/Oskari.mapframework.bundle.publisher.PublisherBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -225,17 +225,17 @@ Preset values allow typically used tools to be selected as a result of activatin
     <td> Used to deep clone state objects</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for flyout/tile functionality and accordion/form components</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer component - UIHelper](<%= docsurl %>framework/divmanazer/uihelper.html) </td>
+    <td> [Oskari divmanazer component - UIHelper](/documentation/bundles/framework/divmanazer/uihelper) </td>
     <td> Expects to be present in application setup </td>
     <td> Needed for help functionality for UI elements</td>
   </tr>
   <tr>
-    <td> [Backend API](<%= docsurl %>backend/mappublisher.html) </td>
+    <td> [Backend API](/documentation/backend/mappublisher) </td>
     <td> N/A </td>
     <td> Publisher backend functionality</td>
   </tr>

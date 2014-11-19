@@ -5,7 +5,7 @@
     <td>ID</td><td>layerselector2</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.layerselector2.LayerSelectorBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.layerselector2.LayerSelectorBundleInstance.html)</td>
   </tr>
 </table>
 
@@ -116,12 +116,12 @@ This bundle doesn't send any events.
     <td> RightJS UI component for showing tooltips - used to show tooltips on layer icons</td>
   </tr>
   <tr>
-    <td> [Oskari divmanazer](<%= docsurl %>framework/divmanazer.html) </td>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer) </td>
     <td> Expects to be present in application setup </td>
     <td> Oskari's Div handler bundle</td>
   </tr>
   <tr>
-    <td> [Backend API](<%= docsurl %>backend/layerselector.html) </td>
+    <td> [Backend API](/documentation/backend/layerselector) </td>
     <td> N/A </td>
     <td> Get all Maplayers from backend</td>
   </tr>

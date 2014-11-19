@@ -923,6 +923,8 @@ Client channels are used to send information from the server to the client. Most
 	</tr>
 </table>
 
+By default, the geometry data is excluded from features as well as the following GML properties: boundedBy, description, location, metaDataProperty and name.
+
 ##### Examples
 
 ###### normal send

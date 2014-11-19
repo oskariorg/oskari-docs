@@ -5,7 +5,7 @@
     <td>ID</td><td>usagetracker</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](<%= apiurl %>Oskari.mapframework.bundle.usagetracker.UsageTrackerBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.usagetracker.UsageTrackerBundleInstance.html)</td>
   </tr>
 </table>
 

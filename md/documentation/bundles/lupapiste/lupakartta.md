@@ -5,7 +5,7 @@
     <td>ID</td><td>lupakartta</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>Oskari.lupapiste.bundle.lupakartta.lupakarttaInstance.html)</td>
+    <td>API</td><td>[link here](/api/latest/classes/Oskari.lupapiste.bundle.lupakartta.lupakarttaInstance.html)</td>
   </tr>
 </table>
 
@@ -390,12 +390,12 @@ No statehandling has been implemented.
     <td> Not used directly but a MapModule dependency </td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> To initialize and show the map on UI </td>
   </tr>
   <tr>
-    <td> [Oskari mapmodule plugins](<%= docsurl %>framework/mapmodule.html) </td>
+    <td> [Oskari mapmodule plugins](/documentation/bundles/framework/mapmodule) </td>
     <td> Expects to be present in application setup </td>
     <td> Any bundle providing a map plugin referenced in config needs to be loaded before starting this bundle </td>
   </tr>

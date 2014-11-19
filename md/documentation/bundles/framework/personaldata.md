@@ -5,7 +5,7 @@
     <td>ID</td><td>`personaldata`</td>
   </tr>
   <tr>
-    <td>API</td><td>[link here](<%= apiurl %>Oskari.mapframework.bundle.personaldata.PersonalDataBundleInstance.html)</td>
+    <td>API</td><td>[link here](/api/latest/classes/Oskari.mapframework.bundle.personaldata.PersonalDataBundleInstance.html)</td>
   </tr>
 </table>
 
