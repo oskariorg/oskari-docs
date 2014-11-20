@@ -411,68 +411,35 @@ This table describes wms layer or base layer resources. Check [user management d
 
 ### View
 
-Oskari view is stored here.
+Oskari view information (frontend application specific details) is stored here.
 
 	-- Table: portti_view
 
-	-- DROP TABLE portti_view;
-
-	CREATE TABLE portti_view
-	(
-	  uuid uuid,
-	  id bigserial NOT NULL,
-	  name character varying(128) NOT NULL,
-	  supplement_id bigint,
-	  is_default boolean DEFAULT false,
-	  type character varying(16) DEFAULT 'USER'::character varying,
-	  description text NOT NULL DEFAULT ''::text,
-	  page character varying(128) NOT NULL DEFAULT 'view'::character varying,
-	  application character varying(128) NOT NULL DEFAULT 'full-map'::character varying,
-	  application_dev_prefix character varying(256) NOT NULL DEFAULT 'application/paikkatietoikkuna.fi/'::character varying,
-	  CONSTRAINT portti_view_pkey PRIMARY KEY (id),
-	  CONSTRAINT portti_view_supplement_id_fkey FOREIGN KEY (supplement_id)
-	      REFERENCES portti_view_supplement (id) MATCH SIMPLE
-	      ON UPDATE NO ACTION ON DELETE NO ACTION
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
-
-
-### View supplement
-
-This table will be removed.
-
-	-- Table: portti_view_supplement
-
-	-- DROP TABLE portti_view_supplement;
-
-	CREATE TABLE portti_view_supplement
-	(
-	  id bigserial NOT NULL,
-	  app_startup character varying(512),
-	  baseaddress character varying(512),
-	  creator bigint,
-	  pubdomain character varying(512) DEFAULT ''::character varying,
-	  lang character varying(2) DEFAULT 'fi'::character varying,
-	  width integer DEFAULT 0,
-	  height integer DEFAULT 0,
-	  is_public boolean DEFAULT false,
-	  old_id bigint DEFAULT (-1),
-	  CONSTRAINT portti_view_supplement_pkey PRIMARY KEY (id),
-	  CONSTRAINT portti_view_supplement_creator_fkey FOREIGN KEY (creator)
-	      REFERENCES user_ (userid) MATCH SIMPLE
-	      ON UPDATE NO ACTION ON DELETE NO ACTION
-	)
-	WITH (
-	  OIDS=FALSE
-	);
+    CREATE TABLE portti_view (
+       uuid             UUID,
+       id               bigserial NOT NULL,
+       name             VARCHAR(128)  NOT NULL,
+       is_default       BOOLEAN       DEFAULT FALSE,
+       type		    varchar(16)	  DEFAULT 'USER',
+       description   VARCHAR(2000) ,
+       page character varying(128) DEFAULT 'index',
+       application character varying(128) DEFAULT 'servlet',
+       application_dev_prefix character varying(256) DEFAULT '/applications/sample',
+       only_uuid boolean DEFAULT FALSE,
+       creator bigint DEFAULT (-1),
+       domain character varying(512) DEFAULT ''::character varying,
+       lang character varying(2) DEFAULT 'en'::character varying,
+       is_public boolean DEFAULT FALSE,
+       old_id bigint DEFAULT (-1),
+       created timestamp DEFAULT CURRENT_TIMESTAMP,
+      CONSTRAINT portti_view_pkey PRIMARY KEY (id),
+      CONSTRAINT portti_view_uuid_key UNIQUE (uuid)
+    );
 
 
 ### View bundle sequence
 
-Bundles belonging to a view and their organization are specified here.
+Bundles belonging to a view and the sequence they are started is specified here.
 
 
 	-- Table: portti_view_bundle_seq

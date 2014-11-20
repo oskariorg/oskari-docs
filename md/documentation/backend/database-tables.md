@@ -6,12 +6,11 @@ The database structure is documented in detail [here](/documentation/architectur
 ### 1. Bundle tables
 
 * `portti_bundle` (definition of all available  bundles)
-* `portti_view_bundle_seq` (bundle <--> view relations, plugin configs, state configs)
 
 ### 2. View tables
 
 * `portti_view` (definition of all available views)
-* `portti_view_supplement` (extra data for view)
+* `portti_view_bundle_seq` (bundle <--> view relations, view specific plugin configs and states)
 
 ### 3. Authorization tables
 
@@ -24,7 +23,7 @@ The database structure is documented in detail [here](/documentation/architectur
 ### 4. Map layer tables
 
 * `portti_maplayer` (maplayer data: names, wms url, zoom min-max, opacity, layertype, etc )
-* `portti_maplayer_metadata` (inspire metadata uuids for linking metadata to map layer)
+* `oskari_maplayer_metadata` (inspire metadata uuids for linking metadata to map layer)
 * `portti_inspiretheme`  (inspire themes for grouping map layers)
 * `portti_layerclass` (map service owners for grouping map layers )
 * `portti_capabilities_cache` (prefetched wms capabilities requests )
