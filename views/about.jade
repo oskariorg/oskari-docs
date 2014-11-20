@@ -1,24 +1,80 @@
 extends layout
 
 block main
-
   :markdown
     # About this site
 
-    The documentation on this site assumes the reader is somewhat familiar with the basic
-    geographical protocols used extensively in GIS applications, such as
-    WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
-    JavaScript and/or Java development is required to read and understand the frontend and
-    the backend documentation, respectively.
+  div.row
+    div.col-md-12
+      :markdown
+        The documentation on this site assumes the reader is somewhat familiar with the basic
+        geographical protocols used extensively in GIS applications, such as
+        WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
+        JavaScript and/or Java development is required to read and understand the frontend and
+        the backend documentation, respectively.
 
-    The source code and content can be found on [Github](https://github.com/nls-oskari/oskari.org).
-    If you have any additions, suggestions or corrections to the content of the site, please make a pull request.
-    Your help is greatly appreciated!
+        The source code and content can be found on [Github](https://github.com/nls-oskari/oskari.org).
+        If you have any additions, suggestions or corrections to the content of the site, please make a pull request.
+        Your help is greatly appreciated!
 
-    [License](/documentation/development/license)
+        [License](/documentation/development/license)
 
-    ## Contact
+  div.row
+    div.col-md-8
+      :markdown
+        ##Communication
+      div.panel.panel-info
+        div.panel-heading
+          :markdown
+            ###Twitter
+            @oskari.org twitter channel reports new releases, bug and security fixes as well as events related to Oskari.
 
-    Join the IRC channel `#Oskari` on the `freenode` network.
+      div.panel.panel-info
+        div.panel-heading
+          :markdown
+            ###Slack (https://slack.com/)
+            Slack is a team communication platform. It features e.g.
+            * instant messaging between groups and individuals
+            * message archive and search functionality
+            * message notifications to email
+            * attachments in messages
+            * integration with Twitter, GitHub, Jenkins and other services
+            * multiple client implementations: browser, iOS, Android, ...
+            https://oskari.slack.com instance is available for folks developing Oskari.org 
+            Using Oskari Slack requires login. Please contact oskari@nls.fi for credentials.
 
-    Find [@oskari_org](https://twitter.com/oskari_org) at Twitter.
+            Note that Oskari Slack is using the Lite plan, so the message archive is limited in size.
+
+      div.panel.panel-info
+        div.panel-heading
+          :markdown
+            ###IRC
+            Oskari has an IRC channel #Oskari on the freenode network.
+
+            At the moment Oskari core developers are present on the IRC channel only occasionally, but we plan to integrate IRC messages with Slack so following them will be easier.
+
+            Both Slack and IRC can be a great places to ask questions and talk directly to developers. However, users are expected to do their research in beforehand and ask educated questions.
+
+      div.panel.panel-info
+        div.panel-heading
+          :markdown
+            ###GitHub
+            We welcome contributions to the Oskari GitHub repository:
+            https://github.com/nls-oskari
+
+            Also issues can be reported through GitHub:
+            https://github.com/nls-oskari/oskari/issues
+
+
+
+
+   
+
+
+
+
+
+
+
+
+          
