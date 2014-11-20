@@ -19,13 +19,13 @@ block main
       h4. All the developed code is released within the framework of Open Source Licenses (MIT/EUPL). Oskari uses standard Open Source components such as OpenLayers, GeoTools, GeoServer, Jackson and jQuery.
 
     div.col-md-4
-      h2. Modular
-      h4. The Oskari Platform enables controlled extensibility. Service platform is kept flexible: functionality can be added as well as to the user interface and to the server, and the application libraries can be changed.
+      :markdown
+        ##What is Oskari Platform?
+        ####Visualize and analyse spatial and statistical data, create embedded maps without programming, customize your own web map service... Check out many possibilities of Oskari Platform from [here](/oskari)!
 
     div.col-md-4
       :markdown
         ## Get started!
-        #### What is Oskari Platform and why should I use it? Get a quick overview of Oskari from [here](/oskari)!
         #### Get started with Oskari by studying [the guides](/guides)!     
 
   <hr>
@@ -45,6 +45,8 @@ block main
               * Server-side functionality of the platform is implemented as a Java servlet, which can also be extended to handle new functionality. 
 
               * Oskari uses standard Open Source components such as OpenLayers, GeoTools, GeoServer, Jackson and jQuery. The developed Open Source code stitches these applications together and makes it possible to extend the functionality of the platform in a coordinated manner.
+
+              * The Oskari Platform enables controlled extensibility. Service platform is kept flexible: functionality can be added as well as to the user interface and to the server, and the application libraries can be changed.
       
 
     div.col-md-6
@@ -57,10 +59,12 @@ block main
           div.panel.panel-warning
             div.panel-body
               :markdown
-                #### Security update for Oskari installations with Admin functionalities!
+                #### Security issue found in versions 1.24.0-1.24.4!
                   The preprocess-method call was commented out on Oskari versions 1.24.0-1.24.4. This is a serious security issue as many of the admin functionalities depend on preprocess() to check that the user is an admin. On affected versions even Guest-users can use the admin functionalities.
 
-                  We recommend you to update your application to version 1.24.5 to avoid this security risk.
+                  We recommend you to update your application to version 1.24.5 to avoid this security risk. 
+
+                  Hotfix available: https://github.com/nls-oskari/oskari-server/blob/master/ReleaseNotes.md#1245---security-patch
 
           div.panel.panel-warning
             div.panel-body

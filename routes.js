@@ -79,6 +79,9 @@ module.exports = {
     challenge: function (req, res) {
         res.render('challenge')
     },
+    oskari: function (req, res) {
+        res.render('oskari')
+    },
     search: function (req, res) {
         var q = req.param('q');
         if(!q) {
