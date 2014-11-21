@@ -38,7 +38,7 @@ Configuration is optional:
 ```
 
 changeInfoUrl should point to an url where the user can change his/her profile information.
-The bundle will show a link to the configured page if the URL is configured (optional).
+The bundle will show a link to the configured page if the URL is configured.
 
 ## Bundle state
 

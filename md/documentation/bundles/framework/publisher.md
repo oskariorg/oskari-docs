@@ -30,7 +30,16 @@ Users can select styling for the published map in 'Layout' panel. The colour sch
 ## Bundle configuration
 
 Some configuration is needed for URLs:
-Built-in plugin tools can be configured and values are unvalidated, therefore ensure valid values before use. The ´id´ must match the plugin class name. ´selected´ is true when the tool is selected by default. ´lefthanded´ is the config.location.classes definition for left handed layout. ´righthanded´ is the config.location.classes definition for right handed layout. ´config´ contains individual plugin tool configurations. ´classes´ accepts corners such as ´bottom left´ and ´top right´. When several plugins has the same ´classes´ value, then ´position´ is used for ordering the plugins. These are default values and users can change them using the publisher.
+* loginUrl and registerUrl are shown as links for guest users to appropriate site pages
+* urlPrefix is used when displaying a preview for GFI popup. It is always appended with '/web/' and users language.
+* Optional: tools - Built-in plugin tools can be configured and values are unvalidated, therefore ensure valid values before use.
+The ´id´ must match the plugin class name. ´selected´ is true when the tool is selected by default.
+´lefthanded´ is the config.location.classes definition for left handed layout.
+´righthanded´ is the config.location.classes definition for right handed layout.
+´config´ contains individual plugin tool configurations.
+´classes´ accepts corners such as ´bottom left´ and ´top right´.
+When several plugins has the same ´classes´ value, then ´position´ is used for ordering the plugins.
+These are default values and users can change them using the publisher.
 
 ```javascript
 "conf": {
@@ -44,12 +53,6 @@ Built-in plugin tools can be configured and values are unvalidated, therefore en
     "fi": "https://www.paikkatietoikkuna.fi/web/fi/login?p_p_id=58&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account",
     "sv": "https://www.paikkatietoikkuna.fi/web/sv/login?p_p_id=58&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account"
   },
-  "publishedMapUrl": {
-    "en": "www.paikkatietoikkuna.fi/published/en/",
-    "fi": "www.paikkatietoikkuna.fi/published/fi/",
-    "sv": "www.paikkatietoikkuna.fi/published/sv/"
-  },
-  "urlPrefix": "www.paikkatietoikkuna.fi",
   "tools": [{
             "id": "Oskari.mapframework.bundle.mapmodule.plugin.ScaleBarPlugin",
             "selected": false,
