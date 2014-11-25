@@ -19,19 +19,24 @@
     mvn compile exec:java -Doskari.dropdb=true -Doskari.setup=postgres-add-analysis.json
 
 ### Register analyse bundle
-    user pgAdmin or psql to execute below slq script file
+
+use pgAdmin or psql to execute below SQL script file
 
     \content-resources\src\main\resources\sql\views\01-bundles\analysis\001-analyse.sql
 
 
-### Create a new view  (analysis + myplcaes + wfs)
+### Create a new view  (analysis + myplaces + wfs)
 
 [Create a new view](/documentation/backend/database-populate#adding-a-new-view) with `analyse`, `myplaces2` and `mapwfs2` bundles :
 
     cd oskari-server/content-resources
     mvn clean install exec:java -Doskari.addview=postgres-analysis-myplaces2-view.json
-	
-***NOTE!*** *To get analysis timestamps working correctly you need to add triggers to analysis tables. SQLs for these are listed in `oskari-server/content-resources/src/main/resouces/sql/PostgreSQL/trigger-analysis.sql`. You need to run these manually in psql or pgAdmin SQL window since at the moment the sql parser can't handle them correctly.*
+
+Take a note of the uuid the command prints out at the end, you will need it later.
+
+***NOTE!*** *To get analysis timestamps working correctly you need to add triggers to analysis tables.
+SQLs for these are listed in `oskari-server/content-resources/src/main/resouces/sql/PostgreSQL/trigger-analysis.sql`.
+You need to run these manually in psql or pgAdmin SQL window since at the moment the sql parser can't handle them correctly.*
 
 ### Install GeoServer
 
@@ -126,8 +131,6 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
     oskari.proxyservices = wfsquery, myplacestile, analysistile
 
 
-
-
 ### Install WFS transport service
 
 Look at [setting up transport wfs service](/documentation/backend/installing-transport) (*skip this, if already installed*).
@@ -139,7 +142,8 @@ You should see gs:FeatureIntersectionCollection2 in "Choose process"-pull down l
 
 ### Test Oskari
 
-Start e.g. `http://localhost:2373/oskari-map?viewId={id}` in your browser. Replace `{id}` with the id of the view you created. Logged in users should be able to add own points, lines and polygons.
+Start e.g. `http://localhost:2373/oskari-map?uuid={uuid}` in your browser. Replace `{uuid}` with the uuid of the view you created.
+Logged in users can perform analysis functions on the map.
 
 ## Troubleshooting
 

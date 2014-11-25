@@ -18,8 +18,12 @@
 
     cd oskari-server/content-resources
     mvn clean install exec:java -Doskari.addview=postgres-myplaces2-view
-	
-***NOTE!*** *To get myplaces timestamps working correctly you need to add triggers to myplaces table. SQLs for these are listed in `oskari-server/content-resources/src/main/resouces/sql/PostgreSQL/trigger-myplaces.sql`. You need to run these manually in psql or pgAdmin SQL window since at the moment the sql parser can't handle them correctly.*
+
+Take a note of the uuid the command prints out at the end, you will need it later.
+
+***NOTE!*** *To get myplaces timestamps working correctly you need to add triggers to myplaces table.
+SQLs for these are listed in `oskari-server/content-resources/src/main/resouces/sql/PostgreSQL/trigger-myplaces.sql`.
+You need to run these manually in psql or pgAdmin SQL window since at the moment the sql parser can't handle them correctly.*
 
 ### Install GeoServer
 
@@ -83,7 +87,7 @@ Look at [setting up transport wfs service](/documentation/backend/installing-tra
 
 ### Test Oskari
 
-Start e.g. http://localhost:8888/oskari-map?viewId={id} in your browser. Replace `{id}` with the id of the view you created. Logged in users should be able to add own points, lines and polygons.
+Start e.g. http://localhost:8888/oskari-map?uuid={uuid} in your browser. Replace `{uuid}` with the uuid of the view you created. Logged in users should be able to add own points, lines and polygons.
 
 ## Troubleshooting
 

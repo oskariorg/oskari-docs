@@ -15,20 +15,21 @@
 
 ### Create user data tables to oskaridb database for kmz, shz (shp file set) file import storage
 
-    user pgAdmin or psql to execute below slq script file
+Use pgAdmin or psql to execute below SQL-script file
 
-        \content-resources\src\main\resources\sql\PostgreSQL\create_userdata_tables.sql
+    \content-resources\src\main\resources\sql\PostgreSQL\create_userdata_tables.sql
 
 ### Add wfs base layer to oskari_maplayer table for userlayer featuredata management (transport)
- user pgAdmin or psql to execute below slq script file
 
-        \content-resources\src\main\resources\sql\PostgreSQL\example-userlayer-wfs-baselayer.sql
+Use pgAdmin or psql to execute below SQL-script file
 
- Remember layer id of this new inserted layer for properties configuration
+    \content-resources\src\main\resources\sql\PostgreSQL\example-userlayer-wfs-baselayer.sql
 
-### Configure default view and bundle config for to add `myplacesimport`  or create new view according to lastest oskari.org documentation
+Remember layer id of this new inserted layer for properties configuration
 
-        \content-resources\src\main\resources\sql\PostgreSQL\add_userlayer_to_default_view.sql
+### Configure default view and bundle config for to add `myplacesimport` or create new view according to lastest oskari.org documentation
+
+    \content-resources\src\main\resources\sql\PostgreSQL\add_userlayer_to_default_view.sql
 
 ### Configure GeoServer
 
@@ -122,7 +123,8 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
 
 ### Test Oskari
 
-Start e.g. `http://localhost:2373/oskari-map?viewId={id}` in your browser. Replace `{id}` with the id of the view you created. Logged in users should be able to add own points, lines and polygons.
+Start e.g. `http://localhost:2373/oskari-map?uuid={uuid}` in your browser. Replace `{uuid}` with the id of the view you created.
+Logged in users should be able to import for example shapefiles.
 
 ## Troubleshooting
 
