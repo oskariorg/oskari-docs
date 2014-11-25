@@ -91,11 +91,11 @@ module.exports = {
         }
         var options = {
           host: 'localhost',
-          path: '/solr/collection1/select?wt=json&rows=200&q=' + q, 
+          path: '/solr/collection1/select?wt=json&rows=200&q=' + encodeURIComponent(q),
           port: '8983'
         };
 
-        callback = function(response) {
+        var callback = function(response) {
           var str = '';
 
           //another chunk of data has been recieved, so append it to `str`
