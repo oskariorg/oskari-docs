@@ -1,11 +1,10 @@
-var fs = require('fs');
-var path = require('path');
-var md = require('marked');
-var _ = require('lodash-node');
-var http = require('http');
-
-var mdDir = 'md';
-var releaseDir = path.join(__dirname, 'public', 'release');
+var fs = require('fs'),
+    path = require('path'),
+    md = require('marked'),
+    _ = require('lodash-node'),
+    http = require('http'),
+    mdDir = 'md',
+    releaseDir = path.join(__dirname, 'public', 'release');
 
 var readMdFile = function(req, res, mdDoc, jadePage, options) {
     var mdDocPath = path.join(__dirname, mdDir, (mdDoc + '.md'));
@@ -19,7 +18,17 @@ var readMdFile = function(req, res, mdDoc, jadePage, options) {
         }
 
         options.content = md(mdFile);
-        res.render(jadePage, options);
+        fs.stat(mdDocPath, function (err, stats) {
+            if (err) {
+                console.error(err);
+                return res.render('404');
+            }
+            if (stats && stats.mtime) {
+                options.content += '<p>Last modified: ' + stats.mtime + '</p>';
+            }
+            res.render(jadePage, options);
+        });
+        
     });
 };
 
