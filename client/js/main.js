@@ -11,4 +11,7 @@ $(function() {
     addActiveClassToNav();
     hljs.initHighlightingOnLoad();
     $('table.oskari-sortable').stupidtable();
+    $('.menu-icon').click(function () {
+        $('nav').toggleClass('active');
+    });
 });
