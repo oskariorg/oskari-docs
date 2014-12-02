@@ -175,6 +175,22 @@ Liferay needs its own configuration and user data database JNDI configuration, a
 portlet application database JNDI connection. For development, you can use the same database for
 both sets of tables, if you like.
 
+#### 2.7 GeoServer and customization components
+
+The Oskari service contains various functionality, such as the `transport` service,
+as well as the [my places](/documentation/backend/enabling-myplaces) and
+[analysis](/documentation/backend/enabling-analyse) modules, which depend on a
+functional and customized GeoServer installation.
+
+Currently, the customized GeoServer configuration data directory is stored in the
+`oskari-server/content-resources/config/geoserver/data` directory, which is strictly
+compatible with the GeoServer 2.4.x tree, but unfortunately not with the currently
+stable GeoServer 2.6 version.
+
+The `oskari-server/geoserver-ext` module collection contains various GeoServer extensions
+which need to be built according to the module documentation referred to above.
+
+
 * * *
 
 ### 3. Configuring and building the service
