@@ -175,6 +175,9 @@ Liferay needs its own configuration and user data database JNDI configuration, a
 portlet application database JNDI connection. For development, you can use the same database for
 both sets of tables, if you like.
 
+If your Liferay installation has a customized theme, as www.paikkatietoikkuna.fi has, make sure
+to install the theme WARs, as well as the layout WARs, as you're installing the map portlet.
+
 #### 2.7 GeoServer and customization components
 
 The Oskari service contains various functionality, such as the `transport` service,
