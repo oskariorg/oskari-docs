@@ -186,12 +186,10 @@ as well as the [my places](/documentation/backend/enabling-myplaces) and
 functional and customized GeoServer installation.
 
 Currently, the customized GeoServer configuration data directory is stored in the
-`oskari-server/content-resources/config/geoserver/data` directory, which is strictly
-compatible with the GeoServer 2.4.x tree, but unfortunately not with the currently
-stable GeoServer 2.6 version.
-
-The `oskari-server/geoserver-ext` module collection contains various GeoServer extensions
-which need to be built according to the module documentation referred to above.
+`oskari-server/content-resources/config/geoserver/data`, and the
+`oskari-server/geoserver-ext` module collection contains various GeoServer extension
+Maven projects, which need to be built according to the module documentation
+referred to above.
 
 
 * * *
