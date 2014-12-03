@@ -1,5 +1,5 @@
-$(function() {
-    var addActiveClassToNav = function() {
+$(function () {
+    var addActiveClassToNav = function () {
         var pathName = document.location.pathname,
             activePath = pathName.split('/')[1],
             activeNavLink = $('nav ul li a[href="/' + activePath + '"]');
