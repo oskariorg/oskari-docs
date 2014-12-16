@@ -11,19 +11,21 @@
 
 ## Description
 
-The bundle lists user's account information and saved data in the application. Currently lists account info, saved places, saved map views and embedded maps. Other bundles can request to list data related to their domain (eg. user indicators) here.
+The bundle lists user's account information and saved data in the application.
+Currently lists account info, saved map views and embedded maps.
+Other bundles can request to list data related to their domain (eg. my places, user indicators) here.
 
 ![Personal data](/images/bundles/personaldata.png)
 
-*Here shown with tabs added by `statistics/statsgrid`, `analysis/analyse` and `myplacesimport` bundles*
+*Here shown with tabs added by `myplaces`, `statistics/statsgrid`, `analysis/analyse` and `myplacesimport` bundles*
 
 ## TODO
 
-* Move the tabs for saved places, saved map views and embedded maps to more appropriate locations and use `PersonalData.AddTabRequest` to add them
+* Move the tabs for saved map views and embedded maps to more appropriate locations and use `PersonalData.AddTabRequest` to add them
 
 ## Bundle configuration
 
-Some configuration is needed for URLs:
+Configuration is optional:
 
 ```javascript
 "conf": {
@@ -31,14 +33,12 @@ Some configuration is needed for URLs:
     "en": "https://www.paikkatietoikkuna.fi/web/en/profile",
     "fi": "https://www.paikkatietoikkuna.fi/web/fi/profiili",
     "sv": "https://www.paikkatietoikkuna.fi/web/sv/profil"
-  },
-  "publishedMapUrl": {
-    "en": "/web/en/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&viewId=",
-    "fi": "/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&viewId=",
-    "sv": "/web/sv/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&viewId="
-  }  
+  }
 }
 ```
+
+changeInfoUrl should point to an url where the user can change his/her profile information.
+The bundle will show a link to the configured page if the URL is configured.
 
 ## Bundle state
 
@@ -68,16 +68,46 @@ var req = reqBuilder(title, content, first);
 
 <table class="table">
 <tr>
-  <th> Request </th><th> Where/why it's used</th>
+  <th> Request </th>
+  <th> Where/why it's used</th>
 </tr>
 <tr>
-  <td> `publisher.PublishMapEditorRequest` </td><td> Register as part of the UI in `start()` method</td>
+  <td> `Publisher.PublishMapEditorRequest` </td>
+  <td> When an embedded maps 'Edit' link is clicked to activate the publisher bundle </td>
 </tr>
+<tr>
+  <td> `userinterface.UpdateExtensionRequest` </td>
+  <td> When an embedded maps 'Edit' link is clicked to close the personaldata flyout </td>
+</tr>
+
+<tr>
+  <td> `Toolbar.AddToolButtonRequest` </td>
+  <td> If 'StateHandler.SaveStateRequest' can be used/is part of the application.
+  Adds a toolbar button for saving views when the bundle is started.
+  Button is disabled for guest users.</td>
+</tr>
+<tr>
+  <td> `StateHandler.SaveStateRequest` </td>
+  <td> When the save view button is clicked </td>
+</tr>
+<tr>
+  <td> `StateHandler.SetStateRequest` </td>
+  <td> When the name of a saved view or 'Show' link of an embedded map is clicked </td>
+</tr>
+
 </table>
 
 ## Events the bundle listens to
 
-This bundle doesn't listen to any events.
+<table class="table">
+  <tr>
+    <th> Event </th><th> How does the bundle react</th>
+  </tr>
+  <tr>
+    <td> `Publisher.MapPublishedEvent` </td><td> Refreshes the embedded maps listing </td>
+  </tr>
+</table>
+
 
 ## Events the bundle sends out
 
@@ -90,6 +120,16 @@ This bundle doesn't send out any events.
     <th>Dependency</th>
     <th>Linked from</th>
     <th>Purpose</th>
+  </tr>
+  <tr>
+    <td> [Oskari divmanazer](/documentation/bundles/framework/divmanazer)</td>
+    <td> Expects to be present in application setup </td>
+    <td> Bundle has a Flyout and Tile so a divmanazer is needed </td>
+  </tr>
+  <tr>
+    <td> [Oskari ui-components](/documentation/bundles/framework/ui-components)</td>
+    <td> Expects to be present in application setup </td>
+    <td> For showing popup and other UI components </td>
   </tr>
   <tr>
     <td> [jQuery](http://api.jquery.com/) </td>
