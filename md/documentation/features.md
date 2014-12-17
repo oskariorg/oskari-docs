@@ -6,6 +6,7 @@
 * Works with all major browsers: IE9+, latest versions of Firefox, Chrome and Safari
 * The interface should work with modern tablets and smartphones, currently there is no separate mobile/tablet-optimized version
 * Some Oskari modules can make use of role-based user management. Users belonging to different roles can be given access to specific functionality
+* Authentication and SSO is supported using SAML 2.0
 
 
 ### Map window
@@ -143,6 +144,42 @@
 * Flyout size adapts to screen size
 * Some flyouts can be resized by the user
 
+
+
+
+### Import data
+
+* Supported format for importing data as zipped files
+ * Shapefile
+ * Mapinfo MID/MIF
+ * GPX trace
+ * KMX (zipped KML)
+
+### Embedded map features
+
+* Zooming and panning
+* Measure tools
+* GetFeatureInfo
+* WFS tabular data display
+* Map layer menu
+* Supported layer types
+ * WMS
+ * WMTS
+ * WFS
+ * My Data
+ * Imported data
+ * Thematic Maps and Tables
+ * Analysis results
+ * ArcGIS rest (2015)
+* Address, placename and real estate search
+* Customizable layout (colours and tool positioning)
+* Customizable size (preset size, fill space available)
+* RPC API for interaction with the web site where the map is embedded
+* Draw and save features as My Data (beta)
+* Find my location (Q1/2015)
+
+
+
 ### Thematic Maps (requires backend)
 http://www.oskari.org/documentation/bundles/framework/mapstats
 
@@ -155,11 +192,15 @@ http://www.oskari.org/documentation/bundles/framework/mapanalysis
 
 * Available analysis methods:
  * Buffer
- * Aggregate
+ * AggregateKey ratios computation (aggregate functions)
  * Union
- * Intersect
- * Union of analyse layers
+ * Clipping
+ * IntersectUnion of the intersecting features
+ * Union of analyse layersMultiple layers
+ * Difference computation
+ * Spatial join
 * Draw your own feature to be used in analysis
+* Clip a feature
 
 ### Authentication and user management (requires backend)
 
@@ -173,21 +214,12 @@ http://www.oskari.org/documentation/bundles/framework/mapanalysis
 * Features get added to the grid when the user clicks on the map. Alt and Ctrl keys can be used as modifiers
 * A proxy is needed in case features are fetched via WFS
 
-### Features in the 2014 roadmap
-
-* Thematic mapping tools with access to several types of statistical data (JSON, JSON-stat, SDMX)
-* More advanced Spatial analysis tools
-* Improved WFS access (support for complex geometries, e.g. INSPIRE schemas)
-* Importing your own data
-* Publish thematic maps, results of analysis and your own data in an Embedded map
-* Draw and save features in an Embedded map
-* Coordinate system changeable on-the-fly
-* Improved release quality via automated test procedures
-* Improved documentation and easier installation
-
-### Features in the 2015 roadmap (preliminary)
+### Features in the 2015 roadmap
 
 * Oskari 2.0 - even more modularity
 * Improved mobile device support
 * Support for 3D visualization
 * Quality improvements and code restructuring
+* Thematic mapping tools with access to several types of statistical data (JSON, JSON-stat, SDMX)
+* Improved WFS access (support for complex geometries, e.g. INSPIRE schemas)
+* Coordinate system changeable on-the-fly
