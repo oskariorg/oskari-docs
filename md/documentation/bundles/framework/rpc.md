@@ -26,21 +26,24 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
         clear: both;
         display: block;
         margin-bottom: 12px;
-        width: 700px;
+        width: 740px;
         height: 525px;
     }
     #rpcControls {
         text-align: center;
-        width: 700px;   
+        width: 740px;   
     }
 
-    #rpcControls button, #rpcControls output, #rpcControls input {
+    #rpcControls button,
+    #rpcControls output,
+    #rpcControls input {
         display: inline-block;
         margin-top: 6px;
     }
 </style>
-<iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/8184"></iframe>
+<iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/9b217d0d-96b9-6455-c08d-a6bdcd0975af"></iframe>
 <div id="rpcControls">
+    <button id="mml">MML</button>
     <button id="helsinki">Messukeskus</button>
     <button id="lehka">Lehijärvi</button>
     <output id="coords"></output>
@@ -63,10 +66,33 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                     zoomLevel === undefined ? 9 : zoomLevel
                 ],
                 function(data) {
-                    console.log('MapMoveRequest posted');
+                    if (console && console.log) {
+                        console.log('MapMoveRequest posted');
+                    }
                 },
                 function(error, message) {
-                    console.log('error', error, message);
+                    if (console && console.log) {
+                        console.log('error', error, message);
+                    }
+                }
+            );
+        },
+        showGFI = function (lon, lat) {
+            channel.postRequest(
+                'MapModulePlugin.GetFeatureInfoRequest',
+                [
+                    lon,
+                    lat
+                ],
+                function(data) {
+                    if (console && console.log) {
+                        console.log('GetFeatureInfoRequest posted');
+                    }
+                },
+                function(error, message) {
+                    if (console && console.log) {
+                        console.log('error', error, message);
+                    }
                 }
             );
         },
@@ -85,84 +111,109 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                 // getMapPosition's x and y coords
                 channel.getMapPosition(
                     function(data) {
-                        console.log('getMapPosition', JSON.stringify(data));
+                        if (console && console.log) {
+                            console.log('getMapPosition', JSON.stringify(data));
+                        }
                         moveMap(data.centerX, data.centerY, zoomLevel);
                     },
                     function(error, message) {
-                        console.log('error', error, message);
+                        if (console && console.log) {
+                            console.log('error', error, message);
+                        }
                     }
                 );
             };
             document.getElementById('rpcControls').appendChild(zoombar);
         },
         function(error, message) {
-            console.log('error', error, message);
+            if (console && console.log) {
+                console.log('error', error, message);
+            }
         }
     );
 
     // Get current map position
     channel.getMapPosition(
         function(data) {
-            console.log('getMapPosition', JSON.stringify(data));
+            if (console && console.log) {
+                console.log('getMapPosition', JSON.stringify(data));
+            }
             setCoords(data.centerX, data.centerY);
         },
         function(error, message) {
-            console.log('error', error, message);
+            if (console && console.log) {
+                console.log('error', error, message);
+            }
         }
     );
 
     channel.getAllLayers(
         function(data) {
-            console.log('getAllLayers', JSON.stringify(data));
+            if (console && console.log) {
+                console.log('getAllLayers', JSON.stringify(data));
+            }
             // Layer names aren't available through RPC as it might contain sensitive data
             var localization = {
-                '24': 'Ortokuvat',
-                'base_2': 'Maastokartta',
-                'base_35': 'Taustakarttasarja'
+                '24': 'Orthophotos',
+                'base_2': 'Topographic map',
+                'base_35': 'Background map serie'
             };
+            var gfiLayerId = '343';
             data.forEach(function(layer) {
-                var layerButton = document.createElement('button');
-                layerButton.id = layer.id;
-                layerButton.textContent = localization[layer.id];
-                layerButton.onclick = function() {
-                    var lid = this.id;
-                    console.log('Showing layer ' + localization[lid]);
-                    data.forEach(function(l) {
-                        channel.postRequest(
-                            'MapModulePlugin.MapLayerVisibilityRequest',
-                            [
-                                l.id,
-                                l.id + '' === lid
-                            ]
-                        );
-                    });
-                };
-                document.getElementById('rpcControls').appendChild(layerButton);
+                if (layer.id + '' !== gfiLayerId) {
+                    var layerButton = document.createElement('button');
+                    layerButton.id = layer.id;
+                    layerButton.textContent = localization[layer.id];
+                    layerButton.onclick = function() {
+                        var lid = this.id;
+                        if (console && console.log) {
+                            console.log('Showing layer ' + localization[lid]);
+                        }
+                        data.forEach(function(l) {
+                            channel.postRequest(
+                                'MapModulePlugin.MapLayerVisibilityRequest',
+                                [
+                                    l.id,
+                                    l.id + '' === lid || l.id + '' === gfiLayerId
+                                ]
+                            );
+                        });
+                    };
+                    document.getElementById('rpcControls').appendChild(layerButton);
+                }
             });
         },
         function(error, message) {
-            console.log('error', error, message);
+            if (console && console.log) {
+                console.log('error', error, message);
+            }
         }
     );
 
     channel.handleEvent(
         'AfterMapMoveEvent',
         function(data) {
-            console.log('AfterMapMoveEvent', JSON.stringify(data));
+            if (console && console.log) {
+                console.log('AfterMapMoveEvent', JSON.stringify(data));
+            }
             setCoords(data.centerX, data.centerY);
             if (zoombar) {
                 zoombar.value = data.zoom;
             }
         },
         function(error, message) {
-            console.log('error', error, message);
+            if (console && console.log) {
+                console.log('error', error, message);
+            }
         }
     );
 
     channel.handleEvent(
         'MapClickedEvent',
         function(data) {
-            console.log('MapClickedEvent', JSON.stringify(data));
+            if (console && console.log) {
+                console.log('MapClickedEvent', JSON.stringify(data));
+            }
             channel.postRequest(
                 'MapModulePlugin.AddMarkerRequest', [{
                         x: data.lon,
@@ -171,23 +222,39 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                     'RPCMarker'
                 ],
                 function(error, message) {
-                    console.log('error', error, message);
+                    if (console && console.log) {
+                        console.log('error', error, message);
+                    }
                 }
             );
         },
         function(error, message) {
-            console.log('error', error, message);
+            if (console && console.log) {
+                console.log('error', error, message);
+            }
         }
     );
 
     document.getElementById('lehka').onclick = function() {
-        console.log('Lehijärvi');
+        if (console && console.log) {
+            console.log('Lehijärvi');
+        }
         moveMap(354490.70442968, 6770658.0402485);
     };
 
     document.getElementById('helsinki').onclick = function() {
-        console.log('Messukeskus');
+        if (console && console.log) {
+            console.log('Messukeskus');
+        }
         moveMap(385597.68323541, 6675813.1806321);
+    };
+
+    document.getElementById('mml').onclick = function () {
+        if (console && console.log) {
+            console.log('MML GFI');
+        }
+        moveMap(385587.00507322, 6675359.2539665);
+        showGFI(385587.00507322, 6675359.2539665);
     };
 </script>
 
@@ -203,12 +270,12 @@ Allowed functions (config.allowedFunctions) lists all the functions that can be 
 Defaults at the moment are:
 ```javascript
 {
-    "getAllLayers": true,
-    "getMapPosition": true,
-    "getSupportedEvents": true,
-    "getSupportedFunctions": true,
-    "getSupportedRequests": true,
-    "getZoomRange": true
+    'InfoBox.ShowInfoBoxRequest': true,
+    'MapModulePlugin.AddMarkerRequest': true,
+    'MapModulePlugin.GetFeatureInfoRequest': true,
+    'MapModulePlugin.MapLayerVisibilityRequest': true,
+    'MapModulePlugin.RemoveMarkersRequest': true,
+    MapMoveRequest: true
 }
 ```
 
@@ -229,10 +296,11 @@ Allowed requests (config.allowedRequests) lists all the requests that can be sen
 Defaults at the moment are:
 ```javascript
 {
-    "MapModulePlugin.AddMarkerRequest": true,
-    "MapModulePlugin.MapLayerVisibilityRequest": true,
-    "MapModulePlugin.RemoveMarkersRequest": true,
-    "MapMoveRequest": true
+    'MapModulePlugin.AddMarkerRequest': true,
+    'MapModulePlugin.GetFeatureInfoRequest': true,
+    'MapModulePlugin.MapLayerVisibilityRequest': true,
+    'MapModulePlugin.RemoveMarkersRequest': true,
+    MapMoveRequest: true
 }
 ```
 

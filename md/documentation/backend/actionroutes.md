@@ -39,6 +39,7 @@
 - [GetFeatureInfoWMS](/documentation/backend/actionroutes/getfeatureinfowms)
 - [GetSearchResult](/documentation/backend/actionroutes/getsearchresult)
 - [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/getGeoLocatorSearchResult)
+- [GetReverseGeocodingResult](/documentation/backend/actionroutes/getReverseGeocodingResult)
 - [GetSotkaData](/documentation/backend/actionroutes/getsotkadata)
 - [GetAnalysisData](/documentation/backend/actionroutes/getAnalysisData)
 - GetFeatureDataXML

@@ -24,6 +24,8 @@ Register a personal account at GitHub.
 
 Watch:
 
+<iframe width="560" height="315" src="http://www.youtube.com/embed/ijaaL_G6Jgo" frameborder="0" allowfullscreen></iframe>
+
 Fork the nls-oskari/oskari and nls-oskari/oskari-server repositories, and check out the source code
 from your forks to your local computer.
 
@@ -172,6 +174,23 @@ specifically the Tomcat-integrated package.
 Liferay needs its own configuration and user data database JNDI configuration, as well as the Oskari
 portlet application database JNDI connection. For development, you can use the same database for
 both sets of tables, if you like.
+
+If your Liferay installation has a customized theme, as www.paikkatietoikkuna.fi has, make sure
+to install the theme WARs, as well as the layout WARs, as you're installing the map portlet.
+
+#### 2.7 GeoServer and customization components
+
+The Oskari service contains various functionality, such as the `transport` service,
+as well as the [my places](/documentation/backend/enabling-myplaces) and
+[analysis](/documentation/backend/enabling-analyse) modules, which depend on a
+functional and customized GeoServer installation.
+
+Currently, the customized GeoServer configuration data directory is stored in the
+`oskari-server/content-resources/config/geoserver/data`, and the
+`oskari-server/geoserver-ext` module collection contains various GeoServer extension
+Maven projects, which need to be built according to the module documentation
+referred to above.
+
 
 * * *
 
