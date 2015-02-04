@@ -355,5 +355,10 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>Updates the state of an extension (eg. 'attach' for a Flyout, which opens it)</td>
             <td>`framework/divmanazer`</td>
         </tr>
+        <tr>
+            <td>`ShowLicenseRequest`</td>
+            <td>Updates the metadata catalogue search results list to show license element</td>
+            <td>`catalogue/metadatacatalogue`</td>
+        </tr>
     </tbody>
 </table>
