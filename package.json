@@ -7,7 +7,7 @@
     "jade": "1.1.5",
     "marked": "0.3.0",
     "lodash-node": "~2.4.1",
-    "gulp": "~3.4.0",
+    "gulp": "3.4.0",
     "gulp-util": "~2.2.12",
     "gulp-less": "~1.1.10",
     "gulp-uglify": "~0.1.0",
@@ -18,8 +18,8 @@
     "gulp-autoprefixer": "0.0.6"
   },
   "devDependencies": {
-    "gulp": "^3.4.0",
-    "gulp-livereload": "^1.5.0",
+    "gulp": "3.4.0",
+    "gulp-livereload": "1.5.0",
     "tiny-lr": "0.0.7"
   }
 }
