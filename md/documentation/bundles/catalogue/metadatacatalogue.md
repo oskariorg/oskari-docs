@@ -28,7 +28,7 @@ No state is required.
     <th>Request</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>`ShowLicenseRequest`</td><td>Shows license element in metadata search results list</td>
+    <td>`AddSearchResultActionRequest`</td><td>Shows action element in metadata search results list</td>
   </tr>
 </table>
 
