@@ -15,6 +15,12 @@ The action route is responsible for handling the location search query based on 
     <td>User input search term</td>
     <td>**true** (unless `lon` and `lat` present)</td>
   </tr>
+   <tr>
+      <td>`country`</td>
+      <td>String</td>
+      <td>ELF country (autocomplete list)</td>
+      <td>**optional**</td>
+    </tr>
   <tr>
     <td>`region`</td>
     <td>String</td>
@@ -36,7 +42,7 @@ The action route is responsible for handling the location search query based on 
   <tr>
     <td>`exonym`</td>
     <td>Boolean</td>
-    <td>exonym names included</td>
+    <td>exonym names (names in other languages) included</td>
     <td>**optional** (defaults to false)</td>
   </tr>
   <tr>
@@ -90,6 +96,8 @@ Will return an error if the `term` param is empty, if it contains the `*` charac
 ### Example geocoding query for Paikkatietoikkuna
 http://www.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=GetGeoLocatorSearchResult&lang=en&&epsg=EPSG:3067&term=Helsinki&region=&fuzzy=true&exonym=true
 
+### Example geocoding query for oskari-map servlet (normal search with country filter)
+http://localhost:8888/oskari-map/?action_route=GetGeoLocatorSearchResult&lang=en&epsg=EPSG:3857&term=Helsinki&region=&country=FI&normal=true&filter=false&fuzzy=false&exonym=false
 Response:
 
 ```json
