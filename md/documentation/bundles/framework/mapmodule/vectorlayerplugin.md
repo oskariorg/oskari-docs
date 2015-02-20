@@ -75,7 +75,7 @@ This bundle doesn't send out any events.
   <tr>
     <td>[OpenLayers](http://openlayers.org/)</td>
     <td>not linked, assumes its linked by map</td>
-    <td>Uses OpenLayers' popup</td>
+    <td>Used to create the vector layer.</td>
   </tr>
 </table>
 
