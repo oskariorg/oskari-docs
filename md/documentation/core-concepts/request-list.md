@@ -96,6 +96,16 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
+            <td>`MapModulePlugin.AddFeaturesToMapRequest`</td>
+            <td></td>
+            <td>`framework/mapmodule-plugin/vectorlayer`</td>
+        </tr>
+        <tr>
+            <td>`MapModulePlugin.RemoveFeaturesFromMapRequest`</td>
+            <td></td>
+            <td>`framework/mapmodule-plugin/vectorlayer`</td>
+        </tr>
+        <tr>
             <td>`EnableMapKeyboardMovementRequest`</td>
             <td></td>
             <td>`framework/mapmodule-plugin`</td>
