@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="67f14e5f-c1f1-4e02-a0ab-1b2716e68858" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/LondonBetween.ttf" afterPath="$PROJECT_DIR$/public/fonts/LondonBetween.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/backend/OskariAjaxSequenceDiagram.png" afterPath="$PROJECT_DIR$/public/images/backend/OskariAjaxSequenceDiagram.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/Service.png" afterPath="$PROJECT_DIR$/public/images/architecture/Service.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/backend/ServletContextInit.png" afterPath="$PROJECT_DIR$/public/images/backend/ServletContextInit.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Black.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Black.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Bold.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Bold.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-BoldItalic.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-BoldItalic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-ExtraLight.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-ExtraLight.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-ExtraLightItalic.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-ExtraLightItalic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Italic.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Italic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Light.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Light.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-LightItalic.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-LightItalic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Regular.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-Regular.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-SemiBold.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-SemiBold.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/TitilliumWeb-SemiBoldItalic.ttf" afterPath="$PROJECT_DIR$/public/fonts/TitilliumWeb-SemiBoldItalic.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/accordion.png" afterPath="$PROJECT_DIR$/public/images/bundles/accordion.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/components/accordion.png" afterPath="$PROJECT_DIR$/public/images/documentation/components/accordion.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/admin-layerselector.png" afterPath="$PROJECT_DIR$/public/images/bundles/admin-layerselector.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/analyse.png" afterPath="$PROJECT_DIR$/public/images/bundles/analyse.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/ant-launcher.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/ant-launcher.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/ant.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/ant.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/backendstatus.png" afterPath="$PROJECT_DIR$/public/images/bundles/backendstatus.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/backgroundlayerselection_closed.png" afterPath="$PROJECT_DIR$/public/images/bundles/backgroundlayerselection_closed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/backgroundlayerselection_list.png" afterPath="$PROJECT_DIR$/public/images/bundles/backgroundlayerselection_list.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/backgroundlayerselection_open.png" afterPath="$PROJECT_DIR$/public/images/bundles/backgroundlayerselection_open.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bg_pattern.png" afterPath="$PROJECT_DIR$/public/images/bg_pattern.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/brown_papersq.png" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/brown_papersq.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/bundle_communications.png" afterPath="$PROJECT_DIR$/public/images/documentation/bundle_communications.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/button.png" afterPath="$PROJECT_DIR$/public/images/bundles/button.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/commons-lang.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/commons-lang.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/components.png" afterPath="$PROJECT_DIR$/public/images/architecture/components.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/coordinatedisplay.png" afterPath="$PROJECT_DIR$/public/images/bundles/coordinatedisplay.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/quick-start/custom_toolbar.png" afterPath="$PROJECT_DIR$/public/images/quick-start/custom_toolbar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/datasource.png" afterPath="$PROJECT_DIR$/public/images/bundles/datasource.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/demo_oskari_org.PNG" afterPath="$PROJECT_DIR$/public/images/demo_oskari_org.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/demosite.png" afterPath="$PROJECT_DIR$/public/images/demosite.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/digiroad-featureselector.png" afterPath="$PROJECT_DIR$/public/images/bundles/digiroad-featureselector.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/divmanazer.png" afterPath="$PROJECT_DIR$/public/images/bundles/divmanazer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/elf-geolocator.png" afterPath="$PROJECT_DIR$/public/images/bundles/elf-geolocator.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/build/server/example-oskari.zip" afterPath="$PROJECT_DIR$/public/build/server/example-oskari.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/example_harava.PNG" afterPath="$PROJECT_DIR$/public/images/example_harava.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/example_lupapiste.PNG" afterPath="$PROJECT_DIR$/public/images/example_lupapiste.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/example_paikkatietoikkuna.PNG" afterPath="$PROJECT_DIR$/public/images/example_paikkatietoikkuna.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/featuredata.png" afterPath="$PROJECT_DIR$/public/images/bundles/featuredata.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/filter-xpath.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/filter-xpath.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/forkme_left_red.png" afterPath="$PROJECT_DIR$/public/images/forkme_left_red.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/forkme_right_red.png" afterPath="$PROJECT_DIR$/public/images/forkme_right_red.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/form.png" afterPath="$PROJECT_DIR$/public/images/bundles/form.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/components/form.png" afterPath="$PROJECT_DIR$/public/images/documentation/components/form.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/foss4g_logo.png" afterPath="$PROJECT_DIR$/public/images/foss4g_logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/full-stack.png" afterPath="$PROJECT_DIR$/public/images/architecture/full-stack.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/geometryeditor.png" afterPath="$PROJECT_DIR$/public/images/bundles/geometryeditor.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/gfi_query.png" afterPath="$PROJECT_DIR$/public/images/bundles/gfi_query.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/git_overview.png" afterPath="$PROJECT_DIR$/public/images/documentation/git_overview.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/grid.png" afterPath="$PROJECT_DIR$/public/images/bundles/grid.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/components/grid.png" afterPath="$PROJECT_DIR$/public/images/documentation/components/grid.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/guidedtour.png" afterPath="$PROJECT_DIR$/public/images/bundles/guidedtour.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/header-bg.png" afterPath="$PROJECT_DIR$/public/images/header-bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/htmlcleaner.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/htmlcleaner.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/indexmap_closed.png" afterPath="$PROJECT_DIR$/public/images/bundles/indexmap_closed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/indexmap_open.png" afterPath="$PROJECT_DIR$/public/images/bundles/indexmap_open.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/infobox.png" afterPath="$PROJECT_DIR$/public/images/bundles/infobox.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/jaxen.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/jaxen.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/jdom.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/jdom.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/layerselection2.png" afterPath="$PROJECT_DIR$/public/images/bundles/layerselection2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/layerselection_closed.png" afterPath="$PROJECT_DIR$/public/images/bundles/layerselection_closed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/layerselection_open.png" afterPath="$PROJECT_DIR$/public/images/bundles/layerselection_open.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/layerselector.png" afterPath="$PROJECT_DIR$/public/images/bundles/layerselector.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/log4j.jar" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/log4j.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/logo_oskari.PNG" afterPath="$PROJECT_DIR$/public/images/logo_oskari.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/main-bg.png" afterPath="$PROJECT_DIR$/public/images/main-bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/backend/map_layers_table.png" afterPath="$PROJECT_DIR$/public/images/backend/map_layers_table.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/mapanalysis.png" afterPath="$PROJECT_DIR$/public/images/bundles/mapanalysis.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/mapfull.png" afterPath="$PROJECT_DIR$/public/images/bundles/mapfull.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/maplayer-ER.png" afterPath="$PROJECT_DIR$/public/images/architecture/maplayer-ER.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/maplegends.png" afterPath="$PROJECT_DIR$/public/images/bundles/maplegends.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/mapstats.png" afterPath="$PROJECT_DIR$/public/images/bundles/mapstats.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-arrow.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-arrow.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-dot.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-dot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-flag.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-flag.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-pin.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-pin.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-pin2.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-pin2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-square.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-square.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/requests/marker-stud.png" afterPath="$PROJECT_DIR$/public/images/documentation/requests/marker-stud.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/menu-icon-small.png" afterPath="$PROJECT_DIR$/public/images/menu-icon-small.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/menu-icon.png" afterPath="$PROJECT_DIR$/public/images/menu-icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/metadata.png" afterPath="$PROJECT_DIR$/public/images/bundles/metadata.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/quick-start/myfirst.png" afterPath="$PROJECT_DIR$/public/images/quick-start/myfirst.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/quick-start/mythird.png" afterPath="$PROJECT_DIR$/public/images/quick-start/mythird.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/quick-start/mythird_with_toolbar.png" afterPath="$PROJECT_DIR$/public/images/quick-start/mythird_with_toolbar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari  bundles.png" afterPath="$PROJECT_DIR$/public/images/oskari  bundles.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/oskari_architecture_backend.png" afterPath="$PROJECT_DIR$/public/images/documentation/oskari_architecture_backend.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/oskari_architecture_frontend.png" afterPath="$PROJECT_DIR$/public/images/documentation/oskari_architecture_frontend.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari_bundles.png" afterPath="$PROJECT_DIR$/public/images/oskari_bundles.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari_demo_wide.PNG" afterPath="$PROJECT_DIR$/public/images/oskari_demo_wide.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari_logo_black.png" afterPath="$PROJECT_DIR$/public/images/oskari_logo_black.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari_logo_rgb.png" afterPath="$PROJECT_DIR$/public/images/oskari_logo_rgb.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari_logo_white.png" afterPath="$PROJECT_DIR$/public/images/oskari_logo_white.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/oskari_platform.png" afterPath="$PROJECT_DIR$/public/images/oskari_platform.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/paikkatietoikkuna.PNG" afterPath="$PROJECT_DIR$/public/images/paikkatietoikkuna.PNG" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/paikkis_architecture.png" afterPath="$PROJECT_DIR$/public/images/documentation/paikkis_architecture.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/panbuttons.png" afterPath="$PROJECT_DIR$/public/images/bundles/panbuttons.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/parcel.png" afterPath="$PROJECT_DIR$/public/images/bundles/parcel.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/parcelinfo.png" afterPath="$PROJECT_DIR$/public/images/bundles/parcelinfo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/parcelselector.png" afterPath="$PROJECT_DIR$/public/images/bundles/parcelselector.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/backend/permissions.png" afterPath="$PROJECT_DIR$/public/images/backend/permissions.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/personaldata.png" afterPath="$PROJECT_DIR$/public/images/bundles/personaldata.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/pojoaque.jpg" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/pojoaque.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/popup.png" afterPath="$PROJECT_DIR$/public/images/bundles/popup.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/printout.png" afterPath="$PROJECT_DIR$/public/images/bundles/printout.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/publisher_map.png" afterPath="$PROJECT_DIR$/public/images/bundles/publisher_map.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/publisher_start.png" afterPath="$PROJECT_DIR$/public/images/bundles/publisher_start.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/publisher_toolsform.png" afterPath="$PROJECT_DIR$/public/images/bundles/publisher_toolsform.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/backend/roleUML.png" afterPath="$PROJECT_DIR$/public/images/backend/roleUML.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/sandbox.png" afterPath="$PROJECT_DIR$/public/images/documentation/sandbox.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/scalebar.png" afterPath="$PROJECT_DIR$/public/images/bundles/scalebar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/school_book.png" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/school_book.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/search_flyout.png" afterPath="$PROJECT_DIR$/public/images/bundles/search_flyout.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/statsgrid.png" afterPath="$PROJECT_DIR$/public/images/bundles/statsgrid.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/tabcontainer.png" afterPath="$PROJECT_DIR$/public/images/bundles/tabcontainer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/documentation/components/tabcontainer.png" afterPath="$PROJECT_DIR$/public/images/documentation/components/tabcontainer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/tabdropdowncontainer.png" afterPath="$PROJECT_DIR$/public/images/bundles/tabdropdowncontainer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/tables2ER.png" afterPath="$PROJECT_DIR$/public/images/architecture/tables2ER.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/tablesER.png" afterPath="$PROJECT_DIR$/public/images/architecture/tablesER.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/toolbar.png" afterPath="$PROJECT_DIR$/public/images/bundles/toolbar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/backend/userUML.png" afterPath="$PROJECT_DIR$/public/images/backend/userUML.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/visualization-form_1.png" afterPath="$PROJECT_DIR$/public/images/bundles/visualization-form_1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/wfs_backend_uml.png" afterPath="$PROJECT_DIR$/public/images/architecture/wfs_backend_uml.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/wfs_feature_select.png" afterPath="$PROJECT_DIR$/public/images/architecture/wfs_feature_select.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/wfs_map_click.png" afterPath="$PROJECT_DIR$/public/images/architecture/wfs_map_click.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/wfs_map_move.png" afterPath="$PROJECT_DIR$/public/images/architecture/wfs_map_move.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/wfslayer.png" afterPath="$PROJECT_DIR$/public/images/bundles/wfslayer.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/yourkit.png" afterPath="$PROJECT_DIR$/public/images/yourkit.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/yourkit2.png" afterPath="$PROJECT_DIR$/public/images/yourkit2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/zoombar.png" afterPath="$PROJECT_DIR$/public/images/bundles/zoombar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/404.jade" afterPath="$PROJECT_DIR$/views/404.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/OFL.txt" afterPath="$PROJECT_DIR$/public/fonts/OFL.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/rpc/OskariRPC/OskariRPC.js" afterPath="$PROJECT_DIR$/public/js/rpc/OskariRPC/OskariRPC.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/Oskari_2_Migration_Guide.md" afterPath="$PROJECT_DIR$/md/guides/Oskari_2_Migration_Guide.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/README.txt" afterPath="$PROJECT_DIR$/tools/oskari-indexing/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/architecture/Service.xml" afterPath="$PROJECT_DIR$/public/images/architecture/Service.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/_acceptpublishedtermsofuse.md" afterPath="$PROJECT_DIR$/md/documentation/backend/_acceptpublishedtermsofuse.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/_breadcrumb.jade" afterPath="$PROJECT_DIR$/views/_breadcrumb.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/_footer.jade" afterPath="$PROJECT_DIR$/views/_footer.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/_getarticlesbytag.md" afterPath="$PROJECT_DIR$/md/documentation/backend/_getarticlesbytag.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/_hasacceptedpublishedtermsofuse.md" afterPath="$PROJECT_DIR$/md/documentation/backend/_hasacceptedpublishedtermsofuse.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/_navigation.jade" afterPath="$PROJECT_DIR$/views/_navigation.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.jade" afterPath="$PROJECT_DIR$/views/about.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/acceptpublishedtermsofuse.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/acceptpublishedtermsofuse.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/accordion.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/accordion.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/accordion.md" afterPath="$PROJECT_DIR$/md/documentation/components/accordion.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/adding-action-routes.md" afterPath="$PROJECT_DIR$/md/documentation/backend/adding-action-routes.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/adding-bundles.md" afterPath="$PROJECT_DIR$/md/documentation/backend/adding-bundles.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/adding-libraries.md" afterPath="$PROJECT_DIR$/md/documentation/development/adding-libraries.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/adding-user-guide.md" afterPath="$PROJECT_DIR$/md/documentation/backend/adding-user-guide.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/addview.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/addview.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/adjustviewaccess.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/adjustviewaccess.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/integration/admin-layerselector.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/integration/admin-layerselector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/admin-users.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/admin-users.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/admin/admin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/admin/admin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/analysis/analyse.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/analysis/analyse.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/architecture.md" afterPath="$PROJECT_DIR$/md/documentation/development/architecture.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/architecture_backend.md" afterPath="$PROJECT_DIR$/md/documentation/backend/architecture_backend.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/architecture_basics.md" afterPath="$PROJECT_DIR$/md/documentation/architecture_basics.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/arta.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/arta.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/ascetic.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/ascetic.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-dune.dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-dune.dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-dune.light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-dune.light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-forest.dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-forest.dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-forest.light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-forest.light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-heath.dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-heath.dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-heath.light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-heath.light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-lakeside.dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-lakeside.dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-lakeside.light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-lakeside.light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-seaside.dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-seaside.dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-seaside.light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/atelier-seaside.light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/authentication.md" afterPath="$PROJECT_DIR$/md/documentation/backend/authentication.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/backend_architecture.md" afterPath="$PROJECT_DIR$/md/documentation/backend/backend_architecture.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/backendstatus.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/backendstatus.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/backgroundlayerselectorplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/backgroundlayerselectorplugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/data/base-layer.md" afterPath="$PROJECT_DIR$/md/documentation/data/base-layer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/public/css/vendor/bootstrap-theme.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/css/vendor/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/vendor/bootstrap.min.js" afterPath="$PROJECT_DIR$/public/js/vendor/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/brown_paper.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/brown_paper.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sh" afterPath="$PROJECT_DIR$/build.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/bundle-manager.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/bundle-manager.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/bundles.jade" afterPath="$PROJECT_DIR$/views/bundles.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/button.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/button.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/button.md" afterPath="$PROJECT_DIR$/md/documentation/components/button.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/challenge.jade" afterPath="$PROJECT_DIR$/views/challenge.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/changing-mode.md" afterPath="$PROJECT_DIR$/md/documentation/development/changing-mode.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/architecture/components.md" afterPath="$PROJECT_DIR$/md/documentation/architecture/components.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/configuring-dataset-import.md" afterPath="$PROJECT_DIR$/md/documentation/backend/configuring-dataset-import.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/controls.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/controls.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/coordinatedisplay.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/coordinatedisplay.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/create-your-own-bundle.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/create-your-own-bundle.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/createUserlayer.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/createUserlayer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/createanalysislayer.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/createanalysislayer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/custom-install-parcel.md" afterPath="$PROJECT_DIR$/md/documentation/backend/custom-install-parcel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/customize-properties.md" afterPath="$PROJECT_DIR$/md/documentation/backend/customize-properties.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/database-create.md" afterPath="$PROJECT_DIR$/md/documentation/backend/database-create.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/database-customize-initial-data.md" afterPath="$PROJECT_DIR$/md/documentation/backend/database-customize-initial-data.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/database-customize-users.md" afterPath="$PROJECT_DIR$/md/documentation/backend/database-customize-users.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/database-populate.md" afterPath="$PROJECT_DIR$/md/documentation/backend/database-populate.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/database-tables.md" afterPath="$PROJECT_DIR$/md/documentation/backend/database-tables.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/architecture/database.md" afterPath="$PROJECT_DIR$/md/documentation/architecture/database.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/datasource.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/datasource.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/default.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/deleteLayer.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/deleteLayer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/deleteOrganization.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/deleteOrganization.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/deleteview.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/deleteview.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development_basics.md" afterPath="$PROJECT_DIR$/md/documentation/development_basics.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/directory-structure-oskari2.md" afterPath="$PROJECT_DIR$/md/documentation/directory-structure-oskari2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/directory-structure.md" afterPath="$PROJECT_DIR$/md/documentation/directory-structure.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/docco.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/docco.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/documentation.jade" afterPath="$PROJECT_DIR$/views/documentation.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/download.jade" afterPath="$PROJECT_DIR$/views/download.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/enabling-analyse.md" afterPath="$PROJECT_DIR$/md/documentation/backend/enabling-analyse.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/enabling-myplaces.md" afterPath="$PROJECT_DIR$/md/documentation/backend/enabling-myplaces.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/enabling-user-data-store.md" afterPath="$PROJECT_DIR$/md/documentation/backend/enabling-user-data-store.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/event-list.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/event-list.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/examples.jade" afterPath="$PROJECT_DIR$/views/examples.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/faq.md" afterPath="$PROJECT_DIR$/md/documentation/faq.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/far.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/far.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/featuredata2.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/featuredata2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/features.md" afterPath="$PROJECT_DIR$/md/documentation/features.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/digiroad/digiroad-featureselector/featureselector.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/digiroad/digiroad-featureselector/featureselector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/form.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/form.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/form.md" afterPath="$PROJECT_DIR$/md/documentation/components/form.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/foundation.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/foundation.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/freefindfrommyplacelayers.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/freefindfrommyplacelayers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/geolocation.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/geolocation.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/elf/geolocator.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/elf/geolocator.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/geometryeditor.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/geometryeditor.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getAdminMapLayers.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getAdminMapLayers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getAnalysisData.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getAnalysisData.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getAnalysisLayers.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getAnalysisLayers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getBackendStatus.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getBackendStatus.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getGeoLocatorSearchResult.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getGeoLocatorSearchResult.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getLayerIds.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getLayerIds.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getMapLayerClasses.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getMapLayerClasses.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getMapLayers.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getMapLayers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getReverseGeocodingresult.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getReverseGeocodingresult.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getStatsLayerSLD.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getStatsLayerSLD.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getStatsTile.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getStatsTile.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getUserLayers.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getUserLayers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getWFSDescribeFeature.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getWFSDescribeFeature.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getWSCapabilities.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getWSCapabilities.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getWmsServices.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getWmsServices.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getappsetup.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getappsetup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getfeatureinfowms.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getfeatureinfowms.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/getinfoplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/getinfoplugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getpreview.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getpreview.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getpublishedmyplacelayers.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getpublishedmyplacelayers.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getsearchresult.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getsearchresult.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getsotkadata.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getsotkadata.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getsotkaregion.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getsotkaregion.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/backend/getting-started.md" afterPath="$PROJECT_DIR$/md/guides/backend/getting-started.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getviews.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/getviews.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/github.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/github.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/googlecode.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/googlecode.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/grid.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/grid.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/grid.md" afterPath="$PROJECT_DIR$/md/documentation/components/grid.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/guidedtour.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/guidedtour.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/guidelines.md" afterPath="$PROJECT_DIR$/md/documentation/development/guidelines.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/guides.jade" afterPath="$PROJECT_DIR$/views/guides.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/hasacceptedpublishedtermsofuse.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/hasacceptedpublishedtermsofuse.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/vendor/highlight.min.js" afterPath="$PROJECT_DIR$/public/js/vendor/highlight.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/how-to-contribute.md" afterPath="$PROJECT_DIR$/md/documentation/development/how-to-contribute.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/idea.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/idea.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.jade" afterPath="$PROJECT_DIR$/views/index.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/indexmap.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/indexmap.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/infobox.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/infobox.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/installing-transport.md" afterPath="$PROJECT_DIR$/md/documentation/backend/installing-transport.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/ir_black.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/ir_black.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/rpc/JSChannel/jschannel.js" afterPath="$PROJECT_DIR$/public/js/rpc/JSChannel/jschannel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselection.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselection.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/layerselectionplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/layerselectionplugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselector.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/layersplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/layersplugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/layout.less" afterPath="$PROJECT_DIR$/client/stylesheets/layout.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/libraries.md" afterPath="$PROJECT_DIR$/md/documentation/libraries.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/license.md" afterPath="$PROJECT_DIR$/md/documentation/development/license.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/live-sites.md" afterPath="$PROJECT_DIR$/md/documentation/live-sites.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/localization.md" afterPath="$PROJECT_DIR$/md/documentation/development/localization.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/lupapiste/lupakartta.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/lupapiste/lupakartta.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/magula.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/magula.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/main.js" afterPath="$PROJECT_DIR$/client/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.min.css" afterPath="$PROJECT_DIR$/public/css/main.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.min.js" afterPath="$PROJECT_DIR$/public/js/main.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/map-plugin.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/map-plugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapanalysis.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapanalysis.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapfull.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapfull.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/data/maplayer-definitions.md" afterPath="$PROJECT_DIR$/md/documentation/data/maplayer-definitions.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/maplegend.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/maplegend.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapstats.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapstats.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapwmts.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapwmts.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/metadata.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/metadata.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/minification.md" afterPath="$PROJECT_DIR$/md/documentation/minification.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/protocol/module.md" afterPath="$PROJECT_DIR$/md/documentation/protocol/module.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/mono-blue.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/mono-blue.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai_sublime.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai_sublime.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/my-first-bundle.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/my-first-bundle.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/myplaces.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/myplaces.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/myplaces2.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/myplaces2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/myplacesimport.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/myplacesimport.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/nutch-site.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/nutch-site.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/obsidian.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/obsidian.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-application.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-application.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle-configuration.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle-configuration.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-class.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-class.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-core.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-core.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-event.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-event.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-request.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/oskari-request.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oskari.conf" afterPath="$PROJECT_DIR$/oskari.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/oskari.jade" afterPath="$PROJECT_DIR$/views/oskari.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oskari.org.iml" afterPath="$PROJECT_DIR$/oskari.org.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/oskari.urls" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/oskari.urls" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/overlay.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/overlay.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/overlay.md" afterPath="$PROJECT_DIR$/md/documentation/components/overlay.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/overview.md" afterPath="$PROJECT_DIR$/md/documentation/backend/overview.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/page.jade" afterPath="$PROJECT_DIR$/views/page.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/paikkatietoikkuna.md" afterPath="$PROJECT_DIR$/md/documentation/paikkatietoikkuna.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/panbuttons.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/panbuttons.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/paraiso.dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/paraiso.dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/paraiso.light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/paraiso.light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/parcel.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/parcel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/parcelinfo.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/parcelinfo.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/parcelselector.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/parcelselector.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/permissions.md" afterPath="$PROJECT_DIR$/md/documentation/backend/permissions.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/personaldata.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/personaldata.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/plugin.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/plugins/filter-xpath/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/pojoaque.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/pojoaque.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/popup.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/popup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/popup.md" afterPath="$PROJECT_DIR$/md/documentation/components/popup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/portti2zoombar.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/portti2zoombar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/postprocessor.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/postprocessor.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/printout.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/printout.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/promote.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/promote.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/publish.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/publish.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/publishedmyplaces2.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/publishedmyplaces2.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/publisher.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/publisher.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/publisher_toolsform.xml" afterPath="$PROJECT_DIR$/public/images/bundles/publisher_toolsform.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/publishertoolbar.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/publishertoolbar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/publishmyplacelayer.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/publishmyplacelayer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/railscasts.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/railscasts.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/rainbow.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/rainbow.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/regex-urlfilter.txt" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/regex-urlfilter.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/request-list.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/request-list.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.js" afterPath="$PROJECT_DIR$/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/rpc.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/rpc.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/sample-bundle-definition.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/sample-bundle-definition.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/sample-instance-definition.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/sample-instance-definition.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/sample.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/sample.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/saveLayer.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/saveLayer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/saveOrganization.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/saveOrganization.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/scalebar.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/scalebar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/schema-solr4.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/schema-solr4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/solr-4.9.0/example/solr/collection1/conf/schema.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/solr-4.9.0/example/solr/collection1/conf/schema.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/school_book.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/school_book.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/search.jade" afterPath="$PROJECT_DIR$/views/search.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/search.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/search.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/search.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/search.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/searchchannels.md" afterPath="$PROJECT_DIR$/md/documentation/backend/searchchannels.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/server-configuration-jetty.md" afterPath="$PROJECT_DIR$/md/documentation/backend/server-configuration-jetty.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/server-embedded-developer.md" afterPath="$PROJECT_DIR$/md/documentation/backend/server-embedded-developer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/server-embedded-precompiled.md" afterPath="$PROJECT_DIR$/md/documentation/backend/server-embedded-precompiled.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/server-maven.md" afterPath="$PROJECT_DIR$/md/documentation/backend/server-maven.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/server-webapp.md" afterPath="$PROJECT_DIR$/md/documentation/backend/server-webapp.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/solarized_dark.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/solarized_dark.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/solarized_light.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/solarized_light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/solrindex-mapping.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/solrindex-mapping.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/statehandler.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/statehandler.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/statistics/statsgrid.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/statistics/statsgrid.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/vendor/stupidtable.min.js" afterPath="$PROJECT_DIR$/public/js/vendor/stupidtable.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/sunburst.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/sunburst.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/systemViews.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/systemViews.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/tab-container.md" afterPath="$PROJECT_DIR$/md/documentation/components/tab-container.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/tabpanel.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/tabpanel.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/examples/technical_details_paikkatietoikkuna.md" afterPath="$PROJECT_DIR$/md/documentation/examples/technical_details_paikkatietoikkuna.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/thematic-maps-setup.md" afterPath="$PROJECT_DIR$/md/documentation/backend/thematic-maps-setup.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night-blue.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night-blue.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night-bright.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night-bright.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night-eighties.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night-eighties.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow-night.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/tomorrow.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/toolbar.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/toolbar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/tools.md" afterPath="$PROJECT_DIR$/md/documentation/development/tools.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/ui-components.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/ui-components.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/uihelper.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/uihelper.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/updateview.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/updateview.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/upgrading.md" afterPath="$PROJECT_DIR$/md/documentation/backend/upgrading.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/usagetracker.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/usagetracker.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/userguide.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/userguide.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/usermanagement.md" afterPath="$PROJECT_DIR$/md/documentation/backend/usermanagement.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/using-toolbar.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/using-toolbar.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/vagrant-guide.md" afterPath="$PROJECT_DIR$/md/documentation/vagrant-guide.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/vectorlayerplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/vectorlayerplugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/visualizationform.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/visualizationform.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/vs.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/vs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/architecture/wfs.md" afterPath="$PROJECT_DIR$/md/documentation/architecture/wfs.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapwfs2/wfslayerplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapwfs2/wfslayerplugin.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/data/wms-layer.md" afterPath="$PROJECT_DIR$/md/documentation/data/wms-layer.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/working-with-tiles-and-flyouts.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/working-with-tiles-and-flyouts.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/xcode.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/xcode.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/xpathfilter-conf.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/xpathfilter-conf.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/zenburn.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/zenburn.css" />
+    </list>
+    <ignored path="oskari.org.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="oskari.org" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="geolocator.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/geolocator.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="2057">
+              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backendstatus.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/backendstatus.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.433332" vertical-offset="0" max-vertical-offset="1530">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="infobox.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/infobox.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.266666" vertical-offset="510" max-vertical-offset="1666">
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="license.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/license.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1190">
+              <caret line="54" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="metadatacatalogue.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.2666667" vertical-offset="0" max-vertical-offset="1496">
+              <caret line="4" column="37" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lang-overrides.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.84855235" vertical-offset="71" max-vertical-offset="969">
+              <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/md/documentation/bundles/elf/license.md" />
+        <option value="$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1920" />
+    <option name="height" value="1034" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lupapiste" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="integration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="divmanazer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="digiroad" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="digiroad-featureselector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="catalogue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="documentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="analysis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="executeSpecs" factoryName="Gauge Execution">
+      <setting name="environment" value="" />
+      <setting name="specsToExecute" value="" />
+      <setting name="tags" value="" />
+      <setting name="parallelNodes" value="" />
+      <setting name="execInParallel" value="false" />
+      <setting name="programParameters" value="" />
+      <setting name="workingDirectory" value="" />
+      <envMap />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67f14e5f-c1f1-4e02-a0ab-1b2716e68858" name="Default" comment="" />
+      <created>1426751632748</created>
+      <option name="number" value="Default" />
+      <updated>1426751632748</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1920" height="1034" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/geolocator.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/license.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/lupapiste/lupakartta.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.7157893" vertical-offset="5742" max-vertical-offset="6936">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/integration/admin-layerselector.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.47719297" vertical-offset="408" max-vertical-offset="1955">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/analysis/analyse.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.52880186" vertical-offset="459" max-vertical-offset="2346">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/accordion.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1003">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/overlay.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/infobox.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.266666" vertical-offset="510" max-vertical-offset="1666">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2666667" vertical-offset="0" max-vertical-offset="1496">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/popup.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.72982454" vertical-offset="624" max-vertical-offset="1479">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/geolocator.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1159" max-vertical-offset="2057">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/backendstatus.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.433332" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/license.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1190">
+          <caret line="54" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84855235" vertical-offset="71" max-vertical-offset="969">
+          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
