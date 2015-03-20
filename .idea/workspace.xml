@@ -137,6 +137,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/yourkit.png" afterPath="$PROJECT_DIR$/public/images/yourkit.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/yourkit2.png" afterPath="$PROJECT_DIR$/public/images/yourkit2.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/bundles/zoombar.png" afterPath="$PROJECT_DIR$/public/images/bundles/zoombar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/404.jade" afterPath="$PROJECT_DIR$/views/404.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/OFL.txt" afterPath="$PROJECT_DIR$/public/fonts/OFL.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/rpc/OskariRPC/OskariRPC.js" afterPath="$PROJECT_DIR$/public/js/rpc/OskariRPC/OskariRPC.js" />
@@ -195,6 +196,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/button.md" afterPath="$PROJECT_DIR$/md/documentation/components/button.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/challenge.jade" afterPath="$PROJECT_DIR$/views/challenge.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/changing-mode.md" afterPath="$PROJECT_DIR$/md/documentation/development/changing-mode.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/architecture/components.md" afterPath="$PROJECT_DIR$/md/documentation/architecture/components.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/configuring-dataset-import.md" afterPath="$PROJECT_DIR$/md/documentation/backend/configuring-dataset-import.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/controls.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/controls.md" />
@@ -226,6 +228,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/enabling-analyse.md" afterPath="$PROJECT_DIR$/md/documentation/backend/enabling-analyse.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/enabling-myplaces.md" afterPath="$PROJECT_DIR$/md/documentation/backend/enabling-myplaces.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/enabling-user-data-store.md" afterPath="$PROJECT_DIR$/md/documentation/backend/enabling-user-data-store.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/core-concepts/event-list.md" afterPath="$PROJECT_DIR$/md/documentation/core-concepts/event-list.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/examples.jade" afterPath="$PROJECT_DIR$/views/examples.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/faq.md" afterPath="$PROJECT_DIR$/md/documentation/faq.md" />
@@ -282,6 +285,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/installing-transport.md" afterPath="$PROJECT_DIR$/md/documentation/backend/installing-transport.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/ir_black.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/ir_black.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/rpc/JSChannel/jschannel.js" afterPath="$PROJECT_DIR$/public/js/rpc/JSChannel/jschannel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselection.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselection.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/layerselectionplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/layerselectionplugin.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselector.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/layerselector.md" />
@@ -289,6 +293,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/stylesheets/layout.less" afterPath="$PROJECT_DIR$/client/stylesheets/layout.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/libraries.md" afterPath="$PROJECT_DIR$/md/documentation/libraries.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/elf/license.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/elf/license.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/license.md" afterPath="$PROJECT_DIR$/md/documentation/development/license.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/live-sites.md" afterPath="$PROJECT_DIR$/md/documentation/live-sites.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/development/localization.md" afterPath="$PROJECT_DIR$/md/documentation/development/localization.md" />
@@ -308,7 +313,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/metadata.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/metadata.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/minification.md" afterPath="$PROJECT_DIR$/md/documentation/minification.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/protocol/module.md" afterPath="$PROJECT_DIR$/md/documentation/protocol/module.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/mono-blue.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/mono-blue.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai_sublime.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/monokai_sublime.css" />
@@ -328,6 +335,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oskari.conf" afterPath="$PROJECT_DIR$/oskari.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/oskari.jade" afterPath="$PROJECT_DIR$/views/oskari.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oskari.org.iml" afterPath="$PROJECT_DIR$/oskari.org.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/oskari.org.iml" afterPath="$PROJECT_DIR$/.idea/oskari.org.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/oskari.urls" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/oskari.urls" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/overlay.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/overlay.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/components/overlay.md" afterPath="$PROJECT_DIR$/md/documentation/components/overlay.md" />
@@ -350,6 +358,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/portti2zoombar.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/portti2zoombar.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/postprocessor.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/postprocessor.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/printout.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/printout.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/promote.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/promote.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/actionroutes/publish.md" afterPath="$PROJECT_DIR$/md/documentation/backend/actionroutes/publish.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/publishedmyplaces2.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/publishedmyplaces2.md" />
@@ -372,6 +381,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/schema-solr4.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/schema-solr4.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/solr-4.9.0/example/solr/collection1/conf/schema.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/solr-4.9.0/example/solr/collection1/conf/schema.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/school_book.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/school_book.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/search.jade" afterPath="$PROJECT_DIR$/views/search.jade" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/search.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/search.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/search.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/search.md" />
@@ -409,6 +419,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/backend/usermanagement.md" afterPath="$PROJECT_DIR$/md/documentation/backend/usermanagement.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/using-toolbar.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/using-toolbar.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/vagrant-guide.md" afterPath="$PROJECT_DIR$/md/documentation/vagrant-guide.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/vectorlayerplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapmodule/vectorlayerplugin.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/visualizationform.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/divmanazer/visualizationform.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/vs.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/vs.css" />
@@ -416,6 +427,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/bundles/framework/mapwfs2/wfslayerplugin.md" afterPath="$PROJECT_DIR$/md/documentation/bundles/framework/mapwfs2/wfslayerplugin.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/documentation/data/wms-layer.md" afterPath="$PROJECT_DIR$/md/documentation/data/wms-layer.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/md/guides/quick-start/working-with-tiles-and-flyouts.md" afterPath="$PROJECT_DIR$/md/guides/quick-start/working-with-tiles-and-flyouts.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/xcode.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/xcode.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/xpathfilter-conf.xml" afterPath="$PROJECT_DIR$/tools/oskari-indexing/apache-nutch-1.8/conf/xpathfilter-conf.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/vendor/highlight-styles/zenburn.css" afterPath="$PROJECT_DIR$/public/css/vendor/highlight-styles/zenburn.css" />
@@ -436,76 +448,141 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="custom-install-parcel.md" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/md/documentation/backend/custom-install-parcel.md">
+                <provider editor-type-id="MarkdownPreviewEditor">
+                  <state />
+                </provider>
+                <provider selected="true" editor-type-id="text-editor">
+                  <state vertical-scroll-proportion="-4.288889" vertical-offset="4126" max-vertical-offset="4981">
+                    <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="oskari.org" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="geolocator.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/geolocator.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="2057">
-              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="backendstatus.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/backendstatus.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.433332" vertical-offset="0" max-vertical-offset="1530">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="infobox.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/framework/infobox.md">
-          <provider editor-type-id="MarkdownPreviewEditor">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.266666" vertical-offset="510" max-vertical-offset="1666">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="license.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/license.md">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1190">
-              <caret line="54" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="metadatacatalogue.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/catalogue/metadatacatalogue.md">
+      <file leaf-file-name="oskari-application.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-application.md">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2666667" vertical-offset="0" max-vertical-offset="1496">
-              <caret line="4" column="37" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="37" />
+            <state vertical-scroll-proportion="-13.766666" vertical-offset="2783" max-vertical-offset="3638">
+              <caret line="188" column="150" selection-start-line="188" selection-start-column="150" selection-end-line="188" selection-end-column="150" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lang-overrides.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md">
+      <file leaf-file-name="oskari-bundle-configuration.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle-configuration.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84855235" vertical-offset="71" max-vertical-offset="969">
-              <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="833">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oskari-class.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-class.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.133333" vertical-offset="818" max-vertical-offset="2023">
+              <caret line="66" column="274" selection-start-line="66" selection-start-column="274" selection-end-line="66" selection-end-column="274" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/documentation/protocol/module.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.033334" vertical-offset="0" max-vertical-offset="629">
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="examples.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/examples.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="1343">
+              <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-your-own-bundle.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/guides/quick-start/create-your-own-bundle.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.9333334" vertical-offset="0" max-vertical-offset="833">
+              <caret line="14" column="226" selection-start-line="14" selection-start-column="147" selection-end-line="14" selection-end-column="235" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="override-locales.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/md/documentation/frontend/override-locales.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41129032" vertical-offset="0" max-vertical-offset="868">
+              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sample-instance-definition.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/md/guides/quick-start/sample-instance-definition.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="1547">
+              <caret line="6" column="2" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -521,6 +598,8 @@
       <list>
         <option value="$PROJECT_DIR$/md/documentation/bundles/elf/license.md" />
         <option value="$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md" />
+        <option value="$PROJECT_DIR$/views/examples.jade" />
+        <option value="$PROJECT_DIR$/md/documentation/frontend/override-locales.md" />
       </list>
     </option>
   </component>
@@ -581,7 +660,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guides" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oskari.org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="md" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guides" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="quick-start" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -621,7 +740,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
+              <option name="myItemId" value="protocol" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -643,201 +762,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lupapiste" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="integration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="divmanazer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="digiroad" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="digiroad-featureselector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="catalogue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oskari.org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="md" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bundles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
+              <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1216,18 +1141,158 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/license.md">
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1190">
-          <caret line="54" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="969">
+          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/lang-overrides.md">
+    <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-core.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84855235" vertical-offset="71" max-vertical-offset="969">
-          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+        <state vertical-scroll-proportion="-7.9333334" vertical-offset="0" max-vertical-offset="340">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.7" vertical-offset="46" max-vertical-offset="901">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-application.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.766666" vertical-offset="2783" max-vertical-offset="3638">
+          <caret line="188" column="150" selection-start-line="188" selection-start-column="150" selection-end-line="188" selection-end-column="150" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-bundle-configuration.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/core-concepts/oskari-class.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.133333" vertical-offset="818" max-vertical-offset="2023">
+          <caret line="66" column="274" selection-start-line="66" selection-start-column="274" selection-end-line="66" selection-end-column="274" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/protocol/module.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.033334" vertical-offset="0" max-vertical-offset="629">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/backend/backend_architecture.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="868">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/bundles/elf/license.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="292" max-vertical-offset="1190">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/guides/quick-start/sample-instance-definition.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="1547">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/backend/custom-install-parcel.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.288889" vertical-offset="4126" max-vertical-offset="4981">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/guides/quick-start/sample-bundle-definition.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1887">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/guides/quick-start/create-your-own-bundle.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9333334" vertical-offset="0" max-vertical-offset="833">
+          <caret line="14" column="226" selection-start-line="14" selection-start-column="147" selection-end-line="14" selection-end-column="235" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/examples.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1343">
+          <caret line="73" column="24" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/md/documentation/frontend/override-locales.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41129032" vertical-offset="0" max-vertical-offset="868">
+          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
           <folding />
         </state>
       </provider>
