@@ -59,6 +59,9 @@ No state is required.
   <tr>
     <td>'userinterface.RemoveExtensionRequest'</td><td>Unregister from UI in stop()-method</td>
   </tr>
+  <tr>
+    <td>'MapModulePlugin.AddFeaturesToMapRequest'</td><td>Sends out when user clicks 'Show data coverage' link on a search results.</td>
+  </tr>
 </table>
 
 ## Dependencies
