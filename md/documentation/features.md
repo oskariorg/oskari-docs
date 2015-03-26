@@ -15,7 +15,8 @@
  * WMS
  * WMTS
  * WFS (requires backend)
- * ArcGIS REST layers
+ * ArcGIS Cache layers
+ * ArcGIS REST feature layers
 * Tile size and image format parameters are configurable
 * Coordinate system is configurable
 * Coordinate display adapts according to configured coordinate system
@@ -170,7 +171,8 @@
  * Imported data
  * Thematic Maps and Tables
  * Analysis results
- * ArcGIS rest (2015)
+ * ArcGIS rest Cache (2015)
+ * ArcGIS rest Feature Layer (ArcGis 9.3 -->)
 * Address, placename and real estate search
 * Customizable layout (colours and tool positioning)
 * Customizable size (preset size, fill space available)

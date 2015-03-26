@@ -52,9 +52,14 @@ Work in progress
 
 Work in progress
 
-### ArcGIS Layer
+### ArcGIS Cache Layer
 
-Work in progress
+`arcgis` budle handles ArcGis Cache layer tile rendering
+
+### ArcGIS Rest feature Layer
+
+`arcgis` budle handles ArcGis Rest feature layer and group layer  rendering.
+Feature info functionality is available for REST feature layer
 
 ## Extending with custom type
 
