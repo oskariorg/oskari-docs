@@ -31,11 +31,11 @@ The bundle offers admin a listing for all the maplayers available in Oskari plat
 
 ## Screenshot
 
-![screenshot](/images/bundles/layerselector.png)
+![screenshot](/images/bundles/admin-layerselector.png)
 
 ## Bundle configuration
 
-User needs to be admin to get this bundle
+User needs to be admin to get this bundle (handled by oskari-server)
 
 
 ## Requests the bundle handles

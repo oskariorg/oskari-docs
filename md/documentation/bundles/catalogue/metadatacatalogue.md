@@ -28,7 +28,7 @@ No state is required.
     <th>Request</th><th>How does the bundle react</th>
   </tr>
   <tr>
-    <td>`ShowLicenseRequest`</td><td>Shows license element in metadata search results list</td>
+    <td>`AddSearchResultActionRequest`</td><td>Shows action element in metadata search results list</td>
   </tr>
 </table>
 
@@ -58,6 +58,9 @@ No state is required.
   </tr>
   <tr>
     <td>'userinterface.RemoveExtensionRequest'</td><td>Unregister from UI in stop()-method</td>
+  </tr>
+  <tr>
+    <td>'MapModulePlugin.AddFeaturesToMapRequest'</td><td>Sends out when user clicks 'Show data coverage' link on a search results.</td>
   </tr>
 </table>
 

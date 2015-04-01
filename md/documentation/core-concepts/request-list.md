@@ -96,6 +96,16 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
+            <td>`MapModulePlugin.AddFeaturesToMapRequest`</td>
+            <td></td>
+            <td>`framework/mapmodule-plugin/vectorlayer`</td>
+        </tr>
+        <tr>
+            <td>`MapModulePlugin.RemoveFeaturesFromMapRequest`</td>
+            <td></td>
+            <td>`framework/mapmodule-plugin/vectorlayer`</td>
+        </tr>
+        <tr>
             <td>`EnableMapKeyboardMovementRequest`</td>
             <td></td>
             <td>`framework/mapmodule-plugin`</td>
@@ -356,8 +366,8 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`framework/divmanazer`</td>
         </tr>
         <tr>
-            <td>`ShowLicenseRequest`</td>
-            <td>Updates the metadata catalogue search results list to show license element</td>
+            <td>`AddSearchResultActionRequest`</td>
+            <td>Updates the metadata catalogue search results list to show action element</td>
             <td>`catalogue/metadatacatalogue`</td>
         </tr>
     </tbody>
