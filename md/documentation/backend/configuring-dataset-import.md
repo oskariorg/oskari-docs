@@ -16,7 +16,7 @@ GDAL can also be compiled from the source code, see http://trac.osgeo.org/gdal/w
 
 ##Windows
 
-The Windows GDAL dll file and dependency dll files can be downloaded e.g. at http://www.gisinternals.com/sdk/. The GDAL dll file needs to be renamed as gdal.dll or referenced in the environment variable GDAL_LIBRARY_NAME. The directory of the dll files is required in the PATH environment variable. The Windows version was tested successfully with GDAL 1.11.0.
+The Windows GDAL dll file and dependency dll files can be downloaded e.g. at http://www.gisinternals.com/ --> Downloads --> Stable Releases. Download latest package for your environment. For example release-1800-x64-gdal-1-11-1-mapserver-6-4-1.zip. Unzip downloaded file. The GDAL dll (for example gdal111.dll under bin folder) file needs to be renamed as gdal.dll or referenced in the environment variable GDAL_LIBRARY_NAME. The directory of the dll files is required in the PATH environment variable. The Windows version was tested successfully with GDAL 1.11.0.
 
 ##Reference
 
