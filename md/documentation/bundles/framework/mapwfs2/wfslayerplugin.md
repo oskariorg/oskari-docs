@@ -79,7 +79,15 @@ This plugin doesn't handle any requests.
 
 ## Events the plugin sends out
 
-This bundle doesn't send any events.
+<table class="table">
+  <tr>
+    <th>Event</th><th>Why/when</th>
+  </tr>
+  <tr>
+    <td>WFSStatusChangedEvent</td>
+    <td>When WFS backend processing is requested or completes. Also indicates possible errors on processing.</td>
+  </tr>
+</table>
 
 ## Dependencies
 
