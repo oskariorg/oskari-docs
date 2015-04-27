@@ -41,7 +41,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
         margin-top: 6px;
     }
 </style>
-<iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/9b217d0d-96b9-6455-c08d-a6bdcd0975af"></iframe>
+<iframe id="Oskari" src="http://www.paikkatietoikkuna.fi/published/fi/f8ad2bf1-eaf0-44ff-ac90-de4fe3077812"></iframe>
 <div id="rpcControls">
     <button id="mml">MML</button>
     <button id="helsinki">Messukeskus</button>
@@ -51,7 +51,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
 <script>
     var channel = OskariRPC.connect(
             document.getElementById('Oskari'),
-            'http://demo.paikkatietoikkuna.fi'
+            'http://www.paikkatietoikkuna.fi'
         ),
         coords = document.getElementById('coords'),
         setCoords = function(x, y) {
