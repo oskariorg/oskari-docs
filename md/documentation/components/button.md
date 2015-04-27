@@ -32,3 +32,15 @@ Remove the button.
 ```javascript
 alertBtn.destroy();
 ```
+
+Set focus the button.
+
+```javascript
+alertBtn.focus();
+```
+
+Set blur the button.
+
+```javascript
+alertBtn.blur();
+```

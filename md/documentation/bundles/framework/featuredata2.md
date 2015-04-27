@@ -90,6 +90,9 @@ This bundle doesn't handle any requests.
 <tr>
   <td> userinterface.ExtensionUpdatedEvent </td><td> Determines if the layer was closed or opened and enables/disables data updates accordingly.</td>
 </tr>
+<tr>
+  <td> WFSStatusChangedEvent </td><td> Shows a loading/error indicator on UI based on WFS process status changes.</td>
+</tr>
 </table>
 
 ## Events the bundle sends out
