@@ -27,7 +27,7 @@ Use pgAdmin or psql to execute below SQL-script file
 
 Remember layer id of this new inserted layer for properties configuration
 
-### Configure default view and bundle config for to add `myplacesimport` or create new view according to lastest oskari.org documentation
+### Configure default view and bundle config for to add `myplacesimport` or create new view according to lastest Oskari documentation
 
     \content-resources\src\main\resources\sql\PostgreSQL\add_userlayer_to_default_view.sql
 

@@ -1,6 +1,6 @@
-# Overriding Oskari.org bundle locales
+# Overriding Oskari bundle locales
 
-This documents helps to create bundle which overrides default Oskari.org locales.
+This documents helps to create bundle which overrides default Oskari locales.
 
 # How to create locale override?
 

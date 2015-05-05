@@ -16,5 +16,5 @@ Oskari Web Site content (graphics and texts)
 * [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 * Resources
     * Demos use Map services that are property of National Land Survey of Finland and shall not be used for demonstration, development or production use without permission from NLSFI. Contact NLSFI for rights of use.
-    * Paikkatietoikkuna ​[Terms and conditions](http://www.paikkatietoikkuna.fi/web/en/terms-and-conditions) apply to demos using NLSFI maps in oskari.org
+    * Paikkatietoikkuna ​[Terms and conditions](http://www.paikkatietoikkuna.fi/web/en/terms-and-conditions) apply to demos using NLSFI maps in Oskari
     * Geonames user name acquired for use with this site only

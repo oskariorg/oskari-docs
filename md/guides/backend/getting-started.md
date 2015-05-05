@@ -1,8 +1,8 @@
-# [Guides](/guides) - Taking full advantage of Oskari Platform
+# [Guides](/guides) - Taking full advantage of Oskari
 
 #### This guide is still under development and is currently based on the documents found under [Documentation](/views/documentation)
 
-### Oskari software consists of web mapping application (frontend) and service platform (backend). This guide gives instructions on how to setup them both and how to start developing Oskari Platform. It is assumed that the reader is familiar with [Oskari Platform - basics](/documentation).
+### Oskari software consists of web mapping application (frontend) and service platform (backend). This guide gives instructions on how to setup them both and how to start developing Oskari. It is assumed that the reader is familiar with [Oskari - basics](/documentation).
 <br>
 
 ### 1. Setting up database

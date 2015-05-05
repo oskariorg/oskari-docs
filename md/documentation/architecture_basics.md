@@ -1,8 +1,8 @@
-# The Oskari Platform architecture
+# Oskari architecture
 
 ### The big picture
 
-The Oskari Platform helps businesses and municipalities 
+Oskari helps businesses and municipalities 
 offer better online and mobile map services 
 to their citizens and consumers.
 
@@ -19,11 +19,11 @@ that help power e-government services and decisionmaking processes.
 
 ### The component architecture
 
-The Oskari Platform includes a frontend, a backend and in the future also a service bus.
+Oskari includes a frontend, a backend and in the future also a service bus.
 
 The user interface is implemented in JavaScript and the server functionality in Java.
 
-The picture below shows the components of Oskari Platform. 
+The picture below shows the components of Oskari. 
 
 For a more detailed view of the architecture, see the [frontend architecture](/documentation/development/architecture) and the [backend architecture](/documentation/architecture/components) documents.
 
