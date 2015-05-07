@@ -1,6 +1,6 @@
 # Development (basics)
 
-Oskari platform is developed originally by National Land Survey of Finland but nowadays there are also other parties developing Oskari in their projects. NLS is still the coordinator of Oskari.org and is developing the platform actively. The developed code is Open Source so it can be exploited freely by anyone interested. It is desirable that the developments made by other parties would be integrated with the latest NLS version of Oskari platform. The preferred way of contributing Oskari is described in [How to contribute](/documentation/development/how_to_contribute)
+Oskari is developed originally by National Land Survey of Finland but nowadays there are also other parties developing Oskari in their projects. NLS is still the coordinator of Oskari and is developing the platform actively. The developed code is Open Source so it can be exploited freely by anyone interested. It is desirable that the developments made by other parties would be integrated with the latest NLS version of Oskari. The preferred way of contributing Oskari is described in [How to contribute](/documentation/development/how_to_contribute)
 
 ## Requirements
 

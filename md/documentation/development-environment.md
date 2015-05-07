@@ -1,6 +1,6 @@
-# Oskari.org development
+# Oskari development
 
-How to get set up your Oskari Platform development environment
+How to get set up your Oskari development environment
 
 ### 1. GitHub, the collaboration platform
 
@@ -203,7 +203,7 @@ The PostgreSQL tools `createuser` and `createdb` should be used to create a new 
 `tomcat-6.0.29/conf/server.xml` files.
 
 After creating the database, you need to [populate](http://www.oskari.org/documentation/backend
-/database-populate) it with tables and data, as described in the Oskari.org documentation.
+/database-populate) it with tables and data, as described in the Oskari documentation.
 
 The documentation for the process of
 [upgrading](http://www.oskari.org/documentation/backend/upgrading) the database is also worth going
