@@ -22,8 +22,16 @@ The database structure is documented in detail [here](/documentation/architectur
 
 ### 4. Map layer tables
 
-* `portti_maplayer` (maplayer data: names, wms url, zoom min-max, opacity, layertype, etc )
+* `oskari_maplayer` (maplayer data: names, wms url, zoom min-max, opacity, layertype, etc )
 * `oskari_maplayer_metadata` (inspire metadata uuids for linking metadata to map layer)
 * `portti_inspiretheme`  (inspire themes for grouping map layers)
 * `portti_layerclass` (map service owners for grouping map layers )
 * `portti_capabilities_cache` (prefetched wms capabilities requests )
+
+### 5. WFS layer tables
+
+* `oskari_maplayer` (maplayer data: names, wfs url, zoom min-max, opacity, layertype, username, password, srsName, etc )
+* `portti_wfs_layer` (wfs-spesific items: namespace, featuretype name, gml version, etc)
+* `portti_wfs_template_model`  (wfs-parser-spesific items: GetFeature template, java parser class name, xpaths to parse)
+* `portti_wfs_layer_style` (sld styles )
+* `portti_wfs_layer_styles` (style links to portti_wfs_layer layers)
