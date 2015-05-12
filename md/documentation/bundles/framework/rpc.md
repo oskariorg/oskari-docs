@@ -286,7 +286,9 @@ Defaults at the moment are:
 ```javascript
 {
     "AfterMapMoveEvent": true,
-    "MapClickedEvent": true
+    "MapClickedEvent": true,
+    "AfterAddMarkerEvent": true,
+    "MarkerClickEvent": true
 }
 ```
 
@@ -300,7 +302,7 @@ Defaults at the moment are:
     'MapModulePlugin.GetFeatureInfoRequest': true,
     'MapModulePlugin.MapLayerVisibilityRequest': true,
     'MapModulePlugin.RemoveMarkersRequest': true,
-    MapMoveRequest: true
+    'MapMoveRequest': true
 }
 ```
 
