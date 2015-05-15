@@ -23,7 +23,7 @@ Search the [api](/api/latest/) for more info of a particular request.
         <tr>
             <td>[MapModulePlugin.AddMarkerRequest](/documentation/requests/addmarkerrequest)</td>
             <td>Add/modify marker on map</td>
-            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)`</td>
+            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
         </tr>
         <tr>
             <td>`analyse.AnalyseRequest`</td>
@@ -178,7 +178,7 @@ Search the [api](/api/latest/) for more info of a particular request.
         <tr>
             <td>[MapModulePlugin.RemoveMarkersRequest](/documentation/requests/removemarkersrequest)</td>
             <td>Remove single marker or clear all markers</td>
-            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)`</td>
+            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
         </tr>
         <tr>
             <td>`MapMoveRequest`</td>
