@@ -2,7 +2,9 @@
 
 Markers can be added to the map by sending an AddMarkerRequest. The request must contain the marker coordinates as well as 
 optional parameters, which are color, msg, shape, and size. The shape can be replaced by iconUrl and then the icon is used 
-instead.
+instead. Adding a marker triggers an AfterAddMarkerEvent which provides an ID for the marker that can be referenced to 
+remove it or mofidy it. Optionally you can declare the id when sending AddMarkerRequest. If a marker with the same ID 
+is on the map it will be modified instead of adding a new marker.
 
 The default parameters are below and overwritten by the provided values in the request.
 ```javascript
@@ -51,6 +53,19 @@ if (reqBuilder) {
 }
 ```
 
+Giving an ID for the marker:
+```javascript
+var sb = Oskari.getSandbox();
+var reqBuilder = sb.getRequestBuilder('MapModulePlugin.AddMarkerRequest');
+if (reqBuilder) {
+    var data = {
+        x: 377191,
+        y: 6678627
+    };
+    var request = reqBuilder(data, 'my marker id');
+    sb.request('MainMapModule', request);
+}
+```
 ### Marker shapes
 
 Markers are rendered using Raphael fonts. A default font is provided and the shapes are as follows:

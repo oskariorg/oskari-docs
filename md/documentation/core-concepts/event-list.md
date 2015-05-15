@@ -36,6 +36,22 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`core`</td>
         </tr>
         <tr>
+            <td>`AfterAddMarkerEvent`</td>
+            <td> Sent after marker is added. </td>
+            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
+        </tr>
+        <tr>
+            <td>`AfterRemoveMarkersEvent`</td>
+            <td> Sent after markers have been removed. </td>
+            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
+        </tr>
+        <tr>
+            <td>`MarkerClickEvent`</td>
+            <td> Sent when a marker is clicked. </td>
+            <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
+        </tr>
+        
+        <tr>
             <td>`AfterHighlightMapLayerEvent`</td>
             <td> Sent when a given map layer has been requested to be "highlighted" on map.</td>
             <td>`core`</td>
