@@ -49,7 +49,7 @@
                 <div class="panel-body">
                     <!-- iframe id="publishedMap" src="http://www.paikkatietoikkuna.fi/published/fi/ab389bdd-f47c-43f8-b529-ae7789f53703" style="border: none; width: 100%; height: 100%;"></iframe -->
                     <iframe id="publishedMap"
-                            src="http://54.75.147.57/?lang=en&uuid=817ebf8a-9e95-4804-9abd-a48a45f5639c"
+                            src="http://54.75.147.57/?lang=en&uuid=8b3bd609-b098-4b7f-8c39-02e201914ddf"
                             style="border: none; width: 100%; height: 100%;"></iframe>
                 </div>
             </div>
@@ -143,9 +143,15 @@
     // constants
     var USER_MARKER_ID = 'REPORT_MARKER';
     var IFRAME_URL = 'http://54.75.147.57';
-    var LAYER_ID_ORTO = 24;
-    var LAYER_ID_BASE = 100;
-
+    var LAYERS_ENV = [38];
+    var LAYERS_ROAD = [45, 12];
+    /*
+    id: 2 - elf_basemap
+    id: 42 - elfbasemap_cluster
+    id: 45 - OI.OrthoimageCoverage
+    id: 12 - TN.TransportNetwork
+    id: 38 - elf_HYP_geonorge_no
+*/
     // init/connect
     var channel = OskariRPC.connect(elements.iframe, IFRAME_URL);
     var errorHandler = function(error, message) {
@@ -155,15 +161,7 @@
     channel.getAllLayers(
             function (data) {
                 O.log(data);
-                channel.postRequest(
-                        'MapModulePlugin.MapLayerVisibilityRequest',
-                        [LAYER_ID_ORTO, false], errorHandler
-                );
-                channel.postRequest(
-                        'MapModulePlugin.MapLayerVisibilityRequest',
-                        [LAYER_ID_BASE, false], errorHandler
-                );
-
+                switchLayersByMode();
                 var markers = Storage.getMarkers(O.getIssueType());
                 var hasMarkers = markers.length > 0;
                 if(hasMarkers) {
@@ -212,18 +210,29 @@
                 errorHandler);
     }
 
+    function showLayers(layers, blnVisible) {
+        _.each(layers, function(layerId) {
+            channel.postRequest(
+                    'MapModulePlugin.MapLayerVisibilityRequest',
+                    [layerId, blnVisible], errorHandler
+            );
+        });
+    }
+
+    function switchLayersByMode() {
+        var mode = O.getIssueType();
+        if(mode === 'road') {
+            showLayers(LAYERS_ROAD, true);
+            showLayers(LAYERS_ENV, false);
+        }
+        else {
+            showLayers(LAYERS_ENV, true);
+            showLayers(LAYERS_ROAD, false);
+        }
+    }
+
     elements.issueEnv.onclick = function () {
-        channel.postRequest(
-                'MapModulePlugin.MapLayerVisibilityRequest',
-                [LAYER_ID_ORTO, true],
-                function (error, message) {
-                    O.log('error', error, message);
-                }
-        );
-        channel.postRequest(
-                'MapModulePlugin.MapLayerVisibilityRequest',
-                [LAYER_ID_BASE, true], errorHandler
-        );
+        switchLayersByMode();
 
         if (!elements.reportForm.is(':visible')) {
             var markers = Storage.getMarkers(O.getIssueType());
@@ -232,14 +241,7 @@
     };
 
     elements.issueRoad.onclick = function () {
-        channel.postRequest(
-                'MapModulePlugin.MapLayerVisibilityRequest',
-                [LAYER_ID_ORTO, false], errorHandler
-        );
-        channel.postRequest(
-                'MapModulePlugin.MapLayerVisibilityRequest',
-                [LAYER_ID_BASE, false], errorHandler
-        );
+        switchLayersByMode();
         if (!elements.reportForm.is(':visible')) {
             var markers = Storage.getMarkers(O.getIssueType());
             listMarkers(markers);
