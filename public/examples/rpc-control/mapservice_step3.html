@@ -167,7 +167,7 @@
                 var markers = Storage.getMarkers(O.getIssueType());
                 var hasMarkers = markers.length > 0;
                 if(hasMarkers) {
-                    showReport(!hasMarkers);
+                    //showReport(!hasMarkers);
                     listMarkers(markers);
                 }
             }
@@ -189,7 +189,7 @@
         _.each(markers, function(marker) {
             var dom = jQuery(markerTemplate(marker));
             dom.click(function() {
-                alert('clicked ' + marker.id);
+                markerClicked(marker.id);
             });
             elements.markerList.append(dom);
             addMarker(Storage.getMarkerDef(marker));
@@ -246,8 +246,6 @@
         }
     };
 
-
-
     channel.handleEvent('MapClickedEvent', function (data) {
                 if (!elements.reportForm.is(':visible')) {
                     return;
@@ -270,8 +268,13 @@
         if (elements.reportForm.is(':visible')) {
             return;
         }
-        O.log('Marker click', data.id);
+        markerClicked(data.id);
     });
+
+    function markerClicked(markerId) {
+        O.log('Marker clicked', markerId);
+        alert('clicked ' + markerId);
+    }
 
     channel.handleEvent('AfterAddMarkerEvent', function (data) {
         O.log('Marker jee added', data.id);
