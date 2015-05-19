@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- link rel="icon" href="../../favicon.ico" -->
+
+    <title>Inspire workshop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/style.css" rel="stylesheet">
+
+    <!-- jQUery -->
+    <script src="lib/jquery-1.11.2.min.js"></script>
+
+    <!-- javascripts enabling RPC functionality -->
+    <script src="js/rpc/JSChannel/jschannel.js"></script>
+    <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
+    <script src="js/lodash-3.8.0.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/storage.js"></script>
+
+</head>
+
+<body>
+<div class="container">
+
+    <div class="masthead">
+        <h3 class="text-muted">One address for citizens' services</h3>
+        <nav>
+            <ul class="nav nav-justified">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">E-services</a></li>
+                <li><a href="#">Services by topic</a></li>
+                <li><a href="#">States</a></li>
+                <li class="active"><a href="mapservice.html">Map service</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default map-panel">
+                <div class="panel-body">
+                    <!-- iframe id="publishedMap" src="http://www.paikkatietoikkuna.fi/published/fi/ab389bdd-f47c-43f8-b529-ae7789f53703" style="border: none; width: 100%; height: 100%;"></iframe -->
+                    <iframe id="publishedMap"
+                            src="http://54.75.147.57/?lang=en&uuid=817ebf8a-9e95-4804-9abd-a48a45f5639c"
+                            style="border: none; width: 100%; height: 100%;"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default map-panel">
+                <div class="panel-body">
+                    <h4>Report environmental issue</h4>
+                        <form class="form-horizontal" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-3 control-label">Type of issue:</label>
+
+                                <div class="col-sm-9">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="issueType" id="issueType1" checked value="road">
+                                            Bad road condition
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="issueType" id="issueType2" value="env">
+                                            Environmental contaminant
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="mode1Form" class="hidden">
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+
+                                    <div class="col-sm-10">
+                                        <input class="form-control" name="name" id="inputName" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="textArea" class="col-sm-2 control-label">Notices</label>
+
+                                    <div class="col-sm-10">
+                                        <textarea id="textArea" name="desc" class="form-control" rows="6"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="coordinates" class="col-sm-2 control-label">Coordinates</label>
+
+                                    <div class="col-sm-10">
+                                        <input readonly class="form-control" id="coordinates" name="coordinates"
+                                               placeholder="Click the map to give coordinates">
+                                    </div>
+                                </div>
+                                <button id="btnAddNew" class="btn btn-primary">Submit</button>
+                                <button id="btnAddCancel" class="btn btn-default">Cancel</button>
+                            </div>
+
+                            <!-- Listing -->
+                            <div id="mode2Form">
+                                <button id="btnReportNew" class="btn btn-primary">Report new issue</button>
+                                <p>Click marker to get information</p>
+                                <ul class="list-group markers"></ul>
+                            </div>
+
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    // Referenced HTML-elements
+    var elements = {
+        coordinateDisplay: $("#coordinates")[0],
+        iframe: $("#publishedMap")[0],
+        issueRoad: $("#issueType1")[0],
+        issueEnv: $("#issueType2")[0],
+        reportForm: $("#mode1Form"),
+        commentForm: $("#mode2Form"),
+        addBtn : $("#btnAddNew"),
+        cancelBtn :$("#btnAddCancel"),
+        reportBtn : $("#btnReportNew"),
+        markerList : $("#mode2Form").find('ul.markers')
+    };
+
+    // constants
+    var USER_MARKER_ID = 'REPORT_MARKER';
+    var IFRAME_URL = 'http://54.75.147.57';
+    var LAYER_ID_ORTO = 24;
+    var LAYER_ID_BASE = 100;
+
+    // init/connect
+    var channel = OskariRPC.connect(elements.iframe, IFRAME_URL);
+    var errorHandler = function(error, message) {
+        O.log('error', error, message);
+    }
+
+    channel.getAllLayers(
+            function (data) {
+                O.log(data);
+                channel.postRequest(
+                        'MapModulePlugin.MapLayerVisibilityRequest',
+                        [LAYER_ID_ORTO, false], errorHandler
+                );
+                channel.postRequest(
+                        'MapModulePlugin.MapLayerVisibilityRequest',
+                        [LAYER_ID_BASE, false], errorHandler
+                );
+
+                var markers = Storage.getMarkers(O.getIssueType());
+                var hasMarkers = markers.length > 0;
+                if(hasMarkers) {
+                    showReport(!hasMarkers);
+                    listMarkers(markers);
+                }
+            }
+    );
+
+
+    var markerTemplate = _.template('<li class="list-group-item">' +
+        '<div>${id}: ${name}</div>' +
+        '</li>');
+    function listMarkers(markers) {
+        if(!markers) {
+            markers = Storage.getMarkers(O.getIssueType());
+        }
+        // clear list and map
+        elements.markerList.empty();
+        removeMarker();
+
+        // add markers
+        _.each(markers, function(marker) {
+            var dom = jQuery(markerTemplate(marker));
+            dom.click(function() {
+                alert('clicked ' + marker.id);
+            });
+            elements.markerList.append(dom);
+            addMarker(Storage.getMarkerDef(marker));
+        });
+    }
+
+    function addMarker(def, id) {
+        // normalize id from def
+        if(!id && def.id) {
+            id = def.id;
+        }
+        channel.postRequest(
+                'MapModulePlugin.AddMarkerRequest', [def, id],
+                errorHandler
+        )
+    }
+    function removeMarker(id) {
+        channel.postRequest(
+                'MapModulePlugin.RemoveMarkersRequest', [id],
+                errorHandler);
+    }
+
+    elements.issueEnv.onclick = function () {
+        channel.postRequest(
+                'MapModulePlugin.MapLayerVisibilityRequest',
+                [LAYER_ID_ORTO, true],
+                function (error, message) {
+                    O.log('error', error, message);
+                }
+        );
+        channel.postRequest(
+                'MapModulePlugin.MapLayerVisibilityRequest',
+                [LAYER_ID_BASE, true], errorHandler
+        );
+
+        if (!elements.reportForm.is(':visible')) {
+            var markers = Storage.getMarkers(O.getIssueType());
+            listMarkers(markers);
+        }
+    };
+
+    elements.issueRoad.onclick = function () {
+        channel.postRequest(
+                'MapModulePlugin.MapLayerVisibilityRequest',
+                [LAYER_ID_ORTO, false], errorHandler
+        );
+        channel.postRequest(
+                'MapModulePlugin.MapLayerVisibilityRequest',
+                [LAYER_ID_BASE, false], errorHandler
+        );
+        if (!elements.reportForm.is(':visible')) {
+            var markers = Storage.getMarkers(O.getIssueType());
+            listMarkers(markers);
+        }
+    };
+
+
+
+    channel.handleEvent('MapClickedEvent', function (data) {
+                if (!elements.reportForm.is(':visible')) {
+                    return;
+                }
+                var marker = {
+                    x: data.lon,
+                    y: data.lat,
+                    size: 2,
+                    color : O.getColor()
+                };
+
+                setTimeout(function() {
+                    addMarker(marker, USER_MARKER_ID);
+                }, 200);
+                setCoords(data.lon, data.lat);
+            }, errorHandler
+    );
+
+    channel.handleEvent('MarkerClickEvent', function (data) {
+        if (elements.reportForm.is(':visible')) {
+            return;
+        }
+        O.log('Marker click', data.id);
+    });
+
+    channel.handleEvent('AfterAddMarkerEvent', function (data) {
+        O.log('Marker jee added', data.id);
+    });
+
+    setCoords = function (x, y) {
+        elements.coordinateDisplay.value = x + ', ' + y;
+    };
+
+    function showReport() {
+        elements.commentForm.toggleClass('hidden');
+        elements.reportForm.toggleClass('hidden');
+    }
+
+    elements.cancelBtn.click(function() {
+        showReport(false);
+    });
+    elements.addBtn.click(function() {
+        var values = O.getFormValues();
+        O.log(JSON.stringify(values));
+        if(!values.coordinates) {
+            alert('Mark the spot by clicking on map');
+            return false;
+        }
+        values.id = 'Marker' + new Date().getTime();
+        Storage.save(values);
+        O.log(Storage.getMarkers());
+        showReport(false);
+        removeMarker(USER_MARKER_ID);
+        var marker = Storage.getMarkerDef(values);
+        addMarker(marker, marker.id);
+        listMarkers();
+
+        return false;
+    });
+    elements.reportBtn.click(function() {
+        showReport(true);
+    });
+</script>
+</body>
+</html>
