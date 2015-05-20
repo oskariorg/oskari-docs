@@ -42,7 +42,7 @@
             type = O.getIssueType();
         }
         if(type === 'road') {
-            return "ff0000";
+            return "00FFFF";
         }
         return "00FF00";
     };

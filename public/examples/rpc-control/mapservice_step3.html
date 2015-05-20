@@ -44,7 +44,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-sm-8 col-md-8 col-lg-6">
             <div class="panel panel-default map-panel">
                 <div class="panel-body">
                     <!-- iframe id="publishedMap" src="http://www.paikkatietoikkuna.fi/published/fi/ab389bdd-f47c-43f8-b529-ae7789f53703" style="border: none; width: 100%; height: 100%;"></iframe -->
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-sm-4 col-md-4 col-lg-6">
             <div class="panel panel-default map-panel">
                 <div class="panel-body">
                     <h4>Report environmental issue</h4>
@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="textArea" class="col-sm-2 control-label">Notices</label>
+                                    <label for="textArea" class="col-sm-2 control-label">Description</label>
 
                                     <div class="col-sm-10">
                                         <textarea id="textArea" name="desc" class="form-control" rows="6"></textarea>
@@ -113,8 +113,8 @@
 
                             <!-- Listing -->
                             <div id="mode2Form">
+                                <p class="h5">Click marker to get information or</p>
                                 <button id="btnReportNew" class="btn btn-primary">Report new issue</button>
-                                <p>Click marker to get information</p>
                                 <ul class="list-group markers"></ul>
                             </div>
 
@@ -255,7 +255,7 @@
                 var marker = {
                     x: data.lon,
                     y: data.lat,
-                    size: 2,
+                    size: 4,
                     color : O.getColor()
                 };
 

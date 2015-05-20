@@ -18,7 +18,7 @@ setCoords = function(x, y) {
 }
 ```
 
-## Step 2: Possibility to change the type of an environmental issue
+## Step 2: Change map layers and marker properties according to the concept
 
 First we add some layers to our published map to make the map more informative for reporting environmental contaminant.
 

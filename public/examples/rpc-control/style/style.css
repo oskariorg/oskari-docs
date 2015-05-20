@@ -170,3 +170,19 @@ a.go-to-site {
 .btn-default {
   margin-top: 15px;
 }
+
+.btn-primary {
+  margin-top: 15px;
+}
+
+#mode1Form {
+  margin-top: 30px;
+}
+
+#mode2Form {
+  margin-top: 30px;
+}
+
+.h5 {
+  font-weight: bold;
+}
