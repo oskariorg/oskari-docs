@@ -35,6 +35,14 @@
         });
         return markers;
     };
+    Storage.getMarkerValuesById = function(markerId) {
+        var markers = _.filter(db, 'id', markerId);
+        if(markers.length) {
+            return markers[0];
+        }
+        // not found
+        return null;
+    }
 
     Storage.getMarkerDef = function(marker) {
         var coords = marker.coordinates.split(',');

@@ -23,6 +23,17 @@
     <script src="js/lodash-3.8.0.js"></script>
     <script src="js/util.js"></script>
     <script src="js/storage.js"></script>
+    <style> 
+    ul.markers li div.desc {
+        display : none;
+    }
+    ul.markers li.selected h5 {
+        text-decoration : underline;
+    }
+    ul.markers li.selected div.desc {
+        display : block;
+    }
+    </style>
 
 </head>
 
@@ -143,7 +154,9 @@
     // constants
     var USER_MARKER_ID = 'REPORT_MARKER';
     var IFRAME_URL = 'http://54.75.147.57';
+    // Norja: 1133693.3710546, 8190191.1661757
     var LAYERS_ENV = [38];
+    // Barcelona: 243132.72059955, 5069415.3984687
     var LAYERS_ROAD = [45, 12];
     /*
     id: 2 - elf_basemap
@@ -165,15 +178,16 @@
                 var markers = Storage.getMarkers(O.getIssueType());
                 var hasMarkers = markers.length > 0;
                 if(hasMarkers) {
-                    //showReport(!hasMarkers);
+                    showReport(!hasMarkers);
                     listMarkers(markers);
                 }
             }
     );
 
 
-    var markerTemplate = _.template('<li class="list-group-item">' +
-        '<div>${id}: ${name}</div>' +
+    var markerTemplate = _.template('<li class="list-group-item marker_${id}">' +
+        '<h5>${name}</h5>' +
+        '<div class="desc">${desc}</div>' +
         '</li>');
     function listMarkers(markers) {
         if(!markers) {
@@ -220,6 +234,7 @@
     }
 
     function switchLayersByMode() {
+        resetHighlightedMarker();
         var mode = O.getIssueType();
         if(mode === 'road') {
             showLayers(LAYERS_ROAD, true);
@@ -273,9 +288,33 @@
         markerClicked(data.id);
     });
 
+    var prevClickedMarker = null;
+    function resetHighlightedMarker() {
+
+        if(prevClickedMarker) {
+
+            var prevMarker = Storage.getMarkerValuesById(prevClickedMarker);
+            var prevDef = Storage.getMarkerDef(prevMarker);
+            prevDef.size = 4;
+            prevDef.shape = 2;
+            addMarker(prevDef);
+        }
+        prevClickedMarker = null;
+        elements.markerList.find('li').removeClass('selected');
+    }
     function markerClicked(markerId) {
         O.log('Marker clicked', markerId);
-        alert('clicked ' + markerId);
+        resetHighlightedMarker();
+        if(markerId !== USER_MARKER_ID) {
+            prevClickedMarker = markerId;
+        }
+        var marker = Storage.getMarkerValuesById(markerId);
+        var def = Storage.getMarkerDef(marker);
+        def.size = 5;
+        def.shape = 6;
+        addMarker(def);
+        // hide all descriptions
+        elements.markerList.find('li.marker_' + markerId).addClass('selected');
     }
 
     channel.handleEvent('AfterAddMarkerEvent', function (data) {
@@ -286,9 +325,16 @@
         elements.coordinateDisplay.value = x + ', ' + y;
     };
 
-    function showReport() {
-        elements.commentForm.toggleClass('hidden');
-        elements.reportForm.toggleClass('hidden');
+    function showReport(blnShow) {
+        if(blnShow) {
+            resetHighlightedMarker();
+            elements.commentForm.addClass('hidden');
+            elements.reportForm.removeClass('hidden');
+        }
+        else {
+            elements.commentForm.removeClass('hidden');
+            elements.reportForm.addClass('hidden');
+        }
     }
 
     elements.cancelBtn.click(function() {
