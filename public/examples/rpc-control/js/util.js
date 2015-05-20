@@ -35,7 +35,16 @@
             value[input.attr('name')] = input.val();
         });
         return value;
-    }
+    };
+
+    O.resetForm = function() {
+
+        var form = $("#mode1Form");
+        var inputs = form.find('input, textarea');
+        inputs.each(function() {
+            $(this).val('');
+        });
+    };
 
     O.getColor = function(type) {
         if(!type) {

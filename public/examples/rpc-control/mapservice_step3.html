@@ -23,7 +23,7 @@
     <script src="js/lodash-3.8.0.js"></script>
     <script src="js/util.js"></script>
     <script src="js/storage.js"></script>
-    <style> 
+    <style>
     ul.markers li div.desc {
         display : none;
     }
@@ -186,8 +186,8 @@
 
 
     var markerTemplate = _.template('<li class="list-group-item marker_${id}">' +
-        '<h5>${name}</h5>' +
-        '<div class="desc">${desc}</div>' +
+            '<h5>${name}</h5>' +
+            '<div class="desc">${desc}</div>' +
         '</li>');
     function listMarkers(markers) {
         if(!markers) {
@@ -338,6 +338,7 @@
     }
 
     elements.cancelBtn.click(function() {
+        removeMarker(USER_MARKER_ID);
         showReport(false);
     });
     elements.addBtn.click(function() {
@@ -359,6 +360,7 @@
         return false;
     });
     elements.reportBtn.click(function() {
+        O.resetForm();
         showReport(true);
     });
 </script>
