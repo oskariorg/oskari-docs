@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- link rel="icon" href="../../favicon.ico" -->
+    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="author" content="Team Oskari">
 
     <title>Inspire workshop</title>
 
@@ -14,14 +15,12 @@
     <!-- Custom styles for this template -->
     <link href="style/style.css" rel="stylesheet">
 
-    <!-- jQUery -->
+    <!-- jQUery and javascripts enabling RPC functionality -->
     <script src="lib/jquery-1.11.2.min.js"></script>
-
-    <!-- javascripts enabling RPC functionality -->
     <script src="js/rpc/JSChannel/jschannel.js"></script>
     <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
-    <script src="js/lodash-3.8.0.js"></script>
     <script src="js/util.js"></script>
+    <script src="js/lodash-3.8.0.js"></script>
     <script src="js/storage.js"></script>
     <style>
     ul.markers li div.desc {
@@ -39,7 +38,6 @@
 
 <body>
 <div class="container">
-
     <div class="masthead">
         <h3 class="text-muted">One address for citizens' services</h3>
         <nav>
@@ -48,7 +46,7 @@
                 <li><a href="#">E-services</a></li>
                 <li><a href="#">Services by topic</a></li>
                 <li><a href="#">States</a></li>
-                <li class="active"><a href="mapservice.html">Map service</a></li>
+                <li class="active"><a href="mapservice_step3.html">Map service</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -137,12 +135,20 @@
 </div>
 <script>
 
+    // constants
+    var USER_MARKER_ID = 'REPORT_MARKER';
+    var IFRAME_DOMAIN = 'http://54.75.147.57';
+    var LAYERS_ENV = [42, 38];
+    var LAYERS_ROAD = [45, 12];
+
     // Referenced HTML-elements
     var elements = {
-        coordinateDisplay: $("#coordinates")[0],
+        coordinateField: $("#coordinates")[0],
         iframe: $("#publishedMap")[0],
-        issueRoad: $("#issueType1")[0],
-        issueEnv: $("#issueType2")[0],
+
+        issueRoad: $("#issueType1"),
+        issueEnv: $("#issueType2"),
+
         reportForm: $("#mode1Form"),
         commentForm: $("#mode2Form"),
         addBtn : $("#btnAddNew"),
@@ -151,39 +157,136 @@
         markerList : $("#mode2Form").find('ul.markers')
     };
 
-    // constants
-    var USER_MARKER_ID = 'REPORT_MARKER';
-    var IFRAME_URL = 'http://54.75.147.57';
-    // Norja: 1133693.3710546, 8190191.1661757
-    var LAYERS_ENV = [42, 38];
-    // Barcelona: 243132.72059955, 5069415.3984687
-    var LAYERS_ROAD = [45, 12];
-    /*
-    id: 2 - elf_basemap
-    id: 42 - elfbasemap_cluster
-    id: 45 - OI.OrthoimageCoverage
-    id: 12 - TN.TransportNetwork
-    id: 38 - elf_HYP_geonorge_no
-*/
     // init/connect
-    var channel = OskariRPC.connect(elements.iframe, IFRAME_URL);
-    var errorHandler = function(error, message) {
-        O.log('error', error, message);
+    var channel = OskariRPC.connect(elements.iframe, IFRAME_DOMAIN);
+
+    function setCoordinates(x, y) {
+        elements.coordinateField.value = x + ', ' + y;
     }
 
+    function addMarker(def, id) {
+        // normalize id from def
+        if(!id && def.id) {
+            id = def.id;
+        }
+        channel.postRequest(
+                'MapModulePlugin.AddMarkerRequest', [def, id]
+        )
+    }
+    channel.handleEvent('MapClickedEvent',
+        function(data) {
+            if (!elements.reportForm.is(':visible')) {
+                return;
+            }
+            setCoordinates(data.lon, data.lat);
+            // add a marker to clicked spot
+            var marker = O.getMarkerTemplate();
+            marker.x = data.lon;
+            marker.y = data.lat;
+            addMarker(marker, USER_MARKER_ID);
+        }
+    );
+
+    // ---------- Step 2 -------------------------
     channel.getAllLayers(
             function (data) {
                 O.log(data);
-                switchLayersByMode();
+                switchLayersByIssueType();
                 var markers = Storage.getMarkers(O.getIssueType());
                 var hasMarkers = markers.length > 0;
+                showReport(!hasMarkers);
                 if(hasMarkers) {
-                    showReport(!hasMarkers);
                     listMarkers(markers);
                 }
             }
     );
 
+    function showLayers(layers, blnVisible) {
+        $.each(layers, function(index, layerId) {
+            channel.postRequest(
+                    'MapModulePlugin.MapLayerVisibilityRequest',
+                    [layerId, blnVisible]
+            );
+        });
+    }
+
+    function switchLayersByIssueType() {
+        resetHighlightedMarker();
+        var mode = O.getIssueType();
+        if(mode === 'road') {
+            showLayers(LAYERS_ROAD, true);
+            showLayers(LAYERS_ENV, false);
+        }
+        else {
+            showLayers(LAYERS_ENV, true);
+            showLayers(LAYERS_ROAD, false);
+        }
+    }
+
+    elements.issueEnv.click(function () {
+        switchLayersByIssueType();
+        if (!elements.reportForm.is(':visible')) {
+            var markers = Storage.getMarkers(O.getIssueType());
+            listMarkers(markers);
+        }
+    });
+
+    elements.issueRoad.click(function () {
+        switchLayersByIssueType();
+        if (!elements.reportForm.is(':visible')) {
+            var markers = Storage.getMarkers(O.getIssueType());
+            listMarkers(markers);
+        }
+    });
+
+    // ---------- Step 3 -------------------------
+    // 
+
+    function showReport(blnShow) {
+        if(blnShow) {
+            resetHighlightedMarker();
+            elements.commentForm.addClass('hidden');
+            elements.reportForm.removeClass('hidden');
+        }
+        else {
+            elements.commentForm.removeClass('hidden');
+            elements.reportForm.addClass('hidden');
+        }
+    }
+
+    elements.reportBtn.click(function() {
+        O.resetForm();
+        showReport(true);
+    });
+
+    function removeMarker(id) {
+        channel.postRequest(
+                'MapModulePlugin.RemoveMarkersRequest', [id]);
+    }
+
+    elements.cancelBtn.click(function() {
+        removeMarker(USER_MARKER_ID);
+        showReport(false);
+    });
+
+    elements.addBtn.click(function() {
+        var values = O.getFormValues();
+        O.log(JSON.stringify(values));
+        if(!values.coordinates) {
+            alert('Mark the spot by clicking on map');
+            return false;
+        }
+        values.id = 'Marker' + new Date().getTime();
+        Storage.save(values);
+        O.log(Storage.getMarkers());
+        showReport(false);
+        removeMarker(USER_MARKER_ID);
+        var marker = Storage.getMarkerDef(values);
+        addMarker(marker, marker.id);
+        listMarkers();
+
+        return false;
+    });
 
     var markerTemplate = _.template('<li class="list-group-item marker_${id}">' +
             '<h5>${name}</h5>' +
@@ -208,79 +311,6 @@
         });
     }
 
-    function addMarker(def, id) {
-        // normalize id from def
-        if(!id && def.id) {
-            id = def.id;
-        }
-        channel.postRequest(
-                'MapModulePlugin.AddMarkerRequest', [def, id],
-                errorHandler
-        )
-    }
-    function removeMarker(id) {
-        channel.postRequest(
-                'MapModulePlugin.RemoveMarkersRequest', [id],
-                errorHandler);
-    }
-
-    function showLayers(layers, blnVisible) {
-        _.each(layers, function(layerId) {
-            channel.postRequest(
-                    'MapModulePlugin.MapLayerVisibilityRequest',
-                    [layerId, blnVisible], errorHandler
-            );
-        });
-    }
-
-    function switchLayersByMode() {
-        resetHighlightedMarker();
-        var mode = O.getIssueType();
-        if(mode === 'road') {
-            showLayers(LAYERS_ROAD, true);
-            showLayers(LAYERS_ENV, false);
-        }
-        else {
-            showLayers(LAYERS_ENV, true);
-            showLayers(LAYERS_ROAD, false);
-        }
-    }
-
-    elements.issueEnv.onclick = function () {
-        switchLayersByMode();
-
-        if (!elements.reportForm.is(':visible')) {
-            var markers = Storage.getMarkers(O.getIssueType());
-            listMarkers(markers);
-        }
-    };
-
-    elements.issueRoad.onclick = function () {
-        switchLayersByMode();
-        if (!elements.reportForm.is(':visible')) {
-            var markers = Storage.getMarkers(O.getIssueType());
-            listMarkers(markers);
-        }
-    };
-
-    channel.handleEvent('MapClickedEvent', function (data) {
-                if (!elements.reportForm.is(':visible')) {
-                    return;
-                }
-                var marker = {
-                    x: data.lon,
-                    y: data.lat,
-                    size: 4,
-                    color : O.getColor()
-                };
-
-                setTimeout(function() {
-                    addMarker(marker, USER_MARKER_ID);
-                }, 200);
-                setCoords(data.lon, data.lat);
-            }, errorHandler
-    );
-
     channel.handleEvent('MarkerClickEvent', function (data) {
         if (elements.reportForm.is(':visible')) {
             return;
@@ -292,7 +322,6 @@
     function resetHighlightedMarker() {
 
         if(prevClickedMarker) {
-
             var prevMarker = Storage.getMarkerValuesById(prevClickedMarker);
             var prevDef = Storage.getMarkerDef(prevMarker);
             prevDef.size = 4;
@@ -317,52 +346,7 @@
         elements.markerList.find('li.marker_' + markerId).addClass('selected');
     }
 
-    channel.handleEvent('AfterAddMarkerEvent', function (data) {
-        O.log('Marker jee added', data.id);
-    });
 
-    setCoords = function (x, y) {
-        elements.coordinateDisplay.value = x + ', ' + y;
-    };
-
-    function showReport(blnShow) {
-        if(blnShow) {
-            resetHighlightedMarker();
-            elements.commentForm.addClass('hidden');
-            elements.reportForm.removeClass('hidden');
-        }
-        else {
-            elements.commentForm.removeClass('hidden');
-            elements.reportForm.addClass('hidden');
-        }
-    }
-
-    elements.cancelBtn.click(function() {
-        removeMarker(USER_MARKER_ID);
-        showReport(false);
-    });
-    elements.addBtn.click(function() {
-        var values = O.getFormValues();
-        O.log(JSON.stringify(values));
-        if(!values.coordinates) {
-            alert('Mark the spot by clicking on map');
-            return false;
-        }
-        values.id = 'Marker' + new Date().getTime();
-        Storage.save(values);
-        O.log(Storage.getMarkers());
-        showReport(false);
-        removeMarker(USER_MARKER_ID);
-        var marker = Storage.getMarkerDef(values);
-        addMarker(marker, marker.id);
-        listMarkers();
-
-        return false;
-    });
-    elements.reportBtn.click(function() {
-        O.resetForm();
-        showReport(true);
-    });
 </script>
 </body>
 </html>

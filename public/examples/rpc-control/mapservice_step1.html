@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../../favicon.ico">
+    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="author" content="Team Oskari">
 
     <title>Inspire workshop</title>
 
@@ -14,18 +15,16 @@
     <!-- Custom styles for this template -->
     <link href="style/style.css" rel="stylesheet">
 
-    <!-- jQUery -->
+    <!-- jQUery and javascripts enabling RPC functionality -->
     <script src="lib/jquery-1.11.2.min.js"></script>
-
-    <!-- javascripts enabling RPC functionality -->
     <script src="js/rpc/JSChannel/jschannel.js"></script>
     <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
+    <script src="js/util.js"></script>
 
   </head>
 
   <body>
     <div class="container">
-
       <div class="masthead">
         <h3 class="text-muted">One address for citizens' services</h3>
         <nav>
@@ -34,7 +33,7 @@
             <li><a href="#">E-services</a></li>
             <li><a href="#">Services by topic</a></li>
             <li><a href="#">States</a></li>
-            <li class="active"><a href="mapservice.html">Map service</a></li>
+            <li class="active"><a href="mapservice_step2.html">Map service</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </nav>
@@ -44,40 +43,47 @@
         <div class="col-lg-6">
           <div class="panel panel-default map-panel">
             <div class="panel-body">
-                <iframe id="publishedMap" src="http://www.paikkatietoikkuna.fi/published/fi/c4b8bf66-bd76-4ad7-95cd-6823129e5cd7" style="border: none; width: 100%; height: 100%;"></iframe>
+                <iframe id="publishedMap"
+                            src="http://54.75.147.57/?lang=en&uuid=8b3bd609-b098-4b7f-8c39-02e201914ddf"
+                            style="border: none; width: 100%; height: 100%;"></iframe>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="panel panel-default map-panel">
             <div class="panel-body">
-                <h4>Report bad road condition</h3>
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-                    <div class="col-sm-10">
-                      <input class="form-control" id="inputName" placeholder="Name">
+                <h4>Report bad road condition</h4>
+                <form class="form-horizontal" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-2 control-label">Name</label>
+
+                        <div class="col-sm-10">
+                            <input class="form-control" name="name" id="inputName" placeholder="Name">
+                        </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+
+                        <div class="col-sm-10">
+                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="textArea" class="col-sm-2 control-label">Notices</label>
-                    <div class="col-sm-10">
-                        <textarea id="textArea" class="form-control" rows="6"></textarea>
+                    <div class="form-group">
+                        <label for="textArea" class="col-sm-2 control-label">Description</label>
+
+                        <div class="col-sm-10">
+                            <textarea id="textArea" name="desc" class="form-control" rows="6"></textarea>
+                        </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="coordinates" class="col-sm-2 control-label">Coordinates</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="coordinates" placeholder="Click the map to give coordinates">
+                    <div class="form-group">
+                        <label for="coordinates" class="col-sm-2 control-label">Coordinates</label>
+
+                        <div class="col-sm-10">
+                            <input readonly class="form-control" id="coordinates" name="coordinates"
+                                   placeholder="Click the map to give coordinates">
+                        </div>
                     </div>
-                  </div>
-                  <button type="submit" class="btn btn-default">Submit</button>
+                  <button class="btn btn-primary">Submit</button>
                 </form>
             </div>
           </div>
@@ -86,54 +92,48 @@
 
     </div>
     <script>
-      var channel = OskariRPC.connect(
-        $("#publishedMap")[0],
-        'http://www.paikkatietoikkuna.fi'
-      ),
-      coordinateDisplay = $('#coordinates')[0],
-      coords = null,
-      markerCounter = 0;
+    
+    // constants
+    var IFRAME_DOMAIN = 'http://54.75.147.57';
+    var USER_MARKER_ID = 'REPORT_MARKER';
 
-      channel.handleEvent(
-      'MapClickedEvent',
-          function(data) {
+    // Referenced HTML-elements
+    var elements = {
+        iframe: $("#publishedMap")[0],
+        coordinateField: $("#coordinates")[0]
+    };
 
-              if(markerCounter === 0) {
-                  channel.postRequest(
-                      'MapModulePlugin.AddMarkerRequest', [{
-                              x: data.lon,
-                              y: data.lat
-                          },
-                          'RPCMarker' + markerCounter
-                      ]
-                  );
-                  markerCounter++;
-                  setCoords(data.lon, data.lat);
-              } else {
-                  channel.postRequest(
-                      'MapModulePlugin.RemoveMarkersRequest', []
-                  );
-                  markerCounter = 0;
-                  channel.postRequest(
-                      'MapModulePlugin.AddMarkerRequest', [{
-                              x: data.lon,
-                              y: data.lat
-                          },
-                          'RPCMarker' + markerCounter
-                      ]
-                  );
-                  markerCounter++;
-                  setCoords(data.lon, data.lat);
-              }
-          }
-      );
-      setCoords = function(x, y) {
-          coordinateDisplay.value = x + ', ' + y;
-      }
+    // init connection
+    var channel = OskariRPC.connect(
+        elements.iframe,
+        IFRAME_DOMAIN
+    );
+
+    function setCoordinates(x, y) {
+        elements.coordinateField.value = x + ', ' + y;
+    }
+
+    function addMarker(marker, id) {
+        // get missing id from marker if available
+        if(!id) {
+            id = marker.id;
+        }
+        channel.postRequest(
+            'MapModulePlugin.AddMarkerRequest', [marker, id]
+        )
+    }
+
+    channel.handleEvent('MapClickedEvent',
+        function(data) {
+            setCoordinates(data.lon, data.lat);
+            // add a marker to clicked spot
+            var marker = O.getMarkerTemplate();
+            marker.x = data.lon;
+            marker.y = data.lat;
+            addMarker(marker, USER_MARKER_ID);
+        }
+    );
+
   </script>
-
-      
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
