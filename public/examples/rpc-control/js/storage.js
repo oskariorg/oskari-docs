@@ -17,7 +17,7 @@
         try {
             db = JSON.parse(store.markers);
         } catch (e) {
-            O.log("Error parsing markers", e);
+            Util.log("Error parsing markers", e);
         }
     } else {
         store.markers = db;
@@ -81,7 +81,7 @@
             x: coords[0].trim(),
             y: coords[1].trim(),
             size: 4,
-            color: O.getColor(marker.type)
+            color: Util.getColor(marker.type)
         };
         return def;
     }

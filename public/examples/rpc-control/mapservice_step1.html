@@ -83,7 +83,7 @@
                                    placeholder="Click the map to give coordinates">
                         </div>
                     </div>
-                  <button class="btn btn-primary">Submit</button>
+                  <button id="btnAddNew" class="btn btn-primary">Submit</button>
                 </form>
             </div>
           </div>
@@ -127,7 +127,7 @@
         function(data) {
             setCoordinates(data.lon, data.lat);
             // add a marker to clicked spot
-            var marker = O.getMarkerTemplate();
+            var marker = Util.getMarkerTemplate();
             marker.x = data.lon;
             marker.y = data.lat;
             addMarker(marker, USER_MARKER_ID);
