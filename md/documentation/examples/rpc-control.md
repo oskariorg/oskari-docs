@@ -2,7 +2,7 @@
 
 This guide is originally made for Inspire conference workshop. The aim is to demonstrate the use of embedded map and RPC together to create interactive map services.
 
-The case is that organization wants to include map on their web page and control it from the parent document. On this guide we will build the functionalities step by step. The end result will look like this: [Insert here link to the final web page]
+The case is that organization wants to include map on their web page and control it from the parent document. On this guide we will build the functionalities step by step. The end result will look like this: [oskari.org/examples/rpc-control/mapservice_step3.html](/examples/rpc-control/mapservice_step3.html)
 
 ## Getting started
 
@@ -10,7 +10,7 @@ To be able to use RPC you need to able to run the html-document on a server.
 
 ## Step 1: Get coordinates from embedded map
 
-This first step can be done by following the instruction from http://www.oskari.org/guides/rpc-step-by-step. One change is made to the setCoords function:
+This first step can be done by following the instruction from [oskari.org/guides/rpc-step-by-step](/guides/rpc-step-by-step). One change is made to the setCoords function:
 
 ```javascript
 setCoords = function(x, y) {
