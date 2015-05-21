@@ -76,7 +76,9 @@ a.go-to-site {
   width: auto;
   display: block; 
 }
-
+.form-panel {
+  overflow: auto;
+}
 .panel-body {
   height: 100%;
 }
