@@ -16,21 +16,7 @@ At this example we have the case that citizens can report environmental issues o
 
 In the first phase we add embedded map to our website so that user can click the map to announce the location where the bad road condition occurs. The result will look like this: [oskari.org/examples/rpc-control/mapservice_step1.html](/examples/rpc-control/mapservice_step1.html)
 
-1) Add JS libs
-
-```html
-    <!-- jQUery -->
-    <script src="lib/jquery-1.11.2.min.js"></script>
-
-    <!-- RPC functionality -->
-    <script src="js/rpc/JSChannel/jschannel.js"></script>
-    <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
-
-    <!-- Helper for the demo -->
-    <script src="js/util.js"></script>
-```
-
-2) Add iframe for published map
+1) Add map to the page
 
 ```html
 	<iframe id="publishedMap"
@@ -38,7 +24,7 @@ In the first phase we add embedded map to our website so that user can click the
         style="border: none; width: 100%; height: 100%;"></iframe>
 ```
 
-3) Replace address field with coordinates
+2) Replace address field with coordinates
 
 OUT: 
 
@@ -62,7 +48,27 @@ IN:
       </div>
 ```
 
-### Now we can start to add some JavaScript to create the functionalities. The JavaScripts below need to be inserted between script tags.
+3) Link the required JavaScript libraries
+
+```html
+    <!-- jQUery -->
+    <script src="lib/jquery-1.11.2.min.js"></script>
+
+    <!-- RPC functionality -->
+    <script src="js/rpc/JSChannel/jschannel.js"></script>
+    <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
+
+    <!-- Helper for the demo -->
+    <script src="js/util.js"></script>
+```
+
+
+### Now we can start adding some JavaScript to create the functionalities. The JavaScripts below need to be inserted between script tags.
+
+```html
+<script>
+</script>
+```
 
 4) Open a message bus to the iframe
 
@@ -103,13 +109,13 @@ IN:
 ```
 At this point we can refresh our website and check if everything went correctly and the map click gives us coordinates.
 
-Next we want to add marker to mark the location.
+Next we want to visualize the clicked location by adding a marker.
 
 6) Create a helper function to add a marker
 
 ```javascript
     function addMarker(marker, id) {
-        // get missing id from marker if available
+        // get missing id from marker data
         if(!id) {
         	id = marker.id;
     	}
