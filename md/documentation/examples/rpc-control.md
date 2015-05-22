@@ -302,9 +302,6 @@ Now we are finished with the second phase functionalities. On our web page we ca
 
 Let's make this web service interactive by giving users chance to click added markers and see their information. This phase is the last in this example.
 
-    // Barcelona: 243132.72059955, 5069415.3984687
-    // Norway: 1133693.3710546, 8190191.1661757
-
 1) Html changes
 
 Wrap report form so it can be hidden, add a cancel button and a marker listing placeholder.
