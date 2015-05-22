@@ -10,7 +10,7 @@ Code for this demo can be found in [Github](https://github.com/nls-oskari/oskari
 
 To be able to use RPC you need to be able to run the html-document on a server. To get the basic knowledge of RPC see the following documentation: [http://www.oskari.org/documentation/bundles/framework/rpc](http://www.oskari.org/documentation/bundles/framework/rpc)
 
-At this example we have the case that citizens can report environmental issues on the web. For this case we have build a simple web page which looks this [oskari.org/examples/rpc-control/mapservice_base.html](/examples/rpc-control/mapservice_base.html). It is not a real web page but for demostrative purposes. At this point the web page is quite impractical because the user needs to know the address where the bad road condition occurs. At this example we add map service functionalities and interactivity to the web page to make it more useful for reporting environmental issues.
+At this example we have the case that citizens can report environmental issues on the web. For this case we have build a simple web page which looks like this [oskari.org/examples/rpc-control/mapservice_base.html](/examples/rpc-control/mapservice_base.html). It is not a real web page but for demostrative purposes. At this point the web page is quite impractical because the user needs to know the address where the bad road condition occurs. At this example we add map service functionalities and interactivity to the web page to make it more useful for reporting environmental issues.
 
 ## Step 1: Replacing typed address with clickable map
 
