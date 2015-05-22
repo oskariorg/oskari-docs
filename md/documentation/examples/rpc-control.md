@@ -198,7 +198,7 @@ This will reveal the layers that are available
 
 ```javascript
 	// constants
-    var LAYERS_ENV = [42, 38];
+    var LAYERS_ENV = [42, 38, "userlayer_7"];
     var LAYERS_ROAD = [45, 12];
 ```
 
