@@ -142,9 +142,6 @@ The first phase is now ready and we should have a web site with embedded map and
 
 In the second phase we enable reporting not only bad road condition but also environmental contaminant. The result will look like this: [oskari.org/examples/rpc-control/mapservice_step2.html](/examples/rpc-control/mapservice_step2.html)
 
-First we modify our published map by adding some new map layers to make it more informative for reporting environmental contaminant.
-Note that we don't need to touch the code itself!
-
 1) Add issue type selection.
 
 *The code below is added to the container*
