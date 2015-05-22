@@ -20,7 +20,6 @@
     <script src="js/rpc/JSChannel/jschannel.js"></script>
     <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
     <script src="js/util.js"></script>
-    <!-- script src="js/lodash-3.8.0.js"></script -->
 
   </head>
 
@@ -114,8 +113,10 @@
     // constants
     var IFRAME_DOMAIN = 'http://54.75.147.57';
     var USER_MARKER_ID = 'REPORT_MARKER';
-    var LAYERS_ENV = [42, 38];
+    var LAYERS_ENV = [42, 38, "userlayer_7"];
     var LAYERS_ROAD = [45, 12];
+    var LOCATION_BARCELONA = [243132.72059955, 5069415.3984687];
+    var LOCATION_OSLO = [1198332.8217465, 8387919.4263792];
 
     // Referenced HTML-elements
     var elements = {
@@ -187,12 +188,27 @@
 
     elements.issueEnv.click(function () {
         switchLayersByIssueType();
+        moveMap(LOCATION_OSLO[0], LOCATION_OSLO[1]);
     });
 
     elements.issueRoad.click(function () {
         switchLayersByIssueType();
+        moveMap(LOCATION_BARCELONA[0], LOCATION_BARCELONA[1]);
     });
 
+    // Barcelona: 243132.72059955, 5069415.3984687
+    // Norway: 1133693.3710546, 8190191.1661757
+    /**
+     * Moves map center to given coordinates
+     * @param  {Number} x         lon
+     * @param  {Number} y         lat
+     * @param  {Number} zoomLevel optional zoom level
+     */
+    function moveMap(x, y, zoomLevel) {
+        channel.postRequest(
+            'MapMoveRequest', [x, y,zoomLevel]
+        );
+    };
     </script>
   </body>
 </html>
