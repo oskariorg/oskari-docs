@@ -301,6 +301,42 @@ This will reveal the layers that are available
     };
 ```
 
+11) Create a helper function to move map to specific location
+
+
+```javascript
+    /**
+     * Moves map center to given coordinates
+     * @param  {Number} x         lon
+     * @param  {Number} y         lat
+     * @param  {Number} zoomLevel optional zoom level
+     */
+    function moveMap(x, y, zoomLevel) {
+        channel.postRequest(
+            'MapMoveRequest', [x, y,zoomLevel]
+        );
+    };
+```
+
+12) Trigger a location change when reporting issue types
+
+```javascript
+    // constants
+    var LOCATION_BARCELONA = [243132.72059955, 5069415.3984687];
+    var LOCATION_OSLO = [1198332.8217465, 8387919.4263792];
+
+    elements.issueEnv.click(function () {
+        switchLayersByIssueType();
+        moveMap(LOCATION_OSLO[0], LOCATION_OSLO[1]);
+    });
+
+    elements.issueRoad.click(function () {
+        switchLayersByIssueType();
+        moveMap(LOCATION_BARCELONA[0], LOCATION_BARCELONA[1]);
+    });
+```
+
+
 Now we are finished with the second phase functionalities. On our web page we can now choose which issue to report and the map layers as well as the marker color change according to the issue type.
 
 ## Step 3: Marker interaction
