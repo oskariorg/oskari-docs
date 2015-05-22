@@ -2,7 +2,7 @@
 
 This guide is originally made for Inspire conference workshop. The aim is to demonstrate the use of embedded map and RPC together to create interactive map services.
 
-The case is that organization wants to include map on their web page and control it from the parent document. On this guide we will build the functionalities step by step. The end result will look like this: [oskari.org/examples/rpc-control/mapservice_step3.html](/examples/rpc-control/mapservice_step3.html)
+The case is that organization has an existing [website](/examples/rpc-control/) including functionality for [reporting road condition issues](/examples/rpc-control/mapservice_base.html). The location information is address based, but we want to use a map instead. We will first build a [simple](/examples/rpc-control/mapservice_step1.html) map interface, then adjust it to enable reporting of [environmental issues](/examples/rpc-control/mapservice_step2.html) as well and last add some [social features](/examples/rpc-control/mapservice_step3.html). This is done by controlling the map from the embedding page.
 
 ## Getting started
 
