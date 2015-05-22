@@ -2,19 +2,19 @@
 
 This guide is originally made for Inspire conference workshop. The aim is to demonstrate the use of embedded map and RPC together to create interactive map services.
 
-The case is that organization has an existing [website](/examples/rpc-control/) including functionality for [reporting road condition issues](/examples/rpc-control/mapservice_base.html). The location information is address based, but we want to use a map instead. We will first build a [simple](/examples/rpc-control/mapservice_step1.html) map interface, then adjust it to enable reporting of [environmental issues](/examples/rpc-control/mapservice_step2.html) as well and last add some [social features](/examples/rpc-control/mapservice_step3.html). This is done by controlling the map from the embedding page.
+The case is that an organization has an existing [website](/examples/rpc-control/) including functionality for [reporting road condition issues](/examples/rpc-control/mapservice_base.html). The location information is address based, but we want to use a map instead. We will first build a [simple](/examples/rpc-control/mapservice_step1.html) map interface, then adjust it to enable reporting of [environmental issues](/examples/rpc-control/mapservice_step2.html) as well and last add some [social features](/examples/rpc-control/mapservice_step3.html). This is done by controlling the map from the embedding page.
 
-Code for this demo can be found in [Github](https://github.com/nls-oskari/oskari.org/tree/master/public/examples/rpc-control).
+The source code for this demo can be found in [GitHub](https://github.com/nls-oskari/oskari.org/tree/master/public/examples/rpc-control).
 
 ## Getting started
 
 To be able to use RPC you need to be able to run the html-document on a server. To get the basic knowledge of RPC see the following documentation: [http://www.oskari.org/documentation/bundles/framework/rpc](http://www.oskari.org/documentation/bundles/framework/rpc)
 
-At this example we have the case that citizens can report environmental issues on the web. For this case we have build a simple web page which looks like this [oskari.org/examples/rpc-control/mapservice_base.html](/examples/rpc-control/mapservice_base.html). It is not a real web page but for demostrative purposes. At this point the web page is quite impractical because the user needs to know the address where the bad road condition occurs. At this example we add map service functionalities and interactivity to the web page to make it more useful for reporting environmental issues.
+In this example we have a case where citizens can report environmental issues on the web. For this case we have built a simple web page which looks like this [oskari.org/examples/rpc-control/mapservice_base.html](/examples/rpc-control/mapservice_base.html). It is not a real web page but one made for for demonstrative purposes. At this point the web page is quite impractical because the user needs to know the address where the bad road condition occurs. At this example we add map service functionalities and interactivity to the web page to make it more useful for reporting environmental issues.
 
 ## Step 1: Replacing typed address with clickable map
 
-In the first phase we add embedded map to our website so that user can click the map to announce the location where the bad road condition occurs. The result will look like this: [oskari.org/examples/rpc-control/mapservice_step1.html](/examples/rpc-control/mapservice_step1.html)
+In the first phase we embed a map to our website so that user can click the map to specify the location where the bad road condition occurs. The result will look like this: [oskari.org/examples/rpc-control/mapservice_step1.html](/examples/rpc-control/mapservice_step1.html)
 
 1) Add map to the page
 
@@ -89,7 +89,7 @@ IN:
     );
 ```
 
-5) Listen to map clicks and helper function for setting the coordinate field value
+5) Listen to map clicks and a helper function for setting the coordinate field value
 
 ```javascript
     /**
@@ -142,7 +142,7 @@ Next we want to visualize the clicked location by adding a marker.
         }
     );
 ```
-The first phase is now ready and we should have a web site with embedded map and simple RPC functionality.
+The first phase is now ready and we should have a web site with an embedded map and simple RPC functionality.
 
 ## Step 2: Adding issue type selection and changing maplayers based on issue type
 
