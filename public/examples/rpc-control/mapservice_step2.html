@@ -20,7 +20,6 @@
     <script src="js/rpc/JSChannel/jschannel.js"></script>
     <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
     <script src="js/util.js"></script>
-    <!-- script src="js/lodash-3.8.0.js"></script -->
 
   </head>
 
@@ -41,7 +40,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm-8 col-md-8 col-lg-6">
+        <div class="col-sm-7 col-md-7 col-lg-6">
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
@@ -50,15 +49,15 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-6">
+        <div class="col-sm-5 col-md-5 col-lg-6">
           <div class="panel panel-default form-panel">
             <div class="panel-body">
                 <h4>Report environmental issue</h4>
                 <form class="form-horizontal" onsubmit="return false;">
                     <div class="form-group">
-                        <label for="inputName" class="col-sm-3 control-label">Type of issue:</label>
+                        <label for="inputName" class="col-sm-4 control-label">Type of issue:</label>
 
-                        <div class="col-sm-9">
+                        <div class="col-sm-8">
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="issueType" id="issueType1" checked value="road">
@@ -74,30 +73,30 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputName" class="col-sm-2 control-label">Name</label>
+                        <label for="inputName" class="col-sm-4 control-label">Name</label>
 
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                             <input class="form-control" name="name" id="inputName" placeholder="Name">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                        <label for="inputEmail" class="col-sm-4 control-label">Email</label>
 
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                             <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="textArea" class="col-sm-2 control-label">Description</label>
+                        <label for="textArea" class="col-sm-4 control-label">Description</label>
 
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                             <textarea id="textArea" name="desc" class="form-control" rows="6"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="coordinates" class="col-sm-2 control-label">Coordinates</label>
+                        <label for="coordinates" class="col-sm-4 control-label">Coordinates</label>
 
-                        <div class="col-sm-10">
+                        <div class="col-sm-8">
                             <input readonly class="form-control" id="coordinates" name="coordinates"
                                    placeholder="Click the map to give coordinates">
                         </div>
@@ -114,8 +113,10 @@
     // constants
     var IFRAME_DOMAIN = 'http://54.75.147.57';
     var USER_MARKER_ID = 'REPORT_MARKER';
-    var LAYERS_ENV = [42, 38];
+    var LAYERS_ENV = [42, 38, "userlayer_7"];
     var LAYERS_ROAD = [45, 12];
+    var LOCATION_BARCELONA = [243132.72059955, 5069415.3984687];
+    var LOCATION_OSLO = [1198332.8217465, 8387919.4263792];
 
     // Referenced HTML-elements
     var elements = {
@@ -187,12 +188,25 @@
 
     elements.issueEnv.click(function () {
         switchLayersByIssueType();
+        moveMap(LOCATION_OSLO[0], LOCATION_OSLO[1]);
     });
 
     elements.issueRoad.click(function () {
         switchLayersByIssueType();
+        moveMap(LOCATION_BARCELONA[0], LOCATION_BARCELONA[1]);
     });
 
+    /**
+     * Moves map center to given coordinates
+     * @param  {Number} x         lon
+     * @param  {Number} y         lat
+     * @param  {Number} zoomLevel optional zoom level
+     */
+    function moveMap(x, y, zoomLevel) {
+        channel.postRequest(
+            'MapMoveRequest', [x, y,zoomLevel]
+        );
+    };
     </script>
   </body>
 </html>
