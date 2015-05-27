@@ -1,22 +1,19 @@
-# Database (outdated)
-
-<!--
-## ER model
-
-Below are ER models of views and example layers and roles.
-
-![maplayer](/images/architecture/maplayer-ER.png)
-
-![views](/images/architecture/tablesER.png)
-
-![rolesetc](/images/architecture/tables2ER.png)
--->
+# Database
 
 
+# ER model
+----
+
+Below you can download Oskari ER model.
+
+<a href="/files/oskaridb_architect.pdf">Oskari ER model (PDF-file)</a>
+
+# Table create scripts
+----
 
 Below you can see all Oskari tables and their create SQL scripts.
 
-## **Bundle and view**
+## Bundle and view
 
 Oskari bundle and views are defined in following tables.
 
@@ -75,7 +72,7 @@ Bundles belonging to a view and the sequence they are started is specified here.
 	    bundleinstance character varying(128) DEFAULT ''::character varying
 	);
 
-## **Analysis**
+## Analysis
 
 Analysis is defined in following tables.
 
@@ -188,7 +185,7 @@ This table contains users indicators.
 	);
 
 
-## **User and userrights **
+## User and user rights
 
 User and his rights are defined in following tables.
 
@@ -286,7 +283,7 @@ This table contains external mapping for Oskari roles.
 	);
 
 
-## **My places**
+## My places
 
 My places is defined following tables.
 
@@ -351,7 +348,7 @@ This view contains my places view with styling.
 	  WHERE (mp.category_id = c.id);
 
 
-## **Layers**
+## Layers
 
 ### oskari_layergroup
 
@@ -403,6 +400,12 @@ This table contains Oskari maplayers.
 	    version character varying(64),
 	    attributes text DEFAULT '{}'::text
 	);
+
+	-- DROP INDEX oskari_maplayer_q1 IF EXISTS;
+	CREATE INDEX oskari_maplayer_q1 ON oskari_maplayer USING btree (parentid);
+
+	-- DROP INDEX oskari_maplayer_q2 IF EXISTS;
+	CREATE INDEX oskari_maplayer_q2 ON oskari_maplayer USING btree (groupid);
 
 
 ### oskari_maplayer_metadata
@@ -463,7 +466,7 @@ Cababilities requests are stored here and updated by a cron process.
 
 ### portti_ispiretheme
 
-This table contains INSPIRE theme names.
+This table tells the layer INSPIRE name.
 
 
 	-- DROP TABLE portti_inspiretheme IF EXISTS;
@@ -565,6 +568,9 @@ This table maps WFS layer style to WFS layer.
 	    wfs_layer_id bigint NOT NULL,
 	    wfs_layer_style_id integer NOT NULL
 	);
+
+	-- DROP INDEX fki_portti_wfs_layers_styles_wfs_layer_style_fkey IF EXISTS;
+	CREATE INDEX fki_portti_wfs_layers_styles_wfs_layer_style_fkey ON portti_wfs_layers_styles USING btree (wfs_layer_style_id);
 
 
 ### portti_wfs_template_model
@@ -697,7 +703,7 @@ This view contains simplified user layer view.
 	   FROM user_layer_data;
 
 
-## **Backend status**
+## Backend status
 
 
 ### portti_backendstatus
@@ -749,9 +755,35 @@ This view indicates allknown statuses.
 	    portti_backendstatus.statusjson
 	   FROM portti_backendstatus;
 
+## Published Maps
 
-## **Other**
+### portti_published_map_usage
 
+This table contains the statistical data from published maps.
+
+
+	-- DROP TABLE portti_published_map_usage IF EXISTS;
+	CREATE TABLE portti_published_map_usage (
+	    id integer NOT NULL,
+	    published_map_id bigint NOT NULL,
+	    usage_count bigint NOT NULL,
+	    force_lock boolean DEFAULT false NOT NULL
+	);
+
+### portti_terms_of_use_for_publishing
+
+This table contains the approved conditions of use published maps.
+
+
+	-- DROP TABLE portti_terms_of_use_for_publishing IF EXISTS;
+	CREATE TABLE portti_terms_of_use_for_publishing (
+	    userid bigint NOT NULL,
+	    agreed boolean DEFAULT false NOT NULL,
+	    "time" timestamp with time zone
+	);
+
+
+## Other
 
 ### categories
 
@@ -797,8 +829,9 @@ This table contains gt_pk_metadata_table.
 	);
 
 
+### oskari_resource
 
-
+This table contains Oskari resources.
 
 
 	-- DROP TABLE oskari_resource IF EXISTS;
@@ -807,6 +840,10 @@ This table contains gt_pk_metadata_table.
 	    resource_type character varying(100) NOT NULL,
 	    resource_mapping character varying(1000) NOT NULL
 	);
+
+### portti_keywords
+
+This table contains keywords.
 
 
 	-- DROP TABLE portti_keywords IF EXISTS;
@@ -818,6 +855,10 @@ This table contains gt_pk_metadata_table.
 	    editable boolean
 	);
 
+### portti_keyword_associattion
+
+This table contains keyword associations.
+
 
 	-- DROP TABLE portti_keyword_association IF EXISTS;
 	CREATE TABLE portti_keyword_association (
@@ -825,503 +866,3 @@ This table contains gt_pk_metadata_table.
 	    keyid2 bigint NOT NULL,
 	    type character varying(10)
 	);
-
-
-	-- DROP TABLE portti_published_map_usage IF EXISTS;
-	CREATE TABLE portti_published_map_usage (
-	    id integer NOT NULL,
-	    published_map_id bigint NOT NULL,
-	    usage_count bigint NOT NULL,
-	    force_lock boolean DEFAULT false NOT NULL
-	);
-
-	-- DROP TABLE portti_terms_of_use_for_publishing IF EXISTS;
-	CREATE TABLE portti_terms_of_use_for_publishing (
-	    userid bigint NOT NULL,
-	    agreed boolean DEFAULT false NOT NULL,
-	    "time" timestamp with time zone
-	);
-
-
-
-
-	
-<!--
-# Old stuff
-
-namefi, namesv and nameen columns are deprecated, use locale column, which will contain localization in i18n.
-
-This table contains maplayers. Layerclassid indicates the layer's class position in the layer hierarchy.
-
-### Maplayer
-
-
-  	-- DROP TABLE portti_maplayer IF EXISTS;
-
-  	CREATE TABLE portti_maplayer
-  	(
-  	id serial NOT NULL,
-  	layerclassid integer,
-  	namefi character varying(2000),
-  	namesv character varying(2000),
-  	nameen character varying(2000),
-  	wmsname character varying(2000),
-  	wmsurl character varying(2000),
-    opacity integer,
-    style text,
-    minscale double precision,
-    maxscale double precision,
-    description_link character varying(2000),
-    legend_image character varying(2000),
-    inspire_theme_id integer,
-    dataurl character varying(2000),
-    metadataurl character varying(2000),
-    order_number integer,
-    layer_type character varying(100) NOT NULL,
-    tile_matrix_set_id character varying(1024),
-    tile_matrix_set_data text,
-    created timestamp with time zone,
-    updated timestamp with time zone,
-    wms_dcp_http character varying(2000),
-    wms_parameter_layers character varying(2000),
-    resource_url_scheme character varying(100),
-    resource_url_scheme_pattern character varying(2000),
-    resource_url_client_pattern character varying(2000),
-    resource_daily_max_per_ip integer,
-    xslt text,
-    gfi_type character varying(2000),
-    subtitle_fi character varying(2000),
-    subtitle_en character varying(2000),
-    subtitle_sv character varying(2000),
-    selection_style text,
-    version character varying(10),
-    epsg integer DEFAULT 3067,
-    locale text,
-    CONSTRAINT portti_maplayer_pkey PRIMARY KEY (id),
-    CONSTRAINT portti_maplayer_inspire_theme_id_fkey FOREIGN KEY (inspire_theme_id)
-        REFERENCES portti_inspiretheme (id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE SET NULL,
-    CONSTRAINT portti_maplayer_layerclassid_fkey FOREIGN KEY (layerclassid)
-        REFERENCES portti_layerclass (id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE CASCADE
-        )
-    WITH (
-    OIDS=FALSE
-    );
-    ALTER TABLE portti_maplayer
-    GRANT SELECT, UPDATE ON TABLE portti_maplayer TO maplog;
-
-    -- Index: portti_maplayer_q1
-
-    -- DROP INDEX portti_maplayer_q1;
-
-    CREATE INDEX portti_maplayer_q1
-    ON portti_maplayer
-    USING btree
-    (layerclassid);
-
-    -- Index: portti_maplayer_q2
-
-    -- DROP INDEX portti_maplayer_q2;
-
-    CREATE INDEX portti_maplayer_q2
-    ON portti_maplayer
-    USING btree
-    (inspire_theme_id);
-
-    -- Index: portti_maplayer_q3
-
-    -- DROP INDEX portti_maplayer_q3;
-
-    CREATE INDEX portti_maplayer_q3
-    	ON portti_maplayer
-    	USING btree
-  	  (order_number);
-
-
-### Layerclass
-
-LayerClass specifies the layer's organization for normal layers, basemaps and groupmaps. If the layer is a basemap or a groupmap it has parent which refers to another layerclass. 
-
-
-
-
-
-    -- DROP TABLE portti_layerclass;
-
-    CREATE TABLE portti_layerclass
-    (
-    id serial NOT NULL,
-    namefi character varying(2000),
-    namesv character varying(2000),
-    nameen character varying(2000),
-    maplayers_selectable boolean,
-    parent integer,
-    legend_image character varying(2000),
-    dataurl character varying(2000),
-    group_map boolean,
-    locale text,
-    CONSTRAINT portti_layerclass_pkey PRIMARY KEY (id),
-    CONSTRAINT portti_layerclass_parent_fkey FOREIGN KEY (parent)
-        REFERENCES portti_layerclass (id) MATCH SIMPLE
-        ON UPDATE NO ACTION ON DELETE CASCADE
-    )
-    WITH (
-    OIDS=FALSE
-    );
-
-
-    -- Index: portti_layerclass_q1
-
-    -- DROP INDEX portti_layerclass_q1;
-
-    CREATE INDEX portti_layerclass_q1
-    ON portti_layerclass
-    USING btree
-    (parent);
-
-### InspireTheme
-
-This table tells the layers inspire name.
-
-
-	-- Table: portti_inspiretheme
-
-	-- DROP TABLE portti_inspiretheme;
-
-	CREATE TABLE portti_inspiretheme
-	(
-	  id serial NOT NULL,
-	  namefi character varying(2000),
-	  namesv character varying(2000),
-	  nameen character varying(2000),
-	  CONSTRAINT portti_inspiretheme_pkey PRIMARY KEY (id)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
-
-
-### Maplayer metadata
-
-This table specifies layers bbox.
-
-    -- Table: portti_maplayer_metadata
-
-	-- DROP TABLE portti_maplayer_metadata;
-
-	CREATE TABLE portti_maplayer_metadata
-	(
-	  id serial NOT NULL,
-	  maplayerid integer,
-	  uuid character varying(256),
-	  namefi character varying(512),
-	  namesv character varying(512),
-	  nameen character varying(512),
-	  abstractfi text,
-	  abstractsv text,
-	  abstracten text,
-	  browsegraphic character varying(1024),
-	  geom character varying(512),
-	  CONSTRAINT portti_maplayer_metadata_pkey PRIMARY KEY (id)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-	ALTER TABLE portti_maplayer_metadata
-	  OWNER TO postgres;
-	GRANT ALL ON TABLE portti_maplayer_metadata TO postgres;
-	GRANT SELECT, UPDATE, INSERT, DELETE, REFERENCES ON TABLE portti_maplayer_metadata TO maplog;
-
-
-	-- Index: portti_maplayer_metadata_q1
-
-	-- DROP INDEX portti_maplayer_metadata_q1;
-
-	CREATE INDEX portti_maplayer_metadata_q1
-	  ON portti_maplayer_metadata
-	  USING btree
-	  (maplayerid);
-
-	-- Index: portti_maplayer_metadata_q2
-
-	-- DROP INDEX portti_maplayer_metadata_q2;
-
-	CREATE INDEX portti_maplayer_metadata_q2
-	  ON portti_maplayer_metadata
-	  USING btree
-	  (uuid);
-
-
-### Backend status
-
-This table indicates whether the layer's server is online. This is updated in Paikkatietoikkuna as a cron process.
-
-	-- Table: portti_backendstatus
-
-	-- DROP TABLE portti_backendstatus;
-
-	CREATE TABLE portti_backendstatus
-	(
-	  id bigserial NOT NULL,
-	  ts timestamp without time zone DEFAULT now(),
-	  maplayer_id character varying(50),
-	  status character varying(500),
-	  statusmessage character varying(2000),
-	  infourl character varying(2000),
-	  statusjson text,
-	  CONSTRAINT portti_backendstatus_pkey PRIMARY KEY (id)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-	ALTER TABLE portti_backendstatus
-	  OWNER TO postgres;
-	GRANT ALL ON TABLE portti_backendstatus TO postgres;
-	GRANT SELECT, UPDATE, INSERT, TRUNCATE, DELETE ON TABLE portti_backendstatus TO maplog;
-
-
-	-- Index: portti_backendstatus_maplayer_id_q1
-
-	-- DROP INDEX portti_backendstatus_maplayer_id_q1;
-
-	CREATE INDEX portti_backendstatus_maplayer_id_q1
-	  ON portti_backendstatus
-	  USING btree
-	  (maplayer_id);
-
-	-- Index: portti_backendstatus_maplayer_id_q2
-
-	-- DROP INDEX portti_backendstatus_maplayer_id_q2;
-
-	CREATE INDEX portti_backendstatus_maplayer_id_q2
-	  ON portti_backendstatus
-	  USING btree
-	  (maplayer_id, status);
-
-	-- Index: portti_backendstatus_maplayer_id_q3
-
-	-- DROP INDEX portti_backendstatus_maplayer_id_q3;
-
-	CREATE INDEX portti_backendstatus_maplayer_id_q3
-	  ON portti_backendstatus
-	  USING btree
-	  (maplayer_id, status, ts);
-
-	-- Index: portti_backendstatus_maplayer_id_q4
-
-	-- DROP INDEX portti_backendstatus_maplayer_id_q4;
-
-	CREATE INDEX portti_backendstatus_maplayer_id_q4
-	  ON portti_backendstatus
-	  USING btree
-	  (status);
-
-### Capabilities cache
-
-Cababilities requests are stored here and updated by a cron process.
-
-	-- Table: portti_capabilities_cache
-
-	-- DROP TABLE portti_capabilities_cache;
-
-	CREATE TABLE portti_capabilities_cache
-	(
-	  layer_id integer NOT NULL,
-	  data text,
-	  updated timestamp without time zone,
-	  "WMSversion" character(10) NOT NULL,
-	  CONSTRAINT portti_capabilities_cache_pkey PRIMARY KEY (layer_id)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
-
-
-
-	-- Trigger: update_capabilities_cache_timestamp on portti_capabilities_cache
-
-	-- DROP TRIGGER update_capabilities_cache_timestamp ON portti_capabilities_cache;
-
-	CREATE TRIGGER update_capabilities_cache_timestamp
-	  BEFORE UPDATE
-	  ON portti_capabilities_cache
-	  FOR EACH ROW
-	  EXECUTE PROCEDURE update_timestamp();
-
-### Permissions
-
-This table maps resource user to permission type. permission_type can be for example "viewlayer" or "publish"
-
-	-- Table: portti_permissions
-
-	-- DROP TABLE portti_permissions;
-
-	CREATE TABLE portti_permissions
-	(
-	  id serial NOT NULL,
-	  resource_user_id integer NOT NULL,
-	  permissions_type character varying(100),
-	  CONSTRAINT portti_permissions_pkey PRIMARY KEY (id)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
-
-	-- Index: portti_permissions_q1
-
-	-- DROP INDEX portti_permissions_q1;
-
-	CREATE INDEX portti_permissions_q1
-	  ON portti_permissions
-	  USING btree
-	  (permissions_type);
-
-	-- Index: portti_permissions_q2
-
-	-- DROP INDEX portti_permissions_q2;
-
-	CREATE INDEX portti_permissions_q2
-	  ON portti_permissions
-	  USING btree
-	  (resource_user_id);
-
-	-- Index: portti_permissions_q3
-
-	-- DROP INDEX portti_permissions_q3;
-
-	CREATE INDEX portti_permissions_q3
-	  ON portti_permissions
-	  USING btree
-	  (resource_user_id, permissions_type);
-
-### Resource user
-
-This table describes wms layer or base layer resources. Check [user management documentation](/documentation/backend/usermanagement).
-
-	-- Table: portti_resource_user
-
-	-- DROP TABLE portti_resource_user;
-
-	CREATE TABLE portti_resource_user
-	(
-	  id serial NOT NULL,
-	  resource_name character varying(1000),
-	  resource_namespace character varying(1000),
-	  resource_type character varying(100),
-	  externalid character varying(1000),
-	  externalid_type character varying(20),
-	  CONSTRAINT portti_resource_user_pkey PRIMARY KEY (id),
-	  CONSTRAINT portti_resource_user_externalid_type_check CHECK (externalid_type::text = 'USER'::text OR externalid_type::text = 'ROLE'::text)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
-	GRANT SELECT, UPDATE ON TABLE portti_resource_user TO maplog;
-
-	-- Index: portti_resource_user_q1
-
-	-- DROP INDEX portti_resource_user_q1;
-
-	CREATE INDEX portti_resource_user_q1
-	  ON portti_resource_user
-	  USING btree
-	  (resource_name, resource_namespace, resource_type, externalid, externalid_type);
-
-	-- Index: portti_resource_user_q2
-
-	-- DROP INDEX portti_resource_user_q2;
-
-	CREATE INDEX portti_resource_user_q2
-	  ON portti_resource_user
-	  USING btree
-	  (resource_type, externalid, externalid_type);
-
-
-### View
-
-Oskari view information (frontend application specific details) is stored here.
-
-	-- Table: portti_view
-
-    CREATE TABLE portti_view (
-       uuid             UUID,
-       id               bigserial NOT NULL,
-       name             VARCHAR(128)  NOT NULL,
-       is_default       BOOLEAN       DEFAULT FALSE,
-       type		    varchar(16)	  DEFAULT 'USER',
-       description   VARCHAR(2000) ,
-       page character varying(128) DEFAULT 'index',
-       application character varying(128) DEFAULT 'servlet',
-       application_dev_prefix character varying(256) DEFAULT '/applications/sample',
-       only_uuid boolean DEFAULT FALSE,
-       creator bigint DEFAULT (-1),
-       domain character varying(512) DEFAULT ''::character varying,
-       lang character varying(2) DEFAULT 'en'::character varying,
-       is_public boolean DEFAULT FALSE,
-       old_id bigint DEFAULT (-1),
-       created timestamp DEFAULT CURRENT_TIMESTAMP,
-      CONSTRAINT portti_view_pkey PRIMARY KEY (id),
-      CONSTRAINT portti_view_uuid_key UNIQUE (uuid)
-    );
-
-
-### View bundle sequence
-
-Bundles belonging to a view and the sequence they are started is specified here.
-
-
-	-- Table: portti_view_bundle_seq
-
-	-- DROP TABLE portti_view_bundle_seq;
-
-	CREATE TABLE portti_view_bundle_seq
-	(
-	  view_id bigint NOT NULL,
-	  bundle_id bigint NOT NULL,
-	  seqno integer NOT NULL,
-	  config text DEFAULT '{}'::text,
-	  state text DEFAULT '{}'::text,
-	  startup text DEFAULT '{}'::text,
-	  bundleinstance character varying(128) NOT NULL DEFAULT ''::character varying,
-	  CONSTRAINT portti_view_bundle_seq_bundle_id_fkey FOREIGN KEY (bundle_id)
-	      REFERENCES portti_bundle (id) MATCH SIMPLE
-	      ON UPDATE NO ACTION ON DELETE NO ACTION,
-	  CONSTRAINT portti_view_bundle_seq_view_id_fkey FOREIGN KEY (view_id)
-	      REFERENCES portti_view (id) MATCH SIMPLE
-	      ON UPDATE NO ACTION ON DELETE NO ACTION,
-	  CONSTRAINT view_seq UNIQUE (view_id, seqno)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
-
-
-### Bundle
-
-Default values for the bundles are found in this table. The values can be overwritten in the View bundle sequence table.
-
-	-- Table: portti_bundle
-
-	-- DROP TABLE portti_bundle;
-
-	CREATE TABLE portti_bundle
-	(
-	  id bigserial NOT NULL,
-	  name character varying(128) NOT NULL,
-	  startup text NOT NULL,
-	  config text DEFAULT '{}'::text,
-	  state text DEFAULT '{}'::text,
-	  CONSTRAINT portti_bundle_pkey PRIMARY KEY (id),
-	  CONSTRAINT portti_bundle_name_key UNIQUE (name)
-	)
-	WITH (
-	  OIDS=FALSE
-	);
-
--->
