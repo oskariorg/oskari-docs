@@ -30,22 +30,23 @@ OUT:
 
 ```html
       <div class="form-group">
-        <label for="coordinates" class="col-sm-2 control-label">Address</label>
-        <div class="col-sm-10">
-            <input class="form-control" id="coordinates" placeholder="Address near findings">
+        <label for="coordinates" class="col-sm-4 control-label">Address</label>
+        <div class="col-sm-8">
+            <input class="form-control" id="address" placeholder="Address near findings">
         </div>
       </div>
 ```
 
 IN: 
 ```html
-      <div class="form-group">
-          <label for="coordinates" class="col-sm-2 control-label">Coordinates</label>
-          <div class="col-sm-10">
-              <input readonly class="form-control" id="coordinates" name="coordinates"
-                     placeholder="Click the map to give coordinates">
-          </div>
-      </div>
+    <div class="form-group">
+        <label for="coordinates" class="col-sm-4 control-label">Coordinates</label>
+
+        <div class="col-sm-8">
+            <input readonly class="form-control" id="coordinates" name="coordinates"
+                   placeholder="Click the map to give coordinates">
+        </div>
+    </div>
 ```
 
 3) Link the required JavaScript libraries
@@ -181,6 +182,7 @@ In the second phase we enable reporting not only bad road condition but also env
 ```javascript
     channel.getAllLayers(
         function (data) {
+            //alert(JSON.stringify(data));
             Util.log('Layers:', data);
         }
     );
@@ -193,6 +195,7 @@ This will reveal the layers that are available
 	id: 45 - name: "Ortoimagen - ign.es"
 	id: 12 - name: "TN Transport Networks - ign.es"
 	id: 38 - name: "HY-P Watercouse - geonorge.no"
+    id: userlayer_7 - name: "Gas stations"
 
 3) Add constants for layersets. These are used further to tell which layers should be shown in each case.
 
