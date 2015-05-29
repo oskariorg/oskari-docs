@@ -5,6 +5,14 @@ Oskari Source code is released with a dual license
 * [MIT](http://www.paikkatietoikkuna.fi/web/fi/mit-lisenssin-ehdot)
 * [EUPL](http://www.paikkatietoikkuna.fi/web/fi/eupl-lisenssin-ehdot)
 
+Contributor License Agreement
+
+* The same CLA applies to all git repositories. 
+
+	* [Oskari frontend](https://github.com/nls-oskari/oskari/blob/master/CLA.txt)
+	* [Oskari server](https://github.com/nls-oskari/oskari-server/blob/master/CLA.txt)
+	* [Oskari liferay](https://github.com/nls-oskari/oskari-liferay/blob/develop/CLA.txt)
+
 3rd party JavaScript libraries
 
 * Open Source libraries are used to develop Oskari framework with one exception (for version 7.4):

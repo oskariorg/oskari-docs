@@ -2,9 +2,10 @@
 
 The preferred way of contributing to Oskari in a nutshell:
 
-1. Fork [oskari](https://github.com/nls-oskari/oskari), [oskari-server](https://github.com/nls-oskari/oskari-server) or [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) on GitHub 
-2. Develop your code in a feature branch 
-3. Notify us when the code is ready for QA and integration testing (GitHub pull request, email, anything really) 
+1. Familiarize yourself with the [license terms](/documentation/development/license)
+2. Fork [oskari](https://github.com/nls-oskari/oskari), [oskari-server](https://github.com/nls-oskari/oskari-server) or [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) on GitHub 
+3. Develop your code in a feature branch 
+4. Notify us when the code is ready for QA and integration testing (GitHub pull request, email, anything really) 
 
 Below is a thorough description of the git process used in Oskari development.
 

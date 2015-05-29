@@ -21,5 +21,9 @@
     "gulp": "3.4.0",
     "gulp-livereload": "1.5.0",
     "tiny-lr": "0.0.7"
+  },
+  "scripts" : {
+    "start" : "node app.js",
+    "build" : "./node_modules/.bin/gulp build"
   }
 }
