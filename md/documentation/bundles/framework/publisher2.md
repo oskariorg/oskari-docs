@@ -33,12 +33,12 @@ Some configuration is needed for URLs:
 * loginUrl and registerUrl are shown as links for guest users to appropriate site pages
 * urlPrefix is used when displaying a preview for GFI popup. It is always appended with '/web/' and users language.
 * Optional: tools - Built-in plugin tools can be configured and values are unvalidated, therefore ensure valid values before use.
-The ´id´ must match the plugin class name. ´selected´ is true when the tool is selected by default.
-´lefthanded´ is the config.location.classes definition for left handed layout.
-´righthanded´ is the config.location.classes definition for right handed layout.
-´config´ contains individual plugin tool configurations.
-´classes´ accepts corners such as ´bottom left´ and ´top right´.
-When several plugins has the same ´classes´ value, then ´position´ is used for ordering the plugins.
+The `id` must match the plugin class name. `selected` is true when the tool is selected by default.
+`lefthanded` is the config.location.classes definition for left handed layout.
+`righthanded` is the config.location.classes definition for right handed layout.
+`config` contains individual plugin tool configurations.
+Accepts corners such as `bottom left` and `top right`.
+When several plugins has the same `classes` value, then `position` is used for ordering the plugins.
 These are default values and users can change them using the publisher.
 
 ```javascript
@@ -127,6 +127,37 @@ These are default values and users can change them using the publisher.
         }]
 }
 ```
+
+## Bundle Panels
+
+### PublisherLocationPanel
+
+PublisherLocationPanel creates the 1st panel of Map publisher.
+
+Panel contains following fields:
+* Website url (text input): The website url where the map will be embedded
+* The name of the map (text input): The name of published map.
+* Language (selection): The map language
+
+### MapToolsPanel
+
+MapToolsPanel creates the 2nd panel of Map publisher.
+
+The panel will add all the `Oskari.mapframework.publisher.Tool` protocol implemented `Tool` bundles to panel.
+
+The `Oskari.mapframework.publisher.Tool` protocol needs implement following functions:
+* getTool(): This is used the get tool object
+* setEnabled(enabled): This is used to enable or disable tool (checkbox functionality)
+* getExtraOptions(): This is used to add extra options to tool. This function returns jQuery element to add after to tool checkbox. If null then nothing added.
+* getName(): This is used to show tool name in checkbox label. 
+* isDisplayedInMode(mode): This is used for checking if tool is showed in mode (mobile/full).
+* isDisplayed(): This is used to check at is the tool displayed. For example, depending on the state of map.
+* setMode(mode): This sets tool to wanted mode.
+* getGroup(): This is used to get tool group (what panel tool appears)
+* getIndex(): This is used to get tool index in group. A smaller number is upper and higher number is lower.
+* getAllowedLocations(): This is used to get tool allowed locations.
+* getValues(): This is used to get tool values to saving published map.
+* validate(): This is used to validate tool when saving published map.
 
 ## Bundle state
 
