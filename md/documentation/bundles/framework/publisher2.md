@@ -124,7 +124,16 @@ with key `BasicView.[group].[tool name]` where tool name is returned by `getTool
        }
        ...
     }
-        
+
+The publisher provides some default tools:
+- scalebar
+- indexmap
+- pan buttons
+- zoombar
+- search
+- my location
+
+
 ## Bundle state
 
 No statehandling has been implemented.
