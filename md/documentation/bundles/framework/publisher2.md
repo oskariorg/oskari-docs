@@ -11,13 +11,24 @@
 
 ## Description
 
-This Bundle provides functionality to define an embeddable map and save it to server so it can be published on another page. The user defines the domain the map will be published on, name and language for the map. The user can set the size of the published map, a selection of tools that will be overlayed on the map and affect the maplayers that are initially visible when the map is shown. The main map is modified to show a preview of the published map when the publisher is opened and it resumes to normal view once the publisher flyout is closed. The publisher can promote map layers to the user, but at the moment the configuration which layers are promoted and the promotion text is not passed from the server (defined in code so promotion could be easily configured but it isn't for now).
+This Bundle provides functionality to define an embeddable map and save it to server so it can be published on another page. 
+The user defines the domain the map will be published on, name and language for the map. The user can set the size of the published map, 
+a selection of tools that will be overlayed on the map and affect the maplayers that are initially visible when the map is shown. 
+The main map is modified to show a preview of the published map when the publisher is opened and it resumes to normal view once the publisher flyout is closed. 
 
-Users can select styling for the published map in 'Layout' panel. The colour scheme for GFI popups can be selected from six predefined colours and an own colour scheme with RGB codes can be created, font can be chosen from two predefined font sets (serif and sans-serif) and the style of the tools (pan buttons, zoombar, search plugin and layer selection plugin) can be selected from three predefined style sets: 'rounded', 'sharp' and '3d' all of which can be selected as either dark or light versions.
+Users can select styling for the published map in 'Layout' panel. The colour scheme for GFI popups can be selected from 
+six predefined colours and an own colour scheme with RGB codes can be created, font can be chosen from two predefined 
+font sets (serif and sans-serif) and the style of the tools (pan buttons, zoombar, search plugin and layer selection plugin) 
+can be selected from three predefined style sets: 'rounded', 'sharp' and '3d' all of which can be selected as either 
+dark or light versions.
+
+Compared to the original publisher this refactored version aims to be more extendable where other bundles can provide 
+publisher settings.
 
 ## TODO
 
-- promoted map layers configuration
+- complete refactoring to support functionality of the original publisher 
+- document the extension hook for tools
 
 ## Screenshot
 
@@ -30,138 +41,34 @@ Users can select styling for the published map in 'Layout' panel. The colour sch
 ## Bundle configuration
 
 Some configuration is needed for URLs:
-* loginUrl and registerUrl are shown as links for guest users to appropriate site pages
+* loginUrl and registerUrl are shown as links for guest users to appropriate site pages (can be localized with an object notation or used with single url)
 * urlPrefix is used when displaying a preview for GFI popup. It is always appended with '/web/' and users language.
-* Optional: tools - Built-in plugin tools can be configured and values are unvalidated, therefore ensure valid values before use.
-The `id` must match the plugin class name. `selected` is true when the tool is selected by default.
-`lefthanded` is the config.location.classes definition for left handed layout.
-`righthanded` is the config.location.classes definition for right handed layout.
-`config` contains individual plugin tool configurations.
-Accepts corners such as `bottom left` and `top right`.
-When several plugins has the same `classes` value, then `position` is used for ordering the plugins.
-These are default values and users can change them using the publisher.
 
 ```javascript
 "conf": {
   "loginUrl": {
-    "en": "https://www.paikkatietoikkuna.fi/web/en/login",
-    "fi": "https://www.paikkatietoikkuna.fi/web/fi/login",
-    "sv": "https://www.paikkatietoikkuna.fi/web/sv/login"
+    "en": "/en/login",
+    "fi": "/fi/login",
+    "sv": "/sv/login"
   },
-  "registerUrl": {
-    "en": "https://www.paikkatietoikkuna.fi/web/en/login?p_p_id=58&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account",
-    "fi": "https://www.paikkatietoikkuna.fi/web/fi/login?p_p_id=58&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account",
-    "sv": "https://www.paikkatietoikkuna.fi/web/sv/login?p_p_id=58&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&saveLastPath=0&_58_struts_action=%2Flogin%2Fcreate_account"
-  },
-  "tools": [{
-            "id": "Oskari.mapframework.bundle.mapmodule.plugin.ScaleBarPlugin",
-            "selected": false,
-            "lefthanded": "bottom left",
-            "righthanded": "bottom right",
-            "config": {
-                "location": {
-                    "classes": "bottom left"
-                }
-            }
-        }, {
-            "id": "Oskari.mapframework.bundle.mapmodule.plugin.IndexMapPlugin",
-            "selected": false,
-            "lefthanded": "bottom right",
-            "righthanded": "bottom left",
-            "config": {
-                "location": {
-                    "classes": "bottom right"
-                }
-            }
-        }, {
-            "id": "Oskari.mapframework.bundle.mapmodule.plugin.PanButtons",
-            "selected": false,
-            "lefthanded": "top left",
-            "righthanded": "top right",
-            "config": {
-                "location": {
-                    "classes": "top left"
-                }
-            }
-        }, {
-            "id": "Oskari.mapframework.bundle.mapmodule.plugin.Portti2Zoombar",
-            "selected": true,
-            "lefthanded": "top left",
-            "righthanded": "top right",
-            "config": {
-                "location": {
-                    "classes": "top left"
-                }
-            }
-        }, {
-            "id": "Oskari.mapframework.bundle.mapmodule.plugin.SearchPlugin",
-            "selected": false,
-            "lefthanded": "top right",
-            "righthanded": "top left",
-            "config": {
-                "location": {
-                    "classes": "top right"
-                }
-            }
-        }, {
-            "id": "Oskari.mapframework.bundle.mapmodule.plugin.PublisherToolbarPlugin",
-            "selected": false,
-            "lefthanded": "top right",
-            "righthanded": "top left",
-            "config": {
-                "location": {
-                    "classes": "top right"
-                },
-                "toolbarId": "PublisherToolbar"
-            }
-        }, {
-            "id": "Oskari.mapframework.mapmodule.ControlsPlugin",
-            "selected": true
-        }, {
-            "id": "Oskari.mapframework.mapmodule.GetInfoPlugin",
-            "selected": true,
-            "config": {
-                "ignoredLayerTypes": ["WFS"],
-                "infoBox": false
-            }
-        }]
+  "registerUrl": "/register"
 }
 ```
 
 ## Bundle Panels
 
-### PublisherLocationPanel
+### General information panel
 
-PublisherLocationPanel creates the 1st panel of Map publisher.
+The first panel of the publisher.
 
 Panel contains following fields:
 * Website url (text input): The website url where the map will be embedded
 * The name of the map (text input): The name of published map.
 * Language (selection): The map language
 
-### MapToolsPanel
+## Map size panel
 
-MapToolsPanel creates the 2nd panel of Map publisher.
-
-The panel will add all the `Oskari.mapframework.publisher.Tool` protocol implemented `Tool` bundles to panel.
-
-The `Oskari.mapframework.publisher.Tool` protocol needs implement following functions:
-* getTool(): This is used the get tool object
-* setEnabled(enabled): This is used to enable or disable tool (checkbox functionality)
-* getExtraOptions(): This is used to add extra options to tool. This function returns jQuery element to add after to tool checkbox. If null then nothing added.
-* getName(): This is used to show tool name in checkbox label. 
-* isDisplayedInMode(mode): This is used for checking if tool is showed in mode (mobile/full).
-* isDisplayed(): This is used to check at is the tool displayed. For example, depending on the state of map.
-* setMode(mode): This sets tool to wanted mode.
-* getGroup(): This is used to get tool group (what panel tool appears)
-* getIndex(): This is used to get tool index in group. A smaller number is upper and higher number is lower.
-* getAllowedLocations(): This is used to get tool allowed locations.
-* getValues(): This is used to get tool values to saving published map.
-* validate(): This is used to validate tool when saving published map.
-
-## Bundle modes
-
-Bundle handles different map modes when changing map size.
+The second panel has some predefined size options for the map. Map size change is communicated as a "mode" change to the publisher tools.
 The currently selected map mode is transmitted to all panels where have implemented setMode(mode) function and there panel handles this mode change.
 For example PanelMapTools handles this so at this call setMode(mode) function to all tools where have a implemented setMode() function.
 
@@ -172,20 +79,55 @@ Currently supported modes are:
 * fill
 * custom
 
+### Tool panels
 
+The publisher locates tool selections by finding loaded Oskari-classes implementing `Oskari.mapframework.publisher.Tool`.
+Each tool has a group which is used to setup different tool panels based on group.
+
+The `Oskari.mapframework.publisher.Tool` protocol needs implement following functions:
+* getTool(): This is used to describe the tool object:
+ - id is the Oskari class name
+ - name is used as part of the localization key (see below)
+ - config is the tool configuration
+
+```javascript
+getTool: function() {
+    return {
+        id: 'Oskari.mapframework.bundle.mapmodule.plugin.MyTool',
+        name: 'MyTool',
+        config: {}
+    };
+}
+```
+    
+* setEnabled(enabled): This is used to enable or disable tool (checkbox functionality)
+* getExtraOptions(): This is used to add extra options to tool. This function returns jQuery element to add after to tool checkbox. If null then nothing added.
+* getName(): This is used to show tool name in checkbox label. 
+* isDisplayedInMode(mode): This is used for checking if tool is showed in mode (mobile/full).
+* isDisplayed(): This is used to check at is the tool displayed. For example, depending on the state of map.
+* setMode(mode): This sets tool to wanted mode (see Map size panel).
+* getGroup(): This is used to get tool group (what panel tool appears)
+* getIndex(): This is used to get tool index in group. A smaller number is upper and higher number is lower.
+* getAllowedLocations(): This is used to get tool allowed locations.
+* getValues(): This is used to get tool values to saving published map.
+* validate(): This is used to validate tool when saving published map.
+
+The panels title is fetched from localization `Publisher2` with key `BasicView.[group].label`. The tool label is fetched 
+with key `BasicView.[group].[tool name]` where tool name is returned by `getTool().name`.
+
+    "BasicView" : {
+        ...
+        "maptools" : {
+            "label" : "Tools",
+            "MyTool" : "The UI text for the tool" 
+            ...
+       }
+       ...
+    }
+        
 ## Bundle state
 
 No statehandling has been implemented.
-
-## PublisherTools state
-
-Published map tools state is managed by the PublisherToolsForm. When starting the Publisher bundle, the PublisherToolsForm uses the default state configs. These are preset with the preset state configs. The toolbar and publishedmyplaces2 configs are changed using the tools form (UI) and stored when published. When editing an existing published map, the PublisherToolsForm uses the default state configs and loads the stored state configs. The toolbar and publishermyplaces2 configs are changed using the tools form (UI) and uses the same preset default state config values instead of using the stored values as preset.
-
-![publishertools](/images/bundles/publisher_toolsform.png)
-
-Default values has no tools selected and can be used to reset the tools state configs.
-
-Preset values allow typically used tools to be selected as a result of activating another tool setting. E.g. selecting draw tools also selects all types of draw tools.
 
 ## Requests the bundle handles
 <table class="table">
@@ -193,7 +135,7 @@ Preset values allow typically used tools to be selected as a result of activatin
   <th> Request </th><th> Where/why it's used</th>
 </tr>
 <tr>
-  <td> publisher.PublishMapEditorRequest </td><td>Enables users to modify the publish maps</td>
+  <td> publisher.PublishMapEditorRequest </td><td>Enables users open the publisher with existing published map to modify it</td>
 </tr>
 </table>
 
