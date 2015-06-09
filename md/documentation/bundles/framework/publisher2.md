@@ -159,6 +159,20 @@ The `Oskari.mapframework.publisher.Tool` protocol needs implement following func
 * getValues(): This is used to get tool values to saving published map.
 * validate(): This is used to validate tool when saving published map.
 
+## Bundle modes
+
+Bundle handles different map modes when changing map size.
+The currently selected map mode is transmitted to all panels where have implemented setMode(mode) function and there panel handles this mode change.
+For example PanelMapTools handles this so at this call setMode(mode) function to all tools where have a implemented setMode() function.
+
+Currently supported modes are:
+* small
+* medium
+* large
+* fill
+* custom
+
+
 ## Bundle state
 
 No statehandling has been implemented.
