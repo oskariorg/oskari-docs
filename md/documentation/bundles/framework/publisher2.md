@@ -132,7 +132,7 @@ The publisher provides some default tools:
 - zoombar
 - search
 - my location
-
+- controls (moving map by dragging/keyboard)
 
 ## Bundle state
 
