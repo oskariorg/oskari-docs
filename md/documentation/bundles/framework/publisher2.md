@@ -57,6 +57,9 @@ Some configuration is needed for URLs:
 
 ## Bundle Panels
 
+All panels needs implement following functions:
+* getValues(): This is used to gather selected values from current panel. For example in `Tools panel` this function gather all tools selected values and return a config.
+
 ### General information panel
 
 The first panel of the publisher.
@@ -89,6 +92,7 @@ The `Oskari.mapframework.publisher.Tool` protocol needs implement following func
  - id is the Oskari class name
  - name is used as part of the localization key (see below)
  - config is the tool configuration
+* getValues(): This is used to gather selected values.
 
 ```javascript
 getTool: function() {
