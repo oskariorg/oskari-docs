@@ -14,6 +14,7 @@
 
 - Make sure the upgrade scripts have proper error handling. Database environments may vary as the content in the database. 
  It's always better to check things instead of assuming.
+- Keep upgrade scripts small. The smaller they are the less can go wrong.
 
 ## Script naming
  

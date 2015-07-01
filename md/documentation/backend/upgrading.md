@@ -158,6 +158,9 @@ provide alternatives, you can specify a comma-separated list in `oskari-ext.prop
 
     db.myapplication.script.locations=/flyway/myapplication,/upgrade/scripts/in/here/also
 
+Note! If you define a custom module it needs to have at least one upgrade script (in each script location). 
+Otherwise Flyway will log it as an error.
+
 ### Examples
 
 #### ASDI
