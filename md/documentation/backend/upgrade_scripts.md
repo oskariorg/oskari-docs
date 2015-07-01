@@ -6,6 +6,9 @@
  script will result in a migration error.
 - Don't link tables between migration modules. Modules are considered to be standalone and constraints between them
  are likely to cause problems.
+- Be very careful when doing updates to database content. Other than registering new bundles to portti_bundle almost 
+ any content-related updated should be done in an application module. F.ex. adding bundles to views etc are application
+ specific updates.
 
 ## DO's
 
