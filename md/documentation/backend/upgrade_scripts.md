@@ -23,9 +23,17 @@ File naming is important since migration scripts are located and versioned by na
 - for SQL scripts the file extension is `.sql` and saved in a folder `/flyway/[module]`
 - for Java upgrades the package needs to be `flyway.[module`] where core Oskari upgrades are `flyway.oskari`
 
-In a basic maven setup this will result in files like:
+In a basic maven setup this will result in files like these:
 - `oskari-server/content-resouces/src/main/resources/flyway/oskari/V1_31_0__Adding_mycolumn_for_mytable.sql`
 - `oskari-server/content-resouces/src/main/java/flyway/oskari/V1_31_1__Populating_mycolumn_from_CSV.java`
+
+Existing scripts can be found in Github:
+
+ - SQL: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/resources/flyway
+ - Java: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/java/flyway
+ 
+Application-specific upgrade example:
+- Java: https://github.com/arctic-sdi/oskari-server-extensions/tree/develop/server-extension/src/main/java/flyway/asdi
 
 Note the script locations can be changed by configuration as described in the [Upgrading](upgrading) document.
 
