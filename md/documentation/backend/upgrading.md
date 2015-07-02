@@ -1,6 +1,6 @@
 # Upgrading
 
-When upgrading the Oskari version the database schema needs to be upgraded as well. As of version 1.31.0 Oskari-server 
+When upgrading Oskari version the database schema needs to be upgraded as well. As of version 1.31.0 Oskari-server 
 will be upgraded an existing database automatically using http://flywaydb.org/. This requires a manual upgrade to
  1.30.0 database schema using steps described at the end of this document.
 
