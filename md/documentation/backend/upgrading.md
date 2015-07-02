@@ -1,9 +1,12 @@
 # Upgrading
 
-As of version 1.31.0 Oskari-server uses automatic migration with http://flywaydb.org/. This is done when the updated 
-webapp is started. The software version is recorded into the database and each upgrade script that is tagged with a
-  later version is executed in versioning sequence on startup and the current database status is updated so the next
-  startup won't trigger the same upgrades.
+When upgrading the Oskari version the database schema needs to be upgraded as well. As of version 1.31.0 Oskari-server 
+will be upgraded an existing database automatically using http://flywaydb.org/. This requires a manual upgrade to
+ 1.30.0 database schema using steps described at the end of this document.
+
+The migration happens when the updated webapp is started. The software version is recorded into the database and each
+ upgrade script that is tagged with a later version is executed in version sequence on startup and the current
+  database status is updated so the next startup won't trigger the same upgrades.
 
 The upgrade is done with a modular setup with these default modules:   
  - `oskari`: this is the base database for Oskari
@@ -135,12 +138,24 @@ This shows that:
 
 The next script that updates the `userlayer` module needs to be named with a bigger version number for example `V1_0_3__upgrade.sql` or `V1_1__upgrade.sql`.
 
-## To upgrade application specific database/data
+## Advanced: upgrade application specific database/data
 
-Applications can opt-in to use the automatic upgrade by defining an application module in `oskari-ext.properties`:
+Any customized application can setup the automatic migration by adding some configurations in `oskari-ext.properties` and 
+providing the application specific upgrade scripts. Applications are treated as modules that can opt-in on using the
+ automatic upgrade by defining a module in `oskari-ext.properties` (here we add a module called `myapplication`):
 
     db.additional.modules=myplaces,analysis,userlayer,myapplication
     
+By default a modules upgrade scripts are discovered from classpath in location `/flyway/[module]`. This includes both SQL 
+and Java upgrade-files so for Java the package needs to be `flyway.module`. If you want to change the default script location or 
+provide alternatives, you can specify a comma-separated list in `oskari-ext.properties`:
+
+    db.myapplication.script.locations=/flyway/myapplication,/upgrade/scripts/in/here/also
+
+Note! If you define a custom module it needs to have at least one upgrade script (in each script location). 
+Otherwise Flyway will log it as an error. Instructions for writing scripts can be found in the
+ [Writing upgrade scripts](upgrade_scripts) document.
+
 If the application uses another datasource than the default you need to configure it with `oskari-ext.properties`:
 
     db.myapplication.jndi.name=jdbc/MyApplicationDS
@@ -152,14 +167,6 @@ If you want to use another table name than `oskari_status_[module]` you can over
 
     db.myapplication.status_table=my_status_table_name
 
-By default a modules upgrade scripts are discovered from classpath in location `/flyway/[module]`. This includes both SQL 
-and Java upgrade-files so for Java the package needs to be `flyway.module`. If you want to change the default script location or 
-provide alternatives, you can specify a comma-separated list in `oskari-ext.properties`:
-
-    db.myapplication.script.locations=/flyway/myapplication,/upgrade/scripts/in/here/also
-
-Note! If you define a custom module it needs to have at least one upgrade script (in each script location). 
-Otherwise Flyway will log it as an error.
 
 ### Examples
 

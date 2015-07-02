@@ -44,3 +44,4 @@ Note the script locations can be changed by configuration as described in the [U
 For more information:
 - [Upgrading](upgrading) document
 - Flyway documentation: http://flywaydb.org/
+- The database migration is triggered in class fi.nls.oskari.map.servlet.OskariContextInitializer (under oskari-server/servlet-map).
