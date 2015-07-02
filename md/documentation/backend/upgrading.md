@@ -2,7 +2,8 @@
 
 When upgrading Oskari version the database schema needs to be upgraded as well. As of version 1.31.0 Oskari-server 
 will be upgraded an existing database automatically using http://flywaydb.org/. This requires a manual upgrade to
- 1.30.0 database schema using steps described at the end of this document.
+ 1.30.0 database schema using steps described at the end of this document. After this the upgrade is automatic and
+ the purpose of this document is to describe the procedure and provide insight for debugging on possible error scenarios.
 
 The migration happens when the updated webapp is started. The software version is recorded into the database and each
  upgrade script that is tagged with a later version is executed in version sequence on startup and the current
@@ -137,6 +138,7 @@ This shows that:
  - Java upgrade has been performed that by descriptions inserts some id for userlayerdata - resulting the database version 1.0.2
 
 The next script that updates the `userlayer` module needs to be named with a bigger version number for example `V1_0_3__upgrade.sql` or `V1_1__upgrade.sql`.
+Versions can technically skip from 1.0 to 37.2.26 with no issues, but the version should follow the software version as convention.
 
 ## Advanced: upgrade application specific database/data
 
