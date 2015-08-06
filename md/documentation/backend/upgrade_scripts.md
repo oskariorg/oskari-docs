@@ -28,8 +28,8 @@ File naming is important since migration scripts are located and versioned by na
 - for Java upgrades the package needs to be `flyway.[module`] where core Oskari upgrades are `flyway.oskari`
 
 In a basic maven setup this will result in files like these:
-- `oskari-server/content-resouces/src/main/resources/flyway/oskari/V1_31_0__Adding_mycolumn_for_mytable.sql`
-- `oskari-server/content-resouces/src/main/java/flyway/oskari/V1_31_1__Populating_mycolumn_from_CSV.java`
+- `oskari-server/content-resouces/src/main/resources/flyway/oskari/V1_31_0__add_mycolumn_for_mytable.sql`
+- `oskari-server/content-resouces/src/main/java/flyway/oskari/V1_31_1__populate_mycolumn_from_CSV.java`
 
 Existing scripts can be found in Github:
 
