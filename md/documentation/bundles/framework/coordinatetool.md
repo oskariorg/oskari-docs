@@ -11,7 +11,7 @@
 
 ## Description
 
-This bundle provides a plugin (Oskari.mapframework.bundle.coordinatetool.plugin.CoordinatesPlugin) for mapmodule that can:
+This bundle provides a plugin (Oskari.mapframework.bundle.coordinatetool.plugin.CoordinateToolPlugin) for mapmodule that can:
 * shows coordinates on mouse location
 * shows coordinates on mouse map click
 * center map to given coordinates
