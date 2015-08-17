@@ -19,18 +19,18 @@ The Bundle provides a grid view for WFS object data.
 
 ## Bundle configuration
 
-No configuration is required, but setting selectionTools to true will add a new button to toolbar that opens a selection tool dialog.
-
-Using selection tools the user can get wfs grid data from smaller area than whole screen.
-
-Selection tool can be simplified by setting singleSelection to true. This makes the dialog more simple and selection tool makes the filtering straight after defining the geometry. Only single geometry can be given per filter with this option.
+No configuration is required, but there are two possible configurations:
 
 ```javascript
 {
   "selectionTools" : true,
-  "singleSelection" : true
+  "disableExport" : true
 }
 ```
+
+Setting selectionTools to true will add a new button to toolbar that opens a selection tool dialog. Using selection tools the user can select features by drawing point or area. Features that are inside or intersect the drawn area are selected.
+
+Setting disableExport to true will remove Export button from the feature data grid and thereby will disable exporting of feature data.
 
 ## Bundle state
 
