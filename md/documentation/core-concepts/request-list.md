@@ -19,11 +19,16 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`AddMapLayerRequest`</td>
             <td>Adds a layer to the map</td>
             <td>`core`</td>
-        </tr>
+        </tr>        
         <tr>
             <td>[MapModulePlugin.AddMarkerRequest](/documentation/requests/addmarkerrequest)</td>
             <td>Add/modify marker on map</td>
             <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
+        </tr>
+        <tr>
+            <td>`AddSearchResultActionRequest`</td>
+            <td>Updates the metadata catalogue search results list to show action element</td>
+            <td>`catalogue/metadatacatalogue`</td>
         </tr>
         <tr>
             <td>`analyse.AnalyseRequest`</td>
@@ -261,6 +266,11 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`framework/featuredata2`</td>
         </tr>
         <tr>
+            <td>[ShowFilteredLayerListRequest](/documentation/requests/showfilteredlayerlistrequest)</td>
+            <td>Shows filtered layer list.</td>
+            <td>[framework/layerselector2](/documentation/bundles/framework/layerselector2)</td>
+        </tr>
+        <tr>
             <td>`ShowMapLayerInfoRequest`</td>
             <td></td>
             <td>`core`</td>
@@ -364,11 +374,6 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`userinterface.UpdateExtensionRequest`</td>
             <td>Updates the state of an extension (eg. 'attach' for a Flyout, which opens it)</td>
             <td>`framework/divmanazer`</td>
-        </tr>
-        <tr>
-            <td>`AddSearchResultActionRequest`</td>
-            <td>Updates the metadata catalogue search results list to show action element</td>
-            <td>`catalogue/metadatacatalogue`</td>
         </tr>
     </tbody>
 </table>

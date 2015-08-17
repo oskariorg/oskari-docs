@@ -20,11 +20,12 @@ The bundle offers the user a listing for all the maplayers available in Oskari. 
 
 ## Screenshot
 
-![screenshot](/images/bundles/layerselector.png)
+![screenshot](/images/bundles/layerselector2.png)
 
 ## Bundle configuration
 
 No configuration is required. Assumes that MapLayerService has been initialized and can be fetched from sandbox.
+If there is no configuration, showing layer filter buttons.
 
 Optional configuration to show published layers tab:
 
@@ -32,7 +33,8 @@ Optional configuration to show published layers tab:
 {
   "conf": {
     "showPublishedTab" : true,
-    showSearchSuggestions : true     // if keyword search on, if needed
+    "showSearchSuggestions" : true,  // if keyword search on, if needed
+    "hideLayerFilters": false
   }
 }
 ```
@@ -59,7 +61,15 @@ If filter is given, open groups will be ignored. If filter is undefined, groups 
 
 ## Requests the bundle handles
 
-This bundle doesn't handle any requests.
+<table class="table">
+  <tr>
+    <th>Request</th><th> Where/why it's used</th>
+  </tr>
+  <tr>
+    <td>ShowFilteredLayerListRequest</td><td>Shows filtered layer list.</td>
+  </tr>
+</table>
+
 
 ## Requests the bundle sends out
 
