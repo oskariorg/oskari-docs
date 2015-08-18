@@ -375,5 +375,10 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>Updates the state of an extension (eg. 'attach' for a Flyout, which opens it)</td>
             <td>`framework/divmanazer`</td>
         </tr>
+        <tr>
+            <td>[AddLayerListFilterRequest](/documentation/requests/addlayerlistfilterrequest)</td>
+            <td>Add filter button to layer list.</td>
+            <td>[framework/layerselector2](/documentation/bundles/framework/layerselector2)</td>
+        </tr>
     </tbody>
 </table>
