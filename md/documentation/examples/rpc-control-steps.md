@@ -20,7 +20,7 @@ Replacing typed address with clickable map
 
 ```html
 	<iframe id="publishedMap"
-        src="http://54.75.147.57/?lang=en&uuid=8b3bd609-b098-4b7f-8c39-02e201914ddf"
+        src="http://54.195.254.125/?lang=en&uuid=8b3bd609-b098-4b7f-8c39-02e201914ddf"
         style="border: none; width: 100%; height: 100%;"></iframe>
 ```
 
@@ -52,7 +52,7 @@ IN:
 
 ```javascript
 	// constants
-    var IFRAME_DOMAIN = 'http://54.75.147.57';
+    var IFRAME_DOMAIN = 'http://54.195.254.125';
 
     // Referenced HTML-elements
     var elements = {
