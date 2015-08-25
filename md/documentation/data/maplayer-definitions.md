@@ -30,7 +30,9 @@ WFS layer is based on features described with GML as opposed to WMS image tiles.
 
 WFS layers can be queried and data for the features displayed in the view port can be shown on a data table. WFS features can also be highlighted by clicking them on map or by selecting it in the data table. This functionality is implemented in bundles `mapwfs2` (display) and `featuredata` (data table).
 
-See [here](https://github.com/nls-oskari/oskari/blob/master/docs/md/architecture/wfs.md) and [here](http://demo.paikkatietoikkuna.fi/Oskari/1.12/docs/architecture/wfs.html) for more complete documentation.
+See [here](https://github.com/nls-oskari/oskari/blob/master/docs/md/architecture/wfs.md) and [here](http://oskari.org/documentation/architecture/wfs) for more complete documentation.
+
+[data format explained](/documentation/data/wfs-layer)
 
 ### WMTS Layer
 
@@ -54,7 +56,11 @@ Work in progress
 
 ### ArcGIS Layer
 
-Work in progress
+Layer type `arcgis93layer`  is for ArcGis rest service. Rendering and GFI is supported. Use `Map Layer Administration` module to add ArcGis layers.
+
+GFI is not supported for ArcGis Rest group layer
+
+[data format explained](/documentation/data/arcgis93layer)
 
 ## Extending with custom type
 
