@@ -20,7 +20,17 @@ This bundle provides a plugin (Oskari.mapframework.bundle.coordinatedisplay.plug
 
 ## Bundle configuration
 
-No configuration is required.
+## Bundle configuration
+
+No configuration is required, but there is one possible configuration:
+
+```javascript
+{
+  "roundToDecimals" : 2
+}
+```
+
+Setting roundToDecimals to wanted number will coordinates rounded by wanted decimal plates. 
 
 ## Bundle state
 
