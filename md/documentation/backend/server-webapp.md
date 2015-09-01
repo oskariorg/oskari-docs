@@ -9,6 +9,10 @@ Webapp-map has been tested in:
  * Jetty Hightide 8.1.14
  * Tomcat 8.0.5 (JAAS configuration is unavailable for tomcat at this point)
 
+## Preconfigured Jetty
+
+Preconfigured and compiled Jetty can be downloaded from [Download page](/download) to see the latest version
+
 ### Assumes pre-installed:
 
 * JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)
