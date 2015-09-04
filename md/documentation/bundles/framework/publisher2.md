@@ -76,11 +76,8 @@ The currently selected map mode is transmitted to all panels where have implemen
 For example PanelMapTools handles this so at this call setMode(mode) function to all tools where have a implemented setMode() function.
 
 Currently supported modes are:
-* small
-* medium
-* large
-* fill
-* custom
+* mobile
+* full
 
 ### Tool panels
 
@@ -104,17 +101,18 @@ getTool: function() {
 }
 ```
     
-* setEnabled(enabled): This is used to enable or disable tool (checkbox functionality)
+* setEnabled(enabled): This is used to enable or disable tool (checkbox functionality). This function change tool state.enabled variable to true/false to handing tool state. For example tool getValues() function checks it and if tools state is enebled then return tool JSON, otherwise return null.
 * getExtraOptions(): This is used to add extra options to tool. This function returns jQuery element to add after to tool checkbox. If null then nothing added.
 * getName(): This is used to show tool name in checkbox label. 
 * isDisplayedInMode(mode): This is used for checking if tool is showed in mode (mobile/full).
-* isDisplayed(): This is used to check at is the tool displayed. For example, depending on the state of map.
+* isDisplayed(): This is used to check at is the tool displayed. For example, depending on the state of map or depending of selected layers (ShowStatsTableTool).
 * setMode(mode): This sets tool to wanted mode (see Map size panel).
 * getGroup(): This is used to get tool group (what panel tool appears)
 * getIndex(): This is used to get tool index in group. A smaller number is upper and higher number is lower.
 * getAllowedLocations(): This is used to get tool allowed locations.
 * getValues(): This is used to get tool values to saving published map.
 * validate(): This is used to validate tool when saving published map.
+* isStarted(): This is used to check at if tool plugin has started. If plugin has started then we can call plugin stop function when disabling tool. When plugin starts, change tool __started variable to true, when stopped change it to false.
 
 The panels title is fetched from localization `Publisher2` with key `BasicView.[group].label`. The tool label is fetched 
 with key `BasicView.[group].[tool name]` where tool name is returned by `getTool().name`.
