@@ -29,6 +29,12 @@
 * `styles {Object[]}`: Style options for the layer, title is shown in ui, name is used for layer operations, legend is style specific legendImage (optional)
 * `params {Object}`: `OpenLayers.Layer.WMS` params (optional)
 * `options {Object}`: `OpenLayers.Layer.WMS` options (optional)
+* `attributes {Object}`: `Extra attributes for Oskari layer e.g. heatmap params (WMS) or manual-refresh-mode (WFS)` (optional)
+* `realtime {Boolean}`: `Is WMS layer managed as real time layer` (optional, default false)
+* `refreshRate {Number}`: `Refresh rate for realtime WMS-layer (unit min) (optional, default 0)
+* `srs_name {String}`: Supported coordinate reference system for WMS layer
+* `version {String}`:  WMS service version 1.3.0 or 1.1.1
+* `updated {Date}`:  Last update in WMS layer definiton data in oskari_maplayer table
 
 ## Sample data
 ```json
@@ -78,5 +84,48 @@
         "name":"style-id-203"
      }
   ]
+}
+```
+
+
+```json
+{
+attributes: {},
+baseLayerId: -1,
+created: "2015-04-15T15:04Z",
+dataUrl_uuid: "3018dc34-cb48-4ce3-ad3e-24f83afcc03a",
+formats: {
+	value: "text/html",
+	available: ["text/html", "text/plain", "application/vnd.ogc.gml"]
+},
+geom: "POLYGON ((-28465.09977713914 6561743.172749533, 676613.827779925 6529420.701555437, 610260.5731762389 7899947.404660257, 170485.38149829634 7922212.34012629, -28465.09977713914 6561743.172749533))"
+gfiContent: "",
+id: 1303,
+inspire: "Korkeus",
+isQueryable: true,
+layerName: "syvyyskayra_v",
+legendImage: "",
+name: "Syvyyskäyrät",
+opacity: 100,
+options: {},
+orgName: "Liikennevirasto",
+params: {},
+permissions: {
+	publish: "no_publication_permission"
+},
+realtime: false,
+refreshRate: 0,
+style: "",
+styles: [{
+	title: "Syvyyskäyrä",
+    continue: "..."
+}],
+subtitle: "",
+type: "wmslayer",
+updated: "2015-04-15T15:04Z",
+url: "/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&id=1303&action_route=GetLayerTile",
+version: "1.3.0",
+wmsName: "syvyyskayra_v",
+wmsUrl: "https://extranet.liikennevirasto.fi/inspirepalvelu/rajoitettu/wms"
 }
 ```
