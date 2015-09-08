@@ -16,7 +16,7 @@ This bundle provides a new search tab. These search are created to defined WFS s
 
 ## Screenshot
 
-![screenshot](/images/bundles/coordinatetool.png)
+![screenshot](/images/bundles/searchfromchannels.png)
 
 
 ## Bundle configuration
