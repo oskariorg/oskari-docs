@@ -1,18 +1,18 @@
-# Coordinate Display
+# Search From Channels
 
 <table class="table">
   <tr>
-    <td>ID</td><td>coordinatetool</td>
+    <td>ID</td><td>search-from-channels</td>
   </tr>
   <tr>
-    <td>API</td><td>[link](/api/latest/classes/Oskari.mapframework.bundle.coordinatetool.CoordinateToolBundleInstance.html)</td>
+    <td>API</td><td>[link](/api/latest/classes/Oskari.tampere.bundle.searchfromchannels.SearchFromChannelsBundleInstance.html)</td>
   </tr>
 </table>
 
 ## Description
 
-This bundle provides a new search tab. These search are created to defined WFS service.
-
+This bundle provides a new search tab. 
+In additional options user can select a channel which to search.
 
 ## Screenshot
 
@@ -29,14 +29,7 @@ No statehandling has been implemented.
 
 ## Requests the bundle handles
 
-<table class="table">
-  <tr>
-    <th> Request </th><th> Where/why it's used</th>
-  </tr>
-  <tr>
-    <td>`AddSearchResultActionRequest`</td><td> Updates the search results list to show action element.</td>
-  </tr>
-</table>
+This bundle doesn't handle any requests.
 
 ## Requests the bundle sends out
 
