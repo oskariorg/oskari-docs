@@ -1,5 +1,9 @@
 # Configuring Jetty Hightide 8.1.14 for Oskari
 
+## Preconfigured Jetty
+
+Preconfigured Jetty can be downloaded from [Download page](/download) to see the latest configurations
+
 ## Setting up Jetty Hightide 8.1.14
 
 1) Download http://dist.codehaus.org/jetty/jetty-hightide-8.1.14/

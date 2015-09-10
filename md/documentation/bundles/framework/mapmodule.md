@@ -49,7 +49,11 @@ Configuration can be given when constructing the mapmodule through constructor c
         "top" :  8388608
     },
     "units" : "m",
-    "srsName" : "EPSG:3067"
+    "srsName" : "EPSG:3067",
+    "openLayers" : {
+        "imageReloadAttemps": 5,
+        "onImageLoadErrorColor": "transparent"
+    }
 }
 ```
 

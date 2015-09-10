@@ -75,6 +75,9 @@ This plugin doesn't handle any requests.
   <tr>
     <td> WFSImageEvent </td><td> Adds image into OpenLayer's layer. </td>
   </tr>
+  <tr>
+    <td>  WFSRefreshManualLoadLayersEvent </td><td> Refresh wfs-layers, which are flagged to be rendered on demand (manual-refresh) </td>
+   </tr>
 </table>
 
 ## Events the plugin sends out

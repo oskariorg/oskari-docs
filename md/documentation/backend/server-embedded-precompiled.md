@@ -5,6 +5,10 @@ or deploying servlets to existing servlet container. It uses precompiled code to
 
 Standalone Oskari server depends on PostgreSQL with PostGIS extension for serving content and authenticating users.
 
+## THIS GUIDE IS DEPRECATED AS OF 1.31.0.
+
+Use the Jetty bundle packaging instead [Download page](/download)
+
 ### Assumes:
 
 * pre-installed: JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)

@@ -140,6 +140,53 @@ This shows that:
 The next script that updates the `userlayer` module needs to be named with a bigger version number for example `V1_0_3__upgrade.sql` or `V1_1__upgrade.sql`.
 Versions can technically skip from 1.0 to 37.2.26 with no issues, but the version should follow the software version as convention.
 
+### Note! Database locking
+
+When flyway begins the migration it starts a database transaction that locks the status table. If the migration takes a long time or is broken and you decide to 
+kill the server before the migration is done the status table lock will remain. This kind of lock can be removed manually like this in Postgres 9.3:
+
+1) Create a view that lists the locked tables
+
+    CREATE VIEW blocking_procs AS
+    SELECT 
+      kl.pid as blocking_pid,
+      ka.usename as blocking_user,
+      ka.query as blocking_query,
+      bl.pid as blocked_pid,
+      a.usename as blocked_user, 
+      a.query as blocked_query, 
+      to_char(age(now(), a.query_start),'HH24h:MIm:SSs') as age
+    FROM pg_catalog.pg_locks bl
+      JOIN pg_catalog.pg_stat_activity a 
+      ON bl.pid = a.pid
+      JOIN pg_catalog.pg_locks kl 
+      ON bl.locktype = kl.locktype
+        and bl.database is not distinct from kl.database
+        and bl.relation is not distinct from kl.relation
+        and bl.page is not distinct from kl.page
+        and bl.tuple is not distinct from kl.tuple
+        and bl.virtualxid is not distinct from kl.virtualxid
+        and bl.transactionid is not distinct from kl.transactionid
+        and bl.classid is not distinct from kl.classid
+        and bl.objid is not distinct from kl.objid
+        and bl.objsubid is not distinct from kl.objsubid
+        and bl.pid <> kl.pid 
+      JOIN pg_catalog.pg_stat_activity ka 
+      ON kl.pid = ka.pid
+    WHERE kl.granted and not bl.granted
+    ORDER BY a.query_start;
+
+2) List the locks
+
+    SELECT * FROM blocking_procs;
+
+3) Kill the process that is holding the lock:
+
+    SELECT pg_terminate_backend([blocking_pid]);
+
+When your server starts and logs the "checking DB status" message and seems stuck there you might have this kind of lock in the database.
+If you see the "migrated successfully" message for each module, then it's something else.
+
 ## Advanced: upgrade application specific database/data
 
 Any customized application can setup the automatic migration by adding some configurations in `oskari-ext.properties` and 

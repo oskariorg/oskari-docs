@@ -18,6 +18,39 @@ JSON handling is partly done with CometDs parameter handling but mostly with Jac
 
 WFS2 backend is hosted with Jetty. CometDs Websocket is supported from Jetty 7. WFS2 doesn't make any other restrictions for choosing platform than what CometD needs.
 
+## Rendering and data request
+
+By default WFS layers are rendered on a map and feature data is retreaved when layer is selected in Oskari application.
+
+There are various setups to override this default behaviour
+<table class="table table-striped">
+<table class="table table-striped">
+	<tr>
+		<th>Table</th>
+		<th>column</th>
+		<th>value</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>portti_wfs_layer</td>
+    	<td>get_map_tiles</td>
+    	<td>false (default true)</td>
+    	<td>WFS-layer is not rendered on a map</td>
+	</tr>
+	<tr>
+    	<td>portti_wfs_layer</td>
+        <td>get_feature_info</td>
+        <td>false (default true)</td>
+        <td>Feature data is not retreaved for WFS-layer on a map</td>
+    </tr>
+    	<tr>
+        	<td>oskari_maplayer</td>
+            <td>attributes</td>
+            <td>{"manualRefresh":true}</td>
+            <td>Rendering WFS-layer and retreaving feature data is managed by user request in Oskari application</td>
+        </tr>
+</table>
+
 ## Interfaces
 
 The channels have been separated so that all the information coming to the server go through service channels and information to the clients are sent through normal channels. Service channels are sort of 'setters' and client channels are 'getters'. Also Bayeux protocol adds additional meta channels that send information about the client's connection state.
@@ -357,6 +390,11 @@ Doesn't return anything
 		<td>ArrayList&lt;ArrayList&lt;Double&gt;&gt;</td>
 		<td>bounds of tiles to render</td>
 	</tr>
+	<tr>
+       		<td>location.manualRefresh</td>
+      		<td>boolean</td>
+     		<td>reder the requested layer and get wfs data, if wfs layer mode is manual refresh</td>
+    </tr>
 </table>
 
 ##### Example
@@ -923,8 +961,6 @@ Client channels are used to send information from the server to the client. Most
 	</tr>
 </table>
 
-By default, the geometry data is excluded from features as well as the following GML properties: boundedBy, description, location, metaDataProperty and name.
-
 ##### Examples
 
 ###### normal send
@@ -1217,6 +1253,10 @@ Function listening to MapLayerVisibilityChangedEvent calls for Mediator's setMap
 ### Changing a WFS layer's opacity - AfterChangeMapLayerOpacityEvent
 
 Function listening to MapLayerVisibilityChangedEvent updates Openlayer's layer opacity. This functionality doesn't communicate with backend at all.
+
+### Refreshing/rendering manual WFS layer - WFSRefreshManualLoadLayersEvent
+
+Calls for Mediator's setLocation() with isManualRefresh : true property. Render manual wfs layer and retreave feature data on that location.
 
 ### Finishing selection tool - WFSSetFilter
 
