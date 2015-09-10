@@ -57,22 +57,24 @@ block main
 
         div.panel-body
           div.panel.panel-warning
+              div.panel-body
+                :markdown
+                  #### Oskari team is taking part to FOSS4G in Seoul 14.-18.9.!
+                    [![FOSS4G](/images/foss4g2015_logo.png)](http://2015.foss4g.org/)
+                    
+                    Oskari presentations:
+                    * Wednesday: 
+                     * Technical introduction to Oskari - A Modular web mapping application framework!
+                    * Friday: 
+                     * Map publishing with or without programming skills
+                     * How to build a succesful co-operation around your FOSS software - case Oskari
+          div.panel.panel-warning
             div.panel-body
               :markdown
                 #### Thank you all Oskari Challenge participants!
                   The best will be prized in Oskari day at 19th May.
 
                   [Oskari Challenge](/challenge)
-
-          div.panel.panel-warning
-            div.panel-body
-              :markdown
-                #### Security issue found in versions 1.24.0-1.24.4!
-                  The preprocess-method call was commented out on Oskari versions 1.24.0-1.24.4. This is a serious security issue as many of the admin functionalities depend on preprocess() to check that the user is an admin. On affected versions even Guest-users can use the admin functionalities.
-
-                  We recommend you to update your application to version 1.24.5 to avoid this security risk. 
-
-                  Hotfix available: https://github.com/nls-oskari/oskari-server/blob/master/ReleaseNotes.md#1245---security-patch
 
           div.panel.panel-warning
             div.panel-body
