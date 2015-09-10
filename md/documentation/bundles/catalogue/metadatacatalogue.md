@@ -15,7 +15,19 @@ Bundle provides metadata catalogue search functionality for the map.
 
 ## Bundle configuration
 
-No configuration is required.
+No configuration is required, but there is two possible configurations:
+
+```javascript
+{
+  "hideMetadataXMLLink" : true,
+  "hideMetaDataPrintLink": true
+}
+```
+
+Setting hideMetadataXMLLink to true will hide metadata XML link (ISO 19139 XML -file).
+
+Setting hideMetaDataPrintLink to true will hide print link.
+
 
 ## Bundle state
 
