@@ -20,15 +20,15 @@ After this you will have Oskari running including
 
 2) Unpack the zip file to selected location
 
-The zip includes README.txt, KnownIssues.txt and the Jetty folder (referred as `{jetty.home}`)
+The zip includes README.txt, KnownIssues.txt and the Jetty folder (referred as `{JETTY_HOME}`)
 
-3) Configure the database properties (host/credentials) by editing `{jetty.home}/resources/oskari-ext.properties`
+3) Configure the database properties (host/credentials) by editing `{JETTY_HOME}/resources/oskari-ext.properties`
 
     db.url=jdbc:postgresql://[host]:[port]/[dbname]
     db.username=[user]
     db.password=[passwd]
 
-4) Startup the Jetty by running (in `{jetty.home}`)
+4) Startup the Jetty by running (in `{JETTY_HOME}`)
 
     java -jar start.jar
 
@@ -45,7 +45,7 @@ You can login as:
 
 ### Defaults/assumptions
 
-The preconfigured Jetty uses these defaults. These can be changed by modifying `{jetty.home}/resources/oskari-ext.properties`.
+The preconfigured Jetty uses these defaults. These can be changed by modifying `{JETTY_HOME}/resources/oskari-ext.properties`.
 
 Redis:
 - redis running on localhost at default port (6379)
@@ -67,22 +67,27 @@ Oskari (provided in jetty bundle)
 
 ## Custom configurations
 
+### Editing article content
+
+- User guide: edit the file in {JETTY-HOME}/resources/articlesByTag/userguide.html
+- Publisher terms of use: edit the file in {JETTY-HOME}/resources/articlesByTag/termsofuse__mappublication__en.html
+
 ### Changing the default port
 
-- change in `{jetty.home}/etc/jetty.xml`
+- change in `{JETTY_HOME}/etc/jetty.xml`
     
     <Call name="addConnector">
       <Arg>
           <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
             <Set name="port"><Property name="jetty.port" default="8080"/></Set>
 
-- change `{jetty.home}/resources/oskari-ext.properties` where ever `8080` is referenced 
-- change `{jetty.home}/resources/transport-ext.properties` where ever `8080` is referenced 
+- change `{JETTY_HOME}/resources/oskari-ext.properties` where ever `8080` is referenced 
+- change `{JETTY_HOME}/resources/transport-ext.properties` where ever `8080` is referenced 
 - check the "Using external Geoserver" below (also refers to localhost:8080 port)
 
 ### Proxy settings
 
-If you need a proxy to access internet you can configure it in `{jetty.home}/start.ini`
+If you need a proxy to access internet you can configure it in `{JETTY_HOME}/start.ini`
 
 	-Dhttp.proxyHost=
 	-Dhttp.proxyPort=
@@ -92,7 +97,7 @@ If you need a proxy to access internet you can configure it in `{jetty.home}/sta
 	-Dhttps.nonProxyHosts=
 
 ### Database url/name/user/pass are changed
-`{jetty.home}/resources/oskari-ext.properties` needs to be updated
+`{JETTY_HOME}/resources/oskari-ext.properties` needs to be updated
 
 	db.url=jdbc:postgresql://[host]:[port]/[dbname]
 	db.username=[user]
@@ -101,12 +106,16 @@ If you need a proxy to access internet you can configure it in `{jetty.home}/sta
 Stores in geoserver needs to be updated and re-enabled for myplaces/analysis/userlayers to work
 
 ### Using external Geoserver
-- `{jetty.home}/resources/oskari-ext.properties` needs to be updated (multiple geoserver references)
+- `{JETTY_HOME}/resources/oskari-ext.properties` needs to be updated (multiple geoserver references)
 - layers pointing to local geoserver in database needs to be updated (table: oskari_maplayer - columns: url, username and password)
 
 ### Using external Redis
-`{jetty.home}/resources/oskari-ext.properties` needs to be updated 
+`{JETTY_HOME}/resources/oskari-ext.properties` needs to be updated 
 
 	redis.hostname=localhost
 	redis.port=6379
 	redis.pool.size=10
+
+### How the Jetty bundle was built
+
+See [here](/documentation/backend/creating-jetty-bundle) for details
