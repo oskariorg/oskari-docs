@@ -15,12 +15,12 @@ Preconfigured and compiled Jetty can be downloaded from [Download page](/downloa
 
 ### Assumes pre-installed:
 
-* JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)
+* JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05, should run on OpenJDK as well)
 * Cygwin32 or 64, if Windows environment (Windows 7 tested)
 * [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * Git client
-* database available: [Instructions for setting up database](/documentation/backend/database-create)
-* existing server: [Instructions for setting up Jetty](/documentation/backend/server-configuration-jetty)
+* database available: [Instructions for setting up database](/documentation/backend/setup-database)
+* existing server: [Instructions for setting up Jetty](/documentation/backend/setup-jetty)
 
 ## 1. Fetch Oskari source code
 

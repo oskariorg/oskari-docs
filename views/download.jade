@@ -8,13 +8,13 @@ block main
         div.col-md-12
             div.panel.panel-warning
                 div.panel-heading
-                    h4 Oskari including both backend and frontend
+                    h4 Jetty bundle
 
-                    div NOTE! Assumes pre-installed JDK 1.7+ and database available:
-                        a( href="/documentation/backend/database-create")  Instructions for setting up database
+                    div Instructions on how to run and configure Oskari Jetty bundle are found in README.txt at the root of the zip-file and 
+                        a( href="/documentation/backend/setup-jetty")  here
                     br
                     p
-                        a.btn.btn-primary.btn-lg( href="/build/server/jetty-8.1.16-oskari.zip" ) Download Oskari Jetty bundle
+                        a.btn.btn-primary.btn-lg( href="/build/server/jetty-8.1.16-oskari.zip" ) Download Oskari
 
                         p Including:
                             ul
@@ -28,20 +28,6 @@ block main
                                     a(href="https://github.com/nls-oskari/oskari-server/tree/master/servlet-printout", target="_blank")  https://github.com/nls-oskari/oskari-server/tree/master/servlet-printout)
                                 li Geoserver 2.7.1 with WPS-plugin and Oskari extensions (
                                     a(href="https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext", target="_blank") https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext)
-
-                    p Instructions on how to run and configure Oskari Jetty bundle are found in README.txt at the root of the zip-file
-
-                    p
-                        a.btn.btn-default( href="/build/server/oskari-server.zip" ) Download runnable jar-file (deprecated - version 1.30.0)
-                        p Including:
-                            ul
-                                li Oskari frontend code (
-                                    a(href="https://github.com/nls-oskari/oskari", target="_blank") https://github.com/nls-oskari/oskari)
-                                li Oskari server as runnable jar (map functionality:
-                                    a(href="https://github.com/nls-oskari/oskari-server/tree/master/standalone-jetty", target="_blank")  https://github.com/nls-oskari/oskari-server/tree/master/standalone-jetty)
-
-                    p Instructions on how to run the jar-package are
-                        a( href="/documentation/backend/server-embedded-precompiled")  here.
 
 
     div.row

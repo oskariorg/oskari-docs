@@ -22,8 +22,7 @@ PostGIS extension for serving content and authenticating users.
 
     CREATE EXTENSION postgis;
 
-The empty database will be pre-populated when the oskari-server is called for
-the first time (checked by existance of known tables).
+The empty database will be populated when the oskari-server is started for the first time.
 
 To learn how to populate the database with your own content instead of demo content see:
 * [Instructions for modifying the initial demo data](/documentation/backend/database-customize-initial-data)

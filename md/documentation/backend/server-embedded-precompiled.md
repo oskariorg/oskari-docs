@@ -12,7 +12,7 @@ Use the Jetty bundle packaging instead [Download page](/download)
 ### Assumes:
 
 * pre-installed: JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)
-* database available: [Instructions for setting up database](/documentation/backend/database-create)
+* database available: [Instructions for setting up database](/documentation/backend/setup-database)
 
 ### 1. Fetch Oskari-server
 

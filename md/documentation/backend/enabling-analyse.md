@@ -6,9 +6,9 @@
 
 * JDK 1.6+ (tested with 1.6.18)
 * Maven 3+ (tested with 3.0.5)
-* [database available](/documentation/backend/database-create)
-* existing [server](/documentation/backend/server-configuration-jetty)
-* existing [development environment](/documentation/backend/server-embedded-developer)
+* [database available](/documentation/backend/setup-database)
+* existing [server](/documentation/backend/setup-jetty)
+* existing [development environment](/documentation/backend/setup-development)
 * configure myplaces and wfs support (http://oskari.org/documentation/backend/enabling-myplaces)
 
 ## Configuration

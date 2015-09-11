@@ -2,24 +2,16 @@
 
 ### Assumes pre-installed:
 
-* JDK 1.6+ (tested with 1.6.18)
+* JDK 1.7+ (tested with 1.7.79/80)
 * Maven 3+ (tested with 3.0.5)
-* database available: [Instructions for setting up database](/documentation/backend/database-create)
-* existing development environment: [Instructions](/documentation/backend/server-embedded-developer)
+* database available: [Instructions for setting up database](/documentation/backend/setup-database)
+* existing development environment: [Instructions](/documentation/backend/setup-development)
 
 ## 1. Recreating the database
 
-The database is created by default when the server is first called. The database content can be recreated without dropping the database
-using the same method that is used by the servlet.
+The database is created by default when the server is first started up. The database content can be also created from command-line.
 
 Database recreation can be forced on startup by giving a system.property `oskari.dropdb` with value `true`.
-
-#### When starting the standalone Jetty:
-
-Database connection params defined in `<work-dir>/oskari-server/standalone-jetty/standalone.properties`
-
-    cd <work-dir>/oskari-server/standalone-jetty
-    mvn clean exec:java -Doskari.dropdb=true
 
 #### When using the content-resources DB populator
 

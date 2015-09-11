@@ -6,10 +6,11 @@
 <br>
 
 ### 1. Setting up database
-#### 1.1 [Creating the database](/documentation/backend/database-create)
-#### 1.2 [Populating the database](/documentation/backend/database-populate)
+#### 1.1 [Creating the database](/documentation/backend/setup-database)
+#### 1.2 [Populating the database](/documentation/backend/database-populate) (Optional)
 ### 2. Setting up the server
-#### 2.1 [Standalone Oskari backend/frontend developer setup](/documentation/backend/server-embedded-developer)
+#### 2.1 [Download the Jetty bundle](/download)
+#### 2.1 [Setup the development environment](/documentation/backend/setup-development)
 ### 3. Configuration
 #### 3.1 [Modifying the initial demo data](/documentation/backend/database-customize-initial-data)
 ### 4. Setting up transport WFS service

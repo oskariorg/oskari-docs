@@ -212,7 +212,7 @@ over.
 #### 3.2 Building the backend
 
 The development build for the backend is compiled and run using Maven, as described [in the
-development documentation](http://www.oskari.org/documentation/backend/server-embedded-developer).
+development documentation](http://www.oskari.org/documentation/backend/setup-development).
 
 * * *
 
