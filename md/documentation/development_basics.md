@@ -1,6 +1,6 @@
 # Development (basics)
 
-Oskari is developed originally by National Land Survey of Finland but nowadays there are also other parties developing Oskari in their projects. NLS is still the coordinator of Oskari and is developing the platform actively. The developed code is Open Source so it can be exploited freely by anyone interested. It is desirable that the developments made by other parties would be integrated with the latest NLS version of Oskari. The preferred way of contributing Oskari is described in [How to contribute](/documentation/development/how_to_contribute)
+Oskari is developed originally by National Land Survey of Finland but nowadays there are also other parties developing Oskari in their projects. NLS is still the coordinator of Oskari and is developing the platform actively. The developed code is Open Source so it can be exploited freely by anyone interested. It is desirable that the developments made by other parties would be integrated with the latest NLS version of Oskari. The preferred way of contributing Oskari is described in [How to contribute](/documentation/development/how-to-contribute)
 
 ## Requirements
 
@@ -21,6 +21,3 @@ The `oskari-server` repository contains Java backend used by Oskari javascript f
 * Service tier: component libraries usable in other contexts as well and used by control tier to form a response.
 
 These are described more thoroughly in [architecture components](/documentation/architecture/components) document.
-
-The repository also contains standalone Jetty runner module `standalone-jetty` to embed the backend functionality into single runnable JAR-file. In addition a module `webapp-map` is provided to generate a `war` package with servlet handling the basic map backend functionality and its dependencies so that one can deploy the web application to an external web server.
-
