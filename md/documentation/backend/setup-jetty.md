@@ -43,7 +43,7 @@ You can login as:
 
 ---
 
-### Defaults/assumptions
+## Defaults/assumptions
 
 The preconfigured Jetty uses these defaults. These can be changed by modifying `{JETTY_HOME}/resources/oskari-ext.properties`.
 
@@ -64,8 +64,16 @@ Geoserver (provided in jetty bundle)
 Oskari (provided in jetty bundle)
 - url: http://localhost:8080/
 
-
 ## Custom configurations
+
+### Removing the unnecessary parts
+
+Oskari-server can run with just the oskari-map webapp. If you don't need all the features, you can remove them from under `{JETTY_HOME}/webapps`:
+- user content functionalities: you can remove `geoserver` folder
+- WFS functionalities: you can remove `transport.war` file
+- Print functionality: you can remove `oskari-printout-backend.war` file
+
+You will also need to remove the corresponding parts of the UI so users don't have access to them. This is done by removing bundles from views and currently it needs to be done by modifying the database content. Bundles are linked to views in the database table `portti_view_bundle_seq` and functionalities are removed from the UI by deleting rows from the table.
 
 ### Editing article content
 

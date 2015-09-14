@@ -1,6 +1,6 @@
 # Setup Geoserver for Oskari
 
-This document describes how to geoserver environment for Oskari. Geoserver is needed for these functionalities:
+This document describes how to setup a Geoserver environment for Oskari. Geoserver is needed for these functionalities:
 
 - myplaces
 - analysis
