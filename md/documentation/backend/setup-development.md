@@ -1,15 +1,15 @@
-# Setup Oskari backend development environment
+# Setup Oskari development environment
 
 This document describes how to setup development environment for Oskari. 
-Note! The frontend source code is already available under `{jetty.home}/oskari` in the [Jetty bundle](/download)
 
 ### Requirements
 
 * JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)
 * [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * Git client (http://git-scm.com/) - Optionally download zip file from https://github.com/nls-oskari/oskari-server
+* `{jetty.home}` refers to unzipped [Jetty bundle](/download)
 
-### 1. Fetch Oskari source code
+### 1. Fetch Oskari-server source code
 
 With commandline git:
 
@@ -17,6 +17,9 @@ With commandline git:
 
 Note! You can also download the codes in zip format from Github, but for contributing any changes to Oskari git is mandatory. 
 Additional Maven modules can be contributed outside git though if they are compatible with the current develop/master branch, but this is not adviced.
+
+Note! The frontend source code is already available under `{jetty.home}/oskari` in the [Jetty bundle](/download). To update it you can do `git pull` or replace it with code found in https://github.com/nls-oskari/oskari.
+
 
 ### 2. Build Oskari server
 
