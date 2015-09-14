@@ -8,7 +8,7 @@ Empty Oskari database is pre-populated with demo content when the server is star
 
 ## Database setting
 
-The database properties can be modified in `oskari-server/content-resources/src/main/resources/db.properties`. Alternatively you can give a reference to a properties file containing you database settings:
+The default database properties can be modified in `oskari-server/content-resources/src/main/resources/db.properties`. Preferrably you can give a reference to a properties file containing you database settings:
 
 	mvn clean install exec:java -Dexec.args="/path/to/oskari-ext.properties"
 
@@ -22,6 +22,8 @@ After the database connection parameters have been configured the database can b
 If tables exist the setup file is **NOT** run. The setup file can be *FORCED* to run with `oskari.dropdb=true`. Setup files ***CAN*** drop DB tables so it's important to know what you are doing, hence the safety measure.
 
 ## Setup files
+
+The **preferred content customization method** is to create a custom setup-file.
 
 You can configure a specific setup file to run by adding a parameter `-Doskari.setup=[setup file under resources/setup]` - defaults to `app-default` (`oskari-server/content-resources/src/main/resources/setup/app-default.json`). For example the parameter `-Doskari.setup=create-empty-db` references a setup file located in `oskari-server/content-resources/src/main/resources/setup/create-empty-db.json`. The setup file can also be elsewhere in the classpath under `/setup/setupfile.json` path.
 
@@ -57,6 +59,11 @@ After that the bundle config/startup/state is overwritten with the value in the 
 Array of generic sql statements to add map layers/permissions and other content.
 These are similar to the ones in create-step but now we can assume tables are created, bundles are registered and views created.
 
+The SQL files used on database creation can be found in `oskari-server/content-resources/src/main/resources/sql`.
+Modifying these files will affect the initial database content/structure when the database is created.
+
+NOTE! When modifying SQL files: all comment lines need to end with ; character or the next SQL statement will not be run! SQL files are parsed by splitting with ; character at the moment.
+
 ## Adding a new view
 
 Views can be added without running whole setup-files. Add a sample view with the following command:
@@ -73,6 +80,18 @@ Layers can be added without running whole setup-files. Add a sample layer with t
 
 The layer JSON is parsed and added as layer to the db as it would have been if it had been referenced in a setup/view-file.
 The referenced file needs to be in the classpath under `/json/layers/somelayer.json` path.
+
+You can also add layers with SQL, but the JSON-format is preferred. Examples for adding a layers using SQL:
+
+- WMS in `oskari-server/content-resources/src/main/resources/sql/PostgreSQL/example-layers.sql`.
+- WMTS in `oskari-server/content-resources/src/main/resources/sql/nlsfi-background-map-wmtslayer.sql`.
+- WFS in `oskari-server/content-resources/src/main/resources/sql/PostgreSQL/example-wfslayer.sql`.
+
+Layers have reference to a layer group (`oskari_layergroup` db-table) which currently means the data producer,
+but it might become a more generic grouping table in the future. They also can have a link to a list of inspire themes
+(themes listed in portti_inspiretheme, links to maplayers via oskari_maplayer_themes).
+
+**NOTE!** For users to see a registered maplayer the layer needs to have permissions. See [permissions documentation](/documentation/backend/permissions) for details. With the JSON-format you can define a role/permission mapping for the layer and permissions are inserted directly to the database.
 
 ## Creating a runnable JAR file (Optional)
 

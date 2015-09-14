@@ -26,4 +26,3 @@ The empty database will be populated when the oskari-server is started for the f
 
 To learn how to populate the database with your own content instead of demo content see:
 * [Command-line database setup](/documentation/backend/database-populate)
-* [Instructions for customizing data](/documentation/backend/database-customize-initial-data)

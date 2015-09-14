@@ -45,16 +45,10 @@ A successfully installed Git Flow plugin can be validated by running the command
 
 #### 1.2 Oskari source code
 
-Unlike in typical web development projects, the Oskari source code repositories have implicit cross-
-dependencies, must be checked out locally under very specific directory names, and can't be compiled
-or executed in isolation from each other.
-
 The `github.com/nls-oskari/oskari` repository contains the frontend JavaScript, CSS and HTML source
-code, and must be checked out under the name `Oskari`, with a capital O.
+code. It assumes being served from webserver path /Oskari with a capital O so you can checkout the repository under the name `Oskari` or configure the webserver to do this. The [Jetty bundle](/download) is configured properly for this. 
 
-The `github.com/nls-oskari/oskari-server` and `github.com/nls-oskari/oskari-liferay` repositories
-must be placed in the same directory as the abovementioned `github.com/nls-oskari/oskari ⇒ Oskari`
-repository.
+The `github.com/nls-oskari/oskari-server` contains the Oskari serverside code and `github.com/nls-oskari/oskari-liferay` contains a Liferay 6.0.6 portlet replacement for the webapp in oskari-server.
 
 #### 1.3 Licensing
 
@@ -76,7 +70,7 @@ backend server, using the Java development environment.
 
 The principal tools necessary for Java development are:
 
-  * Java Development Kit (JDK) 8
+  * Java Development Kit (JDK) 7+
   * Maven 3.2.x
   * IntelliJ IDEA 14 Community
 
@@ -185,11 +179,11 @@ as well as the [my places](/documentation/backend/enabling-myplaces) and
 [analysis](/documentation/backend/enabling-analyse) modules, which depend on a
 functional and customized GeoServer installation.
 
-Currently, the customized GeoServer configuration data directory is stored in the
-`oskari-server/content-resources/config/geoserver/data`, and the
+Currently, the customized GeoServer configuration data directory can be found inside the 
+[Jetty bundle](/download) under `{JETTY_HOME}/geoserver_data`.
 `oskari-server/geoserver-ext` module collection contains various GeoServer extension
 Maven projects, which need to be built according to the module documentation
-referred to above.
+referred to above (prebuilt on the Jetty bundle).
 
 
 * * *
@@ -199,20 +193,20 @@ referred to above.
 #### 3.1 Database creation and configuration
 
 The PostgreSQL tools `createuser` and `createdb` should be used to create a new database user
-`oskari` with a password. These settings should also be transferred to your `oskari.properties` or
+`oskari` with a password. These settings should also be transferred to your `oskari-ext.properties` or
 `tomcat-6.0.29/conf/server.xml` files.
 
-After creating the database, you need to [populate](http://www.oskari.org/documentation/backend
-/database-populate) it with tables and data, as described in the Oskari documentation.
+After creating the database, you can manually [populate](/documentation/backend
+/database-populate) it with tables and data, as described in the Oskari documentation or let the servlet do this for you.
 
 The documentation for the process of
-[upgrading](http://www.oskari.org/documentation/backend/upgrading) the database is also worth going
+[upgrading](/documentation/backend/upgrading) the database is also worth going
 over.
 
 #### 3.2 Building the backend
 
 The development build for the backend is compiled and run using Maven, as described [in the
-development documentation](http://www.oskari.org/documentation/backend/setup-development).
+development documentation](/documentation/backend/setup-development).
 
 * * *
 

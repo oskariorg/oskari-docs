@@ -43,3 +43,5 @@ b) Copy updated artifacts to `{JETTY_HOME}/webapps/geoserver/WEB-INF/lib`:
 - oskari-server/geoserver-ext/wps/IntersectionFeatureCollection2/target/IntersectionFeatureCollection2-2.5.2.jar
 - oskari-server/geoserver-ext/wps/oskari_point_stacker/target/oskari_point_stacker-2.5.2.jar
 - oskari-server/geoserver-ext/wps/ZoneSectorFeatureCollection/target/ZoneSectorFeatureCollection-2.5.2.war
+
+[More information](/documentation/development-environment) about git and Oskari development.
