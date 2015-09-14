@@ -6,7 +6,7 @@ This document describes how to setup a Geoserver environment for Oskari. Geoserv
 - analysis
 - userlayers
 
-Note! A prepopulated Geoserver configuration/datadir is available under `{jetty.home}/geoserver_data` in the [Jetty bundle](/download). This however uses preconfigured credentials for geoserver and database which you don't want to use for production. The provided datadir uses EPSG:4326. You can change these by running the setup webapp.
+Note! A prepopulated Geoserver configuration/datadir is available under `{JETTY_HOME}/geoserver_data` in the [Jetty bundle](/download). This however uses preconfigured credentials for geoserver and database which you don't want to use for production. The provided datadir uses EPSG:4326. You can change these by running the setup webapp.
 
 ### Requirements
 
@@ -15,7 +15,7 @@ Note! A prepopulated Geoserver configuration/datadir is available under `{jetty.
 
 ### Using the setup webapp
 
-The Jetty Bundle includes a webapp to help configuring a Geoserver for Oskari using Geoservers REST API. The webapp can be found in `{jetty.home}/setup.war`. It can be deployed by moving the war-file in to `{jetty.home}/webapps` and once deployed it can be accessed with http://localhost:8080/setup. The setup asks for the native projection you want to use for saving the usercontent.
+The Jetty Bundle includes a webapp to help configuring a Geoserver for Oskari using Geoservers REST API. The webapp can be found in `{JETTY_HOME}/setup.war`. It can be deployed by moving the war-file in to `{JETTY_HOME}/webapps` and once deployed it can be accessed with http://localhost:8080/setup. The setup asks for the native projection you want to use for saving the usercontent.
 
 When using single geoserver, you can use these properties for the setup-webapp:
 
@@ -43,7 +43,7 @@ If you use multiple geoservers/different credentials/functionality, you can spec
 
 Any missing properties will fallback to one without the module part in the property key.
 
-Note! The setup webapp is accessible to anyone once deployed so remove it from `{jetty.home}/webapps` after doing the configuration.
+Note! The setup webapp is accessible to anyone once deployed so remove it from `{JETTY_HOME}/webapps` after doing the configuration.
 
 ### Details for configuring manually/debug purposes
 

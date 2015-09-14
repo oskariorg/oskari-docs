@@ -23,7 +23,7 @@
 
 * Go to `oskari-server`
 * Compile the transport service with `mvn clean install -f transport-pom.xml` (add `-DskipTests` in case you don't want the tests run)
-* Deploy the WAR-file under `/webapp-transport/target/transport-0.0.1.war` on a jetty installation (`cd {jetty.home} && java -jar start.jar`)
+* Deploy the WAR-file under `/webapp-transport/target/transport-0.0.1.war` on a jetty installation (`cd {JETTY_HOME} && java -jar start.jar`)
 * Note! You can rename the war file to `transport.war` on deploy to skip some configuration later
 
 With the default settings you now have:

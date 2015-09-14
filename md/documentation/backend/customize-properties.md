@@ -1,6 +1,6 @@
 # Customizing the application for your environment
 
-Most settings can and should be overridden to match your environment by including an `oskari-ext.properties` in the server classpath for example in Jetty you can add the custom properties as `{jetty.home}/resources/oskari-ext.properties`.
+Most settings can and should be overridden to match your environment by including an `oskari-ext.properties` in the server classpath for example in Jetty you can add the custom properties as `{JETTY_HOME}/resources/oskari-ext.properties`.
 
 ## Properties
 

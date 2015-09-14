@@ -44,4 +44,4 @@ This will build your webapp and include your code on top of the Oskari-server.
 
 ## 4.Deploy to servers
 
-Copy the war packages from under `oskari-server-extension/webapp-map/target/` and `oskari-server-extension/webapp-transport/target/` to your servers deploy folder `{jetty.home}/webapps`
+Copy the war packages from under `oskari-server-extension/webapp-map/target/` and `oskari-server-extension/webapp-transport/target/` to your servers deploy folder `{JETTY_HOME}/webapps`
