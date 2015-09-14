@@ -25,5 +25,5 @@ PostGIS extension for serving content and authenticating users.
 The empty database will be populated when the oskari-server is started for the first time.
 
 To learn how to populate the database with your own content instead of demo content see:
-* [Instructions for modifying the initial demo data](/documentation/backend/database-customize-initial-data)
-* [Documentation for DB populator](/documentation/backend/database-populate)
+* [Command-line database setup](/documentation/backend/database-populate)
+* [Instructions for customizing data](/documentation/backend/database-customize-initial-data)

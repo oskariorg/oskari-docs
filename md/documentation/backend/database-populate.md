@@ -1,11 +1,16 @@
 # Database populator
 
+Empty Oskari database is pre-populated with demo content when the server is started. You can also manually populate the content from command-line using Maven.
+
+### Requirements
+
+* [Existing development environment](/documentation/backend/setup-development)
+
 ## Database setting
 
-The database properties can be modified in `oskari-server/content-resources/src/main/resources/db.properties`.
+The database properties can be modified in `oskari-server/content-resources/src/main/resources/db.properties`. Alternatively you can give a reference to a properties file containing you database settings:
 
-Also these database-settings can be overridden by using `-Doskari.env=myenv` parameter on maven call.
-This reads `db.properties` as base, reads an additional properties file `db-myenv.properties` and overrides any keys found in base properties with the environment specific properties.
+	mvn clean install exec:java -Dexec.args="/path/to/oskari-ext.properties"
 
 ## Populating database content
 
@@ -14,15 +19,13 @@ After the database connection parameters have been configured the database can b
     mvn clean install exec:java -Doskari.dropdb=true
 
 **NOTE!** `oskari.dropdb=true` doesn't actually mean that the DB is dropped as is. The DB handler checks at the beginning if the DB has any tables it recognizes.
-If tables exist the setup file is **NOT** run. The setup file can be *FORCED* to run with `oskari.dropdb=true`. Setup files ***CAN*** drop DB tables so it's important to know what you are doing, hence the  safety measure.
+If tables exist the setup file is **NOT** run. The setup file can be *FORCED* to run with `oskari.dropdb=true`. Setup files ***CAN*** drop DB tables so it's important to know what you are doing, hence the safety measure.
 
 ## Setup files
 
-You can configure a specific setup file to run by adding a parameter `-Doskari.setup=[setup file under resources/setup]`. The setup file that is used if the parameter is NOT defined is `default` (`src/main/resources/setup/app-default.json`).
+You can configure a specific setup file to run by adding a parameter `-Doskari.setup=[setup file under resources/setup]` - defaults to `app-default` (`oskari-server/content-resources/src/main/resources/setup/app-default.json`). For example the parameter `-Doskari.setup=create-empty-db` references a setup file located in `oskari-server/content-resources/src/main/resources/setup/create-empty-db.json`. The setup file can also be elsewhere in the classpath under `/setup/setupfile.json` path.
 
-The parameter `-Doskari.setup=app-default` references a setup file located in `oskari-server/content-resources/src/main/resources/setup/`.
-
-The value of the parameter is the filename without extension so the actual file referenced is `app-default.json` in the above link.
+The value of the parameter is the filename without extension.
 
 Setup file can have 5 segments: `create`, `setup`, `bundles`, `views` and `sql`. These are run in the listed order.
 
@@ -56,8 +59,40 @@ These are similar to the ones in create-step but now we can assume tables are cr
 
 ## Adding a new view
 
-Views can be added without running whole setup-files. Add a postgres sample view with the following command:
+Views can be added without running whole setup-files. Add a sample view with the following command:
 
-    mvn clean install exec:java -Doskari.addview=postgres-sample-view.json
+    mvn clean install exec:java -Doskari.addview=someview.json
 
-The view JSON is parsed and added as view to the db as it would have been if it had been referenced in a setup-file.
+The view JSON is parsed and added as view to the db as it would have been if it had been referenced in a setup-file. The referenced file needs to be in the classpath under `/json/views/someview.json` path.
+
+## Adding a new layer
+
+Layers can be added without running whole setup-files. Add a sample layer with the following command:
+
+    mvn clean install exec:java -Doskari.addlayer=somelayer.json
+
+The layer JSON is parsed and added as layer to the db as it would have been if it had been referenced in a setup/view-file.
+The referenced file needs to be in the classpath under `/json/layers/somelayer.json` path.
+
+## Creating a runnable JAR file (Optional)
+
+Run the Maven assembly plugin to create a runnable JAR file (in `oskari-server/content-resources`)
+
+    mvn assembly:assembly
+
+This creates `content-resources\target\content-resources-[VERSION]-jar-with-dependencies.jar` file that can be run with 
+
+	java -jar content-resources-[VERSION]-jar-with-dependencies.jar /path/to/oskari-ext.properties
+
+The same env-parameters (-Dparams) work with the runnable JAR and the properties file reference can be given as simple argument.
+
+## Resource overlay files
+
+You can place new or modified setup files in an external directory tree that follows the same structure
+as the files under the resource directory. You must provide the path to this directory using the parameter
+`-Doskari.resourceOverlayDir=/path/to/your/overlay/directory`. This makes it possible to use the DB populator
+as a standalone tool without modifying the resources contained in it and store your application specific
+configuration elsewhere. After creating the assembled runnable JAR you can start it with:
+
+    java "-Doskari.dropdb=true" "-Doskari.setup=yourapp" "-Doskari.resourceOverlayDir=c:/your/overlay" \
+    -jar target/content-resources-VERSION-jar-with-dependencies.jar c:/your/db/env.properties
