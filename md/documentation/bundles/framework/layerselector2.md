@@ -11,7 +11,7 @@
 
 ## Description
 
-The bundle offers the user a listing for all the maplayers available in Oskari. The maplayers are grouped by topic or organization by selecting a tab in the upper part of the flyout. The user can filter maplayers by writing something in the input field. This helps the user to find the wanted layer from the long list. Pressing enter key opens up a related keywords popup for advanced filtering. For each maplayer there is an icon presenting layer type (wms/wfs/base/wmts/vector)and an i-icon if the layer has a "dataurl_uuid" property. Pressing the I-icon sends out a request to show the metadata for the uuid to the user (requires oskari-server functionality). The user can add the maplayer to the map by checking the checkbox next to layername (or uncheck to remove it from map).
+The bundle offers the user a listing for all the maplayers available in Oskari. The maplayers are grouped by topic or organization by selecting a tab in the upper part of the flyout. The user can filter maplayers by writing something in the input field. This helps the user to find the wanted layer from the long list. Pressing enter key opens up a related keywords popup for advanced filtering. For each maplayer there is an icon presenting layer type (wms/wfs/base/wmts/vector) and an i-icon if the layer has a "dataUrl_uuid" property. Pressing the I-icon sends out a request to show the metadata for the uuid to the user (requires oskari-server functionality). The user can add the maplayer to the map by checking the checkbox next to layername (or uncheck to remove it from map).
 
 ## TODO
 
