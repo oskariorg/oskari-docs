@@ -380,5 +380,63 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>Add filter button to layer list.</td>
             <td>[framework/layerselector2](/documentation/bundles/framework/layerselector2)</td>
         </tr>
+
+
+        <tr>
+            <td>[AddToBasketRequest](/documentation/requests/addbasketrequest)</td>
+            <td>Add item to basket.</td>
+            <td>[liikennevirasto/lakapa-basket](/documentation/bundles/liikennevirasto/lakapa-basket)</td>
+        </tr>
+        <tr>
+            <td>[ClearBasketRequest](/documentation/requests/clearbasketrequest)</td>
+            <td>Clears basket.</td>
+            <td>[liikennevirasto/lakapa-basket](/documentation/bundles/liikennevirasto/lakapa-basket)</td>
+        </tr>
+        <tr>
+            <td>[RefreshBasketRequest](/documentation/requests/refreshbasketrequest)</td>
+            <td>Refresh basket.</td>
+            <td>[liikennevirasto/lakapa-basket](/documentation/bundles/liikennevirasto/lakapa-basket)</td>
+        </tr>
+        <tr>
+            <td>[ChangeLanguageRequest](/documentation/requests/changelanguagerequest)</td>
+            <td>Change help language.</td>
+            <td>[liikennevirasto/lakapa-help](/documentation/bundles/liikennevirasto/lakapa-help)</td>
+        </tr>
+        <tr>
+            <td>[ShowHelpRequest](/documentation/requests/showhelprequest)</td>
+            <td>Shows help.</td>
+            <td>[liikennevirasto/lakapa-help](/documentation/bundles/liikennevirasto/lakapa-help)</td>
+        </tr>
+        <tr>
+            <td>[TransportChangedRequest](/documentation/requests/transportchangedrequest)</td>
+            <td>Tranport changed.</td>
+            <td>[liikennevirasto/lakapa-help](/documentation/bundles/liikennevirasto/lakapa-help)</td>
+        </tr>
+        <tr>
+            <td>[HideSelectionRequest](/documentation/requests/hideselectionrequest)</td>
+            <td>Hide selection from the map.</td>
+            <td>[liikennevirasto/lakapa-transport-selector](/documentation/bundles/liikennevirasto/lakapa-transport-selector)</td>
+        </tr>
+        <tr>
+            <td>[ShowBoundingBoxRequest](/documentation/requests/showboundingboxrequest)</td>
+            <td>Show bounding box to map.</td>
+            <td>[liikennevirasto/lakapa-transport-selector](/documentation/bundles/liikennevirasto/lakapa-transport-selector)</td>
+        </tr>
+        <tr>
+            <td>[ShowFeatureRequest](/documentation/requests/showfeaturerequest)</td>
+            <td>Dhow feature on the map.</td>
+            <td>[liikennevirasto/lakapa-transport-selector](/documentation/bundles/liikennevirasto/lakapa-transport-selector)</td>
+        </tr>
+        <tr>
+            <td>[ShowMessageRequest](/documentation/requests/showmessagerequest)</td>
+            <td>Show message.</td>
+            <td>[liikennevirasto/lakapa-transport-selector](/documentation/bundles/liikennevirasto/lakapa-transport-selector)</td>
+        </tr>
+        <tr>
+            <td>[ToggleTransportSelectorRequest](/documentation/requests/toggletransportselectorrequest)</td>
+            <td>Toggle transport selector.</td>
+            <td>[liikennevirasto/lakapa-transport-selector](/documentation/bundles/liikennevirasto/lakapa-transport-selector)</td>
+        </tr>
+
     </tbody>
 </table>
