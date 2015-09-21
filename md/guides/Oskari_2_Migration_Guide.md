@@ -2,7 +2,7 @@
 
 ## Directory Structure Changes (2.0)
 
-Oskari 2 folder structure is changed clearer than the version 1.xx.
+Oskari 2 folder structure has been changed to be clearer than in version 1.xx.
 
 ```
 <your root dir>
@@ -28,7 +28,7 @@ Oskari 2 folder structure is changed clearer than the version 1.xx.
 |           |--bundle.js
 ```
 
-Due to these changes will make the following changes to the version 1.xx implementations:
+Due to these changes you need to make the following changes to the version 1.xx implementations:
 * Create `<bundle-identifier>` folder under the `bundles/<mynamespace>` folder
 * Move all files and folders in `bundles/<mynamespace>/bundle/<bundle-identifier>` folder under the `bundles/<mynamespace>/<bundle-identifier>` folder
 * Delete `bundles/<mynamespace>/bundle/<bundle-identifier>` folder

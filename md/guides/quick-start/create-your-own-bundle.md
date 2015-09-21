@@ -10,7 +10,7 @@ Create a `bundle.js` file under `/packages/framework/bundle/<bundle-identifier>/
 * Change the bundle name (MyBundle) to something more describing.
 * Change the bundle instance name (MyBundleInstance). Usually its the bundle name postfixed with "Instance".
 * List all the implementation files and css files under `scripts`. Note that CSS files need to have `"type" : "text/css"`
-* List all the localization files under `locales` or you can remove the locales property if none.
+* List all the localization files under `locales` or you can remove the locales property if your bundle does not include localization.
 
 Create a `instance.js` file under `/bundles/framework/bundle/<bundle-identifier>/`. `instance.js` is a file you referenced in `bundle.js` scripts. You can use [this sample](/guides/quick-start/sample-instance-definition) as a template:
 

@@ -2,7 +2,7 @@
 
 The `instance.js` file is usually responsible for creating all the classes a bundle might need during its lifetime, registering possible request handlers and registering the bundle to the sandbox to be able to listen to events.
 
-By extending `DefaultExtension` you can forget the nitty gritty details and can focus on writing the application logic instead. All the functions can be overridden though should you need to do something differently (in the example below, we override the `getName` function as it returns the name from config by default). Refer to the [API documentation](/api/latest/) to see all the functions of `DefaultExtension`.
+By extending `DefaultExtension` you can forget the nitty gritty details and focus on writing the application logic instead. All the functions can be overridden should you need to do something differently (in the example below, we override the `getName` function as it returns the name from config by default). Refer to the [API documentation](/api/latest/) to see all the functions of `DefaultExtension`.
 
 ***NOTE!*** *Function `afterStart` was added in version* ***1.21.***
 

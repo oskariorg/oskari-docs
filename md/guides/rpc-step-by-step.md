@@ -1,33 +1,33 @@
 # RPC step by step
 
-Following this guide you'll be able to control published map from the parent document.
+This guide will tell you how to control a published map from the parent document.
 
 ## What do I need?
 
 * published map (map can be published for example at http://www.paikkatietoikkuna.fi/)
 * OskariRPC.js (available on GitHub: https://github.com/nls-oskari/oskari/tree/master/libraries/OskariRPC)
 * jschannel.js (available on GitHub: https://github.com/nls-oskari/oskari/tree/master/libraries/JSChannel)
-* html-document where you want to get map with functionalities
+* The html-document in which you want to use a map with functionalities
 * basic knowledge of javascript
 
 ## What's the aim of this example?
 
-At this example we show published map at our webpage and control it from the parent document by clicking the map and getting coordinates of the clicked location. Marker is used  to mark the location of coordinates.
+In this example we show a published map on our webpage and control it from the parent document by clicking the map and getting coordinates of the clicked location. Marker is used to mark the location of coordinates.
 
 ## Let's start!
 
 **1. Define required libraries at your webpage**
 
-Copy codes below to your html-page header and change the paths of .js files if needed.
+Copy the code below to your html-page header and change the paths of .js files if needed.
 
 ```html
 <script src="/js/rpc/JSChannel/jschannel.js"></script>
 <script src="/js/rpc/OskariRPC/OskariRPC.js"></script>
 ```
 
-**2. Copy the code of your published map to your website where you want it to occur and give id to the element**
+**2. Copy the code of your published map to your website where you want it to occur and give an id to the element**
     
-Below is an example of the code of the published map
+Below is an example of the code for a published map
 
 ```html
 <iframe id="publishedMap" src="http://www.paikkatietoikkuna.fi/published/fi/ab389bdd-f47c-43f8-b529-ae7789f53703"></iframe>
@@ -82,7 +82,7 @@ Below is an example of the code of the published map
     }
 </script>
 ```
-Let's take a closer look to the code. 
+Let's take a closer look at the code.
 First we opened communications with the published map.
 ```javascript
 var channel = OskariRPC.connect(
@@ -96,7 +96,7 @@ var coordinateDisplay = document.getElementById('coordinates'),
     coords = null,
     markerCounter = 0;
 ```
-Now that we have variables defined, we can add the function to handle map click. First we check if there is need to remove the previous marker and then we either remove it and add new marker or just add new marker. After adding new marker we call the function to tell us coordinates and give lon and lat as params.
+Now that we have variables defined, we can add the function to handle map click. First we check if there is need to remove the previous marker and then we either remove it and add a new marker or just add a new marker. After adding new marker we call the function to tell us coordinates and give lon and lat as params.
 
 ```javascript
 channel.handleEvent(
@@ -133,7 +133,7 @@ channel.handleEvent(
     },
 );
 ```
-The last part of the code is show us coordinates. At this example we show them as alert to make it simple, but you can as well show them anywhere at your website the way you want.
+The last part of the code is to show us the coordinates. In this example we show them as an alert to keep things simple, but you can as well show them anywhere on your website the way you want.
 
 ```javascript
 setCoords = function(x, y) {
@@ -141,4 +141,4 @@ setCoords = function(x, y) {
 }
 ```
 
-Now we are ready with this example and you can start to develop your own code! Take a look at the [RPC bundle documentation](/documentation/bundles/framework/rpc) for getting advice! 
+Now we are ready with this example and you can start to develop your own code. Take a look at the [RPC bundle documentation](/documentation/bundles/framework/rpc) for more advice.
