@@ -29,7 +29,7 @@ You can configure a specific setup file to run by adding a parameter `-Doskari.s
 
 The value of the parameter is the filename without extension.
 
-Setup file can have 5 segments: `create`, `setup`, `bundles`, `views` and `sql`. These are run in the listed order.
+Setup file can have 5 segments: `create`, `setup`, `bundles`, `views`, `layers` and `sql`. These are run in the listed order.
 
 ### Create
 
@@ -53,6 +53,10 @@ The views are created based on the JSON files which try to minimize copy/pasting
 This means that when the view JSON references bundles it's enough to only tell the id for the bundle to use.
 When the view is created the bundle configuration is read from the registered bundles (database table `portti_bundle`).
 After that the bundle config/startup/state is overwritten with the value in the JSON file IF they are defined (if not, the values from `portti_bundle` will be used).
+
+### Layers
+
+Additional layer definitions can be listed here. These are not visible by default unlike those listed in "selectedLayers" within individual view definitions.
 
 ### Sql
 
