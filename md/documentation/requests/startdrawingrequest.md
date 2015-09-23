@@ -33,7 +33,7 @@ Again on completion a 'DrawingEvent' is triggered with id 'myplaces' with the dr
 Start to draw a polygon for 'myplaces' functionality with specific style and showing a label next to the drawing:
 ```javascript
 var sb = Oskari.getSandbox();
-sb.postRequestByName('DrawTools.StartDrawingRequest', ['myplaces', 'dot', {
+sb.postRequestByName('DrawTools.StartDrawingRequest', ['myplaces', 'polygon', {
     label : 'My drawing'
     style : {
         "strokeColor": "#000000",
