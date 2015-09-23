@@ -6,7 +6,7 @@ After this you will have Oskari running including
 - Oskari server (map functionality: https://github.com/nls-oskari/oskari-server/tree/master/webapp-map)
 - Oskari transport (WFS services: https://github.com/nls-oskari/oskari-server/tree/master/webapp-transport)
 - Oskari printout (Print services: https://github.com/nls-oskari/oskari-server/tree/master/servlet-printout)
-- Geoserver 2.7.1 with WPS-plugin and Oskari extensions (https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext)
+- Geoserver 2.7.1.1 with WPS-plugin and Oskari extensions (https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext)
 
 ### Requirements
 
@@ -53,7 +53,7 @@ Redis:
 Database (Postgres with postgis extension)
 - db URL: localhost in default port (5432)
 - db name: oskaridb
-- db user: postgres/admin
+- db user: oskari/oskari
 
 Geoserver (provided in jetty bundle)
 - url: http://localhost:8080/geoserver

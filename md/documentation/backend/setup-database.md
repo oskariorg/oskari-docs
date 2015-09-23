@@ -22,6 +22,14 @@ PostGIS extension for serving content and authenticating users.
 
     CREATE EXTENSION postgis;
 
+### 2. Setup a database user for oskaridb
+
+	CREATE USER oskari WITH PASSWORD 'oskari';
+	GRANT ALL PRIVILEGES ON DATABASE oskaridb to oskari;
+
+The preconfigured user in Oskari Jetty-bundle is oskari with the password oskari.
+See [Setup Jetty](/documentation/backend/setup-jetty) documentation for details where changes are needed when using another database user.
+
 The empty database will be populated when the oskari-server is started for the first time.
 
 To learn how to populate the database with your own content instead of demo content see:
