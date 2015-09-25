@@ -15,7 +15,28 @@ This page is for Oskari contributors. A contributor is anyone who wants contribu
 [Here](/documentation/development/oskari_git_process) is Oskari git process
 
 
-#### To save our work we wish that you use some practices described below:
+#### Branches on Github
+
+* **master**
+    * the latest public release
+    * a subset (file-wise) of the internal **master**
+    * commits merged from **develop** on Github
+    * tagged according to Oskari's versioning scheme
+
+* **develop**
+    * the next public release
+    * work in progress
+    * a subset (file-wise) of the internal **develop** branch
+    * commits merged (daily) from internal **develop**
+
+#### External branches
+
+The branching model utilized by an external team is generally irrelevant to the process of handling external contributions. It is, however, assumed for the purposes of this document that there exists a continuous sequence of commits from the latest merge from Oskari branches on Github to the commit(s) presented for consideration for inclusion in Oskari proper. This is required in order to be able to rebase such commits on the internal **develop** branch.
+
+Code acquired from external sources will be subject to adaptation (if deemed necessary), normal *feature testing* and bugfixes before it can be merged into the internal **develop** branch.
+
+
+### To save our work we wish that you use some practices described below:
 
 * If you have developed a new feature. Please document your work in some level. You can see some examples in http://oskari.org/documentation/bundles
 
