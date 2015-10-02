@@ -61,7 +61,7 @@ Below is an example of the code for a published map
                 setCoords(data.lon, data.lat);
             } else {
                 channel.postRequest(
-                    'MapModulePlugin.RemoveMarkersRequest', [],
+                    'MapModulePlugin.RemoveMarkersRequest', []
                 );
                 markerCounter = 0;
                 channel.postRequest(
@@ -70,7 +70,7 @@ Below is an example of the code for a published map
                             y: data.lat
                         },
                         'RPCMarker' + markerCounter
-                    ],
+                    ]
                 );
                 markerCounter++;
                 setCoords(data.lon, data.lat);
@@ -116,7 +116,7 @@ channel.handleEvent(
             setCoords(data.lon, data.lat);
         } else {
             channel.postRequest(
-                'MapModulePlugin.RemoveMarkersRequest', [],
+                'MapModulePlugin.RemoveMarkersRequest', []
             );
             markerCounter = 0;
             channel.postRequest(
@@ -125,7 +125,7 @@ channel.handleEvent(
                         y: data.lat
                     },
                     'RPCMarker' + markerCounter
-                ],
+                ]
             );
             markerCounter++;
             setCoords(data.lon, data.lat);

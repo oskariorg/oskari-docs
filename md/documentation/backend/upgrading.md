@@ -14,6 +14,9 @@ The upgrade is done with a modular setup with these default modules:
  - `myplaces`: these are tables/triggers etc for the my places functionality
  - `analysis`: these are tables/triggers etc for the analysis functionality
  - `userlayer`: these are tables/triggers etc for the data importing functionality
+
+ The optional upgrade is done a modular setup with these modules:
+ - `sample`: these are tables/triggers etc for the sample view functionality (same as http://demo.oskari.org page). Nb! This module can override some configs etc on your database. 
  
 The default non-core module settings are defined in `oskari.properties` and can be overridden in `oskari-ext.properties`:
 
