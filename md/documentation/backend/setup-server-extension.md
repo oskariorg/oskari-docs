@@ -47,3 +47,8 @@ This will build your webapp and include your code on top of the Oskari-server.
 Copy the war packages from under `oskari-server-extension/webapp-map/target/` and `oskari-server-extension/webapp-transport/target/` to your servers deploy folder `{JETTY_HOME}/webapps`
 
 **Note!** You will need to adjust oskari-ext.properties accordingly. For example if you only add one view, the id of that view should be the default view in oskari-ext.properties OR you can remove the default view configuration so it will use the view type "DEFAULT" on database to detect the default view.
+
+## Examples
+
+ELF: https://github.com/elf-oskari/oskari-server-extensions
+ASDI: https://github.com/arctic-sdi/oskari-server-extensions
