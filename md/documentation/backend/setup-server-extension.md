@@ -50,5 +50,5 @@ Copy the war packages from under `oskari-server-extension/webapp-map/target/` an
 
 ## Examples
 
-ELF: https://github.com/elf-oskari/oskari-server-extensions
-ASDI: https://github.com/arctic-sdi/oskari-server-extensions
+- ELF: https://github.com/elf-oskari/oskari-server-extensions
+- ASDI: https://github.com/arctic-sdi/oskari-server-extensions
