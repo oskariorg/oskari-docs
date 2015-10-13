@@ -437,6 +437,11 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>Toggle transport selector.</td>
             <td>[liikennevirasto/lakapa-transport-selector](/documentation/bundles/liikennevirasto/lakapa-transport-selector)</td>
         </tr>
+        <tr>
+            <td>[GetRouteRequest](/documentation/requests/getrouterequest)</td>
+            <td>Get route with two points.</td>
+            <td>[framework/routingService](/documentation/bundles/framework/routingservice)</td>
+        </tr>        
 
     </tbody>
 </table>
