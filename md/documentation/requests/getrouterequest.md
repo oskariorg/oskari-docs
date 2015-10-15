@@ -16,7 +16,7 @@ sb.postRequestByName('GetRouteRequest', [{
     }]);
 ```
 
-After the routing is completed a 'RouteSuccessEvent' is triggered where following data is available:
+After the routing is completed a ``RouteSuccessEvent`` is triggered where following data is available:
 - event.getSuccess(), tells at routing request founds some route and there is no errors
 - event.getPlan(), tells routing plan. Plan is same format as OpenTripPlanner respose with some conditions (geoJSON added, point coordinates are transfredded same coordinate reference system as map projection)
 - event.getRequestParameters(), tells request paremeters of routing
