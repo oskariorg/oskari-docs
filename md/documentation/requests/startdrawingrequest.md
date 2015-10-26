@@ -11,10 +11,10 @@ This request is used to activate a draw control on the map which allows the user
   <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
 </tr>
 <tr>
-  <td> * id</td><td> String</td><td> Identifier for request</td><td> </td>
+  <td> *id</td><td> String</td><td> Identifier for request</td><td> </td>
 </tr>
 <tr>
-  <td> * shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
+  <td> *shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
 </tr>
 <tr>
   <td> {options}</td><td> Object</td><td> Parameters for options-object is listed below</td><td> </td>
@@ -23,7 +23,7 @@ This request is used to activate a draw control on the map which allows the user
   <td> buffer</td><td> Number</td><td> Buffer for drawing buffered line and dot. If not given or 0, will disable dragging.</td><td> null</td>
 </tr>
 <tr>
-  <td> style</td> Object<td> Styles for draw, modify and intersect mode. If options don't include custom style, sets default styles. See styling example at the last example of this page.</td>
+  <td> style</td> <td> Object</td> <td> Styles for draw, modify and intersect mode. If options don't include custom style, sets default styles. See styling example at the last example of this page.</td>
   <td> 
   		{
     		fillColor: 'rgba(255,0,255,0.2)',
@@ -41,13 +41,13 @@ This request is used to activate a draw control on the map which allows the user
   <td> drawControl</td><td> Boolean</td><td> True - will activate draw control, false - drawing will not activated.</td><td> true</td>
 </tr>
 <tr>
-  <td> modifyControl</td><td> True - will activate modify control, false - modifying will not activated.</td><td> </td><td> true</td>
+  <td> modifyControl</td><td> Boolean</td><td> True - will activate modify control, false - modifying will not activated.</td><td> true</td>
 </tr>
 <tr>
   <td> showMeasure</td><td> Boolean</td><td> Use this parameter for displaying measurement result on line or polygon. True - will display measure on selection.</td><td> false</td>
 </tr>
 <tr>
-  <td> geojson</td></td> String<td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
+  <td> geojson</td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
 </tr>
 </table>
 
