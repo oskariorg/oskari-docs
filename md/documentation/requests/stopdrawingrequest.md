@@ -4,12 +4,22 @@ If the user is allowed to draw on the map this request can be used to complete t
 
 ## Parameters
 
+(* means the parameter is required)
+
+<table class="table">
+<tr>
+  <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
+</tr>
+<tr>
+  <td> * id</td><td> String</td><td> Identifier for request</td><td> </td>
+</tr>
+<tr>
+  <td> clearCurrent</td><td> Boolean</td><td> True - all selection will be removed from the map after stopping plugin, false - will keep selection on the map.</td><td> false</td>
+</tr>
+</table>
+
+For example:
 ```javascript
- * @param {String} id
- * @param {boolean} clearCurrent: if true - all selection will be removed from the map, false - will keep selection on the map. Default is false.
- 
- //For example:
- 
  var sb = Oskari.getSandbox();
  sb.postRequestByName('DrawTools.StopDrawingRequest', ['bufferedLineSelection', true]);
 ```
