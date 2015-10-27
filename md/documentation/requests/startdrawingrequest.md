@@ -14,10 +14,10 @@ This request is used to activate a draw control on the map which allows the user
   <td> *id</td><td> String</td><td> Identifier for request</td><td> </td>
 </tr>
 <tr>
-  <td> *shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
+  <td> *shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> null</td>
 </tr>
 <tr>
-  <td> {options}</td><td> Object</td><td> Parameters for options-object is listed below</td><td> </td>
+  <td> {options}</td><td> Object</td><td> Parameters for options-object is listed below</td><td> null</td>
 </tr>
 <tr>
   <td> buffer</td><td> Number</td><td> Buffer for drawing buffered line and dot. If not given or 0, will disable dragging.</td><td> null</td>
@@ -30,21 +30,24 @@ This request is used to activate a draw control on the map which allows the user
     		strokeColor: 'rgba(0,0,0,1)',
     		width: 2,
     		radius: 4,
-    		lineDash: [5]
+    		lineDash: [5],
+    		textScale: 1.3,
+    		textOutlineColor: 'rgba(255,255,255,1)',
+    		textColor: 'rgba(0,0,0,1)'
     	}
     </td>
 </tr>
 <tr>
-  <td> allowMiltipleDrawing</td><td> Boolean</td><td> True - multiple selection is allowed, false - selection will be removed before drawing a new selection.</td><td> false</td>
+  <td> allowMiltipleDrawing</td><td> Boolean/String</td><td> true - multiple selection is allowed.<br> false - selection will be removed before drawing a new selection.<br> 'single' - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.</td><td> true</td>
 </tr>
 <tr>
-  <td> drawControl</td><td> Boolean</td><td> True - will activate draw control, false - drawing will not activated.</td><td> true</td>
+  <td> drawControl</td><td> Boolean</td><td> true - activates draw control.<br> false - drawing will not activated.</td><td> true</td>
 </tr>
 <tr>
-  <td> modifyControl</td><td> Boolean</td><td> True - will activate modify control, false - modifying will not activated.</td><td> true</td>
+  <td> modifyControl</td><td> Boolean</td><td> true - activates modify control.<br> false - modifying will not activated.</td><td> true</td>
 </tr>
 <tr>
-  <td> showMeasure</td><td> Boolean</td><td> Use this parameter for displaying measurement result on line or polygon. True - will display measure on selection.</td><td> false</td>
+  <td> showMeasure</td><td> Boolean</td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - will display measure on selection.</td><td> false</td>
 </tr>
 <tr>
   <td> geojson</td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
@@ -61,8 +64,7 @@ sb.postRequestByName('DrawTools.StartDrawingRequest', [
         	buffer: 200,
             allowMultipleDrawing: false,
 			drawControl: true, 
-            modifyControl: false,
-            showMeasure: false                       	
+            modifyControl: false
         }		
 );
 ```
