@@ -147,6 +147,20 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
         }
     );
 
+    // Get current map bbox
+    channel.getMapBbox(
+        function(data) {
+            if (console && console.log) {
+                console.log('getMapBbox', JSON.stringify(data));
+            }
+        },
+        function(error, message) {
+            if (console && console.log) {
+                console.log('error', error, message);
+            }
+        }
+    );
+
     channel.getAllLayers(
         function(data) {
             if (console && console.log) {

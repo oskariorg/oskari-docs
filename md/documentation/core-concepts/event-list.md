@@ -321,5 +321,10 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td> Used to set filter for a WFS layer. </td>
             <td>`framework/featuredata2`</td>
         </tr>
+        <tr>
+            <td>[RouteSuccessEvent](/documentation/events/routesuccessevent)</td>
+            <td> Sent when route service get response of `GetRouteRequest`. </td>
+            <td>[framework/routingService](/documentation/bundles/framework/routingservice)</td>
+        </tr>
     </tbody>
 </table>
