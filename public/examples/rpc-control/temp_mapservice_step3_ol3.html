@@ -37,6 +37,11 @@
     .doexample {
         background-color: #FFD800;
     }
+
+    .eventexample, .eventexample:hover, .eventexample:focus, .eventexample:active {
+        background-color: #B200FF;
+        cursor: normal;
+    }
     </style>
   </head>
 
@@ -155,20 +160,19 @@
                     <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary doexample">MapModulePlugin.RemoveMarkersRequest</button>
                     -->
                     <button id="btnMapMoveRequest" class="btn btn-primary">MapMoveRequest</button>
+                    <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary">MyLocationPlugin.GetUserLocationRequest</button>
                     <!--
-                    <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary doexample">MyLocationPlugin.GetUserLocationRequest</button>
                     <button id="btnShowProgressSpinnerRequest" class="btn btn-primary doexample">ShowProgressSpinnerRequest</button>
                     -->
                     <h5>Events</h5>
-                    --
                     <!--
                     <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample">AfterAddMarkerEvent</button>
                     <button id="btnAfterMapMoveEvent" class="btn btn-primary doexample">AfterMapMoveEvent</button>
                     <button id="btnMapClickedEvent" class="btn btn-primary doexample">MapClickedEvent</button>
                     <button id="btnMarkerClickEvent" class="btn btn-primary doexample">MarkerClickEvent</button>
                     <button id="btnRouteSuccessEvent" class="btn btn-primary doexample">RouteSuccessEvent</button>
-                    <button id="btnUserLocationEvent" class="btn btn-primary doexample">UserLocationEvent</button>
                     -->
+                    <button id="btnUserLocationEvent" title="Do MyLocationPlugin.GetUserLocationRequest to get event" class="btn btn-primary eventexample">UserLocationEvent</button>
                 </div>
             </div>
 
@@ -269,6 +273,12 @@
         moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
     });
 
+    $('#btnMyLocationPluginGetUserLocationRequest').click(function(){
+        channel.postRequest(
+            'MyLocationPlugin.GetUserLocationRequest', [true]
+        );
+    });
+
     $('.doexample').click(function(){
         alert('Do example for "' + $(this)[0].id + '"!!');
     });
@@ -311,6 +321,14 @@
             marker.x = data.lon;
             marker.y = data.lat;
             addMarker(marker, USER_MARKER_ID);
+        }
+    );
+
+    channel.handleEvent('UserLocationEvent',
+        function(data) {
+            if(console && console.log){
+                console.log('UserLocationEvent: ', data);
+            }
         }
     );
 
