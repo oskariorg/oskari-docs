@@ -284,12 +284,13 @@ Allowed functions (config.allowedFunctions) lists all the functions that can be 
 Defaults at the moment are:
 ```javascript
 {
-    'InfoBox.ShowInfoBoxRequest': true,
-    'MapModulePlugin.AddMarkerRequest': true,
-    'MapModulePlugin.GetFeatureInfoRequest': true,
-    'MapModulePlugin.MapLayerVisibilityRequest': true,
-    'MapModulePlugin.RemoveMarkersRequest': true,
-    MapMoveRequest: true
+    getAllLayers: true,
+    getMapPosition: true,
+    getSupportedEvents: true,
+    getSupportedFunctions: true,
+    getSupportedRequests: true,
+    getZoomRange: true,
+    getMapBbox: true
 }
 ```
 
@@ -299,10 +300,12 @@ Allowed events (config.allowedEvents) lists all the events that can be listened 
 Defaults at the moment are:
 ```javascript
 {
-    "AfterMapMoveEvent": true,
-    "MapClickedEvent": true,
-    "AfterAddMarkerEvent": true,
-    "MarkerClickEvent": true
+    'AfterMapMoveEvent': true,
+    'MapClickedEvent': true,
+    'AfterAddMarkerEvent' : true,
+    'MarkerClickEvent' : true,
+    'RouteSuccessEvent': true,
+    'UserLocationEvent': true
 }
 ```
 
@@ -312,11 +315,15 @@ Allowed requests (config.allowedRequests) lists all the requests that can be sen
 Defaults at the moment are:
 ```javascript
 {
+    'InfoBox.ShowInfoBoxRequest': true,
     'MapModulePlugin.AddMarkerRequest': true,
     'MapModulePlugin.GetFeatureInfoRequest': true,
     'MapModulePlugin.MapLayerVisibilityRequest': true,
     'MapModulePlugin.RemoveMarkersRequest': true,
-    'MapMoveRequest': true
+    'MapMoveRequest': true,
+    'ShowProgressSpinnerRequest': true,
+    'GetRouteRequest': true,
+    'MyLocationPlugin.GetUserLocationRequest': true
 }
 ```
 
@@ -325,7 +332,7 @@ Defaults at the moment are:
 First of all, the bundle's configuration must have a "domain" value, that will be checked against the communication origin.
 ```javascript
 {
-    "domain": "oskari.org"
+    'domain': 'oskari.org'
 }
 ```
 If you're using the Oskari backend, this is injected automatically based on the domain set for the published map.

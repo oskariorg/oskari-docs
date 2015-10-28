@@ -441,7 +441,13 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>[GetRouteRequest](/documentation/requests/getrouterequest)</td>
             <td>Get route with two points.</td>
             <td>[framework/routingService](/documentation/bundles/framework/routingservice)</td>
-        </tr>        
+        </tr>
+
+        <tr>
+            <td>[MyLocationPlugin.GetUserLocationRequest](/documentation/requests/getuserlocationrequest)</td>
+            <td>Get user geolocation.</td>
+            <td>[framework/mapmodule/MyLocationPlugin](/documentation/bundles/framework/mapmodule/mylocationplugin)</td>
+        </tr>
 
     </tbody>
 </table>

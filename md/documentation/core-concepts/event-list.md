@@ -326,5 +326,11 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td> Sent when route service get response of `GetRouteRequest`. </td>
             <td>[framework/routingService](/documentation/bundles/framework/routingservice)</td>
         </tr>
+
+        <tr>
+            <td>[UserLocationEvent](/documentation/events/userlocationevent)</td>
+            <td> Sent when get user geolocation</td>
+            <td>[framework/mapmodule/MyLocationPlugin](/documentation/bundles/framework/mapmodule/mylocationplugin)</td>
+        </tr>
     </tbody>
 </table>
