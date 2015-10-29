@@ -17,8 +17,13 @@ This request is used to activate a draw control on the map which allows the user
   <td>*shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
 </tr>
 <tr>
-  <td> {options}</td><td> Object</td><td> Parameters for options-object is listed below</td><td> null</td>
+  <td> options</td><td> Object</td><td> Parameters for options-object are listed in the next table</td><td> null</td>
 </tr>
+</table>
+
+Parameters for options-object:
+
+<table>
 <tr>
   <td> buffer</td><td> Number</td><td> Buffer for drawing buffered line and dot. If not given or 0, will disable dragging.</td><td> null</td>
 </tr>
@@ -47,7 +52,7 @@ This request is used to activate a draw control on the map which allows the user
   <td> modifyControl</td><td> Boolean</td><td> true - activates modify control.<br> false - modifying will not activated.</td><td> true</td>
 </tr>
 <tr>
-  <td> showMeasure</td><td> Boolean</td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - will display measure on selection.</td><td> false</td>
+  <td> showMeasure</td><td> Boolean</td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - if measure result should be displayed on drawing feature.</td><td> false</td>
 </tr>
 <tr>
   <td> geojson</td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
