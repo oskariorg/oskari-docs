@@ -34,13 +34,21 @@
         display : block;
     }
 
-    .doexample {
-        background-color: #FFD800;
+    .doexample, .doexample:hover, .doexample:focus, .doexample:active {
+        background-color: #E50000;
+        cursor: normal;
     }
 
-    .eventexample, .eventexample:hover, .eventexample:focus, .eventexample:active {
-        background-color: #B200FF;
-        cursor: normal;
+    .doexample:hover {
+        background-color: #B70000;
+    }
+
+    .exampleready, .exampleready:hover, .exampleready:focus, .exampleready:active {
+        background-color: #3FD300;
+    }
+
+    .exampleready:hover {
+        background-color: #2B9100;   
     }
     </style>
   </head>
@@ -66,8 +74,11 @@
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
-                      src="http://dev.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&uuid=97e3bfd7-39dd-4417-af76-6caa78c0e49e"
+                      src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
                       style="border: none; width: 100%; height: 100%;"></iframe>
+                <!-- http://localhost:8080/web/fi/kartta?uuid=574539a9-5706-46d8-8d02-719e29c05273&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true -->
+                <!-- http://dev.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&uuid=97e3bfd7-39dd-4417-af76-6caa78c0e49e -->
+                <!-- http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0 -->
             </div>
           </div>
         </div>
@@ -144,35 +155,29 @@
                 <div class="panel-body">
                     <h4>RPC tests</h4>
                     <h5>Functions</h5>
-                    <button id="btnGetAllLayers" class="btn btn-primary">Get all layers</button>
-                    <button id="btnGetMapPosition" class="btn btn-primary">Get map position</button>
-                    <button id="btnGetSupportedEvents" class="btn btn-primary">Get supported events</button>
-                    <button id="btnGetSupportedRequests" class="btn btn-primary">Get supported requests</button>
-                    <button id="btnGetZoomRange" class="btn btn-primary">Get zoom range</button>
-                    <button id="btnGetMapBbox" class="btn btn-primary">Get map bbox</button>
+                    <button id="btnGetAllLayers" class="btn btn-primary exampleready">Get all layers</button>
+                    <button id="btnGetMapPosition" class="btn btn-primary exampleready">Get map position</button>
+                    <button id="btnGetSupportedEvents" class="btn btn-primary exampleready">Get supported events</button>
+                    <button id="btnGetSupportedRequests" class="btn btn-primary exampleready">Get supported requests</button>
+                    <button id="btnGetZoomRange" class="btn btn-primary doexample">Get zoom range</button>
+                    <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>
                     <h5>Requests</h5>
-                    <!--
-                    <button id="btnGetRouteRequest" class="btn btn-primary doexample">GetRouteRequest</button>
-                    <button id="btnInfoBoxShowInfoBoxRequest" class="btn btn-primary doexample">InfoBox.ShowInfoBoxRequest</button>
-                    <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary doexample">MapModulePlugin.AddMarkerRequest</button>
-                    <button id="btnMapModulePluginGetFeatureInfoRequest" class="btn btn-primary doexample">MapModulePlugin.GetFeatureInfoRequest</button>
-                    <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary doexample">MapModulePlugin.MapLayerVisibilityRequest</button>
-                    <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary doexample">MapModulePlugin.RemoveMarkersRequest</button>
-                    -->
-                    <button id="btnMapMoveRequest" class="btn btn-primary">MapMoveRequest</button>
-                    <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary">MyLocationPlugin.GetUserLocationRequest</button>
-                    <!--
-                    <button id="btnShowProgressSpinnerRequest" class="btn btn-primary doexample">ShowProgressSpinnerRequest</button>
-                    -->
+                    <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
+                    <button id="btnInfoBoxShowInfoBoxRequest" class="btn btn-primary doexample" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
+                    <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
+                    <button id="btnMapModulePluginGetFeatureInfoRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.GetFeatureInfoRequest">MapModulePlugin.GetFeatureInfoRequest</button>
+                    <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
+                    <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
+                    <button id="btnMapMoveRequest" class="btn btn-primary exampleready" data-example="MapMoveRequest">MapMoveRequest</button>
+                    <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary exampleready" data-example="MyLocationPlugin.GetUserLocationRequest">MyLocationPlugin.GetUserLocationRequest</button>
+                    <button id="btnShowProgressSpinnerRequest" class="btn btn-primary exampleready" data-example="ShowProgressSpinnerRequest">ShowProgressSpinnerRequest</button>
                     <h5>Events</h5>
-                    <!--
-                    <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample">AfterAddMarkerEvent</button>
-                    <button id="btnAfterMapMoveEvent" class="btn btn-primary doexample">AfterMapMoveEvent</button>
-                    <button id="btnMapClickedEvent" class="btn btn-primary doexample">MapClickedEvent</button>
-                    <button id="btnMarkerClickEvent" class="btn btn-primary doexample">MarkerClickEvent</button>
-                    <button id="btnRouteSuccessEvent" class="btn btn-primary doexample">RouteSuccessEvent</button>
-                    -->
-                    <button id="btnUserLocationEvent" title="Do MyLocationPlugin.GetUserLocationRequest to get event" class="btn btn-primary eventexample">UserLocationEvent</button>
+                    <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample eventexample" data-example="AfterAddMarkerEvent">AfterAddMarkerEvent</button>                    
+                    <button id="btnMarkerClickEvent" class="btn btn-primary doexample eventexample" data-example="MarkerClickEvent">MarkerClickEvent</button>
+                    <button id="btnRouteSuccessEvent" title="Do GetRouteRequest to get event" class="btn btn-primary exampleready eventexample" data-example="RouteSuccessEvent">RouteSuccessEvent</button>
+                    <button id="btnMapClickedEvent" title="Click map to get event" class="btn btn-primary exampleready eventexample" data-example="MapClickedEvent">MapClickedEvent</button>
+                    <button id="btnAfterMapMoveEvent" title="Move map to get event" class="btn btn-primary exampleready eventexample" data-example="AfterMapMoveEvent">AfterMapMoveEvent</button>
+                    <button id="btnUserLocationEvent" title="Do MyLocationPlugin.GetUserLocationRequest to get event" class="btn btn-primary exampleready eventexample" data-example="UserLocationEvent">UserLocationEvent</button>
                 </div>
             </div>
 
@@ -184,7 +189,7 @@
 <script>
 
   // constants
-    var IFRAME_DOMAIN = 'http://dev.paikkatietoikkuna.fi';
+    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var LAYERS_ENV = ["base_35"];
     var LAYERS_ROAD = ["base_35",455];
@@ -211,6 +216,12 @@
         reportBtn : $("#btnReportNew"),
         markerList : $("#mode2Form").find('ul.markers')
     };
+
+    var states = {
+        progressSpinnerVisible: false
+    };
+
+    var eventHandlers = {};
 
     // RPC tests BUTTONS
     // 
@@ -273,14 +284,76 @@
         moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
     });
 
+    $('#btnGetRouteRequest').click(function(){
+        var data = {
+            "fromlat": "6733840",
+            "fromlon": "360448",
+            "srs": "EPSG:3067",
+            "tolat": "6675728",
+            "tolon": "394240"
+        };
+        channel.postRequest(
+            'GetRouteRequest',
+            [
+                data
+            ],
+            function(data) {
+                if (console && console.log) {
+                    console.log('GetRouteRequest posted');
+                }
+            },
+            function(error, message) {
+                if (console && console.log) {
+                    console.log('error', error, message);
+                }
+            }
+        );
+    });
+
+    $('#btnShowProgressSpinnerRequest').click(function(){
+        channel.postRequest(
+            'ShowProgressSpinnerRequest',
+            [!states.progressSpinnerVisible]
+        );
+        states.progressSpinnerVisible = !states.progressSpinnerVisible;
+    });
+
     $('#btnMyLocationPluginGetUserLocationRequest').click(function(){
         channel.postRequest(
             'MyLocationPlugin.GetUserLocationRequest', [true]
         );
     });
 
+    // RPC TEST EVENTS
+    jQuery(document).ready(function(){
+        jQuery('.eventexample').each(function(){
+            if(jQuery(this).hasClass('exampleready')) {
+                var el = jQuery(this);
+                var eventName = el.attr('data-example');
+
+                if(eventName && eventName!=='') {
+                    console.log(eventName);
+                    channel.handleEvent(eventName, function(data){
+                        if (console && console.log) {
+                            console.log(eventName, data)
+                        }
+
+                        if(eventHandlers[eventName]) {
+                            eventHandlers[eventName](data);
+                        }
+                    }, function(){});
+                }
+            }
+
+        });
+    });
+
+    $('.doexample').attr('title', 'Not yet example / not implemented');
+
     $('.doexample').click(function(){
-        alert('Do example for "' + $(this)[0].id + '"!!');
+        if(console && console.error) {
+            console.error('Do example for "' + $(this).attr('data-example') + '"!!');
+        }
     });
 
 
@@ -290,6 +363,8 @@
         elements.iframe,
         IFRAME_DOMAIN
     );
+
+    
 
     /**
      * Sets the value of coordinates field
@@ -310,27 +385,17 @@
         )
     }
 
-    channel.handleEvent('MapClickedEvent',
-        function(data) {
-            if (!elements.reportForm.is(':visible')) {
-                return;
-            }
-            setCoordinates(data.lon, data.lat);
-            // add a marker to clicked spot
-            var marker = Util.getMarkerTemplate();
-            marker.x = data.lon;
-            marker.y = data.lat;
-            addMarker(marker, USER_MARKER_ID);
+    eventHandlers['MapClickedEvent'] = function(data) {
+        if (!elements.reportForm.is(':visible')) {
+            return;
         }
-    );
-
-    channel.handleEvent('UserLocationEvent',
-        function(data) {
-            if(console && console.log){
-                console.log('UserLocationEvent: ', data);
-            }
-        }
-    );
+        setCoordinates(data.lon, data.lat);
+        // add a marker to clicked spot
+        var marker = Util.getMarkerTemplate();
+        marker.x = data.lon;
+        marker.y = data.lat;
+        addMarker(marker, USER_MARKER_ID);
+    };
 
     // ---------- Step 2 -------------------------
     channel.getAllLayers(
