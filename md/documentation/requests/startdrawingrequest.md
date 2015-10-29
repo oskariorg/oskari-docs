@@ -11,10 +11,10 @@ This request is used to activate a draw control on the map which allows the user
   <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
 </tr>
 <tr>
-  <td> *id</td><td> String</td><td> Identifier for request</td><td> </td>
+  <td>*id</td><td> String</td><td> Identifier for request</td><td> </td>
 </tr>
 <tr>
-  <td> *shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> null</td>
+  <td>*shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
 </tr>
 <tr>
   <td> {options}</td><td> Object</td><td> Parameters for options-object is listed below</td><td> null</td>
@@ -38,7 +38,7 @@ This request is used to activate a draw control on the map which allows the user
     </td>
 </tr>
 <tr>
-  <td> allowMiltipleDrawing</td><td> Boolean/String</td><td> true - multiple selection is allowed.<br> false - selection will be removed before drawing a new selection.<br> 'single' - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.</td><td> true</td>
+  <td> allowMiltipleDrawing</td><td> Boolean/String</td><td> true - multiple selection is allowed.<br> false - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.<br> 'single' - selection will be removed before drawing a new selection.</td><td> true</td>
 </tr>
 <tr>
   <td> drawControl</td><td> Boolean</td><td> true - activates draw control.<br> false - drawing will not activated.</td><td> true</td>
@@ -110,8 +110,7 @@ var style = {
     	      color: 'rgba(0,0,0,1)',
     	      width: 2,
     	      lineDash: 5
-
-    	},
+		},
     	image : {
     	      radius: 4,
     	      fill: {
