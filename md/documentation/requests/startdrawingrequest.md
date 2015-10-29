@@ -101,53 +101,84 @@ Again on completion a 'DrawingEvent' is triggered with id 'myplaces' with the dr
 
 Start to draw a polygon for 'myplaces' functionality with specific style and showing a label next to the drawing:
 ```javascript
-
- var style = {
-		draw : {
-			fill : {
-				 color: 'rgba(238,0,0,0.2)' 
-			},
-			stroke : {
-	    	      color: 'rgba(0,0,0,1)',
-	    	      width: 2
+var style = {
+	draw : {
+		fill : {
+			 color: 'rgba(238,0,0,0.2)' 
 		},
-		image : {
-		      radius: 4,
-		      fill: {
-		        color: 'rgba(0,0,0,1)'
-		      }
-		}
+		stroke : {
+    	      color: 'rgba(0,0,0,1)',
+    	      width: 2,
+    	      lineDash: 5
+
+    	},
+    	image : {
+    	      radius: 4,
+    	      fill: {
+    	        color: 'rgba(0,0,0,1)'
+    	      }
+    	},
+    	text: {
+    		scale: 1.3,
+            fill: {
+            	color: 'rgba(255,255,255,1)'
+            },
+            stroke: {
+               color: 'rgba(0,0,0,1)',
+               width: 2
+            }
+    	}
 	}, 
 	modify : {
 		fill : {
 			 color: 'rgba(153,102,255,0.2)' 
 		},
 		stroke : {
-		      color: 'rgba(0,0,0,1)',
-		      width: 2
-		},
-		image : {
-		      radius: 4,
-		      fill: {
-		        color: 'rgba(0,0,0,1)'
-		      }
-		}
+    	      color: 'rgba(0,0,0,1)',
+    	      width: 2
+    	},
+    	image : {
+    	      radius: 4,
+    	      fill: {
+    	        color: 'rgba(0,0,0,1)'
+    	      }
+    	},
+    	text: {
+    		scale: 1.3,
+            fill: {
+            	color: 'rgba(255,255,255,1)'
+            },
+            stroke: {
+               color: 'rgba(0,0,0,1)',
+               width: 2
+            }
+    	}
 	},
 	intersect : {
 		fill : {
 			 color: 'rgba(101,255,102,0.2)' 
 		},
 		stroke : {
-		      color: 'rgba(0,0,0,1)',
-		      width: 2,
-		      lineDash: 5
-		},
-		image : {
-		      radius: 4,
-		      fill: {
-		        color: 'rgba(0,0,0,1)'
-		      }
-		}
+    	      color: 'rgba(0,0,0,1)',
+    	      width: 2,
+    	      lineDash: 5
+    	},
+    	image : {
+    	      radius: 4,
+    	      fill: {
+    	        color: 'rgba(0,0,0,1)'
+    	      }
+    	},
+    	text: {
+    		scale: 1.3,
+            fill: {
+            	color: 'rgba(255,255,255,1)'
+            },
+            stroke: {
+               color: 'rgba(0,0,0,1)',
+               width: 2
+            }
+    	}
 	}
 };
 
