@@ -25,6 +25,9 @@ Parameters for options-object:
 
 <table>
 <tr>
+  <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
+</tr>
+<tr>
   <td> buffer</td><td> Number</td><td> Buffer for drawing buffered line and dot. If not given or 0, will disable dragging.</td><td> null</td>
 </tr>
 <tr>
