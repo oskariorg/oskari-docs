@@ -62,7 +62,7 @@ sb.postRequestByName('DrawTools.StartDrawingRequest', [
 		shape: 'LineString', 
 		{
         	buffer: 200,
-            allowMultipleDrawing: false,
+            allowMultipleDrawing: 'single',
 			drawControl: true, 
             modifyControl: false
         }		
