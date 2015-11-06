@@ -290,7 +290,8 @@ Defaults at the moment are:
     getSupportedFunctions: true,
     getSupportedRequests: true,
     getZoomRange: true,
-    getMapBbox: true
+    getMapBbox: true,
+    resetState: true
 }
 ```
 

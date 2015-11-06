@@ -74,9 +74,12 @@
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
-                      src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
+                      src="http://localhost:8080/?lang=en&uuid=8ac29eb4-1e6c-4fae-ba32-5161808e3d88"
                       style="border: none; width: 100%; height: 100%;"></iframe>
-                <!-- http://localhost:8080/web/fi/kartta?uuid=574539a9-5706-46d8-8d02-719e29c05273&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true -->
+                <!-- 
+
+                      src="http://localhost:8080/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
+                http://localhost:8080/web/fi/kartta?uuid=574539a9-5706-46d8-8d02-719e29c05273&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true -->
                 <!-- http://dev.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&uuid=97e3bfd7-39dd-4417-af76-6caa78c0e49e -->
                 <!-- http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0 -->
             </div>
@@ -161,6 +164,7 @@
                     <button id="btnGetSupportedRequests" class="btn btn-primary exampleready">Get supported requests</button>
                     <button id="btnGetZoomRange" class="btn btn-primary doexample">Get zoom range</button>
                     <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>
+                    <button id="btnResetState" class="btn btn-primary exampleready">Reset state</button>
                     <h5>Requests</h5>
                     <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
                     <button id="btnInfoBoxShowInfoBoxRequest" class="btn btn-primary doexample" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
@@ -189,7 +193,7 @@
 <script>
 
   // constants
-    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
+    var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var LAYERS_ENV = ["base_35"];
     var LAYERS_ROAD = ["base_35",455];
@@ -279,6 +283,15 @@
             }
         }, function(){});
     });
+
+    $('#btnResetState').click(function(){
+        channel.resetState(function(){
+            if(console && console.log){
+                console.log('ResetState: ok');
+            }
+        }, function(){});
+    });
+
 
     $('#btnMapMoveRequest').click(function(){
         moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
