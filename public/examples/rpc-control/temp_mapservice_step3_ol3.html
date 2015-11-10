@@ -299,7 +299,6 @@
     });
 
     $('#btnChangeMapLayerOpacityRequest').click(function(){
-
         channel.getAllLayers(function (layers) {
             var layer_id = layers[0].id;
             var opacity = layers[0].opacity;
@@ -431,7 +430,6 @@
     // ---------- Step 2 -------------------------
     channel.getAllLayers(
         function (data) {
-            debugger;
             Util.log(data);
             switchLayersByIssueType();
             var markers = Storage.getMarkers(Util.getIssueType());
