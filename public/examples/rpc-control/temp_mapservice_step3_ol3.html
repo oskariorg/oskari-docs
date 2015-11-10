@@ -300,7 +300,7 @@
 
     $('#btnChangeMapLayerOpacityRequest').click(function(){
 
-        var layers = channel.GetAllLayers();
+        var layers = channel.getAllLayers();
         var layer_id = layers[0].id;
         var opacity = layer[0].opacity;
         if (opacity !== 100) {
