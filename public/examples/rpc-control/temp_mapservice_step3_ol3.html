@@ -173,6 +173,7 @@
                     <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
                     <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
                     <button id="btnMapMoveRequest" class="btn btn-primary exampleready" data-example="MapMoveRequest">MapMoveRequest</button>
+                    <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
                     <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary exampleready" data-example="MyLocationPlugin.GetUserLocationRequest">MyLocationPlugin.GetUserLocationRequest</button>
                     <button id="btnShowProgressSpinnerRequest" class="btn btn-primary exampleready" data-example="ShowProgressSpinnerRequest">ShowProgressSpinnerRequest</button>
                     <h5>Events</h5>
@@ -297,6 +298,22 @@
         moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
     });
 
+    $('#btnChangeMapLayerOpacityRequest').click(function(){
+
+        var layers = channel.GetAllLayers();
+        var layer_id = layers[0].id;
+        var opacity = layer[0].opacity;
+        if (opacity !== 100) {
+            new_opacity = 100;
+        } else {
+            new_opacity = 50;
+        }
+        channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
+        if(console && console.log){
+            console.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
+        }
+    });
+
     $('#btnGetRouteRequest').click(function(){
         var data = {
             "fromlat": "6733840",
@@ -413,6 +430,7 @@
     // ---------- Step 2 -------------------------
     channel.getAllLayers(
         function (data) {
+            debugger;
             Util.log(data);
             switchLayersByIssueType();
             var markers = Storage.getMarkers(Util.getIssueType());
