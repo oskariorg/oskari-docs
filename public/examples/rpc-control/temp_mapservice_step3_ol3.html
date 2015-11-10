@@ -300,18 +300,19 @@
 
     $('#btnChangeMapLayerOpacityRequest').click(function(){
 
-        var layers = channel.getAllLayers();
-        var layer_id = layers[0].id;
-        var opacity = layer[0].opacity;
-        if (opacity !== 100) {
-            new_opacity = 100;
-        } else {
-            new_opacity = 50;
-        }
-        channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
-        if(console && console.log){
-            console.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
-        }
+        channel.getAllLayers(function (layers) {
+            var layer_id = layers[0].id;
+            var opacity = layers[0].opacity;
+            if (opacity !== 100) {
+                new_opacity = 100;
+            } else {
+                new_opacity = 50;
+            }
+            channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
+            if(console && console.log){
+                console.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
+            }
+        }, function () {});
     });
 
     $('#btnGetRouteRequest').click(function(){
