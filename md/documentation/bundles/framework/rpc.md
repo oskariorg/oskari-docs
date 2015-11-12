@@ -283,16 +283,8 @@ If not set, sane defaults will be used instead.
 Allowed functions (config.allowedFunctions) lists all the functions that can be called over rpc.
 Defaults at the moment are:
 ```javascript
-{
-    getAllLayers: true,
-    getMapPosition: true,
-    getSupportedEvents: true,
-    getSupportedFunctions: true,
-    getSupportedRequests: true,
-    getZoomRange: true,
-    getMapBbox: true,
-    resetState: true
-}
+['getAllLayers', 'getAllLayers', 'getMapPosition', 'getSupportedEvents', 'getSupportedFunctions', 'getSupportedRequests',
+    'getZoomRange', 'getMapBbox', 'resetState']
 ```
 
 ### Allowed events
@@ -300,14 +292,7 @@ Defaults at the moment are:
 Allowed events (config.allowedEvents) lists all the events that can be listened to over rpc.
 Defaults at the moment are:
 ```javascript
-{
-    'AfterMapMoveEvent': true,
-    'MapClickedEvent': true,
-    'AfterAddMarkerEvent' : true,
-    'MarkerClickEvent' : true,
-    'RouteSuccessEvent': true,
-    'UserLocationEvent': true
-}
+['AfterMapMoveEvent', 'MapClickedEvent', 'AfterAddMarkerEvent', 'MarkerClickEvent', 'RouteSuccessEvent', 'UserLocationEvent', 'DrawingEvent']
 ```
 
 ### Allowed requests
@@ -315,17 +300,20 @@ Defaults at the moment are:
 Allowed requests (config.allowedRequests) lists all the requests that can be sent over rpc.
 Defaults at the moment are:
 ```javascript
-{
-    'InfoBox.ShowInfoBoxRequest': true,
-    'MapModulePlugin.AddMarkerRequest': true,
-    'MapModulePlugin.GetFeatureInfoRequest': true,
-    'MapModulePlugin.MapLayerVisibilityRequest': true,
-    'MapModulePlugin.RemoveMarkersRequest': true,
-    'MapMoveRequest': true,
-    'ShowProgressSpinnerRequest': true,
-    'GetRouteRequest': true,
-    'MyLocationPlugin.GetUserLocationRequest': true
-}
+['InfoBox.ShowInfoBoxRequest',
+'MapModulePlugin.AddMarkerRequest',
+'MapModulePlugin.AddFeaturesToMapRequest',
+'MapModulePlugin.RemoveFeaturesFromMapRequest',
+'MapModulePlugin.GetFeatureInfoRequest',
+'MapModulePlugin.MapLayerVisibilityRequest',
+'MapModulePlugin.RemoveMarkersRequest',
+'MapMoveRequest',
+'ShowProgressSpinnerRequest',
+'GetRouteRequest',
+'ChangeMapLayerOpacityRequest',
+'MyLocationPlugin.GetUserLocationRequest', 
+'DrawTools.StartDrawingRequest',
+'DrawTools.StopDrawingRequest']
 ```
 
 ## Using the bundle functionality

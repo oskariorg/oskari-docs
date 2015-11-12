@@ -74,7 +74,7 @@
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
-                      src="http://localhost:8080/?lang=en&uuid=8ac29eb4-1e6c-4fae-ba32-5161808e3d88"
+                      src="http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0"
                       style="border: none; width: 100%; height: 100%;"></iframe>
                 <!-- 
 
@@ -162,7 +162,7 @@
                     <button id="btnGetMapPosition" class="btn btn-primary exampleready">Get map position</button>
                     <button id="btnGetSupportedEvents" class="btn btn-primary exampleready">Get supported events</button>
                     <button id="btnGetSupportedRequests" class="btn btn-primary exampleready">Get supported requests</button>
-                    <button id="btnGetZoomRange" class="btn btn-primary doexample">Get zoom range</button>
+                    <button id="btnGetZoomRange" class="btn btn-primary exampleready">Get zoom range</button>
                     <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>
                     <button id="btnResetState" class="btn btn-primary exampleready">Reset state</button>
                     <h5>Requests</h5>
@@ -273,7 +273,7 @@
             if(console && console.log){
                 console.log('GetZoomRange: ', data);
             }
-        }, function(){});
+        });
     });
 
     $('#btnGetMapBbox').click(function(){
@@ -376,6 +376,10 @@
         elements.iframe,
         IFRAME_DOMAIN
     );
+    channel.enableDebug(true);
+    channel.onReady(function() {
+        console.log('moi');
+    });
 
     
 
@@ -411,18 +415,21 @@
     };
 
     // ---------- Step 2 -------------------------
-    channel.getAllLayers(
-        function (data) {
-            Util.log(data);
-            switchLayersByIssueType();
-            var markers = Storage.getMarkers(Util.getIssueType());
-            var hasMarkers = markers.length > 0;
-            showReport(!hasMarkers);
-            if(hasMarkers) {
-                listMarkers(markers);
+    channel.onReady(function() {
+        // get layers once we have the connection
+        channel.getAllLayers(
+            function (data) {
+                Util.log(data);
+                switchLayersByIssueType();
+                var markers = Storage.getMarkers(Util.getIssueType());
+                var hasMarkers = markers.length > 0;
+                showReport(!hasMarkers);
+                if(hasMarkers) {
+                    listMarkers(markers);
+                }
             }
-        }
-    );
+        );
+    });
 
     /**
      * Takes an list of layer ids and shows/hides them

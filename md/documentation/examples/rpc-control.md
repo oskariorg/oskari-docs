@@ -180,12 +180,15 @@ In the second phase we enable reporting not only bad road condition but also env
 *The code below is now JavaScript*
 
 ```javascript
-    channel.getAllLayers(
-        function (data) {
-            //alert(JSON.stringify(data));
-            Util.log('Layers:', data);
-        }
-    );
+    channel.onReady(function() {
+        // get layers once we have the connection
+        channel.getAllLayers(
+            function (data) {
+                //alert(JSON.stringify(data));
+                Util.log('Layers:', data);
+            }
+        );
+    });
 ```
 
 This will reveal the layers that are available
