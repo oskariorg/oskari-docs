@@ -74,10 +74,11 @@
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
-                      src="http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0"
+                      src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
                       style="border: none; width: 100%; height: 100%;"></iframe>
                 <!-- 
-
+                http://localhost:8080/web/fi/kartta?uuid=af71ab66-342c-42ed-887e-576bbe4dc847&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true
+                      src="http://localhost:8080/?lang=en&uuid=8ac29eb4-1e6c-4fae-ba32-5161808e3d88"
                       src="http://localhost:8080/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
                 http://localhost:8080/web/fi/kartta?uuid=574539a9-5706-46d8-8d02-719e29c05273&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true -->
                 <!-- http://dev.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&uuid=97e3bfd7-39dd-4417-af76-6caa78c0e49e -->
@@ -173,8 +174,15 @@
                     <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
                     <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
                     <button id="btnMapMoveRequest" class="btn btn-primary exampleready" data-example="MapMoveRequest">MapMoveRequest</button>
+                    <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
                     <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary exampleready" data-example="MyLocationPlugin.GetUserLocationRequest">MyLocationPlugin.GetUserLocationRequest</button>
                     <button id="btnShowProgressSpinnerRequest" class="btn btn-primary exampleready" data-example="ShowProgressSpinnerRequest">ShowProgressSpinnerRequest</button>
+                     <div class="search-group">
+                        <div class="col-search">
+                            <input class="search-control" name="search" id="inputSearch" placeholder="Search item">
+                            <button id="btnSearchRequest" class="btn btn-primary exampleready" data-example="SearchRequest">SearchRequest</button>
+                        </div>
+                    </div>
                     <h5>Events</h5>
                     <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample eventexample" data-example="AfterAddMarkerEvent">AfterAddMarkerEvent</button>                    
                     <button id="btnMarkerClickEvent" class="btn btn-primary doexample eventexample" data-example="MarkerClickEvent">MarkerClickEvent</button>
@@ -182,6 +190,7 @@
                     <button id="btnMapClickedEvent" title="Click map to get event" class="btn btn-primary exampleready eventexample" data-example="MapClickedEvent">MapClickedEvent</button>
                     <button id="btnAfterMapMoveEvent" title="Move map to get event" class="btn btn-primary exampleready eventexample" data-example="AfterMapMoveEvent">AfterMapMoveEvent</button>
                     <button id="btnUserLocationEvent" title="Do MyLocationPlugin.GetUserLocationRequest to get event" class="btn btn-primary exampleready eventexample" data-example="UserLocationEvent">UserLocationEvent</button>
+                    <button id="btnSearchRequestEvent" title="Do SearchRequest to get event" class="btn btn-primary exampleready eventexample" data-example="SearchResultEvent">SearchResultEvent</button>
                 </div>
             </div>
 
@@ -193,7 +202,7 @@
 <script>
 
   // constants
-    var IFRAME_DOMAIN = 'http://localhost:8080';
+    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var LAYERS_ENV = ["base_35"];
     var LAYERS_ROAD = ["base_35",455];
@@ -225,7 +234,7 @@
         progressSpinnerVisible: false
     };
 
-    var eventHandlers = {};
+    var eventHandlers = [];
 
     // RPC tests BUTTONS
     // 
@@ -297,6 +306,22 @@
         moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
     });
 
+    $('#btnChangeMapLayerOpacityRequest').click(function(){
+        channel.getAllLayers(function (layers) {
+            var layer_id = layers[0].id;
+            var opacity = layers[0].opacity;
+            if (opacity !== 100) {
+                new_opacity = 100;
+            } else {
+                new_opacity = 50;
+            }
+            channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
+            if(console && console.log){
+                console.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
+            }
+        }, function () {});
+    });
+
     $('#btnGetRouteRequest').click(function(){
         var data = {
             "fromlat": "6733840",
@@ -318,6 +343,29 @@
             function(error, message) {
                 if (console && console.log) {
                     console.log('error', error, message);
+                }
+            }
+        );
+    });
+
+     $('#btnSearchRequest').click(function(){
+        var data = {
+            "searchKey": document.getElementById("inputSearch").value,
+            "epsg": "EPSG:3067"
+        };
+        channel.postRequest(
+            'SearchRequest',
+            [
+                data
+            ],
+            function(data) {
+                if (console && console.log) {
+                    console.log('SearchRequest posted');
+                }
+            },
+            function(error, message) {
+                if (console && console.log) {
+                    console.log('SearchRequest error', error, message);
                 }
             }
         );
@@ -413,7 +461,23 @@
         marker.y = data.lat;
         addMarker(marker, USER_MARKER_ID);
     };
-
+    // Handler for SearchRequest
+  eventHandlers['SearchResultEvent'] = function(data) {
+       if(data.success && data.result.totalCount > 0){
+        var search1 = data.result.locations[0],
+            zoom = {};
+        zoom.scale = search1.zoomScale;
+        setCoordinates(search1.lon, search1.lat);
+        moveMap(search1.lon, search1.lat, zoom);
+        // add a marker to 1st search item
+        var marker = Util.getMarkerTemplate();
+        marker.x = search1.lon;
+        marker.y = search1.lat;
+        marker.msg = search1.name +'_' + search1.type + '_' + search1.village;
+        addMarker(marker, USER_MARKER_ID);
+       }
+     
+    };
     // ---------- Step 2 -------------------------
     channel.onReady(function() {
         // get layers once we have the connection
