@@ -10,7 +10,7 @@ Replacing typed address with clickable map
 
     <!-- RPC functionality -->
     <script src="js/rpc/JSChannel/jschannel.js"></script>
-    <script src="js/rpc/OskariRPC/OskariRPC.js"></script>
+    <script src="js/rpc/OskariRPC/OskariRPC-1.1.0.js"></script>
 
     <!-- Helper for the demo -->
     <script src="js/util.js"></script>
