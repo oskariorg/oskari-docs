@@ -74,7 +74,7 @@
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
-                      src="http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0"
+                      src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
                       style="border: none; width: 100%; height: 100%;"></iframe>
                 <!-- 
                 http://localhost:8080/web/fi/kartta?uuid=af71ab66-342c-42ed-887e-576bbe4dc847&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true
@@ -83,6 +83,12 @@
                 http://localhost:8080/web/fi/kartta?uuid=574539a9-5706-46d8-8d02-719e29c05273&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true -->
                 <!-- http://dev.paikkatietoikkuna.fi/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true&uuid=97e3bfd7-39dd-4417-af76-6caa78c0e49e -->
                 <!-- http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0 -->
+                <!-- http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0 -->
+<!--
+http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true
+-->
+
+
             </div>
           </div>
         </div>
@@ -183,8 +189,11 @@
                             <button id="btnSearchRequest" class="btn btn-primary exampleready" data-example="SearchRequest">SearchRequest</button>
                         </div>
                     </div>
+                    <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
+                    <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
                     <h5>Events</h5>
-                    <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample eventexample" data-example="AfterAddMarkerEvent">AfterAddMarkerEvent</button>                    
+                    <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample eventexample" data-example="AfterAddMarkerEvent">AfterAddMarkerEvent</button>
+
                     <button id="btnMarkerClickEvent" class="btn btn-primary doexample eventexample" data-example="MarkerClickEvent">MarkerClickEvent</button>
                     <button id="btnRouteSuccessEvent" title="Do GetRouteRequest to get event" class="btn btn-primary exampleready eventexample" data-example="RouteSuccessEvent">RouteSuccessEvent</button>
                     <button id="btnMapClickedEvent" title="Click map to get event" class="btn btn-primary exampleready eventexample" data-example="MapClickedEvent">MapClickedEvent</button>
@@ -202,7 +211,8 @@
 <script>
 
   // constants
-    var IFRAME_DOMAIN = 'http://localhost:8080';
+//    var IFRAME_DOMAIN = 'http://localhost:3003';
+    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var LAYERS_ENV = ["base_35"];
     var LAYERS_ROAD = ["base_35",455];
@@ -385,6 +395,67 @@
         );
     });
 
+    $('#btnAddFeaturesToMapRequest').click(function(){
+        var x = 488704;
+        var y = 6939136;
+        var geojsonObject = {
+              'type': 'FeatureCollection',
+              'crs': {
+                'type': 'name',
+                'properties': {
+                  'name': 'EPSG:3067'
+                }
+              },
+              'features': [
+                {
+                  'type': 'Feature',
+                  'geometry': {
+                    'type': 'LineString',
+                    'coordinates': [[x, y], [x+100000, y+100000]]
+                  },
+                  'properties': {
+                    'test_property': 1
+                  }
+                },
+                {
+                  'type': 'Feature',
+                  'geometry': {
+                    'type': 'Point',
+                    'coordinates': [x, y]
+                  },
+                  'properties': {
+                    'test_property': 2
+                  }
+                }
+
+              ]
+            };
+
+        var testOptions = {
+            'minResolution': 0,
+            'maxResolution': 1000
+        };
+
+        channel.postRequest(
+            'MapModulePlugin.AddFeaturesToMapRequest',
+            [geojsonObject, {
+                layerId: null, 
+                replace: 'replace',
+                layerOptions: testOptions,
+                centerTo: true,
+                featureStyle: null
+            }]
+        );
+    });
+    
+    $('#btnRemoveFeaturesFromMapRequest').click(function(){
+        channel.postRequest(
+            'MapModulePlugin.RemoveFeaturesFromMapRequest',
+            []
+        );
+    
+    });
+
     // RPC TEST EVENTS
     jQuery(document).ready(function(){
         jQuery('.eventexample').each(function(){
@@ -418,7 +489,6 @@
     });
 
 
-
     // init connection
     var channel = OskariRPC.connect(
         elements.iframe,
@@ -428,7 +498,6 @@
     channel.onReady(function() {
         console.log('Map is now listening');
     });
-
     
 
     /**
