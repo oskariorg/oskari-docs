@@ -158,12 +158,15 @@
     );
 
     // ---------- Step 2 -------------------------
-    channel.getAllLayers(
-        function (data) {
-            Util.log(data);
-            switchLayersByIssueType();
-        }
-    );
+    channel.onReady(function() {
+        // get layers once we have the connection
+        channel.getAllLayers(
+            function (data) {
+                Util.log(data);
+                switchLayersByIssueType();
+            }
+        );
+    });
 
     function showLayers(layers, blnVisible) {
         $.each(layers, function(index, layerId) {
