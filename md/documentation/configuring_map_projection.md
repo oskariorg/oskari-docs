@@ -18,7 +18,8 @@ Select the view_id that matches the view you want to configure (default view/pub
           "top": 10000000
        },
        "srsName": "EPSG:3067",
-       "resolutions":[2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25]
+       "resolutions":[2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25],
+       "units": "m"
     },
     "projectionDefs": {
        "EPSG:3067": "+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs",
@@ -51,21 +52,7 @@ To configure the projection you must add or edit these JSON-segments. An example
 
 In **mapOptions** there is first maxExtent, which means projected bounds of the chosen projection. These are the bounds that the map engine will allow the user to pan the map. 
 The bounds can be found f. e. in [spatial reference web site](http://spatialreference.org/ref/epsg/isn93-lambert-1993/).
-Then there is srsName which is the name of the chosen projection.
-
-<div class="bs-callout bs-callout-info">
-    <h4>Configuring resolutions</h4>
-
-    <p> In mapOptions it is also possible to give resolutions and units to the map. </p>
-    <p> Resolutions are given as an array. If resolutions are not given, they are by default [2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25]. </p>
-    <p> Units are meters by default if not given in configuration. </p>
-    <pre><code>
-    {
-        resolutions : [2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25],
-        units : "m"
-    }
-    </code></pre>
-</div>
+Then there is srsName which is the name of the chosen projection and resolutions which are the zoom levels.
 
 In **projectionDefs** should be given [proj4js](http://proj4js.org/) configurations for all the projections that are going to be used in the application.
 
@@ -170,11 +157,11 @@ And/or
     db.[module].username=postgres
     db.[module].password=admin
 
-After the configuration has been run the result will show additionali info if you need to change any properties for these functionalities to work.
+After the configuration has been run the result will show additional info if you need to change any properties for these functionalities to work.
 
 # Configuring new projections for Printout 
 
-Edit printout properties file e.g. \jetty-8.1.16-oskari\resources\oskari-printout-backend-4326.properties
+Edit printout properties file e.g. {JETTY_HOME}\resources\oskari-printout-backend-4326.properties
 
 ```
 epsgCode=EPSG:4326  <--  desired crs / EPSG: must be in Uppercase
