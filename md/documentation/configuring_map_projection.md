@@ -9,7 +9,22 @@ To get all the mapfull configurations from database run this script:
 ```
 Select the view_id that matches the view you want to configure (default view/publish template propably) and get the 'config' for that row. The config includes functional configuration for the bundle which also includes for example which features to activate (plugins). The interesting part for projection configuration is the **mapOptions** and **projectionDefs** JSON-segments. These might not be present in the config in which case Oskari uses these defaults:
 
-TODO: add defaults here
+```json
+  "mapOptions": {
+       "maxExtent": {
+          "left": 0,
+          "bottom": 0,
+          "right": 10000000,
+          "top": 10000000
+       },
+       "srsName": "EPSG:3067",
+       "resolutions":[2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25]
+    },
+    "projectionDefs": {
+       "EPSG:3067": "+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs",
+       "EPSG:4326': '+title=WGS 84 +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+    }
+```
 
 To configure the projection you must add or edit these JSON-segments. An example fragment for EPSG:3057 based map:
 
@@ -157,6 +172,15 @@ And/or
 
 After the configuration has been run the result will show additionali info if you need to change any properties for these functionalities to work.
 
-# Printout 
+# Configuring new projections for Printout 
 
-TODO: printout configuration is a bit more involved.
+Edit printout properties file e.g. \jetty-8.1.16-oskari\resources\oskari-printout-backend-4326.properties
+
+```
+epsgCode=EPSG:4326  <--  desired crs / EPSG: must be in Uppercase
+layer.template=EPSG-4326_LAYER_TEMPLATE   <-- rename your own template in geowebcache_template.xml
+gridSubsetName=EPSG-4326  <-- rename your own grid subset  in geowebcache_template.xml
+```
+
+Add your template and grid subset definitions into servlet-printout\src\main\resources\fi\nls\oskari\printout\output\map\geowebcache_template.xml and 
+build oskari-server.
