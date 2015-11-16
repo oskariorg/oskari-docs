@@ -332,18 +332,20 @@ As of OskariRPC version 1.1.0 the channel object has an onReady(function() {})-f
 Then we call a function:
 ```javascript
 // Get current map position
-channel.getMapPosition(
-    function(data) {
-        console.log(
-            'getMapPosition',
-            data.centerX,
-            data.centerY
-        );
-    },
-    function(error, message) {
-        console.log('error', error, message);
-    }
-);
+channel.onReaady(function() {
+    channel.getMapPosition(
+        function(data) {
+            console.log(
+                'getMapPosition',
+                data.centerX,
+                data.centerY
+            );
+        },
+        function(error, message) {
+            console.log('error', error, message);
+        }
+    ); 
+});
 ```
 
 Then add an event listener:
