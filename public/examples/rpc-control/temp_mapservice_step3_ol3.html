@@ -250,17 +250,13 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
     // 
     $('#btnGetAllLayers').click(function(){
         channel.getAllLayers(function(data){
-            if(console && console.log){
-                console.log('GetAllLayers: ', data);
-            }
-        }, function(){});
+            channel.log('GetAllLayers: ', data);
+        });
     });
     $('#btnGetMapPosition').click(function(){
         channel.getMapPosition(function(data){
-            if(console && console.log){
-                console.log('GetMapPosition: ', data);
-            }
-        }, function(){});
+            channel.log('GetMapPosition: ', data);
+        });
     });
 
     $('#btnGetSupportedEvents').click(function(){
