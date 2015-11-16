@@ -54,7 +54,7 @@ Then there is srsName which is the name of the chosen projection.
 
 In **projectionDefs** should be given [proj4js](http://proj4js.org/) configurations for all the projections that are going to be used in the application.
 
-The projection can be configured to the database with the following kind of SQL. Remember to change the configuration to match your properties!
+The projection can be configured to the database with the following kind of SQL. **Remember to change the configuration to match your application!**
 
 ```sql
     UPDATE portti_view_bundle_seq
@@ -127,8 +127,35 @@ The projection can be configured to the database with the following kind of SQL.
 # User-generated content
 
 For user content like myplaces, analysis and userlayers one "native" projection is required for Geoserver config. 
-The easiest way to do this is use the "setup" webapp provided in the Jetty Oskari package. 
-TODO: jetty-package has the setup.war in {jetty.home} - add instructions.
+The easiest way to do this is use the "setup" webapp provided in the Jetty Oskari package. It uses the geoserver REST API to configure workspace, stores, layers and styles for user-generated content.
+The code is available in [Github](https://github.com/nls-oskari/oskari-server/tree/master/webapp-setup) and a precompiled deployable war-file is included in the Jetty-package available for 
+download on [Oskari.org](/download). Just deploy the webapp and access it in browser.
+
+Accessing the webapp will ask for the native projection to use for user-generated content and configure the geoserver configured in oskari-ext.properties:
+
+    geoserver.url=http://localhost:8080/geoserver
+    geoserver.user=admin
+    geoserver.password=geoserver
+
+It's also possible to configure geoserver instance for each functionality with properties:
+
+    geoserver.[module].url=http://localhost:8080/geoserver
+    geoserver.[module].user=admin
+    geoserver.[module].password=geoserver
+
+Where `[module]` is one of: `myplaces`, `analysis`, `userlayer`. The databases that are configured as stores follow a similar pattern with properties:
+
+    db.url=jdbc:postgresql://localhost:5432/oskaridb
+    db.username=postgres
+    db.password=admin
+
+And/or
+
+    db.[module].url=jdbc:postgresql://localhost:5432/oskaridb
+    db.[module].username=postgres
+    db.[module].password=admin
+
+After the configuration has been run the result will show additionali info if you need to change any properties for these functionalities to work.
 
 # Printout 
 
