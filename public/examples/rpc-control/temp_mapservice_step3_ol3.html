@@ -77,7 +77,9 @@
                       src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
                       style="border: none; width: 100%; height: 100%;"></iframe>
                 <!-- 
-                http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0
+                      src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
+                      src="http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0"
+                
                 http://localhost:8080/web/fi/kartta?uuid=af71ab66-342c-42ed-887e-576bbe4dc847&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true
                       src="http://localhost:8080/?lang=en&uuid=8ac29eb4-1e6c-4fae-ba32-5161808e3d88"
                       src="http://localhost:8080/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
@@ -173,6 +175,8 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                     <button id="btnGetZoomRange" class="btn btn-primary exampleready">Get zoom range</button>
                     <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>
                     <button id="btnResetState" class="btn btn-primary exampleready">Reset state</button>
+                    <button id="btnSaveState" class="btn btn-primary exampleready">Save state</button>
+                    <button id="btnLoadState" class="btn btn-primary exampleready">Load state</button>
                     <h5>Requests</h5>
                     <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
                     <button id="btnInfoBoxShowInfoBoxRequest" class="btn btn-primary doexample" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
@@ -213,6 +217,7 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
 
   // constants
     var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
+    //var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var LAYERS_ENV = ["base_35"];
     var LAYERS_ROAD = ["base_35",455];
@@ -250,17 +255,13 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
     // 
     $('#btnGetAllLayers').click(function(){
         channel.getAllLayers(function(data){
-            if(console && console.log){
-                console.log('GetAllLayers: ', data);
-            }
-        }, function(){});
+            channel.log('GetAllLayers: ', data);
+        });
     });
     $('#btnGetMapPosition').click(function(){
         channel.getMapPosition(function(data){
-            if(console && console.log){
-                console.log('GetMapPosition: ', data);
-            }
-        }, function(){});
+            channel.log('GetMapPosition: ', data);
+        });
     });
 
     $('#btnGetSupportedEvents').click(function(){
@@ -305,10 +306,25 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
 
     $('#btnResetState').click(function(){
         channel.resetState(function(){
-            if(console && console.log){
-                console.log('ResetState: ok');
-            }
+            // no need to do this, just for demo purpose
+            $('#btnLoadState').attr("disabled", true);
+            channel.log('ResetState: ok');
         }, function(){});
+    });
+
+    var savedState = null;
+    $('#btnSaveState').click(function(){
+        channel.getCurrentState(function(data){
+            savedState = data;
+            $('#btnLoadState').attr("disabled", false);
+            channel.log('getCurrentState: ', data);
+        });
+    });
+    $('#btnLoadState').attr("disabled", true);
+    $('#btnLoadState').click(function(){
+        channel.useState([savedState], function(){
+            channel.log('useState: ', savedState);
+        });
     });
 
 

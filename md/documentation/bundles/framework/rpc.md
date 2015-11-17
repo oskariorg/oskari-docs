@@ -16,7 +16,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
 ## Example
 
 <script src="/js/rpc/JSChannel/jschannel.js"></script>
-<script src="/js/rpc/OskariRPC/OskariRPC.js"></script>
+<script src="/js/rpc/OskariRPC/OskariRPC-1.1.0.js"></script>
 <style>
     iframe {
         background-clip: padding-box;
@@ -65,15 +65,8 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                     centerY,
                     zoomLevel === undefined ? 9 : zoomLevel
                 ],
-                function(data) {
-                    if (console && console.log) {
-                        console.log('MapMoveRequest posted');
-                    }
-                },
-                function(error, message) {
-                    if (console && console.log) {
-                        console.log('error', error, message);
-                    }
+                function() {
+                    channel.log('MapMoveRequest posted');
                 }
             );
         },
@@ -84,19 +77,14 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                     lon,
                     lat
                 ],
-                function(data) {
-                    if (console && console.log) {
-                        console.log('GetFeatureInfoRequest posted');
-                    }
-                },
-                function(error, message) {
-                    if (console && console.log) {
-                        console.log('error', error, message);
-                    }
+                function() {
+                    channel.log('GetFeatureInfoRequest posted');
                 }
             );
         },
         zoombar;
+
+channel.onReady(function() {
 
     channel.getZoomRange(
         function(data) {
@@ -124,11 +112,6 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
                 );
             };
             document.getElementById('rpcControls').appendChild(zoombar);
-        },
-        function(error, message) {
-            if (console && console.log) {
-                console.log('error', error, message);
-            }
         }
     );
 
@@ -203,6 +186,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
             }
         }
     );
+});
 
     channel.handleEvent(
         'AfterMapMoveEvent',
@@ -281,7 +265,7 @@ If not set, sane defaults will be used instead.
 ### Allowed functions
 
 Allowed functions (config.allowedFunctions) lists all the functions that can be called over rpc.
-Defaults at the moment are:
+Defaults at the moment are all the functions defined in RPC-bundles availableFunctions object:
 ```javascript
 ['getAllLayers', 'getAllLayers', 'getMapPosition', 'getSupportedEvents', 'getSupportedFunctions', 'getSupportedRequests',
     'getZoomRange', 'getMapBbox', 'resetState']
@@ -289,7 +273,7 @@ Defaults at the moment are:
 
 ### Allowed events
 
-Allowed events (config.allowedEvents) lists all the events that can be listened to over rpc.
+Allowed events (config.allowedEvents) lists all the events that can be listened to over rpc. This list will be modified on startup so events that are not available in the appsetup will be removed from the list.
 Defaults at the moment are:
 ```javascript
 ['AfterMapMoveEvent', 'MapClickedEvent', 'AfterAddMarkerEvent', 'MarkerClickEvent', 'RouteSuccessEvent', 'UserLocationEvent', 'DrawingEvent']
@@ -297,7 +281,7 @@ Defaults at the moment are:
 
 ### Allowed requests
 
-Allowed requests (config.allowedRequests) lists all the requests that can be sent over rpc.
+Allowed requests (config.allowedRequests) lists all the requests that can be sent over rpc. This list will be modified on startup so requests that are not available in the appsetup will be removed from the list.
 Defaults at the moment are:
 ```javascript
 ['InfoBox.ShowInfoBoxRequest',
@@ -329,11 +313,11 @@ If you're using the Oskari backend, this is injected automatically based on the 
 Next we'll need a map and the required libraries:
 ```html
 <script src="/js/rpc/JSChannel/jschannel.js"></script>
-<script src="/js/rpc/OskariRPC/OskariRPC.js"></script>
+<script src="/js/rpc/OskariRPC/OskariRPC-1.1.0.js"></script>
 <iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/8184"></iframe>
 ```
 
-Here we open communications with the published map:
+Here we open communications with the published map (the URL parameter is the domain of the iframe.src):
 ```html
 <script>
 var channel = OskariRPC.connect(
@@ -343,21 +327,25 @@ var channel = OskariRPC.connect(
 </script>
 ```
 
+As of OskariRPC version 1.1.0 the channel object has an onReady(function() {})-function where you can register a callback that is notified when the connection to map has been established. After the connection has been established you can query for supported events/requests and functions that can be used to interact with the map. These can change between Oskari instances since both appsetups and configurations for allowed functionalities can change based on the Oskari provider.
+
 Then we call a function:
 ```javascript
 // Get current map position
-channel.getMapPosition(
-    function(data) {
-        console.log(
-            'getMapPosition',
-            data.centerX,
-            data.centerY
-        );
-    },
-    function(error, message) {
-        console.log('error', error, message);
-    }
-);
+channel.onReaady(function() {
+    channel.getMapPosition(
+        function(data) {
+            console.log(
+                'getMapPosition',
+                data.centerX,
+                data.centerY
+            );
+        },
+        function(error, message) {
+            console.log('error', error, message);
+        }
+    ); 
+});
 ```
 
 Then add an event listener:
@@ -413,6 +401,28 @@ Depends wholly on the setup.
 ## Events the bundle sends out
 
 This bundle doesn't send any events.
+
+## FAQ / error situations
+
+#### Mostly on startup when parent page begins the connection process, but before the iframe is ready to listen (thrown from JSChannel on the parent page and will self-correct on most occasions):
+
+    Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('http://iframe.src.domain') does not match the recipient window's origin ('http://parentpage.domain').
+
+#### The actual domain of the iframe src differs from the domain that is told on the OskariRPC.connect() call (thrown from JSChannel on the parent page):
+
+    Uncaught SyntaxError: Failed to execute 'postMessage' on 'Window': Invalid target origin 'http://connect.call.param.domain' in a call to 'postMessage'.
+
+#### The domain configured for embedded map (when published) is different from the page that it's embedded in (thrown from RPC-bundle):
+
+    Error ["invalid_origin", "Invalid domain for parent page/origin. Published domain does not match: http://parentpage.domain"]
+    Uncaught Error: RPC call failed!
+
+#### Trying to post an unsupported request (thrown from RPC-bundle):
+
+    channel.postRequest('MyRequest');
+
+    Error ["request_not_available", "Request not available: MyRequest"]
+    Uncaught Error: RPC call failed!
 
 ## Dependencies
 

@@ -9,7 +9,23 @@ To get all the mapfull configurations from database run this script:
 ```
 Select the view_id that matches the view you want to configure (default view/publish template propably) and get the 'config' for that row. The config includes functional configuration for the bundle which also includes for example which features to activate (plugins). The interesting part for projection configuration is the **mapOptions** and **projectionDefs** JSON-segments. These might not be present in the config in which case Oskari uses these defaults:
 
-TODO: add defaults here
+```json
+  "mapOptions": {
+       "maxExtent": {
+          "left": 0,
+          "bottom": 0,
+          "right": 10000000,
+          "top": 10000000
+       },
+       "srsName": "EPSG:3067",
+       "resolutions":[2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25],
+       "units": "m"
+    },
+    "projectionDefs": {
+       "EPSG:3067": "+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs",
+       "EPSG:4326': '+title=WGS 84 +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+    }
+```
 
 To configure the projection you must add or edit these JSON-segments. An example fragment for EPSG:3057 based map:
 
@@ -36,25 +52,11 @@ To configure the projection you must add or edit these JSON-segments. An example
 
 In **mapOptions** there is first maxExtent, which means projected bounds of the chosen projection. These are the bounds that the map engine will allow the user to pan the map. 
 The bounds can be found f. e. in [spatial reference web site](http://spatialreference.org/ref/epsg/isn93-lambert-1993/).
-Then there is srsName which is the name of the chosen projection.
-
-<div class="bs-callout bs-callout-info">
-    <h4>Configuring resolutions</h4>
-
-    <p> In mapOptions it is also possible to give resolutions and units to the map. </p>
-    <p> Resolutions are given as an array. If resolutions are not given, they are by default [2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25]. </p>
-    <p> Units are meters by default if not given in configuration. </p>
-    <pre><code>
-    {
-        resolutions : [2000, 1000, 500, 200, 100, 50, 20, 10, 4, 2, 1, 0.5, 0.25],
-        units : "m"
-    }
-    </code></pre>
-</div>
+Then there is srsName which is the name of the chosen projection and resolutions which are the zoom levels.
 
 In **projectionDefs** should be given [proj4js](http://proj4js.org/) configurations for all the projections that are going to be used in the application.
 
-The projection can be configured to the database with the following kind of SQL. Remember to change the configuration to match your properties!
+The projection can be configured to the database with the following kind of SQL. **Remember to change the configuration to match your application!**
 
 ```sql
     UPDATE portti_view_bundle_seq
@@ -127,9 +129,45 @@ The projection can be configured to the database with the following kind of SQL.
 # User-generated content
 
 For user content like myplaces, analysis and userlayers one "native" projection is required for Geoserver config. 
-The easiest way to do this is use the "setup" webapp provided in the Jetty Oskari package. 
-TODO: jetty-package has the setup.war in {jetty.home} - add instructions.
+The easiest way to do this is use the "setup" webapp provided in the Jetty Oskari package. It uses the geoserver REST API to configure workspace, stores, layers and styles for user-generated content.
+The code is available in [Github](https://github.com/nls-oskari/oskari-server/tree/master/webapp-setup) and a precompiled deployable war-file is included in the Jetty-package available for 
+download on [Oskari.org](/download). Just deploy the webapp and access it in browser.
 
-# Printout 
+Accessing the webapp will ask for the native projection to use for user-generated content and configure the geoserver configured in oskari-ext.properties:
 
-TODO: printout configuration is a bit more involved.
+    geoserver.url=http://localhost:8080/geoserver
+    geoserver.user=admin
+    geoserver.password=geoserver
+
+It's also possible to configure geoserver instance for each functionality with properties:
+
+    geoserver.[module].url=http://localhost:8080/geoserver
+    geoserver.[module].user=admin
+    geoserver.[module].password=geoserver
+
+Where `[module]` is one of: `myplaces`, `analysis`, `userlayer`. The databases that are configured as stores follow a similar pattern with properties:
+
+    db.url=jdbc:postgresql://localhost:5432/oskaridb
+    db.username=postgres
+    db.password=admin
+
+And/or
+
+    db.[module].url=jdbc:postgresql://localhost:5432/oskaridb
+    db.[module].username=postgres
+    db.[module].password=admin
+
+After the configuration has been run the result will show additional info if you need to change any properties for these functionalities to work.
+
+# Configuring new projections for Printout 
+
+Edit printout properties file e.g. {JETTY_HOME}\resources\oskari-printout-backend-4326.properties
+
+```
+epsgCode=EPSG:4326  <--  desired crs / EPSG: must be in Uppercase
+layer.template=EPSG-4326_LAYER_TEMPLATE   <-- rename your own template in geowebcache_template.xml
+gridSubsetName=EPSG-4326  <-- rename your own grid subset  in geowebcache_template.xml
+```
+
+Add your template and grid subset definitions into servlet-printout\src\main\resources\fi\nls\oskari\printout\output\map\geowebcache_template.xml and 
+build oskari-server.
