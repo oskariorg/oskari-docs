@@ -258,51 +258,60 @@ channel.onReady(function() {
 
 ## Bundle configuration
 
-No configuration is required, but it can be used to define allowed functions,
-events and requests.
-If not set, sane defaults will be used instead.
+No configuration is required, but it can be used to define allowed functions, events and requests. 
+If configuration is not set these defaults will be used:
+
+```javascript
+{
+    "allowedFunctions" : ["getAllLayers", "getMapPosition", "getSupportedEvents", "getSupportedFunctions", "getSupportedRequests",
+        "getZoomRange", "getMapBbox", "resetState", "getCurrentState", "useState"],
+    "allowedEvents" : ["AfterMapMoveEvent", "MapClickedEvent", "AfterAddMarkerEvent", "MarkerClickEvent", "RouteSuccessEvent", "UserLocationEvent", "DrawingEvent"],
+    "allowedRequests" : ["InfoBox.ShowInfoBoxRequest", "MapModulePlugin.AddMarkerRequest", "MapModulePlugin.AddFeaturesToMapRequest", "MapModulePlugin.RemoveFeaturesFromMapRequest", "MapModulePlugin.GetFeatureInfoRequest", "MapModulePlugin.MapLayerVisibilityRequest", "MapModulePlugin.RemoveMarkersRequest", "MapMoveRequest", "ShowProgressSpinnerRequest", "GetRouteRequest", "ChangeMapLayerOpacityRequest", "MyLocationPlugin.GetUserLocationRequest",  "DrawTools.StartDrawingRequest", "DrawTools.StopDrawingRequest"]
+}
+```
 
 ### Allowed functions
 
 Allowed functions (config.allowedFunctions) lists all the functions that can be called over rpc.
-Defaults at the moment are all the functions defined in RPC-bundles availableFunctions object:
-```javascript
-['getAllLayers', 'getAllLayers', 'getMapPosition', 'getSupportedEvents', 'getSupportedFunctions', 'getSupportedRequests',
-    'getZoomRange', 'getMapBbox', 'resetState']
-```
+Defaults at the moment are all the functions defined in RPC-bundles availableFunctions object which include:
+- getAllLayers()
+- getMapPosition()
+- getSupportedEvents()
+- getSupportedFunctions()
+- getSupportedRequests()
+- getZoomRange()
+- getMapBbox()
+- resetState()
+- getCurrentState()
+- useState(stateObject)
+
+All functions take callbacks as parameters for successhandler and (optional) errorhandler. Most functions are getters and only require the success callback. 
+useState() is the only function currently that takes other type of parameters. However all functions are mapped in a similar fashion and the first parameter for function call can be used
+to send parameters to the function. The parameters to send should be sent as an array:
+
+    channel.useState([stateObject], successCB, errorCB);
+
+    channel.getAllLayers(function(data) {
+        console.log('Maplayers:", data);
+    }, function(err) {
+        console.log('Error!", err);
+    });
+        
+If the first parameter is is a function, it's treated as the success callback.
 
 ### Allowed events
 
-Allowed events (config.allowedEvents) lists all the events that can be listened to over rpc. This list will be modified on startup so events that are not available in the appsetup will be removed from the list.
-Defaults at the moment are:
-```javascript
-['AfterMapMoveEvent', 'MapClickedEvent', 'AfterAddMarkerEvent', 'MarkerClickEvent', 'RouteSuccessEvent', 'UserLocationEvent', 'DrawingEvent']
-```
+Allowed events (config.allowedEvents) lists all the events that can be listened to over rpc. 
+List will be modified on startup so events that are not available in the appsetup will be removed from the list.
 
 ### Allowed requests
 
-Allowed requests (config.allowedRequests) lists all the requests that can be sent over rpc. This list will be modified on startup so requests that are not available in the appsetup will be removed from the list.
-Defaults at the moment are:
-```javascript
-['InfoBox.ShowInfoBoxRequest',
-'MapModulePlugin.AddMarkerRequest',
-'MapModulePlugin.AddFeaturesToMapRequest',
-'MapModulePlugin.RemoveFeaturesFromMapRequest',
-'MapModulePlugin.GetFeatureInfoRequest',
-'MapModulePlugin.MapLayerVisibilityRequest',
-'MapModulePlugin.RemoveMarkersRequest',
-'MapMoveRequest',
-'ShowProgressSpinnerRequest',
-'GetRouteRequest',
-'ChangeMapLayerOpacityRequest',
-'MyLocationPlugin.GetUserLocationRequest', 
-'DrawTools.StartDrawingRequest',
-'DrawTools.StopDrawingRequest']
-```
+Allowed requests (config.allowedRequests) lists all the requests that can be sent over rpc. 
+List will be modified on startup so requests that are not available in the appsetup will be removed from the list.
 
 ## Using the bundle functionality
 
-First of all, the bundle's configuration must have a "domain" value, that will be checked against the communication origin.
+First of all the bundle's configuration must have a "domain" value, that will be checked against the communication origin.
 ```javascript
 {
     'domain': 'oskari.org'
@@ -329,7 +338,9 @@ var channel = OskariRPC.connect(
 
 As of OskariRPC version 1.1.0 the channel object has an onReady(function() {})-function where you can register a callback that is notified when the connection to map has been established. After the connection has been established you can query for supported events/requests and functions that can be used to interact with the map. These can change between Oskari instances since both appsetups and configurations for allowed functionalities can change based on the Oskari provider.
 
-Then we call a function:
+After the channel has been created you can control the map with functions and requests and react to map events.
+
+Calling a function:
 ```javascript
 // Get current map position
 channel.onReaady(function() {
@@ -348,7 +359,7 @@ channel.onReaady(function() {
 });
 ```
 
-Then add an event listener:
+Adding an event listener:
 ```javascript
 channel.handleEvent(
     'AfterMapMoveEvent',
@@ -365,7 +376,7 @@ channel.handleEvent(
 );
 ```
 
-And post a request:
+And posting a request:
 ```javascript
 channel.postRequest(
     'MapModulePlugin.AddMarkerRequest',
