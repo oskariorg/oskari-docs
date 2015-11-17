@@ -440,7 +440,7 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
             'MapModulePlugin.AddFeaturesToMapRequest',
             [geojsonObject, {
                 layerId: null, 
-                replace: 'replace',
+                clearPrevious: true,
                 layerOptions: testOptions,
                 centerTo: true,
                 featureStyle: null
