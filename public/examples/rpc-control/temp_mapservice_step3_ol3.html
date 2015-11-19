@@ -74,9 +74,10 @@
           <div class="panel panel-default map-panel">
             <div class="panel-body">
                 <iframe id="publishedMap"
-                      src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5"
+                      src="src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5"
                       style="border: none; width: 100%; height: 100%;"></iframe>
                 <!-- 
+                      src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5"
                       src="http://demo.paikkatietoikkuna.fi/published/fi/4983859d-5b0b-45f0-9205-b2b4f22e62c0"
                       src="http://localhost:8080/?uuid=e54496e7-3921-4373-b2fe-12334a3bccc0"
                 
@@ -156,7 +157,6 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                     <button id="btnReportNew" class="btn btn-primary">Report new issue</button>
                     <ul class="list-group markers"></ul>
                 </div>
-
 
                 </form>
 
@@ -560,6 +560,13 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
         marker.y = search1.lat;
         marker.msg = search1.name +'_' + search1.type + '_' + search1.village;
         addMarker(marker, USER_MARKER_ID);
+        alert('Found  ' + data.result.totalCount + '  items - zoom to 1st one');
+       }
+       else if(data.success && data.result.totalCount === 0){
+        alert('No items found - search key: ' + data.requestParameters.searchKey);
+       }
+       else{
+        alert('Search error: ' + data.result.responseText);
        }
      
     };
