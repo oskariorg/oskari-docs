@@ -210,7 +210,7 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
 
         </div>
       </div>
-
+      <div class="messageBox" style="display: none;"></div>
     </div> <!-- /container -->
 
 <script>
@@ -535,6 +535,23 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
         )
     }
 
+    function displayMessage(message, tout) {
+        var timeOut = 5,
+            text = jQuery('.messageBox').text(message);
+            if (tout) {
+                timeOut = tout;
+            }
+            var escaped = jQuery('<div>').text(message).text();
+            jQuery('.messageBox').html(escaped.replace(/\n/g, '<br />'));
+            jQuery('.messageBox').css("display", "block");
+            jQuery('.messageBox').fadeIn();
+            setTimeout(function () {
+                jQuery('.messageBox').fadeOut();
+                jQuery('.messageBox').css("display", "none");
+            }, timeOut * 1000);
+    }
+
+
     eventHandlers['MapClickedEvent'] = function(data) {
         if (!elements.reportForm.is(':visible')) {
             return;
@@ -548,7 +565,7 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
     };
     // Handler for SearchRequest
   eventHandlers['SearchResultEvent'] = function(data) {
-       if(data.success && data.result.totalCount > 0){
+     if(data.success && data.result.totalCount > 0){
         var search1 = data.result.locations[0],
             zoom = {};
         zoom.scale = search1.zoomScale;
@@ -560,13 +577,24 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
         marker.y = search1.lat;
         marker.msg = search1.name +'_' + search1.type + '_' + search1.village;
         addMarker(marker, USER_MARKER_ID);
-        alert('Found  ' + data.result.totalCount + '  items - zoom to 1st one');
+        if(data.result.totalCount === 1){
+        displayMessage('Zoomed to ' + search1.name, 5);
+        }
+       else if(data.result.totalCount > 1){
+        var items = '';
+        data.result.locations.forEach(
+            function addItem(s) { items = items + s.name + ' / ' + s.type + ' / ' + s.village +'\n'; }
+          );
+        
+         displayMessage('Zoomed to 1st one -  \n ' + items ,5);
        }
+    }
+      
        else if(data.success && data.result.totalCount === 0){
-        alert('No items found - search key: ' + data.requestParameters.searchKey);
+        displayMessage('No items found - search key: ' + data.requestParameters.searchKey, 5);
        }
        else{
-        alert('Search error: ' + data.result.responseText);
+        displayMessage('Search error: ' + data.result.responseText, 5);
        }
      
     };
