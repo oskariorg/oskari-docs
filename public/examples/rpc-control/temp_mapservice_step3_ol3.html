@@ -93,6 +93,10 @@
 http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true
 -->
 
+            <div class="panel-body">
+                <div id="debuglog">
+                </div>
+            </div>
 
             </div>
           </div>
@@ -181,10 +185,10 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                     <h5>Requests</h5>
                     <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
                     <button id="btnInfoBoxShowInfoBoxRequest" class="btn btn-primary doexample" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
-                    <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
+                    <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
+                    <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
                     <button id="btnMapModulePluginGetFeatureInfoRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.GetFeatureInfoRequest">MapModulePlugin.GetFeatureInfoRequest</button>
                     <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
-                    <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary doexample" data-example="MapModulePlugin.RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
                     <button id="btnMapMoveRequest" class="btn btn-primary exampleready" data-example="MapMoveRequest">MapMoveRequest</button>
                     <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
                     <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary exampleready" data-example="MyLocationPlugin.GetUserLocationRequest">MyLocationPlugin.GetUserLocationRequest</button>
@@ -198,9 +202,9 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                     <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
                     <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
                     <h5>Events</h5>
-                    <button id="btnAfterAddMarkerEvent" class="btn btn-primary doexample eventexample" data-example="AfterAddMarkerEvent">AfterAddMarkerEvent</button>
+                    <button id="btnAfterAddMarkerEvent" title="Add a marker to get event" class="btn btn-primary exampleready eventexample" data-example="AfterAddMarkerEvent">AfterAddMarkerEvent</button>
 
-                    <button id="btnMarkerClickEvent" class="btn btn-primary doexample eventexample" data-example="MarkerClickEvent">MarkerClickEvent</button>
+                    <button id="btnMarkerClickEvent" title="Add a marker and click it to get event" class="btn btn-primary exampleready eventexample" data-example="MarkerClickEvent">MarkerClickEvent</button>
                     <button id="btnRouteResultEvent" title="Do GetRouteRequest to get event" class="btn btn-primary exampleready eventexample" data-example="RouteResultEvent">RouteResultEvent</button>
                     <button id="btnMapClickedEvent" title="Click map to get event" class="btn btn-primary exampleready eventexample" data-example="MapClickedEvent">MapClickedEvent</button>
                     <button id="btnAfterMapMoveEvent" title="Move map to get event" class="btn btn-primary exampleready eventexample" data-example="AfterMapMoveEvent">AfterMapMoveEvent</button>
@@ -269,50 +273,40 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
 
     $('#btnGetSupportedEvents').click(function(){
         channel.getSupportedEvents(function(data){
-            if(console && console.log){
-                console.log('GetSupportedEvents: ', data);
-            }
-        }, function(){});
+            channel.log('GetSupportedEvents: ', data);
+        });
     });
 
     $('#btnGetSupportedFunctions').click(function(){
         channel.getSupportedFunctions(function(data){
-            if(console && console.log){
-                console.log('GetSupportedFunctions: ', data);
-            }
-        }, function(){});
+            channel.log('GetSupportedFunctions: ', data);
+        });
     });
 
     $('#btnGetSupportedRequests').click(function(){
         channel.getSupportedRequests(function(data){
-            if(console && console.log){
-                console.log('GetSupportedRequests: ', data);
-            }
-        }, function(){});
+            channel.log('GetSupportedRequests: ', data);
+        });
     });
 
     $('#btnGetZoomRange').click(function(){
         channel.getZoomRange(function(data){
-            if(console && console.log){
-                console.log('GetZoomRange: ', data);
-            }
+            channel.log('GetZoomRange: ', data);
         });
     });
 
     $('#btnGetMapBbox').click(function(){
         channel.getMapBbox(function(data){
-            if(console && console.log){
-                console.log('GetMapBbox: ', data);
-            }
-        }, function(){});
+            channel.log('GetMapBbox: ', data);
+        });
     });
 
     $('#btnResetState').click(function(){
         channel.resetState(function(){
             // no need to do this, just for demo purpose
             $('#btnLoadState').attr("disabled", true);
-            channel.log('ResetState: ok');
-        }, function(){});
+            channel.log('State Reset');
+        });
     });
 
     var savedState = null;
@@ -320,13 +314,13 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
         channel.getCurrentState(function(data){
             savedState = data;
             $('#btnLoadState').attr("disabled", false);
-            channel.log('getCurrentState: ', data);
+            channel.log('GetCurrentState: ', data);
         });
     });
     $('#btnLoadState').attr("disabled", true);
     $('#btnLoadState').click(function(){
         channel.useState([savedState], function(){
-            channel.log('useState: ', savedState);
+            channel.log('UseState: ', savedState);
         });
     });
 
@@ -345,10 +339,8 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                 new_opacity = 50;
             }
             channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
-            if(console && console.log){
-                console.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
-            }
-        }, function () {});
+            channel.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
+        });
     });
 
     $('#btnGetRouteRequest').click(function(){
@@ -359,22 +351,30 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
             "tolat": "6675728",
             "tolon": "394240"
         };
-        channel.postRequest(
-            'GetRouteRequest',
-            [
-                data
-            ],
-            function(data) {
-                if (console && console.log) {
-                    console.log('GetRouteRequest posted');
-                }
-            },
-            function(error, message) {
-                if (console && console.log) {
-                    console.log('error', error, message);
-                }
-            }
-        );
+        channel.postRequest('GetRouteRequest', [data]);
+        channel.log('GetRouteRequest posted with data', data);
+    });
+
+    var MARKER_ID = 'RPC_MARKER';
+    $('#btnMapModulePluginAddMarkerRequest').click(function(){
+
+        channel.getMapPosition(function(data){
+            var data = {
+                x: data.centerX,
+                y: data.centerY,
+                color: "ff0000",
+                msg : '',
+                shape: 3,
+                size: 3
+            };
+            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+            channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
+        });
+    });
+
+    $('#btnMapModulePluginRemoveMarkersRequest').click(function(){
+        channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
+        channel.log('AddMarkerRequest posted with data', MARKER_ID);
     });
 
      $('#btnSearchRequest').click(function(){
@@ -382,36 +382,20 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
             "searchKey": document.getElementById("inputSearch").value,
             "epsg": "EPSG:3067"
         };
-        channel.postRequest(
-            'SearchRequest',
-            [
-                data
-            ],
-            function(data) {
-                if (console && console.log) {
-                    console.log('SearchRequest posted');
-                }
-            },
-            function(error, message) {
-                if (console && console.log) {
-                    console.log('SearchRequest error', error, message);
-                }
-            }
-        );
+        channel.postRequest('SearchRequest', [data]);
+        channel.log('AddMarkerRequest posted with data', data);
     });
 
     $('#btnShowProgressSpinnerRequest').click(function(){
-        channel.postRequest(
-            'ShowProgressSpinnerRequest',
-            [!states.progressSpinnerVisible]
-        );
+        var isVisible = !states.progressSpinnerVisible;
+        channel.postRequest('ShowProgressSpinnerRequest',[isVisible]);
+        channel.log('ShowProgressSpinnerRequest posted with data', isVisible);
         states.progressSpinnerVisible = !states.progressSpinnerVisible;
     });
 
     $('#btnMyLocationPluginGetUserLocationRequest').click(function(){
-        channel.postRequest(
-            'MyLocationPlugin.GetUserLocationRequest', [true]
-        );
+        channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
+        channel.log('MyLocationPlugin.GetUserLocationRequest posted with data', true);
     });
 
     $('#btnAddFeaturesToMapRequest').click(function(){
@@ -454,25 +438,23 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
             'minResolution': 0,
             'maxResolution': 1000
         };
-
-        channel.postRequest(
-            'MapModulePlugin.AddFeaturesToMapRequest',
-            [geojsonObject, {
+        var params = [geojsonObject, {
                 layerId: null, 
                 clearPrevious: true,
                 layerOptions: testOptions,
                 centerTo: true,
                 featureStyle: null
-            }]
+            }];
+        channel.postRequest(
+            'MapModulePlugin.AddFeaturesToMapRequest',
+            params
         );
+        channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
     });
     
     $('#btnRemoveFeaturesFromMapRequest').click(function(){
-        channel.postRequest(
-            'MapModulePlugin.RemoveFeaturesFromMapRequest',
-            []
-        );
-    
+        channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
+        channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted without params');
     });
 
     // RPC TEST EVENTS
@@ -482,17 +464,14 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                 var el = jQuery(this);
                 var eventName = el.attr('data-example');
 
-                if(eventName && eventName!=='') {
-                    console.log(eventName);
+                if(eventName) {
                     channel.handleEvent(eventName, function(data){
-                        if (console && console.log) {
-                            console.log(eventName, data)
-                        }
+                        channel.log(eventName, data)
 
                         if(eventHandlers[eventName]) {
                             eventHandlers[eventName](data);
                         }
-                    }, function(){});
+                    });
                 }
             }
 
@@ -513,9 +492,35 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
         elements.iframe,
         IFRAME_DOMAIN
     );
+    // override logger to write on html
+    var logDiv = jQuery('#debuglog');
+    if(logDiv.length) {
+        var logMsgTemplate = jQuery('<div class="logmsg"></div>');
+        channel.log = function() {
+            if(!arguments.length) {
+                return;
+            }
+            var now = new Date();
+            var msg = logMsgTemplate.clone();
+            msg.append(now.toLocaleTimeString() + ': ');
+            _.each(arguments, function(arg) {
+                if(typeof arg === 'function') {
+                    return;
+                }
+                else if(typeof arg === 'object' || typeof arg === 'array') {
+                    msg.append('<pre>' + JSON.stringify(arg, null, '  ') + '</pre>');
+                }
+                else {
+                    msg.append(arg + ' ');
+                }
+            });
+
+            logDiv.prepend(msg);
+        }
+    }
     channel.enableDebug(true);
     channel.onReady(function() {
-        console.log('Map is now listening');
+        channel.log('Map is now listening');
     });
     
 

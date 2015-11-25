@@ -3,6 +3,12 @@ body {
   background-color: #e5eaf5;
 }
 
+#debuglog .logmsg {
+
+  margin: 5px;
+  border: 1px dotted #eee;
+  padding: 5px;
+}
 .container {
   background-color: #ffffff;
 }
