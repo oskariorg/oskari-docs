@@ -11,7 +11,7 @@
 
 ## Description
 
-This bundle provides a service which listen ``GetRouteRequest`` request. When request has made the service send ajax call to Oskari backend and waiting to response. When response come then service sends ``RouteSuccessEvent``.
+This bundle provides a service which listen ``GetRouteRequest`` request. When request has made the service send ajax call to Oskari backend and waiting to response. When response come then service sends ``RouteResultEvent``.
 
 
 ## Bundle configuration
@@ -29,7 +29,7 @@ No statehandling has been implemented.
     <th> Request </th><th> How does the bundle react</th>
   </tr>
   <tr>
-    <td>`GetRouteRequest`</td><td> Get routing information from Oskari backend and waiting for this response. When response come the answer is forwarded to ``RouteSuccessEvent``.</td>
+    <td>`GetRouteRequest`</td><td> Get routing information from Oskari backend and waiting for this response. When response come the answer is forwarded to ``RouteResultEvent``.</td>
   </tr>
 </table>
 
@@ -48,7 +48,7 @@ This bundle doesn't send out any events.
     <th> Event </th><th> Why/when</th>
   </tr>
   <tr>
-    <td>`RouteSuccessEvent`</td><td> Sends routing information to forward.</td>
+    <td>`RouteResultEvent`</td><td> Sends routing information to forward.</td>
   </tr>
 </table>
 

@@ -133,7 +133,7 @@ var featureStyle = {
 
 //Add the features on a specific layer
 var rn = 'MapModulePlugin.AddFeaturesToMapRequest';
-this.getSandbox().postRequestByName(rn, [geojsonObject, {
+Oskari.getSandbox().postRequestByName(rn, [geojsonObject, {
     layerId: 'MY_VECTOR_LAYER',
     clearPrevious: true,
     layerOptions: null,
@@ -166,7 +166,7 @@ var featureStyle = {
 
 //add features
 var rn = 'MapModulePlugin.AddFeaturesToMapRequest';
-this.getSandbox().postRequestByName(rn, [WKT, {
+Oskari.getSandbox().postRequestByName(rn, [WKT, {
     layerId: 'MY_VECTOR_LAYER',
     clearPrevious: true,
     layerOptions: null,
