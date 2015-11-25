@@ -42,7 +42,7 @@ Code acquired from external sources will be subject to adaptation (if deemed nec
 
 * Think little bit fore hand what are you going to contribute and try to keep it small or compact (we don’t wish to have a pull request which has changes to all over Oskari  :)  )
 
-* Use code formatter. If you are developing backend code using eclipce or Idea you might want install e.g.
+* Use code formatter. If you are developing backend code using eclipce or Idea you might want install a code formatter plugin.
 
 
 

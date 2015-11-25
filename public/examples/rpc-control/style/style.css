@@ -185,6 +185,17 @@ a.go-to-site {
   margin-top: 30px;
 }
 
+.messageBox {  
+  width:350px;  
+  padding:10px;  
+  border:1px solid #666;  
+  position:fixed; left:50%;  
+  top:50%;  
+  z-index:999;  
+  background-color: #e5e5e5;
+  -webkit-border-radius: 6px; -moz-border-radius: 6px;
+}
+  
 .h5 {
   font-weight: bold;
 }
