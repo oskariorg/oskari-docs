@@ -443,13 +443,76 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                 clearPrevious: true,
                 layerOptions: testOptions,
                 centerTo: true,
-                featureStyle: null
+                featureStyle: null,
+                cursor: 'zoom-in'
             }];
         channel.postRequest(
             'MapModulePlugin.AddFeaturesToMapRequest',
             params
         );
         channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
+
+
+        var geojsonObject2 = {
+              'type': 'FeatureCollection',
+              'crs': {
+                'type': 'name',
+                'properties': {
+                  'name': 'EPSG:3067'
+                }
+              },
+              'features': [
+                {
+                  'type': 'Feature',
+                  'geometry': {
+                    'type': 'LineString',
+                    'coordinates': [[x+30000, y], [x+130000, y+100000]]
+                  },
+                  'properties': {
+                    'test_property': 1
+                  }
+                },
+                {
+                  'type': 'Feature',
+                  'geometry': {
+                    'type': 'Point',
+                    'coordinates': [x+30000, y]
+                  },
+                  'properties': {
+                    'test_property': 2
+                  }
+                }
+
+              ]
+            };
+
+        var testOptions2 = {
+            'minResolution': 0,
+            'maxResolution': 1000
+        };
+        var params2 = [geojsonObject2, {
+                layerId: null, 
+                clearPrevious: false,
+                layerOptions: testOptions2,
+                centerTo: false,
+                featureStyle: {
+                    fill: {
+                        color: '#ff0000'
+                    },
+                    stroke : {
+                        color: '#ff0000',
+                        width: 5
+                    }
+                },
+                cursor: 'zoom-out'
+            }];
+
+
+        channel.postRequest(
+            'MapModulePlugin.AddFeaturesToMapRequest',
+            params2
+        );
+        channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params2);
     });
     
     $('#btnRemoveFeaturesFromMapRequest').click(function(){
