@@ -67,7 +67,8 @@ Modifies config for "myBundle" adding the property "echoing" with value of an ht
 	    }
 	}
 
-
+ParamHandlers are run in priority order where priority 1 is run before priority 10. By default the priority for all ParamHandlers is 500 and you can affect this by overriding the 
+getPriority() function to return a lower or higher priority.
 
 If a bundles config needs to be modified after loading from database, it can be done by implementing a 
 `fi.nls.oskari.control.view.modifier.bundle.BundleHandler`. This is used for example for the mapfull bundle with more than few modifications when a view is loaded:
