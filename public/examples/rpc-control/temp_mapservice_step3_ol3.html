@@ -444,7 +444,8 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                 layerOptions: testOptions,
                 centerTo: true,
                 featureStyle: null,
-                cursor: 'zoom-in'
+                cursor: 'zoom-in',
+                prio: 4
             }];
         channel.postRequest(
             'MapModulePlugin.AddFeaturesToMapRequest',
@@ -504,7 +505,8 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                         width: 5
                     }
                 },
-                cursor: 'zoom-out'
+                cursor: 'zoom-out',
+                prio: 1
             }];
 
 
