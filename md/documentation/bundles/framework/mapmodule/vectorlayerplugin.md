@@ -15,7 +15,36 @@
 
 ## Bundle configuration
 
-No configuration is required. 
+No configuration is required. Following is optional:
+```javascript
+{
+    "layers": [    
+        {
+            "id": "EXAMPLE1",
+            "style": {
+                "fill": {
+                    "color": "#ff00ff"
+                },
+                "stroke": {
+                    "color": "#ff00ff",
+                    "width": 3
+                },
+                "text": {
+                    "fill": {
+                        "color": "#0000ff"
+                    },
+                    "stroke": {
+                        "color": "#ff00ff",
+                        "width": 4
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+This configuration creates one (or many) layer(s) when plugin is started. You can tell layer default style for style object. When feature added layer style is used if feature request not contains feature style. If layer and feature style is not defined using defaults.
 
 ## Bundle state
 
