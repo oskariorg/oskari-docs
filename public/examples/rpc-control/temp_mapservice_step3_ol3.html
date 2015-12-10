@@ -94,6 +94,7 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
 -->
 
             <div class="panel-body">
+                <a onClick="jQuery('#debuglog').empty(); return false;">Clear log</a>
                 <div id="debuglog">
                 </div>
             </div>
@@ -199,6 +200,10 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                             <button id="btnSearchRequest" class="btn btn-primary exampleready" data-example="SearchRequest">SearchRequest</button>
                         </div>
                     </div>
+                    <button id="btnStartDrawingRequest" class="btn btn-primary exampleready" data-example="DrawTools.StartDrawingRequest">DrawTools.StartDrawingRequest</button>
+                    <button id="btnStopDrawingRequest" class="btn btn-primary exampleready" data-example="DrawTools.StopDrawingRequest">DrawTools.StopDrawingRequest - cancel current drawing</button>
+                    <button id="btnStopDrawingRequestClear" class="btn btn-primary exampleready" data-example="DrawTools.StopDrawingRequest">DrawTools.StopDrawingRequest - clear drawings</button>
+                    
                     <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
                     <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
                     <h5>Events</h5>
@@ -211,6 +216,7 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
                     <button id="btnUserLocationEvent" title="Do MyLocationPlugin.GetUserLocationRequest to get event" class="btn btn-primary exampleready eventexample" data-example="UserLocationEvent">UserLocationEvent</button>
                     <button id="btnSearchRequestEvent" title="Do SearchRequest to get event" class="btn btn-primary exampleready eventexample" data-example="SearchResultEvent">SearchResultEvent</button>
                     <button id="btnFeatureEvent" title="Do AddFeaturesToMapRequest and click the feature to get event" class="btn btn-primary exampleready eventexample" data-example="FeatureEvent">FeatureEvent</button>
+                    <button id="btnDrawingEvent" title="Do DrawTools.StartDrawingRequest and click on the map to get event" class="btn btn-primary exampleready eventexample" data-example="DrawingEvent">DrawingEvent</button>
 
                 </div>
             </div>
@@ -396,6 +402,25 @@ http://localhost:8080/web/fi/kartta?uuid=eaa8cf1f-71b5-43dc-be27-4d70227ffcad&p_
     $('#btnMyLocationPluginGetUserLocationRequest').click(function(){
         channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
         channel.log('MyLocationPlugin.GetUserLocationRequest posted with data', true);
+    });
+
+    $('#btnStartDrawingRequest').click(function(){
+        var data = ['my functionality id', 'Polygon'];
+        channel.postRequest('DrawTools.StartDrawingRequest', data);
+        channel.log('DrawTools.StartDrawingRequest posted with data:', data);
+    });
+
+
+    $('#btnStopDrawingRequest').click(function(){
+        var data = ['my functionality id'];
+        channel.postRequest('DrawTools.StopDrawingRequest', data);
+        channel.log('DrawTools.StopDrawingRequest posted with data:', data);
+    });
+
+    $('#btnStopDrawingRequestClear').click(function(){
+        var data = ['my functionality id', true];
+        channel.postRequest('DrawTools.StopDrawingRequest', data);
+        channel.log('DrawTools.StopDrawingRequest posted with data:', data);
     });
 
     $('#btnAddFeaturesToMapRequest').click(function(){
