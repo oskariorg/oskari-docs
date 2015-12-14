@@ -55,7 +55,10 @@ Options object
     },
     centerTo: true,
     featureStyle: null,
-    attributes: null
+    attributes: null,
+    cursor: 'zoom-in',
+    prio: 1,
+    minScale: 1451336
 }
 ```
 <ul>
@@ -77,6 +80,15 @@ Options object
 	<li>
 		<b>attributes</b> - Feature's attributes, especially handy when the geometry is a WKT-string.
 	</li>
+  <li>
+    <b>cursor</b> - Mouse cursor when cursor is over the feature.
+  </li>
+  <li>
+    <b>prio</b> - Feature prio. The lowest number is the must important feature (top on the map). The highest number is the least important.
+  </li>
+  <li>
+    <b>minScale</b> - Feature min scale when zoomTo option is used. Don't let map scale to go below the defined scale when zoomed to features.
+  </li>
 </ul>
 
 ##Usage example (GeoJSON)
