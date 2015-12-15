@@ -11,7 +11,7 @@ Has functionality that should be part of the mapmodule bundle
 
 ## Mapfull bundle
 
-Has functionality that should be part of the Core
+Is a special snowflake bundle since it has functionality that should be part of the Core
 
 ## Mapmodule
 

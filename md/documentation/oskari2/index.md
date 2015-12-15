@@ -2,25 +2,31 @@
 
 ## Goal
 
-To make the Oskari frontend code more developer friendly.
+To make the Oskari frontend code more developer friendly:
 
-Means:
-
-- clarify roles of Oskari concepts:
+- Clarify roles of Oskari concepts:
 	- [core](core)
 	- [sandbox](sandbox)
 	- [bundle](bundle)
-- clarify the API offered by each of the components
-	- clean and documented API
-- provide backwards compatibility with an integration layer that maps previous Oskari implementation to the new API
-- more tools for front-end development like:
-	- static file serving node.js server
-	- way of minifying bundles that can be inserted to page with simple &lt;script&gt; tag to get the functionality
-	- customization for builds with application variables (like colorscheme)
-- separating functionality from UI (for future development atleast)
-- providing default resources that can be overridden in apps
-- means to provide bundle functionality from outside the Oskari-folder
-- [code rearrangements](coderearrangements)
+- Clarify the API offered by each of the components
+	- API doc for core/sandbox
+	- Bundles
+		- What is a bundle? -> Functionality identified by an id
+		- What is the API offered by a bundle? -> Requests, events, services
+		- How to document it? -> Describe functionality in general, list implementations or it
+		- Can it be generated automatically? -> Wishlist: automatic generation of referenced public API
+- Provide backwards compatibility with an integration layer that maps previous Oskari implementation to the new API:
+	- Most propably there won't be `sandbox.getMap()` in the new API, but something like `sandbox.getService('mapmodule')`. 
+	- The compatibility layer will add `getMap()`-function to sandbox, but internally call `sandbox.getService('mapmodule')`.
+	- [Identified code rearrangements](coderearrangements)
+
+- More tools for front-end development like:
+	- Static file serving node.js server
+	- Way of minifying bundles that can be inserted to page with simple &lt;script&gt; tag to get the functionality
+	- Customization for builds with application variables (like colorscheme)
+- Separating functionality from UI with lightweight events (for future development atleast)
+- Providing default resources that can be overridden in apps
+- Documented way of extending the Oskari front-end code from external repository
 
 
 ### Wish list
@@ -44,7 +50,7 @@ Bubbling under:
 - Common mediator-component for action route calls
 	- centralized ajax(/websocket)?
 	- easier handling of session expiration/common error handling
-	- easier to override the ajax endpoints to call if necessary
+	- easier to override the ajax-endpoint calls if necessary
 
 ### Out of scope:
 

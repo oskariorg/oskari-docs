@@ -1,5 +1,6 @@
 # Bundle
-Functionality identified by bundle id! 
+Functionality identified by id! 
+
 Can have multiple implementations for different UIs, but all share the API:
 - mapmodule is always mapmodule that:
 	- provides map functionality
@@ -26,10 +27,16 @@ Provides:
 - bundle files don't need to be in the same folder structure, but should be there whenever possible (files linked in JSON file)
 - how to communicate dependencies (other bundles/libs/code-packages)?
 - can have multiple files: js, css, resources
+- can have dependency on another bundle
+	- minified together when building single bundle files(?) or provide both bundle.min.js and bundle-with-deps.min.js(?)
+	- start/load dependencies before loading requested bundle(?) 
 
 ## API documentation problematic: 
 - need API "profiles" so new functionalities don't need to be implemented on each version (ol2/ol3 etc)
 - or another way to describe API discrepancies
+- API tests are needed so:
+	- new implementations can be tested for API conformance
+	- usable as examples for using the API
 
 ## Different types like functional, ui with flyout, plugin, stateful
 
