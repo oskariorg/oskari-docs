@@ -35,6 +35,51 @@ Provides:
 	- minified together when building single bundle files(?) or provide both bundle.min.js and bundle-with-deps.min.js(?)
 	- start/load dependencies before loading requested bundle(?) 
 
+Describe implementation:
+```
+{
+	"id" : "mapmodule",
+	"start" : "Oskari.mapmodule.instance",
+	"files" : [
+		"bundles/mapping/mapmodule/mapmodule.ol3.js",
+		"bundles/mapping/mapmodule/resources/css/mapmodule.css"
+	],
+	"dependencies" : {
+		"lib_map-engine" : "libraries/openlayers/ol3/ol3.11.2.min.js"
+	}
+}
+```
+
+Describe API:
+```
+{
+	"id" : "mapmodule",
+	"provides" : [{
+		"name" : "MapMoveRequest",
+		"desc" : "Here or in request documentation?"
+	}],
+	"triggers" : [{
+		"name" : "AfterMapMoveEvent",
+		"desc" : "After map moves"
+	}],,
+	"services" : [{
+		"name" : "MapLayerService",
+		"desc" : "Storage for map layer details"
+	}],
+	"reactsTo" : [{
+		"name" : "MapLayerEvent",
+		"desc" : "Updates map layer if its shown on map"
+	}],
+	"interactions" : [{
+		"name" : "FictionalRequest",
+		"required" : true, 
+		"desc" : "Requires another component to do stuff, how to communicate if request is required or does the bundle have a workaround? If required -> triggers a dependency for bundle??"
+	}],
+	"dependencies" : ["lib_map-engine"]
+}
+```
+
+
 ## API documentation problematic: 
 - need API "profiles" so new functionalities don't need to be implemented on each version (ol2/ol3 etc)
 - or another way to describe API discrepancies
