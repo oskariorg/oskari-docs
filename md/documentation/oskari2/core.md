@@ -1,5 +1,7 @@
 # Core
 
+*Oskari app-engine*
+
 - Still registered as global(?): window.Oskari = core-functionality
 - Shared between all codes on the page
 

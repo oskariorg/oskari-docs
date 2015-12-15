@@ -15,6 +15,7 @@ To make the Oskari frontend code more developer friendly:
 		- What is the API offered by a bundle? -> Requests, events, services
 		- How to document it? -> Describe functionality in general, list implementations or it
 		- Can it be generated automatically? -> Wishlist: automatic generation of referenced public API
+- Provide small standalone core and add flexibility for bundles (design for common use)
 - Provide backwards compatibility with an integration layer that maps previous Oskari implementation to the new API:
 	- Most propably there won't be `sandbox.getMap()` in the new API, but something like `sandbox.getService('mapmodule')`. 
 	- The compatibility layer will add `getMap()`-function to sandbox, but internally call `sandbox.getService('mapmodule')`.
@@ -24,10 +25,9 @@ To make the Oskari frontend code more developer friendly:
 	- Static file serving node.js server
 	- Way of minifying bundles that can be inserted to page with simple &lt;script&gt; tag to get the functionality
 	- Customization for builds with application variables (like colorscheme)
-- Separating functionality from UI with lightweight events (for future development atleast)
+- Separating functionality from UI with lightweight events/observable classes (for future development, this can be retrofitted for existing bundles)
 - Providing default resources that can be overridden in apps
 - Documented way of extending the Oskari front-end code from external repository
-
 
 ### Wish list
 - tool for generating a skeleton for bundle.json

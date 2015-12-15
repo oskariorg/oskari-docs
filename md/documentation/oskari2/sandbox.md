@@ -1,5 +1,7 @@
 # Sandbox
 
+*Messaging context for Oskari bundles*
+
 Named instances available via Oskari.getSandbox("{optional name}"). An application can use multiple sandboxes as contexts where for example two maps need to be controlled without sharing the state.
 
 ## Provides:
@@ -31,7 +33,7 @@ var blnReceived = this.request('MapMoveRequest', [...]);
 ```
 
 
-## Current "core-functions"/these will propably change somewhat:
+## Current "sandbox-functions"/these will propably change massively:
 
 - debugRequests
 - debugEvents

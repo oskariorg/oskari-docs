@@ -1,5 +1,6 @@
 # Bundle
-Functionality identified by id! 
+
+*Functionality identified by id*
 
 Can have multiple implementations for different UIs, but all share the API:
 - mapmodule is always mapmodule that:
@@ -13,7 +14,7 @@ Can have multiple implementations for different UIs, but all share the API:
 	- implementation can for example: 
 		- open an Openlayers popup on map to show the info
 		- add a marker/highlight a feature on map and show the info on panel beside the map.
-
+  
 Provides:
 - (~single) functionality or UI for functionality
 - common API for functionality:
@@ -21,8 +22,11 @@ Provides:
 	- requests (needs to be presentable as JSON ie. no functions)
 	- state/conf (needs to be presentable as JSON ie. no functions)
 	- shared service class (for example maplayer-service) (not accessible via RPC, can have functions)
+	- this plays well with oskari-server injecting environment specific configuration when view is loaded
+	- RPC interaction can be enabled with little work if events and requests can be presented in JSON
 
-## Described with a JSON file (similar to bundle.js under Oskari/packages)
+## Described with a JSON file
+- relevant parts of current bundle.js files under Oskari/packages
 - sensible place for API documentation -> generated bundle documentation
 - bundle files don't need to be in the same folder structure, but should be there whenever possible (files linked in JSON file)
 - how to communicate dependencies (other bundles/libs/code-packages)?
@@ -38,17 +42,19 @@ Provides:
 	- new implementations can be tested for API conformance
 	- usable as examples for using the API
 
-## Different types like functional, ui with flyout, plugin, stateful
+## Bundle types
+
+Different types like functional, ui with flyout, plugin, plugin with ui, stateful
 
 Separation of functionality and UI into different bundles
 - helps RPC development
 - helps creating custom UIs -> UIs should be built using requests/events (and observable classes)
 - helps testing
 
-- The implementation of a bundle such as function names etc CAN change between releases
-  - This shouldn't be a problem since the API is requests/events/service-functions
-  - Some common functions like ones provided by the mapmodule SHOULD NOT change, but NEED to be well documented if changed
-
+The implementation of a bundle such as function names etc CAN change between releases
+- This shouldn't be a problem since the API is requests/events/service-functions
+- Some common functions like ones provided by the mapmodule SHOULD NOT change, but NEED to be well documented if changed
+- Different implementations of bundles should have similar structure in code to make it easy as possible to add new features for multiple implementations 
 
 ### Effects on oskari-server 
 
@@ -58,6 +64,9 @@ Separation of functionality and UI into different bundles
   - view specific configs are in portti_view_bundle_seq db table
 - startup is obsolete since:
 	- there can be more than one version -> different implementations of the bundle
-	- mark some as default or can we make assumptions of the default? 
+	- mark some as default or can we make assumptions of the default?
 
 **Note! Oskari instance specific default configs could be stored here**
+
+### portti_view_bundle_seq
+- startup should not be needed if bundles keep track of dependencies(?)
