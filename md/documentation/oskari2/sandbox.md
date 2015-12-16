@@ -33,7 +33,7 @@ var blnReceived = this.request('MapMoveRequest', [...]);
 ```
 
 
-## Current "sandbox-functions"/these will propably change massively:
+## Current "sandbox-functions"/these will probably change massively:
 
 - debugRequests
 - debugEvents

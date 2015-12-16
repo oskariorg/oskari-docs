@@ -17,7 +17,7 @@ To make the Oskari frontend code more developer friendly:
 		- Can it be generated automatically? -> Wishlist: automatic generation of referenced public API
 - Provide small standalone core and add flexibility for bundles (design for common use)
 - Provide backwards compatibility with an integration layer that maps previous Oskari implementation to the new API:
-	- Most propably there won't be `sandbox.getMap()` in the new API, but something like `sandbox.getService('mapmodule')`. 
+	- Most probably there won't be `sandbox.getMap()` in the new API, but something like `sandbox.getService('mapmodule')`. 
 	- The compatibility layer will add `getMap()`-function to sandbox, but internally call `sandbox.getService('mapmodule')`.
 	- [Identified code rearrangements](coderearrangements)
 

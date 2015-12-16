@@ -78,7 +78,7 @@ Oskari.log.error('Tried to send request that is not loaded!');
 	- classes could be "Observable" -> inherit on/off/trigger/emit etc functions
 
 
-## Current "core-functions"/these will propably change somewhat:
+## Current "core-functions"/these will probably change somewhat:
 
 ### Oskari:
 
