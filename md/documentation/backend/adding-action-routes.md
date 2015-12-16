@@ -146,11 +146,3 @@ value("something less offensive") for the parameter.
 
 The return values are not used for anything at the moment but a good practice is to return true if
 something was modified and false if the preprocessor let the parameter pass as is.
-
-**Example for runing parameters in giving order on published map**
-
-You are able to give additional parameters to a published map. Parameters are: zoomLevel, coord, address, showGetFeatureInfo, nationalCadastralReference.
-
-You are able range parameters so that they are run in the order you wish by givin parameters in oskari.properies file. Place the parametrs to oskari.param.order property
-	
-	 oskari.param.order=address,coord,zoomLevel,isCenterMarker,showGetFeatureInfo,nationalCadastralReference
