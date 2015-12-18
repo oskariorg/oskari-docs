@@ -59,7 +59,7 @@ Geoserver (provided in jetty bundle)
 - url: http://localhost:8080/geoserver
 - user: admin/geoserver
 - datadir: {JETTY-HOME}/geoserver_data (configurable in {JETTY-HOME}/start.ini)
-- if local geoserver content doesn't seem to work correctly (log shows "feature not on screen" or SRID errors) -> try logging into geoserver and reload the feature type under layers (my_places_categories, user_layer_data_style, analysis_data_style). This is propably due to geoserver starting before Oskari has created the database. We are exploring the option to configure Geoserver through it's REST API to workaround this and preconfigured datadir.
+- if local geoserver content doesn't seem to work correctly (log shows "feature not on screen" or SRID errors) -> try logging into geoserver and reload the feature type under layers (my_places_categories, user_layer_data_style, analysis_data_style). This is probably due to geoserver starting before Oskari has created the database. We are exploring the option to configure Geoserver through it's REST API to workaround this and preconfigured datadir.
 
 Oskari (provided in jetty bundle)
 - url: http://localhost:8080/
