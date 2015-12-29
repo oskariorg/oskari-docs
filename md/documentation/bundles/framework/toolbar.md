@@ -15,7 +15,7 @@ The toolbar bundle provides a common interface for other bundles to add and mani
 
 ## TODO
 
-* Currently toolbar has a set of default buttons. These should propably be added by other bundles.
+* Currently toolbar has a set of default buttons. These should probably be added by other bundles.
 * Handling missing for disabling an active tool (selected tool is disabled through request)
 
 ## Screenshot

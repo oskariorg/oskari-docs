@@ -92,13 +92,23 @@ Search the [api](/api/latest/) for more info of a particular request.
         </tr>
         <tr>
             <td>`DrawPlugin.StartDrawingRequest`</td>
-            <td></td>
+            <td>deprecated</td>
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
             <td>`DrawPlugin.StopDrawingRequest`</td>
-            <td></td>
+            <td>deprecated</td>
             <td>`framework/mapmodule-plugin/drawplugin`</td>
+        </tr>
+        <tr>
+            <td>[DrawTools.StartDrawingRequest](/documentation/requests/startdrawingrequest)</td>
+            <td>Start draw functionality</td>
+            <td>`mapping/drawtools`</td>
+        </tr>
+        <tr>
+            <td>[DrawTools.StopDrawingRequest](/documentation/requests/stopdrawingrequest)</td>
+            <td>Stop draw functionality</td>
+            <td>`mapping/drawtools`</td>
         </tr>
         <tr>
 <!--

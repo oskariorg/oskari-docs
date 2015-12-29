@@ -1,4 +1,4 @@
-# RouteSuccessEvent
+# RouteResultEvent
 
 Used to notify the ``GetRouteRequest`` is received a reply from routing.
 

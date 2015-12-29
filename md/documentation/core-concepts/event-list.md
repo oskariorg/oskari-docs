@@ -322,9 +322,14 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td>`framework/featuredata2`</td>
         </tr>
         <tr>
-            <td>[RouteSuccessEvent](/documentation/events/routesuccessevent)</td>
+            <td>[RouteResultEvent](/documentation/events/routeresultevent)</td>
             <td> Sent when route service get response of `GetRouteRequest`. </td>
             <td>[framework/routingService](/documentation/bundles/framework/routingservice)</td>
+        </tr>
+        <tr>
+            <td>[FeatureEvent](/documentation/events/featureevent)</td>
+            <td> Sent when a feature has been added, removed or clicked (Vectorlayerplugin). </td>
+            <td>`mapping/mapmodule`</td>
         </tr>
 
         <tr>

@@ -64,7 +64,7 @@ This bundle doesn't handle any requests.
     <td>`MapClickedEvent`</td><td>Updates the coordinates gotten from event to the UI.</td>
   </tr>
   <tr>
-    <td>`RouteSuccessEvent`</td><td>Updates the route plans to the UI.</td>
+    <td>`RouteResultEvent`</td><td>Updates the route plans to the UI.</td>
   </tr>  
 </table>
 

@@ -67,7 +67,8 @@ Modifies config for "myBundle" adding the property "echoing" with value of an ht
 	    }
 	}
 
-
+ParamHandlers are run in priority order where priority 1 is run before priority 10. By default the priority for all ParamHandlers is 500 and you can affect this by overriding the 
+getPriority() function to return a lower or higher priority.
 
 If a bundles config needs to be modified after loading from database, it can be done by implementing a 
 `fi.nls.oskari.control.view.modifier.bundle.BundleHandler`. This is used for example for the mapfull bundle with more than few modifications when a view is loaded:
@@ -145,11 +146,3 @@ value("something less offensive") for the parameter.
 
 The return values are not used for anything at the moment but a good practice is to return true if
 something was modified and false if the preprocessor let the parameter pass as is.
-
-**Example for runing parameters in giving order on published map**
-
-You are able to give additional parameters to a published map. Parameters are: zoomLevel, coord, address, showGetFeatureInfo, nationalCadastralReference.
-
-You are able range parameters so that they are run in the order you wish by givin parameters in oskari.properies file. Place the parametrs to oskari.param.order property
-	
-	 oskari.param.order=address,coord,zoomLevel,isCenterMarker,showGetFeatureInfo,nationalCadastralReference

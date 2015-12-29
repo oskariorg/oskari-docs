@@ -7,7 +7,7 @@ To get all the mapfull configurations from database run this script:
 ```sql
     SELECT view_id, config, state, startup FROM portti_view_bundle_seq where bundle_id IN (SELECT id FROM portti_bundle)
 ```
-Select the view_id that matches the view you want to configure (default view/publish template propably) and get the 'config' for that row. The config includes functional configuration for the bundle which also includes for example which features to activate (plugins). The interesting part for projection configuration is the **mapOptions** and **projectionDefs** JSON-segments. These might not be present in the config in which case Oskari uses these defaults:
+Select the view_id that matches the view you want to configure (default view/publish template probably) and get the 'config' for that row. The config includes functional configuration for the bundle which also includes for example which features to activate (plugins). The interesting part for projection configuration is the **mapOptions** and **projectionDefs** JSON-segments. These might not be present in the config in which case Oskari uses these defaults:
 
 ```json
   "mapOptions": {
