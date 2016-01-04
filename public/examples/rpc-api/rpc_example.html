@@ -96,10 +96,13 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+    div.navigationLinkParent {
+        display: block;
+        background-color: #D9D9D9;
+    }
     div.navigationLinkBlock {
         display: inline-block;
         width:50%;
-        background-color: #D9D9D9;
     }
 
     div.navigationLinkBlock.right {
@@ -225,7 +228,7 @@
 var IFRAME_DOMAIN = "http://www.mydomain.com";
 var iFrame = document.getElementById('publishedMap');
 var channel = OskariRPC.connect(
-    iframe,
+    iFrame,
     IFRAME_DOMAIN
 );
             </code>
@@ -1861,7 +1864,7 @@ channel.useState([this.savedState], function(){
                                         'Next: '+$(select.options[nextIndex]).html()+
                                     '</a>' : '&nbsp;';
 
-        var retVal =    '<div style="display: block;">'+
+        var retVal =    '<div class="navigationLinkParent">'+
                             '<div class="navigationLinkBlock left">'+
                                 previousLink+
                             '</div>'+
