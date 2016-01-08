@@ -44,7 +44,11 @@ You should base your work on a released version (master branch) when creating ap
 For frontend this means request/event/conf/state/services
 - Try to think of your new addition as a library especially the API. Keep it clean, simple and as self-contained as possible.
 - Oskari requests should have mandatory parameters as the first parameters and any optional parameters should be gathered in to an options object with describing names. Any data in conf, state, requests or events should be serializable to JSON -> Don't send functions etc. If you need to send functions, use services instead.
-For server: action_route params/response
+
+For server: 
+- action_route parameters and response
+- properties
+- any external dependencies
 
 **Any changes to API need to be documented always!**
 
