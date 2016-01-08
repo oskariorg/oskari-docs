@@ -4,69 +4,48 @@ The preferred way of contributing to Oskari in a nutshell:
 
 1. Familiarize yourself with the [license terms](/documentation/development/license)
 2. Fork [oskari](https://github.com/nls-oskari/oskari), [oskari-server](https://github.com/nls-oskari/oskari-server) or [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) on GitHub 
-3. Develop your code in a feature branch 
+3. Develop your code in a feature branch. For the curious, here's a look of the [internal git process used by NLS](/documentation/development/oskari-git-process) for Oskari development.
 4. Notify us when the code is ready for QA and integration testing (GitHub pull request, email, anything really) 
+ 
+**Note! There's a difference for developing generic Oskari functionality and application specific functionality**
 
-Below is a thorough description of the git process used in Oskari development.
+You should base your work on a released version (master branch) when creating applications, but any generic Oskari functionality should be based on the latest develop.
 
-## Oskari Git process
+## Tips & tricks/guidelines
 
-This document describes the source management process used by the Oskari project. As internal development at [NLS](http://www.maanmittauslaitos.fi/en) uses a [​rather](http://nvie.com/posts/a-successful-git-branching-model/) [​well](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/) [​documented](http://yakiloo.com/getting-started-git-flow/) [​branching](http://buildamodule.com/video/change-management-and-version-control-deploying-releases-features-and-fixes-with-git-how-to-use-a-scalable-git-branching-model-called-gitflow) [​model](http://vimeo.com/16018419) called ​[Git Flow](https://github.com/nvie/gitflow), this document emphasizes interfacing with external developers/teams instead of reiterating ​[Git Flow documentation](http://bit.ly/OUNRqg) readily available on the Web.
+### Code
+- Use english and descriptive names for variables/methods etc
+- Format your code and use spaces instead of tabs
+- Don't make long or overly complex methods - keep it simple
+- Try to create generic functionalities that can be used by others. The application specific UI can be separated in most cases from the generic functionality.
+- Try to keep functions self-contained with clear input and output and no side-effects when possible.
+- Use existing features like PropertyUtil for oskari-server or the localization support from Oskari in the frontend instead of reinventing the wheel.
+- Try to use existing libraries when creating new features. For each new framework added to the client side code the more end-users need to download to get the application.
+- If you have developed a new feature please document your work: [Examples](/documentation/bundles).
 
-### Overview
+### Commits
+- Never commit on master - always work with the latest develop version
+- Keep commits small and use descriptive comments
+- This means you don't dump your entire feature from svn into single massive git commit.
 
-![Oskari git overview](/images/documentation/git_overview.png)
+### Pull requests
+- Keep pull requests small/having a single feature
+- Describe the pull request like you would describe the changes to a person who is not in the context of the problem.
+- See https://github.com/blog/1943-how-to-write-the-perfect-pull-request
+- Be very careful when making changes to existing sources (maven modules or frontend bundles) since it's easy to break an unexpected part of an app this way.
+- Create separate pull request for changes to existing source with documentation what the change enables you to do.
+- Entirely new features/functionalities should be created as new maven modules on oskari-server and bundles on frontend. Oskari-server uses layered naming for modules:
+    - service-[functionality] as a library for the generic functionality
+    - service-[functionality]-[plugin name] as a plugin part to enhance service-[functionality] with non-generic functionality
+    - control-[functionality] as a wrapper for action routes/http-layer where you parse params and format a JSON response for the result of the operation.
 
-### Branches & Repos
+## Be very careful when changing the API
 
-#### NLS internal branches
+For frontend this means request/event/conf/state/services
+- Try to think of your new addition as a library especially the API. Keep it clean, simple and as self-contained as possible.
+- Oskari requests should have mandatory parameters as the first parameters and any optional parameters should be gathered in to an options object with describing names. Any data in conf, state, requests or events should be serializable to JSON -> Don't send functions etc. If you need to send functions, use services instead.
+For server: action_route params/response
 
-* **master**
-    * branch head is the latest release
-    * no development work
-    * commits are merged from **release** (and possibly **hotfix**) branches
-    * tagged according to a calendar-based scheme
+**Any changes to API need to be documented always!**
 
-* **develop**
-    * head is the work-in-progress next release
-    * no direct development work
-    * commits merged from **feature** branches
-
-* **feature**
-    * normal development happens here
-    * usually one branch per task/feature/bug
-    * generally local development, rarely pushed to a remote unless a collaborative effort is required
-    * feature testing is done here, before merging (rebasing) back to **develop**
-
-* **release**
-    * testing, bugfixing and quality assurance
-    * release testing is done here, before merging to **master** *and* **develop**
-
-* **import**
-    * adaptation and quality assurance of features/bugfixes implemented by external developers
-    * essentially **feature** branches seeded by external commits
-
-* **hotfix** (omitted from diagram)
-    * fixes for blocker issues discovered after merging a **release** branch to **master**
-    * branched from **master**, merged to **master** and **develop**
-    * a symptom of insufficient release *testing*
-
-#### Branches on Github
-
-* **master**
-    * the latest public release
-    * a subset (file-wise) of the internal **master**
-    * commits merged from **develop** on Github
-    * tagged according to Oskari's versioning scheme
-
-* **develop**
-    * the next public release
-    * work in progress
-    * a subset (file-wise) of the internal **develop** branch
-    * commits merged (daily) from internal **develop**
-
-#### External branches
-
-The branching model utilized by an external team is generally irrelevant to the process of handling external contributions. It is, however, assumed for the purposes of this document that there exists a continuous sequence of commits from the latest merge from Oskari branches on Github to the commit(s) presented for consideration for inclusion in Oskari proper. This is required in order to be able to rebase such commits on the internal **develop** branch.
-
-Code acquired from external sources will be subject to adaptation (if deemed necessary), normal *feature testing* and bugfixes before it can be merged into the internal **develop** branch.
+[More guidelines](/documentation/development/guidelines)
