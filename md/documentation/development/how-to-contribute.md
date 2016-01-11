@@ -24,6 +24,7 @@ You should base your work on a released version (master branch) when creating ap
 - If you have developed a new feature please document your work: [Examples](/documentation/bundles).
 
 ### Commits
+- Configure GIT line endings setting: https://help.github.com/articles/dealing-with-line-endings/
 - Never commit on master - always work with the latest develop version
 - Keep commits small and use descriptive comments
 - This means you don't dump your entire feature from svn into single massive git commit.
