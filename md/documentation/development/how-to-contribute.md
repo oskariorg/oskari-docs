@@ -30,7 +30,6 @@ You should base your work on a released version (master branch) when creating ap
 
 ### Pull requests
 - Keep pull requests small/having a single feature
-- Describe the pull request like you would describe the changes to a person who is not in the context of the problem.
 - See https://github.com/blog/1943-how-to-write-the-perfect-pull-request
 - Be very careful when making changes to existing sources (maven modules or frontend bundles) since it's easy to break an unexpected part of an app this way.
 - Create separate pull request for changes to existing source with documentation what the change enables you to do.
