@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Oskari RPC example">
+    <meta name="author" content="Team Oskari">
+
+    <title>Oskari RPC</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- oskari org basic stylesheet -->
+    <link href="/css/main.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="style/style.css" rel="stylesheet">
+    
+    
+    <!-- libs and javascripts enabling RPC functionality -->
+    <script src="../../lib/jquery-1.11.2.min.js"></script>
+    <script src="../../lib/lodash-3.8.0.js"></script>
+    <script src="../../js/rpc/JSChannel/jschannel.js"></script>
+    <script src="../../js/rpc/OskariRPC/OskariRPC-1.1.0.js"></script>
+    <script src="../../js/util.js"></script>
+    <script src="../../js/storage.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/vendor/highlight-styles/monokai_sublime.css?v=1x1-hefkzu">
+    <script src="../../lib/highlightjs/highlight.min.js"></script>
+
+    <style>
+    html, body {
+        margin: 0;
+        padding:0;
+        height:100%;
+        width:100%;
+    }
+    ul.markers li div.desc {
+        display : none;
+    }
+    ul.markers li.selected h5 {
+        text-decoration : underline;
+    }
+    ul.markers li.selected div.desc {
+        display : block;
+    }
+
+    .doexample, .doexample:hover, .doexample:focus, .doexample:active {
+        background-color: #E50000;
+        cursor: normal;
+    }
+
+    .doexample:hover {
+        background-color: #B70000;
+    }
+
+    .exampleready, .exampleready:hover, .exampleready:focus, .exampleready:active {
+        background-color: #3FD300;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .exampleready:hover {
+        background-color: #2B9100;   
+    }
+
+
+    .full-height-panel, .map-panel {
+        height: 100% !important;
+    }
+    .panel-body {
+        height: 100%
+    }
+
+
+    /*override bootstrap default*/
+    div.container {
+        width: 100% !important;
+        margin-left: 0;
+        margin-right: 0;
+        height:100%;
+    }
+
+    .row {
+        height: 80%;
+    }
+
+    .actionSelectContainer {
+        display: inline;
+        float:right;
+        font-size: smaller;
+        font-weight: normal;
+    }
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    div.navigationLinkParent {
+        display: block;
+        background-color: #D9D9D9;
+    }
+    div.navigationLinkBlock {
+        display: inline-block;
+        width:50%;
+    }
+
+    div.navigationLinkBlock.right {
+        text-align: right;
+    }
+    div.navigationLinkBlock.left {
+        text-align: left;
+    }
+
+    a.navigationLink {
+        cursor: pointer;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="masthead">
+            <h1>Oskari RPC examples</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
+                <div class="panel panel-default map-panel">
+                    <div class="panel-body">
+                        <iframe id="publishedMap"
+                            src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5"
+                            style="border: none; width: 100%; height: 100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
+                <div class="panel panel-default map-panel form-panel">
+                    <div class="panel-body">
+                        <h2>
+                            Select action
+                            <div id="actionSelectContainer" class="actionSelectContainer">
+                                <select id="actionSelector">
+                                    <option value="gettingStarted" selected>Getting started</option>
+                                    <optgroup label="Functions">
+                                        <option value="GetAllLayers">Get available map layers</option>
+                                        <option value="GetMapPosition">Get map position</option>
+                                        <option value="GetMapBbox">Get map bbox</option>
+                                        <option value="GetSupportedEvents">Get supported events</option>
+                                        <option value="GetSupportedFunctions">Get supported functions</option>
+                                        <option value="GetSupportedRequests">Get supported requests</option>
+                                        <option value="GetZoomRange">Get zoom range</option>
+                                        <option value="stateHandling">Handle map state</option>
+                                    </optgroup>
+                                    <optgroup label="Requests">
+                                        <option value="GetRouteRequest">Get route</option>
+                                        <option value="ShowInfoBoxRequest">Show info box</option>
+                                        <option value="markers">Add or remove  a marker</option>
+                                        <option value="GetFeatureInfoRequest">Get feature info</option>
+                                        <option value="MapLayerVisibilityRequest">Change map layer visibility</option>
+                                        <option value="MapMoveRequest">Move map</option>
+                                        <option value="ChangeMapLayerOpacityRequest">Change map layer opacity</option>
+                                        <option value="GetUserLocationRequest">Get user's location</option>
+                                        <option value="ShowProgressSpinnerRequest">Show a progress spinner</option>
+                                        <option value="SearchRequest">Perform a search</option>
+                                        <option value="drawing">Drawing requests</option>
+                                        <option value="addOrRemoveFeatures">Add or remove vector features</option>
+                                    </optgroup>
+                                    <optgroup label="Events">
+                                        <option value="AfterAddMarkerEvent">AfterAddMarkerEvent</option>
+                                        <option value="MarkerClickEvent">MarkerClickEvent</option>
+                                        <option value="RouteResultEvent">RouteResultEvent</option>
+                                        <option value="MapClickedEvent">MapClickedEvent</option>
+                                        <option value="AfterMapMoveEvent">AfterMapMoveEvent</option>
+                                        <option value="UserLocationEvent">UserLocationEvent</option>
+                                        <option value="SearchResultEvent">SearchResultEvent</option>
+                                        <option value="FeatureEvent">FeatureEvent</option>
+                                        <option value="DrawingEvent">DrawingEvent</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </h2>
+                        <div id="documentationContainer"></div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
+                <div class="panel map-panel panel-default">
+                    <div style="overflow-y: auto;" class="panel-body">
+                        <a onClick="jQuery('#debuglog').empty(); return false;">Clear log</a>
+                        <div id="debuglog">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+<!-- examples -->
+
+
+
+    <!-- getting started -->
+    <div style="display: none; visibility: hidden;" id="gettingStarted">
+        <h3>Including the necessary stuff to get RPC up and running</h3>
+        <div>Including RPC javascripts in html</div>
+        <pre>
+            <code class="lang-html hljs xml">
+&lt;script src="js/rpc/JSChannel/jschannel.js"&gt;&lt;/script&gt;
+&lt;script src="js/rpc/OskariRPC/OskariRPC-1.1.0.js"&gt;&lt;/script&gt;
+            </code>
+        </pre>
+
+        <h3>Embedding a published map on your page</h3>
+        <pre>
+            <code class="lang-html hljs xml">
+&lt;iframe id="publishedMap" src="http://www.mydomain.com/idofpublishedmap"
+    style="border: none; width: 100%; height: 100%;"&gt;&lt;/iframe&gt;
+            </code>
+        </pre>
+
+        <h3>Initialising connection</h3>
+        IFRAME_DOMAIN must match to the source domain in the iframe. 
+        <pre>
+            <code class="hljs javascript">
+// init connection
+var IFRAME_DOMAIN = "http://www.mydomain.com";
+var iFrame = document.getElementById('publishedMap');
+var channel = OskariRPC.connect(
+    iFrame,
+    IFRAME_DOMAIN
+);
+            </code>
+        </pre>
+
+        <h3>Wait for the channel to get ready for use</h3>  
+        <pre>
+            <code class="hljs javascript">
+channel.onReady(function() {
+    //channel is now ready and listening.
+    channel.log('Map is now listening');
+});
+            </code>
+        </pre>
+        <h3>Do your stuff. Send requests, listen to events and call functions.</h3>  
+        <pre>
+            <code class="hljs javascript">
+//spinning action on the map
+channel.postRequest('ShowProgressSpinnerRequest',[true]);
+//listening to events and notifying user
+channel.handleEvent('MapClickedEvent', function(data) {
+    alert('Map clicked!');
+});
+//calling functions and doing things with the results
+channel.getAllLayers(function (layers) {
+    alert('Got '+layers.length+' layers!');
+});
+            </code>
+        </pre>
+    </div>
+
+
+
+
+
+    <!-- requests -->
+    <div style="display: none; visibility: hidden;" id="GetRouteRequest">
+        <div style="display: block;">
+            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
+        </div>
+        <pre>
+            <code class="hljs javascript">
+var data = {
+    "fromlat": "6733840",
+    "fromlon": "360448",
+    "srs": "EPSG:3067",
+    "tolat": "6675728",
+    "tolon": "394240"
+};
+channel.postRequest('GetRouteRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="ShowInfoBoxRequest">
+        <button id="btnShowInfoBoxRequest" class="btn btn-primary exampleready" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
+        <pre>
+            <code class="hljs javascript">
+//get map center and then show an infobox at that location
+channel.getMapPosition(function(data) {
+    var content = [
+        {
+            'html': '&lt;div&gt;Map position info:&lt;/div&gt;'
+        },
+        {
+            'html': '&lt;div&gt;Center: '+
+                        parseInt(data.centerX)+', '+
+                        parseInt(data.centerY)+
+                    '&lt;/div&gt;'
+        },
+        {
+            'html': '&lt;div&gt;Zoom level: '+data.zoom+'&lt;/div&gt;'
+        }                    
+    ];
+    var data = [
+        'myInfoBox',
+        'Generic info box',
+        content,
+        {
+            'lon': data.centerX,
+            'lat': data.centerY
+        },
+        true,
+        {
+            val: 'blue',
+            bgColour: '#0091FF',
+            titleColour: '#FFFFFF',
+            headerColour: '#0091FF',
+            iconCls: 'icon-close-white'
+        },
+        'georgia'
+    ];
+
+    channel.postRequest('InfoBox.ShowInfoBoxRequest', data);
+    channel.log('InfoBox.ShowInfoBoxRequest posted with data', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id="markers" style="display:none;">
+        <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
+        <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
+        <div id="AddMarkerRequest">
+            <div>Adding markers</div>
+            <pre>
+                <code class="hljs javascript">
+var data = {
+    x: 411650.70779123,
+    y: 6751897.3481153,
+    color: "ff0000",
+    msg : '',
+    shape: 3,
+    size: 3
+};
+channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+                </code>
+            </pre>
+        </div>
+
+        <div id="RemoveMarkersRequest">
+            <div>Removing markers</div>
+            <pre>
+                <code class="hljs javascript">
+channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeatureInfoRequest">
+        <button id="btnMapModulePluginGetFeatureInfoRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.GetFeatureInfoRequest">MapModulePlugin.GetFeatureInfoRequest</button>
+        <pre>
+            <code class="hljs javascript">
+//get map center and display and feature info box
+channel.getMapPosition(function(data){
+    var lonlat = [data.centerX, data.centerY];
+    channel.postRequest('MapModulePlugin.GetFeatureInfoRequest', lonlat);
+    channel.log('MapModulePlugin.GetFeatureInfoRequest posted with data', lonlat);
+});            
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="MapLayerVisibilityRequest">
+        <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
+        <pre>
+            <code class="hljs javascript">
+//get a list of all available map layers and toggle the first one
+channel.getAllLayers(function (layers) {
+    var layer = layers[0];
+    channel.postRequest(
+            'MapModulePlugin.MapLayerVisibilityRequest',
+            [layer.id, !layer.visible]
+    );
+    channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with '+
+        'parameters: ', layer.id + ', ' + !layer.visible);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="MapMoveRequest">
+        <button id="btnMapMoveRequest" class="btn btn-primary exampleready" data-example="MapMoveRequest">MapMoveRequest</button>
+        <pre>
+            <code class="hljs javascript">
+var x = 552935, 
+    y = 7332639, 
+    zoomLevel = 7;
+channel.postRequest(
+    'MapMoveRequest', [x, y, zoomLevel]
+);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="ChangeMapLayerOpacityRequest">
+        <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
+        <pre>
+            <code class="hljs javascript">
+channel.getAllLayers(function (layers) {
+    var layer_id = layers[0].id;
+    var opacity = layers[0].opacity;
+    if (opacity !== 100) {
+        new_opacity = 100;
+    } else {
+        new_opacity = 50;
+    }
+    channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
+    channel.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetUserLocationRequest">
+        <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary exampleready" data-example="MyLocationPlugin.GetUserLocationRequest">MyLocationPlugin.GetUserLocationRequest</button>
+        <pre>
+            <code class="hljs javascript">
+channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="ShowProgressSpinnerRequest">
+        <button id="btnShowProgressSpinnerRequest" class="btn btn-primary exampleready" data-example="ShowProgressSpinnerRequest">ShowProgressSpinnerRequest</button>
+        <div>ShowProgressSpinnerRequest allows starting and stopping a progress indicator on top of the map.</div>
+        <pre>
+            <code class="hljs javascript">
+var isVisible = true;
+channel.postRequest('ShowProgressSpinnerRequest',[isVisible]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="SearchRequest">
+         <div class="search-group">
+            <div class="col-search">
+                <input class="search-control" name="search" id="inputSearch" placeholder="Search item">
+                <button id="btnSearchRequest" class="btn btn-primary exampleready" data-example="SearchRequest">SearchRequest</button>
+            </div>
+        </div>
+        <pre>
+            <code class="hljs javascript">
+var data = {
+    "searchKey": "Vantaa",
+    "epsg": "EPSG:3067"
+};
+channel.postRequest('SearchRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div id="drawing" style="display: none;">
+        <div id="StartDrawingRequest">
+            <button id="btnStartDrawingRequest" class="btn btn-primary exampleready" data-example="StartDrawingRequest">DrawTools.StartDrawingRequest</button>
+            <pre>
+                <code class="hljs javascript">
+var data = ['my functionality id', 'Polygon'];
+channel.postRequest('DrawTools.StartDrawingRequest', data);
+                </code>
+            </pre>
+        </div>
+        <div id="StopDrawingRequest">
+            <button id="btnStopDrawingRequest" class="btn btn-primary exampleready" data-example="StopDrawingRequest">DrawTools.StopDrawingRequest - cancel current drawing</button>
+            <pre>
+                <code class="hljs javascript">
+var data = ['my functionality id'];
+channel.postRequest('DrawTools.StopDrawingRequest', data);
+                </code>
+            </pre>
+        </div>
+        <div id="StopDrawingRequestClear">
+            <button id="btnStopDrawingRequestClear" class="btn btn-primary exampleready" data-example="StopDrawingRequestClear">DrawTools.StopDrawingRequest - clear drawings</button>
+            <pre>
+                <code class="hljs javascript">
+var data = ['my functionality id', true];
+channel.postRequest('DrawTools.StopDrawingRequest', data);
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div id="addOrRemoveFeatures" style="display:none;">
+        <div id="AddFeaturesToMapRequest">
+            <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
+            <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
+            <div>AddFeaturesToMapRequest allows adding vector features on the map.</div>
+            <pre>
+                <code class="hljs javascript">
+    var x = 488704;
+    var y = 6939136;
+    var geojsonObject = {
+          'type': 'FeatureCollection',
+          'crs': {
+            'type': 'name',
+            'properties': {
+              'name': 'EPSG:3067'
+            }
+          },
+          'features': [
+            {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'LineString',
+                'coordinates': [[x, y], [x+100000, y+100000]]
+              },
+              'properties': {
+                'test_property': 1
+              }
+            },
+            {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Point',
+                'coordinates': [x, y]
+              },
+              'properties': {
+                'test_property': 2
+              }
+            }
+
+          ]
+        };
+
+    var testOptions = {
+        'minResolution': 0,
+        'maxResolution': 1000
+    };
+    var params = [geojsonObject, {
+            layerId: null, 
+            clearPrevious: true,
+            layerOptions: testOptions,
+            centerTo: true,
+            featureStyle: null,
+            cursor: 'zoom-in',
+            prio: 4,
+            minScale: 1451336
+        }];
+
+    channel.postRequest(
+        'MapModulePlugin.AddFeaturesToMapRequest',
+        params
+    );
+    channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
+
+    var geojsonObject2 = {
+          'type': 'FeatureCollection',
+          'crs': {
+            'type': 'name',
+            'properties': {
+              'name': 'EPSG:3067'
+            }
+          },
+          'features': [
+            {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'LineString',
+                'coordinates': [[x+30000, y], [x+130000, y+100000]]
+              },
+              'properties': {
+                'test_property': 1
+              }
+            },
+            {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Point',
+                'coordinates': [x+30000, y]
+              },
+              'properties': {
+                'test_property': 2
+              }
+            }
+
+          ]
+        };
+
+    var testOptions2 = {
+        'minResolution': 0,
+        'maxResolution': 1000
+    };
+    var params2 = [geojsonObject2, {
+            layerId: null, 
+            clearPrevious: false,
+            layerOptions: testOptions2,
+            centerTo: true,
+            featureStyle: {
+                fill: {
+                    color: '#ff0000'
+                },
+                stroke : {
+                    color: '#ff0000',
+                    width: 5
+                }
+            },
+            cursor: 'zoom-out',
+            prio: 1
+        }];
+
+
+    channel.postRequest(
+        'MapModulePlugin.AddFeaturesToMapRequest',
+        params2
+    );
+    channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params2);
+                </code>
+            </pre>
+        </div>
+        <div id="RemoveFeaturesFromMapRequest">
+            <div>Remove all features across all vector layers</div>
+            <pre>
+                <code class="hljs javascript">
+//annihilate everything
+channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
+                </code>
+            </pre>
+        </div>
+    </div>
+
+
+
+
+    <!-- functions -->
+    <div id = "GetAllLayers" style="display:none;">
+        <button id="btnGetAllLayers" class="btn btn-primary exampleready">Get all layers</button>
+        <div>Gets a list of available map layers</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getAllLayers(function(data){
+    channel.log('GetAllLayers: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetMapPosition" style="display:none;">
+        <button id="btnGetMapPosition" class="btn btn-primary exampleready">Get map position</button>        
+        <div>Gets current map position</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getMapPosition(function(data){
+    channel.log('GetMapPosition: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetSupportedEvents" style="display:none;">
+        <button id="btnGetSupportedEvents" class="btn btn-primary exampleready">Get supported events</button>        
+        <div>Gets a list of events the map supports</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getSupportedEvents(function(data){
+    channel.log('GetSupportedEvents: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetSupportedFunctions" style="display:none;">
+        <button id="btnGetSupportedFunctions" class="btn btn-primary exampleready">Get supported functions</button>        
+        <div>Gets a list of functions the map supports</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getSupportedFunctions(function(data){
+    channel.log('GetSupportedFunctions: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetSupportedRequests" style="display:none;">
+        <button id="btnGetSupportedRequests" class="btn btn-primary exampleready">Get supported requests</button>        
+        <div>Gets a list of requests the map supports</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getSupportedRequests(function(data){
+    channel.log('GetSupportedRequests: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetZoomRange" style="display:none;">
+        <button id="btnGetZoomRange" class="btn btn-primary exampleready">Get zoom range</button>        
+        <div>Gets the map's zoom range (min, max, current)</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getZoomRange(function(data){
+    channel.log('GetZoomRange: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetMapBbox" style="display:none;">
+        <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>        
+        <div>Gets the map's current extent</div>
+        <pre>
+            <code class="hljs javascript">
+channel.getMapBbox(function(data){
+    channel.log('GetMapBbox: ', data);
+});
+            </code>
+        </pre>
+    </div>
+
+
+
+    <div id="stateHandling" style="display: none;">
+            <button id="btnResetState" class="btn btn-primary exampleready" data-example="resetState">Reset state</button>        
+            <button id="btnSaveState" class="btn btn-primary exampleready" data-example="saveState">Save state</button>        
+            <button id="btnLoadState" class="btn btn-primary exampleready" data-example="loadState">Load state</button>        
+        <div id = "resetState">
+            <div>Resets the saved map state</div>
+            <pre>
+                <code class="hljs javascript">
+channel.resetState(function(){
+    channel.log('State Reset');
+});
+                </code>
+            </pre>
+        </div>
+
+        <div id = "saveState">
+            <div>Saves the map's current state</div>
+            <pre>
+                <code class="hljs javascript">
+channel.getCurrentState(function(data){
+    this.savedState = data;
+    channel.log('GetCurrentState: ', data);
+});
+                </code>
+            </pre>
+        </div>
+
+        <div id="loadState">
+            <div>Loads a saved map state</div>
+            <pre>
+                <code class="hljs javascript">
+channel.useState([this.savedState], function(){
+    channel.log('UseState: ', this.savedState);
+});
+                </code>
+            </pre>
+        </div>
+
+        <!-- events -->
+        <div id="AfterAddMarkerEvent" style="display:none;">
+            <div>Occurs after a marker has been added to map</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "id": "REPORT_MARKER"
+}
+                </code>
+            </pre>
+        </div>
+        <div id="MarkerClickEvent" style="display:none;">
+            <div>Occurs after a marker's been clicked</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "id": "REPORT_MARKER"
+}
+                </code>
+            </pre>
+        </div>
+        <div id="RouteResultEvent" style="display:none;">
+            <div>Occurs after a route search has been completed</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "success": true,
+  "plan": {
+    "to": {
+      "vertexType": "NORMAL",
+      "lon": 390034.00018034934,
+      "name": "corner of service road and Koirasaarentie",
+      "orig": "",
+      "lat": 6671672.006009135
+    },
+    "itineraries": [
+      {
+        "transfers": 0,
+        "walkTime": 381,
+        "tooSloped": false,
+        "geoJSON": {
+          "features": [
+            {
+              "properties": {
+                "startTime": 1450366500000,
+                "distance": 476.931,
+                "endTime": 1450366881000,
+                "mode": "WALK"
+              },
+              "type": "Feature",
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    389842.07877171424,
+                    6671242.080841911
+                  ],
+                  [
+                    389843.7768205804,
+                    6671243.144166887
+                  ],
+                  [
+                    389870.8256342589,
+                    6671274.647929972
+                  ],
+                  [
+                    389877.3640309194,
+                    6671288.938273188
+                  ],
+                  [
+                    389889.09677866707,
+                    6671309.758766002
+                  ],
+                  [
+                    389888.4555012388,
+                    6671325.379265161
+                  ],
+                  [
+                    389890.6553711612,
+                    6671343.143130694
+                  ],
+                  [
+                    389888.7845465592,
+                    6671373.287436124
+                  ],
+                  [
+                    389898.6656690572,
+                    6671406.421703335
+                  ],
+                  [
+                    389911.8756084682,
+                    6671439.455970851
+                  ],
+                  [
+                    389929.00254671066,
+                    6671473.48697394
+                  ],
+                  [
+                    389939.0700160877,
+                    6671494.357627388
+                  ],
+                  [
+                    389945.2870980694,
+                    6671516.458334743
+                  ],
+                  [
+                    389960.0269640322,
+                    6671544.989300754
+                  ],
+                  [
+                    389970.0606493179,
+                    6671564.746668732
+                  ],
+                  [
+                    389989.9939904303,
+                    6671599.808009706
+                  ],
+                  [
+                    390001.1369856759,
+                    6671619.532142801
+                  ],
+                  [
+                    390023.38921349036,
+                    6671657.867139279
+                  ],
+                  [
+                    390036.6842070854,
+                    6671675.298023889
+                  ]
+                ]
+              }
+            }
+          ],
+          "type": "FeatureCollection"
+        },
+        "walkDistance": 476.9767692324481,
+        "endTime": 1450366881000,
+        "elevationGained": 0,
+        "startTime": 1450366500000,
+        "duration": 381,
+        "waitingTime": 0,
+        "elevationLost": 0,
+        "walkLimitExceeded": false,
+        "legs": [
+          {
+            "to": {
+              "vertexType": "NORMAL",
+              "lon": 390034.00018034934,
+              "name": "corner of service road and Koirasaarentie",
+              "arrival": 1450366881000,
+              "orig": "",
+              "lat": 6671672.006009135
+            },
+            "arrivalDelay": 0,
+            "pathway": false,
+            "agencyTimeZoneOffset": 7200000,
+            "steps": [
+              {
+                "absoluteDirection": "NORTHEAST",
+                "lon": 389842.5157554888,
+                "distance": "91.148",
+                "area": "false",
+                "stayOn": "false",
+                "relativeDirection": "DEPART",
+                "alerts": "[{alertHeaderText=Unpaved surface}]",
+                "elevation": "[]",
+                "streetName": "track",
+                "bogusName": "false",
+                "lat": 6671242.987759405
+              },
+              {
+                "absoluteDirection": "NORTH",
+                "lon": 389888.757125883,
+                "distance": "118.40299999999999",
+                "area": "false",
+                "stayOn": "false",
+                "relativeDirection": "CONTINUE",
+                "elevation": "[]",
+                "streetName": "service road",
+                "bogusName": "true",
+                "lat": 6671325.437063239
+              },
+              {
+                "absoluteDirection": "NORTHEAST",
+                "lon": 389911.95877571765,
+                "distance": "267.38",
+                "area": "false",
+                "stayOn": "false",
+                "relativeDirection": "CONTINUE",
+                "elevation": "[]",
+                "streetName": "Koirasaarentie",
+                "bogusName": "false",
+                "lat": 6671439.8212151695
+              }
+            ],
+            "from": {
+              "vertexType": "NORMAL",
+              "lon": 389842.5157554888,
+              "name": "track",
+              "departure": 1450366500000,
+              "lat": 6671242.987759405
+            },
+            "rentedBike": false,
+            "endTime": 1450366881000,
+            "mode": "WALK",
+            "startTime": 1450366500000,
+            "realTime": false,
+            "distance": 476.931,
+            "duration": 381,
+            "interlineWithPreviousLeg": false,
+            "departureDelay": 0,
+            "route": "",
+            "legGeometry": {
+              "length": 19,
+              "geoJSON": {
+                "properties": {
+                  "startTime": 1450366500000,
+                  "distance": 476.931,
+                  "endTime": 1450366881000,
+                  "mode": "WALK"
+                },
+                "type": "Feature",
+                "geometry": {
+                  "type": "LineString",
+                  "coordinates": [
+                    [
+                      389842.07877171424,
+                      6671242.080841911
+                    ],
+                    [
+                      389843.7768205804,
+                      6671243.144166887
+                    ],
+                    [
+                      389870.8256342589,
+                      6671274.647929972
+                    ],
+                    [
+                      389877.3640309194,
+                      6671288.938273188
+                    ],
+                    [
+                      389889.09677866707,
+                      6671309.758766002
+                    ],
+                    [
+                      389888.4555012388,
+                      6671325.379265161
+                    ],
+                    [
+                      389890.6553711612,
+                      6671343.143130694
+                    ],
+                    [
+                      389888.7845465592,
+                      6671373.287436124
+                    ],
+                    [
+                      389898.6656690572,
+                      6671406.421703335
+                    ],
+                    [
+                      389911.8756084682,
+                      6671439.455970851
+                    ],
+                    [
+                      389929.00254671066,
+                      6671473.48697394
+                    ],
+                    [
+                      389939.0700160877,
+                      6671494.357627388
+                    ],
+                    [
+                      389945.2870980694,
+                      6671516.458334743
+                    ],
+                    [
+                      389960.0269640322,
+                      6671544.989300754
+                    ],
+                    [
+                      389970.0606493179,
+                      6671564.746668732
+                    ],
+                    [
+                      389989.9939904303,
+                      6671599.808009706
+                    ],
+                    [
+                      390001.1369856759,
+                      6671619.532142801
+                    ],
+                    [
+                      390023.38921349036,
+                      6671657.867139279
+                    ],
+                    [
+                      390036.6842070854,
+                      6671675.298023889
+                    ]
+                  ]
+                }
+              },
+              "points": "_senJewtwCAEy@}AYUe@g@[B_@Eu@H{@_@{@k@}@y@e@a@g@Ss@q@c@a@_AcAc@e@eAkA_@m@"
+            },
+            "transitLeg": false
+          }
+        ],
+        "transitTime": 0
+      }
+    ],
+    "from": {
+      "vertexType": "NORMAL",
+      "lon": 389842.5157554888,
+      "name": "track",
+      "orig": "",
+      "lat": 6671242.987759405
+    },
+    "date": 1450366500000
+  },
+  "requestParameters": {
+    "time": "05:35PM",
+    "arriveBy": "false",
+    "wheelchair": "false",
+    "maxWalkDistance": "1000",
+    "fromPlace": {
+      "lon": 389842.00018067844,
+      "lat": 6671244.00601055
+    },
+    "toPlace": {
+      "lon": 390034.00018034934,
+      "lat": 6671672.006009135
+    },
+    "date": "12-17-2015"
+  }
+}
+                </code>
+            </pre>    
+        </div>
+        <div id="MapClickedEvent"  style="display:none;">
+            <div>Occurs after the map has been clicked</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "lon": 423424,
+  "lat": 6821888,
+  "x": 312,
+  "y": 236,
+  "ctrlKeyDown": false
+}
+                </code>
+            </pre>
+        </div>
+        <div id="AfterMapMoveEvent"  style="display:none;">
+            <div>Occurs after the map has been moved</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "centerX": 411650.70779123,
+  "centerY": 6751897.3481153,
+  "zoom": 4,
+  "marker": false,
+  "scale": 362834
+}
+                </code>
+            </pre>
+        </div>
+        <div id="UserLocationEvent"  style="display:none;">
+            <div>Occurs after user's location is fetched</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "lon": 386436.3607007161,
+  "lat": 6672447.439965934
+}
+                </code>
+            </pre>
+        </div>
+        <div id="SearchResultEvent"  style="display:none;">
+            <div>Occurs after a search request</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "success": true,
+  "result": {
+    "methods": [
+      {},
+      {},
+      {}
+    ],
+    "totalCount": 4,
+    "locations": [
+      {
+        "id": 0,
+        "rank": 10,
+        "lon": "389828.281",
+        "village": "Vantaa",
+        "name": "Vantaa",
+        "zoomScale": 56650,
+        "type": "Kunta, kaupunki",
+        "lat": "6686279.347"
+      },
+      {
+        "id": 1,
+        "rank": 30,
+        "lon": "383183.648",
+        "village": "Hausjärvi",
+        "name": "Vantaa",
+        "zoomScale": 11300,
+        "type": "Kylä, kaupunginosa tai kulmakunta",
+        "lat": "6733424.84"
+      },
+      {
+        "id": 2,
+        "rank": 50,
+        "lon": "387139.034",
+        "village": "Helsinki",
+        "name": "Vantaa",
+        "zoomScale": 5650,
+        "type": "Virtavesi",
+        "lat": "6683063.213"
+      },
+      {
+        "id": 3,
+        "rank": 50,
+        "lon": "383746.169",
+        "village": "Nurmijärvi",
+        "name": "Vantaa",
+        "zoomScale": 2800,
+        "type": "Talo",
+        "lat": "6708499.96"
+      }
+    ]
+  },
+  "requestParameters": {
+    "searchKey": "vantaa",
+    "epsg": "EPSG:3067"
+  }
+}
+                </code>
+            </pre>
+        </div>
+        <div id="FeatureEvent"  style="display:none;">
+            <div>Occurs after adding or removing features to or from map </div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "operation": "add",
+  "features": [
+    {
+      "id": "F24",
+      "geojson": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "id": "F24",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  488704,
+                  6939136
+                ],
+                [
+                  588704,
+                  7039136
+                ]
+              ]
+            },
+            "properties": {
+              "test_property": 1,
+              "oskari-cursor": "zoom-in"
+            }
+          }
+        ]
+      },
+      "layerId": "VECTOR"
+    },
+    {
+      "id": "F25",
+      "geojson": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "id": "F25",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                488704,
+                6939136
+              ]
+            },
+            "properties": {
+              "test_property": 2
+            }
+          }
+        ]
+      },
+      "layerId": "VECTOR"
+    }
+  ]
+}
+                </code>
+            </pre>
+        </div>
+        <div id="DrawingEvent"  style="display:none;">
+            <div>Occurs when drawing is in progress</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "name": "DrawingEvent",
+  "id": "my functionality id",
+  "geojson": "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[356352,6776320],[428032,6776064]]]},\"properties\":{\"area\":\"0 m2\"}}]}",
+  "data": {
+    "area": "0 m2",
+    "bufferedGeoJson": "{\"type\":\"FeatureCollection\",\"features\":[]}",
+    "shape": "Polygon"
+  },
+  "isFinished": true
+}
+                </code>
+            </pre>
+        </div>
+    </div>
+    <div class="messageBox" style="display: none;"></div>
+    </div>
+  </body>
+
+
+<script type="text/javascript">
+    //init code highlighting
+    hljs.initHighlightingOnLoad();
+    
+    function moveMap(x, y, zoomLevel) {
+        channel.postRequest(
+            'MapMoveRequest', [x, y, zoomLevel]
+        );
+    }
+
+    function addMarker(marker, id) {
+        // get missing id from marker if available
+        if(!id) {
+            id = marker.id;
+        }
+        channel.postRequest(
+            'MapModulePlugin.AddMarkerRequest', [marker, id]
+        );
+    }
+
+    function displayMessage(message, tout) {
+        var timeOut = 5,
+            text = jQuery('.messageBox').text(message);
+            if (tout) {
+                timeOut = tout;
+            }
+            var escaped = jQuery('<div>').text(message).text();
+            jQuery('.messageBox').html(escaped.replace(/\n/g, '<br />'));
+            jQuery('.messageBox').css("display", "block");
+            jQuery('.messageBox').fadeIn();
+            setTimeout(function () {
+                jQuery('.messageBox').fadeOut();
+                jQuery('.messageBox').css("display", "none");
+            }, timeOut * 1000);
+    }
+
+    var clickHandlers = {
+        //====================
+        // REQUESTS
+        //====================
+        'GetRouteRequest': function() {
+            /*
+            var data = {
+                "fromlat": "6671244",
+                "fromlon": "389842",
+                "srs": "EPSG:3067",
+                "tolat": "6671672",
+                "tolon": "390034"
+            };
+            */
+            var data = {
+                "fromlat": "6733840",
+                "fromlon": "360448",
+                "srs": "EPSG:3067",
+                "tolat": "6675728",
+                "tolon": "394240"
+            };
+
+            channel.postRequest('GetRouteRequest', [data]);
+            channel.log('GetRouteRequest posted with data', data);
+        },
+        'ShowInfoBoxRequest': function() {
+            channel.getMapPosition(function(data) {
+                var content = [
+                    {
+                        'html': '<div>Map position info:</div>'
+                    },
+                    {
+                        'html': '<div>Center: '+parseInt(data.centerX)+', '+parseInt(data.centerY)+'</div>'
+                    },
+                    {
+                        'html': '<div>Zoom level: '+data.zoom+'</div>'
+                    }                    
+                ];
+                var data = [
+                    'myInfoBox',
+                    'Generic info box',
+                    content,
+                    {
+                        'lon': data.centerX,
+                        'lat': data.centerY
+                    },
+                    true,
+                    {
+                        val: 'blue',
+                        bgColour: '#0091FF',
+                        titleColour: '#FFFFFF',
+                        headerColour: '#0091FF',
+                        iconCls: 'icon-close-white'
+                    },
+                    'georgia'
+                ];
+
+                channel.postRequest('InfoBox.ShowInfoBoxRequest', data);
+                channel.log('InfoBox.ShowInfoBoxRequest posted with data', data);
+            });
+        },
+        'AddMarkerRequest': function() {
+            channel.getMapPosition(function(data){
+                var data = {
+                    x: data.centerX,
+                    y: data.centerY,
+                    color: "ff0000",
+                    msg : '',
+                    shape: 3,
+                    size: 3
+                };
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+                channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
+            });
+        },
+        'RemoveMarkersRequest': function() {
+            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
+            channel.log('RemoveMarkerRequest posted with data', MARKER_ID);
+        },
+        'GetFeatureInfoRequest': function() {
+            channel.getMapPosition(function(data){
+                var lonlat = [data.centerX, data.centerY];
+                channel.postRequest('MapModulePlugin.GetFeatureInfoRequest', lonlat);
+                channel.log('MapModulePlugin.GetFeatureInfoRequest posted with data', lonlat);
+            });            
+        },
+        'MapLayerVisibilityRequest': function() {
+            channel.getAllLayers(function (layers) {
+                var layer = layers[0];
+                channel.postRequest(
+                        'MapModulePlugin.MapLayerVisibilityRequest',
+                        [layer.id, !layer.visible]
+                );
+                channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with parameters: ', layer.id + ', ' + !layer.visible);
+            });
+        },
+        'MapMoveRequest': function() {
+            moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
+            channel.log('MapModulePlugin.MapMoveRequest posted with data', [LOCATION_POSIO[0], LOCATION_POSIO[1], 7]);
+        },
+        'ChangeMapLayerOpacityRequest': function() {
+            channel.getAllLayers(function (layers) {
+                var layer_id = layers[0].id;
+                var opacity = layers[0].opacity;
+                if (opacity !== 100) {
+                    new_opacity = 100;
+                } else {
+                    new_opacity = 50;
+                }
+                channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
+                channel.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
+            });
+        },
+        'GetUserLocationRequest': function() {
+            channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
+            channel.log('MyLocationPlugin.GetUserLocationRequest posted with data', true);
+        },
+        'ShowProgressSpinnerRequest': function() {
+            var isVisible = !states.progressSpinnerVisible;
+            channel.postRequest('ShowProgressSpinnerRequest',[isVisible]);
+            channel.log('ShowProgressSpinnerRequest posted with data', isVisible);
+            states.progressSpinnerVisible = !states.progressSpinnerVisible;
+        },
+        'SearchRequest': function() {
+            var data = {
+                "searchKey": document.getElementById("inputSearch").value,
+                "epsg": "EPSG:3067"
+            };
+            channel.postRequest('SearchRequest', [data]);
+            channel.log('SearchRequest posted with data', data);
+
+        },
+        'StartDrawingRequest': function() {
+            var data = ['my functionality id', 'Polygon'];
+            channel.postRequest('DrawTools.StartDrawingRequest', data);
+            channel.log('DrawTools.StartDrawingRequest posted with data:', data);
+        },
+        'StopDrawingRequest': function() {
+            var data = ['my functionality id'];
+            channel.postRequest('DrawTools.StopDrawingRequest', data);
+            channel.log('DrawTools.StopDrawingRequest posted with data:', data);
+        },
+        'StopDrawingRequestClear': function() {
+            var data = ['my functionality id', true];
+            channel.postRequest('DrawTools.StopDrawingRequest', data);
+            channel.log('DrawTools.StopDrawingRequest posted with data:', data);
+        },
+        'AddFeaturesToMapRequest': function() {
+                var x = 488704;
+                var y = 6939136;
+                var geojsonObject = {
+                      'type': 'FeatureCollection',
+                      'crs': {
+                        'type': 'name',
+                        'properties': {
+                          'name': 'EPSG:3067'
+                        }
+                      },
+                      'features': [
+                        {
+                          'type': 'Feature',
+                          'geometry': {
+                            'type': 'LineString',
+                            'coordinates': [[x, y], [x+100000, y+100000]]
+                          },
+                          'properties': {
+                            'test_property': 1
+                          }
+                        },
+                        {
+                          'type': 'Feature',
+                          'geometry': {
+                            'type': 'Point',
+                            'coordinates': [x, y]
+                          },
+                          'properties': {
+                            'test_property': 2
+                          }
+                        }
+
+                      ]
+                    };
+
+                var testOptions = {
+                    'minResolution': 0,
+                    'maxResolution': 1000
+                };
+                var params = [geojsonObject, {
+                        layerId: null, 
+                        clearPrevious: true,
+                        layerOptions: testOptions,
+                        centerTo: true,
+                        featureStyle: null,
+                        cursor: 'zoom-in',
+                        prio: 4,
+                        minScale: 1451336
+                    }];
+
+                channel.postRequest(
+                    'MapModulePlugin.AddFeaturesToMapRequest',
+                    params
+                );
+                channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
+
+                var geojsonObject2 = {
+                      'type': 'FeatureCollection',
+                      'crs': {
+                        'type': 'name',
+                        'properties': {
+                          'name': 'EPSG:3067'
+                        }
+                      },
+                      'features': [
+                        {
+                          'type': 'Feature',
+                          'geometry': {
+                            'type': 'LineString',
+                            'coordinates': [[x+30000, y], [x+130000, y+100000]]
+                          },
+                          'properties': {
+                            'test_property': 1
+                          }
+                        },
+                        {
+                          'type': 'Feature',
+                          'geometry': {
+                            'type': 'Point',
+                            'coordinates': [x+30000, y]
+                          },
+                          'properties': {
+                            'test_property': 2
+                          }
+                        }
+
+                      ]
+                    };
+
+                var testOptions2 = {
+                    'minResolution': 0,
+                    'maxResolution': 1000
+                };
+                var params2 = [geojsonObject2, {
+                        layerId: null, 
+                        clearPrevious: false,
+                        layerOptions: testOptions2,
+                        centerTo: true,
+                        featureStyle: {
+                            fill: {
+                                color: '#ff0000'
+                            },
+                            stroke : {
+                                color: '#ff0000',
+                                width: 5
+                            }
+                        },
+                        cursor: 'zoom-out',
+                        prio: 1
+                    }];
+
+
+                channel.postRequest(
+                    'MapModulePlugin.AddFeaturesToMapRequest',
+                    params2
+                );
+                channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params2);
+        },
+        'RemoveFeaturesFromMapRequest': function() {
+            channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
+            channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted without params');
+        },
+
+
+        //====================
+        // FUNCTIONS
+        //====================
+        'GetAllLayers': function() {
+            channel.getAllLayers(function(data){
+                channel.log('GetAllLayers: ', data);
+            });
+        },
+        'GetMapPosition': function() {
+            channel.getMapPosition(function(data){
+                channel.log('GetMapPosition: ', data);
+            });
+        },
+        'GetMapBbox': function() {
+            channel.getMapBbox(function(data){
+                channel.log('GetMapBbox: ', data);
+            });
+        },
+        'GetSupportedEvents': function() {
+            channel.getSupportedEvents(function(data){
+                channel.log('GetSupportedEvents: ', data);
+            });
+        },
+        'GetSupportedFunctions': function() {
+            channel.getSupportedFunctions(function(data){
+                channel.log('GetSupportedFunctions: ', data);
+            });
+        },
+        'GetSupportedRequests': function() {
+            channel.getSupportedRequests(function(data){
+                channel.log('GetSupportedRequests: ', data);
+            });
+
+        },
+        'GetZoomRange': function() {
+            channel.getZoomRange(function(data){
+                channel.log('GetZoomRange: ', data);
+            });
+        },
+        /*TODO: combine state handling into one functionality with three buttons... */
+        'saveState': function() {
+            channel.getCurrentState(function(data){
+                savedState = data;
+                //$('#btnLoadState').attr("disabled", false);
+                channel.log('GetCurrentState: ', data);
+            });
+
+        },
+        'resetState': function() {
+            channel.resetState(function(){
+                // no need to do this, just for demo purpose
+                //$('#btnLoadState').attr("disabled", true);
+                channel.log('State Reset');
+            });
+
+        },
+        'loadState': function() {
+            channel.useState([savedState], function(){
+                channel.log('UseState: ', savedState);
+            });
+        }
+    };
+
+    var savedState = null;
+
+
+
+
+    // constants
+    //var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
+    var IFRAME_DOMAIN = 'http://localhost:3003';
+    var USER_MARKER_ID = 'REPORT_MARKER';
+    var MARKER_ID = 'RPC_MARKER';
+    var LAYERS_ENV = ["base_35"];
+    var LAYERS_ROAD = ["base_35",455];
+    var LOCATION_KUOPIO = [533031, 6973199];
+    var LOCATION_POSIO = [552935, 7332639];
+    var MARKER_TEMPLATE = _.template(
+      '<li class="list-group-item marker_${id}">' +
+            '<h5>${name}</h5>' +
+            '<div class="desc">${desc}</div>' +
+        '</li>');
+
+    // Referenced HTML-elements
+    var elements = {
+        iframe: $("#publishedMap")[0],
+        coordinateField: $("#coordinates")[0],
+
+        issueRoad: $("#issueType1"),
+        issueEnv: $("#issueType2"),
+
+        reportForm: $("#mode1Form"),
+        commentForm: $("#mode2Form"),
+        addBtn : $("#btnAddNew"),
+        cancelBtn :$("#btnAddCancel"),
+        reportBtn : $("#btnReportNew"),
+        markerList : $("#mode2Form").find('ul.markers')
+    };
+
+    var states = {
+        progressSpinnerVisible: false
+    };
+
+
+    var rpcEvents = [
+        'AfterAddMarkerEvent',
+        'MarkerClickEvent',
+        'RouteResultEvent',
+        'MapClickedEvent',
+        'AfterMapMoveEvent',
+        'UserLocationEvent',
+        'SearchResultEvent',
+        'FeatureEvent',
+        'DrawingEvent'
+    ];
+    var eventHandlers = {
+        'SearchResultEvent' : function(data) {
+            if(data.success && data.result.totalCount > 0){
+                var search1 = data.result.locations[0],
+                    zoom = {};
+                zoom.scale = search1.zoomScale;
+                //setCoordinates(search1.lon, search1.lat);
+                moveMap(search1.lon, search1.lat, zoom);
+                // add a marker to 1st search item
+                var marker = Util.getMarkerTemplate();
+                marker.x = search1.lon;
+                marker.y = search1.lat;
+                marker.msg = search1.name +'_' + search1.type + '_' + search1.village;
+                addMarker(marker, USER_MARKER_ID);
+                if(data.result.totalCount === 1) {
+                    displayMessage('Zoomed to ' + search1.name, 5);
+                } else if(data.result.totalCount > 1) {
+                    var items = '';
+                    data.result.locations.forEach(
+                        function addItem(s) { items = items + s.name + ' / ' + s.type + ' / ' + s.village +'\n'; }
+                      );
+
+                     displayMessage('Zoomed to 1st one -  \n ' + items ,5);
+                }
+            } else if(data.success && data.result.totalCount === 0){
+                displayMessage('No items found - search key: ' + data.requestParameters.searchKey, 5);
+            } else{
+                displayMessage('Search error: ' + data.result.responseText, 5);
+            }
+        },
+        'MapClickedEvent': function(data) {
+            // add a marker to clicked spot
+            var marker = Util.getMarkerTemplate();
+            marker.x = data.lon;
+            marker.y = data.lat;
+            addMarker(marker, USER_MARKER_ID);
+        },
+        'RouteResultEvent': function(data) {
+            if(!data || !data.success) {
+                displayMessage('Getting routes failed!', 5);
+            } else {
+                var geoJSON = data && data.plan && data.plan.itineraries && data.plan.itineraries.length ? data.plan.itineraries[0].geoJSON : undefined;
+                if (geoJSON) {
+
+                    channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
+                        geoJSON, {
+                            layerId: true,
+                            clearPrevious: true,
+                            layerOptions: null,
+                            centerTo: true,
+                            featureStyle: null,
+                            cursor: 'zoom-in',
+                            prio: 4
+                        }
+                    ]);
+                }
+            }
+        }
+    };
+
+
+    // RPC TEST EVENTS
+    jQuery(document).ready(function(){
+        jQuery(rpcEvents).each(function(index, eventName){
+            if(eventName) {
+                channel.handleEvent(eventName, function(data){
+                    channel.log(eventName, data)
+
+                    if(eventHandlers[eventName]) {
+                        eventHandlers[eventName](data);
+                    }
+                });
+            }
+        });
+    });
+
+
+
+    // init connection
+    var channel = OskariRPC.connect(
+        elements.iframe,
+        IFRAME_DOMAIN
+    );
+
+    var logDiv = jQuery('#debuglog');
+    if(logDiv.length) {
+        var logMsgTemplate = jQuery('<div class="logmsg"></div>');
+        channel.log = function() {
+            if(!arguments.length) {
+                return;
+            }
+            var now = new Date();
+            var msg = logMsgTemplate.clone();
+            msg.append(now.toLocaleTimeString() + ': ');
+            _.each(arguments, function(arg) {
+                if(typeof arg === 'function') {
+                    return;
+                }
+                else if(typeof arg === 'object' || typeof arg === 'array') {
+                    msg.append('<pre>' + JSON.stringify(arg, null, '  ') + '</pre>');
+                }
+                else {
+                    msg.append(arg + ' ');
+                }
+            });
+
+            logDiv.prepend(msg);
+        }
+    }
+
+    channel.enableDebug(true);
+    channel.onReady(function() {
+        channel.log('Map is now listening');
+    });
+
+    $('#actionSelector').on('change', function(event) {
+        var value = $(this).val(),
+            container = $('#documentationContainer');
+        $(logDiv).empty();
+        $(container).html('');
+
+        if (value && value.length) {
+
+            container.html($('#'+value).html());
+            //container.prepend('<h3>'+this.options[this.selectedIndex].text+'</h3>');
+            container.prepend(getNextAndPreviousLinks());
+            container.find('.navigationLink').on('click', navigate);
+            if (clickHandlers[value]) {
+                $(container).find('button').on('click', clickHandlers[value]);
+            } else {
+                //multiple buttons in one example -> state handling. Use data-example as key
+                var buttons = $(container).find('button');
+                _.each(buttons, function(button) {
+                    if (clickHandlers[$(button).data('example')]) {
+                        $(button).on('click', clickHandlers[$(button).data('example')]);
+                    }
+                });
+            }
+        }
+    });
+    function getNextAndPreviousLinks() {
+        var select = $('#actionSelector')[0],
+            previousIndex = select.selectedIndex > 0 ? select.selectedIndex - 1 : null,
+            nextIndex = select.selectedIndex < select.options.length - 1 ? select.selectedIndex + 1 : null,
+            previousLink = previousIndex ?  '<a class="navigationLink" id="'+select.options[previousIndex].value+'">'+
+                                                'Previous: '+$(select.options[previousIndex]).html()+
+                                            '</a>' : '&nbsp;',
+            nextLink = nextIndex ?  '<a class="navigationLink" id="'+select.options[nextIndex].value+'">'+
+                                        'Next: '+$(select.options[nextIndex]).html()+
+                                    '</a>' : '&nbsp;';
+
+        var retVal =    '<div class="navigationLinkParent">'+
+                            '<div class="navigationLinkBlock left">'+
+                                previousLink+
+                            '</div>'+
+                            '<div class="navigationLinkBlock right">'+
+                                nextLink+
+                            '</div>'+
+                        '</div>';
+
+        return retVal;
+    }
+
+    function navigate(event) {
+        $('#actionSelector').val($(this).attr('id'));
+        $('#actionSelector').change();
+
+
+    }
+    $('#actionSelector').change();
+</script
+</html>
