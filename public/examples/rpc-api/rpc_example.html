@@ -129,8 +129,7 @@
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
                         <iframe id="publishedMap"
-                            src = "http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5"
-
+                            src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
                             style="border: none; width: 100%; height: 100%;"></iframe>
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
@@ -571,7 +570,7 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 'coordinates': [[x+30000, y], [x+130000, y+100000]]
               },
               'properties': {
-                'test_property': 1
+                'test_property': 'Line'
               }
             },
             {
@@ -581,7 +580,7 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 'coordinates': [x+30000, y]
               },
               'properties': {
-                'test_property': 2
+                'test_property': null
               }
             }
 
@@ -604,6 +603,17 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 stroke : {
                     color: '#ff0000',
                     width: 5
+                },
+                text : {
+                    scale : 1.3,
+                    fill : {
+                        color : 'rgba(0,0,0,1)'
+                    },
+                    stroke : {
+                        color : 'rgba(255,255,255,1)',
+                        width : 2
+                    },
+                    labelProperty: 'test_property'
                 }
             },
             cursor: 'zoom-out',
@@ -1542,7 +1552,7 @@ channel.useState([this.savedState], function(){
                             'coordinates': [[x+30000, y], [x+130000, y+100000]]
                           },
                           'properties': {
-                            'test_property': 1
+                            'test_property': 'Line'
                           }
                         },
                         {
@@ -1552,7 +1562,7 @@ channel.useState([this.savedState], function(){
                             'coordinates': [x+30000, y]
                           },
                           'properties': {
-                            'test_property': 2
+                            'test_property': null
                           }
                         }
 
@@ -1575,6 +1585,17 @@ channel.useState([this.savedState], function(){
                             stroke : {
                                 color: '#ff0000',
                                 width: 5
+                            },
+                            text : {
+                                scale : 1.3,
+                                fill : {
+                                    color : 'rgba(0,0,0,1)'
+                                },
+                                stroke : {
+                                    color : 'rgba(255,255,255,1)',
+                                    width : 2
+                                },
+                                labelProperty: 'test_property'
                             }
                         },
                         cursor: 'zoom-out',
