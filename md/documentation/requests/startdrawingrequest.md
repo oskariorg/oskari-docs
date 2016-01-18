@@ -11,10 +11,10 @@ This request is used to activate a draw control on the map which allows the user
   <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
 </tr>
 <tr>
-  <td>*id</td><td> String</td><td> Identifier for request</td><td> </td>
+  <td> *id</td><td> String</td><td> Identifier for request</td><td> </td>
 </tr>
 <tr>
-  <td>*shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
+  <td> *shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
 </tr>
 <tr>
   <td> options</td><td> Object</td><td> Parameters for options-object are listed in the next table</td><td> null</td>
@@ -34,32 +34,53 @@ Parameters for options-object:
   <td> style</td> <td> Object</td> <td> Styles for draw, modify and intersect mode. If options don't include custom style, sets default styles. See styling example at the last example of this page.</td>
   <td> 
   		{
-    		fillColor: 'rgba(255,0,255,0.2)',
-    		strokeColor: 'rgba(0,0,0,1)',
-    		width: 2,
-    		radius: 4,
-    		lineDash: [5],
-    		textScale: 1.3,
-    		textOutlineColor: 'rgba(255,255,255,1)',
-    		textColor: 'rgba(0,0,0,1)'
-    	}
+            fill : {
+                color : 'rgba(255,0,255,0.2)'
+            },
+            stroke : {
+                color : 'rgba(0,0,0,1)',
+                width : 2
+            },
+            image : {
+                radius: 4,
+                fill : {
+                    color : 'rgba(0,0,0,1)'
+                }
+            },
+            text : {
+                scale : 1.3,
+                fill : {
+                    color : 'rgba(0,0,0,1)'
+                },
+                stroke : {
+                    color : 'rgba(255,255,255,1)',
+                    width : 2
+                }
+            }
+        }
     </td>
 </tr>
 <tr>
-  <td> allowMiltipleDrawing</td><td> Boolean/String</td><td> true - multiple selection is allowed.<br> false - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.<br> 'single' - selection will be removed before drawing a new selection.</td><td> true</td>
+  <td> allowMiltipleDrawing </td><td> Boolean/String </td><td> true - multiple selection is allowed.<br> false - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.<br> 'single' - selection will be removed before drawing a new selection.</td><td> true</td>
 </tr>
 <tr>
-  <td> drawControl</td><td> Boolean</td><td> true - activates draw control.<br> false - drawing will not activated.</td><td> true</td>
+  <td> drawControl </td><td> Boolean </td><td> true - activates draw control.<br> false - drawing will not activated.</td><td> true</td>
 </tr>
 <tr>
-  <td> modifyControl</td><td> Boolean</td><td> true - activates modify control.<br> false - modifying will not activated.</td><td> true</td>
+  <td> modifyControl </td><td> Boolean </td><td> true - activates modify control.<br> false - modifying will not activated.</td><td> true</td>
 </tr>
 <tr>
-  <td> showMeasure</td><td> Boolean</td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - if measure result should be displayed on drawing feature.</td><td> false</td>
+  <td> showMeasureOnMap </td><td> Boolean </td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - if measure result should be displayed on drawing feature.</td><td> false</td>
 </tr>
 <tr>
-  <td> geojson</td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
+  <td> allowSelfIntersection </td><td> Boolean </td><td> true - itself-intersection will not be checked <br> false - user can't finish drawing if polygon has self-intersection. </td><td> true</td>
 </tr>
+<tr>
+  <td> geojson </td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
+</tr>
+
+
+
 </table>
 
 For example:
@@ -83,7 +104,7 @@ Start to draw for 'measure' functionality and keep the drawing on the map:
 ```javascript
 var sb = Oskari.getSandbox();
 sb.postRequestByName('DrawTools.StartDrawingRequest', ['measure', 'LineString'], {
-	showMeasure: true
+	showMeasureOnMap: true
 });
 ```
 

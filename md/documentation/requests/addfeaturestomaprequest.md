@@ -173,6 +173,17 @@ var featureStyle = {
   stroke: {
     color: '#FF0000',
     width: 10
+  },
+  text : {
+    scale : 1.3,
+	fill : {
+	  color : 'rgba(0,0,0,1)'
+	},
+	stroke : {
+	  color : 'rgba(255,255,255,1)',
+	  width : 2
+	},
+	labelProperty: 'test_property'
   }
 };
 
