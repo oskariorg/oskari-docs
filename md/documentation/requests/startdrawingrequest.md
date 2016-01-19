@@ -61,7 +61,7 @@ Parameters for options-object:
     </td>
 </tr>
 <tr>
-  <td> noticeMiltipleDrawing </td><td> Boolean/String </td><td> true - multiple selection is allowed.<br> false - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.<br> 'single' - selection will be removed before drawing a new selection.</td><td> true</td>
+  <td> allowMiltipleDrawing </td><td> Boolean/String </td><td> true - multiple selection is allowed.<br> false - after drawing is finished (by doubleclick), will stop drawing tool, but keeps selection on the map.<br> 'single' - selection will be removed before drawing a new selection.</td><td> true</td>
 </tr>
 <tr>
   <td> drawControl </td><td> Boolean </td><td> true - activates draw control.<br> false - drawing will not activated.</td><td> true</td>
@@ -73,7 +73,7 @@ Parameters for options-object:
   <td> showMeasureOnMap </td><td> Boolean </td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - if measure result should be displayed on drawing feature.</td><td> false</td>
 </tr>
 <tr>
-  <td> noticeSelfIntersection </td><td> Boolean </td><td> true - itself-intersection will not be checked <br> false - user can't finish drawing if polygon has self-intersection. </td><td> true</td>
+  <td> noticeSelfIntersection </td><td> Boolean </td><td> true - user will see warning text if polygon has self-intersection. <br> false - warning text will be not showed. </td><td> true</td>
 </tr>
 <tr>
   <td> geojson </td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
