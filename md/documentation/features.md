@@ -94,6 +94,8 @@
 * Layers can be organized in the layer stack by dragging and dropping
 * WFS layers provide a link to attribute information table
 * WFS layer style can be changed on a temporary basis
+* GeoServer-backed WMS-layers can be visualized as heatmaps
+* For WMS-layers the available styles can be viewed and selected for use
 
 ### Map Legends
 ​
@@ -187,7 +189,7 @@
 * Customizable size (preset size, fill space available)
 * Find my location
 * RPC API for interaction with the web site where the map is embedded
-​  * RPC API features are listed separately here: http://oskari.org/examples/rpc-api/rpc_example.html
+* RPC API features are listed separately here: http://oskari.org/examples/rpc-api/rpc_example.html
 
 ### Thematic Maps (requires backend)
 
@@ -212,6 +214,7 @@ http://www.oskari.org/documentation/bundles/framework/mapanalysis
  * Spatial join
 * Draw your own feature to be used in analysis
 * Clip a feature
+* The analysis tool also provides functionality to use search channel results as input for analysis.
 
 ### Authentication and user management (requires backend)
 ​
