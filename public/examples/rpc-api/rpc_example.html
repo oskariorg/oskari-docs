@@ -96,10 +96,13 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+    div.navigationLinkParent {
+        display: block;
+        background-color: #D9D9D9;
+    }
     div.navigationLinkBlock {
         display: inline-block;
         width:50%;
-        background-color: #D9D9D9;
     }
 
     div.navigationLinkBlock.right {
@@ -126,9 +129,10 @@
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
                         <iframe id="publishedMap"
-                            src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5"
+                            src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
                             style="border: none; width: 100%; height: 100%;"></iframe>
                     </div>
+                    <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
@@ -226,7 +230,7 @@
 var IFRAME_DOMAIN = "http://www.mydomain.com";
 var iFrame = document.getElementById('publishedMap');
 var channel = OskariRPC.connect(
-    iframe,
+    iFrame,
     IFRAME_DOMAIN
 );
             </code>
@@ -451,10 +455,8 @@ channel.postRequest('ShowProgressSpinnerRequest',[isVisible]);
         </div>
         <pre>
             <code class="hljs javascript">
-var data = {
-    "searchKey": "Vantaa",
-    "epsg": "EPSG:3067"
-};
+var data = "Vantaa";
+   
 channel.postRequest('SearchRequest', [data]);
             </code>
         </pre>
@@ -569,7 +571,7 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 'coordinates': [[x+30000, y], [x+130000, y+100000]]
               },
               'properties': {
-                'test_property': 1
+                'test_property': 'Line'
               }
             },
             {
@@ -579,7 +581,7 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 'coordinates': [x+30000, y]
               },
               'properties': {
-                'test_property': 2
+                'test_property': null
               }
             }
 
@@ -602,6 +604,17 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 stroke : {
                     color: '#ff0000',
                     width: 5
+                },
+                text : {
+                    scale : 1.3,
+                    fill : {
+                        color : 'rgba(0,0,0,1)'
+                    },
+                    stroke : {
+                        color : 'rgba(255,255,255,1)',
+                        width : 2
+                    },
+                    labelProperty: 'test_property'
                 }
             },
             cursor: 'zoom-out',
@@ -770,7 +783,7 @@ channel.useState([this.savedState], function(){
             <pre>
                 <code class="hljs javascript">
 {
-  "id": "REPORT_MARKER"
+  "id": "SEARCH_RESULT_MARKER"
 }
                 </code>
             </pre>
@@ -1199,10 +1212,7 @@ channel.useState([this.savedState], function(){
       }
     ]
   },
-  "requestParameters": {
-    "searchKey": "vantaa",
-    "epsg": "EPSG:3067"
-  }
+  "requestParameters": "Vantaa"
 }
                 </code>
             </pre>
@@ -1332,6 +1342,7 @@ channel.useState([this.savedState], function(){
             }, timeOut * 1000);
     }
 
+
     var clickHandlers = {
         //====================
         // REQUESTS
@@ -1456,10 +1467,8 @@ channel.useState([this.savedState], function(){
             states.progressSpinnerVisible = !states.progressSpinnerVisible;
         },
         'SearchRequest': function() {
-            var data = {
-                "searchKey": document.getElementById("inputSearch").value,
-                "epsg": "EPSG:3067"
-            };
+            var data = document.getElementById("inputSearch").value;
+                
             channel.postRequest('SearchRequest', [data]);
             channel.log('SearchRequest posted with data', data);
 
@@ -1552,7 +1561,7 @@ channel.useState([this.savedState], function(){
                             'coordinates': [[x+30000, y], [x+130000, y+100000]]
                           },
                           'properties': {
-                            'test_property': 1
+                            'test_property': 'Line'
                           }
                         },
                         {
@@ -1562,7 +1571,7 @@ channel.useState([this.savedState], function(){
                             'coordinates': [x+30000, y]
                           },
                           'properties': {
-                            'test_property': 2
+                            'test_property': null
                           }
                         }
 
@@ -1585,6 +1594,17 @@ channel.useState([this.savedState], function(){
                             stroke : {
                                 color: '#ff0000',
                                 width: 5
+                            },
+                            text : {
+                                scale : 1.3,
+                                fill : {
+                                    color : 'rgba(0,0,0,1)'
+                                },
+                                stroke : {
+                                    color : 'rgba(255,255,255,1)',
+                                    width : 2
+                                },
+                                labelProperty: 'test_property'
                             }
                         },
                         cursor: 'zoom-out',
@@ -1674,7 +1694,7 @@ channel.useState([this.savedState], function(){
 
     // constants
     var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
-    //var IFRAME_DOMAIN = 'http://localhost:3003';
+    //var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var MARKER_ID = 'RPC_MARKER';
     var LAYERS_ENV = ["base_35"];
@@ -1725,7 +1745,6 @@ channel.useState([this.savedState], function(){
                 var search1 = data.result.locations[0],
                     zoom = {};
                 zoom.scale = search1.zoomScale;
-                //setCoordinates(search1.lon, search1.lat);
                 moveMap(search1.lon, search1.lat, zoom);
                 // add a marker to 1st search item
                 var marker = Util.getMarkerTemplate();
@@ -1749,12 +1768,13 @@ channel.useState([this.savedState], function(){
                 displayMessage('Search error: ' + data.result.responseText, 5);
             }
         },
+        
         'MapClickedEvent': function(data) {
-            // add a marker to clicked spot
+            // add a marker to clicked spot - 
             var marker = Util.getMarkerTemplate();
             marker.x = data.lon;
             marker.y = data.lat;
-            addMarker(marker, USER_MARKER_ID);
+          //  addMarker(marker, USER_MARKER_ID); -> Use Marker requests
         },
         'RouteResultEvent': function(data) {
             if(!data || !data.success) {
@@ -1786,7 +1806,7 @@ channel.useState([this.savedState], function(){
             if(eventName) {
                 channel.handleEvent(eventName, function(data){
                     channel.log(eventName, data)
-
+                    isMarkerOff = false;
                     if(eventHandlers[eventName]) {
                         eventHandlers[eventName](data);
                     }
@@ -1870,7 +1890,7 @@ channel.useState([this.savedState], function(){
                                         'Next: '+$(select.options[nextIndex]).html()+
                                     '</a>' : '&nbsp;';
 
-        var retVal =    '<div style="display: block;">'+
+        var retVal =    '<div class="navigationLinkParent">'+
                             '<div class="navigationLinkBlock left">'+
                                 previousLink+
                             '</div>'+
