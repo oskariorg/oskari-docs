@@ -166,6 +166,7 @@
                                         <option value="SearchRequest">Perform a search</option>
                                         <option value="drawing">Drawing requests</option>
                                         <option value="addOrRemoveFeatures">Add or remove vector features</option>
+                                       	<option value="ZoomToFeaturesRequest">Zoom to features</option>                                        
                                     </optgroup>
                                     <optgroup label="Events">
                                         <option value="AfterAddMarkerEvent">AfterAddMarkerEvent</option>
@@ -640,7 +641,15 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
         </div>
     </div>
 
-
+    <div id = "ZoomToFeaturesRequest" style="display:none;">
+		<button id="btnZoomToFeaturesRequest" class="btn btn-primary exampleready">Zoom to features</button>
+		<div>Zooms to the extent of all or specific features on the specified layers</div>
+	        <pre>
+	            <code class="hljs javascript">	            	
+					channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
+	            </code>
+	        </pre>
+    </div>
 
 
     <!-- functions -->

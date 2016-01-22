@@ -73,7 +73,7 @@ Parameters for options-object:
   <td> showMeasureOnMap </td><td> Boolean </td><td> Use this parameter for displaying measurement result on line or polygon.<br> true - if measure result should be displayed on drawing feature.</td><td> false</td>
 </tr>
 <tr>
-  <td> allowSelfIntersection </td><td> Boolean </td><td> true - itself-intersection will not be checked <br> false - user can't finish drawing if polygon has self-intersection. </td><td> true</td>
+  <td> noticeSelfIntersection </td><td> Boolean </td><td> true - user will see warning text if polygon has self-intersection. <br> false - warning text will be not showed. </td><td> true</td>
 </tr>
 <tr>
   <td> geojson </td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
@@ -130,84 +130,53 @@ Again on completion a 'DrawingEvent' is triggered with id 'myplaces' with the dr
 
 Start to draw a polygon for 'myplaces' functionality with specific style and showing a label next to the drawing:
 ```javascript
-var style = {
-	draw : {
-		fill : {
-			 color: 'rgba(238,0,0,0.2)' 
-		},
-		stroke : {
-    	      color: 'rgba(0,0,0,1)',
-    	      width: 2,
-    	      lineDash: 5
-		},
-    	image : {
-    	      radius: 4,
-    	      fill: {
-    	        color: 'rgba(0,0,0,1)'
-    	      }
-    	},
-    	text: {
-    		scale: 1.3,
-            fill: {
-            	color: 'rgba(255,255,255,1)'
-            },
-            stroke: {
-               color: 'rgba(0,0,0,1)',
-               width: 2
-            }
-    	}
-	}, 
-	modify : {
-		fill : {
-			 color: 'rgba(153,102,255,0.2)' 
-		},
-		stroke : {
-    	      color: 'rgba(0,0,0,1)',
-    	      width: 2
-    	},
-    	image : {
-    	      radius: 4,
-    	      fill: {
-    	        color: 'rgba(0,0,0,1)'
-    	      }
-    	},
-    	text: {
-    		scale: 1.3,
-            fill: {
-            	color: 'rgba(255,255,255,1)'
-            },
-            stroke: {
-               color: 'rgba(0,0,0,1)',
-               width: 2
-            }
-    	}
-	},
-	intersect : {
-		fill : {
-			 color: 'rgba(101,255,102,0.2)' 
-		},
-		stroke : {
-    	      color: 'rgba(0,0,0,1)',
-    	      width: 2,
-    	      lineDash: 5
-    	},
-    	image : {
-    	      radius: 4,
-    	      fill: {
-    	        color: 'rgba(0,0,0,1)'
-    	      }
-    	},
-    	text: {
-    		scale: 1.3,
-            fill: {
-            	color: 'rgba(255,255,255,1)'
-            },
-            stroke: {
-               color: 'rgba(0,0,0,1)',
-               width: 2
-            }
-    	}
-	}
+ var style = {
+	    draw : {
+	        fill : {
+	             color: 'rgba(238,0,0,0.3)' 
+	        },
+	        stroke : {
+	              color: 'rgba(0,0,0,1)',
+	              width: 2
+	        },
+	        image : {
+	              radius: 4,
+	              fill: {
+	                color: 'rgba(0,0,0,1)'
+	              }
+	        }
+	    }, 
+	    modify : {
+	        fill : {
+	             color: 'rgba(153,102,255,0.3)' 
+	        },
+	        stroke : {
+	              color: 'rgba(0,0,0,1)',
+	              width: 2
+	        },
+	        image : {
+	              radius: 4,
+	              fill: {
+	                color: 'rgba(0,0,0,1)'
+	              }
+	        }
+	    },
+	    intersect : {
+	        fill : {
+	             color: 'rgba(255,255,255,0.3)' 
+	        },
+	        stroke : {
+	              color: 'rgba(0,0,0,1)',
+	              width: 2,
+	              lineDash: 5
+	        },
+	        image : {
+	              radius: 4,
+	              fill: {
+	                color: 'rgba(0,0,0,1)'
+	              }
+	        }
+	    }
 };
 
 var sb = Oskari.getSandbox();
