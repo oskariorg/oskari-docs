@@ -266,7 +266,7 @@ If configuration is not set these defaults will be used:
     "allowedFunctions" : ["getAllLayers", "getMapPosition", "getSupportedEvents", "getSupportedFunctions", "getSupportedRequests",
         "getZoomRange", "getMapBbox", "resetState", "getCurrentState", "useState"],
     "allowedEvents" : ["AfterMapMoveEvent", "MapClickedEvent", "AfterAddMarkerEvent", "MarkerClickEvent", "RouteResultEvent", "UserLocationEvent", "DrawingEvent"],
-    "allowedRequests" : ["InfoBox.ShowInfoBoxRequest", "MapModulePlugin.AddMarkerRequest", "MapModulePlugin.AddFeaturesToMapRequest", "MapModulePlugin.RemoveFeaturesFromMapRequest", "MapModulePlugin.GetFeatureInfoRequest", "MapModulePlugin.MapLayerVisibilityRequest", "MapModulePlugin.RemoveMarkersRequest", "MapMoveRequest", "ShowProgressSpinnerRequest", "GetRouteRequest", "ChangeMapLayerOpacityRequest", "MyLocationPlugin.GetUserLocationRequest",  "DrawTools.StartDrawingRequest", "DrawTools.StopDrawingRequest"]
+    "allowedRequests" : ["InfoBox.ShowInfoBoxRequest", "MapModulePlugin.AddMarkerRequest", "MapModulePlugin.AddFeaturesToMapRequest", "MapModulePlugin.RemoveFeaturesFromMapRequest", "MapModulePlugin.GetFeatureInfoRequest", "MapModulePlugin.MapLayerVisibilityRequest", "MapModulePlugin.RemoveMarkersRequest", "MapMoveRequest", "ShowProgressSpinnerRequest", "GetRouteRequest", "ChangeMapLayerOpacityRequest", "MyLocationPlugin.GetUserLocationRequest",  "DrawTools.StartDrawingRequest", "DrawTools.StopDrawingRequest", "MapModulePlugin.ZoomToFeaturesRequest"]
 }
 ```
 
@@ -284,6 +284,7 @@ Defaults at the moment are all the functions defined in RPC-bundles availableFun
 - resetState()
 - getCurrentState()
 - useState(stateObject)
+- getFeatures()
 
 All functions take callbacks as parameters for successhandler and (optional) errorhandler. Most functions are getters and only require the success callback. 
 useState() is the only function currently that takes other type of parameters. However all functions are mapped in a similar fashion and the first parameter for function call can be used
