@@ -159,7 +159,16 @@ And/or
 
 After the configuration has been run the result will show additional info if you need to change any properties for these functionalities to work.
 
-# Configuring new projections for Printout 
+## Setting up the geoserver config:
+
+1. Delete everything under `{jetty.home}/geoserver_data`. The setup webapp can't update the config but only create it from scratch.
+2. Move `{jetty.home}/setup.war` to `{jetty.home}/webapps/setup.war`
+3. Restart Jetty
+4. Open the browser at `http://localhost:8080/setup`
+5. Type in `EPSG:3067` to the form that opens and click the button. This configures the geoserver stores/layers used by Oskari based on the properties in oskari-ext.properties
+6. Shutdown Jetty, remove the `setup.war` from webapps and start the Jetty
+
+# Configuring new projections for Printout
 
 Edit printout properties file e.g. {JETTY_HOME}\resources\oskari-printout-backend-4326.properties
 
