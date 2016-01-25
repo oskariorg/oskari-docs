@@ -36,6 +36,9 @@
         height:100%;
         width:100%;
     }
+    body {
+        background-color: #FFFFFF !important;
+    }
     ul.markers li div.desc {
         display : none;
     }
@@ -67,7 +70,7 @@
 
 
     .full-height-panel, .map-panel {
-        height: 100% !important;
+        height: 98% !important;
     }
     .panel-body {
         height: 100%
@@ -91,7 +94,9 @@
         float:right;
         font-size: smaller;
         font-weight: normal;
+     
     }
+
     h2 {
         margin-top: 0;
         margin-bottom: 0;
@@ -101,8 +106,10 @@
         background-color: #D9D9D9;
     }
     div.navigationLinkBlock {
-        display: inline-block;
+        display: inline-table;
         width:50%;
+        padding: 4px;
+        margin-top: 10px;
     }
 
     div.navigationLinkBlock.right {
@@ -1882,8 +1889,9 @@ channel.useState([this.savedState], function(){
     function getNextAndPreviousLinks() {
         var select = $('#actionSelector')[0],
             previousIndex = select.selectedIndex > 0 ? select.selectedIndex - 1 : null,
+            showPrev = select.selectedIndex > 0 ? true : false,
             nextIndex = select.selectedIndex < select.options.length - 1 ? select.selectedIndex + 1 : null,
-            previousLink = previousIndex ?  '<a class="navigationLink" id="'+select.options[previousIndex].value+'">'+
+            previousLink = showPrev ?  '<a class="navigationLink" id="'+select.options[previousIndex].value+'">'+
                                                 'Previous: '+$(select.options[previousIndex]).html()+
                                             '</a>' : '&nbsp;',
             nextLink = nextIndex ?  '<a class="navigationLink" id="'+select.options[nextIndex].value+'">'+
