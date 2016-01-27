@@ -818,13 +818,25 @@ channel.useState([this.savedState], function(){
 			</div>
 
 			<div>
-				2. Get features
-				<button id="btnGetFeaturesFunction" class="btn btn-primary exampleready"
-					data-example="getFeatures">Get features</button>
+				2. Get features grouped by layers
+				<button id="btnGetFeaturesFunction"
+					class="btn btn-primary exampleready" data-example="getFeatures">getFeatures(true)</button>
 			</div>
 			<pre>
 	            <code class="hljs javascript">	
-channel.getFeatures([true], function(data){
+channel.getFeatures([true], function(data) {
+    channel.log('GetFeatures: ', data);
+});
+       	          </code>
+	        </pre>
+			<div>
+				Get only layerIds without features
+				<button id="btnGetFeaturesFunction"
+					class="btn btn-primary exampleready" data-example="getFeatures">getFeatures()</button>
+			</div>
+			<pre>
+	            <code class="hljs javascript">	
+channel.getFeatures([], function(data) {
     channel.log('GetFeatures: ', data);
 });
        	          </code>
