@@ -19,8 +19,7 @@
   * Embedded map tools are gradually developed into responsive tools which work well with smaller screens and are touch-friendly
 * Some Oskari modules can make use of role-based user management. Users belonging to different roles can be given access to specific functionality
 * Authentication and SSO is supported using SAML 2.0
-​
-​
+
 ### Map window
 ​
 * Supported layer types:
@@ -36,7 +35,7 @@
 * Pan map view
 * Restore initial map state
 * Scale bar
-​
+
 ### GetFeatureInfo
 ​
 * Always active, starts by a single click / tap on the map
@@ -44,30 +43,30 @@
 * Response is shown in a popup dialog
 * Response can be styled using XSLT transformation (requires backend)
 * Multiple response types are supported
-​
+
 ### Mouse click functions
 ​
 * Panning by dragging
 * Zoom in by double clicking on the map
 * GetFeatureInfo action with a single click on all map layers with GFI enabled
 * Feature information is returned also from WFS layers
-​
+
 ### Menu bar
 ​
 * Menu entries can be configured individually
 * Menu can be hidden (together with the toolbar)
-​
+
 ### Location search
 ​
 * One-field search which can return search results from multiple sources, such as placename, address, cadastral parcel or similar services
 * Service access parameters are configurable in the backend
-​
+
 ### Metadata search
 ​
 * Search for metadata from a CSW backend
 * Advanced search options
 * Display resulting layers on the map
-​
+
 ### Map layer selector
 ​
 * List of available map layers, grouped either by theme or by data provider
@@ -84,7 +83,7 @@
  * own data layer
  * time-enabled WMS layer (WMS-T)
 * New map layer types can be added programmatically
-​
+
 ### Selected map layers
 ​
 * List of layers displayed in the map view
@@ -95,7 +94,9 @@
 * Layers can be organized in the layer stack by dragging and dropping
 * WFS layers provide a link to attribute information table
 * WFS layer style can be changed on a temporary basis
-​​
+* GeoServer-backed WMS-layers can be visualized as heatmaps
+* For WMS-layers the available styles can be viewed and selected for use
+
 ### Map Legends
 ​
 * Flyout shows map legends from all selected layers
@@ -131,7 +132,7 @@
 * Data can be sorted ascending/descending
 * Features can be highlighted by clicking either on the map or in the table rows
 * Shift / Ctrl can be used to select multiple rows
-​
+
 ### Create map mode (requires backend)
 ​
 * Tool for creating embedded map windows
@@ -143,7 +144,7 @@
 * Map functions which can be enabled or disabled: panning by dragging, GetFeatureInfo
 * Created embedded maps are saved and can be later edited
 * Status of an embedded map can be either published or unpublished
-​
+
 ### My Data (requires backend)
 ​
 * Points, lines and areas can be created and saved
@@ -151,14 +152,14 @@
 * Multiple layers can be created
 * Symbology is separately configurable for each layer
 * Description of map view can be edited and may contain links to external resources
-​
+
 ### Print mode (requires backend)
 ​
 * Paper size and layout selection
 * Automatic Print preview window
 * Printout format selection: PNG or PDF, also PDF/A
 * Title, scalebar, date and a logo can be added, also text and markers of your choice
-​
+
 ### Import data (requires backend)
 ​
 * Supported format for importing data as zipped files
@@ -166,7 +167,7 @@
  * Mapinfo MID/MIF
  * GPX trace
  * KMX (zipped KML)
-​
+
 ### Embedded map features (requires backend)
 ​
 * Zooming and panning
@@ -188,15 +189,16 @@
 * Customizable size (preset size, fill space available)
 * Find my location
 * RPC API for interaction with the web site where the map is embedded
-​  * RPC API features are listed separately here: http://oskari.org/examples/rpc-api/rpc_example.html
-​
-​### Thematic Maps (requires backend)
+* RPC API features are listed separately here: http://oskari.org/examples/rpc-api/rpc_example.html
+
+### Thematic Maps (requires backend)
+
 http://www.oskari.org/documentation/bundles/framework/mapstats
 ​
 * Creation of thematic maps by joining statistical data and administrative units
 * Importing own statistical indicators
 * Downloading of indicator data into CSV/Excel formats
-​
+
 ### Spatial Analysis (requires backend)
 http://www.oskari.org/documentation/bundles/framework/mapanalysis
 ​
@@ -212,19 +214,20 @@ http://www.oskari.org/documentation/bundles/framework/mapanalysis
  * Spatial join
 * Draw your own feature to be used in analysis
 * Clip a feature
-​
+* The analysis tool also provides functionality to use search channel results as input for analysis.
+
 ### Authentication and user management (requires backend)
 ​
 * Bundle for user management
 * Bundle for management of layers privileges
-​
+
 ### Digiroad Feature selector
 ​
 * Adds a grid to display features fetched via WFS or some other protocol supported by OpenLayers
 * Users can view the features and edit their attributes
 * Features get added to the grid when the user clicks on the map. Alt and Ctrl keys can be used as modifiers
 * A proxy is needed in case features are fetched via WFS
-​
+
 ### Features in the 2016 roadmap
 ​
 * Improvements and additions to RPC API functionalities
