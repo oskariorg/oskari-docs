@@ -152,6 +152,7 @@
                                         <option value="GetSupportedRequests">Get supported requests</option>
                                         <option value="GetZoomRange">Get zoom range</option>
                                         <option value="stateHandling">Handle map state</option>
+                                        <option value="GetFeatures">Get features</option>                                        
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
@@ -166,7 +167,7 @@
                                         <option value="SearchRequest">Perform a search</option>
                                         <option value="drawing">Drawing requests</option>
                                         <option value="addOrRemoveFeatures">Add or remove vector features</option>
-                                       	<option value="ZoomToFeaturesRequest">Zoom to features</option>                                        
+                                       	<option value="ZoomToFeatures">Zoom to features</option>                                        
                                     </optgroup>
                                     <optgroup label="Events">
                                         <option value="AfterAddMarkerEvent">AfterAddMarkerEvent</option>
@@ -641,18 +642,43 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
         </div>
     </div>
 
-    <div id = "ZoomToFeaturesRequest" style="display:none;">
-		<button id="btnZoomToFeaturesRequest" class="btn btn-primary exampleready">Zoom to features</button>
-		<div>Zooms to the extent of all or specific features on the specified layers</div>
-	        <pre>
-	            <code class="hljs javascript">	            	
-					channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
+	<div id="ZoomToFeatures" style="display: none;">
+		<div>
+			1. Add features to map
+			<button id="btnAddFeaturesToMapRequest"
+				class="btn btn-primary exampleready"
+				data-example="AddFeaturesToMapRequestForZooming">AddFeaturesToMapRequest</button>
+		</div>
+		<div>2. Move map</div>
+		<div>
+			3. Zoom to all features
+			<button id="btnZoomToFeaturesRequest"
+				class="btn btn-primary exampleready"
+				data-example="ZoomToFeaturesRequest">MapModulePlugin.ZoomToFeaturesRequest</button>
+		</div>
+		<pre>
+	            <code class="hljs javascript">	
+channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
 	            </code>
 	        </pre>
-    </div>
+		<div>
+			Zoom to features, where featureType=='parcel' and
+			layerId=='testLayer'
+			<button id="btnZoomToFeaturesRequest2"
+				class="btn btn-primary exampleready"
+				data-example="ZoomToFeaturesRequest2">MapModulePlugin.ZoomToFeaturesRequest</button>
+		</div>
+		<pre>
+	            <code class="hljs javascript">	
+var layers = {layer: ['testLayer']};
+var features = {'species': ['parcel']};     	
+channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[layers, features]);
+	            </code>
+	        </pre>
+	</div>
 
 
-    <!-- functions -->
+	<!-- functions -->
     <div id = "GetAllLayers" style="display:none;">
         <button id="btnGetAllLayers" class="btn btn-primary exampleready">Get all layers</button>
         <div>Gets a list of available map layers</div>
@@ -776,8 +802,29 @@ channel.useState([this.savedState], function(){
                 </code>
             </pre>
         </div>
+		<div id="GetFeatures" style="display: none;">
+			<div>
+				1. Add features to map
+				<button id="btnAddFeaturesToMapRequest"
+					class="btn btn-primary exampleready"
+					data-example="AddFeaturesToMapRequestForZooming">AddFeaturesToMapRequest</button>
+			</div>
 
-        <!-- events -->
+			<div>
+				2. Get features
+				<button id="btnGetFeaturesFunction" class="btn btn-primary exampleready"
+					data-example="getFeatures">Get features</button>
+			</div>
+			<pre>
+	            <code class="hljs javascript">	
+channel.getFeatures([true], function(data){
+    channel.log('GetFeatures: ', data);
+});
+       	          </code>
+	        </pre>
+		</div>
+
+		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
             <div>Occurs after a marker has been added to map</div>
             <pre>
@@ -1622,7 +1669,78 @@ channel.useState([this.savedState], function(){
             channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
             channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted without params');
         },
+        'ZoomToFeaturesRequest': function() {
+            channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
+            channel.log('MapModulePlugin.ZoomToFeaturesRequest posted without params');
+        },
+        'ZoomToFeaturesRequest2': function() {
+            channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[{layer: ['testLayer']}, {'species': ['parcel']}]);
+            channel.log('MapModulePlugin.ZoomToFeaturesRequest');
+        },
+        'AddFeaturesToMapRequestForZooming': function() {          
+           var geojsonObject = {
+                   'type': 'FeatureCollection',
+                   'crs': {
+                     'type': 'name',
+                     'properties': {
+                       'name': 'EPSG:3067'
+                     }
+                   },
+                   'features': [
+                     {
+                       'type': 'Feature',
+                       'geometry': {
+                         'type': 'Polygon',
+                         'coordinates': [[[323424,6828464],[324192,6825872],[323744,6822384],[323424,6828464]]]
+                       },
+                       'properties': {
+                           'test_property': '123-456-7777-8888',
+                           'species': 'parcel'
+                       }
+                     },
+                     {
+                         'type': 'Feature',
+                         'geometry': {
+                           'type': 'Polygon',
+                           'coordinates': [[[309856,6829840],[312576,6833808],[315424,6831120],[315040,6828592],[311328,6827472],[309856,6829840]]]
+                         }                     
+                     }                     
+                   ]
+            };           
+            var params = [geojsonObject, {
+                    layerId: 'testLayer', 
+                    clearPrevious: false,
+                    centerTo: true,
+                    featureStyle: {
+                        fill: {
+                            color: 'rgba(255,0,255,0.2)'
+                        },
+                        stroke : {
+                            color: '#ff0000',
+                            width: 3
+                        },
+                        text : {
+                            scale : 1.3,
+                            fill : {
+                                color : 'rgba(0,0,0,1)'
+                            },
+                            stroke : {
+                                color : 'rgba(255,255,255,1)',
+                                width : 2
+                            },
+                            labelProperty: 'test_property'
+                        }
+                    },
+                    cursor: 'zoom-out',
+                    prio: 1
+            }];
 
+            channel.postRequest(
+                'MapModulePlugin.AddFeaturesToMapRequest',
+                params
+            );
+            channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
+    	},
 
         //====================
         // FUNCTIONS
@@ -1684,6 +1802,11 @@ channel.useState([this.savedState], function(){
             channel.useState([savedState], function(){
                 channel.log('UseState: ', savedState);
             });
+        },
+        'getFeatures': function() {
+        	channel.getFeatures([true], function(data){
+        	    channel.log('GetFeatures: ', data);
+        	});
         }
     };
 
