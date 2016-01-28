@@ -63,9 +63,32 @@ If you only want to use it when GetSearchResult action handler is called. You ca
 ## More examples
 
 There is an example search channel for OpenStreetMap available in the
-file `servlet-map/src/main/java/fi/nls/oskari/search/OpenStreetMapSearchService.java` and several more in service-search-nls.
+file `service-search-opendata/src/main/java/fi/nls/oskari/search/OpenStreetMapSearchService.java` and several more in service-search-nls.
 
 Notice that when returning results the location should be in the same projection as specified in the criteria!
+
+## SearchChannel methods to override
+
+### void init();
+
+Any initialization should be performed here. Properties setup for example.
+
+### SearchableChannel.Capabilities getCapabilities();
+
+Capabilities is an enum with values COORD, TEXT and BOTH. Defaults to TEXT on SearchChannel baseclass.
+- TEXT means the channel can be used to search with text.
+- COORD means the channel can be used to search with coordinates/reverse geocode.
+- BOTH means the channel implements both text and coordinate based searches.
+
+### boolean isValidSearchTerm(SearchCriteria criteria);
+
+This method can be overridden to check whether the criteria makes sense in the context of the channel.
+Like is the searchtext in correct syntax for a cadastral parcel id etc.
+
+### ChannelSearchResult reverseGeocode(SearchCriteria criteria) throws IllegalSearchCriteriaException;
+
+Implement this method if you want to use reverse geocoding for the channel.
+You will also need to override getCapabilities to return COORD or BOTH.
 
 ## Things to improve (TODO)
 
