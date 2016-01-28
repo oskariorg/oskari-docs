@@ -264,7 +264,7 @@ If configuration is not set these defaults will be used:
 ```javascript
 {
     "allowedFunctions" : ["getAllLayers", "getMapPosition", "getSupportedEvents", "getSupportedFunctions", "getSupportedRequests",
-        "getZoomRange", "getMapBbox", "resetState", "getCurrentState", "useState"],
+        "getZoomRange", "getMapBbox", "resetState", "getCurrentState", "useState", "getFeatures"],
     "allowedEvents" : ["AfterMapMoveEvent", "MapClickedEvent", "AfterAddMarkerEvent", "MarkerClickEvent", "RouteResultEvent", "UserLocationEvent", "DrawingEvent"],
     "allowedRequests" : ["InfoBox.ShowInfoBoxRequest", "MapModulePlugin.AddMarkerRequest", "MapModulePlugin.AddFeaturesToMapRequest", "MapModulePlugin.RemoveFeaturesFromMapRequest", "MapModulePlugin.GetFeatureInfoRequest", "MapModulePlugin.MapLayerVisibilityRequest", "MapModulePlugin.RemoveMarkersRequest", "MapMoveRequest", "ShowProgressSpinnerRequest", "GetRouteRequest", "ChangeMapLayerOpacityRequest", "MyLocationPlugin.GetUserLocationRequest",  "DrawTools.StartDrawingRequest", "DrawTools.StopDrawingRequest", "MapModulePlugin.ZoomToFeaturesRequest"]
 }
@@ -284,7 +284,7 @@ Defaults at the moment are all the functions defined in RPC-bundles availableFun
 - resetState()
 - getCurrentState()
 - useState(stateObject)
-- getFeatures()
+- getFeatures(layerId)
 
 All functions take callbacks as parameters for successhandler and (optional) errorhandler. Most functions are getters and only require the success callback. 
 useState() is the only function currently that takes other type of parameters. However all functions are mapped in a similar fashion and the first parameter for function call can be used
@@ -299,6 +299,14 @@ to send parameters to the function. The parameters to send should be sent as an 
     });
         
 If the first parameter is is a function, it's treated as the success callback.
+
+####getFeatures(layerId)
+
+Function gets features as geojson object grouped by layer if the value of given parameter is true. If parameter is not given, will return array of layerIds. For example:
+
+    channel.getFeatures([true], function(data) {
+       channel.log('GetFeatures: ', data);
+    });	
 
 ### Allowed events
 
