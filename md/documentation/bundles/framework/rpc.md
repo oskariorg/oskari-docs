@@ -274,6 +274,7 @@ If configuration is not set these defaults will be used:
 
 Allowed functions (config.allowedFunctions) lists all the functions that can be called over rpc.
 Defaults at the moment are all the functions defined in RPC-bundles availableFunctions object which include:
+- getInfo(clientVersion)
 - getAllLayers()
 - getMapPosition()
 - getSupportedEvents()
@@ -297,16 +298,38 @@ to send parameters to the function. The parameters to send should be sent as an 
     }, function(err) {
         console.log('Error!", err);
     });
-        
+
 If the first parameter is is a function, it's treated as the success callback.
 
-####getFeatures(layerId)
+#### getInfo(clientVersion)
 
-Function gets features as geojson object grouped by layer if the value of given parameter is true. If parameter is not given, will return array of layerIds. For example:
+Returns generic information about the Oskari instance:
+
+    {
+      "version": "1.35.0",
+      "clientSupported": true,
+      "srs": "EPSG:3067"
+    }
+
+This can be used to detect if the Oskari version has been updated without notification. For example in RPC-client you can:
+
+    channel.getInfo(['1.1.0'], function(data) {
+        // check if are getting the expected Oskari version
+        if(data.version !== "1.35.0" || !data.clientSupported) {
+            // handle error, send a notification email to self etc
+            // Your application might not work correctly
+        }
+       channel.log('GetInfo: ', data);
+    });
+
+#### getFeatures(layerId)
+
+Function gets features as geojson object grouped by layer if the value of given parameter is true. If parameter is not given, will return array of layerIds. 
+For example in RPC-client you can:
 
     channel.getFeatures([true], function(data) {
        channel.log('GetFeatures: ', data);
-    });	
+    });
 
 ### Allowed events
 
