@@ -21,8 +21,7 @@ In this example we show a published map on our webpage and control it from the p
 Copy the code below to your html-page header and change the paths of .js files if needed.
 
 ```html
-<script src="/js/rpc/JSChannel/jschannel.js"></script>
-<script src="/js/rpc/OskariRPC/OskariRPC.js"></script>
+<script src="/js/rpc/rpc-client.min.js"></script>
 ```
 
 **2. Copy the code of your published map to your website where you want it to occur and give an id to the element**
