@@ -1,0 +1,1 @@
+window.OskariRPC = require('oskari-rpc');

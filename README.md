@@ -18,3 +18,11 @@ Documentation and guides are in `md` directory as `markdown` documents. After cr
 When added under `md/documentation` or `md/guides` the page is automatically routed to `/documentation/<file location without the md extension>` or `/guides/<file location without the md extension>`, respectively.
 
 All the other content should be placed in the `.jade` templates under `views/`. Also, please see the `routes.js` for details on how the content gets rendered.
+
+## Updating the RPC-client
+
+1. Update the "oskari-rpc" dependency version in package.json
+2. Run npm install
+3. Run npm run build-rpc
+
+This updates the public/js/rpc/rpc-client.min.js file

@@ -15,8 +15,7 @@ Provides RPC functionality, i.e. a published map can be controlled from the pare
 
 ## Example
 
-<script src="/js/rpc/JSChannel/jschannel.js"></script>
-<script src="/js/rpc/OskariRPC/OskariRPC-1.1.0.js"></script>
+<script src="/js/rpc/rpc-client.min.js"></script>
 <style>
     iframe {
         background-clip: padding-box;
@@ -353,8 +352,7 @@ If you're using the Oskari backend, this is injected automatically based on the 
 
 Next we'll need a map and the required libraries:
 ```html
-<script src="/js/rpc/JSChannel/jschannel.js"></script>
-<script src="/js/rpc/OskariRPC/OskariRPC-1.1.0.js"></script>
+<script src="/js/rpc/rpc-client.min.js"></script>
 <iframe id="Oskari" src="http://demo.paikkatietoikkuna.fi/published/fi/8184"></iframe>
 ```
 

@@ -9,6 +9,7 @@ var gulp   = require('gulp'),
     minJs  = 'main.min.js',
     minCss = 'main.min.css';
 
+
 gulp.task('scripts', function() {
     // Minify and concatenate all JavaScript files (except vendor scripts)
     return gulp
@@ -16,6 +17,21 @@ gulp.task('scripts', function() {
         .pipe(concat(minJs))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('rpc-client', function() {
+    var browserify = require('gulp-browserify');
+    var rename = require('gulp-rename');
+    //var client = require('oskari-rpc');
+
+    // Single entry point to browserify 
+    gulp.src('./public/js/rpc/rpc-client.js')
+        .pipe(browserify({
+        // debug inserts source mapping which makes the file twice as large
+          //debug : !gulp.env.production
+        }))
+        .pipe(rename('rpc-client.min.js'))
+        .pipe(gulp.dest('./public/js/rpc'))
 });
 
 gulp.task('stylesheets', function() {
