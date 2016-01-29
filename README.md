@@ -22,7 +22,7 @@ All the other content should be placed in the `.jade` templates under `views/`. 
 ## Updating the RPC-client
 
 1. Update the "oskari-rpc" dependency version in package.json
-2. Run npm install
+2. Run npm update oskari-rpc
 3. Run npm run build-rpc
 
 This updates the public/js/rpc/rpc-client.min.js file
