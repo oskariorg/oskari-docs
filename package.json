@@ -16,7 +16,7 @@
     "static-asset": "~0.5.2",
     "highlight.js": "~8.0.0",
     "gulp-autoprefixer": "0.0.6",
-    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#develop"
+    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.0"
   },
   "devDependencies": {
     "gulp": "3.4.0",

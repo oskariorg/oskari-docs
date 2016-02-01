@@ -212,11 +212,11 @@
     <!-- getting started -->
     <div style="display: none; visibility: hidden;" id="gettingStarted">
         <h3>Including the necessary stuff to get RPC up and running</h3>
-        <div>Including RPC javascripts in html</div>
+        <div>Including RPC javascript in html available from:<br />
+            <a href="https://github.com/nls-oskari/rpc-client/tree/master/dist" target="_blank">https://github.com/nls-oskari/rpc-client/tree/master/dist</a></div>
         <pre>
             <code class="lang-html hljs xml">
-&lt;script src="js/rpc/JSChannel/jschannel.js"&gt;&lt;/script&gt;
-&lt;script src="js/rpc/OskariRPC/OskariRPC-1.1.0.js"&gt;&lt;/script&gt;
+&lt;script src="js/rpc-client.js"&gt;&lt;/script&gt;
             </code>
         </pre>
 
@@ -248,6 +248,26 @@ var channel = OskariRPC.connect(
 channel.onReady(function() {
     //channel is now ready and listening.
     channel.log('Map is now listening');
+    var expectedOskariVersion = '1.35.0';
+    channel.isSupported(expectedOskariVersion, function(blnSupported) {
+        if(blnSupported) {
+            channel.log('Client is supported and Oskari version is ' + expectedOskariVersion);
+        } else {
+            channel.log('Oskari-instance is not the one we expect (' + expectedOskariVersion + ') or client not supported');
+            // getInfo can be used to get the current Oskari version
+            channel.getInfo(function(oskariInfo) {
+                channel.log('Current Oskari-instance reports version as: ', oskariInfo);
+            });
+        }
+    });
+    channel.isSupported(function(blnSupported) {
+        if(!blnSupported) {
+            channel.log('Oskari reported client version (' + OskariRPC.VERSION + ') is not supported.' +
+            'The client might work, but some features are not compatible.');
+        } else {
+            channel.log('Client is supported by Oskari.');
+        }
+    });
 });
             </code>
         </pre>
@@ -1992,6 +2012,27 @@ channel.getFeatures([], function(data) {
     channel.enableDebug(true);
     channel.onReady(function() {
         channel.log('Map is now listening');
+
+        var expectedOskariVersion = '1.35.0';
+        channel.isSupported(expectedOskariVersion, function(blnSupported) {
+            if(blnSupported) {
+                channel.log('Client is supported and Oskari version is ' + expectedOskariVersion);
+            } else {
+                channel.log('Oskari-instance is not the one we expect (' + expectedOskariVersion + ') or client not supported');
+                // getInfo can be used to get the current Oskari version
+                channel.getInfo(function(oskariInfo) {
+                    channel.log('Current Oskari-instance reports version as: ', oskariInfo);
+                });
+            }
+        });
+        channel.isSupported(function(blnSupported) {
+            if(!blnSupported) {
+                channel.log('Oskari reported client version is not supported: ' + OskariRPC.VERSION  +
+                '. The client might work, but some features are not backward compatible.');
+            } else {
+                channel.log('Client is supported by Oskari.');
+            }
+        });
     });
 
     $('#actionSelector').on('change', function(event) {
