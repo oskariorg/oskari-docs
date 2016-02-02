@@ -242,7 +242,9 @@ var channel = OskariRPC.connect(
             </code>
         </pre>
 
-        <h3>Wait for the channel to get ready for use</h3>  
+        <h3>Wait for the channel to get ready for use</h3>
+        Also checking that the iframe gives us an expected version of Oskari
+        and/or that the Oskari version recognizes our client version.
         <pre>
             <code class="hljs javascript">
 channel.onReady(function() {
