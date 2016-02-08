@@ -34,6 +34,13 @@ gulp.task('rpc-client', function() {
         .pipe(gulp.dest('./public/js/rpc'))
 });
 
+gulp.task('oskari-api', function() {
+
+    var apigenerator = require('./gulp-oskariapi');
+    gulp.src('./md/guides/**')
+        .pipe(apigenerator());
+});
+
 gulp.task('stylesheets', function() {
     return gulp
         .src('./client/stylesheets/**/*.less')
