@@ -5,6 +5,8 @@ var through     = require('through2');
 var gutil       = require('gulp-util');
 var PluginError = gutil.PluginError;
 
+var md = require('marked');
+
 //var stream = require('stream');
 
 
@@ -93,8 +95,19 @@ function generateDoc() {
             return callback();
         }
         var def = getBundleDef(docPath);
-        if (!def) {
+        if (def) {
             // not a bundle, but copy anyway?
+            var fileContent = fs.readFileSync(file.path, "utf8");
+            var tokens = md.lexer(fileContent);
+            var firstText = _.find(tokens, function(token) {
+                return token.type === 'paragraph';
+            });
+            if(firstText) {
+                def.desc = firstText.text;
+            }
+            //console.log(def);
+            //console.log(tokens);
+//console.log(md.parser(tokens));
         }
 
         // No support for streams
@@ -112,6 +125,7 @@ function generateDoc() {
 
             // replace the file contents with our new image
 //            file.contents = canvas.toBuffer();
+//            
 
             this.push(file);
             return callback();
