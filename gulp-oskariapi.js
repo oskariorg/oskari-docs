@@ -121,5 +121,5 @@ function generateDoc() {
 
 module.exports = {
     task : generateDoc,
-    end : getStruct
+    json : getStruct
 };

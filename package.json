@@ -19,6 +19,7 @@
     "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.0"
   },
   "devDependencies": {
+    "del": "^2.2.0",
     "gulp": "3.4.0",
     "gulp-browserify": "^0.5.1",
     "gulp-livereload": "1.5.0",
