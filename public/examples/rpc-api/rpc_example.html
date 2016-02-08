@@ -134,7 +134,7 @@
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
                         <iframe id="publishedMap"
-                            src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
+                            src="http://demo.paikkatietoikkuna.fi/published/en/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
                             style="border: none; width: 100%; height: 100%;"></iframe>
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
@@ -212,11 +212,11 @@
     <!-- getting started -->
     <div style="display: none; visibility: hidden;" id="gettingStarted">
         <h3>Including the necessary stuff to get RPC up and running</h3>
-        <div>Including RPC javascripts in html</div>
+        <div>Including RPC javascript in html available from:<br />
+            <a href="https://github.com/nls-oskari/rpc-client/tree/master/dist" target="_blank">https://github.com/nls-oskari/rpc-client/tree/master/dist</a></div>
         <pre>
             <code class="lang-html hljs xml">
-&lt;script src="js/rpc/JSChannel/jschannel.js"&gt;&lt;/script&gt;
-&lt;script src="js/rpc/OskariRPC/OskariRPC-1.1.0.js"&gt;&lt;/script&gt;
+&lt;script src="js/rpc-client.js"&gt;&lt;/script&gt;
             </code>
         </pre>
 
@@ -242,12 +242,34 @@ var channel = OskariRPC.connect(
             </code>
         </pre>
 
-        <h3>Wait for the channel to get ready for use</h3>  
+        <h3>Wait for the channel to get ready for use</h3>
+        Also checking that the iframe gives us an expected version of Oskari
+        and/or that the Oskari version recognizes our client version.
         <pre>
             <code class="hljs javascript">
 channel.onReady(function() {
     //channel is now ready and listening.
     channel.log('Map is now listening');
+    var expectedOskariVersion = '1.35.0';
+    channel.isSupported(expectedOskariVersion, function(blnSupported) {
+        if(blnSupported) {
+            channel.log('Client is supported and Oskari version is ' + expectedOskariVersion);
+        } else {
+            channel.log('Oskari-instance is not the one we expect (' + expectedOskariVersion + ') or client not supported');
+            // getInfo can be used to get the current Oskari version
+            channel.getInfo(function(oskariInfo) {
+                channel.log('Current Oskari-instance reports version as: ', oskariInfo);
+            });
+        }
+    });
+    channel.isSupported(function(blnSupported) {
+        if(!blnSupported) {
+            channel.log('Oskari reported client version (' + OskariRPC.VERSION + ') is not supported.' +
+            'The client might work, but some features are not compatible.');
+        } else {
+            channel.log('Client is supported by Oskari.');
+        }
+    });
 });
             </code>
         </pre>
@@ -545,11 +567,9 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
         'maxResolution': 1000
     };
     var params = [geojsonObject, {
-            layerId: null, 
             clearPrevious: true,
             layerOptions: testOptions,
             centerTo: true,
-            featureStyle: null,
             cursor: 'zoom-in',
             prio: 4,
             minScale: 1451336
@@ -587,7 +607,7 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 'coordinates': [x+30000, y]
               },
               'properties': {
-                'test_property': null
+                'test_property': 'empty'
               }
             }
 
@@ -599,7 +619,6 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
         'maxResolution': 1000
     };
     var params2 = [geojsonObject2, {
-            layerId: null, 
             clearPrevious: false,
             layerOptions: testOptions2,
             centerTo: true,
@@ -1593,11 +1612,9 @@ channel.getFeatures([], function(data) {
                     'maxResolution': 1000
                 };
                 var params = [geojsonObject, {
-                        layerId: null, 
                         clearPrevious: true,
                         layerOptions: testOptions,
                         centerTo: true,
-                        featureStyle: null,
                         cursor: 'zoom-in',
                         prio: 4,
                         minScale: 1451336
@@ -1647,7 +1664,6 @@ channel.getFeatures([], function(data) {
                     'maxResolution': 1000
                 };
                 var params2 = [geojsonObject2, {
-                        layerId: null, 
                         clearPrevious: false,
                         layerOptions: testOptions2,
                         centerTo: true,
@@ -1922,16 +1938,31 @@ channel.getFeatures([], function(data) {
             } else {
                 var geoJSON = data && data.plan && data.plan.itineraries && data.plan.itineraries.length ? data.plan.itineraries[0].geoJSON : undefined;
                 if (geoJSON) {
-
                     channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
                         geoJSON, {
-                            layerId: true,
                             clearPrevious: true,
-                            layerOptions: null,
                             centerTo: true,
-                            featureStyle: null,
                             cursor: 'zoom-in',
-                            prio: 4
+                            prio: 4,
+                            featureStyle: {
+                                fill: {
+                                    color: '#ff0000'
+                                },
+                                stroke : {
+                                    color: '#ff0000',
+                                    width: 5
+                                },
+                                text : {
+                                    scale : 1.3,
+                                    fill : {
+                                        color : 'rgba(0,0,0,1)'
+                                    },
+                                    stroke : {
+                                        color : 'rgba(255,255,255,1)',
+                                        width : 2
+                                    }
+                                }
+                            },
                         }
                     ]);
                 }
@@ -1992,6 +2023,27 @@ channel.getFeatures([], function(data) {
     channel.enableDebug(true);
     channel.onReady(function() {
         channel.log('Map is now listening');
+
+        var expectedOskariVersion = '1.35.0';
+        channel.isSupported(expectedOskariVersion, function(blnSupported) {
+            if(blnSupported) {
+                channel.log('Client is supported and Oskari version is ' + expectedOskariVersion);
+            } else {
+                channel.log('Oskari-instance is not the one we expect (' + expectedOskariVersion + ') or client not supported');
+                // getInfo can be used to get the current Oskari version
+                channel.getInfo(function(oskariInfo) {
+                    channel.log('Current Oskari-instance reports version as: ', oskariInfo);
+                });
+            }
+        });
+        channel.isSupported(function(blnSupported) {
+            if(!blnSupported) {
+                channel.log('Oskari reported client version is not supported: ' + OskariRPC.VERSION  +
+                '. The client might work, but some features are not backward compatible.');
+            } else {
+                channel.log('Client is supported by Oskari.');
+            }
+        });
     });
 
     $('#actionSelector').on('change', function(event) {
