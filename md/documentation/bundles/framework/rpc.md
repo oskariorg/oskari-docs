@@ -321,6 +321,19 @@ This can be used to detect if the Oskari version has been updated without notifi
        channel.log('GetInfo: ', data);
     });
 
+#### getAllLayers()
+
+Returns all the layers available on map. If layer has minimum zoom level and maximum zoom level defined, returns also those.
+    
+    {
+        id: layerId,
+        opacity: layerOpacity,
+        visible: layerVisibility,
+        name : layerName,
+        minZoom: minZoomLevel,
+        maxZoom: maxZoomLevel 
+    }
+
 #### getFeatures(layerId)
 
 Function gets features as geojson object grouped by layer if the value of given parameter is true. If parameter is not given, will return array of layerIds. 
