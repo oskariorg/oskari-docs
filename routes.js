@@ -6,6 +6,8 @@ var fs = require('fs'),
     mdDir = 'md',
     releaseDir = path.join(__dirname, 'public', 'release');
 
+var apidocs = require('./apidocs');
+
 var prettyPrint = function (str) {
     var ret = str.charAt(0).toUpperCase() + str.slice(1),
         re = /-/g;
@@ -93,6 +95,23 @@ var readBundleDir = function (cb) {
 };
 
 module.exports = {
+    apiPage : function (req, res) {
+
+        apidocs.index(function(values) {
+            values = values.sort(function(a, b) {
+                return a.version < b.version;
+            });
+            res.render('api', { api : values });
+        });
+    },
+    api : function (req, res) {
+        apidocs.index(function(values) {
+            res.send(values);
+        });
+    },
+    apiDoc : function (ver, bundle, callback) {
+        apidocs.doc(ver, bundle, callback);
+    },
     about: function (req, res) {
         res.render('about', getBreadCrumbOptions('about'));
     },
