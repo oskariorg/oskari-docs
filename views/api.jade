@@ -1,21 +1,26 @@
 extends layout
 
 block main
-  div Oskari version:
-    select
-        each val in api
-            option= val.version
-
 
         
-  div(id="bundlenavi")  
-    ul
-        each bundles, ns in api[0].api
-            li= ns
-                ul
-                    each index, bundle in bundles
-                        li= bundle
+  nav(id="bundlenavi").col-md-3
 
-  div(id="bundlecontent") Select a version to see content
+    div.panel.panel-default
+        div.panel-heading Oskari version
+        div.panel-body
+            select
+                each val in api
+                    option= val.version
+
+    each bundles, ns in api[0].api
+        div.panel.panel-default
+            div.panel-heading= ns
+            div.panel-body
+
+            ul
+                each index, bundle in bundles
+                    li= bundle
+
+  div.col-md-9(id="bundlecontent")!= log
 
   script(type="text/javascript" src=assetFingerprint("/js/apidoc.js"))

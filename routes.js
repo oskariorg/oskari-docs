@@ -96,12 +96,19 @@ var readBundleDir = function (cb) {
 
 module.exports = {
     apiPage : function (req, res) {
-
         apidocs.index(function(values) {
             values = values.sort(function(a, b) {
                 return a.version < b.version;
             });
-            res.render('api', { api : values });
+            if(!values.length) {
+                // no docs generated!! TODO: handle as error
+                res.render('api', { api : values });
+                return;
+            }
+            var latestVersion = values[0].version;
+            apidocs.log(latestVersion, function(log) {
+                res.render('api', { api : values, log : log });
+            })
         });
     },
     api : function (req, res) {

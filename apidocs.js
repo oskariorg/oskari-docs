@@ -75,6 +75,18 @@ function getSingleVersion(version, callback) {
 }
 
 
+function getChangelog(version, callback) {
+    var mdDocPath = path.join(generatedDocsPath, version, 'CHANGELOG.md');
+    fs.readFile(mdDocPath, 'utf8', function (err, mdFile) {
+        if (err) {
+            console.error('Error reading changelog for version ' + version, err);
+            callback();
+            return;
+        }
+        callback(md(mdFile));
+    });
+
+}
 function getBundleDoc(version, bundle, callback) {
     var mdDocPath = path.join(generatedDocsPath, version, bundle, 'bundle.md');
     fs.readFile(mdDocPath, 'utf8', function (err, mdFile) {
@@ -100,5 +112,6 @@ function getBundleDoc(version, bundle, callback) {
 
 module.exports = {
     index : getVersions,
-    doc : getBundleDoc
+    doc : getBundleDoc,
+    log : getChangelog
 }
