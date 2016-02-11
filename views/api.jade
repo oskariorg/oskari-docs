@@ -1,26 +1,27 @@
 extends layout
 
 block main
+    link(rel="stylesheet" type="text/css" href=assetFingerprint("/css/apidoc.css"))
 
         
-  nav(id="bundlenavi").col-md-3
+    nav(id="bundlenavi").col-md-3
 
-    div.panel.panel-default
-        div.panel-heading Oskari version
-        div.panel-body
-            select
-                each val in api
-                    option= val.version
-
-    each bundles, ns in api[0].api
         div.panel.panel-default
-            div.panel-heading= ns
+            div.panel-heading Oskari version
             div.panel-body
+                select
+                    each val in api
+                        option= val.version
 
-            ul
-                each index, bundle in bundles
-                    li= bundle
+        each bundles, ns in api[0].api
+            div.panel.panel-default
+                div.panel-heading= ns
+                div.panel-body
 
-  div.col-md-9(id="bundlecontent")!= log
+                ul
+                    each index, bundle in bundles
+                        li= bundle
 
-  script(type="text/javascript" src=assetFingerprint("/js/apidoc.js"))
+    div.col-md-9(id="bundlecontent")!= log
+
+    script(type="text/javascript" src=assetFingerprint("/js/apidoc.js"))

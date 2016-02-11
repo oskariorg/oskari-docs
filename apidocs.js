@@ -77,19 +77,40 @@ function getSingleVersion(version, callback) {
 
 function getChangelog(version, callback) {
     var mdDocPath = path.join(generatedDocsPath, version, 'CHANGELOG.md');
-    fs.readFile(mdDocPath, 'utf8', function (err, mdFile) {
+    fs.readFile(mdDocPath, 'utf8', function (err, fileContent) {
         if (err) {
             console.error('Error reading changelog for version ' + version, err);
             callback();
             return;
         }
-        callback(md(mdFile));
+
+        var renderer = new md.Renderer();
+        renderer.heading = function (text, level) {
+            var clazz = '';
+            if(text.indexOf('[add]') != -1) {
+                clazz = 'add';
+            } else if (text.indexOf('[mod]') != -1) {
+                clazz = 'mod'
+            } else if (text.indexOf('[rem]') != -1) {
+                clazz = 'rem'
+            }
+            var text = text.replace('[mod]', '');
+            text = text.replace('[add]', '');
+            text = text.replace('[rem]', '');
+            text = text.replace('[rpc]', '<span class="label label-primary">RPC</span>');
+
+            return '<h' + level + ' class=' +  clazz + '>' + text + '</h' + level + '>';
+        }
+
+        var formatted = md(fileContent, { renderer: renderer });
+        callback(formatted);
+        //callback(md(fileContent));
     });
 
 }
 function getBundleDoc(version, bundle, callback) {
     var mdDocPath = path.join(generatedDocsPath, version, bundle, 'bundle.md');
-    fs.readFile(mdDocPath, 'utf8', function (err, mdFile) {
+    fs.readFile(mdDocPath, 'utf8', function (err, fileContent) {
         if (err) {
             console.error('Error reading bundle doc for version ' + version + ' and bundle ' + bundle, err);
             callback();
@@ -104,7 +125,7 @@ function getBundleDoc(version, bundle, callback) {
             href = '/apires/' + version + '/' + bundle + '/' + href;
             return orig.apply(this, [href, title, text]);
         }
-        var content = md(mdFile, { renderer: renderer });
+        var content = md(fileContent, { renderer: renderer });
         callback(content);
     });
 }
