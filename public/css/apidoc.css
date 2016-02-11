@@ -1,0 +1,12 @@
+.add {
+    color : green;
+}
+.mod {
+    color : orange;
+}
+.rem {
+    color : red;
+}
+.bundlenavi:hover {
+    text-decoration: underline;
+}

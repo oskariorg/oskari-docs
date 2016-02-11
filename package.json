@@ -4,32 +4,34 @@
   "version": "0.1.0",
   "dependencies": {
     "express": "3.4.8",
-    "jade": "1.1.5",
-    "marked": "0.3.0",
-    "lodash-node": "~2.4.1",
     "gulp": "3.4.0",
-    "gulp-util": "~2.2.12",
-    "gulp-less": "~1.1.10",
-    "gulp-uglify": "~0.1.0",
-    "gulp-concat": "~2.1.7",
-    "gulp-minify-css": "~0.3.0",
-    "static-asset": "~0.5.2",
-    "highlight.js": "~8.0.0",
     "gulp-autoprefixer": "0.0.6",
-    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.0"
+    "gulp-concat": "~2.1.7",
+    "gulp-less": "~1.1.10",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-uglify": "~0.1.0",
+    "gulp-util": "~2.2.12",
+    "highlight.js": "~8.0.0",
+    "jade": "1.1.5",
+    "lodash-node": "~2.4.1",
+    "marked": "^0.3.5",
+    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.0",
+    "static-asset": "~0.5.2"
   },
   "devDependencies": {
+    "del": "^2.2.0",
     "gulp": "3.4.0",
     "gulp-browserify": "^0.5.1",
     "gulp-livereload": "1.5.0",
     "gulp-rename": "^1.2.2",
     "lodash": "^4.3.0",
+    "through2": "^2.0.1",
     "tiny-lr": "0.0.7"
   },
   "scripts": {
     "start": "node app.js",
     "build": "./node_modules/.bin/gulp build",
     "build-rpc": "./node_modules/.bin/gulp rpc-client",
-    "docs": "./node_modules/.bin/gulp oskari-api"
+    "docs": "./node_modules/.bin/gulp oskari-api -$VERSION"
   }
 }
