@@ -9,7 +9,7 @@ block main
         div.panel.panel-default
             div.panel-heading Oskari version
             div.panel-body
-                select
+                select(id="version-selector")
                     each val in api
                         option= val.version
 
@@ -20,8 +20,6 @@ block main
 
                 ul
                     each index, bundle in bundles
-                        li= bundle
+                        li.bundlenavi(data-path="#{ns}/#{bundle}")= bundle
 
     div.col-md-9(id="bundlecontent")!= log
-
-    script(type="text/javascript" src=assetFingerprint("/js/apidoc.js"))

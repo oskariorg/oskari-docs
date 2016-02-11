@@ -41,7 +41,7 @@ app.get('/challenge', routes.challenge);
 app.get('/oskari', routes.oskari);
 // new api doc end points
 app.get('/api', routes.apiPage);
-app.get('/api.json', routes.api);
+app.get('/api.json', routes.apiJSON);
 app.get('/apidoc/:ver/*', function(req, res) {
     routes.apiDoc(req.params.ver, req.params[0], function(content) {
         if(!content) {

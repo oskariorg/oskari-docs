@@ -111,7 +111,7 @@ module.exports = {
             })
         });
     },
-    api : function (req, res) {
+    apiJSON : function (req, res) {
         apidocs.index(function(values) {
             res.send(values);
         });
