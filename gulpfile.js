@@ -91,7 +91,6 @@ gulp.task('oskari-api', function() {
        });
 
     });
-    
 
 });
 

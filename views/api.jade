@@ -14,12 +14,11 @@ block main
                         option= val.version
 
         each bundles, ns in api[0].api
-            div.panel.panel-default
+            div.panel.panel-default.generated
                 div.panel-heading= ns
                 div.panel-body
-
-                ul
-                    each index, bundle in bundles
-                        li.bundlenavi(data-path="#{ns}/#{bundle}")= bundle
+                    ul
+                        each index, bundle in bundles
+                            li.bundlenavi(data-path="#{ns}/#{bundle}")= bundle
 
     div.col-md-9(id="bundlecontent")!= log

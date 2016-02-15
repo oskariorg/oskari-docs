@@ -109,6 +109,11 @@ function getChangelog(version, callback) {
 
 }
 function getBundleDoc(version, bundle, callback) {
+    if(!bundle) {
+        // no bundle requested, respond with log
+        getChangelog(version, callback);
+        return;
+    }
     var mdDocPath = path.join(generatedDocsPath, version, bundle, 'bundle.md');
     fs.readFile(mdDocPath, 'utf8', function (err, fileContent) {
         if (err) {
