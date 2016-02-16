@@ -1,24 +1,35 @@
 extends layout
 
 block main
-    link(rel="stylesheet" type="text/css" href=assetFingerprint("/css/apidoc.css"))
 
-        
-    nav(id="bundlenavi").col-md-3
+  :markdown
+    # Oskari API
+    Oskari API is defined as bundles. Bundle is a definition of functionality that may have external API.
 
-        div.panel.panel-default
-            div.panel-heading Oskari version
-            div.panel-body
-                select(id="version-selector")
-                    each val in api
-                        option= val.version
+  div
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. Setup custom Oskari installation
 
-        each bundles, ns in api[0].api
-            div.panel.panel-default.generated
-                div.panel-heading= ns
-                div.panel-body
-                    ul
-                        each index, bundle in bundles
-                            li.bundlenavi(data-path="#{ns}/#{bundle}")= bundle
+          div.panel-body
+            :markdown
+              [See the bundle documentation](/api/bundles)
 
-    div.col-md-9(id="bundlecontent")!= log
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. Controlling existing Oskari application
+
+          div.panel-body
+            :markdown
+              [See the request documentation](/api/requests)
+
+      div.col-md-4
+        div.panel.panel-warning
+          div.panel-heading
+            h4. Reacting to events in Oskari application
+
+          div.panel-body
+            :markdown
+              [See the event documentation](/api/events)
