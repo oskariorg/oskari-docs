@@ -53,7 +53,9 @@ app.get('/apidoc/:ver/*', function(req, res) {
     })
 });
 // for handling images linked in bundle docs
-app.use('/apires', express.static(__dirname + '/md/generated/api'));
+var apiResDir = path.join(__dirname, 'md/generated/api')
+app.use(asset(apiResDir));
+app.use('/apires', express.static(apiResDir));
 
 
 app.get('/', routes.root);
