@@ -20,6 +20,12 @@
     selector.on('change', function() {
         APIDOC.versionChanged(jQuery(this).val());
     });
+
+    var bundleClickHandler = function() {
+        var bundle = jQuery(this).data('path');
+        APIDOC.showBundleDoc(selector.val(), bundle);
+    };
+
     jQuery('li.bundlenavi').on('click', bundleClickHandler);
 
     var json = null;
@@ -95,10 +101,6 @@
             list.append(item);
         });
         return panel;
-    };
-    var bundleClickHandler = function() {
-        var bundle = jQuery(this).data('path');
-        APIDOC.showBundleDoc(selector.val(), bundle);
     };
     var fixCodeHighlights = function() {
         jQuery('pre code').each(function(i, block) {
