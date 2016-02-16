@@ -5,7 +5,6 @@ var gulp   = require('gulp'),
     minify = require('gulp-minify-css'),
     prefix = require('gulp-autoprefixer'),
     path   = require('path'),
-    lr     = require('gulp-livereload'),
     minJs  = 'main.min.js',
     minCss = 'main.min.css';
 
@@ -46,6 +45,7 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('livereload', function() {
+    var lr     = require('gulp-livereload');
     var server = lr();
     gulp.watch([
         './public/**', './md/**', './views/**'
