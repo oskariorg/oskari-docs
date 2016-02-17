@@ -1,6 +1,10 @@
 # StartDrawingRequest
 
-This request is used to activate a draw control on the map which allows the user to draw on the map.
+Allows the user to draw on the map.
+
+## Description
+
+Activates draw control on map.
 
 ## Parameters
 
@@ -11,19 +15,19 @@ This request is used to activate a draw control on the map which allows the user
   <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
 </tr>
 <tr>
-  <td> *id</td><td> String</td><td> Identifier for request</td><td> </td>
+  <td>(*) id</td><td> String</td><td> Identifier for request</td><td> </td>
 </tr>
 <tr>
-  <td> *shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
+  <td>(*) shape</td><td> String</td><td> Drawing shape: Point/Circle/Polygon/Box/Square/LineString</td><td> </td>
 </tr>
 <tr>
-  <td> options</td><td> Object</td><td> Parameters for options-object are listed in the next table</td><td> null</td>
+  <td>(*) options</td><td> Object</td><td> Parameters for options-object are listed in the next table</td><td> null</td>
 </tr>
 </table>
 
 Parameters for options-object:
 
-<table>
+<table class="table">
 <tr>
   <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
 </tr>
@@ -78,12 +82,12 @@ Parameters for options-object:
 <tr>
   <td> geojson </td><td> String</td> <td> Geojson for editing. If not given, will activate draw/modify control according to given shape.</td><td> null</td>
 </tr>
-
-
-
 </table>
 
-For example:
+
+## Examples
+
+
 ```javascript
 var sb = Oskari.getSandbox();
 sb.postRequestByName('DrawTools.StartDrawingRequest', [
@@ -97,8 +101,6 @@ sb.postRequestByName('DrawTools.StartDrawingRequest', [
         }		
 );
 ```
-
-## Examples
 
 Start to draw for 'measure' functionality and keep the drawing on the map:
 ```javascript
@@ -186,3 +188,11 @@ sb.postRequestByName('DrawTools.StartDrawingRequest', ['myplaces', 'Polygon', {
 }]);
 ```
 Again on completion a 'DrawingEvent' is triggered with id 'myplaces' with the drawn shape as geojson available in event.getGeoJson().
+
+## Request handler
+
+**drawtools.instance** Handles request by calling method drawPlugin.draw(request.getId(), request.getShape(), request.getOptions()).
+
+## Related events
+
+This request doesn't have any related events.
