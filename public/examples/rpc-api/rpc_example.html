@@ -184,6 +184,7 @@
                                         <option value="SearchResultEvent">SearchResultEvent</option>
                                         <option value="FeatureEvent">FeatureEvent</option>
                                         <option value="DrawingEvent">DrawingEvent</option>
+                                        <option value="InfoboxActionEvent">InfoboxActionEvent</option>
                                     </optgroup>
                                 </select>
                             </div>
@@ -1383,6 +1384,20 @@ channel.getFeatures([], function(data) {
                 </code>
             </pre>
         </div>
+        <div id="InfoboxActionEvent"  style="display:none;">
+            <div>Occurs when some button/link inside infobox is clicked</div>
+            <pre>
+                <code class="hljs javascript">
+{
+  "action": "Tallenna",
+  "id": "myInfoBox",
+  "params": {
+        "some": "some"
+   } 
+}
+                </code>
+            </pre>
+        </div>
     </div>
     <div class="messageBox" style="display: none;"></div>
     </div>
@@ -1893,7 +1908,8 @@ channel.getFeatures([], function(data) {
         'UserLocationEvent',
         'SearchResultEvent',
         'FeatureEvent',
-        'DrawingEvent'
+        'DrawingEvent',
+        'InfoboxActionEvent'
     ];
     var eventHandlers = {
         'SearchResultEvent' : function(data) {
