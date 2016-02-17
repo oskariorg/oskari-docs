@@ -79,10 +79,9 @@ gulp.task('oskari-api', function() {
     var destPath = './md/generated/api/' + version;
     var del = require('del');
     del([destPath]).then(function() {
-
-        var apigenerator = require('./gulp-oskariapi');
+        var apigenerator = require('./lib/gulp-oskariapi');
         gulp.src('../oskari/api/**')
-            .pipe(apigenerator.task())
+            .pipe(apigenerator.task(version))
             .pipe(gulp.dest(destPath))
        .on('end', function() {
             var json = apigenerator.json();
@@ -91,7 +90,6 @@ gulp.task('oskari-api', function() {
        });
 
     });
-    
 
 });
 

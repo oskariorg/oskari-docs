@@ -6,7 +6,7 @@ var fs = require('fs'),
     mdDir = 'md',
     releaseDir = path.join(__dirname, 'public', 'release');
 
-var apidocs = require('./apidocs');
+var apidocs = require('./lib/apidocs');
 
 var prettyPrint = function (str) {
     var ret = str.charAt(0).toUpperCase() + str.slice(1),
@@ -95,6 +95,9 @@ var readBundleDir = function (cb) {
 };
 
 module.exports = {
+    apiSelection : function (req, res) {
+        res.render('api');
+    },
     apiPage : function (req, res) {
         apidocs.index(function(values) {
             values = values.sort(function(a, b) {
@@ -102,12 +105,12 @@ module.exports = {
             });
             if(!values.length) {
                 // no docs generated!! TODO: handle as error
-                res.render('api', { api : values });
+                res.render('api_bundles', { api : values });
                 return;
             }
             var latestVersion = values[0].version;
             apidocs.log(latestVersion, function(log) {
-                res.render('api', { api : values, log : log });
+                res.render('api_bundles', { api : values, log : log });
             })
         });
     },
