@@ -39,6 +39,25 @@ app.get('/about', routes.about);
 app.get('/search', routes.search);
 app.get('/challenge', routes.challenge);
 app.get('/oskari', routes.oskari);
+// new api doc end points
+app.get('/api', routes.apiSelection);
+app.get('/api/bundles', routes.apiPage);
+app.get('/api.json', routes.apiJSON);
+app.get('/apidoc/:ver/*', function(req, res) {
+    routes.apiDoc(req.params.ver, req.params[0], function(content) {
+        if(!content) {
+            res.send(404);
+            return;
+        }
+        res.send(content);
+    })
+});
+// for handling images linked in bundle docs
+var apiResDir = path.join(__dirname, 'md/generated/api')
+app.use(asset(apiResDir));
+app.use('/apires', express.static(apiResDir));
+
+
 app.get('/', routes.root);
 
 app.post('/search', routes.search);
@@ -47,6 +66,10 @@ app.use(function(err, req, res, next) {
     console.error(err);
     next(err);
 });
-
+/*
+process.on('uncaughtException', function (error) {
+   console.log(error.stack);
+});
+*/
 app.listen(app.get('port'));
 console.log('Listening on port ' + app.get('port') + ' on ' + environment + ' environment');

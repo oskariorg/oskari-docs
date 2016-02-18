@@ -5,10 +5,8 @@ var gulp   = require('gulp'),
     minify = require('gulp-minify-css'),
     prefix = require('gulp-autoprefixer'),
     path   = require('path'),
-    lr     = require('gulp-livereload'),
     minJs  = 'main.min.js',
     minCss = 'main.min.css';
-
 
 gulp.task('scripts', function() {
     // Minify and concatenate all JavaScript files (except vendor scripts)
@@ -34,13 +32,6 @@ gulp.task('rpc-client', function() {
         .pipe(gulp.dest('./public/js/rpc'))
 });
 
-gulp.task('oskari-api', function() {
-
-    var apigenerator = require('./gulp-oskariapi');
-    gulp.src('./md/guides/**')
-        .pipe(apigenerator());
-});
-
 gulp.task('stylesheets', function() {
     return gulp
         .src('./client/stylesheets/**/*.less')
@@ -54,6 +45,7 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('livereload', function() {
+    var lr     = require('gulp-livereload');
     var server = lr();
     gulp.watch([
         './public/**', './md/**', './views/**'
@@ -73,6 +65,34 @@ gulp.task('watch', function() {
         gulp.run('scripts');
     });
 });
+
+
+gulp.task('oskari-api', function() {
+
+    var args = process.argv.slice(3);
+    var version = 'latest';
+    if(args.length) {
+        version = args[0].substring(1);
+    }
+
+    // Clean the destPath
+    var destPath = './md/generated/api/' + version;
+    var del = require('del');
+    del([destPath]).then(function() {
+        var apigenerator = require('./lib/gulp-oskariapi');
+        gulp.src('../oskari/api/**')
+            .pipe(apigenerator.task(version))
+            .pipe(gulp.dest(destPath))
+       .on('end', function() {
+            var json = apigenerator.json();
+            var fs = require('fs');
+            fs.writeFileSync(destPath + '/api.json', JSON.stringify(json, null, 3));
+       });
+
+    });
+
+});
+
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'stylesheets', 'livereload', 'watch']);
