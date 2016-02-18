@@ -66,31 +66,59 @@ gulp.task('watch', function() {
     });
 });
 
+// -------------- API GENERATOR -----------------------------------
+var apiStructGenerator = require('./lib/gulp-oskariapi-structure');
+var apiGenerator       = require('./lib/gulp-oskariapi');
 
-gulp.task('oskari-api', function() {
-
+/**
+ * Returns the version for Oskari API
+ * @return {String} version as string
+ */
+function getApiVersion() {
     var args = process.argv.slice(3);
     var version = 'latest';
     if(args.length) {
         version = args[0].substring(1);
     }
+    return version;
+}
 
-    // Clean the destPath
-    var destPath = './md/generated/api/' + version;
+function getOskariLocation() {
+    return '../oskari/api/**';
+}
+function getApiDocLocation(version) {
+    return 'generated/api/' + (version || getApiVersion());
+}
+
+gulp.task('oskari-api-struct', function(done) {
+    console.log('oskari-api-struct creates api.json in ' + getApiDocLocation());
+
+    var destPath = getApiDocLocation();
     var del = require('del');
     del([destPath]).then(function() {
-        var apigenerator = require('./lib/gulp-oskariapi');
-        gulp.src('../oskari/api/**')
-            .pipe(apigenerator.task(version))
+        gulp.src(getOskariLocation())
+            .pipe(apiStructGenerator())
             .pipe(gulp.dest(destPath))
-       .on('end', function() {
-            var json = apigenerator.json();
-            var fs = require('fs');
-            fs.writeFileSync(destPath + '/api.json', JSON.stringify(json, null, 3));
-       });
-
+            .on('end', function() {
+                console.log('struct api done');
+                done();
+            });
     });
+});
 
+gulp.task('oskari-api', ['oskari-api-struct'], function() {
+    console.log('oskari-api');
+
+    // Clean the destPath
+    var destPath = getApiDocLocation();
+    var fs = require('fs');
+    var index = JSON.parse(fs.readFileSync(destPath + '/api.json'));
+    console.log('Creating documentation based on:', index);
+    // create the docs and provide the index
+    gulp.src(getOskariLocation())
+        .pipe(apiGenerator(getApiVersion(), index))
+        .pipe(gulp.dest(destPath));
+        console.log('api done')
 });
 
 
