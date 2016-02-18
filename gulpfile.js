@@ -9,16 +9,20 @@ var gulp   = require('gulp'),
     minCss = 'main.min.css';
 
 gulp.task('scripts', function() {
+    var browserify = require('gulp-browserify');
     // Minify and concatenate all JavaScript files (except vendor scripts)
     return gulp
         .src(['./client/js/**/*.js', '!client/js/vendor/**'])
         .pipe(concat(minJs))
-        .pipe(uglify())
+        .pipe(browserify({
+        // debug inserts source mapping which makes the file twice as large
+          //debug : !gulp.env.production
+        }))
+        //.pipe(uglify())
         .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('rpc-client', function() {
-    var browserify = require('gulp-browserify');
     var rename = require('gulp-rename');
     //var client = require('oskari-rpc');
 
@@ -86,6 +90,7 @@ function getApiVersion() {
 function getOskariLocation() {
     return '../oskari/api/**';
 }
+
 function getApiDocLocation(version) {
     return 'generated/api/' + (version || getApiVersion());
 }

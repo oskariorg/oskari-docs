@@ -9,16 +9,16 @@ block main
         div.panel.panel-default
             div.panel-heading Oskari version
             div.panel-body
-                select(id="version-selector")
-                    each val in api
-                        option= val.version
+                select(id="version-selector", data-type="bundles")
+                    each val in versions
+                        option= val
 
-        each bundles, ns in api[0].api
+        each ns in api
             div.panel.panel-default.generated
-                div.panel-heading= ns
+                div.panel-heading= ns.name
                 div.panel-body
                     ul
-                        each index, bundle in bundles
-                            li.bundlenavi(data-path="#{ns}/#{bundle}")= bundle
+                        each bundle in ns.bundles
+                            li.bundlenavi(data-path="#{bundle.path}", title="#{bundle.desc}")= bundle.name
 
-    div.col-md-9(id="bundlecontent")!= log
+    div.col-md-9(id="bundlecontent")!= changelog

@@ -33,4 +33,4 @@ This updates the public/js/rpc/rpc-client.min.js file
 2. Checkout to specific tag/version on the Oskari repository you want to create docs for
 2. Run `VERSION=1.45.0 npm run docs`
 
-This generates files under md/generated/api/[version] folder.
+This generates files under generated/api/[version] folder.

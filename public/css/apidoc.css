@@ -7,6 +7,6 @@
 .rem {
     color : red;
 }
-.bundlenavi:hover {
+.bundlenavi:hover, .requestnavi:hover, .eventnavi:hover {
     text-decoration: underline;
 }
