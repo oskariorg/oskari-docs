@@ -36,7 +36,7 @@ Returns true or false depending on if the route was got successfully.
 ### getPlan()
 Returns route instructions including duration, start time, end time, waiting time, transit time and walking distance.
 
-###getRequestParameters()
+### getRequestParameters()
 Returns the parameters that were used to request route. Parameter options are: lang, fromlon, fromlat, tolon, tolat, srs, date, time, arriveby, mode, maxwalkdistance, wheelchair.
 
 ## Examples
