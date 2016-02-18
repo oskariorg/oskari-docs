@@ -6,6 +6,10 @@ Allows the user to draw on the map.
 
 Activates draw control on map.
 
+## Works with RPC
+
+Yes. 
+
 ## Parameters
 
 (* means the parameter is required)

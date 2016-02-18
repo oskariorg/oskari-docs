@@ -27,13 +27,13 @@ Used to notify if getRouteRequest was successfull and the route has been got fro
 
 ## Event methods
 
-###getName()
+### getName()
 Returns name of the event.
 
-###getSuccess()
+### getSuccess()
 Returns true or false depending on if the route was got successfully.
 
-###getPlan()
+### getPlan()
 Returns route instructions including duration, start time, end time, waiting time, transit time and walking distance.
 
 ###getRequestParameters()
