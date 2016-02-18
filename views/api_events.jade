@@ -19,6 +19,6 @@ block main
             div.panel-body
                 ul
                     each requ in api
-                        li.requestnavi(data-path="#{requ.path}", title="#{requ.desc}")= requ.name
+                        li.eventnavi(data-path="#{requ.path}", title="#{requ.desc}")= requ.name
 
     div.col-md-8(id="bundlecontent")!= changelog

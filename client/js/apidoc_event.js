@@ -14,7 +14,7 @@ function navigation(selector) {
             APIDOC.showBundleDoc(selector.val(), bundle);
         };
 
-        jQuery('li.requestnavi').on('click', bundleClickHandler);
+        jQuery('li.eventnavi').on('click', bundleClickHandler);
 
         var json = {};
 
