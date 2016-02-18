@@ -1,29 +1,71 @@
 # RouteResultEvent
 
-Used to notify the ``GetRouteRequest`` is received a reply from routing.
+Notifies that route has been got successfully from the service. Includes information about the route.
 
-# Event methods
+## Description
 
-## getName
+Used to notify if getRouteRequest was successfull and the route has been got from the service. 
 
-Get event name.
+## Parameters
 
-## getSuccess
+(* means the parameter is required)
 
-Get routing success status. If it's true then there are also route plan. If false then routing not success.
+<table class="table">
+<tr>
+  <th> Name</th><th> Type</th><th> Description</th><th> Default value</th>
+</tr>
+<tr>
+  <td>success</td><td> Boolean</td><td>Successfully got route</td><td> </td>
+</tr>
+<tr>
+  <td>requestParameters</td><td> JSON</td><td>Parameters that were used to get route.</td><td> </td>
+</tr>
+<tr>
+  <td>plan</td><td> JSON</td><td>Route instructions.</td><td> </td>
+</tr>
+</table>
 
-## getPlan
+## Event methods
 
-Get routing plan. Get OpenTripPlanner formatted plan answer with following exceptions:
-- all coordinates are tranformed to map projection
-- any itinerary (e.g. itineraries[0]) block contains new geoJSON block, where is full GeoJSON formatted route line
-- any legGeometry block (e.g. itineraries[0].legs[0].legGeometry) block contains new geoJSON block, where is full GeoJSON formatted leg line
+### getName()
+Returns name of the event.
 
-## getRequestParameters
+### getSuccess()
+Returns true or false depending on if the route was got successfully.
 
-Get request parameters. Get OpenTripPlanner formatted requestParameters answer with following exceptions:
-- all coordinates are tranformed to map projection
+### getPlan()
+Returns route instructions including duration, start time, end time, waiting time, transit time and walking distance.
 
-## getParams
+### getRequestParameters()
+Returns the parameters that were used to request route. Parameter options are: lang, fromlon, fromlat, tolon, tolat, srs, date, time, arriveby, mode, maxwalkdistance, wheelchair.
 
-RPC needed function. Tells event parameters.
+## Examples
+
+Used in routingService bundle in method getRoute:
+
+```javascript
+getRoute: function (params) {
+    var me = this;
+        getRouteUrl = this.sandbox.getAjaxUrl() + 'action_route=Routing';
+
+    jQuery.ajax({
+        data: params,
+        dataType : "json",
+        type : "GET",
+        beforeSend: function(x) {
+          if(x && x.overrideMimeType) {
+           x.overrideMimeType("application/json");
+          }
+         },
+        url : getRouteUrl,
+        error : this.routeError,
+        success : function (response) {
+            var success = response.success,
+                requestParameters = response.requestParameters,
+                plan = response.plan;
+            var evt = me.sandbox.getEventBuilder('RouteResultEvent')(success, requestParameters, plan);
+            me.sandbox.notifyAll(evt);
+        }
+    });
+},
+```
