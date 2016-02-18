@@ -1,14 +1,16 @@
-# StartDrawingRequest
+# StartDrawingRequest [RPC]
 
 Allows the user to draw on the map.
+
+## Use cases
+
+- measure line
+- measure area
+- draw dot/line/area
 
 ## Description
 
 Activates draw control on map.
-
-## Works with RPC
-
-Yes. 
 
 ## Parameters
 
@@ -193,10 +195,9 @@ sb.postRequestByName('DrawTools.StartDrawingRequest', ['myplaces', 'Polygon', {
 ```
 Again on completion a 'DrawingEvent' is triggered with id 'myplaces' with the drawn shape as geojson available in event.getGeoJson().
 
-## Request handler
+## Implementing bundle
 
-**drawtools.instance** Handles request by calling method drawPlugin.draw(request.getId(), request.getShape(), request.getOptions()).
+## Related API
 
-## Related events
-
-This request doesn't have any related events.
+- StopDrawingRequest
+- DrawingEvent
