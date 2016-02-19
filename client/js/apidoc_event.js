@@ -18,7 +18,8 @@ function navigation(selector) {
 
         var filterNavigation = function(onlyRPC) {
             if(onlyRPC) {
-                jQuery('li.eventnavi[data-rpc="false"]').hide();
+                jQuery('li.eventnavi:not([data-rpc="true"])').hide();
+                //jQuery('li.eventnavi[data-rpc="false"]').hide();
             }
             else {
                 jQuery('li.eventnavi').show();
@@ -59,6 +60,7 @@ function navigation(selector) {
             navig.append(panel);
             // reset to changelog
             APIDOC.showBundleDoc(selector.val());
+            filterNavigation(jQuery('#rpc-filter').is(":checked"));
         };
 
         var naviTemplate = jQuery('<div class="panel panel-default generated">'
