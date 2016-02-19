@@ -19,6 +19,7 @@ block main
                 div.panel-body
                     ul
                         each bundle in ns.bundles
-                            li.bundlenavi(data-path="#{bundle.path}", title="#{bundle.desc}")= bundle.name
+                            li.bundlenavi(title="#{bundle.desc}")
+                                a(href="#{versions[0]}/#{bundle.path}", data-navigo)= bundle.name
 
     div.col-md-9(id="bundlecontent")!= changelog

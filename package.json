@@ -15,6 +15,7 @@
     "jade": "1.1.5",
     "lodash-node": "~2.4.1",
     "marked": "^0.3.5",
+    "navigo": "1.2.1",
     "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.0",
     "static-asset": "~0.5.2"
   },
