@@ -18,3 +18,9 @@
 .version-panel .panel-body  label {
 	float: right;
 }
+.panel-default.generated ul {
+	padding-left : 0;
+}
+.panel-default.generated ul li {
+	list-style : none;
+}
