@@ -6,12 +6,17 @@ block main
 
     nav(id="bundlenavi").col-md-4
 
-        div.panel.panel-default
+        div.panel.panel-default.version-panel
             div.panel-heading Oskari version
             div.panel-body
                 select(id="version-selector", data-type="requests")
                     each val in versions
                         option= val
+
+                label
+                    input(type="checkbox", id="rpc-filter")
+
+                    |  Only RPC
 
         div.panel.panel-default.generated
             div.panel-heading Requests
@@ -19,6 +24,6 @@ block main
             div.panel-body
                 ul
                     each requ in api
-                        li.requestnavi(data-path="#{requ.path}", title="#{requ.desc}")= requ.name
+                        li.requestnavi(data-path="#{requ.path}", data-rpc="#{requ.rpc}", title="#{requ.desc}")= requ.name
 
     div.col-md-8(id="bundlecontent")!= changelog

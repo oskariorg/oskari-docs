@@ -6,19 +6,24 @@ block main
 
     nav(id="bundlenavi").col-md-4
 
-        div.panel.panel-default
+        div.panel.panel-default.version-panel
             div.panel-heading Oskari version
             div.panel-body
                 select(id="version-selector", data-type="events")
                     each val in versions
                         option= val
 
+                label
+                    input(type="checkbox", id="rpc-filter")
+
+                    |  Only RPC
+
         div.panel.panel-default.generated
-            div.panel-heading Requests
+            div.panel-heading Events
 
             div.panel-body
                 ul
-                    each requ in api
-                        li.eventnavi(data-path="#{requ.path}", title="#{requ.desc}")= requ.name
+                    each event in api
+                        li.eventnavi(data-path="#{event.path}", data-rpc="#{event.rpc}", title="#{event.desc}")= event.name
 
     div.col-md-8(id="bundlecontent")!= changelog

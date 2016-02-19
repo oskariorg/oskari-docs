@@ -16,6 +16,19 @@ function navigation(selector) {
 
         jQuery('li.requestnavi').on('click', bundleClickHandler);
 
+        var filterNavigation = function(onlyRPC) {
+            if(onlyRPC) {
+                jQuery('li.requestnavi[data-rpc="false"]').hide();
+            }
+            else {
+                jQuery('li.requestnavi').show();
+            }
+        };
+
+        jQuery('#rpc-filter').change(function() {
+            filterNavigation(this.checked);
+        });
+
         var json = {};
 
         APIDOC.versionChanged = function(version) {
@@ -52,7 +65,7 @@ function navigation(selector) {
             + '<div class="panel-heading"></div>'
             + '<div class="panel-body"><ul></ul></div>'
          +'</div>');
-        var bundleItemTemplate = jQuery('<li data-path="path/to/bundle" class="bundlenavi"></li>');
+        var bundleItemTemplate = jQuery('<li data-path="path/to/bundle" class="requestnavi"></li>');
 
         var getPanel = function(namespace, requests) {
             var panel = naviTemplate.clone();
@@ -61,6 +74,7 @@ function navigation(selector) {
             requests.forEach(function(req) {
                 var item = bundleItemTemplate.clone();
                 item.attr('data-path', req.path);
+                item.attr('data-rpc', req.rpc);
                 item.attr('title', req.desc);
                 item.append(req.name);
                 item.on('click', bundleClickHandler);

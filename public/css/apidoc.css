@@ -15,3 +15,6 @@
 	max-height: 400px;
 	overflow: auto;
 }
+.version-panel .panel-body  label {
+	float: right;
+}
