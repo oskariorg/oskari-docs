@@ -24,6 +24,7 @@ block main
             div.panel-body
                 ul
                     each event in api
-                        li.eventnavi(data-path="#{event.path}", data-rpc="#{event.rpc}", title="#{event.desc}")= event.name
+                        li.eventnavi(data-rpc="#{event.rpc}", title="#{event.desc}")
+                            a(href="#{versions[0]}/#{event.path}", data-navigo)= event.name
 
     div.col-md-8(id="bundlecontent")!= changelog

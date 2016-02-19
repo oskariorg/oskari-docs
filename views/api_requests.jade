@@ -24,6 +24,7 @@ block main
             div.panel-body
                 ul
                     each requ in api
-                        li.requestnavi(data-path="#{requ.path}", data-rpc="#{requ.rpc}", title="#{requ.desc}")= requ.name
+                        li.requestnavi(data-rpc="#{requ.rpc}", title="#{requ.desc}")
+                            a(href="#{versions[0]}/#{requ.path}", data-navigo)= requ.name
 
     div.col-md-8(id="bundlecontent")!= changelog

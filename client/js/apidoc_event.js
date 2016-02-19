@@ -2,19 +2,18 @@
  * Oskari api documentation helper
  * Registers in global 'APIDOC' variable
  */
-function navigation(selector) {
+
+var Navigo = require('navigo');
+var router = new Navigo('/api/events', true);
+
+function eventNavigation(selector) {
 
         var APIDOC = {};
+        var currentVersion = selector.val();
         selector.on('change', function() {
-            APIDOC.versionChanged(jQuery(this).val());
+            currentVersion = jQuery(this).val();
+            router.navigate(currentVersion);
         });
-
-        var bundleClickHandler = function() {
-            var bundle = jQuery(this).data('path');
-            APIDOC.showBundleDoc(selector.val(), bundle);
-        };
-
-        jQuery('li.eventnavi').on('click', bundleClickHandler);
 
         var filterNavigation = function(onlyRPC) {
             if(onlyRPC) {
@@ -67,7 +66,7 @@ function navigation(selector) {
             + '<div class="panel-heading"></div>'
             + '<div class="panel-body"><ul></ul></div>'
          +'</div>');
-        var bundleItemTemplate = jQuery('<li data-path="path/to/bundle" class="eventnavi"></li>');
+        var bundleItemTemplate = jQuery('<li class="eventnavi"><a href="javascript:void(0);"></a></li>');
 
         var getPanel = function(namespace, requests) {
             var panel = naviTemplate.clone();
@@ -75,11 +74,16 @@ function navigation(selector) {
             var list = panel.find('ul');
             requests.forEach(function(req) {
                 var item = bundleItemTemplate.clone();
-                item.attr('data-path', req.path);
                 item.attr('data-rpc', req.rpc);
                 item.attr('title', req.desc);
-                item.append(req.name);
-                item.on('click', bundleClickHandler);
+
+                var link = item.find('a');
+                //link.attr('href', req.path);
+                link.append(req.name);
+                item.on('click', function(e) {
+                    e.preventDefault();
+                    router.navigate(currentVersion + '/' + req.path);
+                });
                 list.append(item);
             });
             return panel;
@@ -91,12 +95,27 @@ function navigation(selector) {
         };
 
         APIDOC.showBundleDoc = function(version, bundle) {
-            var url = '/apidoc/' + version + '/' + (bundle || '');
-            jQuery('#bundlecontent').load( url, function() {
+            var url = version + '/' + (bundle || '');
+            console.log(url);
+            jQuery('#bundlecontent').load( '/apidoc/' + url, function() {
                 fixCodeHighlights();
             });
         }
+        // -------------- ROUTING ----------------
+        router.on('#:version/:ns/:bundle/event/:name', function (params) {
+            APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/event/' + params.name);
+        });
+        router.on('#:version', function (params) {
+            APIDOC.versionChanged(params.version);
+        });
+
+/*
+        router.on(function () {
+            // no route match
+        });
+*/
+
         return APIDOC;
     }
 
-module.exports = navigation;
+module.exports = eventNavigation;

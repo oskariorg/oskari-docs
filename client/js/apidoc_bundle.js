@@ -9,27 +9,12 @@ var router = new Navigo('/api/bundles', true);
 function bundleNavigation(selector) {
 
         var APIDOC = {};
-        APIDOC.showBundleDoc = function(version, bundle) {
-            var url =  version + '/' + (bundle || '');
-            //router.navigate(url);
-            jQuery('#bundlecontent').load( '/apidoc/' + url, function() {
-                fixCodeHighlights();
-            });
-        }
+
         var currentVersion = selector.val();
         selector.on('change', function() {
             currentVersion = jQuery(this).val();
             router.navigate(currentVersion);
-            //APIDOC.versionChanged();
         });
-/*
-        var bundleClickHandler = function() {
-            var bundle = jQuery(this).data('path');
-            APIDOC.showBundleDoc(selector.val(), bundle);
-        };
-
-        jQuery('li.bundlenavi').on('click', bundleClickHandler);
-        */
 
         var json = {};
 
@@ -79,7 +64,7 @@ function bundleNavigation(selector) {
                 var item = bundleItemTemplate.clone();
                 item.attr('title', bundle.desc);
                 var link = item.find('a');
-                link.attr('href', bundle.path);
+                //link.attr('href', bundle.path);
                 link.append(bundle.name);
                 item.on('click', function(e) {
                     e.preventDefault();
@@ -94,6 +79,13 @@ function bundleNavigation(selector) {
                 hljs.highlightBlock(block);
             });
         };
+        APIDOC.showBundleDoc = function(version, bundle) {
+            var url =  version + '/' + (bundle || '');
+            //router.navigate(url);
+            jQuery('#bundlecontent').load( '/apidoc/' + url, function() {
+                fixCodeHighlights();
+            });
+        }
 
         // -------------- ROUTING ----------------
         router.on('#:version/:ns/:bundle', function (params) {
@@ -103,9 +95,11 @@ function bundleNavigation(selector) {
             APIDOC.versionChanged(params.version);
         });
 
+/*
         router.on(function () {
-            console.log('moi', arguments);
+            // no route match
         });
+*/
 
         return APIDOC;
     }
