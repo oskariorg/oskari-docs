@@ -89,9 +89,17 @@ function bundleNavigation(selector) {
 
         // -------------- ROUTING ----------------
         router.on('#:version/:ns/:bundle', function (params) {
+            if(params.version !== currentVersion) {
+                selector.val(params.version);
+                selector.trigger('change');
+            }
             APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle);
         });
         router.on('#:version', function (params) {
+            if(params.version !== currentVersion) {
+                selector.val(params.version);
+                selector.trigger('change');
+            }
             APIDOC.versionChanged(params.version);
         });
 

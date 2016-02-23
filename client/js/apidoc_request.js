@@ -103,9 +103,17 @@ function requestNavigation(selector) {
         }
         // -------------- ROUTING ----------------
         router.on('#:version/:ns/:bundle/request/:name', function (params) {
+            if(params.version !== currentVersion) {
+                selector.val(params.version);
+                selector.trigger('change');
+            }
             APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/request/' + params.name);
         });
         router.on('#:version', function (params) {
+            if(params.version !== currentVersion) {
+                selector.val(params.version);
+                selector.trigger('change');
+            }
             APIDOC.versionChanged(params.version);
         });
 /*

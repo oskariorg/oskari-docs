@@ -96,16 +96,24 @@ function eventNavigation(selector) {
 
         APIDOC.showBundleDoc = function(version, bundle) {
             var url = version + '/' + (bundle || '');
-            console.log(url);
+            //console.log(url);
             jQuery('#bundlecontent').load( '/apidoc/' + url, function() {
                 fixCodeHighlights();
             });
         }
         // -------------- ROUTING ----------------
         router.on('#:version/:ns/:bundle/event/:name', function (params) {
+            if(params.version !== currentVersion) {
+                selector.val(params.version);
+                selector.trigger('change');
+            }
             APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/event/' + params.name);
         });
         router.on('#:version', function (params) {
+            if(params.version !== currentVersion) {
+                selector.val(params.version);
+                selector.trigger('change');
+            }
             APIDOC.versionChanged(params.version);
         });
 

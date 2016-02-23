@@ -24,3 +24,6 @@
 .panel-default.generated ul li {
 	list-style : none;
 }
+#bundlecontent span.label.label-primary.rpc {
+	float : right;
+}
