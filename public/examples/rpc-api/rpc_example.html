@@ -133,9 +133,16 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
+                    <!--
                         <iframe id="publishedMap"
                             src="http://demo.paikkatietoikkuna.fi/published/en/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
                             style="border: none; width: 100%; height: 100%;"></iframe>
+                            -->
+                        <iframe 
+                            id="publishedMap"
+                        src="http://localhost:8080/web/fi/kartta?uuid=e322c878-e48e-462a-87d8-9ccf3b235691&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        style="border: none; width: 100%; height: 100%;"></iframe>
+
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
@@ -1492,8 +1499,8 @@ channel.getFeatures([], function(data) {
                 var data = {
                     x: data.centerX,
                     y: data.centerY,
-                    color: "ff0000",
-                    msg : '',
+                    color: null,
+                    msg : null,
                     shape: 3,
                     size: 3
                 };
@@ -1849,8 +1856,8 @@ channel.getFeatures([], function(data) {
 
 
     // constants
-    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
-    //var IFRAME_DOMAIN = 'http://localhost:8080';
+    //var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
+    var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var MARKER_ID = 'RPC_MARKER';
     var LAYERS_ENV = ["base_35"];
