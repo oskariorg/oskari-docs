@@ -12,17 +12,12 @@
     "gulp-uglify": "~0.1.0",
     "gulp-util": "~2.2.12",
     "highlight.js": "~8.0.0",
-<<<<<<< HEAD
-    "gulp-autoprefixer": "0.0.6",
-    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.1"
-=======
+    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.1",
     "jade": "1.1.5",
     "lodash-node": "~2.4.1",
     "marked": "^0.3.5",
     "navigo": "1.2.1",
-    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.0",
     "static-asset": "~0.5.2"
->>>>>>> 4f7230f977c283d01b36878c46788995c87db138
   },
   "devDependencies": {
     "del": "2.2.0",
