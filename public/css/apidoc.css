@@ -1,0 +1,29 @@
+.add {
+    color : green;
+}
+.mod {
+    color : orange;
+}
+.rem {
+    color : red;
+}
+.bundlenavi:hover, .requestnavi:hover, .eventnavi:hover {
+    text-decoration: underline;
+}
+
+.event-code-block {
+	max-height: 400px;
+	overflow: auto;
+}
+.version-panel .panel-body  label {
+	float: right;
+}
+.panel-default.generated ul {
+	padding-left : 0;
+}
+.panel-default.generated ul li {
+	list-style : none;
+}
+#bundlecontent span.label.label-primary.rpc {
+	float : right;
+}

@@ -1,0 +1,25 @@
+extends layout
+
+block main
+    link(rel="stylesheet" type="text/css" href=assetFingerprint("/css/apidoc.css"))
+
+
+    nav(id="bundlenavi").col-md-3
+
+        div.panel.panel-default
+            div.panel-heading Oskari version
+            div.panel-body
+                select(id="version-selector", data-type="bundles")
+                    each val in versions
+                        option= val
+
+        each ns in api
+            div.panel.panel-default.generated
+                div.panel-heading= ns.name
+                div.panel-body
+                    ul
+                        each bundle in ns.bundles
+                            li.bundlenavi(title="#{bundle.desc}")
+                                a(href="#{versions[0]}/#{bundle.path}", data-navigo)= bundle.name
+
+    div.col-md-9(id="bundlecontent")!= changelog

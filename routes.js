@@ -6,6 +6,8 @@ var fs = require('fs'),
     mdDir = 'md',
     releaseDir = path.join(__dirname, 'public', 'release');
 
+var apidocs = require('./lib/apidocs');
+
 var prettyPrint = function (str) {
     var ret = str.charAt(0).toUpperCase() + str.slice(1),
         re = /-/g;
@@ -92,7 +94,78 @@ var readBundleDir = function (cb) {
     });
 };
 
+function getApiJson(funcName, req, res) {
+    var version = req.param('version');
+    if(version) {
+        apidocs[funcName](version, function(json) {
+            res.send(json);
+        });
+        return;
+    }
+    // return latest if we didn't get any param
+    apidocs.getVersions(function(values) {
+        values = values.sort(function(a, b) {
+            return a.version < b.version;
+        });
+        var latestVersion = values[0];
+        apidocs[funcName](latestVersion, function(json) {
+            res.send(json);
+        });
+    });
+}
+
+function getApiPage(type, req, res) {
+    var functionName = 'getBundles';
+    if(type === 'requests') {
+        functionName = 'getRequests';
+    } else if(type === 'events') {
+        functionName = 'getEvents';
+    }
+    var pageName = 'api_' + type;
+    apidocs.getVersions(function(versions) {
+        if(!versions.length) {
+            // no docs generated!! TODO: handle as error
+            res.render(pageName, { versions : [], api: [] });
+            return;
+        }
+        versions = versions.sort(function(a, b) {
+            return a < b;
+        });
+        var latestVersion = versions[0];
+        // TODO: do this in parallel instead of seq
+        apidocs[functionName](latestVersion, function(api) {
+            apidocs.log(latestVersion, function(log) {
+                res.render(pageName, {versions : versions, api : api.api, changelog : log });
+            })
+        });
+    });
+}
+
 module.exports = {
+    apiSelection : function (req, res) {
+        res.render('api');
+    },
+    bundlesPage : function (req, res) {
+        getApiPage('bundles', req, res);
+    },
+    requestsPage : function (req, res) {
+        getApiPage('requests', req, res);
+    },
+    eventsPage : function (req, res) {
+        getApiPage('events', req, res);
+    },
+    bundlesJSON : function (req, res) {
+        getApiJson('getBundles', req, res);
+    },
+    requestsJSON : function (req, res) {
+        getApiJson('getRequests', req, res);
+    },
+    eventsJSON : function (req, res) {
+        getApiJson('getEvents', req, res);
+    },
+    apiDoc : function (ver, bundle, callback) {
+        apidocs.doc(ver, bundle, callback);
+    },
     about: function (req, res) {
         res.render('about', getBreadCrumbOptions('about'));
     },
