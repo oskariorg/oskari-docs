@@ -31,7 +31,7 @@ function requestNavigation(selector) {
 
         var json = {};
 
-        APIDOC.versionChanged = function(version) {
+        APIDOC.versionChanged = function(version, keepPath) {
             if(json[version]) {
                 APIDOC.renderNavigation(json[version]);
                 return;
@@ -42,7 +42,7 @@ function requestNavigation(selector) {
                 }
             }).done(function(response) {
                 json[response.version] = response.api;
-                APIDOC.renderNavigation(json[response.version]);
+                APIDOC.renderNavigation(json[response.version], keepPath);
               })
               .fail(function() {
                 alert( "error loading version info" );
@@ -50,15 +50,17 @@ function requestNavigation(selector) {
             //console.log('version changed:', version);
         };
 
-        APIDOC.renderNavigation = function(json) {
+        APIDOC.renderNavigation = function(json, keepPath) {
             // remove the old navigation
             var navig = jQuery('#bundlenavi');
             navig.find('div.generated').remove();
             // setup new one
             var panel = getPanel('Requests', json);
             navig.append(panel);
-            // reset to changelog
-            APIDOC.showBundleDoc(selector.val());
+            if(!keepPath) {
+                // reset to changelog
+                APIDOC.showBundleDoc(selector.val());
+            }
             filterNavigation(jQuery('#rpc-filter').is(":checked"));
         };
 
@@ -105,7 +107,7 @@ function requestNavigation(selector) {
         router.on('#:version/:ns/:bundle/request/:name', function (params) {
             if(params.version !== currentVersion) {
                 selector.val(params.version);
-                selector.trigger('change');
+                APIDOC.versionChanged(params.version, true);
             }
             APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/request/' + params.name);
         });
