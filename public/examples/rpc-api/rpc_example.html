@@ -133,16 +133,16 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
-                    
+
                         <iframe id="publishedMap"
                             src="http://demo.paikkatietoikkuna.fi/published/en/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
                             style="border: none; width: 100%; height: 100%;"></iframe>
-                    <!--
-                        <iframe 
+
+
+                   <!--     <iframe
                             id="publishedMap"
-                        src="http://localhost:8080/web/fi/kartta?uuid=e322c878-e48e-462a-87d8-9ccf3b235691&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
-                        style="border: none; width: 100%; height: 100%;"></iframe>
--->
+                        src="http://localhost:8080/web/fi/kartta?uuid=80ef7c54-d091-4083-a813-0b648e7ba01d&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true" style="border: none; width: 100%; height: 100%;"></iframe>
+                     -->
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
@@ -163,6 +163,7 @@
                                         <option value="GetSupportedFunctions">Get supported functions</option>
                                         <option value="GetSupportedRequests">Get supported requests</option>
                                         <option value="GetZoomRange">Get zoom range</option>
+                                        <option value="GetPixelMeasuresInScale">Get pixel measures in scale</option>
                                         <option value="stateHandling">Handle map state</option>
                                         <option value="GetFeatures">Get features</option>                                        
                                     </optgroup>
@@ -778,6 +779,18 @@ channel.getSupportedRequests(function(data){
 channel.getZoomRange(function(data){
     channel.log('GetZoomRange: ', data);
 });
+            </code>
+        </pre>
+    </div>
+
+    <div id = "GetPixelMeasuresInScale" style="display:none;">
+        <button id="btnGetPixelMeasuresInScale" class="btn btn-primary exampleready">Get pixel measures in scale</button>
+        <div>Gets pixel measures in scale (input mm[], scale)</div>
+        <pre>
+            <code class="hljs javascript">
+                channel.getPixelMeasuresInScale([210,297], 10000], function(data){
+                channel.log('GetPixelMeasuresInScale: ', data);
+                });
             </code>
         </pre>
     </div>
@@ -1821,6 +1834,36 @@ channel.getFeatures([], function(data) {
                 channel.log('GetZoomRange: ', data);
             });
         },
+        'GetPixelMeasuresInScale': function () {
+            // A4 example ( size in mm units and portrait orientation
+            // scale 1:20 000
+            channel.getPixelMeasuresInScale([[210, 297], 20000], function (data) {
+                //Log output data
+                channel.log('GetPixelMeasuresInScale: ', data);
+                // Plot rectangle in the middle of map
+                var cx = jQuery('#publishedMap'),
+                        left_x = (cx.width() - data.pixelMeasures[0]) / 2.0,
+                        top_y = (cx.height() - data.pixelMeasures[1]) / 2.0;
+
+                cx.parent().find('#plot_bbox').remove();
+
+                if (left_x > 0 && top_y > 0) {
+                    var svg = '<div class="float_plot_box" id="plot_bbox" ' +
+                            'style="position: absolute;' +
+                            'top:' + top_y + 'px;' +
+                            'left:' + left_x + 'px;' +
+                            'width:' + cx.width() + 'px;' +
+                            'height:' + cx.height() + 'px; pointer-events:none">' +
+                            '<svg xmlns="http://www.w3.org/2000/svg" style="width: inherit; height: inherit;" >  ' +
+                            '  <rect x="0" y="0" width="' + data.pixelMeasures[0] + '"' +
+                            ' height="' + data.pixelMeasures[1] + '"' +
+                            ' stroke="blue" fill="none"/></svg></div>';
+
+                    cx.parent().append(svg);
+                }
+
+            });
+        },
         /*TODO: combine state handling into one functionality with three buttons... */
         'saveState': function() {
             channel.getCurrentState(function(data){
@@ -1857,7 +1900,7 @@ channel.getFeatures([], function(data) {
 
     // constants
     var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
-    //var IFRAME_DOMAIN = 'http://localhost:8080';
+   // var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var MARKER_ID = 'RPC_MARKER';
     var LAYERS_ENV = ["base_35"];
@@ -2054,7 +2097,7 @@ channel.getFeatures([], function(data) {
     });
 
     $('#actionSelector').on('change', function(event) {
-        var value = $(this).val(),
+        var value = $(this).val(),f
             container = $('#documentationContainer');
         $(logDiv).empty();
         $(container).html('');
