@@ -134,15 +134,14 @@
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
 
-                        <iframe id="publishedMap"
+                 <!--       <iframe id="publishedMap"
                             src="http://demo.paikkatietoikkuna.fi/published/en/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
                             style="border: none; width: 100%; height: 100%;"></iframe>
-
-
-                   <!--     <iframe
+-->
+                             <iframe
                             id="publishedMap"
                         src="http://localhost:8080/web/fi/kartta?uuid=80ef7c54-d091-4083-a813-0b648e7ba01d&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true" style="border: none; width: 100%; height: 100%;"></iframe>
-                     -->
+
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
@@ -784,11 +783,16 @@ channel.getZoomRange(function(data){
     </div>
 
     <div id = "GetPixelMeasuresInScale" style="display:none;">
-        <button id="btnGetPixelMeasuresInScale" class="btn btn-primary exampleready">Get pixel measures in scale</button>
-        <div>Gets pixel measures in scale (input mm[], scale)</div>
+        <div class="measure-group">
+            <div class="col-measure">
+                <input class="plot-scale-control" name="plot-scale" id="inputPlotScale" placeholder="Plot scale for A4 plot area">
+                <button id="btnGetPixelMeasuresInScale" class="btn btn-primary exampleready">Scale for A4 plot area on a map</button>
+                <div>Get pixel measures for A4 size plot area in the requested scale  / 0-value-scale -> remove plot area box  </div>
+            </div>
+        </div>
         <pre>
             <code class="hljs javascript">
-                channel.getPixelMeasuresInScale([210,297], 10000], function(data){
+                channel.getPixelMeasuresInScale([A4_210mm, A4_297mm], scale], function(data){
                 channel.log('GetPixelMeasuresInScale: ', data);
                 });
             </code>
@@ -1445,6 +1449,55 @@ channel.getFeatures([], function(data) {
             }, timeOut * 1000);
     }
 
+    /* Plot mm size rectange in scale on the map
+    * e.g.  A4   size 210 mm x 297 mm
+    * @param plotAreaData  [[mm_measure1, mm_measure2,...], scale]e.g. [210,297], 10000]
+    */
+    function plotPlotArea (plotAreaData) {
+
+        channel.getPixelMeasuresInScale(plotAreaData, function (data) {
+            //Log output data
+            channel.log('GetPixelMeasuresInScale: ', data);
+            // Plot rectangle in the middle of map
+            var cx = jQuery('#publishedMap');
+            var pos = cx.position();
+            var box_top = pos.top + (cx.height() - data.pixelMeasures[1] ) / 2.0;
+            var box_left = pos.left + (cx.width() - data.pixelMeasures[0] ) / 2.0;
+
+            cx.parent().find('#id_plot_bbox').remove();
+
+            if (box_left > 0 && box_top > 0) {
+
+                /* Example with svg rectangle and center point
+                 var center_x = data.pixelMeasures[0] / 2.0;
+                 var center_y = data.pixelMeasures[1] / 2.0;
+                 var svg ='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="'+cx.width() +
+                 '" height="'+cx.height()+ '" id="id_plot_bbox" style="overflow: hidden;pointer-events:none; position:absolute;' +
+                 'top:'+box_top+'px; left:'+box_left+'px;">' +
+                 '<g> <circle cx="'+center_x+'" cy="'+center_y+'" r="7.5" stroke-width="0.875" style="stroke:#ec008d; fill: none;" opacity=".7" id="plot_center"></circle> ' +
+                 '<rect x="0" y="0" width="'+a4[0]+'" height="'+a4[1]+'" stroke-width="2px" style="stroke:#f00; fill: none;" id="plot_bbox"></rect>' +
+                 '</g> </svg>';
+
+                 cx.parent().find('#id_plot_bbox').remove();
+                 cx.parent().append(svg);  */
+
+                // Simple div sample
+                var box =
+                        '<div id="id_plot_bbox" style=" overflow: hidden;pointer-events:none; position:absolute; ' +
+                        'top:' + box_top +
+                        'px;' +
+                        'left:' + box_left + 'px; ' +
+                        'width:' + data.pixelMeasures[0] + 'px; ' +
+                        'height:' + data.pixelMeasures[1] + 'px; border:2px solid red"> </div>';
+
+                cx.parent().append(box);
+            }
+
+
+        });
+
+    }
+
 
     var clickHandlers = {
         //====================
@@ -1836,33 +1889,16 @@ channel.getFeatures([], function(data) {
         },
         'GetPixelMeasuresInScale': function () {
             // A4 example ( size in mm units and portrait orientation
-            // scale 1:20 000
-            channel.getPixelMeasuresInScale([[210, 297], 20000], function (data) {
-                //Log output data
-                channel.log('GetPixelMeasuresInScale: ', data);
-                // Plot rectangle in the middle of map
-                var cx = jQuery('#publishedMap'),
-                        left_x = (cx.width() - data.pixelMeasures[0]) / 2.0,
-                        top_y = (cx.height() - data.pixelMeasures[1]) / 2.0;
+            var me = scale = document.getElementById("inputPlotScale").value;
+            if(scale && Number(scale) < 1){
+                jQuery('#publishedMap').parent().find('#id_plot_bbox').remove();
+                channel.log('GetPixelMeasuresInScale: ', ' old plot area removed, if any exists');
+                savedPlotAreaData = null;
+                return;
+            }
+            savedPlotAreaData = [[210, 297], scale];
+            plotPlotArea([[210, 297], scale]);
 
-                cx.parent().find('#plot_bbox').remove();
-
-                if (left_x > 0 && top_y > 0) {
-                    var svg = '<div class="float_plot_box" id="plot_bbox" ' +
-                            'style="position: absolute;' +
-                            'top:' + top_y + 'px;' +
-                            'left:' + left_x + 'px;' +
-                            'width:' + cx.width() + 'px;' +
-                            'height:' + cx.height() + 'px; pointer-events:none">' +
-                            '<svg xmlns="http://www.w3.org/2000/svg" style="width: inherit; height: inherit;" >  ' +
-                            '  <rect x="0" y="0" width="' + data.pixelMeasures[0] + '"' +
-                            ' height="' + data.pixelMeasures[1] + '"' +
-                            ' stroke="blue" fill="none"/></svg></div>';
-
-                    cx.parent().append(svg);
-                }
-
-            });
         },
         /*TODO: combine state handling into one functionality with three buttons... */
         'saveState': function() {
@@ -1894,13 +1930,15 @@ channel.getFeatures([], function(data) {
     };
 
     var savedState = null;
+    var savedPlotAreaData = null;
+    var savedZoom = null;
 
 
 
 
     // constants
-    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
-   // var IFRAME_DOMAIN = 'http://localhost:8080';
+   // var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
+    var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var MARKER_ID = 'RPC_MARKER';
     var LAYERS_ENV = ["base_35"];
@@ -1981,6 +2019,18 @@ channel.getFeatures([], function(data) {
             marker.x = data.lon;
             marker.y = data.lat;
           //  addMarker(marker, USER_MARKER_ID); -> Use Marker requests
+        },
+        'AfterMapMoveEvent': function(data) {
+            // Replot Plot area if zoom is changed
+            if(savedZoom && savedZoom != data.zoom && savedPlotAreaData){
+                savedZoom = data.zoom;
+                plotPlotArea(savedPlotAreaData);
+            }
+            else if (!savedZoom && savedPlotAreaData)
+            {
+                savedZoom = data.zoom;
+                plotPlotArea(savedPlotAreaData);
+            }
         },
         'RouteResultEvent': function(data) {
             if(!data || !data.success) {
