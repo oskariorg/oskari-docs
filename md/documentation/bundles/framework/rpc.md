@@ -280,6 +280,7 @@ Defaults at the moment are all the functions defined in RPC-bundles availableFun
 - getSupportedFunctions()
 - getSupportedRequests()
 - getZoomRange()
+- getPixelMeasuresInScale([mm_measure1, mm_measure2,..],scale])
 - getMapBbox()
 - resetState()
 - getCurrentState()
@@ -375,6 +376,7 @@ Returns functions that are supported by rpc functionality.
         "getMapBbox": true,
         "getMapPosition": true,
         "getZoomRange": true,
+        "getPixelMeasuresInScale": true,
         "resetState": true,
         "getCurrentState": true,
         "useState": true,
@@ -413,6 +415,22 @@ Returns information about map zoom range.
         "max": 13,
         "current": 4
     }
+    
+**getPixelMeasuresInScale([mm_measure1, mm_measure2,..],scale)**
+    
+    Returns pixel mesurements for mm measurements in requested scale.
+    Pixel values could be used for to plot  e.g. A4 size area on the map.
+    input: [[210,297], 100000] returns below data
+    
+        {
+          "pixelMeasures": [
+            82,
+            116
+          ],
+          "scale": "100000"
+        }
+    
+    
 
 **resetState()**
 

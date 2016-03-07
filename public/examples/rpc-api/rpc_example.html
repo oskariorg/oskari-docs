@@ -133,16 +133,10 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
-                    
-                        <iframe id="publishedMap"
-                            src="http://demo.paikkatietoikkuna.fi/published/en/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
-                            style="border: none; width: 100%; height: 100%;"></iframe>
-                    <!--
                         <iframe 
                             id="publishedMap"
-                        src="http://localhost:8080/web/fi/kartta?uuid=e322c878-e48e-462a-87d8-9ccf3b235691&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
--->
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
@@ -163,8 +157,10 @@
                                         <option value="GetSupportedFunctions">Get supported functions</option>
                                         <option value="GetSupportedRequests">Get supported requests</option>
                                         <option value="GetZoomRange">Get zoom range</option>
+                                        <option value="GetPixelMeasuresInScale">Get pixel measures in scale</option>
                                         <option value="stateHandling">Handle map state</option>
                                         <option value="GetFeatures">Get features</option>                                        
+                                        <option value="GetScreenshot">Get a screenshot of the map</option>                                        
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
@@ -782,6 +778,23 @@ channel.getZoomRange(function(data){
         </pre>
     </div>
 
+    <div id = "GetPixelMeasuresInScale" style="display:none;">
+        <div class="measure-group">
+            <div class="col-measure">
+                <input class="plot-scale-control" name="plot-scale" id="inputPlotScale" placeholder="Plot scale for A4 plot area">
+                <button id="btnGetPixelMeasuresInScale" class="btn btn-primary exampleready">Scale for A4 plot area on a map</button>
+                <div>Get pixel measures for A4 size plot area in the requested scale  / 0-value-scale -> remove plot area box  </div>
+            </div>
+        </div>
+        <pre>
+            <code class="hljs javascript">
+                channel.getPixelMeasuresInScale([A4_210mm, A4_297mm], scale], function(data){
+                channel.log('GetPixelMeasuresInScale: ', data);
+                });
+            </code>
+        </pre>
+    </div>
+
     <div id = "GetMapBbox" style="display:none;">
         <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>        
         <div>Gets the map's current extent</div>
@@ -866,6 +879,25 @@ channel.getFeatures([], function(data) {
        	          </code>
 	        </pre>
 		</div>
+        <div id="GetScreenshot" style="display: none;">
+            <button id="btnGetScreenshotFunction"
+                class="btn btn-primary exampleready" data-example="getScreenshot">Get screenshot</button>
+            <div>
+                Get a screenshot of the current map. (Experimental! Also requires suitable, CORS-enabled map layers on the published map.)
+            </div>
+            <pre>
+                <code class="hljs javascript">  
+channel.getScreenshot(function(data) {
+    //set image content to an img tag in your html
+    document.getElementById('getScreenshotImgTag').src = data;
+});
+                  </code>
+            </pre>
+            <div>
+                Screenshot result: 
+                <img style="border: 1px solid black;max-width:100%;overflow: hidden;" id="getScreenshotImgTag" src=""/>
+            </div>
+        </div>
 
 		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
@@ -1432,6 +1464,55 @@ channel.getFeatures([], function(data) {
             }, timeOut * 1000);
     }
 
+    /* Plot mm size rectange in scale on the map
+    * e.g.  A4   size 210 mm x 297 mm
+    * @param plotAreaData  [[mm_measure1, mm_measure2,...], scale]e.g. [210,297], 10000]
+    */
+    function plotPlotArea (plotAreaData) {
+
+        channel.getPixelMeasuresInScale(plotAreaData, function (data) {
+            //Log output data
+            channel.log('GetPixelMeasuresInScale: ', data);
+            // Plot rectangle in the middle of map
+            var cx = jQuery('#publishedMap');
+            var pos = cx.position();
+            var box_top = pos.top + (cx.height() - data.pixelMeasures[1] ) / 2.0;
+            var box_left = pos.left + (cx.width() - data.pixelMeasures[0] ) / 2.0;
+
+            cx.parent().find('#id_plot_bbox').remove();
+
+            if (box_left > 0 && box_top > 0) {
+
+                /* Example with svg rectangle and center point
+                 var center_x = data.pixelMeasures[0] / 2.0;
+                 var center_y = data.pixelMeasures[1] / 2.0;
+                 var svg ='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="'+cx.width() +
+                 '" height="'+cx.height()+ '" id="id_plot_bbox" style="overflow: hidden;pointer-events:none; position:absolute;' +
+                 'top:'+box_top+'px; left:'+box_left+'px;">' +
+                 '<g> <circle cx="'+center_x+'" cy="'+center_y+'" r="7.5" stroke-width="0.875" style="stroke:#ec008d; fill: none;" opacity=".7" id="plot_center"></circle> ' +
+                 '<rect x="0" y="0" width="'+a4[0]+'" height="'+a4[1]+'" stroke-width="2px" style="stroke:#f00; fill: none;" id="plot_bbox"></rect>' +
+                 '</g> </svg>';
+
+                 cx.parent().find('#id_plot_bbox').remove();
+                 cx.parent().append(svg);  */
+
+                // Simple div sample
+                var box =
+                        '<div id="id_plot_bbox" style=" overflow: hidden;pointer-events:none; position:absolute; ' +
+                        'top:' + box_top +
+                        'px;' +
+                        'left:' + box_left + 'px; ' +
+                        'width:' + data.pixelMeasures[0] + 'px; ' +
+                        'height:' + data.pixelMeasures[1] + 'px; border:2px solid red"> </div>';
+
+                cx.parent().append(box);
+            }
+
+
+        });
+
+    }
+
 
     var clickHandlers = {
         //====================
@@ -1821,6 +1902,27 @@ channel.getFeatures([], function(data) {
                 channel.log('GetZoomRange: ', data);
             });
         },
+        'GetPixelMeasuresInScale': function () {
+            // A4 example ( size in mm units and portrait orientation
+            var me = scale = document.getElementById("inputPlotScale").value;
+            if(scale && Number(scale) < 1){
+                jQuery('#publishedMap').parent().find('#id_plot_bbox').remove();
+                channel.log('GetPixelMeasuresInScale: ', ' old plot area removed, if any exists');
+                savedPlotAreaData = null;
+                return;
+            }
+            if(!scale || scale === ''){
+                channel.getMapPosition(function(data){
+                    savedPlotAreaData = [[210, 297], data.scale];
+                });
+            }
+            else {
+                savedPlotAreaData = [[210, 297], scale];
+            }
+
+            plotPlotArea([[210, 297], scale]);
+
+        },
         /*TODO: combine state handling into one functionality with three buttons... */
         'saveState': function() {
             channel.getCurrentState(function(data){
@@ -1847,10 +1949,20 @@ channel.getFeatures([], function(data) {
         	channel.getFeatures([true], function(data){
         	    channel.log('GetFeatures: ', data);
         	});
+        },
+        'getScreenshot': function() {
+            channel.getScreenshot(function(data) {
+                var success = data && data.length;
+                var msg = 'GetScreenshot '+(success ? 'success ' : 'failed');
+                channel.log(msg);
+                document.getElementById('getScreenshotImgTag').src = data;
+            });
         }
     };
 
     var savedState = null;
+    var savedPlotAreaData = null;
+    var savedZoom = null;
 
 
 
@@ -1938,6 +2050,18 @@ channel.getFeatures([], function(data) {
             marker.x = data.lon;
             marker.y = data.lat;
           //  addMarker(marker, USER_MARKER_ID); -> Use Marker requests
+        },
+        'AfterMapMoveEvent': function(data) {
+            // Replot Plot area if zoom is changed
+            if(savedZoom && savedZoom != data.zoom && savedPlotAreaData){
+                savedZoom = data.zoom;
+                plotPlotArea(savedPlotAreaData);
+            }
+            else if (!savedZoom && savedPlotAreaData)
+            {
+                savedZoom = data.zoom;
+                plotPlotArea(savedPlotAreaData);
+            }
         },
         'RouteResultEvent': function(data) {
             if(!data || !data.success) {
@@ -2054,7 +2178,7 @@ channel.getFeatures([], function(data) {
     });
 
     $('#actionSelector').on('change', function(event) {
-        var value = $(this).val(),
+        var value = $(this).val(),f
             container = $('#documentationContainer');
         $(logDiv).empty();
         $(container).html('');
