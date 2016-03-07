@@ -133,16 +133,10 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
-                    
-                        <iframe id="publishedMap"
-                            src="http://demo.paikkatietoikkuna.fi/published/en/4b5780d6-2559-4b26-8675-e1c74917dfe5" 
-                            style="border: none; width: 100%; height: 100%;"></iframe>
-                    <!--
                         <iframe 
                             id="publishedMap"
-                        src="http://localhost:8080/web/fi/kartta?uuid=e322c878-e48e-462a-87d8-9ccf3b235691&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
--->
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
@@ -165,6 +159,7 @@
                                         <option value="GetZoomRange">Get zoom range</option>
                                         <option value="stateHandling">Handle map state</option>
                                         <option value="GetFeatures">Get features</option>                                        
+                                        <option value="GetScreenshot">Get a screenshot of the map</option>                                        
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
@@ -866,6 +861,25 @@ channel.getFeatures([], function(data) {
        	          </code>
 	        </pre>
 		</div>
+        <div id="GetScreenshot" style="display: none;">
+            <button id="btnGetScreenshotFunction"
+                class="btn btn-primary exampleready" data-example="getScreenshot">Get screenshot</button>
+            <div>
+                Get a screenshot of the current map. (Experimental! Also requires suitable, CORS-enabled map layers on the published map.)
+            </div>
+            <pre>
+                <code class="hljs javascript">  
+channel.getScreenshot(function(data) {
+    //set image content to an img tag in your html
+    document.getElementById('getScreenshotImgTag').src = data;
+});
+                  </code>
+            </pre>
+            <div>
+                Screenshot result: 
+                <img style="border: 1px solid black;max-width:100%;overflow: hidden;" id="getScreenshotImgTag" src=""/>
+            </div>
+        </div>
 
 		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
@@ -1847,6 +1861,14 @@ channel.getFeatures([], function(data) {
         	channel.getFeatures([true], function(data){
         	    channel.log('GetFeatures: ', data);
         	});
+        },
+        'getScreenshot': function() {
+            channel.getScreenshot(function(data) {
+                var success = data && data.length;
+                var msg = 'GetScreenshot '+(success ? 'success ' : 'failed');
+                channel.log(msg);
+                document.getElementById('getScreenshotImgTag').src = data;
+            });
         }
     };
 
