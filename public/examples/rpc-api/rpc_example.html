@@ -1896,7 +1896,15 @@ channel.getFeatures([], function(data) {
                 savedPlotAreaData = null;
                 return;
             }
-            savedPlotAreaData = [[210, 297], scale];
+            if(!scale || scale === ''){
+                channel.getMapPosition(function(data){
+                    savedPlotAreaData = [[210, 297], data.scale];
+                });
+            }
+            else {
+                savedPlotAreaData = [[210, 297], scale];
+            }
+
             plotPlotArea([[210, 297], scale]);
 
         },
