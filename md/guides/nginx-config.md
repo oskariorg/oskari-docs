@@ -7,11 +7,13 @@ The latest nginx version at the time of writing is 1.8.1 which has been used to 
 
 You can find example configurations in https://github.com/nls-oskari/sample-configs/tree/master/nginx
 
+![Diagram for nginx proxy](/images/documentation/nginx.png)
+
 In `/etc/nginx/nginx.conf` turn on gzip to
 
     gzip  on;
 
-Any other configs can be done in `/etc/nginx/conf.d/default.conf`
+Most of the other configurations can be done in `/etc/nginx/conf.d/default.conf`
 
 ## Assumptions
 
@@ -42,6 +44,11 @@ upstream oskariserver {
 }
 
 ```
+
+Oskari-server, transport and Geoserver can all be on the same Jetty, but having Geoserver on the same JVM affects projection
+ handling due to this: http://docs.geotools.org/latest/userguide/library/referencing/order.html
+
+Because of this reason it's recommended that Geoserver is not running on the same Jetty as Oskari-server/transport.
 
 ### Oskari transport
 
@@ -75,7 +82,7 @@ upstream geoserver {
 
 Geoserver access should be restricted so anonymous users can't download user-generated content.
 This can be done by configuring geoservers access rules or by restricting external access in the nginx configuration.
-The sample contains an ip-based restriction so geoserver admin interface is accessible when configuring the service.
+The sample contains an IP-address based restriction so geoserver admin interface is accessible from the configured IP while setting up the service.
 Edit the following line to match the IP-address you wish to grant access to Geoserver (Replace `1.2.3.4` with IP):
 
 
@@ -94,7 +101,7 @@ The following enables HTTPS on the server. Add the certificates on:
 - `/etc/nginx/ssl/public.crt` for public key
 - `/etc/nginx/ssl/private.rsa` for private key
 
-or chance the configuration accordingly.
+or change the configuration accordingly.
 
 
 ```
