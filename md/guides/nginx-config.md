@@ -9,7 +9,7 @@ You can find example configurations in https://github.com/nls-oskari/sample-conf
 
 ![Diagram for nginx proxy](/images/documentation/nginx.png)
 
-In `/etc/nginx/nginx.conf` turn on gzip to
+In `/etc/nginx/nginx.conf` turn on gzip support
 
     gzip  on;
 
