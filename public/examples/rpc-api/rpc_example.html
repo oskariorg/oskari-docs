@@ -210,7 +210,10 @@
 
 <!-- examples -->
 
-
+    <script type="text/javascript">
+        var documentPathRequest = '/api/requests#1.36.0/';
+        var documentPathEvent = '/api/events#1.36.0/';
+    </script>
 
     <!-- getting started -->
     <div style="display: none; visibility: hidden;" id="gettingStarted">
@@ -302,6 +305,13 @@ channel.getAllLayers(function (layers) {
         <div style="display: block;">
             <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
         </div>
+        <div>
+            <a id="getRoute" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/routingService/request/getrouterequest.md';
+            document.getElementById("getRoute").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 var data = {
@@ -318,6 +328,13 @@ channel.postRequest('GetRouteRequest', [data]);
 
     <div style="display: none; visibility: hidden;" id="ShowInfoBoxRequest">
         <button id="btnShowInfoBoxRequest" class="btn btn-primary exampleready" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
+        <div>
+            <a id="showInfobox" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'ui/infobox/request/infobox.showinfoboxrequest.md';
+            document.getElementById("showInfobox").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 //get map center and then show an infobox at that location
@@ -367,6 +384,13 @@ channel.getMapPosition(function(data) {
         <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
         <div id="AddMarkerRequest">
             <div>Adding markers</div>
+            <div>
+                <a id="addMarkers" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/addmarkerrequest.md';
+                document.getElementById("addMarkers").href = documentPathRequest + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 var data = {
@@ -384,6 +408,13 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
 
         <div id="RemoveMarkersRequest">
             <div>Removing markers</div>
+            <div>
+                <a id="removeMarkers" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/removemarkersrequest.md';
+                document.getElementById("removeMarkers").href = documentPathRequest + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
@@ -394,6 +425,13 @@ channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
 
     <div style="display: none; visibility: hidden;" id="GetFeatureInfoRequest">
         <button id="btnMapModulePluginGetFeatureInfoRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.GetFeatureInfoRequest">MapModulePlugin.GetFeatureInfoRequest</button>
+        <div>
+            <a id="getFeatureInfo" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/GetFeatureInfoRequest.md';
+            document.getElementById("getFeatureInfo").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 //get map center and display and feature info box
@@ -408,6 +446,13 @@ channel.getMapPosition(function(data){
 
     <div style="display: none; visibility: hidden;" id="MapLayerVisibilityRequest">
         <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
+        <div>
+            <a id="mapLayerVisibility" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/MapModulePlugin.MapLayerVisibilityRequest.md';
+            document.getElementById("mapLayerVisibility").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 //get a list of all available map layers and toggle the first one
@@ -426,6 +471,13 @@ channel.getAllLayers(function (layers) {
 
     <div style="display: none; visibility: hidden;" id="MapMoveRequest">
         <button id="btnMapMoveRequest" class="btn btn-primary exampleready" data-example="MapMoveRequest">MapMoveRequest</button>
+        <div>
+            <a id="mapMove" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/MapMoveRequest.md';
+            document.getElementById("mapMove").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 var x = 552935, 
@@ -440,6 +492,13 @@ channel.postRequest(
 
     <div style="display: none; visibility: hidden;" id="ChangeMapLayerOpacityRequest">
         <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
+        <div>
+            <a id="changeOpacity" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/changemaplayeropacityrequest.md';
+            document.getElementById("changeOpacity").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 channel.getAllLayers(function (layers) {
@@ -459,6 +518,13 @@ channel.getAllLayers(function (layers) {
 
     <div style="display: none; visibility: hidden;" id="GetUserLocationRequest">
         <button id="btnMyLocationPluginGetUserLocationRequest" class="btn btn-primary exampleready" data-example="MyLocationPlugin.GetUserLocationRequest">MyLocationPlugin.GetUserLocationRequest</button>
+        <div>
+            <a id="getUserLocation" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/getuserlocationrequest.md';
+            document.getElementById("getUserLocation").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
@@ -469,6 +535,13 @@ channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
     <div style="display: none; visibility: hidden;" id="ShowProgressSpinnerRequest">
         <button id="btnShowProgressSpinnerRequest" class="btn btn-primary exampleready" data-example="ShowProgressSpinnerRequest">ShowProgressSpinnerRequest</button>
         <div>ShowProgressSpinnerRequest allows starting and stopping a progress indicator on top of the map.</div>
+        <div>
+            <a id="showProgressSpinner" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/ShowProgressSpinnerRequest.md';
+            document.getElementById("showProgressSpinner").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 var isVisible = true;
@@ -484,6 +557,13 @@ channel.postRequest('ShowProgressSpinnerRequest',[isVisible]);
                 <button id="btnSearchRequest" class="btn btn-primary exampleready" data-example="SearchRequest">SearchRequest</button>
             </div>
         </div>
+        <div>
+            <a id="search" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'framework/search/request/SearchRequest.md';
+            document.getElementById("search").href = documentPathRequest + documentPathEnd;
+        </script>
         <pre>
             <code class="hljs javascript">
 var data = "Vantaa";
@@ -496,6 +576,13 @@ channel.postRequest('SearchRequest', [data]);
     <div id="drawing" style="display: none;">
         <div id="StartDrawingRequest">
             <button id="btnStartDrawingRequest" class="btn btn-primary exampleready" data-example="StartDrawingRequest">DrawTools.StartDrawingRequest</button>
+            <div>
+                <a id="startDrawing" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/drawtools/request/startdrawingrequest.md';
+                document.getElementById("startDrawing").href = documentPathRequest + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 var data = ['my functionality id', 'Polygon'];
@@ -505,6 +592,13 @@ channel.postRequest('DrawTools.StartDrawingRequest', data);
         </div>
         <div id="StopDrawingRequest">
             <button id="btnStopDrawingRequest" class="btn btn-primary exampleready" data-example="StopDrawingRequest">DrawTools.StopDrawingRequest - cancel current drawing</button>
+            <div>
+                <a id="stopDrawing" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/drawtools/request/stopdrawingrequest.md';
+                document.getElementById("stopDrawing").href = documentPathRequest + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 var data = ['my functionality id'];
@@ -528,6 +622,13 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
             <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
             <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
             <div>AddFeaturesToMapRequest allows adding vector features on the map.</div>
+            <div>
+                <a id="addFeatures" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/addfeaturestomaprequest.md';
+                document.getElementById("addFeatures").href = documentPathRequest + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
     var x = 488704;
@@ -660,6 +761,13 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
         </div>
         <div id="RemoveFeaturesFromMapRequest">
             <div>Remove all features across all vector layers</div>
+            <div>
+                <a id="removeFeatures" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/removefeaturesfrommaprequest.md';
+                document.getElementById("removeFeatures").href = documentPathRequest + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 //annihilate everything
@@ -670,6 +778,13 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
     </div>
 
 	<div id="ZoomToFeatures" style="display: none;">
+        <div>
+            <a id="zoomToFeatures" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/zoomtofeaturesrequest.md';
+            document.getElementById("zoomToFeatures").href = documentPathRequest + documentPathEnd;
+        </script>
 		<div>
 			1. Add features to map
 			<button id="btnAddFeaturesToMapRequest"
@@ -902,6 +1017,13 @@ channel.getScreenshot(function(data) {
 		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
             <div>Occurs after a marker has been added to map</div>
+            <div>
+                <a id="afterAddMarker" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/event/AfterAddMarkerEvent.md';
+                document.getElementById("afterAddMarker").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -912,6 +1034,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="MarkerClickEvent" style="display:none;">
             <div>Occurs after a marker's been clicked</div>
+            <div>
+                <a id="markerClick" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/event/MarkerClickEvent.md';
+                document.getElementById("markerClick").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -922,6 +1051,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="RouteResultEvent" style="display:none;">
             <div>Occurs after a route search has been completed</div>
+            <div>
+                <a id="routeResult" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/routingService/event/routeresultevent.md';
+                document.getElementById("routeResult").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1241,6 +1377,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="MapClickedEvent"  style="display:none;">
             <div>Occurs after the map has been clicked</div>
+            <div>
+                <a id="mapClicked" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/event/MapClickedEvent.md';
+                document.getElementById("mapClicked").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1255,6 +1398,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="AfterMapMoveEvent"  style="display:none;">
             <div>Occurs after the map has been moved</div>
+            <div>
+                <a id="afterMapMove" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/event/AfterMapMoveEvent.md';
+                document.getElementById("afterMapMove").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1269,6 +1419,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="UserLocationEvent"  style="display:none;">
             <div>Occurs after user's location is fetched</div>
+            <div>
+                <a id="userLocation" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/event/userlocationevent.md';
+                document.getElementById("userLocation").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1280,6 +1437,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="SearchResultEvent"  style="display:none;">
             <div>Occurs after a search request</div>
+            <div>
+                <a id="searchResult" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'framework/search/event/SearchResultEvent.md';
+                document.getElementById("searchResult").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1341,6 +1505,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="FeatureEvent"  style="display:none;">
             <div>Occurs after adding or removing features to or from map </div>
+            <div>
+                <a id="featureEvent" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/event/featureevent.md';
+                document.getElementById("featureEvent").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1406,6 +1577,13 @@ channel.getScreenshot(function(data) {
         </div>
         <div id="DrawingEvent"  style="display:none;">
             <div>Occurs when drawing is in progress</div>
+            <div>
+                <a id="drawingEvent" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/drawtools/event/DrawingEvent.md';
+                document.getElementById("drawingEvent").href = documentPathEvent + documentPathEnd;
+            </script>
             <pre>
                 <code class="hljs javascript">
 {
@@ -1981,7 +2159,6 @@ channel.getScreenshot(function(data) {
             '<h5>${name}</h5>' +
             '<div class="desc">${desc}</div>' +
         '</li>');
-
     // Referenced HTML-elements
     var elements = {
         iframe: $("#publishedMap")[0],
