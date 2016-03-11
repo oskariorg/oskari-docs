@@ -1,6 +1,6 @@
 # Oskari roadmap
 
-### Oskari core is maintained by the Oskari network coordinator, which is at the moment National Land Survay of Finland. New Oskari features are developed to pilot reference architecture of spatial infrastructure and also within projects of the Oskari network parties.
+### Oskari core is maintained by the Oskari network coordinator, which is at the moment National Land Survey of Finland. New Oskari features are developed to pilot reference architecture of spatial infrastructure and also by projects implemented by the Oskari Network member organizations.
 
 ## Features to be developed in 2016
 
@@ -12,11 +12,10 @@ If you are doing development related to Oskari and it would be possible to take 
 * Integrating contributions for wfs-t content-editor functionality financed by City of Tampere
 * Integrating contributions for new version of infobox financed by City of Tampere
 * Integrating contributions for allowing wfs-services to be used as configurable search resources - functionality financed by City of Tampere
-* Improvements to SLD editor ![done](/images/done.png)
-* Integration of WMS/WMTS and WFS maplayer functionalities - planning ![done](/images/done.png)
-* Changing projection in Oskari platform (for ELF needs) ![done](/images/done.png)
+* Integration of WMS/WMTS and WFS maplayer functionalities - planning ![done](/images/done.png) 1.35
+* Initial implementation for changing projection in Oskari platform (for use in the [European Location Framework Showcase Application](http://demo.locationframework.eu/)) ![done](/images/done.png) 1.35
 * Coordinate transformations
-* Time series visualization in basic level (Arctic SDI) ![done](/images/done.png)
+* Time series visualization in basic level (Arctic SDI) ![done](/images/done.png) 1.35
 * Development of Oskari architecture - version 2.0 planning
 
 ## Q2 2016
