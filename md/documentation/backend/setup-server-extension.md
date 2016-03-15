@@ -8,17 +8,17 @@ This document describes how to use maven artifacts provided in Oskari Maven repo
 * [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * [Jetty bundle](/download) installed
 
-## 1. Download a template maven project
+## 1. Template maven project
 
-[Download](/build/server/oskari-server-extension.zip) a premade package for this webapp
+[Download](https://github.com/nls-oskari/oskari-server-extension-template) a template for the webapp
 
 ## 2. Start modifying the content
 
-- Edit the `pom.xml`s to change the groupId/artifactId and `oskari.version`.
+- Edit the `pom.xml`s to change the groupId/artifactId and [oskari.version](https://github.com/nls-oskari/oskari-server-extension-template/blob/ba7fffa3fc4bf7c378ba51edd988131fb0abebaa/pom.xml#L13).
 - Edit the `pom.xml`s to add/change the included dependencies
 - Edit the app-resources to configure app-myapp.json/myapp-view.json/mylayer.json. These are used by default since webapp-map overrides app-default.json.
 - Edit the myapp.jsp under webapp-map to modify the base HTML.
-- Create your own action routes like MyAction under server-extension.
+- Create your own action routes like [MyAction](https://github.com/nls-oskari/oskari-server-extension-template/blob/master/server-extension/src/main/java/my/app/MyActionHandler.java) under server-extension.
 
 The released Oskari artifacts are downloaded from oskari.org Maven repository:
 
