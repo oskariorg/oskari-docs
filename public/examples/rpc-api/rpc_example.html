@@ -2285,7 +2285,7 @@ channel.getScreenshot(function(data) {
         },
         'RouteResultEvent': function(data) {
             if(!data || !data.success) {
-                displayMessage('Getting routes failed!', 5);
+                displayMessage('Getting routes failed ! - zoom map center around 1 km to nearest public trafic stop', 5);
             } else {
                 var geoJSON = data && data.plan && data.plan.itineraries && data.plan.itineraries.length ? data.plan.itineraries[0].geoJSON : undefined;
                 //Plot Stops sample
