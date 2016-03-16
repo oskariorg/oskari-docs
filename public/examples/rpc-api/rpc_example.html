@@ -385,7 +385,7 @@ channel.getMapPosition(function(data) {
         <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
         <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
         <div id="AddMarkerRequest">
-            <div>Adding markers</div>
+            <div>Adding or removing markers</div>
             <div>
                 <a id="addMarkers" href="">To the documentation</a>
             </div>
@@ -420,6 +420,8 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
             <pre>
                 <code class="hljs javascript">
 channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
+// Or all markers
+channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
                 </code>
             </pre>
         </div>
@@ -1810,8 +1812,8 @@ channel.getScreenshot(function(data) {
             });
         },
         'RemoveMarkersRequest': function() {
-            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
-            channel.log('RemoveMarkerRequest posted with data', MARKER_ID);
+            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
+            channel.log('RemoveMarkerRequest posted with data', []);
         },
         'GetFeatureInfoRequest': function() {
             channel.getMapPosition(function(data){
