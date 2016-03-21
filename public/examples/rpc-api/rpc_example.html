@@ -137,6 +137,7 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
+
                     </div>
                     <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
                 </div>
@@ -304,6 +305,7 @@ channel.getAllLayers(function (layers) {
     <div style="display: none; visibility: hidden;" id="GetRouteRequest">
         <div style="display: block;">
             <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
+            <div>Find route from Pasila to the center point of the map</div>
         </div>
         <div>
             <a id="getRoute" href="">To the documentation</a>
@@ -315,7 +317,7 @@ channel.getAllLayers(function (layers) {
         <pre>
             <code class="hljs javascript">
 var data = {
-    "fromlat": "6733840",
+    "fromlat": "6683840",
     "fromlon": "360448",
     "srs": "EPSG:3067",
     "tolat": "6675728",
@@ -383,7 +385,7 @@ channel.getMapPosition(function(data) {
         <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
         <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
         <div id="AddMarkerRequest">
-            <div>Adding markers</div>
+            <div>Adding or removing markers</div>
             <div>
                 <a id="addMarkers" href="">To the documentation</a>
             </div>
@@ -418,6 +420,8 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
             <pre>
                 <code class="hljs javascript">
 channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
+// Or all markers
+channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
                 </code>
             </pre>
         </div>
@@ -1692,6 +1696,46 @@ channel.getScreenshot(function(data) {
         });
 
     }
+    /**
+     * Sample to plot route leg steps ans intermediate stops
+     * @param {Object}
+     * @param boolean  clear previous
+     */
+    function plotRouteStops (itinerary, clearPrevious) {
+        var data = {
+            color: "ff0000",
+            msg : '',
+            shape: 5,
+            size: 3
+        };
+        if(itinerary.legs){
+            if(clearPrevious){
+                channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
+            }
+            // Loop Legs
+            for (var i in itinerary.legs) {
+                var leg = itinerary.legs[i];
+                data.x = leg.from.lon;
+                data.y = leg.from.lat;
+                data.color = "ff0000";
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, 'marker_from_'+i]);
+                data.x = leg.to.lon;
+                data.y = leg.to.lat;
+                data.color = "ff0000";
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, 'marker_to_'+i]);
+                for (var j in leg.intermediateStops) {
+                    var istop = leg.intermediateStops[j];
+                    data.x = istop.lon;
+                    data.y = istop.lat;
+                    data.color = "0000ff";
+                    channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, 'marker_stop_'+i+'_'+j]);
+                }
+
+            }
+        }
+
+
+    }
 
 
     var clickHandlers = {
@@ -1699,25 +1743,25 @@ channel.getScreenshot(function(data) {
         // REQUESTS
         //====================
         'GetRouteRequest': function() {
-            /*
-            var data = {
-                "fromlat": "6671244",
-                "fromlon": "389842",
-                "srs": "EPSG:3067",
-                "tolat": "6671672",
-                "tolon": "390034"
-            };
-            */
-            var data = {
-                "fromlat": "6733840",
-                "fromlon": "360448",
-                "srs": "EPSG:3067",
-                "tolat": "6675728",
-                "tolon": "394240"
-            };
 
-            channel.postRequest('GetRouteRequest', [data]);
-            channel.log('GetRouteRequest posted with data', data);
+            // From Pasila to Center point on a map
+
+            channel.getMapPosition(function(data) {
+
+                //Works only in Uudenmaa area
+                var datain = {
+                    "fromlat": "6675341",
+                    "fromlon": "385414",
+                    "srs": "EPSG:3067",
+                    "tolat": data.centerY,
+                    "tolon": data.centerX,
+                    "showIntermediateStops" : "true"
+                };
+                channel.postRequest('GetRouteRequest', [datain]);
+                channel.log('GetRouteRequest posted with data', datain);
+
+             });
+
         },
         'ShowInfoBoxRequest': function() {
             channel.getMapPosition(function(data) {
@@ -1770,8 +1814,8 @@ channel.getScreenshot(function(data) {
             });
         },
         'RemoveMarkersRequest': function() {
-            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
-            channel.log('RemoveMarkerRequest posted with data', MARKER_ID);
+            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
+            channel.log('RemoveMarkerRequest posted with data', []);
         },
         'GetFeatureInfoRequest': function() {
             channel.getMapPosition(function(data){
@@ -2147,6 +2191,7 @@ channel.getScreenshot(function(data) {
 
 
 
+
     // constants
     var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
     //var IFRAME_DOMAIN = 'http://localhost:8080';
@@ -2244,9 +2289,10 @@ channel.getScreenshot(function(data) {
         },
         'RouteResultEvent': function(data) {
             if(!data || !data.success) {
-                displayMessage('Getting routes failed!', 5);
+                displayMessage('Getting routes failed ! - zoom map center around 1 km to nearest public trafic stop', 5);
             } else {
                 var geoJSON = data && data.plan && data.plan.itineraries && data.plan.itineraries.length ? data.plan.itineraries[0].geoJSON : undefined;
+                //Plot routes
                 if (geoJSON) {
                     channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
                         geoJSON, {
@@ -2273,8 +2319,96 @@ channel.getScreenshot(function(data) {
                                     }
                                 }
                             },
+                            optionalStyles: [{
+                                property: {
+                                    value: 'AIRPLANE',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#FF0000'
+                                },
+                                stroke: {
+                                    color: '#FF0000',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'BUS',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#0000ff'
+                                },
+                                stroke: {
+                                    color: '#0000ff',
+                                    width: 5
+                                }
+                            }, {
+
+                                property: {
+                                    value: 'RAIL',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#606060'
+                                },
+                                stroke: {
+                                    color: '#606060',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'FERRY',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#00CC66'
+                                },
+                                stroke: {
+                                    color: '#00CC66',
+                                    width: 5,
+                                    lineDash: [6, 14]
+                                }
+                            }, {
+                                property: {
+                                    value: 'TRAM',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#00CC66'
+                                },
+                                stroke: {
+                                    color: '#00CC66',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'SUBWAY',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#000000'
+                                },
+                                stroke: {
+                                    color: '#000000',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'WALK',
+                                    key: 'mode'
+                                },
+                                stroke: {
+                                    color: '#0000ff',
+                                    width: 5,
+                                    lineDash: [0, 8]
+                                }
+
+                            }]
                         }
                     ]);
+                    //Plot Stops sample
+                    plotRouteStops( data.plan.itineraries[0], true);
                 }
             }
         }
@@ -2319,7 +2453,9 @@ channel.getScreenshot(function(data) {
                     return;
                 }
                 else if(typeof arg === 'object' || typeof arg === 'array') {
-                    msg.append('<pre>' + JSON.stringify(arg, null, '  ') + '</pre>');
+                    var json = JSON.stringify(arg, null, '  ');
+                    json = json.replace(/\\"/g, '"');
+                    msg.append('<pre>' + json + '</pre>');
                 }
                 else {
                     msg.append(arg + ' ');
