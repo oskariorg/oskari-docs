@@ -2451,7 +2451,9 @@ channel.getScreenshot(function(data) {
                     return;
                 }
                 else if(typeof arg === 'object' || typeof arg === 'array') {
-                    msg.append('<pre>' + JSON.stringify(arg, null, '  ') + '</pre>');
+                    var json = JSON.stringify(arg, null, '  ');
+                    json = json.replace(/\\"/g, '"');
+                    msg.append('<pre>' + json + '</pre>');
                 }
                 else {
                     msg.append(arg + ' ');
