@@ -903,6 +903,8 @@ channel.getZoomRange(function(data){
         </div>
         <pre>
             <code class="hljs javascript">
+                var A4_210mm = 210;
+                var A4_297mm = 297;
                 channel.getPixelMeasuresInScale([A4_210mm, A4_297mm], scale], function(data){
                 channel.log('GetPixelMeasuresInScale: ', data);
                 });
