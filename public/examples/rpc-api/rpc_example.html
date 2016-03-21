@@ -1703,7 +1703,7 @@ channel.getScreenshot(function(data) {
         var data = {
             color: "ff0000",
             msg : '',
-            shape: 3,
+            shape: 5,
             size: 3
         };
         if(itinerary.legs){
@@ -2290,8 +2290,6 @@ channel.getScreenshot(function(data) {
                 displayMessage('Getting routes failed ! - zoom map center around 1 km to nearest public trafic stop', 5);
             } else {
                 var geoJSON = data && data.plan && data.plan.itineraries && data.plan.itineraries.length ? data.plan.itineraries[0].geoJSON : undefined;
-                //Plot Stops sample
-                plotRouteStops( data.plan.itineraries[0], true);
                 //Plot routes
                 if (geoJSON) {
                     channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
@@ -2407,6 +2405,8 @@ channel.getScreenshot(function(data) {
                             }]
                         }
                     ]);
+                    //Plot Stops sample
+                    plotRouteStops( data.plan.itineraries[0], true);
                 }
             }
         }
