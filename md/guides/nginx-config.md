@@ -26,10 +26,11 @@ This can be changed by modifying these lines:
 ```
     root /opt/public/;
 
-    location ^~ /Oskari.*$ {
+    # Oskari frontend files
+    location ^~ /Oskari/ {
+        rewrite ^/Oskari/(.*)$ $1 break;
         try_files /oskari/$1 oskari/$1/ =404;
     }
-
 ```
 
 ### Oskari-server
