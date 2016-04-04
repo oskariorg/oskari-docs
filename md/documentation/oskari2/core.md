@@ -112,3 +112,4 @@ Oskari.log.error('Tried to send request that is not loaded!');
 - hexToRgb
 - rgbToHex
 - keyExists
+- naturalSort
