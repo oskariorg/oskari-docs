@@ -26,115 +26,6 @@
 
     <link rel="stylesheet" type="text/css" href="../../lib/highlightjs/styles/monokai-sublime.css">
     <script src="../../lib/highlightjs/highlight.pack.js"></script>
-
-    <style>
-    html, body {
-        margin: 0;
-        padding:0;
-        height:100%;
-        width:100%;
-    }
-    body {
-        background-color: #FFFFFF !important;
-    }
-    ul.markers li div.desc {
-        display : none;
-    }
-    ul.markers li.selected h5 {
-        text-decoration : underline;
-    }
-    ul.markers li.selected div.desc {
-        display : block;
-    }
-
-    .doexample, .doexample:hover, .doexample:focus, .doexample:active {
-        background-color: #E50000;
-        cursor: normal;
-    }
-
-    .doexample:hover {
-        background-color: #B70000;
-    }
-
-    .exampleready, .exampleready:hover, .exampleready:focus, .exampleready:active {
-        background-color: #3FD300;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    .exampleready:hover {
-        background-color: #2B9100;   
-    }
-
-
-    .full-height-panel, .map-panel {
-        height: 98% !important;
-    }
-    .panel-body {
-        height: 100%
-    }
-
-
-    /*override bootstrap default*/
-    div.container {
-        width: 100% !important;
-        margin-left: 0;
-        margin-right: 0;
-        height:100%;
-    }
-
-    .row {
-        height: 80%;
-    }
-
-    .actionSelectContainer {
-        display: inline;
-        float:right;
-        font-size: smaller;
-        font-weight: normal;
-     
-    }
-
-    h2 {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    div.navigationLinkParent {
-        display: block;
-        background-color: #D9D9D9;
-    }
-    div.navigationLinkBlock {
-        display: inline-table;
-        width:50%;
-        padding: 4px;
-        margin-top: 10px;
-    }
-
-    div.navigationLinkBlock.right {
-        text-align: right;
-    }
-    div.navigationLinkBlock.left {
-        text-align: left;
-    }
-
-    a.navigationLink {
-        cursor: pointer;
-    }
-
-    xmp {
-        display: block;
-        padding: 9.5px;
-        margin: 0 0 10px;
-        font-size: 13px;
-        line-height: 1.42857143;
-        color: #333;
-        word-break: break-all;
-        word-wrap: break-word;
-        background-color: #f5f5f5;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    </style>
   </head>
   <body>
     <div class="container">
@@ -150,7 +41,9 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-<!--
+                        
+
+                    <!--
                     <iframe
                             id="publishedMap"
                         src="http://localhost:8080/web/fi/kartta?uuid=2c3f0b51-f8ec-460c-ab7c-92c892bd01e5&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
@@ -184,6 +77,7 @@
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
                                         <option value="ShowInfoBoxRequest">Show info box</option>
+                                        <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
                                         <option value="GetFeatureInfoRequest">Get feature info</option>
                                         <option value="MapLayerVisibilityRequest">Change map layer visibility</option>
@@ -454,6 +348,81 @@ channel.getMapPosition(function(data) {
             </code>
         </pre>
     </div>
+
+
+    <div style="display: none; visibility: hidden;" id="ShowInfoBoxForMarkers">
+        <div>
+            <a id="AddMarkerRequest2" href="">To the documentation</a>
+            <a id="InfoBox.ShowInfoBoxRequest2" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd1 = 'mapping/mapmodule/request/addmarkerrequest.md';
+            document.getElementById("AddMarkerRequest2").href = documentPathRequest + documentPathEnd1;
+            var documentPathEnd2 = 'ui/infobox/request/infobox.showinfoboxrequest.md';
+            document.getElementById("InfoBox.ShowInfoBoxRequest2").href = documentPathRequest + documentPathEnd2;
+        </script>
+        <div>
+            1. Move map
+        </div>
+            2. Add marker to center of map
+            <button id="btnAddMarkerCenterOfMapForInfobox"
+                class="btn btn-primary exampleready"
+                data-example="AddMarkerRequestCenterOfMapForInfobox">AddMarkerRequest</button>
+        <pre>
+<code class="hljs javascript">  
+var MARKER_ID = 'MARKER_WITH_POPUP';
+channel.getMapPosition(function(data) {
+    // Add marker to center map
+    var markerData = {
+        x: data.centerX,
+        y: data.centerY,
+        color: "ff0000",
+        msg : '',
+        shape: 1, // icon number (0-6)
+        size: 3
+    };
+    channel.postRequest('MapModulePlugin.AddMarkerRequest', [markerData, MARKER_ID]);
+    channel.log('MapModulePlugin.AddMarkerRequest posted with data', markerData);
+});
+</code>
+        </pre>
+        <div>
+            3. Open popup for added marker
+            <button id="btnShowInfoBoxRequestForMarker"
+                class="btn btn-primary exampleready"
+                data-example="ShowInfoBoxRequestForMarker">InfoBox.ShowInfoBoxRequest</button>
+        </div>
+<pre>
+<code class="hljs javascript"> 
+// Open popup for marker
+var MARKER_ID = 'MARKER_WITH_POPUP';
+var content = [
+    {
+        'html': '<div>Marker popup</div>'
+    }
+];
+var infoboxData = [
+    'markerInfoBox',
+    'Marker info box',
+    content,
+    {
+        marker: MARKER_ID
+    },
+    {
+        mobileBreakpoints: {
+            width: 0,
+            height: 0
+        },
+        hidePrevious: true
+    }
+];
+
+channel.postRequest('InfoBox.ShowInfoBoxRequest', infoboxData);
+channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
+</code>
+</pre>    
+    </div>
+
 
     <div id="markers" style="display:none;">
         <div id="AddMarkerRequest">
@@ -1961,6 +1930,49 @@ channel.getScreenshot(function(data) {
                 channel.postRequest('InfoBox.ShowInfoBoxRequest', data);
                 channel.log('InfoBox.ShowInfoBoxRequest posted with data', data);
             });
+        },
+        'AddMarkerRequestCenterOfMapForInfobox': function(){
+            var MARKER_ID = 'MARKER_WITH_POPUP';
+            channel.getMapPosition(function(data) {
+                // Add marker to center map
+                var markerData = {
+                    x: data.centerX,
+                    y: data.centerY,
+                    color: "ff0000",
+                    msg : '',
+                    shape: 1, // icon number (0-6)
+                    size: 4
+                };
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [markerData, MARKER_ID]);
+                channel.log('MapModulePlugin.AddMarkerRequest posted with data', markerData);
+            });
+        },
+        'ShowInfoBoxRequestForMarker': function(){
+            // Open popup for marker
+            var MARKER_ID = 'MARKER_WITH_POPUP';
+            var content = [
+                {
+                    'html': '<div>Marker popup</div>'
+                }
+            ];
+            var infoboxData = [
+                'markerInfoBox',
+                'Marker info box',
+                content,
+                {
+                    marker: MARKER_ID
+                },
+                {
+                    mobileBreakpoints: {
+                        width: 100,
+                        height: 100
+                    },
+                    hidePrevious: true
+                }
+            ];
+
+            channel.postRequest('InfoBox.ShowInfoBoxRequest', infoboxData);
+            channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
         },
         'AddMarkerRequest': function() {
             channel.getMapPosition(function(data){
