@@ -49,7 +49,7 @@ When the bundle.js is loaded, it's expected to call a global function and provid
 
     Oskari.bundle_manager.installBundleClass("[bundle id]", "[class name like Oskari.framework.MyBundle]");
 
-This registers the bundle so Oskari is aware of it and can start it. You can check that a bundle has been registered by calling `Oskari.bundle('[bundle id]');`
+This registers the bundle so Oskari is aware of it and can start it. You can check that a bundle has been registered by calling `Oskari.bundle('[bundle id]');`. It should return an object with the descriptor class instance and metadata from the descriptor.
 
 Note! If Oskari is already aware of the bundles to be loaded (installBundleClass has been called on them) the loader assumes the bundle to be loaded and moves to step 3 to start the bundle.
 
