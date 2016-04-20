@@ -47,6 +47,7 @@
 - [GetPreview](/documentation/backend/actionroutes/getpreview)
 - [HasAcceptedPublishedTermsOfUse](/documentation/backend/actionroutes/hasacceptedpublishedtermsofuse)
 - [AcceptPublishedTermsOfUse](/documentation/backend/actionroutes/acceptpublishedtermsofuse)
+- [Feedback](/documentation/backend/actionroutes/feedback)
 - GetWfsFeatureData (soon to be deprecated)
 - GetProxyRequest
 

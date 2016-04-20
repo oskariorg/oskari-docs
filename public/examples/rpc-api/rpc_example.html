@@ -24,104 +24,8 @@
     <script src="../../js/rpc/rpc-client.min.js"></script>
     <script src="../../js/util.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/css/vendor/highlight-styles/monokai_sublime.css?v=1x1-hefkzu">
-    <script src="../../lib/highlightjs/highlight.min.js"></script>
-
-    <style>
-    html, body {
-        margin: 0;
-        padding:0;
-        height:100%;
-        width:100%;
-    }
-    body {
-        background-color: #FFFFFF !important;
-    }
-    ul.markers li div.desc {
-        display : none;
-    }
-    ul.markers li.selected h5 {
-        text-decoration : underline;
-    }
-    ul.markers li.selected div.desc {
-        display : block;
-    }
-
-    .doexample, .doexample:hover, .doexample:focus, .doexample:active {
-        background-color: #E50000;
-        cursor: normal;
-    }
-
-    .doexample:hover {
-        background-color: #B70000;
-    }
-
-    .exampleready, .exampleready:hover, .exampleready:focus, .exampleready:active {
-        background-color: #3FD300;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-
-    .exampleready:hover {
-        background-color: #2B9100;   
-    }
-
-
-    .full-height-panel, .map-panel {
-        height: 98% !important;
-    }
-    .panel-body {
-        height: 100%
-    }
-
-
-    /*override bootstrap default*/
-    div.container {
-        width: 100% !important;
-        margin-left: 0;
-        margin-right: 0;
-        height:100%;
-    }
-
-    .row {
-        height: 80%;
-    }
-
-    .actionSelectContainer {
-        display: inline;
-        float:right;
-        font-size: smaller;
-        font-weight: normal;
-     
-    }
-
-    h2 {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    div.navigationLinkParent {
-        display: block;
-        background-color: #D9D9D9;
-    }
-    div.navigationLinkBlock {
-        display: inline-table;
-        width:50%;
-        padding: 4px;
-        margin-top: 10px;
-    }
-
-    div.navigationLinkBlock.right {
-        text-align: right;
-    }
-    div.navigationLinkBlock.left {
-        text-align: left;
-    }
-
-    a.navigationLink {
-        cursor: pointer;
-    }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="../../lib/highlightjs/styles/monokai-sublime.css">
+    <script src="../../lib/highlightjs/highlight.pack.js"></script>
   </head>
   <body>
     <div class="container">
@@ -137,8 +41,15 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
+
+                    <!--
+                    <iframe
+                            id="publishedMap"
+                        src="http://localhost:8080/web/fi/kartta?uuid=2c3f0b51-f8ec-460c-ab7c-92c892bd01e5&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        style="border: none; width: 100%; height: 100%;"></iframe>
+                        -->
                     </div>
-                    <!-- src="http://demo.paikkatietoikkuna.fi/published/fi/4b5780d6-2559-4b26-8675-e1c74917dfe5" -->
+                    
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
@@ -164,7 +75,12 @@
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
+                                        <option value="GetFeedbackServiceRequest">Get feedback service list</option>
+                                        <option value="GetFeedbackServiceDefinitionRequest">Get definition of one feedback service</option>
+                                        <option value="GetFeedbackRequest">Get posted feedback data</option>
+                                        <option value="PostFeedbackRequest">Post user's feedback data</option>
                                         <option value="ShowInfoBoxRequest">Show info box</option>
+                                        <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
                                         <option value="GetFeatureInfoRequest">Get feature info</option>
                                         <option value="MapLayerVisibilityRequest">Change map layer visibility</option>
@@ -175,12 +91,13 @@
                                         <option value="SearchRequest">Perform a search</option>
                                         <option value="drawing">Drawing requests</option>
                                         <option value="addOrRemoveFeatures">Add or remove vector features</option>
-                                       	<option value="ZoomToFeatures">Zoom to features</option>                                        
+                                        <option value="ZoomToFeatures">Zoom to features</option>                                        
                                     </optgroup>
                                     <optgroup label="Events">
                                         <option value="AfterAddMarkerEvent">AfterAddMarkerEvent</option>
                                         <option value="MarkerClickEvent">MarkerClickEvent</option>
                                         <option value="RouteResultEvent">RouteResultEvent</option>
+                                        <option value="FeedbackResultEvent">FeedbackResultEvent</option>
                                         <option value="MapClickedEvent">MapClickedEvent</option>
                                         <option value="AfterMapMoveEvent">AfterMapMoveEvent</option>
                                         <option value="UserLocationEvent">UserLocationEvent</option>
@@ -304,6 +221,7 @@ channel.getAllLayers(function (layers) {
     <div style="display: none; visibility: hidden;" id="GetRouteRequest">
         <div style="display: block;">
             <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
+            <div>Find route from Pasila to the center point of the map</div>
         </div>
         <div>
             <a id="getRoute" href="">To the documentation</a>
@@ -315,13 +233,117 @@ channel.getAllLayers(function (layers) {
         <pre>
             <code class="hljs javascript">
 var data = {
-    "fromlat": "6733840",
+    "fromlat": "6683840",
     "fromlon": "360448",
     "srs": "EPSG:3067",
     "tolat": "6675728",
     "tolon": "394240"
 };
 channel.postRequest('GetRouteRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeedbackServiceRequest">
+        <div style="display: block;">
+            <button id="btnGetFeedbackServiceRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceRequest">GetFeedbackServiceRequest</button>
+            <div>Request feedback service list</div>
+        </div>
+        <div>
+            <a id="getFeedbackService" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/getFeedbackServiceRequest.md';
+            document.getElementById("getFeedbackService").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                };
+                channel.postRequest('GetFeedbackServiceRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeedbackServiceDefinitionRequest">
+        <div style="display: block;">
+            <button id="btnGetFeedbackServiceDefinitionRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceDefinitionRequest">GetFeedbackServiceDefinitionRequest</button>
+            <div>Request definition of one feedback service</div>
+        </div>
+        <div>
+            <a id="getFeedbackServiceDefinition" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/getFeedbackServiceDefinitionRequest.md';
+            document.getElementById("getFeedbackServiceDefinition").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                };
+                channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeedbackRequest">
+        <div style="display: block;">
+            <button id="btnGetFeedbackRequest" class="btn btn-primary exampleready" data-example="GetFeedbackRequest">GetFeedbackRequest</button>
+            <div>Request feedback data</div>
+        </div>
+        <div>
+            <a id="getFeedback" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/getFeedbackRequest.md';
+            document.getElementById("getFeedback").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var filterdata = {
+                  "start_date": "2016-04-01T00:00:00Z",
+                  "status": "open,closed"
+                };
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "getServiceRequests": JSON.stringify(filterdata)
+                };
+                channel.postRequest('GetFeedbackRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="PostFeedbackRequest">
+        <div style="display: block;">
+            <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready" data-example="PostFeedbackRequest">PostFeedbackRequest</button>
+            <div>Request feedback data</div>
+        </div>
+        <div>
+            <a id="postFeedback" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/postFeedbackRequest.md';
+            document.getElementById("postFeedback").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var postdata = {
+                "service_code": "180",
+                "description": "Kampin bussipysäkillä haisee koiran pissi",
+                "first_name" : "Oskari",
+                "last_name" : "Maanmittaushallitus",
+                "lat": "6674188.748000",
+                "long": "384717.640000"
+                };
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('PostFeedbackRequest', [data]);
             </code>
         </pre>
     </div>
@@ -435,11 +457,85 @@ channel.getMapPosition(function(data) {
         </pre>
     </div>
 
+
+    <div style="display: none; visibility: hidden;" id="ShowInfoBoxForMarkers">
+        <div>
+            <a id="AddMarkerRequest2" href="">To the documentation</a>
+            <a id="InfoBox.ShowInfoBoxRequest2" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd1 = 'mapping/mapmodule/request/addmarkerrequest.md';
+            document.getElementById("AddMarkerRequest2").href = documentPathRequest + documentPathEnd1;
+            var documentPathEnd2 = 'ui/infobox/request/infobox.showinfoboxrequest.md';
+            document.getElementById("InfoBox.ShowInfoBoxRequest2").href = documentPathRequest + documentPathEnd2;
+        </script>
+        <div>
+            1. Move map
+        </div>
+            2. Add marker to center of map
+            <button id="btnAddMarkerCenterOfMapForInfobox"
+                class="btn btn-primary exampleready"
+                data-example="AddMarkerRequestCenterOfMapForInfobox">AddMarkerRequest</button>
+        <pre>
+<code class="hljs javascript">  
+var MARKER_ID = 'MARKER_WITH_POPUP';
+channel.getMapPosition(function(data) {
+    // Add marker to center map
+    var markerData = {
+        x: data.centerX,
+        y: data.centerY,
+        color: "ff0000",
+        msg : '',
+        shape: 1, // icon number (0-6)
+        size: 3
+    };
+    channel.postRequest('MapModulePlugin.AddMarkerRequest', [markerData, MARKER_ID]);
+    channel.log('MapModulePlugin.AddMarkerRequest posted with data', markerData);
+});
+</code>
+        </pre>
+        <div>
+            3. Open popup for added marker
+            <button id="btnShowInfoBoxRequestForMarker"
+                class="btn btn-primary exampleready"
+                data-example="ShowInfoBoxRequestForMarker">InfoBox.ShowInfoBoxRequest</button>
+        </div>
+<pre>
+<code class="hljs javascript"> 
+// Open popup for marker
+var MARKER_ID = 'MARKER_WITH_POPUP';
+var content = [
+    {
+        'html': '<div>Marker popup</div>'
+    }
+];
+var infoboxData = [
+    'markerInfoBox',
+    'Marker info box',
+    content,
+    {
+        marker: MARKER_ID
+    },
+    {
+        mobileBreakpoints: {
+            width: 0,
+            height: 0
+        },
+        hidePrevious: true
+    }
+];
+
+channel.postRequest('InfoBox.ShowInfoBoxRequest', infoboxData);
+channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
+</code>
+</pre>    
+    </div>
+
+
     <div id="markers" style="display:none;">
-        <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
-        <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
         <div id="AddMarkerRequest">
-            <div>Adding markers</div>
+            <div>Adding markers with Oskari default icons (shape number between 0 and 6)</div>
+            <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
             <div>
                 <a id="addMarkers" href="">To the documentation</a>
             </div>
@@ -454,7 +550,7 @@ var data = {
     y: 6751897.3481153,
     color: "ff0000",
     msg : '',
-    shape: 3,
+    shape: 3, // icon number (0-6)
     size: 3
 };
 channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
@@ -462,8 +558,40 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
             </pre>
         </div>
 
+        <div id="AddMarkerRequest2">
+                    <div>Adding markers with own svg icon (happy face icon)</div>
+                    <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest2">MapModulePlugin.AddMarkerRequest</button>
+                    <div>
+                        <a id="addMarkers" href="">To the documentation</a>
+                    </div>
+                    <script type="text/javascript">
+                        var documentPathEnd = 'mapping/mapmodule/request/addmarkerrequest.md';
+                        document.getElementById("addMarkers").href = documentPathRequest + documentPathEnd;
+                    </script>
+                    <pre>
+                        <code class="hljs javascript">
+                        
+        var data = {
+            x: 411650.70779123,
+            y: 6751897.3481153,
+            msg : '',
+            shape: {
+                data: '&#60;svg width="32" height="32">&#60;g fill="#9955ff" transform="matrix(0.06487924,0,0,0.06487924,0,1.73024e-6)">&#60;g>&#60;path d="M 246.613,0 C 110.413,0 0,110.412 0,246.613 c 0,136.201 110.413,246.611 246.613,246.611 136.2,0 246.611,-110.412 246.611,-246.611 C 493.224,110.414 382.812,0 246.613,0 Z m 96.625,128.733 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m -196.743,0 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m 100.738,284.184 c -74.374,0 -138.225,-45.025 -165.805,-109.302 l 48.725,0 c 24.021,39.5 67.469,65.885 117.079,65.885 49.61,0 93.058,-26.384 117.079,-65.885 l 48.725,0 C 385.46,367.892 321.608,412.917 247.233,412.917 Z" />&#60;/g>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;/g>&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;/svg>',
+                x: 16, // center point x position
+                y: 16 // center point y position
+            },
+            size: 3
+        };
+        channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+        
+                        </code>
+                    </pre>
+                </div>
+
+
         <div id="RemoveMarkersRequest">
             <div>Removing markers</div>
+            <button id="btnMapModulePluginRemoveMarkersRequest" class="btn btn-primary exampleready" data-example="RemoveMarkersRequest">MapModulePlugin.RemoveMarkersRequest</button>
             <div>
                 <a id="removeMarkers" href="">To the documentation</a>
             </div>
@@ -474,6 +602,8 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
             <pre>
                 <code class="hljs javascript">
 channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
+// Or all markers
+channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
                 </code>
             </pre>
         </div>
@@ -833,7 +963,7 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
         </div>
     </div>
 
-	<div id="ZoomToFeatures" style="display: none;">
+    <div id="ZoomToFeatures" style="display: none;">
         <div>
             <a id="zoomToFeatures" href="">To the documentation</a>
         </div>
@@ -841,42 +971,42 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
             var documentPathEnd = 'mapping/mapmodule/request/zoomtofeaturesrequest.md';
             document.getElementById("zoomToFeatures").href = documentPathRequest + documentPathEnd;
         </script>
-		<div>
-			1. Add features to map
-			<button id="btnAddFeaturesToMapRequest"
-				class="btn btn-primary exampleready"
-				data-example="AddFeaturesToMapRequestForZooming">AddFeaturesToMapRequest</button>
-		</div>
-		<div>2. Move map</div>
-		<div>
-			3. Zoom to all features
-			<button id="btnZoomToFeaturesRequest"
-				class="btn btn-primary exampleready"
-				data-example="ZoomToFeaturesRequest">MapModulePlugin.ZoomToFeaturesRequest</button>
-		</div>
-		<pre>
-	            <code class="hljs javascript">	
+        <div>
+            1. Add features to map
+            <button id="btnAddFeaturesToMapRequest"
+                class="btn btn-primary exampleready"
+                data-example="AddFeaturesToMapRequestForZooming">AddFeaturesToMapRequest</button>
+        </div>
+        <div>2. Move map</div>
+        <div>
+            3. Zoom to all features
+            <button id="btnZoomToFeaturesRequest"
+                class="btn btn-primary exampleready"
+                data-example="ZoomToFeaturesRequest">MapModulePlugin.ZoomToFeaturesRequest</button>
+        </div>
+        <pre>
+                <code class="hljs javascript">  
 channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
-	            </code>
-	        </pre>
-		<div>
-			Zoom to features, where featureType=='parcel' and
-			layerId=='testLayer'
-			<button id="btnZoomToFeaturesRequest2"
-				class="btn btn-primary exampleready"
-				data-example="ZoomToFeaturesRequest2">MapModulePlugin.ZoomToFeaturesRequest</button>
-		</div>
-		<pre>
-	            <code class="hljs javascript">	
+                </code>
+            </pre>
+        <div>
+            Zoom to features, where featureType=='parcel' and
+            layerId=='testLayer'
+            <button id="btnZoomToFeaturesRequest2"
+                class="btn btn-primary exampleready"
+                data-example="ZoomToFeaturesRequest2">MapModulePlugin.ZoomToFeaturesRequest</button>
+        </div>
+        <pre>
+                <code class="hljs javascript">  
 var layers = {layer: ['testLayer']};
-var features = {'species': ['parcel']};     	
+var features = {'species': ['parcel']};         
 channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[layers, features]);
-	            </code>
-	        </pre>
-	</div>
+                </code>
+            </pre>
+    </div>
 
 
-	<!-- functions -->
+    <!-- functions -->
     <div id = "GetAllLayers" style="display:none;">
         <button id="btnGetAllLayers" class="btn btn-primary exampleready">Get all layers</button>
         <div>Gets a list of available map layers</div>
@@ -959,7 +1089,9 @@ channel.getZoomRange(function(data){
         </div>
         <pre>
             <code class="hljs javascript">
-                channel.getPixelMeasuresInScale([A4_210mm, A4_297mm], scale], function(data){
+                var A4_210mm = 210;
+                var A4_297mm = 297;
+                channel.getPixelMeasuresInScale([[A4_210mm, A4_297mm], scale], function(data){
                 channel.log('GetPixelMeasuresInScale: ', data);
                 });
             </code>
@@ -1017,39 +1149,39 @@ channel.useState([this.savedState], function(){
                 </code>
             </pre>
         </div>
-		<div id="GetFeatures" style="display: none;">
-			<div>
-				1. Add features to map
-				<button id="btnAddFeaturesToMapRequest"
-					class="btn btn-primary exampleready"
-					data-example="AddFeaturesToMapRequestForZooming">AddFeaturesToMapRequest</button>
-			</div>
+        <div id="GetFeatures" style="display: none;">
+            <div>
+                1. Add features to map
+                <button id="btnAddFeaturesToMapRequest"
+                    class="btn btn-primary exampleready"
+                    data-example="AddFeaturesToMapRequestForZooming">AddFeaturesToMapRequest</button>
+            </div>
 
-			<div>
-				2. Get features grouped by layers
-				<button id="btnGetFeaturesFunction"
-					class="btn btn-primary exampleready" data-example="getFeatures">getFeatures(true)</button>
-			</div>
-			<pre>
-	            <code class="hljs javascript">	
+            <div>
+                2. Get features grouped by layers
+                <button id="btnGetFeaturesFunction"
+                    class="btn btn-primary exampleready" data-example="getFeatures">getFeatures(true)</button>
+            </div>
+            <pre>
+                <code class="hljs javascript">  
 channel.getFeatures([true], function(data) {
     channel.log('GetFeatures: ', data);
 });
-       	          </code>
-	        </pre>
-			<div>
-				Get only layerIds without features
-				<button id="btnGetFeaturesFunction"
-					class="btn btn-primary exampleready" data-example="getFeatures">getFeatures()</button>
-			</div>
-			<pre>
-	            <code class="hljs javascript">	
+                  </code>
+            </pre>
+            <div>
+                Get only layerIds without features
+                <button id="btnGetFeaturesFunction"
+                    class="btn btn-primary exampleready" data-example="getFeatures">getFeatures()</button>
+            </div>
+            <pre>
+                <code class="hljs javascript">  
 channel.getFeatures([], function(data) {
     channel.log('GetFeatures: ', data);
 });
-       	          </code>
-	        </pre>
-		</div>
+                  </code>
+            </pre>
+        </div>
         <div id="GetScreenshot" style="display: none;">
             <button id="btnGetScreenshotFunction"
                 class="btn btn-primary exampleready" data-example="getScreenshot">Get screenshot</button>
@@ -1070,7 +1202,7 @@ channel.getScreenshot(function(data) {
             </div>
         </div>
 
-		<!-- events -->
+        <!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
             <div>Occurs after a marker has been added to map</div>
             <div>
@@ -1431,6 +1563,24 @@ channel.getScreenshot(function(data) {
                 </code>
             </pre>    
         </div>
+        <div id="FeedbackResultEvent" style="display:none;">
+            <div>Occurs after a feedback request has been completed</div>
+            <div>
+                <a id="feedbackResult" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/feedbackService/event/feedbackresultevent.md';
+                document.getElementById("feedbackResult").href = documentPathEvent + documentPathEnd;
+            </script>
+            <pre>
+                <code class="hljs javascript">
+{
+
+
+}
+                </code>
+            </pre>
+        </div>
         <div id="MapClickedEvent"  style="display:none;">
             <div>Occurs after the map has been clicked</div>
             <div>
@@ -1746,6 +1896,46 @@ channel.getScreenshot(function(data) {
         });
 
     }
+    /**
+     * Sample to plot route leg steps ans intermediate stops
+     * @param {Object}
+     * @param boolean  clear previous
+     */
+    function plotRouteStops (itinerary, clearPrevious) {
+        var data = {
+            color: "ff0000",
+            msg : '',
+            shape: 5,
+            size: 3
+        };
+        if(itinerary.legs){
+            if(clearPrevious){
+                channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
+            }
+            // Loop Legs
+            for (var i in itinerary.legs) {
+                var leg = itinerary.legs[i];
+                data.x = leg.from.lon;
+                data.y = leg.from.lat;
+                data.color = "ff0000";
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, 'marker_from_'+i]);
+                data.x = leg.to.lon;
+                data.y = leg.to.lat;
+                data.color = "ff0000";
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, 'marker_to_'+i]);
+                for (var j in leg.intermediateStops) {
+                    var istop = leg.intermediateStops[j];
+                    data.x = istop.lon;
+                    data.y = istop.lat;
+                    data.color = "0000ff";
+                    channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, 'marker_stop_'+i+'_'+j]);
+                }
+
+            }
+        }
+
+
+    }
 
 
     var clickHandlers = {
@@ -1753,25 +1943,25 @@ channel.getScreenshot(function(data) {
         // REQUESTS
         //====================
         'GetRouteRequest': function() {
-            /*
-            var data = {
-                "fromlat": "6671244",
-                "fromlon": "389842",
-                "srs": "EPSG:3067",
-                "tolat": "6671672",
-                "tolon": "390034"
-            };
-            */
-            var data = {
-                "fromlat": "6733840",
-                "fromlon": "360448",
-                "srs": "EPSG:3067",
-                "tolat": "6675728",
-                "tolon": "394240"
-            };
 
-            channel.postRequest('GetRouteRequest', [data]);
-            channel.log('GetRouteRequest posted with data', data);
+            // From Pasila to Center point on a map
+
+            channel.getMapPosition(function(data) {
+
+                //Works only in Uudenmaa area
+                var datain = {
+                    "fromlat": "6675341",
+                    "fromlon": "385414",
+                    "srs": "EPSG:3067",
+                    "tolat": data.centerY,
+                    "tolon": data.centerX,
+                    "showIntermediateStops" : "true"
+                };
+                channel.postRequest('GetRouteRequest', [datain]);
+                channel.log('GetRouteRequest posted with data', datain);
+
+             });
+
         },
         'ShowInfoBoxRequest': function() {
             channel.getMapPosition(function(data) {
@@ -1867,6 +2057,49 @@ channel.getScreenshot(function(data) {
                 channel.log('InfoBox.ShowInfoBoxRequest posted with data', data);
             });
         },
+        'AddMarkerRequestCenterOfMapForInfobox': function(){
+            var MARKER_ID = 'MARKER_WITH_POPUP';
+            channel.getMapPosition(function(data) {
+                // Add marker to center map
+                var markerData = {
+                    x: data.centerX,
+                    y: data.centerY,
+                    color: "ff0000",
+                    msg : '',
+                    shape: 1, // icon number (0-6)
+                    size: 4
+                };
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [markerData, MARKER_ID]);
+                channel.log('MapModulePlugin.AddMarkerRequest posted with data', markerData);
+            });
+        },
+        'ShowInfoBoxRequestForMarker': function(){
+            // Open popup for marker
+            var MARKER_ID = 'MARKER_WITH_POPUP';
+            var content = [
+                {
+                    'html': '<div>Marker popup</div>'
+                }
+            ];
+            var infoboxData = [
+                'markerInfoBox',
+                'Marker info box',
+                content,
+                {
+                    marker: MARKER_ID
+                },
+                {
+                    mobileBreakpoints: {
+                        width: 100,
+                        height: 100
+                    },
+                    hidePrevious: true
+                }
+            ];
+
+            channel.postRequest('InfoBox.ShowInfoBoxRequest', infoboxData);
+            channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
+        },
         'AddMarkerRequest': function() {
             channel.getMapPosition(function(data){
                 var data = {
@@ -1881,9 +2114,26 @@ channel.getScreenshot(function(data) {
                 channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
             });
         },
+        'AddMarkerRequest2': function() {
+            channel.getMapPosition(function(data){
+                var data = {
+                    x: data.centerX,
+                    y: data.centerY,
+                    msg : '',
+                    shape: {
+                        data: '<svg width="32" height="32"><g fill="#9955ff" transform="matrix(0.06487924,0,0,0.06487924,0,1.73024e-6)"><g><path d="M 246.613,0 C 110.413,0 0,110.412 0,246.613 c 0,136.201 110.413,246.611 246.613,246.611 136.2,0 246.611,-110.412 246.611,-246.611 C 493.224,110.414 382.812,0 246.613,0 Z m 96.625,128.733 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m -196.743,0 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m 100.738,284.184 c -74.374,0 -138.225,-45.025 -165.805,-109.302 l 48.725,0 c 24.021,39.5 67.469,65.885 117.079,65.885 49.61,0 93.058,-26.384 117.079,-65.885 l 48.725,0 C 385.46,367.892 321.608,412.917 247.233,412.917 Z" /></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></g><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /></svg>',
+                        x: 16,
+                        y: 16
+                    },
+                    size: 3
+                };
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+                channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
+            });
+        },
         'RemoveMarkersRequest': function() {
-            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', [MARKER_ID]);
-            channel.log('RemoveMarkerRequest posted with data', MARKER_ID);
+            channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
+            channel.log('RemoveMarkerRequest posted with data', []);
         },
         'GetFeatureInfoRequest': function() {
             channel.getMapPosition(function(data){
@@ -1935,6 +2185,47 @@ channel.getScreenshot(function(data) {
             channel.postRequest('SearchRequest', [data]);
             channel.log('SearchRequest posted with data', data);
 
+        },
+        'GetFeedbackServiceRequest': function() {
+            var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+            };
+            channel.postRequest('GetFeedbackServiceRequest', [data]);
+        },
+        'GetFeedbackServiceDefinitionRequest': function() {
+            var data = {
+                "serviceId": "172",
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+            };
+            channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
+        },
+        'GetFeedbackRequest': function() {
+            var filterdata = {
+                "start_date": "2016-04-01T00:00:00Z",
+                "status": "open,closed"
+            };
+            var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "getServiceRequests": JSON.stringify(filterdata)
+            };
+            channel.postRequest('GetFeedbackRequest', [data]);
+        },
+        'PostFeedbackRequest': function() {
+            var postdata = {
+                "service_code": "180",
+                "description": "Kampin bussipysäkillä haisee koiran pissi",
+                "first_name" : "Oskari",
+                "last_name" : "Maanmittaushallitus",
+                "lat": "6674188.748000",
+                "long": "384717.640000"
+            };
+            var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "postServiceRequest": JSON.stringify(postdata)
+            };
+            channel.postRequest('PostFeedbackRequest', [data]);
         },
         'StartDrawingRequest': function() {
             var data = ['my functionality id', 'Polygon'];
@@ -2153,7 +2444,7 @@ channel.getScreenshot(function(data) {
                 params
             );
             channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
-    	},
+        },
 
         //====================
         // FUNCTIONS
@@ -2238,9 +2529,9 @@ channel.getScreenshot(function(data) {
             });
         },
         'getFeatures': function() {
-        	channel.getFeatures([true], function(data){
-        	    channel.log('GetFeatures: ', data);
-        	});
+            channel.getFeatures([true], function(data){
+                channel.log('GetFeatures: ', data);
+            });
         },
         'getScreenshot': function() {
             channel.getScreenshot(function(data) {
@@ -2255,9 +2546,6 @@ channel.getScreenshot(function(data) {
     var savedState = null;
     var savedPlotAreaData = null;
     var savedZoom = null;
-
-
-
 
     // constants
     var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
@@ -2298,6 +2586,7 @@ channel.getScreenshot(function(data) {
         'AfterAddMarkerEvent',
         'MarkerClickEvent',
         'RouteResultEvent',
+        'FeedbackResultEvent',
         'MapClickedEvent',
         'AfterMapMoveEvent',
         'UserLocationEvent',
@@ -2357,9 +2646,10 @@ channel.getScreenshot(function(data) {
         },
         'RouteResultEvent': function(data) {
             if(!data || !data.success) {
-                displayMessage('Getting routes failed!', 5);
+                displayMessage('Getting routes failed ! - zoom map center around 1 km to nearest public trafic stop', 5);
             } else {
                 var geoJSON = data && data.plan && data.plan.itineraries && data.plan.itineraries.length ? data.plan.itineraries[0].geoJSON : undefined;
+                //Plot routes
                 if (geoJSON) {
                     channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
                         geoJSON, {
@@ -2386,6 +2676,132 @@ channel.getScreenshot(function(data) {
                                     }
                                 }
                             },
+                            optionalStyles: [{
+                                property: {
+                                    value: 'AIRPLANE',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#FF0000'
+                                },
+                                stroke: {
+                                    color: '#FF0000',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'BUS',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#0000ff'
+                                },
+                                stroke: {
+                                    color: '#0000ff',
+                                    width: 5
+                                }
+                            }, {
+
+                                property: {
+                                    value: 'RAIL',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#606060'
+                                },
+                                stroke: {
+                                    color: '#606060',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'FERRY',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#00CC66'
+                                },
+                                stroke: {
+                                    color: '#00CC66',
+                                    width: 5,
+                                    lineDash: [6, 14]
+                                }
+                            }, {
+                                property: {
+                                    value: 'TRAM',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#00CC66'
+                                },
+                                stroke: {
+                                    color: '#00CC66',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'SUBWAY',
+                                    key: 'mode'
+                                },
+                                fill: {
+                                    color: '#000000'
+                                },
+                                stroke: {
+                                    color: '#000000',
+                                    width: 5
+                                }
+                            }, {
+                                property: {
+                                    value: 'WALK',
+                                    key: 'mode'
+                                },
+                                stroke: {
+                                    color: '#0000ff',
+                                    width: 5,
+                                    lineDash: [0, 8]
+                                }
+
+                            }]
+                        }
+                    ]);
+                    //Plot Stops sample
+                    plotRouteStops( data.plan.itineraries[0], true);
+                }
+            }
+        },
+        'FeedbackResultEvent': function(data) {
+            if (!data || !data.success) {
+                displayMessage('Getting feedback response failed ! ', 5);
+            } else {
+                displayMessage('Getting feedback response success ! ', 5);
+                var geoJSON = data && data.data && data.data.getFeedback ? data.data.getFeedback : undefined;
+                //Plot routes
+                if (geoJSON) {
+                    channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
+                        geoJSON, {
+                            clearPrevious: true,
+                            centerTo: true,
+                            cursor: 'zoom-in',
+                            prio: 4,
+                            featureStyle: {
+                                fill: {
+                                    color: '#ff0000'
+                                },
+                                stroke: {
+                                    color: '#ff0000',
+                                    width: 5
+                                },
+                                text: {
+                                    scale: 1.3,
+                                    fill: {
+                                        color: 'rgba(0,0,0,1)'
+                                    },
+                                    stroke: {
+                                        color: 'rgba(255,255,255,1)',
+                                        width: 2
+                                    }
+                                }
+                            }
                         }
                     ]);
                 }
@@ -2432,7 +2848,9 @@ channel.getScreenshot(function(data) {
                     return;
                 }
                 else if(typeof arg === 'object' || typeof arg === 'array') {
-                    msg.append('<pre>' + JSON.stringify(arg, null, '  ') + '</pre>');
+                    var json = JSON.stringify(arg, null, '  ');
+                    json = json.replace(/\\"/g, '"');
+                    msg.append('<xmp>' + json + '</xmp>');
                 }
                 else {
                     msg.append(arg + ' ');
