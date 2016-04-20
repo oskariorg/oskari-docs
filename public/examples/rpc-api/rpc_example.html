@@ -41,7 +41,6 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                        
 
                     <!--
                     <iframe
@@ -76,6 +75,10 @@
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
+                                        <option value="GetFeedbackServiceRequest">Get feedback service list</option>
+                                        <option value="GetFeedbackServiceDefinitionRequest">Get definition of one feedback service</option>
+                                        <option value="GetFeedbackRequest">Get posted feedback data</option>
+                                        <option value="PostFeedbackRequest">Post user's feedback data</option>
                                         <option value="ShowInfoBoxRequest">Show info box</option>
                                         <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
@@ -94,6 +97,7 @@
                                         <option value="AfterAddMarkerEvent">AfterAddMarkerEvent</option>
                                         <option value="MarkerClickEvent">MarkerClickEvent</option>
                                         <option value="RouteResultEvent">RouteResultEvent</option>
+                                        <option value="FeedbackResultEvent">FeedbackResultEvent</option>
                                         <option value="MapClickedEvent">MapClickedEvent</option>
                                         <option value="AfterMapMoveEvent">AfterMapMoveEvent</option>
                                         <option value="UserLocationEvent">UserLocationEvent</option>
@@ -236,6 +240,110 @@ var data = {
     "tolon": "394240"
 };
 channel.postRequest('GetRouteRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeedbackServiceRequest">
+        <div style="display: block;">
+            <button id="btnGetFeedbackServiceRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceRequest">GetFeedbackServiceRequest</button>
+            <div>Request feedback service list</div>
+        </div>
+        <div>
+            <a id="getFeedbackService" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/getFeedbackServiceRequest.md';
+            document.getElementById("getFeedbackService").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                };
+                channel.postRequest('GetFeedbackServiceRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeedbackServiceDefinitionRequest">
+        <div style="display: block;">
+            <button id="btnGetFeedbackServiceDefinitionRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceDefinitionRequest">GetFeedbackServiceDefinitionRequest</button>
+            <div>Request definition of one feedback service</div>
+        </div>
+        <div>
+            <a id="getFeedbackServiceDefinition" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/getFeedbackServiceDefinitionRequest.md';
+            document.getElementById("getFeedbackServiceDefinition").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                };
+                channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="GetFeedbackRequest">
+        <div style="display: block;">
+            <button id="btnGetFeedbackRequest" class="btn btn-primary exampleready" data-example="GetFeedbackRequest">GetFeedbackRequest</button>
+            <div>Request feedback data</div>
+        </div>
+        <div>
+            <a id="getFeedback" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/getFeedbackRequest.md';
+            document.getElementById("getFeedback").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var filterdata = {
+                  "start_date": "2016-04-01T00:00:00Z",
+                  "status": "open,closed"
+                };
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "getServiceRequests": JSON.stringify(filterdata)
+                };
+                channel.postRequest('GetFeedbackRequest', [data]);
+            </code>
+        </pre>
+    </div>
+
+    <div style="display: none; visibility: hidden;" id="PostFeedbackRequest">
+        <div style="display: block;">
+            <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready" data-example="PostFeedbackRequest">PostFeedbackRequest</button>
+            <div>Request feedback data</div>
+        </div>
+        <div>
+            <a id="postFeedback" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/feedbackService/request/postFeedbackRequest.md';
+            document.getElementById("postFeedback").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+                var postdata = {
+                "service_code": "180",
+                "description": "Kampin bussipysäkillä haisee koiran pissi",
+                "first_name" : "Oskari",
+                "last_name" : "Maanmittaushallitus",
+                "lat": "6674188.748000",
+                "long": "384717.640000"
+                };
+                var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('PostFeedbackRequest', [data]);
             </code>
         </pre>
     </div>
@@ -983,7 +1091,7 @@ channel.getZoomRange(function(data){
             <code class="hljs javascript">
                 var A4_210mm = 210;
                 var A4_297mm = 297;
-                channel.getPixelMeasuresInScale([A4_210mm, A4_297mm], scale], function(data){
+                channel.getPixelMeasuresInScale([[A4_210mm, A4_297mm], scale], function(data){
                 channel.log('GetPixelMeasuresInScale: ', data);
                 });
             </code>
@@ -1454,6 +1562,24 @@ channel.getScreenshot(function(data) {
 }
                 </code>
             </pre>    
+        </div>
+        <div id="FeedbackResultEvent" style="display:none;">
+            <div>Occurs after a feedback request has been completed</div>
+            <div>
+                <a id="feedbackResult" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/feedbackService/event/feedbackresultevent.md';
+                document.getElementById("feedbackResult").href = documentPathEvent + documentPathEnd;
+            </script>
+            <pre>
+                <code class="hljs javascript">
+{
+
+
+}
+                </code>
+            </pre>
         </div>
         <div id="MapClickedEvent"  style="display:none;">
             <div>Occurs after the map has been clicked</div>
@@ -2060,6 +2186,47 @@ channel.getScreenshot(function(data) {
             channel.log('SearchRequest posted with data', data);
 
         },
+        'GetFeedbackServiceRequest': function() {
+            var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+            };
+            channel.postRequest('GetFeedbackServiceRequest', [data]);
+        },
+        'GetFeedbackServiceDefinitionRequest': function() {
+            var data = {
+                "serviceId": "172",
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+            };
+            channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
+        },
+        'GetFeedbackRequest': function() {
+            var filterdata = {
+                "start_date": "2016-04-01T00:00:00Z",
+                "status": "open,closed"
+            };
+            var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "getServiceRequests": JSON.stringify(filterdata)
+            };
+            channel.postRequest('GetFeedbackRequest', [data]);
+        },
+        'PostFeedbackRequest': function() {
+            var postdata = {
+                "service_code": "180",
+                "description": "Kampin bussipysäkillä haisee koiran pissi",
+                "first_name" : "Oskari",
+                "last_name" : "Maanmittaushallitus",
+                "lat": "6674188.748000",
+                "long": "384717.640000"
+            };
+            var data = {
+                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "srs":"EPSG:3067",
+                "postServiceRequest": JSON.stringify(postdata)
+            };
+            channel.postRequest('PostFeedbackRequest', [data]);
+        },
         'StartDrawingRequest': function() {
             var data = ['my functionality id', 'Polygon'];
             channel.postRequest('DrawTools.StartDrawingRequest', data);
@@ -2419,6 +2586,7 @@ channel.getScreenshot(function(data) {
         'AfterAddMarkerEvent',
         'MarkerClickEvent',
         'RouteResultEvent',
+        'FeedbackResultEvent',
         'MapClickedEvent',
         'AfterMapMoveEvent',
         'UserLocationEvent',
@@ -2598,6 +2766,44 @@ channel.getScreenshot(function(data) {
                     ]);
                     //Plot Stops sample
                     plotRouteStops( data.plan.itineraries[0], true);
+                }
+            }
+        },
+        'FeedbackResultEvent': function(data) {
+            if (!data || !data.success) {
+                displayMessage('Getting feedback response failed ! ', 5);
+            } else {
+                displayMessage('Getting feedback response success ! ', 5);
+                var geoJSON = data && data.data && data.data.getFeedback ? data.data.getFeedback : undefined;
+                //Plot routes
+                if (geoJSON) {
+                    channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
+                        geoJSON, {
+                            clearPrevious: true,
+                            centerTo: true,
+                            cursor: 'zoom-in',
+                            prio: 4,
+                            featureStyle: {
+                                fill: {
+                                    color: '#ff0000'
+                                },
+                                stroke: {
+                                    color: '#ff0000',
+                                    width: 5
+                                },
+                                text: {
+                                    scale: 1.3,
+                                    fill: {
+                                        color: 'rgba(0,0,0,1)'
+                                    },
+                                    stroke: {
+                                        color: 'rgba(255,255,255,1)',
+                                        width: 2
+                                    }
+                                }
+                            }
+                        }
+                    ]);
                 }
             }
         }
