@@ -3,21 +3,14 @@
 This example continues the `mythird` sample application by adding new functionality to it. Add another bundle to the startup sequence *__after__* the toolbar bundle:
 
 ```javascript
-{ 
-    "title" : "myfourthbundle",
-    "en" : "myfourthbundle",
-    "fi" : "myfourthbundle",
-    "sv" : "myfourthbundle",
-    "bundleinstancename" : "myfourthbundle",
+{
     "bundlename" : "myfourthbundle",
-    "instanceProps" : {},
-    "metadata" : { 
-        "Import-Bundle" : { 
+    "metadata" : {
+        "Import-Bundle" : {
             "myfourthbundle" : {
                 "bundlePath" : "../../../packages/sample/bundle/"
             }
-        },
-        "Require-Bundle-Instance" : []
+        }
     }
 }
 ```

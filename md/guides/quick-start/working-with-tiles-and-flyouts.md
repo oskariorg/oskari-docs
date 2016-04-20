@@ -36,21 +36,14 @@ Open `/applications/sample/mythird/appsetupconfig.json` file in an editor
 Find the a bundle block for `mythirdbundle` and append the following `toolbar` bundle after it to load it after `mythirdbundle` or before to load it before it (remember to separate the blocks with a comma):
 
 ```javascript
-{ 
-    "title" : "Toolbar",
-    "en" : "Toolbar",
-    "fi" : "Toolbar",
-    "sv" : "Toolbar",
-    "bundleinstancename" : "toolbar",
+{
     "bundlename" : "toolbar",
-    "instanceProps" : {},
-    "metadata" : { 
-        "Import-Bundle" : { 
+    "metadata" : {
+        "Import-Bundle" : {
             "toolbar" : {
                 "bundlePath" : "../../../packages/framework/bundle/"
-            } 
-        },
-        "Require-Bundle-Instance" : []
+            }
+        }
     }
 }
 ```
@@ -62,21 +55,14 @@ Reload `index.html` on your browser and you have a generic toolbar UI component 
 You can add different bundles having a Tile/Flyout to the startupsequence and they will appear in that order on the left side menu. Note that you need to add them after `divmanazer` because that is the bundle which adds the Tile and Flyout functionalities. Another example is a bundle that shows which layers are on the map - you can add it with:
 
 ```javascript
-{ 
-    "title" : "Layer Selection",
-    "en" : "Layer Selection",
-    "fi" : "Layer Selection",
-    "sv" : "Layer Selection",
-    "bundleinstancename" : "layerselection2",
+{
     "bundlename" : "layerselection2",
-    "instanceProps" : {},
-    "metadata" : { 
-        "Import-Bundle" : { 
+    "metadata" : {
+        "Import-Bundle" : {
             "layerselection2" : {
                 "bundlePath" : "../../../packages/framework/bundle/"
             }
-        },
-        "Require-Bundle-Instance" : []
+        }
     }
 }
 ```

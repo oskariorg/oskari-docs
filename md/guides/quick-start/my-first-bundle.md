@@ -14,21 +14,14 @@ To add new funtionality to the application we add another bundle to it:
 * Find the a bundle block for `myfirstbundle` and append the following `mysecondbundle` after it (remember to separate the blocks with a comma):
 
 ```javascript
-{ 
-    "title" : "My2nd",
-    "en" : "My2nd",
-    "fi" : "My2nd",
-    "sv" : "My2nd",
-    "bundleinstancename" : "mysecondbundle",
+{
     "bundlename" : "mysecondbundle",
-    "instanceProps" : {},
-    "metadata" : { 
-        "Import-Bundle" : { 
+    "metadata" : {
+        "Import-Bundle" : {
             "mysecondbundle" : {
                 "bundlePath" : "../../../packages/sample/bundle/"
-            } 
-        },
-        "Require-Bundle-Instance" : []
+            }
+        }
     }
 }
 ```

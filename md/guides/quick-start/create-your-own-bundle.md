@@ -20,21 +20,14 @@ Create a `instance.js` file under `/bundles/framework/bundle/<bundle-identifier>
 Add your bundle to the applications startup sequence like you did in previous steps (change the `<bundle-identifier>`):
 
 ```javascript
-{ 
-    "title" : "MyBundle",
-    "en" : "MyBundle EN",
-    "fi" : "MyBundle FI",
-    "sv" : "MyBundle SV",
-    "bundleinstancename" : "<bundle-identifier>",
+{
     "bundlename" : "<bundle-identifier>",
-    "instanceProps" : {},
-    "metadata" : { 
-        "Import-Bundle" : { 
+    "metadata" : {
+        "Import-Bundle" : {
             "<bundle-identifier>" : {
                 "bundlePath" : "../../../packages/framework/bundle/"
             }
-        },
-        "Require-Bundle-Instance" : []
+        }
     }
 }
 ```
