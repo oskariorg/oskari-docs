@@ -6,6 +6,8 @@
 * instantiates Bundle Instances
 * manages Bundle Instance lifecycle
 
+The code for Oskari class system/bundle manager/Oskari loader can be found in `Oskari/src`. The minified version of this is available in `Oskari/bundles/bundle.js` and a new version of this core-functionality can be built by running `npm run core` command in `Oskari/tools` folder.
+
 ## Oskari loader
 
 Oskari loader is part of Oskari core functionality. The loader takes in a JSON-array describing bundles that need to be loaded, started and configured:
