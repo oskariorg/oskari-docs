@@ -41,7 +41,6 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-
                     <!--
                     <iframe
                             id="publishedMap"
@@ -259,7 +258,7 @@ channel.postRequest('GetRouteRequest', [data]);
         <pre>
             <code class="hljs javascript">
                 var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
                 };
                 channel.postRequest('GetFeedbackServiceRequest', [data]);
             </code>
@@ -281,7 +280,7 @@ channel.postRequest('GetRouteRequest', [data]);
         <pre>
             <code class="hljs javascript">
                 var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
                 };
                 channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
             </code>
@@ -307,7 +306,7 @@ channel.postRequest('GetRouteRequest', [data]);
                   "status": "open,closed"
                 };
                 var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                 "srs":"EPSG:3067",
                 "getServiceRequests": JSON.stringify(filterdata)
                 };
@@ -339,7 +338,7 @@ channel.postRequest('GetRouteRequest', [data]);
                 "long": "384717.640000"
                 };
                 var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                 "srs":"EPSG:3067",
                 "postServiceRequest": JSON.stringify(postdata)
                 };
@@ -2195,14 +2194,14 @@ channel.getScreenshot(function(data) {
         },
         'GetFeedbackServiceRequest': function() {
             var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
             };
             channel.postRequest('GetFeedbackServiceRequest', [data]);
         },
         'GetFeedbackServiceDefinitionRequest': function() {
             var data = {
                 "serviceId": "172",
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1"
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
             };
             channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
         },
@@ -2212,27 +2211,30 @@ channel.getScreenshot(function(data) {
                 "status": "open,closed"
             };
             var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                 "srs":"EPSG:3067",
                 "getServiceRequests": JSON.stringify(filterdata)
             };
             channel.postRequest('GetFeedbackRequest', [data]);
         },
         'PostFeedbackRequest': function() {
-            var postdata = {
-                "service_code": "180",
-                "description": "Kampin bussipysäkillä haisee koiran pissi",
-                "first_name" : "Oskari",
-                "last_name" : "Maanmittaushallitus",
-                "lat": "6674188.748000",
-                "long": "384717.640000"
-            };
-            var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
-                "srs":"EPSG:3067",
-                "postServiceRequest": JSON.stringify(postdata)
-            };
-            channel.postRequest('PostFeedbackRequest', [data]);
+            channel.getMapPosition(function(pdata){
+                var postdata = {
+                    "service_code": "180",
+                    "description": "Kampin bussipysäkillä haisee koiran pissi",
+                    "first_name" : "Oskari",
+                    "last_name" : "Maanmittaushallitus",
+                    "lat": pdata.centerY,
+                    "long": pdata.centerX
+                };
+                var data = {
+                    "baseUrl": "http://dev.hel.fi/open311-test/v1/",
+                    "srs":"EPSG:3067",
+                    "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('PostFeedbackRequest', [data]);
+                channel.log('PostFeedbackRequest posted with data', [data]);
+            });
         },
         'StartDrawingRequest': function() {
             var data = ['my functionality id', 'Polygon'];
