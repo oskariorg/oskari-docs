@@ -1,6 +1,7 @@
+
 @font-face {
-    font-family: TitilliumWeb;
-    src: url('/fonts/TitilliumWeb.ttf');    
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.ttf');    
 }
 
 @header-color: #e8ecef;
@@ -21,35 +22,37 @@ body {
 }
 
 body, p {
-    font-family: TitilliumWeb-Regular;
+    font-family: Open Sans;
     font-size: 17px;
     color: #262626;
 }
 
 h1 {
-    font-family: TitilliumWeb-Regular;
+    font-family: Open Sans;
     color: #262626;
     background-color: #D9D9D9;
     padding: 4px;
 }
 
 h2 {
-    font-family: TitilliumWeb-Regular;
+    font-family: Open Sans;
     font-size: 24px;
     color: #262626;
     background-color: #D9D9D9;
-    padding: 4px;
+    /*padding: 4px;*/
+    padding: 10px;
 }
 
 h3 {
-    font-family: TitilliumWeb-Light;
+    font-family: Open Sans;
     font-size: 20px;
     background-color: #F9F9F9;
-    padding: 4px;
+    /*padding: 4px;*/
+    padding: 10px;
 }
 
 h4, h5, h6 {
-    font-family: TitilliumWeb-Light;
+    font-family: Open Sans;
     font-size: 20px;
     color: #262626;
 }
@@ -251,4 +254,25 @@ div.bundle-menu {
 
 .oskari-sortable-th {
     cursor: pointer;
+}
+
+
+div.frontpage-logobar {
+    background-image: url('../topbar-grafiikka.png');
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+div.oskari-network {
+    h2 {
+        background-color: #ffd400;
+    }
+}
+
+.panel-warning {
+    border: 1px solid #ffd400;
+    .panel-heading {
+        border-top: 10px solid #ffd400;
+        background-color: #fdf8d9;
+    }
 }
