@@ -71,7 +71,9 @@
                                         <option value="GetPixelMeasuresInScale">Get pixel measures in scale</option>
                                         <option value="stateHandling">Handle map state</option>
                                         <option value="GetFeatures">Get features</option>                                        
-                                        <option value="GetScreenshot">Get a screenshot of the map</option>                                        
+                                        <option value="GetScreenshot">Get a screenshot of the map</option> 
+                                        <option value="SendUIEvent">Send UI event</option>       
+                                                                               
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
@@ -1201,8 +1203,24 @@ channel.getScreenshot(function(data) {
                 <img style="border: 1px solid black;max-width:100%;overflow: hidden;" id="getScreenshotImgTag" src=""/>
             </div>
         </div>
+		<div id="SendUIEvent" style="display: none;">
+			<div>
+			    Open/close coordinatetool's popup: 
+				<button id="btnSendUIEvent"
+					class="btn btn-primary exampleready"
+					data-example="sendUIEvent">SendUIevent</button>
+			</div>					
+			<pre>
+                <code class="hljs javascript">  
+                    var toolname = 'coordinatetool';
+					channel.sendUIEvent([toolname], function(data) {
+					    channel.log('sendUIEvent: ', data);
+					});
+                  </code>
+            </pre>			
+		</div>
 
-        <!-- events -->
+		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
             <div>Occurs after a marker has been added to map</div>
             <div>
@@ -2540,6 +2558,11 @@ channel.getScreenshot(function(data) {
                 channel.log(msg);
                 document.getElementById('getScreenshotImgTag').src = data;
             });
+        },
+        'sendUIEvent': function(toolname) {
+        	channel.sendUIEvent([toolname], function(data) {
+        	    channel.log('sendUIEvent: ', data);
+        	});
         }
     };
 
