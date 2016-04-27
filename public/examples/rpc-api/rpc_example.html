@@ -2559,8 +2559,8 @@ channel.getScreenshot(function(data) {
                 document.getElementById('getScreenshotImgTag').src = data;
             });
         },
-        'sendUIEvent': function(toolname) {
-        	channel.sendUIEvent([toolname], function(data) {
+        'sendUIEvent': function() {
+        	channel.sendUIEvent(['coordinatetool'], function(data) {
         	    channel.log('sendUIEvent: ', data);
         	});
         }
