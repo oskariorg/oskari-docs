@@ -1,28 +1,26 @@
 # Customizing the application for your environment
 
-Maven modifies/filters some properties and xml files during compile/build. The default values for the placeholder values can be seen in `oskari-server/servlet-map/filter/filter-base.properties`
+Most settings can and should be overridden to match your environment by including an `oskari-ext.properties` in the server classpath for example in Jetty you can add the custom properties as `{JETTY_HOME}/resources/oskari-ext.properties`.
 
-## Compile filter properties
+## Properties
 
-To modify these compile-time defaults you can setup a profile in your maven global settings.xml:
+The default values for properties used in the map application is found in `oskari-server/servlet-map/src/main/resources/oskari.properties`. To override all or any of these you can add an `oskari-ext.properties` file in your classpath.
 
-Example `${MAVEN_HOME}/conf/settings.xml` profile:
+Any existing property will be overridden and any new ones will be available through `PropertyUtil` methods in the application (for example `PropertyUtil.get("propertyName")`).
 
-    <profile>
-        <id>oskari-profile</id>
-        <activation>
-            <file>
-                <exists>oskari-profile-trigger</exists>
-            </file>
-        </activation>
-        <properties>
-            <filter-path>/path/to/my/private/oskari-filter-profiles/${project.artifactId}</filter-path>
-    		<filter-profile>my-local</filter-profile>
-        </properties>
-    </profile>
+Examples:
 
-This will look for a file `my-local.properties` in directory `/path/to/my/private/oskari-filter-profiles/map-servlet`, and use the properties in that file during filtering of properties instead of the default `template.properties` found in `oskari-server/servlet-map/filter` directory. (For example if building using the `tomcat-profile` the `tomcat-template.properties` is used).
+    # set to true to get database populated with initial demo content
+    oskari.init.db=false
 
-## Runtime properties
+    # true all ssl certs/hosts for debugging! configure certs on the server for production
+    oskari.trustAllCerts=true
+    oskari.trustAllHosts=true
 
-To override properties defined in `oskari-server/servlet-map/src/main/resources/oskari.properties` you can add an `oskari-ext.properties` file in your classpath. Any existing property will be overridden and any new ones will be available through `PropertyUtil` methods (for example `PropertyUtil.get("propertyName")`).
+    # url path to call for ajax requests/action routes
+    oskari.ajax.url.prefix=/action?
+
+    # Supported locales, comma separated and default first
+    oskari.locales=en_US,fi_FI,sv_SE
+
+The properties also setup various url links for search service, GIS metadata, GeoServer myplaces, print service, etc that needs to be modified to match the server environment.

@@ -1,49 +1,55 @@
 extends layout
 
 block main
-  h1 Download
-
-
-  :markdown
-    ## Github
-    
-    Master branch has stable production ready code that is in use at ​[Paikkatietoikkuna](http://www.paikkatietoikkuna.fi/web/en) while develop is the most recent code which is more of a work in progress and most likely contains bugs.
-
-    ### Frontend
-
-    [Oskari JavaScript framework](https://github.com/nls-oskari/oskari) is available on GitHub.
-
-    * [releases](https://github.com/nls-oskari/oskari/tags)
-    * master [​tarball](https://github.com/nls-oskari/oskari/tarball/master), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
-    * develop [​tarball](https://github.com/nls-oskari/oskari/tarball/develop), [​zip](https://github.com/nls-oskari/oskari/zipball/master)
-
-    ### Backend
-
-    [Oskari-server](https://github.com/nls-oskari/oskari-server) and [oskari-liferay](https://github.com/nls-oskari/oskari-liferay) are available on GitHub.
-
-    * [releases](​https://github.com/nls-oskari/oskari-server/tags)
-    * master [​tarball](https://github.com/nls-oskari/oskari-server/tarball/master), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
-    * develop [​tarball](https://github.com/nls-oskari/oskari-server/tarball/develop), [​zip](https://github.com/nls-oskari/oskari-server/zipball/master)
-
-  - if (files && files.length)
-
     :markdown
-      ## Direct download
+        # Download
 
-      Oskari packages are available on this site in `.zip` and `.tgz` formats.
+    div.row
+        div.col-md-12
+            div.panel.panel-warning
+                div.panel-heading
+                    h4 
 
-      Packages include:
-        * minified oskari build (`/min/oskari.min.js` and `min/oskari.min.css` files)
-        * language files (located under `/min`)
-        * sample `index.html` and `index.js` files
-        * sample `appsetup.json` and `config.json`
-        * stylesheets and image files
+                    div 
+                        a.btn.btn-primary.btn-lg( href="/build/server/jetty-8.1.16-oskari.zip" ) Download Oskari Jetty bundle
 
-      To get started, extract the package and open `index.html` in your web browser.
-      Note that the `appsetup.json` and `config.json` are fetched via ajax so you might need a web server to serve these.
+                    div 
+                        br   
+                        p 
+                            a( href="/documentation/backend/setup-jetty" ) Instructions 
+                            on how to run and configure Oskari Jetty bundle.
 
-    ul
-      - files.forEach(function(file) {
-        li
-          a(href='/release/' + file) #{file}
-      - });
+                        p  Includes prebuilt and configured:
+                            ul
+                                li Oskari frontend code (
+                                    a(href="https://github.com/nls-oskari/oskari", target="_blank") https://github.com/nls-oskari/oskari)
+                                li Oskari server (map functionality:
+                                    a(href="https://github.com/nls-oskari/oskari-server/tree/master/webapp-map", target="_blank")  https://github.com/nls-oskari/oskari-server/tree/master/webapp-map)
+                                li Oskari transport (WFS services:
+                                    a(href="https://github.com/nls-oskari/oskari-server/tree/master/webapp-transport", target="_blank")  https://github.com/nls-oskari/oskari-server/tree/master/webapp-transport)
+                                li Oskari printout (Print services:
+                                    a(href="https://github.com/nls-oskari/oskari-server/tree/master/servlet-printout", target="_blank")  https://github.com/nls-oskari/oskari-server/tree/master/servlet-printout)
+                                li Geoserver 2.7.1.1 with WPS-plugin and Oskari extensions (
+                                    a(href="https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext", target="_blank") https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext)
+
+
+    div.row
+        :markdown
+
+            ## Github repositories
+
+            * [Oskari JavaScript framework](https://github.com/nls-oskari/oskari)
+            * [Oskari Server](https://github.com/nls-oskari/oskari-server)
+            * [Maven template for extending oskari-server functionality](https://github.com/nls-oskari/oskari-server-extension-template)
+            * [Sample configurations](https://github.com/nls-oskari/sample-configs)
+            * [RPC client library](https://github.com/nls-oskari/rpc-client)
+            * [Oskari.org site](https://github.com/nls-oskari/oskari.org)
+            * [Liferay 6.0.6 wrapper for Oskari Server](https://github.com/nls-oskari/oskari-liferay)
+
+            Master branch has stable production ready code that is in use for example at ​[Demo.oskari.org](http://demo.oskari.org) and ​[Paikkatietoikkuna.fi](http://www.paikkatietoikkuna.fi/web/en).
+
+            Develop branch has the most recent code which is more of a work in progress and may contain bugs.
+            
+            ## License
+            
+            Read about Oskari Source code licensing from [here](/documentation/development/license).

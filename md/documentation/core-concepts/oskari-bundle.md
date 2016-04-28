@@ -29,18 +29,12 @@ Bundle lifecycle methods
 * `start` - called by application to start any functionality that this bundle instance might have
 * `update` - called by Bundle Manager when Bundle Manager state is changed (to inform any changes in current 'bundlage')
 * `stop` - called by application to stop any functionality this bundle instance has
-Bundle instance is injected with a mediator object on startup with references to bundle manager and class system:
+Bundle instance is injected with a mediator object on startup with provides the bundle with its bundleid:
 
 ```javascript
-bi.mediator = new bundle_mediator( {
-    "instanceid" : s,
-    "state" : "initial",
-    "bundle" : b,
-    "instance" : bi,
-    "manager" : this,
-    "clazz" : clazz.prototype.singleton,
-    "requestMediator" : {}
-});
+instance.mediator = {
+    bundleId : bundleId
+}
 ```
 
 ## Resources

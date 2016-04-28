@@ -90,15 +90,10 @@ Now you are able to create tables with geometry fields.
 
 
 
-2) Run all Maven commands listed in *oskari-server/external-libs/mvn-install.txt*
-
-    This adds maven dependencies not found in common repositories to your local maven repository
-
-
-3) Ignore jetty-env.xml in /oskari-server/servlet-map path, if exists
+2) Ignore jetty-env.xml in /oskari-server/servlet-map path, if exists
     e.g. mv jetty-env.xml jetty-env-ignore.xml
 
-4) Fix pom files for parcel extensions   
+3) Fix pom files for parcel extensions   
 
 * Add to oskari/server/servlet-map-pom.xml
 
@@ -111,14 +106,14 @@ Now you are able to create tables with geometry fields.
             <version>1.0-SNAPSHOT</version>
   </dependency>
 
-5) Compile and package the servlet by running 
+4) Compile and package the servlet by running 
 
     cd oskari-server
-    mvn clean package -f servlet-map-pom.xml
+    mvn clean package
 
-6) Copy the war package from under oskari-server/servlet-map/target/ to {jetty.home}/webapps
+5) Copy the war package from under oskari-server/webapp-map/target/ to {jetty.home}/webapps
 
-7) Setup override properties for Oskari. Add an oskari-ext.properties in {jetty.home}/resources/oskari-ext.properties (oskari.trustAllCerts/oskari.trustAllHosts bypasses certificate errors on ssl requests):
+6) Setup override properties for Oskari. Add an oskari-ext.properties in {jetty.home}/resources/oskari-ext.properties (oskari.trustAllCerts/oskari.trustAllHosts bypasses certificate errors on ssl requests):
 
     # set to true to get database populated with initial demo content
     oskari.init.db=false
@@ -181,7 +176,7 @@ Now you are able to create tables with geometry fields.
 
 * Create the initial db with default view (this isn't perfect but gets you started) 
 
-    mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-parcel
+    mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=app-parcel
 
 
 OR 
@@ -194,7 +189,7 @@ OR
 
     b) Register bundles to the database by running:
 
-        mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=postgres-register-bundles
+        mvn clean install exec:java -Doskari.dropdb=true -Doskari.setup=register-bundles
 
     c) Add configurations for layers that you want to use in your application. View and parcel bundle refers to layer with certain IDs. These need to match with the inserted layers. To insert layers and permissions to view those layers see:
 
@@ -243,25 +238,6 @@ The layer ids also need to be configured according to the system/configuration (
 
 -------------------------------------------
 
-# Add parcel editing support
-
-1) Install GeoServer http://geoserver.org/ (tested with 2.4.3)
-
-* Use unique port for GS  e.g. 8084 (not equal to Oskari Jetty run)
-*   If GS is already available, look guidelines in point 9) 
-
-
-2) Replace Geoserver data directory, add OskariMarkFactory extension and start GeoServer (GS)
-
-* Replace {geoserver}\data_dir with oskari\oskari-server\content-resources\config\geoserver\data
-* Start GeoServer {geoserver}\bin\startup
-* Check data configuration with GS admin  (**http://localhost:8084/geoserver/web** --> layer preview layers my_places and my_places_categories ! these are empty in the initial  state)
-* Restart GS 
-
-3) Set GS layer configurations for preparcel and preparcel_data tables and security setup / data 
-
-* Use GS Admin (see below section **Details for GeoServer configuration**).
-
 # Add print service support
 
 1) Build  oskari_server/servlet-printout ( mvn clean install) and copy oskari-printout-backend-1.0.x-SNAPSHOT.war from target path to {jetty.home}/webapps path 
@@ -309,42 +285,3 @@ layer.tiles.url.whitelist=^http:\\/\\/(www|demo|static|cdn)\\.paikkatietoikkuna\
 layer.timeout.seconds=32
 geojson.debug=true
 
-
-# Details for GS configuration : 
-
-* Open geoserver admin tool (eg. localhost:8084/geoserver) Default admin = admin,  pw = geoserver.
-* Create new workspace *oskari*, if not . Set it as default and enable WFS and WMS services. Set namespace URI: (eg. http://www.oskari.org)
-* Add your database as a new postgis store
-    * Store->Add new Store->PostGIS
-    * Select *oskari* as workspace and name the data source: "my_places_categories" 
-    * Check it as Enabled
-    * Set the connection parameters, for example: 
-        * host: localhost, port: 5432
-        * database: oskaridb, schema: public
-        * user: *username*, passwd: *password* (this sample default postgres/postgres)
-* Add layers preparcel, preparcel_data
-    * Layers->Add a new resource->Add layer from "ows:my_places_categories"
-    * Publish preparcel (no geometry field )
-        * Set Declared SRS (eg. EPSG:3067)
-        * Set Native bbox (50 000, 6400000, 800000, 8000000)
-        * Set Lat/Lon Bounding Box (eg. press compute from native bounds)
-        * Publishing->Set Default Style (e.g. "Polygon") (no matter what)
-        * Save
-    * Publish preparcel_data :
-        * Set Declared SRS (eg. EPSG:3067)
-        * Set Native bbox (50 000, 6400000, 800000, 8000000)
-        * Set Lat/Lon Bounding Box (eg. press compute from native bounds)
-        * Publishing->Set Default Style (e.g. "MyPlacesSampleStyle") (not used)
-        * Save
-    * Publish my_places_categories:
-        * Set Declared SRS (eg. EPSG:3067)
-        * Set Lat/Lon Bounding Box (eg. press compute from native bounds)
-        * Publishing->Set Default Style (e.g. "MyPlacesSampleStyle") (used for rendering in Oskari)
-        * Save
-* Set Security items for data / Add new rule
-  e.g.
-
-          *.*.r                     *
-          oskari.prepracel.w       *
-          oskari.preparcel_data.w        *
-          

@@ -1,14 +1,98 @@
-## Creating new location search channel services
+## Creating a custom location search channel
 
-There is an example search channel for OpenStreetMap available in the file `servlet-map/src/main/java/fi/nls/oskari/search/OpenStreetMapSearchService.java`. All search channel services need to implement the `SearchableChannel` interface from the file `SearchableChannel.java` in the same directory. To make the new channel available, the file `servlet-map/src/main/resources/fi/nls/oskari/map/servlet/oskari.properties` requires some modifications. First, some parameters of the new channel need to be defined. In the case of `OpenStreetMapSearchService`, those parameters are the Java class name and service URL:
+The server-side search functionality in Oskari has a concept called search channel. Search channel means
+a handler for one kind of service to make queries to. When using the search functionality one can specify which
+channels to search from e.g. which services to search from and calling the common API the results will be combined.
 
-    search.channel.OPENSTREETMAP_CHANNEL.className=fi.nls.oskari.search.OpenStreetMapSearchChannel
-    search.channel.OPENSTREETMAP_CHANNEL.service.url=http://nominatim.openstreetmap.org/search
+All search channels need to implement the `SearchableChannel` interface from the
+file `service-search/src/main/java/fi/nls/oskari/search/channel/SearchableChannel.java`. The easiest way to add a
+custom search channel is to extend the class `service-search/src/main/java/fi/nls/oskari/search/channel/SearchChannel.java`
+and annotate the class with `@Oskari("channelID")`:
 
-Second, the new channel needs to be included to the list of active search channels:
+    package fi.nls.oskari.search;
 
-    search.channels=[...], OPENSTREETMAP_CHANNEL
+    import fi.mml.portti.service.search.ChannelSearchResult;
+    import fi.mml.portti.service.search.SearchCriteria;
+    import fi.mml.portti.service.search.SearchResultItem;
+    import fi.nls.oskari.annotation.Oskari;
+    import fi.nls.oskari.log.LogFactory;
+    import fi.nls.oskari.log.Logger;
+    import fi.nls.oskari.search.channel.SearchChannel;
+    import fi.nls.oskari.util.IOHelper;
 
-Finally, it also needs to be included to the channels list of action handler's search results:
+    import java.io.IOException;
 
-    actionhandler.GetSearchResult.channels=[...], OPENSTREETMAP_CHANNEL
+    @Oskari("MyChannel")
+    public class CustomChannel extends SearchChannel {
+
+        private Logger log = LogFactory.getLogger(this.getClass());
+
+        public ChannelSearchResult doSearch(SearchCriteria criteria) {
+            ChannelSearchResult result = new ChannelSearchResult();
+            try {
+                // TODO: do the actual search
+                final String responseData = IOHelper.getURL("https://www.google.fi/?q="
+                        + criteria.getSearchString());
+                // parse responseData and populate result with SearchResultItems
+                SearchResultItem item = new SearchResultItem();
+                item.setTitle("MySearchResult");
+                result.addItem(item);
+            }
+            catch (IOException ex) {
+                log.error("Error connecting to service");
+            }
+            return result;
+        }
+    }
+
+Once the class is in the servers classpath the search channel is available in searches as channel with id "MyChannel".
+
+If you want to whitelist search channels and use only relevant ones for your application you can define a list of channel id's in oskari-ext.properties:
+
+    search.channels=OPENSTREETMAP_CHANNEL,MyChannel
+
+If you don't want to specify searches to use your channel explicitly you can add it to a list of default channels to be used.
+These channels are *always* added as target channels when making searches in addition to the ones defined explicitly:
+
+    search.channels.default=MyChannel
+
+If you only want to use it when GetSearchResult action handler is called. You can add it to this property:
+
+    actionhandler.GetSearchResult.channels=MyChannel, OPENSTREETMAP_CHANNEL
+
+## More examples
+
+There is an example search channel for OpenStreetMap available in the
+file `service-search-opendata/src/main/java/fi/nls/oskari/search/OpenStreetMapSearchService.java` and several more in service-search-nls.
+
+Notice that when returning results the location should be in the same projection as specified in the criteria!
+
+## SearchChannel methods to override
+
+### void init();
+
+Any initialization should be performed here. Properties setup for example.
+
+### SearchableChannel.Capabilities getCapabilities();
+
+Capabilities is an enum with values COORD, TEXT and BOTH. Defaults to TEXT on SearchChannel baseclass.
+- TEXT means the channel can be used to search with text.
+- COORD means the channel can be used to search with coordinates/reverse geocode.
+- BOTH means the channel implements both text and coordinate based searches.
+
+### boolean isValidSearchTerm(SearchCriteria criteria);
+
+This method can be overridden to check whether the criteria makes sense in the context of the channel.
+Like is the searchtext in correct syntax for a cadastral parcel id etc.
+
+### ChannelSearchResult reverseGeocode(SearchCriteria criteria) throws IllegalSearchCriteriaException;
+
+Implement this method if you want to use reverse geocoding for the channel.
+You will also need to override getCapabilities to return COORD or BOTH.
+
+## Things to improve (TODO)
+
+* Parallel search
+* Maybe add result SRS and have a common transformation so channels don't need to care about it
+* Logic for result ordering
+* Describe result items in more detail and make them more generic to support more properties

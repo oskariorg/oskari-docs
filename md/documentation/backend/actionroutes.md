@@ -1,16 +1,5 @@
 # Action routes
 
-* Added by MapFull as this is liferay specific
-    - GetArticlesByTag
-
-* Not used anymore
-    - GetFeatureDataXML
-    - GetInspireThemes
-    - SaveMapState
-    - GetUserData
-    - PublishMigration
-    - GetProxyRequest
-
 ## View
 
 - [GetAppSetup](/documentation/backend/actionroutes/getappsetup)
@@ -45,27 +34,22 @@
 
 - GetWFSLayerConfiguration (soon to be deprecated)
 
-## WFS (deprecated)
-
-- GET\_PNG\_MAP
-- GET\_HIGHLIGHT\_WFS\_FEATURE\_IMAGE
-- GET\_XML\_DATA
-- QUERY\_FIND\_RAW\_DATA\_TO\_TABLE
-- GET\_HIGHLIGHT\_WFS\_FEATURE\_IMAGE\_BY\_POINT
-
 ## Data
 
 - [GetFeatureInfoWMS](/documentation/backend/actionroutes/getfeatureinfowms)
 - [GetSearchResult](/documentation/backend/actionroutes/getsearchresult)
-- [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/GetGeoLocatorSearchResult)
+- [GetGeoLocatorSearchResult](/documentation/backend/actionroutes/getGeoLocatorSearchResult)
+- [GetReverseGeocodingResult](/documentation/backend/actionroutes/getReverseGeocodingResult)
 - [GetSotkaData](/documentation/backend/actionroutes/getsotkadata)
+- [GetAnalysisData](/documentation/backend/actionroutes/getAnalysisData)
 - GetFeatureDataXML
 - GetInspireThemes
 - [GetPreview](/documentation/backend/actionroutes/getpreview)
 - [HasAcceptedPublishedTermsOfUse](/documentation/backend/actionroutes/hasacceptedpublishedtermsofuse)
 - [AcceptPublishedTermsOfUse](/documentation/backend/actionroutes/acceptpublishedtermsofuse)
+- [Feedback](/documentation/backend/actionroutes/feedback)
 - GetWfsFeatureData (soon to be deprecated)
-GetProxyRequest
+- GetProxyRequest
 
 ## My places
 
@@ -85,3 +69,13 @@ GetProxyRequest
 ## USERLAYER (data import)
 
 - [CreateUserLayer](/documentation/backend/actionroutes/createauserlayer)
+
+## Admin
+
+- [SystemViews](/documentation/backend/actionroutes/systemViews)
+
+
+## Platform specific functionality
+
+Examples implemented in oskari-server/control-example and oskari-liferay/portlet-map-base
+- GetArticlesByTag

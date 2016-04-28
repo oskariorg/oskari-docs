@@ -1,6 +1,6 @@
 # Sample definition for a bundle
 
-A file named `bundle.js` under `/packages/<mynamespace>/bundle/<bundle-identifier>/` folder should contain this sort of content. It defines that the bundles implementation file `instance.js` is located under `/bundles/mynamespace/bundle/<bundle-identifier>/` and localization data under that in `locale/<lang>.js` files. At the end it installs the bundle to the Oskari framework so it can be started by the Oskari loader. Change the `<bundle-identifier>` and `<mynamespace>` to the identifiers of your choosing before actually using this sample template.
+A file named `bundle.js` under `/packages/<mynamespace>/bundle/<bundle-identifier>/` folder should contain this sort of content. It defines that the bundles implementation file `instance.js` is located under `/bundles/mynamespace/bundle/<bundle-identifier>/` and localization data under that in `locale/<lang>.js` files. At the end it installs the bundle to the Oskari framework so it can be started by the Oskari loader. Change the `<bundle-identifier>` and `<mynamespace>` to the identifiers of your choice before actually using this sample template.
 
 ```javascript
 /**

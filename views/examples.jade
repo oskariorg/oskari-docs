@@ -1,0 +1,164 @@
+extends layout
+
+
+block main
+  :markdown
+    # Examples
+
+  div.container
+    div.row
+      :markdown
+        ## Live sites using Oskari 
+
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Paikkatietoikkuna.fi
+
+          div.panel-body
+            :markdown
+              The most recent release version of Oskari is in use at Paikkatietoikkuna.
+              <a href="http://www.paikkatietoikkuna.fi/web/en/map-window" target="_blank"><img src="/images/example_paikkatietoikkuna.png" class="img-responsive">
+              </a>
+              [Technical details](/documentation/examples/technical_details_paikkatietoikkuna)
+
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Map service of Tampere City
+
+          div.panel-body
+            :markdown
+              A service for viewing spatial data of Tampere City.
+              <a href="https://kartat.tampere.fi/oskari" target="_blank"><img src="/images/example_tampere_map.png" class="img-responsive">
+              </a>
+              
+
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Finnish eGovernment portal
+
+          div.panel-body
+            :markdown
+              All Finnish public services are accessible through a single portal, where Oskari embedded maps are used in a number of contexts, e.g. for displaying locations of public services and for providing route instructions.
+              <a href="https://beta.suomi.fi" target="_blank"><img src="/images/example_suomi_fi.png" class="img-responsive">
+              </a>
+    div.row
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Liiteri
+
+          div.panel-body
+            :markdown
+              Liiteri provides information and statistical data about the built environment.
+              <a href="http://liiteri.ymparisto.fi/" target="_blank"><img src="/images/example_liiteri.png" class="img-responsive">
+              </a>
+
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Spatial data service of Tampere City
+
+          div.panel-body
+            :markdown
+              Embedded map to view public services in Tampere City. Go to http://kartat.tampere.fi/, choose "Kartat" and "Palvelukartta (beta)".
+              <a href="http://kartat.tampere.fi/" target="_blank"><img src="/images/example_tampere_spatialdata.png" class="img-responsive">
+              </a>
+
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Lounaispaikka
+
+          div.panel-body
+            :markdown
+              The new regional map service of Western Finland.
+              <a href="http://karttapalvelu.lounaispaikka.fi/" target="_blank"><img src="/images/example_lounaispaikka.png"  class="img-responsive">
+              </a>
+
+    div.row
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. HSY
+
+          div.panel-body
+            :markdown
+              A service for browsing and downloading spatial data of Helsinki Region Environmental Services Authority.
+              <a href="http://kartta.hsy.fi/" target="_blank"><img src="/images/example_hsy.png"  class="img-responsive">
+              </a>
+
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Finnish Transport Agency
+
+          div.panel-body
+            :markdown
+              A service for downloading spatial data of the Finnish Transport Agency.
+              <a href="https://extranet.liikennevirasto.fi/extranet/web/public/latauspalvelu" target="_blank"><img src="/images/example_liikennevirasto.png"  class="img-responsive">
+              </a>
+              
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Real Estate Information Service
+
+          div.panel-body
+            :markdown
+              Browse up to date data of real estate information system of whole Finland. Requires registration.
+              <a href="http://www.maanmittauslaitos.fi/aineistot-palvelut/verkkopalvelut/kiinteistotietopalvelu" target="_blank"><img src="/images/example_ktp.png"  class="img-responsive">
+              </a>
+              
+    div.row
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Lupapiste
+
+          div.panel-body
+            :markdown
+              A service for public permits, in the early stage only construction permits are handled. The map is available after registration.
+              <a href="https://www.lupapiste.fi/" target="_blank"><img src="/images/example_lupapiste.png"  class="img-responsive">
+              </a>
+              
+      div.col-md-4
+        div.panel.panel-warning.panelexample
+          div.panel-heading
+            h4. Harava
+
+          div.panel-body
+            :markdown
+              A survey service for residents to participate in the local planning and construction. The map is used for example in the ​[Harava proto](http://query.eharava.fi/325?lang=en) (click next to get to the 2nd page with the map).
+              <a href="http://query.eharava.fi/325?lang=en" target="_blank"><img src="/images/example_harava.png"  class="img-responsive">
+              </a>
+
+    <hr>
+
+    div.row
+      div.col-md-4
+        :markdown
+          ## Sample definitions:
+          * [Sample bundle definition](/guides/quick-start/sample-bundle-definition)
+          * [Sample instance definition](/guides/quick-start/sample-instance-definition)
+          * [Sample request definition](/documentation/core-concepts/oskari-request)
+          * [Sample request handler definition](/documentation/core-concepts/oskari-request)
+
+      div.col-md-4
+          :markdown
+              ## Hooks for custom extensions:
+              * [Adding action routes](/documentation/backend/adding-action-routes)
+              * [Adding search channels](/documentation/backend/searchchannels)
+
+        div.col-md-4
+        :markdown
+          ## Case examples:
+          * [Installing parcel application](/documentation/backend/custom-install-parcel)
+
+    div.row
+      div.col-md-4
+        :markdown
+          ## Frontend examples:
+          * [Overriding Oskari.org bundle locales](/documentation/frontend/override-locales)

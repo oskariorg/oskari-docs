@@ -1,30 +1,58 @@
 extends layout
 
 block main
+
   :markdown
     # Guides
+    If you are not already familiar with Oskari we recommend that you first take a look at [Oskari - Basics](/documentation)
 
-  div.row
-    div.col-md-4
+  div.container
+    div.row
       :markdown
-        ## Front-end developers
-        
-        For getting a grasp of the basics of Oskari front-end development, we recommend you begin with our [quick start guide](/guides/quick-start/my-first-bundle). It covers setting up the application setup, working with tiles and flyouts, using toolbar and creating your own bundle.
+        ## Getting started
+        #### What is your aim?
 
-    div.col-md-4
-      :markdown
-        ## Back-end developers
-        
-        1. Follow the [basic installation guide](/documentation/backend/basic-install) (or a more advanced one with postgres [here](/documentation/backend/basic-install-with-postgres))
+      div.col-md-6
+        div.panel.panel-warning
+          div.panel-heading
+            h4. I want to learn about the modular User Interface
 
-        2. Adding your own [action routes](/documentation/backend/adding-action-routes)
+          div.panel-body
+            :markdown
+              This guide gives you a quick start to Oskari UI development.
 
-        3. [Customize the application property values for your environment](/documentation/backend/customize-properties)
+              1. [Introduction to Oskari Frontend development](/guides/quick-start/my-first-bundle)
+              2. [Bundle documentation](/documentation/bundles)
+              3. [List of Oskari requests](/documentation/core-concepts/request-list)
+              4. [List of Oskari events](/documentation/core-concepts/event-list)
+              5. [Frontend documentation](/documentation)
 
-        4. [Creating new location search channel services](/documentation/backend/searchchannels)
+      div.col-md-6
+        div.panel.panel-warning
+          div.panel-heading
+            h4. I want to take full advantage of Oskari
 
-    div.col-md-4
-      :markdown
-        ## Oskari contributors
-        
-        For now, see our [how to contribute document](/documentation/development/how-to-contribute).
+          div.panel-body
+            :markdown
+              These steps are all you need to setup the Oskari stack and get started on developing your custom application.
+
+              1. [Setup database](/documentation/backend/setup-database)
+              2. [Setup Redis](/documentation/backend/setup-redis) (Optional, needed for WFS/Print)
+              3. [Setup Jetty](/documentation/backend/setup-jetty)
+              4. [Setup development environment](/documentation/backend/setup-development)
+    <hr>
+
+    div.row
+      div.col-md-6
+        :markdown
+          ## Other guides:
+          * [Oskari RPC examples](/examples/rpc-api/rpc_example.html) 
+          * [Case example of reporting tool using RPC](/documentation/examples/rpc-control)
+          * [RPC step by step](/guides/rpc-step-by-step)
+          * [Enabling Oskari events in RPC](/guides/rpc-events)
+          * [Oskari 2.0 Migration Guide](/guides/Oskari_2_Migration_Guide)
+      div.col-md-6
+        :markdown
+          ## See the frequently asked questions for more advice
+          * [FAQ](/documentation/faq)
+

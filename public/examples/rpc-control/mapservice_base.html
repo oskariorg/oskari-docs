@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="author" content="Team Oskari">
+
+    <title>Inspire workshop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">One address for citizens' services</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">E-services</a></li>
+            <li><a href="#">Services by topic</a></li>
+            <li><a href="#">States</a></li>
+            <li class="active"><a href="mapservice_step1.html">Map service</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="panel panel-default map-panel">
+            <div class="panel-body">
+                <h4>Thank you for your collaboration!</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-6">
+          <div class="panel panel-default form-panel">
+            <div class="panel-body">
+
+                <h4>Report bad road condition</h4>
+                <form class="form-horizontal" onsubmit="return false;">
+
+                  <div class="form-group">
+                      <label for="inputName" class="col-sm-4 control-label">Name</label>
+
+                      <div class="col-sm-8">
+                          <input class="form-control" name="name" id="inputName" placeholder="Name">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+
+                      <div class="col-sm-8">
+                          <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="textArea" class="col-sm-4 control-label">Description</label>
+
+                      <div class="col-sm-8">
+                          <textarea id="textArea" name="desc" class="form-control" rows="6"></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="coordinates" class="col-sm-4 control-label">Address</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" id="address" placeholder="Address near findings">
+                    </div>
+                  </div>
+                  <button id="btnAddNew" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+
+  </body>
+</html>

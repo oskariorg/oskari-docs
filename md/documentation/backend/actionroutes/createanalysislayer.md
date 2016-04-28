@@ -106,7 +106,7 @@
         ]
     }
 }
-### Methods (status 13.8.2013)
+### Methods (status 12.11.2014)
 
 ## Buffer (WPS vec:BufferFeatureCollection)
 Buffers features by a distance value supplied either as a parameter or by a feature attribute. 
@@ -114,24 +114,36 @@ Calculates buffers based on Cartesian distances.
 
 ## Aggregate (WPS vec:Aggregate)
 Computes one or more aggregation functions on a feature attribute. 
-Functions include Count, Average, Max, Median, Min, StdDev, Sum and NoDataCnt.
-NoDataCnt is not WPS aggregate method. It is a Count method with special filter.
-NoDataCnt is calculated only when there is wps_params no_data setup in portti_wfs_layer table for wfs layer.
-(e.g. {"input_type":"gs_vector","no_data":-1} or {"no_data":-1}
-No data values are skipped in aggregate computation when definition is available
+Functions include Count, Average, Max, Median, Min, StdDev, and Sum.
 
-## Union (WPS vec:UnionFeatureCollection)
-Returns single feature collection containing all features from two input feature collections. 
-The output attribute schema is a combination of the attributes from the inputs. 
-Attributes with same name but different types will be converted to strings.
+## Union
+Combines two equal structured analysis to one analysis via db operations
 
-## Intersection (WPS gs:IntersectionFeatureCollection2) (oskari extension to WPS)
-Spatial intersection of two feature collections, incuding attributes of first.
-Spatial contains of two feature collections, incuding attributes of first.
+## Clipping (WPS gs:IntersectionFeatureCollection2)
+Clip feature collection and returns new feature collection with clipped geometrys and original properties.
 
-## Intersection (WPS gs:ZoneSectorFeatureCollection2) (oskari extension to WPS)
-Creates zones around features in one feature collections incuding attributes.
-input is zone size (unit m) and count of zones
+## Intersect (WPS gs:IntersectionFeatureCollection2)
+Spatial intersection of two feature collections, incuding attributes of 2nd collection.
+1st feature collection is for geometry select.
+There is no geometry clipping. Two modes available:
+
+ *within* (takes 2nd collection features, which are totally inside 1st features
+ *intersect* (takes inside and intertecting features)
+
+## Multiple buffers and Sectors (WPS gs:ZoneSectorFeatureCollection)
+Returns sectorised zones feature collection of input feature collection.
+Sector count must be between 0-12
+
+## Difference
+Returns feature collection of differences in one property of two input collections.
+Method uses WFS GetFeature join request and GeoTools encoding/parsing.
+
+## Spatial join (WPS gs:IntersectionFeatureCollection2)
+Spatial intersection of two feature collections, incuding selected attributes of 1st and 2nd collection.
+1st feature collection is for geometry select.
+There is no geometry clipping. Two modes available:
+
+
 
 ## Response
 

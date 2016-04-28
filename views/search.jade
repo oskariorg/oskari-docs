@@ -1,0 +1,10 @@
+extends layout
+
+block main
+    h3 Results found: #{numFound}
+    p
+         - result.forEach(function(item) {
+            li  
+             a(role="menuitem" tabindex="-1" href=item.url) <u>#{item.documentTitle}</u> <br>
+
+          - });

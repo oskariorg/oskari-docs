@@ -1,24 +1,24 @@
 # Oskari application
 
-Applications are formed by starting one or more [bundles](/documentation/core-concepts/oskari-bundle) which create the application. Bundles are defined as individual components and referenced in an applications startup sequence to tie them together to a complete application. Oskari provides a method to give bundles configuration properties on application startup. This is how e.g. the map is moved to a given location and zoom level on startup and layers are preselected. See more from [configuration](/documentation/core-concepts/oskari-bundle-configuration).
+Applications are defined by starting one or more [bundles](/documentation/core-concepts/oskari-bundle). The collection of bundles provide the functionalities that are needed in a particular application. Bundles are defined as individual components and referenced in an applications startup sequence to tie them together to a complete application. Oskari provides a way of giving configuration properties for bundles on application startup. This is how e.g. the map is moved to a given location and zoom level on startup and layers are preselected. See more from [configuration](/documentation/core-concepts/oskari-bundle-configuration).
 
 Application is started by calling:
 
 ```javascript
 var app = Oskari.app,
-    appSetup = {
-        startupSequence : [...<bundle references>...]
-    },
-    appConfig = {
-        "mapfull" : {
-            "conf": {...<configuration for bundle mapfull>...}
-            "state" : {...<state for bundle mapfull>...}
+    appSetupConfig = {
+        startupSequence : [...<bundle references>...],
+        "configuration" : {
+          "mapfull" : {
+              "conf": {...<configuration for bundle mapfull>...}
+              "state" : {...<state for bundle mapfull>...}
+          }
         }
     };
     
-app.setApplicationSetup(appSetup);
-app.setConfiguration(appConfig);
-app.startApplication(function(startupInfos) {
+app.setApplicationSetup(appSetupConfig);
+app.setConfiguration(appSetupConfig.configuration);
+app.startApplication(function() {
     alert('all bundles loaded');
 });
 ```
@@ -29,11 +29,11 @@ app.startApplication(function(startupInfos) {
 
 ## Startup sequence
 
-Bundle Player processes the startup sequence in declared order to implement a simplified dependency resolver.
+Oskari loader processes the startup sequence in declared order to implement a simplified dependency resolver.
 
-**A typical startup sequence for Oskari apps:**
+**A typical startup sequence for Oskari web mapping apps:**
 
-1. OpenLayers bundle (a bundle packed version of OpenLayers)
+1. OpenLayers bundle (a bundle providing a version of OpenLayers)
 2. Main Map with Framework bundles
 3. Oskari DIV Manazer to support Tiles and Flyouts based User interface
 4. Any Extension Bundles
@@ -55,12 +55,7 @@ This JSON loads and prepares OpenLayers. Also instantiates and starts OpenLayers
 
 ```json
 {
-  "title" : "OpenLayers",
-  "fi" : "OpenLayers",
-  "sv" : "OpenLayers",
-  "en" : "OpenLayers",
   "bundlename" : "openlayers-default-theme",
-  "bundleinstancename" : "openlayers-default-theme",
   "metadata" : {
     "Import-Bundle" : {
       "openlayers-single-full" : {
@@ -69,10 +64,8 @@ This JSON loads and prepares OpenLayers. Also instantiates and starts OpenLayers
       "openlayers-default-theme" : {
         "bundlePath" : "/<path to>/packages/openlayers/bundle/"
       }
-    },
-    "Require-Bundle-Instance" : []
-  },
-  "instanceProps" : {}
+    }
+  }
 }
 ```
 
@@ -87,12 +80,7 @@ This JSON:
 
 ```json
 {
-  "title" : "Map",
-  "fi" : "Map",
-  "sv" : "Map",
-  "en" : "Map",
   "bundlename" : "mapfull",
-  "bundleinstancename" : "mapfull",
   "metadata" : {
     "Import-Bundle" : {
       "core-base" : {
@@ -152,11 +140,8 @@ This JSON:
       "mapfull" : {
         "bundlePath" : "/<path to>/packages/framework/bundle/"
       }
-    },
-    "Require-Bundle-Instance" : []
-
-  },
-  "instanceProps" : {}
+    }
+  }
 }
 ```
 
@@ -166,44 +151,30 @@ This JSON loads and prepares Oskari DIV Manager. Oskari DIV Manager extends the 
 
 ```json
 {
-  "title" : "Oskari DIV Manazer",
-  "fi" : "Oskari DIV Manazer",
-  "sv" : "Oskari DIV Manazer",
-  "en" : "Oskari DIV Manazer",
   "bundlename" : "divmanazer",
-  "bundleinstancename" : "divmanazer",
   "metadata" : {
     "Import-Bundle" : {
       "divmanazer" : {
         "bundlePath" : "/<path to>/packages/framework/bundle/"
       }
-    },
-    "Require-Bundle-Instance" : []
-  },
-  "instanceProps" : {}
+    }
+  }
 }
 ```
 
 ### 4. Extensions
 
-One or more Bundles that uses Tiles and Flyouts can be now started since Oskari DIV Manager is available at this stage. A Bundle instance *may* register as Extension to the Oskari DIV Manager when started (notifying it has Tile and/or Flyout content).
+One or more Bundles that uses Tiles and Flyouts can be now started since Oskari DIV Manager is available at this stage. A Bundle instance *may* register as Extension to the Oskari DIV Manager when started (notifying it has Tile and/or Flyout content that the bundle wants to have on the UI).
 
 ```json
 {
-  "title" : "Chosen Maplayers",
-  "fi" : "Valitut Karttatasot",
-  "sv" : "layerselection",
-  "en" : "Chosen Maplayers",
   "bundlename" : "layerselection2",
-  "bundleinstancename" : "layerselection2",
   "metadata" : {
     "Import-Bundle" : {
       "layerselection2" : {
         "bundlePath" : "/<path to>/packages/framework/bundle/"
       }
-    },
-    "Require-Bundle-Instance" : []
-  },
-  "instanceProps" : {}
+    }
+  }
 }
 ```
