@@ -20,10 +20,9 @@ WFS2 backend is hosted with Jetty. CometDs Websocket is supported from Jetty 7. 
 
 ## Rendering and data request
 
-By default WFS layers are rendered on a map and feature data is retrieved when the layer is selected in Oskari application.
+By default WFS layers are rendered on a map and feature data is retreaved when layer is selected in Oskari application.
 
 There are various setups to override this default behaviour
-<table class="table table-striped">
 <table class="table table-striped">
 	<tr>
 		<th>Table</th>
