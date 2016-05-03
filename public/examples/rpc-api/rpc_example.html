@@ -41,7 +41,6 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                    
                     <!--
                         <iframe
                             id="publishedMap"
@@ -265,7 +264,6 @@ channel.postRequest('GetRouteRequest', [data]);
         <pre>
             <code class="hljs javascript">
                 var data = {
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
                 };
                 channel.postRequest('GetFeedbackServiceRequest', [data]);
             </code>
@@ -287,7 +285,7 @@ channel.postRequest('GetRouteRequest', [data]);
         <pre>
             <code class="hljs javascript">
                 var data = {
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
+                "serviceId": "172",
                 };
                 channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
             </code>
@@ -313,7 +311,6 @@ channel.postRequest('GetRouteRequest', [data]);
                   "status": "open,closed"
                 };
                 var data = {
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                 "srs":"EPSG:3067",
                 "getServiceRequests": JSON.stringify(filterdata)
                 };
@@ -345,7 +342,6 @@ channel.postRequest('GetRouteRequest', [data]);
                 "long": "384717.640000"
                 };
                 var data = {
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                 "srs":"EPSG:3067",
                 "postServiceRequest": JSON.stringify(postdata)
                 };
@@ -2202,14 +2198,12 @@ channel.getScreenshot(function(data) {
         },
         'GetFeedbackServiceRequest': function() {
             var data = {
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
             };
             channel.postRequest('GetFeedbackServiceRequest', [data]);
         },
         'GetFeedbackServiceDefinitionRequest': function() {
             var data = {
-                "serviceId": "172",
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/"
+                "serviceId": "172"
             };
             channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
         },
@@ -2219,7 +2213,6 @@ channel.getScreenshot(function(data) {
                 "status": "open,closed"
             };
             var data = {
-                "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                 "srs":"EPSG:3067",
                 "getServiceRequests": JSON.stringify(filterdata)
             };
@@ -2236,7 +2229,6 @@ channel.getScreenshot(function(data) {
                     "long": pdata.centerX
                 };
                 var data = {
-                    "baseUrl": "http://dev.hel.fi/open311-test/v1/",
                     "srs":"EPSG:3067",
                     "postServiceRequest": JSON.stringify(postdata)
                 };
