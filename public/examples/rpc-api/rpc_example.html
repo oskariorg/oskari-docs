@@ -37,22 +37,19 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
+                    
                         <iframe
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                    <!--
-                        <iframe
-                            id="publishedMap"
-                        src="http://demo.paikkatietoikkuna.fi/published/en/ff95e310-3f10-4fbb-9e43-3248f8b803f8"
-                        style="border: none; width: 100%; height: 100%;"></iframe>
-                    -->
-                    <!--
+                    
+<!--
                     <iframe
                             id="publishedMap"
                         src="http://localhost:8080/web/fi/kartta?uuid=2c3f0b51-f8ec-460c-ab7c-92c892bd01e5&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                        -->
+-->
+
                     </div>
                     
                 </div>
@@ -225,7 +222,9 @@ channel.getAllLayers(function (layers) {
     <!-- requests -->
     <div style="display: none; visibility: hidden;" id="GetRouteRequest">
         <div style="display: block;">
-            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequest">GetRouteRequest</button>
+            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestTransit">GetRouteRequest (transit)</button>
+            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestWalk">GetRouteRequest (walk)</button>
+            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestBicycle">GetRouteRequest (bicycle)</button>
             <div>Find route from Pasila to the center point of the map</div>
         </div>
         <div>
@@ -242,7 +241,8 @@ var data = {
     "fromlon": "360448",
     "srs": "EPSG:3067",
     "tolat": "6675728",
-    "tolon": "394240"
+    "tolon": "394240",
+    "mode": "TRANSIT" // TRANSIT, WALK, BICYCLE, TRAIN and so on
 };
 channel.postRequest('GetRouteRequest', [data]);
             </code>
@@ -1942,32 +1942,36 @@ channel.getScreenshot(function(data) {
 
 
     }
-
+    var getRouteRequest = function(mode){
+        
+        // From Pasila to Center point on a map
+        channel.getMapPosition(function(data) {
+            var datain = {
+                "fromlat": "6675341",
+                "fromlon": "385414",
+                "srs": "EPSG:3067",
+                "tolat": data.centerY,
+                "tolon": data.centerX,
+                "showIntermediateStops" : "true",
+                "mode": mode
+            };
+            channel.postRequest('GetRouteRequest', [datain]);
+            channel.log('GetRouteRequest posted with data', datain);
+         });
+    };
 
     var clickHandlers = {
         //====================
         // REQUESTS
         //====================
-        'GetRouteRequest': function() {
-
-            // From Pasila to Center point on a map
-
-            channel.getMapPosition(function(data) {
-
-                //Works only in Uudenmaa area
-                var datain = {
-                    "fromlat": "6675341",
-                    "fromlon": "385414",
-                    "srs": "EPSG:3067",
-                    "tolat": data.centerY,
-                    "tolon": data.centerX,
-                    "showIntermediateStops" : "true"
-                };
-                channel.postRequest('GetRouteRequest', [datain]);
-                channel.log('GetRouteRequest posted with data', datain);
-
-             });
-
+        'GetRouteRequestTransit' : function() {
+            getRouteRequest('TRANSIT');
+        },
+        'GetRouteRequestWalk' : function() {
+            getRouteRequest('WALK');
+        },
+        'GetRouteRequestBicycle' : function() {
+            getRouteRequest('BICYCLE');
         },
         'ShowInfoBoxRequest': function() {
             channel.getMapPosition(function(data) {
@@ -2690,24 +2694,18 @@ channel.getScreenshot(function(data) {
                                     value: 'AIRPLANE',
                                     key: 'mode'
                                 },
-                                fill: {
-                                    color: '#FF0000'
-                                },
                                 stroke: {
-                                    color: '#FF0000',
-                                    width: 5
+                                    color: '#0d92ff',
+                                    width: 10
                                 }
                             }, {
                                 property: {
                                     value: 'BUS',
                                     key: 'mode'
                                 },
-                                fill: {
-                                    color: '#0000ff'
-                                },
                                 stroke: {
-                                    color: '#0000ff',
-                                    width: 5
+                                    color: '#0d92ff',
+                                    width: 10
                                 }
                             }, {
 
@@ -2715,49 +2713,37 @@ channel.getScreenshot(function(data) {
                                     value: 'RAIL',
                                     key: 'mode'
                                 },
-                                fill: {
-                                    color: '#606060'
-                                },
                                 stroke: {
-                                    color: '#606060',
-                                    width: 5
+                                    color: '#0d92ff',
+                                    width: 10
                                 }
                             }, {
                                 property: {
                                     value: 'FERRY',
                                     key: 'mode'
                                 },
-                                fill: {
-                                    color: '#00CC66'
-                                },
                                 stroke: {
-                                    color: '#00CC66',
-                                    width: 5,
-                                    lineDash: [6, 14]
+                                    color: '#0d92ff',
+                                    width: 10,
+                                    lineDash: [10,20]
                                 }
                             }, {
                                 property: {
                                     value: 'TRAM',
                                     key: 'mode'
                                 },
-                                fill: {
-                                    color: '#00CC66'
-                                },
                                 stroke: {
-                                    color: '#00CC66',
-                                    width: 5
+                                    color: '#0d92ff',
+                                    width: 10
                                 }
                             }, {
                                 property: {
                                     value: 'SUBWAY',
                                     key: 'mode'
                                 },
-                                fill: {
-                                    color: '#000000'
-                                },
                                 stroke: {
-                                    color: '#000000',
-                                    width: 5
+                                    color: '#0d92ff',
+                                    width: 10
                                 }
                             }, {
                                 property: {
@@ -2765,16 +2751,250 @@ channel.getScreenshot(function(data) {
                                     key: 'mode'
                                 },
                                 stroke: {
-                                    color: '#0000ff',
-                                    width: 5,
-                                    lineDash: [0, 8]
+                                    color: '#0d92ff',
+                                    width: 10,
+                                    lineDash: [0, 10]
+                                }
+                            }, {
+                                property: {
+                                    value: 'BICYCLE',
+                                    key: 'mode'
+                                },
+                                stroke: {
+                                    color: '#0d92ff',
+                                    width: 10,
+                                    lineDash: [10, 20]
                                 }
 
                             }]
                         }
                     ]);
-                    //Plot Stops sample
-                    plotRouteStops( data.plan.itineraries[0], true);
+
+                    
+                    // Get route mode changed start points
+                    var legs = data.plan.itineraries[0].legs;
+                    var features = [];
+                    for (var i=0;i<legs.length;i++) {
+                        // Draw start points
+                        var leg = legs[i];
+                        var feature = { 
+                            "type": "Feature", 
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [leg.from.lon, leg.from.lat]                            
+                            },
+                            "properties": {
+                                "mode": leg.mode
+                            }
+                        };
+                        features.push(feature);
+
+                        // Calculate stops
+                        for (var j in leg.intermediateStops) {
+
+                            var istop = leg.intermediateStops[j];
+
+                            var feature = { 
+                                "type": "Feature", 
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [istop.lon, istop.lat]                            
+                                },
+                                "properties": {
+                                    "mode": "stop_" + leg.mode
+                                }
+                            };
+                            features.push(feature);
+                        }
+                        
+                    }
+
+                    // Get end point
+                    var endPoint = legs[legs.length-1];
+                    var endPointFeature = { 
+                        "type": "Feature", 
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [endPoint.to.lon, endPoint.to.lat]                            
+                        },
+                        "properties": {
+                            "mode": 'routeEndPoint'
+                        }
+                    };
+                    features.push(endPointFeature);
+
+
+                    var geoJSON = {
+                        'type': 'FeatureCollection',
+                        'crs': {
+                            'type': 'name',
+                            'properties': {
+                                'name': 'EPSG:3067'
+                            }
+                        },
+                        'features': features
+                    };
+                        
+                        
+                    if(geoJSON) {
+                        channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
+                            geoJSON, {
+                                clearPrevious: false,
+                                centerTo: false,
+                                cursor: 'pointer',
+                                prio: 1,
+                                optionalStyles: [
+                                {
+                                    property: {
+                                        value: 'FERRY',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker',
+                                            color: '#ff00ff'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'AIRPLANE',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker',
+                                            color: '#00ff00'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'WALK',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker_walk'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'BUS',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker_bus'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'RAIL',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker_train'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'SUBWAY',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker_metro'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'BICYCLE',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker_bike'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'routeEndPoint',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'marker_flag'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'stop_RAIL',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'train_stop'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'stop_BUS',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'bus_stop'
+                                        },
+                                        size: 5
+                                    }
+                                },
+                                {
+                                    property: {
+                                        value: 'stop_SUBWAY',
+                                        key: 'mode'
+                                    },
+                                    image: {
+                                        shape: {
+                                            key: 'routing',
+                                            name: 'metro_stop'
+                                        },
+                                        size: 5
+                                    }
+                                }
+
+
+                                ]
+                            }
+                        ]);
+                    }
                 }
             }
         },
