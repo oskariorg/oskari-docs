@@ -949,6 +949,7 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
         </div>
         <div id="RemoveFeaturesFromMapRequest">
             <div>Remove all features across all vector layers</div>
+            <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
             <div>
                 <a id="removeFeatures" href="">To the documentation</a>
             </div>
@@ -960,6 +961,23 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 <code class="hljs javascript">
 //annihilate everything
 channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
+                </code>
+            </pre>
+        </div>
+        <div id="RemoveFeaturesFromMapRequest2">
+            <div>Remove specific vector features from specific layer</div>
+            <button id="btnRemoveFeaturesFromMapRequest2" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest2">RemoveFeaturesFromMapRequest</button>
+            <div>
+                <a id="removeFeatures" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/removefeaturesfrommaprequest.md';
+                document.getElementById("removeFeatures").href = documentPathRequest + documentPathEnd;
+            </script>
+            <pre>
+                <code class="hljs javascript">
+// Remove all feature's whose 'test_property' === 1 from the layer with id==='VECTOR'                
+channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',['test_property', 1, 'VECTOR']);
                 </code>
             </pre>
         </div>
@@ -2390,6 +2408,11 @@ channel.getScreenshot(function(data) {
         'RemoveFeaturesFromMapRequest': function() {
             channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
             channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted without params');
+        },
+        'RemoveFeaturesFromMapRequest2': function() {
+        	var params = ['test_property', 1, 'VECTOR'];
+            channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest', params);
+            channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted with params', params);
         },
         'ZoomToFeaturesRequest': function() {
             channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
