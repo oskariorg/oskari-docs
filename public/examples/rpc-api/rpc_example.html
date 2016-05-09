@@ -85,7 +85,7 @@
                                         <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
                                         <option value="GetFeatureInfoRequest">Get feature info</option>
-                                        <option value="MapLayerVisibilityRequest">Change map layer visibility</option>
+                                        <option value="LayerVisibility">Change map layer visibility</option>
                                         <option value="MapMoveRequest">Move map</option>
                                         <option value="ChangeMapLayerOpacityRequest">Change map layer opacity</option>
                                         <option value="GetUserLocationRequest">Get user's location</option>
@@ -632,8 +632,9 @@ channel.getMapPosition(function(data){
         </pre>
     </div>
 
-    <div style="display: none; visibility: hidden;" id="MapLayerVisibilityRequest">
-        <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
+    <div style="display: none; visibility: hidden;" id="LayerVisibility">
+        <div>Change MAP layer visibility.</div>
+        <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
         <div>
             <a id="mapLayerVisibility" href="">To the documentation</a>
         </div>
@@ -653,6 +654,27 @@ channel.getAllLayers(function (layers) {
     channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with '+
         'parameters: ', layer.id + ', ' + !layer.visible);
 });
+            </code>
+        </pre>
+        
+        <div>Change VECTOR layer visibility.</div>
+        <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>        
+        <button id="btnChangeMapLayerOpacityRequestHide" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestHide">Hide vector layer</button>
+        <button id="btnChangeMapLayerOpacityRequestShow" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestShow">Show vector layer</button>        
+        <div>
+            <a id="changeOpacity" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/changemaplayeropacityrequest.md';
+            document.getElementById("changeOpacity").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+//hide layer with id==='VECTOR'        
+var layer_id = 'VECTOR';
+channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, false]);
+//show layer with id==='VECTOR'
+channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, true]);
             </code>
         </pre>
     </div>
@@ -679,6 +701,7 @@ channel.postRequest(
     </div>
 
     <div style="display: none; visibility: hidden;" id="ChangeMapLayerOpacityRequest">
+        <div>Change layer opacity.</div>
         <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
         <div>
             <a id="changeOpacity" href="">To the documentation</a>
@@ -1230,10 +1253,10 @@ channel.getScreenshot(function(data) {
 			</div>					
 			<pre>
                 <code class="hljs javascript">  
-                    var toolname = 'coordinatetool';
-					channel.sendUIEvent([toolname], function(data) {
-					    channel.log('sendUIEvent: ', data);
-					});
+var toolname = 'coordinatetool';
+channel.sendUIEvent([toolname], function(data) {
+    channel.log('sendUIEvent: ', data);
+});
                   </code>
             </pre>			
 		</div>
@@ -2188,6 +2211,18 @@ channel.getScreenshot(function(data) {
                 channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with parameters: ', layer.id + ', ' + !layer.visible);
             });
         },
+        'MapLayerVisibilityRequestHide': function() {                
+            var layer_id = 'VECTOR';
+            var setVisible = false;
+            channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, setVisible]);
+            channel.log('MapLayerVisibilityRequest sent with parameters: ', layer_id, setVisible);
+	    },
+	    'MapLayerVisibilityRequestShow': function() {                
+	        var layer_id = 'VECTOR';
+	        var setVisible = true;
+	        channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, setVisible]);
+	        channel.log('MapLayerVisibilityRequest sent with parameters: ', layer_id, setVisible);
+	    },
         'MapMoveRequest': function() {
             moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
             channel.log('MapModulePlugin.MapMoveRequest posted with data', [LOCATION_POSIO[0], LOCATION_POSIO[1], 7]);
@@ -2204,7 +2239,7 @@ channel.getScreenshot(function(data) {
                 channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
                 channel.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
             });
-        },
+        },        
         'GetUserLocationRequest': function() {
             channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
             channel.log('MyLocationPlugin.GetUserLocationRequest posted with data', true);
