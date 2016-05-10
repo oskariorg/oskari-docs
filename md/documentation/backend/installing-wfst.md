@@ -4,18 +4,19 @@ Tampere Oskari bundle **content-editor**
 
 Extends Oskari functionality to support editing of wfs layer features and feature geometries.
 
-Available in Oskari 1.36.0 and up.
+Available in Oskari 1.36 or above.
 
 ## Prerequisites
 
-These uses jetty-8.1.16-oskari version
+These instructions are based on  jetty-8.1.16-oskari package.
 
 ### Front-end
 
-This bundle needs new Oskari version (jetty-8.1.16-oskari or above)
+This bundle needs Oskari version 1.36 or above
 
 ### Back-end
 
+This functionality needs Oskari version 1.36 or above  (oskari-map.war and transport.war)
 
 ##### Database
 
@@ -34,6 +35,8 @@ Change directory to Tampere
 cd Tampere
 ```
 
+http://oskari.org/download
+
 Download Oskari (http://oskari.org/build/server/jetty-8.1.16-oskari.zip) and extract archive to current (new created) directory
 
 
@@ -46,18 +49,26 @@ cd jetty-8.1.16-oskari
 
 ### Configuration
 
-Add new permission type to oskari-ext.properties
-```
+Add new permission type to oskari-ext.properties in [jetty-home]/resources folder
+
+<pre class="event-code-block">
+<code>
 permission.types = EDIT_LAYER_CONTENT
 permission.EDIT_LAYER_CONTENT.name.fi=Muokkaa tasoa
 permission.EDIT_LAYER_CONTENT.name.en=Edit layer
-```
+</code>
+</pre>
 
 Add bundle dynamically to correct roles in oskari-ext.properties. For example:
-```
+
+<pre class="event-code-block">
+<code>
+
 actionhandler.GetAppSetup.dynamic.bundles = admin-layerselector, admin-layerrights, admin-users, admin, content-editor
 actionhandler.GetAppSetup.dynamic.bundle.content-editor.roles = Admin
-```
+
+</code>
+</pre>
 
 
 Enter to jetty directory and run
