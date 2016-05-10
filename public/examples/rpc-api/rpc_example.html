@@ -73,7 +73,9 @@
                                         <option value="GetPixelMeasuresInScale">Get pixel measures in scale</option>
                                         <option value="stateHandling">Handle map state</option>
                                         <option value="GetFeatures">Get features</option>                                        
-                                        <option value="GetScreenshot">Get a screenshot of the map</option>                                        
+                                        <option value="GetScreenshot">Get a screenshot of the map</option> 
+                                        <option value="SendUIEvent">Send UI event</option>       
+                                                                               
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
@@ -85,7 +87,7 @@
                                         <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
                                         <option value="GetFeatureInfoRequest">Get feature info</option>
-                                        <option value="MapLayerVisibilityRequest">Change map layer visibility</option>
+                                        <option value="LayerVisibility">Change map layer visibility</option>
                                         <option value="MapMoveRequest">Move map</option>
                                         <option value="ChangeMapLayerOpacityRequest">Change map layer opacity</option>
                                         <option value="GetUserLocationRequest">Get user's location</option>
@@ -636,8 +638,9 @@ channel.getMapPosition(function(data){
         </pre>
     </div>
 
-    <div style="display: none; visibility: hidden;" id="MapLayerVisibilityRequest">
-        <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
+    <div style="display: none; visibility: hidden;" id="LayerVisibility">
+        <div>Change MAP layer visibility.</div>
+        <button id="btnMapModulePluginMapLayerVisibilityRequest" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequest">MapModulePlugin.MapLayerVisibilityRequest</button>
         <div>
             <a id="mapLayerVisibility" href="">To the documentation</a>
         </div>
@@ -657,6 +660,27 @@ channel.getAllLayers(function (layers) {
     channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with '+
         'parameters: ', layer.id + ', ' + !layer.visible);
 });
+            </code>
+        </pre>
+        
+        <div>Change VECTOR layer visibility.</div>
+        <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>        
+        <button id="btnChangeMapLayerOpacityRequestHide" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestHide">Hide vector layer</button>
+        <button id="btnChangeMapLayerOpacityRequestShow" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestShow">Show vector layer</button>        
+        <div>
+            <a id="changeOpacity" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/mapmodule/request/changemaplayeropacityrequest.md';
+            document.getElementById("changeOpacity").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+//hide layer with id==='VECTOR'        
+var layer_id = 'VECTOR';
+channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, false]);
+//show layer with id==='VECTOR'
+channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, true]);
             </code>
         </pre>
     </div>
@@ -683,6 +707,7 @@ channel.postRequest(
     </div>
 
     <div style="display: none; visibility: hidden;" id="ChangeMapLayerOpacityRequest">
+        <div>Change layer opacity.</div>
         <button id="btnChangeMapLayerOpacityRequest" class="btn btn-primary exampleready" data-example="ChangeMapLayerOpacityRequest">ChangeMapLayerOpacityRequest</button>
         <div>
             <a id="changeOpacity" href="">To the documentation</a>
@@ -951,8 +976,72 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 </code>
             </pre>
         </div>
+         <div id="AddFeaturesToMapUsingSVG">
+            <div>Adding features with SVG icon (Oskari SVG-shape numbers: 0 - 6) </div>
+            <button id="btnAddFeaturesToMapRequest2" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequestUsingSVG">AddFeaturesToMapRequest (display point as SVG icon)</button>
+            <div>
+                <a id="addFeatures" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/addfeaturestomaprequest.md';
+                document.getElementById("addFeatures").href = documentPathRequest + documentPathEnd;
+            </script>
+            <pre>
+                <code class="hljs javascript">
+var geojsonObject = {
+    'type': 'FeatureCollection',
+    'crs': {
+      'type': 'name',
+      'properties': {
+        'name': 'EPSG:3067'
+      }
+    },
+    'features': [
+      {
+        'type': 'Feature',
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [488704, 6939136]
+        },
+        'properties': {
+          'label': 'I am a point feature!'
+        }
+      }
+    ]
+};
+var params = [geojsonObject, {
+      clearPrevious: false,
+      centerTo: true,
+      cursor: 'zoom-in',
+      featureStyle: {          
+          image : {
+              shape: 2,
+              size: 1,
+              color: '#ff3300',
+              stroke: '#000000'
+          },
+          text : {
+              scale : 1.3,
+              fill : {
+                  color : 'rgba(0,0,0,1)'
+              },
+              stroke : {
+                  color : 'rgba(255,255,255,1)',
+                  width : 2
+              }, 
+              labelProperty: 'label',
+              offsetX: 65,
+              offsetY: 8
+          }
+      }
+}];
+channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', params);
+                </code>
+            </pre>
+        </div>
         <div id="RemoveFeaturesFromMapRequest">
             <div>Remove all features across all vector layers</div>
+            <button id="btnRemoveFeaturesFromMapRequest" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest">RemoveFeaturesFromMapRequest</button>
             <div>
                 <a id="removeFeatures" href="">To the documentation</a>
             </div>
@@ -964,6 +1053,24 @@ channel.postRequest('DrawTools.StopDrawingRequest', data);
                 <code class="hljs javascript">
 //annihilate everything
 channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
+                </code>
+            </pre>
+        </div>
+        <div id="RemoveFeaturesFromMapRequest2">
+            <div>Remove specific vector features from specific layer</div>
+            <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
+            <button id="btnRemoveFeaturesFromMapRequest2" class="btn btn-primary exampleready" data-example="RemoveFeaturesFromMapRequest2">RemoveFeaturesFromMapRequest</button>
+            <div>
+                <a id="removeFeatures" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/removefeaturesfrommaprequest.md';
+                document.getElementById("removeFeatures").href = documentPathRequest + documentPathEnd;
+            </script>
+            <pre>
+                <code class="hljs javascript">
+// Remove all feature's whose 'test_property' === 1 from the layer with id==='VECTOR'                
+channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',['test_property', 1, 'VECTOR']);
                 </code>
             </pre>
         </div>
@@ -1207,8 +1314,24 @@ channel.getScreenshot(function(data) {
                 <img style="border: 1px solid black;max-width:100%;overflow: hidden;" id="getScreenshotImgTag" src=""/>
             </div>
         </div>
+		<div id="SendUIEvent" style="display: none;">
+			<div>
+			    Open/close coordinatetool's popup: 
+				<button id="btnSendUIEvent"
+					class="btn btn-primary exampleready"
+					data-example="sendUIEvent">SendUIevent</button>
+			</div>					
+			<pre>
+                <code class="hljs javascript">  
+var toolname = 'coordinatetool';
+channel.sendUIEvent([toolname], function(data) {
+    channel.log('sendUIEvent: ', data);
+});
+                  </code>
+            </pre>			
+		</div>
 
-        <!-- events -->
+		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
             <div>Occurs after a marker has been added to map</div>
             <div>
@@ -2166,6 +2289,18 @@ channel.getScreenshot(function(data) {
                 channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with parameters: ', layer.id + ', ' + !layer.visible);
             });
         },
+        'MapLayerVisibilityRequestHide': function() {                
+            var layer_id = 'VECTOR';
+            var setVisible = false;
+            channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, setVisible]);
+            channel.log('MapLayerVisibilityRequest sent with parameters: ', layer_id, setVisible);
+	    },
+	    'MapLayerVisibilityRequestShow': function() {                
+	        var layer_id = 'VECTOR';
+	        var setVisible = true;
+	        channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, setVisible]);
+	        channel.log('MapLayerVisibilityRequest sent with parameters: ', layer_id, setVisible);
+	    },
         'MapMoveRequest': function() {
             moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
             channel.log('MapModulePlugin.MapMoveRequest posted with data', [LOCATION_POSIO[0], LOCATION_POSIO[1], 7]);
@@ -2182,7 +2317,7 @@ channel.getScreenshot(function(data) {
                 channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
                 channel.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
             });
-        },
+        },        
         'GetUserLocationRequest': function() {
             channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
             channel.log('MyLocationPlugin.GetUserLocationRequest posted with data', true);
@@ -2382,9 +2517,65 @@ channel.getScreenshot(function(data) {
                 );
                 channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params2);
         },
+        'AddFeaturesToMapRequestUsingSVG': function() {
+        	var geojsonObject = {
+        		    'type': 'FeatureCollection',
+        		    'crs': {
+        		      'type': 'name',
+        		      'properties': {
+        		        'name': 'EPSG:3067'
+        		      }
+        		    },
+        		    'features': [
+        		      {
+        		        'type': 'Feature',
+        		        'geometry': {
+        		          'type': 'Point',
+        		          'coordinates': [488704, 6939136]
+        		        },
+        		        'properties': {
+        		          'label': 'I am a point feature!'
+        		        }
+        		      }
+        		    ]
+        		};
+        		var params = [geojsonObject, {
+        		      clearPrevious: false,
+        		      centerTo: true,
+        		      cursor: 'zoom-in',
+        		      featureStyle: {          
+        		          image : {
+        		              shape: 2,
+        		              size: 1,
+        		              color: '#ff3300',
+        		              stroke: '#000000'
+        		          },
+        		          text : {
+        		              scale : 1.3,
+        		              fill : {
+        		                  color : 'rgba(0,0,0,1)'
+        		              },
+        		              stroke : {
+        		                  color : 'rgba(255,255,255,1)',
+        		                  width : 2
+        		              }, 
+        		              labelProperty: 'label',
+        		              offsetX: 65,
+        		              offsetY: 8
+        		          }
+        		      }
+        		}];
+        		channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', params);       
+                channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
+        },
         'RemoveFeaturesFromMapRequest': function() {
             channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
             channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted without params');
+        },
+        'RemoveFeaturesFromMapRequest2': function() {
+        	var params = ['test_property', 1, 'VECTOR'];
+            channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest', params);
+            channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted with params', params);
         },
         'ZoomToFeaturesRequest': function() {
             channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
@@ -2553,6 +2744,11 @@ channel.getScreenshot(function(data) {
                 channel.log(msg);
                 document.getElementById('getScreenshotImgTag').src = data;
             });
+        },
+        'sendUIEvent': function() {
+        	channel.sendUIEvent(['coordinatetool'], function(data) {
+        	    channel.log('sendUIEvent: ', data);
+        	});
         }
     };
 
