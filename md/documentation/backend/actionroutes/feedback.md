@@ -1,5 +1,17 @@
 # Feedback (GET/POST)
 The action route is responsible for sending and receiving data to/from feedback service e.g. Open311 .
+There must be two properties in *ext.properties file for this action:
+
+<pre class="event-code-block">
+<code>
+
+# Api key for posting feedback (Open311 api_key parameter value, only required for posting user's  feeback data)
+# test api base url http://dev.hel.fi/open311-test/v1/
+feedback.open311.key=f1301b1ded...
+feedback.open311.url=http://dev.hel.fi/...
+
+</code>
+</pre>
 
 ## Parameters
 <table>
@@ -15,12 +27,6 @@ The action route is responsible for sending and receiving data to/from feedback 
         <td>The language where the search will be targeted to</td>
         <td>**true**</td>
       </tr>
-   <tr>
-      <td>baseUrl</td>
-      <td>String</td>
-      <td>Feedback service url</td>
-      <td>**true**</td>
-    </tr>
       <tr>
             <td>method</td>
             <td>String</td>
@@ -54,15 +60,19 @@ The action route is responsible for sending and receiving data to/from feedback 
     
 </table>
 
+<pre class="event-code-block">
+<code>
+
  Parameters of the feedback request. Possible values are:
      *                 method - *required (serviceList, serviceDefinition, getFeedback, postFeedback
      *                 srs - *required when method is postFeedback or getFeedback
      *                 lang - fi/sv/en
-     *                 baseUrl - feedback service base url
      *                 serviceId - for serviceDefinition request (Open311 service_code)
      *                 getServiceRequests {JSON}  filterparams for getFeedback method
      *                 postServiceRequest {JSON} data to post to service (postFeedback method)
      
+</code>
+</pre>
 
 ## Response
 
@@ -74,10 +84,10 @@ The action route is responsible for sending and receiving data to/from feedback 
 ## Examples
 
 ### Example query method = serviceList
-`http://localhost:8080/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=Feedback&method=serviceList&baseUrl=https://asiointi.hel.fi/palautews/rest/v1`
+`http://localhost:8080/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=Feedback&method=serviceList`
 
 ### Example query method = serviceDefinition
-`http://localhost:8080/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=Feedback&method=serviceDefinition&baseUrl=https://asiointi.hel.fi/palautews/rest/v1&serviceId=172`
+`http://localhost:8080/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=Feedback&method=serviceDefinition&serviceId=172`
 
 ### Example query method = postFeedback 
 `http://localhost:8080/web/fi/kartta?p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=2&action_route=Feedback&method=postFeedback`
@@ -85,14 +95,13 @@ The action route is responsible for sending and receiving data to/from feedback 
 ```javascript
                 var postdata = {
                 "service_code": "180",
-                "description": "Kampin bussipysäkillä haisee koiran pissi",
+                "description": "Kampin bussipysäkillä on roskakori täynnä",
                 "first_name" : "Oskari",
                 "last_name" : "Maanmittaushallitus",
                 "lat": "6674188.748000",
                 "long": "384717.640000"
                 };
                 var data = {
-                "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
                 "srs":"EPSG:3067",
                 "postServiceRequest": JSON.stringify(postdata)
                 };
@@ -107,8 +116,7 @@ The action route is responsible for sending and receiving data to/from feedback 
                                  "start_date": "2016-04-01T00:00:00Z",
                                  "status": "open,closed"
                                };
-                               var data = {
-                               "baseUrl": "https://asiointi.hel.fi/palautews/rest/v1",
+                               var data = {                        
                                "srs":"EPSG:3067",
                                "getServiceRequests": JSON.stringify(filterdata)
                                };
