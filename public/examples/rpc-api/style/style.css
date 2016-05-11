@@ -3,6 +3,11 @@ body {
   background-color: #e5eaf5;
 }
 
+#actionSelectContainer, #actionSelector {
+  /* Keeps "Select action" dropdown inside container and not overflow */
+    max-width: 100%;
+}
+
 #debuglog .logmsg {
 
   margin: 5px;
