@@ -42,11 +42,11 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                    
-<!--
+<!--                    
+
                     <iframe
                             id="publishedMap"
-                        src="http://localhost:8080/web/fi/kartta?uuid=2c3f0b51-f8ec-460c-ab7c-92c892bd01e5&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        src="http://localhost:8080/web/fi/kartta?uuid=80943dcf-1c2f-432c-9766-7d4a0af73607&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
                         style="border: none; width: 100%; height: 100%;"></iframe>
 -->
 
@@ -75,6 +75,7 @@
                                         <option value="GetFeatures">Get features</option>                                        
                                         <option value="GetScreenshot">Get a screenshot of the map</option> 
                                         <option value="SendUIEvent">Send UI event</option>       
+                                        <option value="setCursorStyle">Set cursor style</option>       
                                                                                
                                     </optgroup>
                                     <optgroup label="Requests">
@@ -1357,6 +1358,33 @@ channel.sendUIEvent([toolname], function(data) {
                   </code>
             </pre>			
 		</div>
+
+        <div id="setCursorStyle" style="display: none;">
+            <div>
+                <p>
+                Sets the cursor style on map. The value can be any valid css cursor value. Not all possible values are supported by all browsers.
+                </p>
+                <select id="setCursorStyleSelect">
+                    <option value="default">default</option>
+                    <option value="crosshair">crosshair</option>
+                    <option value="move">move</option>
+                    <option value="pointer">pointer</option>
+                    <option value="progress">progress</option>
+
+                </select>
+                <button id="btnSetCursorStyle"
+                    class="btn btn-primary exampleready"
+                    data-example="setCursorStyle">Set cursor style</button>
+            </div>                  
+            <pre>
+                <code class="hljs javascript">  
+            var cursorStyle = jQuery('#setCursorStyleSelect').val();
+            channel.setCursorStyle([cursorStyle], function(data) {
+                channel.log('setCursorStyle: ', data);
+            });
+                </code>
+            </pre>          
+        </div>
 
 		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
@@ -2791,6 +2819,12 @@ channel.sendUIEvent([toolname], function(data) {
         	channel.sendUIEvent(['coordinatetool'], function(data) {
         	    channel.log('sendUIEvent: ', data);
         	});
+        },
+        'setCursorStyle': function() {
+            var cursorStyle = jQuery('#setCursorStyleSelect').val();
+            channel.setCursorStyle([cursorStyle], function(data) {
+                channel.log('setCursorStyle: ', data);
+            });
         }
     };
 
