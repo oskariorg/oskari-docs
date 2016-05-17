@@ -24,6 +24,7 @@ gulp.task('scripts', function() {
 
 gulp.task('rpc-client', function() {
     var rename = require('gulp-rename');
+    var browserify = require('gulp-browserify');
     //var client = require('oskari-rpc');
 
     // Single entry point to browserify 
