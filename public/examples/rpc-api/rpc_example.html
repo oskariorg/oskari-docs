@@ -42,11 +42,11 @@
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                    
-<!--
+<!--                    
+
                     <iframe
                             id="publishedMap"
-                        src="http://localhost:8080/web/fi/kartta?uuid=2c3f0b51-f8ec-460c-ab7c-92c892bd01e5&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        src="http://localhost:8080/web/fi/kartta?uuid=80943dcf-1c2f-432c-9766-7d4a0af73607&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
                         style="border: none; width: 100%; height: 100%;"></iframe>
 -->
 
@@ -69,12 +69,13 @@
                                         <option value="GetSupportedEvents">Get supported events</option>
                                         <option value="GetSupportedFunctions">Get supported functions</option>
                                         <option value="GetSupportedRequests">Get supported requests</option>
-                                        <option value="GetZoomRange">Get zoom range</option>
+                                        <option value="mapZoomFunctions">Zoom functions</option>
                                         <option value="GetPixelMeasuresInScale">Get pixel measures in scale</option>
                                         <option value="stateHandling">Handle map state</option>
                                         <option value="GetFeatures">Get features</option>                                        
                                         <option value="GetScreenshot">Get a screenshot of the map</option> 
                                         <option value="SendUIEvent">Send UI event</option>       
+                                        <option value="setCursorStyle">Set cursor style</option>       
                                                                                
                                     </optgroup>
                                     <optgroup label="Requests">
@@ -177,7 +178,7 @@ var channel = OskariRPC.connect(
 channel.onReady(function() {
     //channel is now ready and listening.
     channel.log('Map is now listening');
-    var expectedOskariVersion = '1.35.0';
+    var expectedOskariVersion = '1.36.0';
     channel.isSupported(expectedOskariVersion, function(blnSupported) {
         if(blnSupported) {
             channel.log('Client is supported and Oskari version is ' + expectedOskariVersion);
@@ -1197,13 +1198,40 @@ channel.getSupportedRequests(function(data){
         </pre>
     </div>
 
-    <div id = "GetZoomRange" style="display:none;">
-        <button id="btnGetZoomRange" class="btn btn-primary exampleready">Get zoom range</button>        
+    <div id = "mapZoomFunctions" style="display:none;">
+        <button id="btnGetZoomRange" class="btn btn-primary exampleready" data-example="GetZoomRange">Get zoom range</button>        
         <div>Gets the map's zoom range (min, max, current)</div>
         <pre>
             <code class="hljs javascript">
 channel.getZoomRange(function(data){
     channel.log('GetZoomRange: ', data);
+});
+            </code>
+        </pre>
+        <button id="btnZoomIn" class="btn btn-primary exampleready" data-example="zoomIn">Zoom in</button>        
+        <div>Zooms in and returns the current zoomlevel after zooming</div>
+        <pre>
+            <code class="hljs javascript">
+channel.zoomIn(function(data){
+    channel.log('Zoom level after: ', data);
+});
+            </code>
+        </pre>
+        <button id="btnZoomOut" class="btn btn-primary exampleready" data-example="zoomOut">Zoom out</button>        
+        <div>Zooms out and returns the current zoomlevel after zooming</div>
+        <pre>
+            <code class="hljs javascript">
+channel.zoomOut(function(data){
+    channel.log('Zoom level after: ', data);
+});
+            </code>
+        </pre>
+        <button id="btnZoomTo" class="btn btn-primary exampleready" data-example="zoomTo">ZoomTo(5)</button>        
+        <div>Zooms to given zoomlevel and returns the current zoomlevel after zooming (might be different than parameter if parameter is out of range)</div>
+        <pre>
+            <code class="hljs javascript">
+channel.zoomTo([5],function(data){
+    channel.log('Zoom level after: ', data);
 });
             </code>
         </pre>
@@ -1347,6 +1375,33 @@ channel.sendUIEvent([toolname], function(data) {
                   </code>
             </pre>			
 		</div>
+
+        <div id="setCursorStyle" style="display: none;">
+            <div>
+                <p>
+                Sets the cursor style on map. The value can be any valid css cursor value. Not all possible values are supported by all browsers.
+                </p>
+                <select id="setCursorStyleSelect">
+                    <option value="default">default</option>
+                    <option value="crosshair">crosshair</option>
+                    <option value="move">move</option>
+                    <option value="pointer">pointer</option>
+                    <option value="progress">progress</option>
+
+                </select>
+                <button id="btnSetCursorStyle"
+                    class="btn btn-primary exampleready"
+                    data-example="setCursorStyle">Set cursor style</button>
+            </div>                  
+            <pre>
+                <code class="hljs javascript">  
+            var cursorStyle = jQuery('#setCursorStyleSelect').val();
+            channel.setCursorStyle([cursorStyle], function(data) {
+                channel.log('setCursorStyle: ', data);
+            });
+                </code>
+            </pre>          
+        </div>
 
 		<!-- events -->
         <div id="AfterAddMarkerEvent" style="display:none;">
@@ -2711,6 +2766,21 @@ channel.sendUIEvent([toolname], function(data) {
                 channel.log('GetZoomRange: ', data);
             });
         },
+        'zoomIn': function() {
+            channel.zoomIn(function(data){
+                channel.log('Zoom level after: ', data);
+            });
+        },
+        'zoomOut': function() {
+            channel.zoomOut(function(data){
+                channel.log('Zoom level after: ', data);
+            });
+        },
+        'zoomTo': function() {
+            channel.zoomTo([5], function(data){
+                channel.log('Zoom level after: ', data);
+            });
+        },
         'GetPixelMeasuresInScale': function () {
             // A4 example ( size in mm units and portrait orientation
             var me = scale = document.getElementById("inputPlotScale").value;
@@ -2771,6 +2841,12 @@ channel.sendUIEvent([toolname], function(data) {
         	channel.sendUIEvent(['coordinatetool'], function(data) {
         	    channel.log('sendUIEvent: ', data);
         	});
+        },
+        'setCursorStyle': function() {
+            var cursorStyle = jQuery('#setCursorStyleSelect').val();
+            channel.setCursorStyle([cursorStyle], function(data) {
+                channel.log('setCursorStyle: ', data);
+            });
         }
     };
 
@@ -3312,7 +3388,7 @@ channel.sendUIEvent([toolname], function(data) {
     channel.onReady(function() {
         channel.log('Map is now listening');
 
-        var expectedOskariVersion = '1.35.0';
+        var expectedOskariVersion = '1.36.0';
         channel.isSupported(expectedOskariVersion, function(blnSupported) {
             if(blnSupported) {
                 channel.log('Client is supported and Oskari version is ' + expectedOskariVersion);
