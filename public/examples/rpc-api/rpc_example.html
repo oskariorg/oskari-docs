@@ -83,7 +83,7 @@
                                         <option value="GetFeedbackServiceDefinitionRequest">Get definition of one feedback service (poc)</option>
                                         <option value="GetFeedbackRequest">Get posted feedback data (poc)</option>
                                         <option value="PostFeedbackRequest">Post user's feedback data (poc)</option>
-                                        <option value="ShowInfoBoxRequest">Show info box</option>
+                                        <option value="ShowInfoBox">Show or hide info box</option>
                                         <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
                                         <option value="GetFeatureInfoRequest">Get feature info</option>
@@ -352,8 +352,8 @@ channel.postRequest('GetRouteRequest', [data]);
         </pre>
     </div>
 
-    <div style="display: none; visibility: hidden;" id="ShowInfoBoxRequest">
-        <button id="btnShowInfoBoxRequest" class="btn btn-primary exampleready" data-example="InfoBox.ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
+    <div style="display: none; visibility: hidden;" id="ShowInfoBox">
+        <button id="btnShowInfoBoxRequest" class="btn btn-primary exampleready" data-example="ShowInfoBoxRequest">InfoBox.ShowInfoBoxRequest</button>
         <div>
             <a id="showInfobox" href="">To the documentation</a>
         </div>
@@ -463,6 +463,23 @@ channel.getMapPosition(function(data) {
 });
             </code>
         </pre>
+        
+         <button id="btnHideInfoBoxRequest" class="btn btn-primary exampleready" data-example="HideInfoBox">InfoBox.HideInfoBoxRequest</button>
+        <div>
+            <a id="hideInfobox" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'ui/infobox/request/infobox.hideinfoboxrequest.md';
+            document.getElementById("hideInfobox").href = documentPathRequest + documentPathEnd;
+        </script>
+       <pre>
+           <code class="hljs javascript">
+var infoboxId = 'myInfoBox';
+channel.postRequest('InfoBox.HideInfoBoxRequest', [infoboxId]);
+channel.log('InfoBox.HideInfoBoxRequest posted with data', infoboxId);
+           
+           </code>
+       </pre>
     </div>
 
 
@@ -2193,6 +2210,11 @@ channel.sendUIEvent([toolname], function(data) {
                 channel.postRequest('InfoBox.ShowInfoBoxRequest', data);
                 channel.log('InfoBox.ShowInfoBoxRequest posted with data', data);
             });
+        },
+        'HideInfoBox' : function() {
+        	var infoboxId = 'myInfoBox';
+        	channel.postRequest('InfoBox.HideInfoBoxRequest', [infoboxId]);
+        	channel.log('InfoBox.HideInfoBoxRequest posted with data', infoboxId);
         },
         'AddMarkerRequestCenterOfMapForInfobox': function(){
             var MARKER_ID = 'MARKER_WITH_POPUP';
