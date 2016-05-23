@@ -2,8 +2,8 @@
 
 Oskari Source code is released with a dual license
 
-* [MIT](http://www.paikkatietoikkuna.fi/web/fi/mit-lisenssin-ehdot)
-* [EUPL](http://www.paikkatietoikkuna.fi/web/fi/eupl-lisenssin-ehdot)
+* [MIT](http://verkosto.oskari.org/oskari-ohjelmisto/lisenssit/mit-lisenssin-ehdot/)
+* [EUPL](https://joinup.ec.europa.eu/community/eupl/og_page/eupl)
 
 Contributor License Agreement
 
