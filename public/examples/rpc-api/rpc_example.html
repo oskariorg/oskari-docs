@@ -37,18 +37,17 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
-                    
+              
                         <iframe
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
                         style="border: none; width: 100%; height: 100%;"></iframe>
- <!--                 
 
+                     <!--   
                     <iframe
                             id="publishedMap"
-                        src="http://localhost:8080/web/fi/kartta?uuid=80943dcf-1c2f-432c-9766-7d4a0af73607&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
+                        src="http://localhost:8080/web/fi/kartta?uuid=159f8c2d-6e1e-44fc-9daf-6cd40ef93003&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-
 --> 
                     </div>
                     
@@ -613,6 +612,30 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
                         </code>
                     </pre>
                 </div>
+
+        <div id="AddMarkerRequest3">
+            <div>Adding markers with own icon</div>
+            <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest3">MapModulePlugin.AddMarkerRequest</button>
+            <div>
+                <a id="addMarkers" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/addmarkerrequest.md';
+                document.getElementById("addMarkers").href = documentPathRequest + documentPathEnd;
+            </script>
+            <pre>
+                <code class="hljs javascript">
+
+            var data = {
+                x: 377191,
+                y: 6678627,
+                iconUrl: 'http://demo.paikkatietoikkuna.fi/Oskari/resources/framework/bundle/mapmodule-plugin/images/marker.png'
+            };
+            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+
+                </code>
+            </pre>
+        </div>
 
 
         <div id="RemoveMarkersRequest">
@@ -2340,6 +2363,17 @@ channel.sendUIEvent([toolname], function(data) {
                         y: 16
                     },
                     size: 3
+                };
+                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+                channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
+            });
+        },
+        'AddMarkerRequest3': function() {
+            channel.getMapPosition(function(data){
+                var data = {
+                        x: data.centerX,
+                        y: data.centerY,
+                        iconUrl: 'http://demo.paikkatietoikkuna.fi/Oskari/resources/framework/bundle/mapmodule-plugin/images/marker.png'
                 };
                 channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
                 channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
