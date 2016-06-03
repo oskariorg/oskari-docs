@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="author" content="Team Oskari">
+
+    <title>Inspire workshop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/style.css" rel="stylesheet">
+
+    <!-- jQUery and javascripts enabling RPC functionality -->
+    <script src="lib/jquery-1.11.2.min.js"></script>
+    <script src="js/rpc/JSChannel/jschannel.js"></script>
+    <script src="/js/rpc/rpc-client.min.js"></script>
+    <script src="js/util.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">One address for citizens' services</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">E-services</a></li>
+            <li><a href="environmental_issues.html">Report environmental issue</a></li>
+            <li class="active"><a href="property_details.html">Get property details</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="panel panel-default map-panel">
+            <div class="panel-body">
+                <iframe id="publishedMap"
+                            src="https://demo.locationframework.eu/?lang=en&uuid=20054e8e-bd82-4ac4-9783-e72ee19471c0"
+                            style="border: none; width: 100%; height: 100%;"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-6">
+          <div class="panel panel-default form-panel">
+            <div class="panel-body">
+                <h4>View property details</h4>
+                <form class="form-horizontal" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-4 control-label">Select property:</label>
+
+                        <div class="col-sm-8">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="property" id="Q781" checked>
+                                    LAREN-VERWOLDE
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="property" id="E1521">
+                                    NIEUWLAND (FR)
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="property" id="MM6556A1">
+                                    AMSTERDAM
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="property" id="M388">
+                                    VOORST
+                                </label>
+                            </div>
+                            <button id="download" class="btn btn-primary">View PDF</button>
+                            <button id="show" class="btn btn-primary">Show on map</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script>
+    // constants
+    var IFRAME_DOMAIN = 'https://demo.locationframework.eu';
+
+    // Referenced HTML-elements
+    var elements = {
+        iframe: $("#publishedMap")[0],
+        downloadBtn: $("#download"),
+        showBtn: $("#show")
+    };
+
+    var geometries = {
+        "MM6556A1": {
+            "type": "FeatureCollection",
+            "crs": {
+                  "type": "name",
+                  "properties": {
+                    "name": "EPSG:3035"
+                  }
+                },
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "Reference point": "[4354885.388, 4093925.474]",
+                        "Land Registry code": "AMSTERDAM M M 6556 A1",
+                        "Surface": "-",
+                        "Description of property": "RESIDENTIAL (APARTMENT)",
+                        "Property address": "Blauwburgwal 13 H, 1015 AS AMSTERDAM"
+                    },
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                          [[4354857.208, 4093902.833], [4354857.170, 4093904.043], [4354857.123, 4093907.431], [4354857.159, 4093910.816], [4354857.279, 4093914.193], [4354857.483, 4093917.551], [4354857.769, 4093920.883], [4354858.138, 4093924.181], [4354858.589, 4093927.437], [4354859.119, 4093930.642], [4354859.729, 4093933.791], [4354860.416, 4093936.874], [4354861.179, 4093939.884], [4354862.017, 4093942.815], [4354862.926, 4093945.659], [4354863.905, 4093948.409], [4354864.952, 4093951.058], [4354866.064, 4093953.601], [4354867.238, 4093956.030], [4354868.472, 4093958.341], [4354869.762, 4093960.528], [4354871.105, 4093962.585], [4354872.499, 4093964.507], [4354873.940, 4093966.290], [4354875.423, 4093967.930], [4354876.947, 4093969.422], [4354878.382, 4093968.162], [4354886.863, 4093977.650], [4354894.201, 4093985.867], [4354897.417, 4093987.922], [4354901.051, 4093989.103], [4354915.405, 4093992.472], [4354933.809, 4093987.225], [4354922.682, 4093948.502], [4354917.689, 4093949.927], [4354892.377, 4093862.051], [4354878.324, 4093864.615], [4354874.937, 4093864.817], [4354870.702, 4093864.624], [4354860.810, 4093863.192], [4354857.208, 4093902.833]]
+                        ]
+                    }
+                }
+            ]
+        },
+        "Q781": {
+            "type": "FeatureCollection",
+            "crs": {
+                  "type": "name",
+                  "properties": {
+                    "name": "EPSG:3035"
+                  }
+                },
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "Reference point": "[4354996.031, 4093938.756]",
+                        "Land Registry code": "LAREN-VERWOLDE Q 781",
+                        "Surface": "5 a 89 ca",
+                        "Description of property": "RESIDENTIAL",
+                        "Property address": "Jonker Emile Laan 3, 7245 TL LAREN GLD"
+                    },
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                          [[4354929.012, 4093863.744], [4354950.795, 4093937.995], [4354948.548, 4093938.649], [4354952.682, 4093953.063], [4354955.018, 4093952.398], [4354969.615, 4094002.822], [4354976.776, 4094001.219], [4354983.894, 4093998.923], [4354990.951, 4093995.938], [4354997.930, 4093992.272], [4355004.815, 4093987.933], [4355011.377, 4093983.101], [4355003.570, 4093956.151], [4355007.355, 4093955.064], [4355004.007, 4093943.461], [4355017.832, 4093932.598], [4355015.833, 4093930.800], [4355013.882, 4093928.808], [4355011.985, 4093926.627], [4355010.145, 4093924.262], [4355008.367, 4093921.720], [4355006.655, 4093919.007], [4355005.014, 4093916.128], [4355003.447, 4093913.091], [4355001.958, 4093909.903], [4355000.550, 4093906.572], [4354999.228, 4093903.106], [4354997.994, 4093899.513], [4354996.851, 4093895.802], [4354995.802, 4093891.981], [4354994.850, 4093888.061], [4354993.997, 4093884.050], [4354993.244, 4093879.958], [4354992.630, 4093876.043], [4354990.974, 4093857.090], [4354946.656, 4093869.756], [4354929.012, 4093863.744]]
+                        ]
+                    }
+                }
+            ]
+        },
+        "E1521": {
+            "type": "FeatureCollection",
+            "crs": {
+                  "type": "name",
+                  "properties": {
+                    "name": "EPSG:3035"
+                  }
+                },
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "Reference point": "[4354886.475, 4093756.788]",
+                        "Land Registry code": "NIEUWLAND (FR) E 1521",
+                        "Surface": "2 a 75 ca",
+                        "Description of property": "RESIDENTIAL",
+                        "Property address": "Lytse Finne 1, 8615 LW BLAUWHUIS"
+                    },
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                          [[4354870.806, 4093753.330], [4354860.810, 4093863.192], [4354870.702, 4093864.624], [4354874.937, 4093864.817], [4354878.324, 4093864.615], [4354892.377, 4093862.051], [4354919.341, 4093857.110], [4354901.696, 4093789.081], [4354907.227, 4093769.187], [4354901.013, 4093747.261], [4354884.786, 4093744.770], [4354883.676, 4093744.586], [4354882.564, 4093744.415], [4354874.716, 4093746.302], [4354870.806, 4093753.330]]
+                        ]
+                    }
+                }
+            ]
+        },
+        "M388": {
+            "type": "FeatureCollection",
+            "crs": {
+                  "type": "name",
+                  "properties": {
+                    "name": "EPSG:3035"
+                  }
+                },
+            "features": [
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "Reference point": "[4354971.523, 4093832.107]",
+                        "Land Registry code": "VOORST M 388",
+                        "Surface": "3 a 81 ca",
+                        "Description of property": "RESIDENTIAL",
+                        "Property address": "Verzetsstraat 4, 7396 CG TERWOLDE"
+                    },
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                          [[4354963.250, 4093774.809], [4354925.399, 4093785.338], [4354929.012, 4093863.744], [4354946.656, 4093869.756], [4354990.974, 4093857.090], [4354988.575, 4093829.586], [4354988.370, 4093828.249], [4354987.687, 4093824.269], [4354986.905, 4093820.363], [4354986.028, 4093816.541], [4354985.056, 4093812.811], [4354983.993, 4093809.182], [4354982.840, 4093805.664], [4354981.600, 4093802.265], [4354980.278, 4093798.992], [4354978.875, 4093795.855], [4354977.395, 4093792.859], [4354975.842, 4093790.014], [4354974.219, 4093787.324], [4354972.530, 4093784.798], [4354970.780, 4093782.441], [4354968.973, 4093780.258], [4354967.112, 4093778.256], [4354965.203, 4093776.438], [4354963.250, 4093774.809]]
+                        ]
+                    }
+                }
+            ]
+        }
+    };
+
+
+
+
+    // init connection
+    var channel = OskariRPC.connect(
+        elements.iframe,
+        IFRAME_DOMAIN
+    );
+
+    channel.onReady(function() {
+        // get layers once we have the connection
+        channel.getAllLayers(
+            function (data) {
+                Util.log(data);
+            }
+        );
+    });
+
+    elements.showBtn.click(function () {
+        channel.postRequest('InfoBox.HideInfoBoxRequest', ['propertyInfo']);
+        channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
+
+        var property = $("input:radio:checked")[0].id,
+            geometry = geometries[property],
+            coordinates = JSON.parse(geometry.features[0].properties["Reference point"]);
+
+        var params = [geometry,
+            {
+                clearPrevious: true,
+                centerTo: true
+            }
+        ];
+
+        channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', params);
+
+    });
+
+
+    elements.downloadBtn.click(function () {
+        var property = $("input:radio:checked")[0].id;
+        window.open('/examples/rpc-control/resources/properties/' + property + '.pdf', property);
+    });
+
+    channel.handleEvent('FeatureEvent',
+        function(data) {
+            if (data.operation === "click") {
+                var featureData = data.features[0].geojson.features[0].properties;
+                var propertyKeys = Object.keys(featureData);
+                var coordinates = JSON.parse(featureData["Reference point"]);
+
+                var content = [
+                    {
+                        'html': '<div>' + propertyKeys[2] + ': ' + featureData[propertyKeys[2]] + '</div>'
+                    }, {
+                        'html': '<div>' + propertyKeys[3] + ': ' + featureData[propertyKeys[3]] + '</div>'
+                    }, {
+                        'html': '<div>' + propertyKeys[4] + ': ' + featureData[propertyKeys[4]] + '</div>'
+                    },
+                ];
+
+                var requestData = [
+                    'propertyInfo',
+                    featureData["Land Registry code"],
+                    content,
+                    {
+                        lon: coordinates[0],
+                        lat: coordinates[1]
+                    }
+                ];
+                channel.postRequest('InfoBox.ShowInfoBoxRequest', requestData);
+            }
+        }
+    );
+
+    /**
+     * Moves map center to given coordinates
+     * @param  {Number} x         lon
+     * @param  {Number} y         lat
+     * @param  {Number} zoomLevel optional zoom level
+     */
+    function moveMap(x, y, zoomLevel) {
+        channel.postRequest(
+            'MapMoveRequest', [x, y,zoomLevel]
+        );
+    };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="author" content="Team Oskari">
+
+    <title>Inspire workshop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/style.css" rel="stylesheet">
+
+    <!-- jQUery and javascripts enabling RPC functionality -->
+    <script src="lib/jquery-1.11.2.min.js"></script>
+    <script src="js/rpc/JSChannel/jschannel.js"></script>
+    <script src="/js/rpc/rpc-client.min.js"></script>
+    <script src="js/util.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">One address for citizens' services</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">E-services</a></li>
+            <li class="active"><a href="environmental_issues.html">Report environmental issue</a></li>
+            <li><a href="property_details.html">Get property details</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="panel panel-default map-panel">
+            <div class="panel-body">
+                <iframe id="publishedMap"
+                            src="https://demo.locationframework.eu/?lang=en&uuid=8b86ab2c-1ab7-4c4d-b021-7a5a7f7da359"
+                            style="border: none; width: 100%; height: 100%;"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-6">
+          <div class="panel panel-default form-panel">
+            <div class="panel-body">
+                <h4>Report environmental issue</h4>
+                <form class="form-horizontal" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-4 control-label">Draw issue area to map:</label>
+
+                        <div class="col-sm-8">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="issueType" id="issueType1" checked value="Point">
+                                    Point
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="issueType" id="issueType2" value="LineString">
+                                    Line
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="issueType" id="issueType3" value="Polygon">
+                                    Polygon
+                                </label>
+                            </div>
+                            <button id="startDrawing" class="btn btn-primary">Start Drawing</button>
+                            <button id="clearDrawing" class="btn btn-primary">Clear Drawings</button>
+                        </div>
+                    </div>
+                    <div id="reportForm">
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-4 control-label">Name</label>
+
+                            <div class="col-sm-8">
+                                <input class="form-control" name="name" id="inputName" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+
+                            <div class="col-sm-8">
+                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="textArea" class="col-sm-4 control-label">Description</label>
+
+                            <div class="col-sm-8">
+                                <textarea id="textArea" name="desc" class="form-control" rows="6"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                  <button id="report" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script>
+    // constants
+    var IFRAME_DOMAIN = 'https://demo.locationframework.eu';
+
+    // Referenced HTML-elements
+    var elements = {
+        iframe: $("#publishedMap")[0],
+        coordinateField: $("#coordinates")[0],
+        drawBtn: $("#startDrawing"),
+        clearBtn: $("#clearDrawing"),
+        reportBtn: $('#report')
+    };
+
+    // init connection
+    var channel = OskariRPC.connect(
+        elements.iframe,
+        IFRAME_DOMAIN
+    );
+
+    channel.onReady(function() {
+        // get layers once we have the connection
+        channel.getAllLayers(
+            function (data) {
+                Util.log(data);
+            }
+        );
+    });
+
+    elements.drawBtn.click(function () {
+        clearDrawings();
+        var drawMode = $("input:radio:checked")[0].value;
+        var data = [
+            'drawing',
+            drawMode,
+            {
+                allowMultipleDrawing: false,
+                modifyControl: false
+            }
+        ];
+        channel.postRequest('DrawTools.StartDrawingRequest', data);
+    });
+
+    elements.clearBtn.click(function () {
+        clearDrawings();
+    });
+
+    elements.reportBtn.click(function() {
+        Util.resetForm();
+        clearDrawings();
+    });
+
+    function clearDrawings() {
+        var clearData = ['drawing', true];
+        channel.postRequest('DrawTools.StopDrawingRequest', clearData);
+    };
+
+    </script>
+  </body>
+</html>

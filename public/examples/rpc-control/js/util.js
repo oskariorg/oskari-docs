@@ -86,7 +86,7 @@
      */
     Util.resetForm = function() {
 
-        var form = $("#mode1Form");
+        var form = $("#reportForm");
         var inputs = form.find('input, textarea');
         inputs.each(function() {
             $(this).val('');
