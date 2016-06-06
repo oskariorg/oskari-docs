@@ -102,7 +102,11 @@
                             </div>
                         </div>
                     </div>
+                    <div id="confirmText" class="hidden">
+                            <div>Issue reported successfully!</div>
+                    </div>
                   <button id="report" class="btn btn-primary">Submit</button>
+                  <button id="fillForm" class="btn btn-primary hidden">Report another issue</button>
                 </form>
             </div>
           </div>
@@ -120,7 +124,10 @@
         coordinateField: $("#coordinates")[0],
         drawBtn: $("#startDrawing"),
         clearBtn: $("#clearDrawing"),
-        reportBtn: $('#report')
+        reportBtn: $('#report'),
+        reportForm: $('#reportForm'),
+        confirmText: $('#confirmText'),
+        fillForm: $('#fillForm')
     };
 
     // init connection
@@ -159,6 +166,17 @@
     elements.reportBtn.click(function() {
         Util.resetForm();
         clearDrawings();
+        elements.reportForm.addClass("hidden");
+        elements.reportBtn.addClass("hidden");
+        elements.confirmText.removeClass("hidden");
+        elements.fillForm.removeClass("hidden");
+    });
+
+    elements.fillForm.click(function () {
+        elements.reportForm.removeClass("hidden");
+        elements.reportBtn.removeClass("hidden");
+        elements.confirmText.addClass("hidden");
+        elements.fillForm.addClass("hidden");
     });
 
     function clearDrawings() {
