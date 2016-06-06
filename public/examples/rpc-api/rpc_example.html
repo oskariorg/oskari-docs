@@ -37,7 +37,6 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
-              
                         <iframe
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
@@ -2903,7 +2902,7 @@ channel.sendUIEvent([toolname], function(data) {
 
     // constants
     var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
-//    var IFRAME_DOMAIN = 'http://localhost:8080';
+    //var IFRAME_DOMAIN = 'http://localhost:8080';
     var USER_MARKER_ID = 'REPORT_MARKER';
     var MARKER_ID = 'RPC_MARKER';
     var LAYERS_ENV = ["base_35"];
@@ -2947,7 +2946,8 @@ channel.sendUIEvent([toolname], function(data) {
         'SearchResultEvent',
         'FeatureEvent',
         'DrawingEvent',
-        'InfoboxActionEvent'
+        'InfoboxActionEvent',
+        'InfoBox.InfoBoxEvent'
     ];
     var eventHandlers = {
         'SearchResultEvent' : function(data) {
