@@ -12,7 +12,7 @@
     "gulp-uglify": "~0.1.0",
     "gulp-util": "~2.2.12",
     "highlight.js": "~8.0.0",
-    "oskari-rpc": "git+https://github.com/nls-oskari/rpc-client.git#v2.0.2",
+    "oskari-rpc": "2.0.2",
     "jade": "1.1.5",
     "lodash-node": "~2.4.1",
     "marked": "^0.3.5",
