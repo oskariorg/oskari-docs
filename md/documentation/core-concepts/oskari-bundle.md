@@ -103,7 +103,7 @@ When bundle is added to `portti_bundle` table, it can be added to `portti_view_b
 		(SELECT config FROM portti_bundle WHERE name='login'),
 		(SELECT state FROM portti_bundle WHERE name='login'),
 		(SELECT startup FROM portti_bundle WHERE name='login'),
-		'asdi-login'
+		'login'
 	);
 
 After these steps, and when bundle is defined correctly in front-end code, the bundle should be loaded when starting your map application. Great way to check if the bundle is loaded at start is to look at startupSequence in GetAppSetup in developer console. 
