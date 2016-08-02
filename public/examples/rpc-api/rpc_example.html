@@ -16,8 +16,8 @@
     <link href="/css/main.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="style/style.css" rel="stylesheet">
-    
-    
+
+
     <!-- libs and javascripts enabling RPC functionality -->
     <script src="../../lib/jquery-1.11.2.min.js"></script>
     <script src="../../lib/lodash-3.8.0.js"></script>
@@ -39,10 +39,12 @@
                     <div class="panel-body">
                         <iframe
                             id="publishedMap"
-                        src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
+                            src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
+
                         style="border: none; width: 100%; height: 100%;"></iframe>
+                        <!-- src="http://localhost:8080/web/fi/kartta?uuid=d275ca03-9277-4638-9e1f-434061162276&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true" -->
                     </div>
-                    
+
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
@@ -63,11 +65,11 @@
                                         <option value="mapZoomFunctions">Zoom functions</option>
                                         <option value="GetPixelMeasuresInScale">Get pixel measures in scale</option>
                                         <option value="stateHandling">Handle map state</option>
-                                        <option value="GetFeatures">Get features</option>                                        
-                                        <option value="GetScreenshot">Get a screenshot of the map</option> 
-                                        <option value="SendUIEvent">Send UI event</option>       
-                                        <option value="setCursorStyle">Set cursor style</option>       
-                                                                               
+                                        <option value="GetFeatures">Get features</option>
+                                        <option value="GetScreenshot">Get a screenshot of the map</option>
+                                        <option value="SendUIEvent">Send UI event</option>
+                                        <option value="setCursorStyle">Set cursor style</option>
+
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
@@ -87,7 +89,7 @@
                                         <option value="SearchRequest">Perform a search</option>
                                         <option value="drawing">Drawing requests</option>
                                         <option value="addOrRemoveFeatures">Add or remove vector features</option>
-                                        <option value="ZoomToFeatures">Zoom to features</option>                                        
+                                        <option value="ZoomToFeatures">Zoom to features</option>
                                     </optgroup>
                                     <optgroup label="Events">
                                         <option value="AfterAddMarkerEvent">AfterAddMarkerEvent</option>
@@ -104,7 +106,7 @@
                                 </select>
                             </div>
                         </h2>
-                        <div id="documentationContainer"></div>                        
+                        <div id="documentationContainer"></div>
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@
         </pre>
 
         <h3>Initialising connection</h3>
-        IFRAME_DOMAIN must match to the source domain in the iframe. 
+        IFRAME_DOMAIN must match to the source domain in the iframe.
         <pre>
             <code class="hljs javascript">
 // init connection
@@ -192,7 +194,7 @@ channel.onReady(function() {
 });
             </code>
         </pre>
-        <h3>Do your stuff. Send requests, listen to events and call functions.</h3>  
+        <h3>Do your stuff. Send requests, listen to events and call functions.</h3>
         <pre>
             <code class="hljs javascript">
 //spinning action on the map
@@ -425,7 +427,7 @@ channel.getMapPosition(function(data) {
                     }
                 }
             ]
-        }                    
+        }
     ];
     var data = [
         'myInfoBox',
@@ -455,7 +457,7 @@ channel.getMapPosition(function(data) {
 });
             </code>
         </pre>
-        
+
          <button id="btnHideInfoBoxRequest" class="btn btn-primary exampleready" data-example="HideInfoBox">InfoBox.HideInfoBoxRequest</button>
         <div>
             <a id="hideInfobox" href="">To the documentation</a>
@@ -469,7 +471,7 @@ channel.getMapPosition(function(data) {
 var infoboxId = 'myInfoBox';
 channel.postRequest('InfoBox.HideInfoBoxRequest', [infoboxId]);
 channel.log('InfoBox.HideInfoBoxRequest posted with data', infoboxId);
-           
+
            </code>
        </pre>
     </div>
@@ -494,7 +496,7 @@ channel.log('InfoBox.HideInfoBoxRequest posted with data', infoboxId);
                 class="btn btn-primary exampleready"
                 data-example="AddMarkerRequestCenterOfMapForInfobox">AddMarkerRequest</button>
         <pre>
-<code class="hljs javascript">  
+<code class="hljs javascript">
 var MARKER_ID = 'MARKER_WITH_POPUP';
 channel.getMapPosition(function(data) {
     // Add marker to center map
@@ -518,7 +520,7 @@ channel.getMapPosition(function(data) {
                 data-example="ShowInfoBoxRequestForMarker">InfoBox.ShowInfoBoxRequest</button>
         </div>
 <pre>
-<code class="hljs javascript"> 
+<code class="hljs javascript">
 // Open popup for marker
 var MARKER_ID = 'MARKER_WITH_POPUP';
 var content = [
@@ -545,11 +547,13 @@ var infoboxData = [
 channel.postRequest('InfoBox.ShowInfoBoxRequest', infoboxData);
 channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
 </code>
-</pre>    
+</pre>
     </div>
 
 
     <div id="markers" style="display:none;">
+        In these examples, first zoom to Helsinki to see markers working.
+
         <div id="AddMarkerRequest">
             <div>Adding markers with Oskari default icons (shape number between 0 and 6)</div>
             <button id="btnMapModulePluginAddMarkerRequest" class="btn btn-primary exampleready" data-example="AddMarkerRequest">MapModulePlugin.AddMarkerRequest</button>
@@ -563,8 +567,8 @@ channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
             <pre>
                 <code class="hljs javascript">
 var data = {
-    x: 411650.70779123,
-    y: 6751897.3481153,
+    x: 386020,
+    y: 6670057,
     color: "ff0000",
     msg : '',
     shape: 3, // icon number (0-6)
@@ -587,20 +591,16 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
                     </script>
                     <pre>
                         <code class="hljs javascript">
-                        
-        var data = {
-            x: 411650.70779123,
-            y: 6751897.3481153,
-            msg : '',
-            shape: {
-                data: '&#60;svg width="32" height="32">&#60;g fill="#9955ff" transform="matrix(0.06487924,0,0,0.06487924,0,1.73024e-6)">&#60;g>&#60;path d="M 246.613,0 C 110.413,0 0,110.412 0,246.613 c 0,136.201 110.413,246.611 246.613,246.611 136.2,0 246.611,-110.412 246.611,-246.611 C 493.224,110.414 382.812,0 246.613,0 Z m 96.625,128.733 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m -196.743,0 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m 100.738,284.184 c -74.374,0 -138.225,-45.025 -165.805,-109.302 l 48.725,0 c 24.021,39.5 67.469,65.885 117.079,65.885 49.61,0 93.058,-26.384 117.079,-65.885 l 48.725,0 C 385.46,367.892 321.608,412.917 247.233,412.917 Z" />&#60;/g>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;/g>&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;/svg>',
-                x: 16, // center point x position
-                y: 16 // center point y position
-            },
-            size: 3
-        };
-        channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
-        
+var data = {
+    x: 386020,
+    y: 6670057,
+    msg : '',
+    shape: '&#60;svg width="32" height="32">&#60;g fill="#9955ff" transform="matrix(0.06487924,0,0,0.06487924,0,1.73024e-6)">&#60;g>&#60;path d="M 246.613,0 C 110.413,0 0,110.412 0,246.613 c 0,136.201 110.413,246.611 246.613,246.611 136.2,0 246.611,-110.412 246.611,-246.611 C 493.224,110.414 382.812,0 246.613,0 Z m 96.625,128.733 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m -196.743,0 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m 100.738,284.184 c -74.374,0 -138.225,-45.025 -165.805,-109.302 l 48.725,0 c 24.021,39.5 67.469,65.885 117.079,65.885 49.61,0 93.058,-26.384 117.079,-65.885 l 48.725,0 C 385.46,367.892 321.608,412.917 247.233,412.917 Z" />&#60;/g>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;g/>&#60;/g>&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;g transform="translate(0,-461.224)" />&#60;/svg>',
+    offsetX: 16, // center point x position from left to right
+    offsetY: 16, // center point y position from bottom to up
+    size: 3
+};
+channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
                         </code>
                     </pre>
                 </div>
@@ -617,14 +617,14 @@ channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
             </script>
             <pre>
                 <code class="hljs javascript">
-
-            var data = {
-                x: 377191,
-                y: 6678627,
-                iconUrl: 'http://demo.paikkatietoikkuna.fi/Oskari/resources/framework/bundle/mapmodule-plugin/images/marker.png'
-            };
-            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
-
+var data = {
+    x: 386020,
+    y: 6670057,
+    shape: 'http://demo.paikkatietoikkuna.fi/Oskari/resources/framework/bundle/mapmodule-plugin/images/marker.png',
+    offsetX: 16, // center point x position from left to right
+    offsetY: 0 // center point y position from bottom to up
+};
+channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
                 </code>
             </pre>
         </div>
@@ -666,7 +666,7 @@ channel.getMapPosition(function(data){
     var lonlat = [data.centerX, data.centerY];
     channel.postRequest('MapModulePlugin.GetFeatureInfoRequest', lonlat);
     channel.log('MapModulePlugin.GetFeatureInfoRequest posted with data', lonlat);
-});            
+});
             </code>
         </pre>
     </div>
@@ -695,11 +695,11 @@ channel.getAllLayers(function (layers) {
 });
             </code>
         </pre>
-        
+
         <div>Change VECTOR layer visibility.</div>
-        <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>        
+        <button id="btnAddFeaturesToMapRequest" class="btn btn-primary exampleready" data-example="AddFeaturesToMapRequest">AddFeaturesToMapRequest</button>
         <button id="btnChangeMapLayerOpacityRequestHide" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestHide">Hide vector layer</button>
-        <button id="btnChangeMapLayerOpacityRequestShow" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestShow">Show vector layer</button>        
+        <button id="btnChangeMapLayerOpacityRequestShow" class="btn btn-primary exampleready" data-example="MapLayerVisibilityRequestShow">Show vector layer</button>
         <div>
             <a id="changeOpacity" href="">To the documentation</a>
         </div>
@@ -709,7 +709,7 @@ channel.getAllLayers(function (layers) {
         </script>
         <pre>
             <code class="hljs javascript">
-//hide layer with id==='VECTOR'        
+//hide layer with id==='VECTOR'
 var layer_id = 'VECTOR';
 channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, false]);
 //show layer with id==='VECTOR'
@@ -729,8 +729,8 @@ channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, true
         </script>
         <pre>
             <code class="hljs javascript">
-var x = 552935, 
-    y = 7332639, 
+var x = 552935,
+    y = 7332639,
     zoomLevel = 7;
 channel.postRequest(
     'MapMoveRequest', [x, y, zoomLevel]
@@ -817,7 +817,7 @@ channel.postRequest('ShowProgressSpinnerRequest',[isVisible]);
         <pre>
             <code class="hljs javascript">
 var data = "Vantaa";
-   
+
 channel.postRequest('SearchRequest', [data]);
             </code>
         </pre>
@@ -1046,7 +1046,7 @@ var params = [geojsonObject, {
       clearPrevious: false,
       centerTo: true,
       cursor: 'zoom-in',
-      featureStyle: {          
+      featureStyle: {
           image : {
               shape: 2,
               size: 1,
@@ -1061,7 +1061,7 @@ var params = [geojsonObject, {
               stroke : {
                   color : 'rgba(255,255,255,1)',
                   width : 2
-              }, 
+              },
               labelProperty: 'label',
               offsetX: 65,
               offsetY: 8
@@ -1102,7 +1102,7 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',[]);
             </script>
             <pre>
                 <code class="hljs javascript">
-// Remove all feature's whose 'test_property' === 1 from the layer with id==='VECTOR'                
+// Remove all feature's whose 'test_property' === 1 from the layer with id==='VECTOR'
 channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',['test_property', 1, 'VECTOR']);
                 </code>
             </pre>
@@ -1131,7 +1131,7 @@ channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest',['test_proper
                 data-example="ZoomToFeaturesRequest">MapModulePlugin.ZoomToFeaturesRequest</button>
         </div>
         <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
                 </code>
             </pre>
@@ -1143,9 +1143,9 @@ channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
                 data-example="ZoomToFeaturesRequest2">MapModulePlugin.ZoomToFeaturesRequest</button>
         </div>
         <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 var layers = {layer: ['testLayer']};
-var features = {'species': ['parcel']};         
+var features = {'species': ['parcel']};
 channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[layers, features]);
                 </code>
             </pre>
@@ -1166,7 +1166,7 @@ channel.getAllLayers(function(data){
     </div>
 
     <div id = "GetMapPosition" style="display:none;">
-        <button id="btnGetMapPosition" class="btn btn-primary exampleready">Get map position</button>        
+        <button id="btnGetMapPosition" class="btn btn-primary exampleready">Get map position</button>
         <div>Gets current map position</div>
         <pre>
             <code class="hljs javascript">
@@ -1178,7 +1178,7 @@ channel.getMapPosition(function(data){
     </div>
 
     <div id = "GetSupportedEvents" style="display:none;">
-        <button id="btnGetSupportedEvents" class="btn btn-primary exampleready">Get supported events</button>        
+        <button id="btnGetSupportedEvents" class="btn btn-primary exampleready">Get supported events</button>
         <div>Gets a list of events the map supports</div>
         <pre>
             <code class="hljs javascript">
@@ -1190,7 +1190,7 @@ channel.getSupportedEvents(function(data){
     </div>
 
     <div id = "GetSupportedFunctions" style="display:none;">
-        <button id="btnGetSupportedFunctions" class="btn btn-primary exampleready">Get supported functions</button>        
+        <button id="btnGetSupportedFunctions" class="btn btn-primary exampleready">Get supported functions</button>
         <div>Gets a list of functions the map supports</div>
         <pre>
             <code class="hljs javascript">
@@ -1202,7 +1202,7 @@ channel.getSupportedFunctions(function(data){
     </div>
 
     <div id = "GetSupportedRequests" style="display:none;">
-        <button id="btnGetSupportedRequests" class="btn btn-primary exampleready">Get supported requests</button>        
+        <button id="btnGetSupportedRequests" class="btn btn-primary exampleready">Get supported requests</button>
         <div>Gets a list of requests the map supports</div>
         <pre>
             <code class="hljs javascript">
@@ -1214,7 +1214,7 @@ channel.getSupportedRequests(function(data){
     </div>
 
     <div id = "mapZoomFunctions" style="display:none;">
-        <button id="btnGetZoomRange" class="btn btn-primary exampleready" data-example="GetZoomRange">Get zoom range</button>        
+        <button id="btnGetZoomRange" class="btn btn-primary exampleready" data-example="GetZoomRange">Get zoom range</button>
         <div>Gets the map's zoom range (min, max, current)</div>
         <pre>
             <code class="hljs javascript">
@@ -1223,7 +1223,7 @@ channel.getZoomRange(function(data){
 });
             </code>
         </pre>
-        <button id="btnZoomIn" class="btn btn-primary exampleready" data-example="zoomIn">Zoom in</button>        
+        <button id="btnZoomIn" class="btn btn-primary exampleready" data-example="zoomIn">Zoom in</button>
         <div>Zooms in and returns the current zoomlevel after zooming</div>
         <pre>
             <code class="hljs javascript">
@@ -1232,7 +1232,7 @@ channel.zoomIn(function(data){
 });
             </code>
         </pre>
-        <button id="btnZoomOut" class="btn btn-primary exampleready" data-example="zoomOut">Zoom out</button>        
+        <button id="btnZoomOut" class="btn btn-primary exampleready" data-example="zoomOut">Zoom out</button>
         <div>Zooms out and returns the current zoomlevel after zooming</div>
         <pre>
             <code class="hljs javascript">
@@ -1241,7 +1241,7 @@ channel.zoomOut(function(data){
 });
             </code>
         </pre>
-        <button id="btnZoomTo" class="btn btn-primary exampleready" data-example="zoomTo">ZoomTo(5)</button>        
+        <button id="btnZoomTo" class="btn btn-primary exampleready" data-example="zoomTo">ZoomTo(5)</button>
         <div>Zooms to given zoomlevel and returns the current zoomlevel after zooming (might be different than parameter if parameter is out of range)</div>
         <pre>
             <code class="hljs javascript">
@@ -1272,7 +1272,7 @@ channel.zoomTo([5],function(data){
     </div>
 
     <div id = "GetMapBbox" style="display:none;">
-        <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>        
+        <button id="btnGetMapBbox" class="btn btn-primary exampleready">Get map bbox</button>
         <div>Gets the map's current extent</div>
         <pre>
             <code class="hljs javascript">
@@ -1286,9 +1286,9 @@ channel.getMapBbox(function(data){
 
 
     <div id="stateHandling" style="display: none;">
-            <button id="btnResetState" class="btn btn-primary exampleready" data-example="resetState">Reset state</button>        
-            <button id="btnSaveState" class="btn btn-primary exampleready" data-example="saveState">Save state</button>        
-            <button id="btnLoadState" class="btn btn-primary exampleready" data-example="loadState">Load state</button>        
+            <button id="btnResetState" class="btn btn-primary exampleready" data-example="resetState">Reset state</button>
+            <button id="btnSaveState" class="btn btn-primary exampleready" data-example="saveState">Save state</button>
+            <button id="btnLoadState" class="btn btn-primary exampleready" data-example="loadState">Load state</button>
         <div id = "resetState">
             <div>Resets the saved map state</div>
             <pre>
@@ -1336,7 +1336,7 @@ channel.useState([this.savedState], function(){
                     class="btn btn-primary exampleready" data-example="getFeatures">getFeatures(true)</button>
             </div>
             <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 channel.getFeatures([true], function(data) {
     channel.log('GetFeatures: ', data);
 });
@@ -1348,7 +1348,7 @@ channel.getFeatures([true], function(data) {
                     class="btn btn-primary exampleready" data-example="getFeatures">getFeatures()</button>
             </div>
             <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 channel.getFeatures([], function(data) {
     channel.log('GetFeatures: ', data);
 });
@@ -1362,7 +1362,7 @@ channel.getFeatures([], function(data) {
                 Get a screenshot of the current map. (Experimental! Also requires suitable, CORS-enabled map layers on the published map.)
             </div>
             <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 channel.getScreenshot(function(data) {
     //set image content to an img tag in your html
     document.getElementById('getScreenshotImgTag').src = data;
@@ -1370,40 +1370,40 @@ channel.getScreenshot(function(data) {
                   </code>
             </pre>
             <div>
-                Screenshot result: 
+                Screenshot result:
                 <img style="border: 1px solid black;max-width:100%;overflow: hidden;" id="getScreenshotImgTag" src=""/>
             </div>
         </div>
 		<div id="SendUIEvent" style="display: none;">
 			<div>
-			    Open/close coordinatetool's popup: 
+			    Open/close coordinatetool's popup:
 				<button id="btnSendUIEvent"
 					class="btn btn-primary exampleready"
 					data-example="sendUIEvent">SendUIevent</button>
-			</div>					
+			</div>
 			<pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 var toolname = 'coordinatetool';
 channel.sendUIEvent([toolname], function(data) {
     channel.log('sendUIEvent: ', data);
 });
                   </code>
-            </pre>	
+            </pre>
 
-            <div>		
-                Toggle the map's center crosshair: 
+            <div>
+                Toggle the map's center crosshair:
                 <button id="toggleCrosshair"
                     class="btn btn-primary exampleready"
                     data-example="toggleCrosshair">Toggle crosshair</button>
-            </div>                  
+            </div>
             <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
 var toolname = 'mapmodule.crosshair';
 channel.sendUIEvent([toolname], function(data) {
     channel.log('sendUIEvent: ', data);
 });
                   </code>
-            </pre>          
+            </pre>
 		</div>
 
         <div id="setCursorStyle" style="display: none;">
@@ -1422,15 +1422,15 @@ channel.sendUIEvent([toolname], function(data) {
                 <button id="btnSetCursorStyle"
                     class="btn btn-primary exampleready"
                     data-example="setCursorStyle">Set cursor style</button>
-            </div>                  
+            </div>
             <pre>
-                <code class="hljs javascript">  
+                <code class="hljs javascript">
             var cursorStyle = jQuery('#setCursorStyleSelect').val();
             channel.setCursorStyle([cursorStyle], function(data) {
                 channel.log('setCursorStyle: ', data);
             });
                 </code>
-            </pre>          
+            </pre>
         </div>
 
 		<!-- events -->
@@ -1792,7 +1792,7 @@ channel.sendUIEvent([toolname], function(data) {
   }
 }
                 </code>
-            </pre>    
+            </pre>
         </div>
         <div id="FeedbackResultEvent" style="display:none;">
             <div>Occurs after a feedback request has been completed</div>
@@ -2046,7 +2046,7 @@ channel.sendUIEvent([toolname], function(data) {
 <script type="text/javascript">
     //init code highlighting
     hljs.initHighlightingOnLoad();
-    
+
     function moveMap(x, y, zoomLevel) {
         channel.postRequest(
             'MapMoveRequest', [x, y, zoomLevel]
@@ -2168,7 +2168,7 @@ channel.sendUIEvent([toolname], function(data) {
 
     }
     var getRouteRequest = function(mode){
-        
+
         // From Pasila to Center point on a map
         channel.getMapPosition(function(data) {
             var datain = {
@@ -2267,7 +2267,7 @@ channel.sendUIEvent([toolname], function(data) {
                                 }
                             }
                         ]
-                    }                    
+                    }
                 ];
                     var data = [
                         'myInfoBox',
@@ -2345,46 +2345,40 @@ channel.sendUIEvent([toolname], function(data) {
             channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
         },
         'AddMarkerRequest': function() {
-            channel.getMapPosition(function(data){
-                var data = {
-                    x: data.centerX,
-                    y: data.centerY,
-                    color: "ff0000",
-                    msg : '',
-                    shape: 3,
-                    size: 3
-                };
-                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
-                channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
-            });
+            var data = {
+                x: 386020,
+                y: 6670057,
+                color: 'ff0000',
+                msg : '',
+                shape: 3,
+                size: 3
+            };
+            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+            channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
         },
         'AddMarkerRequest2': function() {
-            channel.getMapPosition(function(data){
-                var data = {
-                    x: data.centerX,
-                    y: data.centerY,
-                    msg : '',
-                    shape: {
-                        data: '<svg width="32" height="32"><g fill="#9955ff" transform="matrix(0.06487924,0,0,0.06487924,0,1.73024e-6)"><g><path d="M 246.613,0 C 110.413,0 0,110.412 0,246.613 c 0,136.201 110.413,246.611 246.613,246.611 136.2,0 246.611,-110.412 246.611,-246.611 C 493.224,110.414 382.812,0 246.613,0 Z m 96.625,128.733 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m -196.743,0 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m 100.738,284.184 c -74.374,0 -138.225,-45.025 -165.805,-109.302 l 48.725,0 c 24.021,39.5 67.469,65.885 117.079,65.885 49.61,0 93.058,-26.384 117.079,-65.885 l 48.725,0 C 385.46,367.892 321.608,412.917 247.233,412.917 Z" /></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></g><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /></svg>',
-                        x: 16,
-                        y: 16
-                    },
-                    size: 3
-                };
-                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
-                channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
-            });
+            var data = {
+                x: 386020,
+                y: 6670057,
+                msg : '',
+                shape: '<svg width="32" height="32"><g fill="#9955ff" transform="matrix(0.06487924,0,0,0.06487924,0,1.73024e-6)"><g><path d="M 246.613,0 C 110.413,0 0,110.412 0,246.613 c 0,136.201 110.413,246.611 246.613,246.611 136.2,0 246.611,-110.412 246.611,-246.611 C 493.224,110.414 382.812,0 246.613,0 Z m 96.625,128.733 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m -196.743,0 c 21.128,0 38.256,17.128 38.256,38.256 0,21.128 -17.128,38.256 -38.256,38.256 -21.128,0 -38.256,-17.128 -38.256,-38.256 0,-21.128 17.128,-38.256 38.256,-38.256 z m 100.738,284.184 c -74.374,0 -138.225,-45.025 -165.805,-109.302 l 48.725,0 c 24.021,39.5 67.469,65.885 117.079,65.885 49.61,0 93.058,-26.384 117.079,-65.885 l 48.725,0 C 385.46,367.892 321.608,412.917 247.233,412.917 Z" /></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></g><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /><g transform="translate(0,-461.224)" /></svg>',
+                offsetX: 16,
+                offsetY: 16,
+                size: 3
+            };
+            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+            channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
         },
         'AddMarkerRequest3': function() {
-            channel.getMapPosition(function(data){
-                var data = {
-                        x: data.centerX,
-                        y: data.centerY,
-                        iconUrl: 'http://demo.paikkatietoikkuna.fi/Oskari/resources/framework/bundle/mapmodule-plugin/images/marker.png'
-                };
-                channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
-                channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
-            });
+            var data = {
+                x: 386020,
+                y: 6670057,
+                shape: 'http://demo.paikkatietoikkuna.fi/Oskari/resources/framework/bundle/mapmodule-plugin/images/marker.png',
+                offsetX: 16,
+                offsetY: 0
+            };
+            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+            channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
         },
         'RemoveMarkersRequest': function() {
             channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
@@ -2395,7 +2389,7 @@ channel.sendUIEvent([toolname], function(data) {
                 var lonlat = [data.centerX, data.centerY];
                 channel.postRequest('MapModulePlugin.GetFeatureInfoRequest', lonlat);
                 channel.log('MapModulePlugin.GetFeatureInfoRequest posted with data', lonlat);
-            });            
+            });
         },
         'MapLayerVisibilityRequest': function() {
             channel.getAllLayers(function (layers) {
@@ -2407,13 +2401,13 @@ channel.sendUIEvent([toolname], function(data) {
                 channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with parameters: ', layer.id + ', ' + !layer.visible);
             });
         },
-        'MapLayerVisibilityRequestHide': function() {                
+        'MapLayerVisibilityRequestHide': function() {
             var layer_id = 'VECTOR';
             var setVisible = false;
             channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, setVisible]);
             channel.log('MapLayerVisibilityRequest sent with parameters: ', layer_id, setVisible);
 	    },
-	    'MapLayerVisibilityRequestShow': function() {                
+	    'MapLayerVisibilityRequestShow': function() {
 	        var layer_id = 'VECTOR';
 	        var setVisible = true;
 	        channel.postRequest('MapModulePlugin.MapLayerVisibilityRequest', [layer_id, setVisible]);
@@ -2435,7 +2429,7 @@ channel.sendUIEvent([toolname], function(data) {
                 channel.postRequest('ChangeMapLayerOpacityRequest', [layer_id, new_opacity]);
                 channel.log('ChangeMapLayerOpacityRequest sent with parameters: ', layer_id + ', ' + new_opacity);
             });
-        },        
+        },
         'GetUserLocationRequest': function() {
             channel.postRequest('MyLocationPlugin.GetUserLocationRequest', [true]);
             channel.log('MyLocationPlugin.GetUserLocationRequest posted with data', true);
@@ -2448,7 +2442,7 @@ channel.sendUIEvent([toolname], function(data) {
         },
         'SearchRequest': function() {
             var data = document.getElementById("inputSearch").value;
-                
+
             channel.postRequest('SearchRequest', [data]);
             channel.log('SearchRequest posted with data', data);
 
@@ -2661,7 +2655,7 @@ channel.sendUIEvent([toolname], function(data) {
         		      clearPrevious: false,
         		      centerTo: true,
         		      cursor: 'zoom-in',
-        		      featureStyle: {          
+        		      featureStyle: {
         		          image : {
         		              shape: 2,
         		              size: 1,
@@ -2676,14 +2670,14 @@ channel.sendUIEvent([toolname], function(data) {
         		              stroke : {
         		                  color : 'rgba(255,255,255,1)',
         		                  width : 2
-        		              }, 
+        		              },
         		              labelProperty: 'label',
         		              offsetX: 65,
         		              offsetY: 8
         		          }
         		      }
         		}];
-        		channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', params);       
+        		channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', params);
                 channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
         },
         'RemoveFeaturesFromMapRequest': function() {
@@ -2703,7 +2697,7 @@ channel.sendUIEvent([toolname], function(data) {
             channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[{layer: ['testLayer']}, {'species': ['parcel']}]);
             channel.log('MapModulePlugin.ZoomToFeaturesRequest');
         },
-        'AddFeaturesToMapRequestForZooming': function() {          
+        'AddFeaturesToMapRequestForZooming': function() {
            var geojsonObject = {
                    'type': 'FeatureCollection',
                    'crs': {
@@ -2729,12 +2723,12 @@ channel.sendUIEvent([toolname], function(data) {
                          'geometry': {
                            'type': 'Polygon',
                            'coordinates': [[[309856,6829840],[312576,6833808],[315424,6831120],[315040,6828592],[311328,6827472],[309856,6829840]]]
-                         }                     
-                     }                     
+                         }
+                     }
                    ]
-            };           
+            };
             var params = [geojsonObject, {
-                    layerId: 'testLayer', 
+                    layerId: 'testLayer',
                     clearPrevious: false,
                     centerTo: true,
                     featureStyle: {
@@ -2978,9 +2972,9 @@ channel.sendUIEvent([toolname], function(data) {
                 displayMessage('Search error: ' + data.result.responseText, 5);
             }
         },
-        
+
         'MapClickedEvent': function(data) {
-            // add a marker to clicked spot - 
+            // add a marker to clicked spot -
             var marker = Util.getMarkerTemplate();
             marker.x = data.lon;
             marker.y = data.lat;
@@ -3111,18 +3105,18 @@ channel.sendUIEvent([toolname], function(data) {
                         }
                     ]);
 
-                    
+
                     // Get route mode changed start points
                     var legs = data.plan.itineraries[0].legs;
                     var features = [];
                     for (var i=0;i<legs.length;i++) {
                         // Draw start points
                         var leg = legs[i];
-                        var feature = { 
-                            "type": "Feature", 
+                        var feature = {
+                            "type": "Feature",
                             "geometry": {
                                 "type": "Point",
-                                "coordinates": [leg.from.lon, leg.from.lat]                            
+                                "coordinates": [leg.from.lon, leg.from.lat]
                             },
                             "properties": {
                                 "mode": leg.mode
@@ -3135,11 +3129,11 @@ channel.sendUIEvent([toolname], function(data) {
 
                             var istop = leg.intermediateStops[j];
 
-                            var feature = { 
-                                "type": "Feature", 
+                            var feature = {
+                                "type": "Feature",
                                 "geometry": {
                                     "type": "Point",
-                                    "coordinates": [istop.lon, istop.lat]                            
+                                    "coordinates": [istop.lon, istop.lat]
                                 },
                                 "properties": {
                                     "mode": "stop_" + leg.mode
@@ -3147,16 +3141,16 @@ channel.sendUIEvent([toolname], function(data) {
                             };
                             features.push(feature);
                         }
-                        
+
                     }
 
                     // Get end point
                     var endPoint = legs[legs.length-1];
-                    var endPointFeature = { 
-                        "type": "Feature", 
+                    var endPointFeature = {
+                        "type": "Feature",
                         "geometry": {
                             "type": "Point",
-                            "coordinates": [endPoint.to.lon, endPoint.to.lat]                            
+                            "coordinates": [endPoint.to.lon, endPoint.to.lat]
                         },
                         "properties": {
                             "mode": 'routeEndPoint'
@@ -3175,8 +3169,8 @@ channel.sendUIEvent([toolname], function(data) {
                         },
                         'features': features
                     };
-                        
-                        
+
+
                     if(geoJSON) {
                         channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
                             geoJSON, {

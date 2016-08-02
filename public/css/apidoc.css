@@ -7,6 +7,11 @@
 .rem {
     color : red;
 }
+
+.breaking {
+    background-color : red;
+}
+
 .bundlenavi:hover, .requestnavi:hover, .eventnavi:hover {
     text-decoration: underline;
 }
@@ -26,4 +31,12 @@
 }
 #bundlecontent span.label.label-primary.rpc {
 	float : right;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+#bundlecontent span.label.label-primary.breaking {
+	float : right;
+	margin-left: 4px;
+	margin-right: 4px;
 }
