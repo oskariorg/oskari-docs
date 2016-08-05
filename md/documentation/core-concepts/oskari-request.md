@@ -2,7 +2,19 @@
 
 *List of all Oskari requests can be found [here](/documentation/core-concepts/request-list).*
 
-Requests are used by bundles to ask another component in an Oskari application to do something. Request and requesthandlers can be defined in bundles so you need to be certain that you have the bundle included in your application setup if you are going to use its requests.
+`Requests` are used by bundles to ask another component in an Oskari application to do something. One `request` requests always a specific functionality to be accomplished and there is only one bundle reacting to a specific `request`. However, any bundle can send a `request` to request that specific functionality. Bundles may/should send predetermined parameters with the `request`. Below is an image demonstrating the use of a `request`:
+
+<img src="/images/documentation/requests/request_example.PNG" alt="Oskari mobile mode published" height="450"/>
+
+`Requests` should be used to ask another bundle to carry out some **bigger** task based on the information got with the `request`. They should NOT be used to e.g. ask the state of bundle or transmit a request inside a bundle.
+
+`Requests` are **one-way** so the possible information about success or failure should be informed with events or callbacks.
+
+More detailed image about bundles sending requests and events can be found [here](/documentation/development/architecture) under Bundle communication.
+
+## Using requests
+
+To be able to use a request the bundle registering and handling the request should be included in your application setup.
 
 You can test if a certain request can be sent by checking if a request builder can be constructed by `sandbox`
 
@@ -35,7 +47,17 @@ request =  requestBuilder(longitude, latitude, zoomlevel);
 sandbox.request(<reference to a registered module instance or its name as string>, request);
 ```
 
-### Sample request definition
+## Creating own requests
+
+For creating and using own request you need three components:
+
+- request defined in one js-file
+- requesthandlers defined and registered by a bundle
+- request sent by a bundle (described above)
+
+### Request definition
+
+Request should be defined in one js-file under requests-folder under the registering bundle. Below is a sample definition of a request:
 
 ```javascript
 /**
@@ -76,9 +98,9 @@ function(param) {
 });
 ```
 
-## Request handler
+### Request handler
 
-Request handlers are handled by Oskari core and any custom handlers need to be registered there through sandbox to have any effect. Any request can have only one handler, but a handler can handle many requests. Currently the core doesn't check if you are trying to register a second handler to a request and results can be unexpected. You should prefix the request name with your bundle identifier to make the name unique.
+Request handler should be registered by a bundle who is responsible for performing the request. Request handlers are handled by Oskari core and any custom handlers need to be registered there through sandbox to have any effect. Any request can have only one handler, but a handler can handle many requests. Currently the core doesn't check if you are trying to register a second handler to a request and results can be unexpected. You should prefix the request name with your bundle identifier to make the name unique.
 
 To register a ReguestHandler to handle a given request:
 
@@ -92,8 +114,7 @@ You can remove the handler by calling (usually in stop method):
 ```javascript
 sandbox.removeRequestHandler('<Request name>', reqHandler);
 ```
-
-### Sample request handler definition
+Request handler should also be defined in one js-file, preferably under requests-folder. Below is a sample request handler definition:
 
 ```javascript
 /**
