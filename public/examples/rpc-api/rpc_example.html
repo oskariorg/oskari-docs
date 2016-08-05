@@ -37,12 +37,16 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
+                    <iframe
+                            id="publishedMap"
+                        src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
+                        style="border: none; width: 100%; height: 100%;"></iframe>
+                    <!--
                         <iframe
                             id="publishedMap"
-                            src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
-
+                        src="http://localhost:8080/web/fi/kartta?uuid=9899b745-f360-4290-ad5e-d954cb64638a&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true"
                         style="border: none; width: 100%; height: 100%;"></iframe>
-                        <!-- src="http://localhost:8080/web/fi/kartta?uuid=d275ca03-9277-4638-9e1f-434061162276&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true" -->
+-->
                     </div>
 
                 </div>
@@ -80,6 +84,7 @@
                                         <option value="ShowInfoBox">Show or hide info box</option>
                                         <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
+                                        <option value="showOrHideMarkers">Show or hide a marker</option>
                                         <option value="GetFeatureInfoRequest">Get feature info</option>
                                         <option value="LayerVisibility">Change map layer visibility</option>
                                         <option value="MapMoveRequest">Move map</option>
@@ -550,7 +555,7 @@ channel.log('InfoBox.ShowInfoBoxRequest posted with data', infoboxData);
 </pre>
     </div>
 
-
+<!-- ADD OR REMOVE MARKER REQUEST -->
     <div id="markers" style="display:none;">
         In these examples, first zoom to Helsinki to see markers working.
 
@@ -649,6 +654,79 @@ channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
             </pre>
         </div>
     </div>
+
+
+<!-- SHOW OR HIDE MARKER -->
+<div id="showOrHideMarkers" style="display:none;">
+        <div>
+            1. Zoom map to Helsinki
+        </div>
+        <div>
+            2. Add marker to map
+            <button id="btnMarkerShowHideAddMarker"
+                class="btn btn-primary exampleready"
+                data-example="ShowHideMarkerAddMarker">MapModulePlugin.AddMarkerRequest</button>
+            <div>
+                <a id="linkShowHideMarkerAddMarkersToMap" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/addmarkerrequest.md';
+                document.getElementById("linkShowHideMarkerAddMarkersToMap").href = documentPathRequest + documentPathEnd;
+            </script>
+                        <pre>
+                <code class="hljs javascript">
+var data = {
+    x: 386020,
+    y: 6670057,
+    color: "ff0000",
+    msg : '',
+    shape: 3, // icon number (0-6)
+    size: 3
+};
+channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+                </code>
+            </pre>
+        </div>
+        <div>3. Hide marker
+            <button id="btnMarkerShowHideHideMarker"
+                class="btn btn-primary exampleready"
+                data-example="ShowHideMarkerHideMarker">MapModulePlugin.MarkerVisibilityRequest</button>
+            <div>
+                <a id="linkShowHideMarkerMarkerVisibilityRequest" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/markervisibilityrequest.md';
+                document.getElementById("linkShowHideMarkerMarkerVisibilityRequest").href = documentPathRequest + documentPathEnd;
+            </script>
+                        <pre>
+                <code class="hljs javascript">
+// If MARKER_ID is not defined then hide all visibled markers
+channel.postRequest('MapModulePlugin.MarkerVisibilityRequest', [false, MARKER_ID]);
+                </code>
+            </pre>
+        </div>
+        <div>4. Show marker
+        <button id="btnMarkerShowHideShowMarker"
+                class="btn btn-primary exampleready"
+                data-example="ShowHideMarkerShowMarker">MapModulePlugin.MarkerVisibilityRequest</button>
+            <div>
+                <a id="linkShowHideMarkerMarkerVisibilityRequest2" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/mapmodule/request/markervisibilityrequest.md';
+                document.getElementById("linkShowHideMarkerMarkerVisibilityRequest2").href = documentPathRequest + documentPathEnd;
+            </script>
+                        <pre>
+                <code class="hljs javascript">
+// If MARKER_ID is not defined then show all unvisibled markers
+channel.postRequest('MapModulePlugin.MarkerVisibilityRequest', [true, MARKER_ID]);
+                </code>
+            </pre>
+        </div>
+</div>
+<!-- / SHOW OR HIDE MARKER -->
+
+
 
     <div style="display: none; visibility: hidden;" id="GetFeatureInfoRequest">
         <button id="btnMapModulePluginGetFeatureInfoRequest" class="btn btn-primary exampleready" data-example="MapModulePlugin.GetFeatureInfoRequest">MapModulePlugin.GetFeatureInfoRequest</button>
@@ -2384,6 +2462,28 @@ channel.sendUIEvent([toolname], function(data) {
             channel.postRequest('MapModulePlugin.RemoveMarkersRequest', []);
             channel.log('RemoveMarkerRequest posted with data', []);
         },
+        // SHOW OR HIDE MARKER
+        'ShowHideMarkerAddMarker': function(){
+            var data = {
+                x: 386020,
+                y: 6670057,
+                color: "ff0000",
+                msg : '',
+                shape: 3, // icon number (0-6)
+                size: 3
+            };
+            channel.postRequest('MapModulePlugin.AddMarkerRequest', [data, MARKER_ID]);
+            channel.log('MapModulePlugin.AddMarkerRequest posted with data', [data, MARKER_ID]);
+        },
+        'ShowHideMarkerHideMarker' : function(){
+            channel.postRequest('MapModulePlugin.MarkerVisibilityRequest', [false, MARKER_ID]);
+            channel.log('MapModulePlugin.MarkerVisibilityRequest posted with data', [false, MARKER_ID]);
+        },
+        'ShowHideMarkerShowMarker' : function(){
+            channel.postRequest('MapModulePlugin.MarkerVisibilityRequest', [true, MARKER_ID]);
+            channel.log('MapModulePlugin.MarkerVisibilityRequest posted with data', [true, MARKER_ID]);
+        },
+        // \SHOW OR HIDE MARKER
         'GetFeatureInfoRequest': function() {
             channel.getMapPosition(function(data){
                 var lonlat = [data.centerX, data.centerY];
