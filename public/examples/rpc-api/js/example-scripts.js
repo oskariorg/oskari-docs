@@ -164,7 +164,7 @@ var clickHandlers = {
     // REQUESTS
     //====================
     'GetRouteRequestTransit' : function() {
-        getRouteRequest('TRANSIT');
+        getRouteRequest('TRANSIT,WALK');
     },
     'GetRouteRequestWalk' : function() {
         getRouteRequest('WALK');

@@ -217,7 +217,7 @@ channel.getAllLayers(function (layers) {
     <!-- requests -->
     <div style="display: none; visibility: hidden;" id="GetRouteRequest">
         <div style="display: block;">
-            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestTransit">GetRouteRequest (transit)</button>
+            <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestTransit">GetRouteRequest (transit,walk)</button>
             <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestWalk">GetRouteRequest (walk)</button>
             <button id="btnGetRouteRequest" class="btn btn-primary exampleready" data-example="GetRouteRequestBicycle">GetRouteRequest (bicycle)</button>
             <div>Find route from Pasila to the center point of the map</div>
@@ -237,7 +237,7 @@ var data = {
     "srs": "EPSG:3067",
     "tolat": "6675728",
     "tolon": "394240",
-    "mode": "TRANSIT" // TRANSIT, WALK, BICYCLE, TRAIN and so on
+    "mode": "TRANSIT,WALK" // TRANSIT, WALK, BICYCLE, TRAIN and so on
 };
 channel.postRequest('GetRouteRequest', [data]);
             </code>
