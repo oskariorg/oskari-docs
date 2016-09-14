@@ -15,7 +15,7 @@ var MARKER_TEMPLATE = _.template(
 
 if(DEVELOP){
     IFRAME_DOMAIN = 'http://localhost:8080';
-    jQuery('#publishedMap').prop('src', 'http://localhost:8080/web/fi/kartta?uuid=9899b745-f360-4290-ad5e-d954cb64638a&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true');
+    jQuery('#publishedMap').prop('src', 'http://localhost:8080/web/fi/kartta?uuid=48911e06-06ca-4a23-8888-2342b0844206&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true');
 }
 
 //init code highlighting
@@ -756,6 +756,42 @@ var clickHandlers = {
             params
         );
         channel.log('MapModulePlugin.AddFeaturesToMapRequest posted with data', params);
+    },
+    'MapLayerUpdateRequest': function() {
+        var layerId = 1387;
+        var params = {
+            SLD_BODY: 
+                '<StyledLayerDescriptor xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd">'+
+                '    <NamedLayer>'+
+                '    <Name>oskari:kunnat2013</Name>'+
+                '    <UserStyle>'+
+                '    <Title>SLD Cook Book: Simple polygon</Title>'+
+                '    <FeatureTypeStyle>'+
+                '    <Rule>'+
+                '    <PolygonSymbolizer>'+
+                '    <Fill>'+
+                '    <CssParameter name="fill">#000080</CssParameter>'+
+                '    <CssParameter name="fill-opacity">0.5</CssParameter>'+
+                '    </Fill>'+
+                '    </PolygonSymbolizer>'+
+                '    </Rule>'+
+                '    </FeatureTypeStyle>'+
+                '    </UserStyle>'+
+                '    </NamedLayer>'+
+                '    </StyledLayerDescriptor>'
+        };
+
+        channel.postRequest('MapModulePlugin.MapLayerUpdateRequest', [layerId, true, params]);
+        channel.log('MapModulePlugin.MapLayerUpdateRequest', params);
+    },
+    'MapLayerUpdateRequestReset': function() {
+        var layerId = 1387;
+        var params = {
+            SLD_BODY: null
+        };
+
+        channel.postRequest('MapModulePlugin.MapLayerUpdateRequest', [layerId, true, params]);
+        channel.log('MapModulePlugin.MapLayerUpdateRequest', params);
     },
 
     //====================
