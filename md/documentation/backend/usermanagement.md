@@ -1,69 +1,27 @@
-# Oskari user permissions and access rights management
+# Oskari users
 
-## Oskari access rights ER model
-
-
-![Contents of map_layers table](/images/backend/map_layers_table.png)
-
-![Contents of permissions table](/images/backend/permissions.png)
-
- 
-
-### WMS layer
-
-*portti_resource_user*
-
-* resource\_name = wmsname (from portti\_maplayer table)
-* resource\_namespace = wmsurl (from portti\_maplayer table)
-* reource\_type = "WMS_LAYER"
-* externalid = role id (role's id on user's role list)
-* external\_type = "ROLE"
-
-*portti_permissions*
-
-permissions\_type = "VIEW\_LAYER" or "PUBLISH" for example
-
-### Background map layer:
-
-*portti_resource_user*
-
-* resource\_name = id from portti\_layerclass  table
-* resource\_namespace = empty
-* reource\_type = "WMS\_LAYER\_GROUP"
-* externalid = role's id (role's id on user's role list)
-* external\_type = "ROLE"
-
-*portti_permissions*
-
-permissions\_type =  "VIEW\_LAYER" or "PUBLISH" for example
-
+Users in Oskari are described with a few attributes listed below:
 
 ![User table](/images/backend/userUML.png)
 ![Role table](/images/backend/roleUML.png)
 
-## Oskari Ajax Sequence Diagram
+The datasource for users can be configured to read and manage users using JSON, SAML etc, but default to the core database for Oskari.
+Permissions for resources are mapped using roles and user-specific content uses the user UUID to identify the user.
 
-Below is the Oskari Ajax request sequence diagram. In the diagram UserDB returns data needed by User class (including user roles).
+## User registration
 
-![Ajax sequence diagram](/images/backend/OskariAjaxSequenceDiagram.png)
+User registration for Oskari can be enabled by modifying oskari-ext.properties:
 
-## Servlet Context Initialization
+    allow.registration=true
+    oskari.email.sender=<sender@domain.com>
+    oskari.email.host=<smtp.domain.com>
 
-1. Initializing PropertyUtilsit
-2. Adding default handlers
-3. Adding custom handlers
+If you are running an oskari-server-extension you need to also add the dependency for the code:
 
-![Servlet context init](/images/backend/ServletContextInit.png)
-
-    Servlet->Servlet: PropertyUtil
-    Servlet->ActionControl: addDefaultControls
-    note right of Servlet: Registers ActionHandlers
-    Servlet->ActionControl: addAction
-    note right of Servlet: Register CustomHandlers
+    <groupId>fi.nls.oskari.service</groupId>
+    <artifactId>oskari-control-users</artifactId>
 
 
-## Options for user management implementation
-
- * http://shiro.apache.org/
- * openLdap
- * ubisecure
+This results in a "register" link being added under the login form on the map-page. The current register pages are very crude with alert notifications.
+The functionality is mostly contained under [oskari-server/control-users](https://github.com/nls-oskari/oskari-server/tree/develop/control-users) with JSPs that can be overridden
+in oskari-server-extensions using the same filename as the original. There are also localizations for the user registration that can be overridden with [locale/messages-ext.properties](https://github.com/nls-oskari/oskari-server/blob/develop/servlet-map/src/main/resources/locale/messages.properties) files in the server classpath.
