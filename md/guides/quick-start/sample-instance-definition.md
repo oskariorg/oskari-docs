@@ -10,9 +10,9 @@ By extending `DefaultExtension` you can forget the nitty gritty details and focu
 /**
  * This bundle logs the map click coordinates to the console. This is a demonstration of using DefaultExtension.
  *
- * @class Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundleInstance
+ * @class Oskari.<mynamespace>.<bundle-identifier>.MyBundleInstance
  */
-Oskari.clazz.define('Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundleInstance',
+Oskari.clazz.define('Oskari.<mynamespace>.<bundle-identifier>.MyBundleInstance',
 /**
  * @method create called automatically on construction
  * @static
