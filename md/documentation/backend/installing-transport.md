@@ -87,7 +87,8 @@ The config part can be adjusted in oskari-ext.properties:
         oskari.transport.port=8080
         oskari.transport.url=/transport
 
-These needs to be accessible from the browser!
+Note! These needs to be accessible from the browser!
+Note!! Don't include protocol in domain property
 
 You will also need to configure oskari-server location in `transport-ext.properties` file on the servers classpath (default location is {JETTY_HOME}/resources/):
 
