@@ -25,7 +25,7 @@ Add your bundle to the applications startup sequence like you did in previous st
     "metadata" : {
         "Import-Bundle" : {
             "<bundle-identifier>" : {
-                "bundlePath" : "../../../packages/framework/bundle/"
+                "bundlePath" : "../../../packages/framework/"
             }
         }
     }

@@ -34,7 +34,7 @@ The bundle definition (or package) should be located in `bundle.js` file under t
 Bundle should install itself to Oskari framework by calling `installBundleClass` at the end of `bundle.js`
 
 ```javascript
-Oskari.bundle_manager.installBundleClass("<bundle-identifier>", "Oskari.<mynamespace>.bundle.<bundle-identifier>.MyBundle");
+Oskari.bundle_manager.installBundleClass("<bundle-identifier>", "Oskari.<mynamespace>.<bundle-identifier>.MyBundle");
 ```
 
 ## Adding new bundle to view
@@ -46,7 +46,7 @@ In order to get bundle up and running in your map application, the bundle needs 
 
 `portti_bundle` includes definitions of all available bundles. Definition of the new bundle should be added here to be able to use it in a view. It is recommended to use `flyway-scripts` when making changes to database. Documentation can be found [here](/documentation/backend/upgrading) and [here](/documentation/backend/upgrade_scripts).
 
-Below is an example of an flyway-script (which is actually `SQL`) adding new bundle to `portti_bundle` table.
+Below is an example of an flyway-script (which is actually `SQL`) adding new bundle to `portti_bundle` table (Replace <bundle-identifier> with the bundleid).
 
 	--insert to portti_bundle table
 	-- Add login bundle to portti_bundle table
@@ -54,30 +54,19 @@ Below is an example of an flyway-script (which is actually `SQL`) adding new bun
 	INTO portti_bundle
 	(
 		name,
-		config,
-		state,
 		startup
 	)
 	VALUES
 	(
 		'login',
-		'{}',
-		'{}',
 		'{
-	            "instanceProps":{},
-	            "title":"login",
-	            "bundleinstancename":"login",
-	            "fi":"login",
-	            "sv":"login",
-	            "en":"login",
 	            "bundlename":"login",
 	            "metadata": {
 	                "Import-Bundle": {
-	                    "asdi-login": {
+	                    "<bundle-identifier>": {
 	                        "bundlePath":"/Oskari/packages/bundle/"
 	                    }
-	                },
-	                "Require-Bundle-Instance": []
+	                }
 	            }
 	    }'
 	);
@@ -110,4 +99,4 @@ After these steps, and when bundle is defined correctly in front-end code, the b
 
 ## Resources
 
-Any additional CSS definitions or images the bundle needs are located in a similar directory structure under `/resources` folder. Any image links should be relative paths.
+Any additional CSS definitions or images the bundle needs are located under the bundle implementation `resources` folder. Any image links should be relative paths.
