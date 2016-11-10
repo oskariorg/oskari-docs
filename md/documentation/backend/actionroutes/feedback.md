@@ -1,17 +1,13 @@
 # Feedback (GET/POST)
-The action route is responsible for sending and receiving data to/from feedback service e.g. Open311 .
-There must be two properties in *ext.properties file for this action:
+The action route is responsible for sending and receiving data to/from feedback service e.g. Open311.
 
-<pre class="event-code-block">
-<code>
+##Requirements
+The feedback service tool must have been selected in Oskari map publishing editor to the view and
+there must be 2-3 internal properties defined in the current view metadata when creating the view:
 
-# Api key for posting feedback (Open311 api_key parameter value, only required for posting user's  feeback data)
-# test api base url http://dev.hel.fi/open311-test/v1/
-feedback.open311.key=f1301b1ded...
-feedback.open311.url=http://dev.hel.fi/...
+View metadata for feedback service is managed in Oskari map publishing editor
 
-</code>
-</pre>
+![screenshot](feedbackService.png)
 
 ## Parameters
 <table>

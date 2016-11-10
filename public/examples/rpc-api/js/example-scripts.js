@@ -15,7 +15,7 @@ var MARKER_TEMPLATE = _.template(
 
 if(DEVELOP){
     IFRAME_DOMAIN = 'http://localhost:8080';
-    jQuery('#publishedMap').prop('src', 'http://localhost:8080/web/fi/kartta?uuid=48911e06-06ca-4a23-8888-2342b0844206&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true');
+    jQuery('#publishedMap').prop('src', 'http://localhost:8080/?lang=en&uuid=31cbab75-f123-4202-b06c-3514a3c1a97f');
 }
 
 //init code highlighting
@@ -450,38 +450,83 @@ var clickHandlers = {
     },
     'GetFeedbackServiceDefinitionRequest': function() {
         var data = {
-            "serviceId": "172"
+            "serviceId": "180"
         };
         channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
     },
-    'GetFeedbackRequest': function() {
-        var filterdata = {
-            "start_date": "2016-04-01T00:00:00Z",
-            "status": "open,closed"
-        };
-        var data = {
-            "srs":"EPSG:3067",
-            "getServiceRequests": JSON.stringify(filterdata)
-        };
-        channel.postRequest('GetFeedbackRequest', [data]);
-    },
-    'PostFeedbackRequest': function() {
-        channel.getMapPosition(function(pdata){
-            var postdata = {
-                "service_code": "180",
-                "description": "Kampin bussipysäkillä on roskakori täynnä",
-                "first_name" : "Oskari",
-                "last_name" : "Maanmittaushallitus",
-                "lat": pdata.centerY,
-                "long": pdata.centerX
+    'GetFeedbackRequest': function () {
+        channel.getMapBbox(function (data) {
+            var filterdata = {
+                "start_date": "2016-09-01T00:00:00Z",
+                "bbox": data.left + ',' + data.bottom + ',' + data.right + ',' + data.top,
+                "status": "open,closed"
             };
             var data = {
-                "srs":"EPSG:3067",
-                "postServiceRequest": JSON.stringify(postdata)
+                "srs": "EPSG:3067",
+                "getServiceRequests": JSON.stringify(filterdata)
             };
-            channel.postRequest('PostFeedbackRequest', [data]);
-            channel.log('PostFeedbackRequest posted with data', [data]);
+            channel.postRequest('GetFeedbackRequest', [data]);
         });
+
+    },
+    'PostFeedbackRequest': function() {
+        switch(this.getAttribute("geom-type")) {
+            case "point":
+                channel.getMapPosition(function(pdata){
+                    var postdata = {
+                        "service_code": "180",
+                        "description": "Kampin bussipysäkillä on roskakori täynnä",
+                        "first_name" : "Point",
+                        "last_name" : "POC",
+                        "lat": pdata.centerY,
+                        "long": pdata.centerX
+                    };
+                    var data = {
+                        "srs":"EPSG:3067",
+                        "postServiceRequest": JSON.stringify(postdata)
+                    };
+                    channel.postRequest('PostFeedbackRequest', [data]);
+                    channel.log('PostFeedbackRequest posted with data', [data]);
+                });
+                break;
+            case "line":
+                var postdata = {
+                    "service_code": "180",
+                    "description": "Vartiosaari kaipaa suojelua",
+                    "first_name" : "Line",
+                    "last_name" : "POC",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [ [393000,6673192],[393216,6673560],[393712,6673864],[393736,6673592]]}
+                };
+                var data = {
+                    "srs":"EPSG:3067",
+                    "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('PostFeedbackRequest', [data]);
+                channel.log('PostFeedbackRequest posted with data', [data]);
+                break;
+            case "polygon":
+                var postdata = {
+                    "service_code": "180",
+                    "description": "Savua ilmassa",
+                    "first_name" : "Polygon",
+                    "last_name" : "POC",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [[[382472.5,6677324.5],[382328.5,6676636.5],[383288.5,6676332.5],[383528.5,6677100.5],[382472.5,6677324.5]]]}
+                };
+                var data = {
+                    "srs":"EPSG:3067",
+                    "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('PostFeedbackRequest', [data]);
+                channel.log('PostFeedbackRequest posted with data', [data]);
+                break;
+            default:
+
+        }
+
     },
     'StartDrawingRequest': function() {
         var data = ['my functionality id', 'Polygon'];
@@ -1542,7 +1587,6 @@ function getNextAndPreviousLinks() {
 
     return retVal;
 }
-
 function navigate(event) {
     $('#actionSelector').val($(this).attr('id'));
     $('#actionSelector').change();
