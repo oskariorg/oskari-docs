@@ -72,9 +72,9 @@
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
                                         <option value="GetFeedbackServiceRequest">Get feedback service list (poc)</option>
-                                        <option value="GetFeedbackServiceDefinitionRequest">Get definition of one feedback service (poc)</option>
+                                        <option value="GetFeedbackServiceDefinitionRequest">Get definition of one feedback category (poc)</option>
                                         <option value="GetFeedbackRequest">Get posted feedback data (poc)</option>
-                                        <option value="PostFeedbackRequest">Post user's feedback data (poc)</option>
+                                        <option value="feedback">Post user's feedback data (poc)</option>
                                         <option value="ShowInfoBox">Show or hide info box</option>
                                         <option value="ShowInfoBoxForMarkers">Show info box for marker</option>
                                         <option value="markers">Add or remove  a marker</option>
@@ -281,7 +281,7 @@ channel.postRequest('GetRouteRequest', [data]);
         <pre>
             <code class="hljs javascript">
                 var data = {
-                "serviceId": "172",
+                "serviceId": "180",
                 };
                 channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
             </code>
@@ -291,7 +291,7 @@ channel.postRequest('GetRouteRequest', [data]);
     <div style="display: none; visibility: hidden;" id="GetFeedbackRequest">
         <div style="display: block;">
             <button id="btnGetFeedbackRequest" class="btn btn-primary exampleready" data-example="GetFeedbackRequest">GetFeedbackRequest</button>
-            <div>Request feedback data</div>
+            <div>Request feedback data on current map area</div>
         </div>
         <div>
             <a id="getFeedback" href="">To the documentation</a>
@@ -302,31 +302,37 @@ channel.postRequest('GetRouteRequest', [data]);
         </script>
         <pre>
             <code class="hljs javascript">
+                channel.getMapBbox(function (data) {
                 var filterdata = {
-                  "start_date": "2016-04-01T00:00:00Z",
-                  "status": "open,closed"
+                "start_date": "2016-09-01T00:00:00Z",
+                "bbox": data.left + ',' + data.bottom + ',' + data.right + ',' + data.top,
+                "status": "open,closed"
                 };
                 var data = {
-                "srs":"EPSG:3067",
+                "srs": "EPSG:3067",
                 "getServiceRequests": JSON.stringify(filterdata)
                 };
                 channel.postRequest('GetFeedbackRequest', [data]);
+                });
             </code>
         </pre>
     </div>
 
-    <div style="display: none; visibility: hidden;" id="PostFeedbackRequest">
-        <div style="display: block;">
-            <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready" data-example="PostFeedbackRequest">PostFeedbackRequest</button>
-            <div>Request feedback data</div>
-        </div>
-        <div>
-            <a id="postFeedback" href="">To the documentation</a>
-        </div>
-        <script type="text/javascript">
-            var documentPathEnd = 'mapping/feedbackService/request/postfeedbackrequest.md';
-            document.getElementById("postFeedback").href = documentPathRequest + documentPathEnd;
-        </script>
+    <div id="feedback" style="display: none;">
+        <div id="PostFeedbackRequest">
+            <div style="display: block;">
+                <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready" geom-type="point"
+                        data-example="PostFeedbackRequest">Feedback.PostFeedbackRequest Point
+                </button>
+                <div>Request feedback data</div>
+            </div>
+            <div>
+                <a id="postFeedback" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/feedbackService/request/postfeedbackrequest.md';
+                document.getElementById("postFeedback").href = documentPathRequest + documentPathEnd;
+            </script>
         <pre>
             <code class="hljs javascript">
                 var postdata = {
@@ -341,9 +347,76 @@ channel.postRequest('GetRouteRequest', [data]);
                 "srs":"EPSG:3067",
                 "postServiceRequest": JSON.stringify(postdata)
                 };
-                channel.postRequest('PostFeedbackRequest', [data]);
+                channel.postRequest('Feedback.PostFeedbackRequest', [data]);
             </code>
         </pre>
+        </div>
+        <div id="PostFeedbackRequest">
+            <div style="display: block;">
+                <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready"  geom-type="line"
+                        data-example="PostFeedbackRequest">Feedback.PostFeedbackRequest Line
+                </button>
+                <div>Request feedback data</div>
+            </div>
+            <div>
+                <a id="postFeedback" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/feedbackService/request/postfeedbackrequest.md';
+                document.getElementById("postFeedback").href = documentPathRequest + documentPathEnd;
+            </script>
+        <pre>
+            <code class="hljs javascript">
+                var postdata = {
+                "service_code": "180",
+                "description": "Vartiosaari kaipaa suojelua",
+                "first_name" : "Line",
+                "last_name" : "POC",
+                "geometry": {
+                "type": "LineString",
+                "coordinates": [ [393000,6673192],[393216,6673560],[393712,6673864],[393736,6673592]]}
+                };
+                var data = {
+                "srs":"EPSG:3067",
+                "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+            </code>
+        </pre>
+        </div>
+        <div id="PostFeedbackRequest">
+            <div style="display: block;">
+                <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready"  geom-type="polygon"
+                        data-example="PostFeedbackRequest">Feedback.PostFeedbackRequest Polygon
+                </button>
+                <div>Request feedback data</div>
+            </div>
+            <div>
+                <a id="postFeedback" href="">To the documentation</a>
+            </div>
+            <script type="text/javascript">
+                var documentPathEnd = 'mapping/feedbackService/request/postfeedbackrequest.md';
+                document.getElementById("postFeedback").href = documentPathRequest + documentPathEnd;
+            </script>
+        <pre>
+            <code class="hljs javascript">
+                var postdata = {
+                "service_code": "180",
+                "description": "Kampin bussipysäkillä on roskakori täynnä",
+                "first_name" : "Oskari",
+                "last_name" : "Maanmittaushallitus",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [[[382472.5,6677324.5],[382328.5,6676636.5],[383288.5,6676332.5],[383528.5,6677100.5],[382472.5,6677324.5]]]}
+                };
+                var data = {
+                "srs":"EPSG:3067",
+                "postServiceRequest": JSON.stringify(postdata)
+                };
+                channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+            </code>
+        </pre>
+        </div>
     </div>
 
     <div style="display: none; visibility: hidden;" id="ShowInfoBox">
