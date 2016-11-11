@@ -444,15 +444,10 @@ var clickHandlers = {
 
     },
     'GetFeedbackServiceRequest': function() {
-        var data = {
-        };
-        channel.postRequest('GetFeedbackServiceRequest', [data]);
+        channel.postRequest('GetFeedbackServiceRequest', []);
     },
-    'GetFeedbackServiceDefinitionRequest': function() {
-        var data = {
-            "serviceId": "180"
-        };
-        channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
+    'GetFeedbackServiceRequestWithId': function() {
+        channel.postRequest('GetFeedbackServiceRequest', ["180"]);
     },
     'GetFeedbackRequest': function () {
         channel.getMapBbox(function (data) {
@@ -463,7 +458,7 @@ var clickHandlers = {
             };
             var data = {
                 "srs": "EPSG:3067",
-                "getServiceRequests": JSON.stringify(filterdata)
+                "payload": filterdata
             };
             channel.postRequest('GetFeedbackRequest', [data]);
         });
@@ -483,7 +478,7 @@ var clickHandlers = {
                     };
                     var data = {
                         "srs":"EPSG:3067",
-                        "postServiceRequest": JSON.stringify(postdata)
+                        "payload": postdata
                     };
                     channel.postRequest('PostFeedbackRequest', [data]);
                     channel.log('PostFeedbackRequest posted with data', [data]);
@@ -501,7 +496,7 @@ var clickHandlers = {
                 };
                 var data = {
                     "srs":"EPSG:3067",
-                    "postServiceRequest": JSON.stringify(postdata)
+                    "payload": postdata
                 };
                 channel.postRequest('PostFeedbackRequest', [data]);
                 channel.log('PostFeedbackRequest posted with data', [data]);
@@ -518,7 +513,7 @@ var clickHandlers = {
                 };
                 var data = {
                     "srs":"EPSG:3067",
-                    "postServiceRequest": JSON.stringify(postdata)
+                    "payload": postdata
                 };
                 channel.postRequest('PostFeedbackRequest', [data]);
                 channel.log('PostFeedbackRequest posted with data', [data]);

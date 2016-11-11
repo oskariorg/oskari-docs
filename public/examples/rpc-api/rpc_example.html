@@ -71,8 +71,7 @@
                                     </optgroup>
                                     <optgroup label="Requests">
                                         <option value="GetRouteRequest">Get route</option>
-                                        <option value="GetFeedbackServiceRequest">Get feedback service list (poc)</option>
-                                        <option value="GetFeedbackServiceDefinitionRequest">Get definition of one feedback category (poc)</option>
+                                        <option value="GetFeedbackServices">Get feedback services (poc)</option>
                                         <option value="GetFeedbackRequest">Get posted feedback data (poc)</option>
                                         <option value="feedback">Post user's feedback data (poc)</option>
                                         <option value="ShowInfoBox">Show or hide info box</option>
@@ -245,10 +244,13 @@ channel.postRequest('GetRouteRequest', [data]);
         </pre>
     </div>
 
-    <div style="display: none; visibility: hidden;" id="GetFeedbackServiceRequest">
+    <div style="display: none; visibility: hidden;" id="GetFeedbackServices">
         <div style="display: block;">
-            <button id="btnGetFeedbackServiceRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceRequest">GetFeedbackServiceRequest</button>
-            <div>Request feedback service list</div>
+            <button id="btnGetFeedbackServiceRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceRequest">GetFeedbackServiceRequest for a list</button>
+            <div>Request feedback service listing</div>
+            <button id="btnGetFeedbackServiceRequest2" class="btn btn-primary exampleready" data-example="GetFeedbackServiceRequestWithId">GetFeedbackServiceRequest for metadata of single service.</button>
+            <div>Request feedback service metadata.
+            <b>Note!</b> if metadata property is false in the listing the details might not be available as it's optional in the Open311 specification.</div>
         </div>
         <div>
             <a id="getFeedbackService" href="">To the documentation</a>
@@ -259,31 +261,8 @@ channel.postRequest('GetRouteRequest', [data]);
         </script>
         <pre>
             <code class="hljs javascript">
-                var data = {
-                };
-                channel.postRequest('GetFeedbackServiceRequest', [data]);
-            </code>
-        </pre>
-    </div>
-
-    <div style="display: none; visibility: hidden;" id="GetFeedbackServiceDefinitionRequest">
-        <div style="display: block;">
-            <button id="btnGetFeedbackServiceDefinitionRequest" class="btn btn-primary exampleready" data-example="GetFeedbackServiceDefinitionRequest">GetFeedbackServiceDefinitionRequest</button>
-            <div>Request definition of one feedback service</div>
-        </div>
-        <div>
-            <a id="getFeedbackServiceDefinition" href="">To the documentation</a>
-        </div>
-        <script type="text/javascript">
-            var documentPathEnd = 'mapping/feedbackService/request/getfeedbackservicedefinitionrequest.md';
-            document.getElementById("getFeedbackServiceDefinition").href = documentPathRequest + documentPathEnd;
-        </script>
-        <pre>
-            <code class="hljs javascript">
-                var data = {
-                "serviceId": "180",
-                };
-                channel.postRequest('GetFeedbackServiceDefinitionRequest', [data]);
+channel.postRequest('GetFeedbackServiceRequest', []);
+channel.postRequest('GetFeedbackServiceRequest', ["180"]);
             </code>
         </pre>
     </div>
