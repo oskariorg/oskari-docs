@@ -281,18 +281,18 @@ channel.postRequest('GetFeedbackServiceRequest', ["180"]);
         </script>
         <pre>
             <code class="hljs javascript">
-                channel.getMapBbox(function (data) {
-                var filterdata = {
-                "start_date": "2016-09-01T00:00:00Z",
-                "bbox": data.left + ',' + data.bottom + ',' + data.right + ',' + data.top,
-                "status": "open,closed"
-                };
-                var data = {
-                "srs": "EPSG:3067",
-                "getServiceRequests": JSON.stringify(filterdata)
-                };
-                channel.postRequest('GetFeedbackRequest', [data]);
-                });
+channel.getMapBbox(function(data) {
+    var filterdata = {
+        "start_date": "2016-09-01T00:00:00Z",
+        "bbox": data.left + ',' + data.bottom + ',' + data.right + ',' + data.top,
+        "status": "open,closed"
+    };
+    var data = {
+        "srs": "EPSG:3067",
+        "payload": filterdata
+    };
+    channel.postRequest('GetFeedbackRequest', [data]);
+});
             </code>
         </pre>
     </div>
@@ -314,19 +314,19 @@ channel.postRequest('GetFeedbackServiceRequest', ["180"]);
             </script>
         <pre>
             <code class="hljs javascript">
-                var postdata = {
-                "service_code": "180",
-                "description": "Kampin bussipysäkillä on roskakori täynnä",
-                "first_name" : "Oskari",
-                "last_name" : "Maanmittaushallitus",
-                "lat": "6674188.748000",
-                "long": "384717.640000"
-                };
-                var data = {
-                "srs":"EPSG:3067",
-                "postServiceRequest": JSON.stringify(postdata)
-                };
-                channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+var postdata = {
+    "service_code": "180",
+    "description": "Kampin bussipysäkillä on roskakori täynnä",
+    "first_name": "Oskari",
+    "last_name": "Maanmittaushallitus",
+    "lat": "6674188.748000",
+    "long": "384717.640000"
+};
+var data = {
+    "srs": "EPSG:3067",
+    "payload": postdata
+};
+channel.postRequest('Feedback.PostFeedbackRequest', [data]);
             </code>
         </pre>
         </div>
@@ -346,20 +346,26 @@ channel.postRequest('GetFeedbackServiceRequest', ["180"]);
             </script>
         <pre>
             <code class="hljs javascript">
-                var postdata = {
-                "service_code": "180",
-                "description": "Vartiosaari kaipaa suojelua",
-                "first_name" : "Line",
-                "last_name" : "POC",
-                "geometry": {
-                "type": "LineString",
-                "coordinates": [ [393000,6673192],[393216,6673560],[393712,6673864],[393736,6673592]]}
-                };
-                var data = {
-                "srs":"EPSG:3067",
-                "postServiceRequest": JSON.stringify(postdata)
-                };
-                channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+var postdata = {
+    "service_code": "180",
+    "description": "Vartiosaari kaipaa suojelua",
+    "first_name": "Line",
+    "last_name": "POC",
+    "geometry": {
+        "type": "LineString",
+        "coordinates": [
+            [393000, 6673192],
+            [393216, 6673560],
+            [393712, 6673864],
+            [393736, 6673592]
+        ]
+    }
+};
+var data = {
+    "srs": "EPSG:3067",
+    "payload": postdata
+};
+channel.postRequest('Feedback.PostFeedbackRequest', [data]);
             </code>
         </pre>
         </div>
@@ -379,20 +385,29 @@ channel.postRequest('GetFeedbackServiceRequest', ["180"]);
             </script>
         <pre>
             <code class="hljs javascript">
-                var postdata = {
-                "service_code": "180",
-                "description": "Kampin bussipysäkillä on roskakori täynnä",
-                "first_name" : "Oskari",
-                "last_name" : "Maanmittaushallitus",
-                "geometry": {
-                  "type": "Polygon",
-                  "coordinates": [[[382472.5,6677324.5],[382328.5,6676636.5],[383288.5,6676332.5],[383528.5,6677100.5],[382472.5,6677324.5]]]}
-                };
-                var data = {
-                "srs":"EPSG:3067",
-                "postServiceRequest": JSON.stringify(postdata)
-                };
-                channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+var postdata = {
+     "service_code": "180",
+     "description": "Kampin bussipysäkillä on roskakori täynnä",
+     "first_name": "Oskari",
+     "last_name": "Maanmittaushallitus",
+     "geometry": {
+         "type": "Polygon",
+         "coordinates": [
+             [
+                 [382472.5, 6677324.5],
+                 [382328.5, 6676636.5],
+                 [383288.5, 6676332.5],
+                 [383528.5, 6677100.5],
+                 [382472.5, 6677324.5]
+             ]
+         ]
+     }
+ };
+ var data = {
+     "srs": "EPSG:3067",
+     "payload": postdata
+ };
+ channel.postRequest('Feedback.PostFeedbackRequest', [data]);
             </code>
         </pre>
         </div>
