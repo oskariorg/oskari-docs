@@ -5,9 +5,32 @@ In Oskari application it is possible to configure different map projection for e
 To get all the configurations for the "mapfull" bundle from database run this script:
 
 ```sql
-SELECT view_id, config FROM portti_view_bundle_seq where bundle_id IN (SELECT id FROM portti_bundle name='mapfull')
+SELECT view_id, config FROM portti_view_bundle_seq WHERE bundle_id IN (SELECT id FROM portti_bundle WHERE name='mapfull')
 ```
-Select the view_id that matches the view you want to configure (default view/publish template probably) and get the 'config' for that row. The config includes functional configuration for the bundle which also includes for example which features to activate (plugins). The interesting part for projection configuration is the **mapOptions** and **projectionDefs** JSON-segments. These might not be present in the config in which case Oskari uses these defaults:
+Select the view_id that matches the view you want to configure (default view/publish template probably) and get the 'config' for that row. The default views are configured in oskari-ext.properties or if there is no configuration, the publish template is a view with type 'PUBLISH' and the default view with type 'DEFAULT'. Notice that if you have an old database with personalized default views you will also need to update all views. For this we recommend doing a Flyway-script.
+
+oskari-ext.properties under {jetty.home}/resources:
+```
+# this is the publish template id
+view.template.publish=3
+
+# this is the generic default view id
+view.default=4
+
+# These are role specific default views
+view.default.Admin=4
+view.default.Guest=1
+view.default.User=3
+
+# This is the order in which user roles are matched to default views.
+view.default.roles=Admin, User, Guest
+```
+SQL to get default view and publish template if not configured in oskari-ext.properties:
+```sql
+SELECT * from portti_view where type IN ('DEFAULT', 'PUBLISH');
+```
+
+ The config includes functional configuration for the bundle which also includes for example which features to activate (plugins). The interesting part for projection configuration is the **mapOptions** and **projectionDefs** JSON-segments. These might not be present in the config in which case Oskari uses these defaults:
 
 ```json
 {
