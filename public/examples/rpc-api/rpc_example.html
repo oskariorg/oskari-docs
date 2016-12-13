@@ -301,7 +301,7 @@ channel.getMapBbox(function(data) {
         <div id="PostFeedbackRequest">
             <div style="display: block;">
                 <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready" geom-type="point"
-                        data-example="PostFeedbackRequest">Feedback.PostFeedbackRequest Point
+                        data-example="PostFeedbackRequest">PostFeedbackRequest Point
                 </button>
                 <div>Request feedback data</div>
             </div>
@@ -326,14 +326,14 @@ var data = {
     "srs": "EPSG:3067",
     "payload": postdata
 };
-channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+channel.postRequest('PostFeedbackRequest', [data]);
             </code>
         </pre>
         </div>
         <div id="PostFeedbackRequest">
             <div style="display: block;">
                 <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready"  geom-type="line"
-                        data-example="PostFeedbackRequest">Feedback.PostFeedbackRequest Line
+                        data-example="PostFeedbackRequest">PostFeedbackRequest Line
                 </button>
                 <div>Request feedback data</div>
             </div>
@@ -365,14 +365,14 @@ var data = {
     "srs": "EPSG:3067",
     "payload": postdata
 };
-channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+channel.postRequest('PostFeedbackRequest', [data]);
             </code>
         </pre>
         </div>
         <div id="PostFeedbackRequest">
             <div style="display: block;">
                 <button id="btnPostFeedbackRequest" class="btn btn-primary exampleready"  geom-type="polygon"
-                        data-example="PostFeedbackRequest">Feedback.PostFeedbackRequest Polygon
+                        data-example="PostFeedbackRequest">PostFeedbackRequest Polygon
                 </button>
                 <div>Request feedback data</div>
             </div>
@@ -407,7 +407,7 @@ var postdata = {
      "srs": "EPSG:3067",
      "payload": postdata
  };
- channel.postRequest('Feedback.PostFeedbackRequest', [data]);
+ channel.postRequest('PostFeedbackRequest', [data]);
             </code>
         </pre>
         </div>
@@ -893,7 +893,7 @@ channel.postRequest(
             <code class="hljs javascript">
         var layerId = 1387;
         var params = {
-            SLD_BODY: 
+            SLD_BODY:
                 '&lt;StyledLayerDescriptor xmlns=\"http://www.opengis.net/sld\" xmlns:ogc=\"http://www.opengis.net/ogc\" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"&gt;'+
                 '    &lt;NamedLayer&gt;'+
                 '    &lt;Name&gt;oskari:kunnat2013&lt;/Name&gt;'+
@@ -922,7 +922,7 @@ channel.postRequest(
             <code class="hljs javascript">
         var layerId = 1387;
         var params = {
-            SLD_BODY: null 
+            SLD_BODY: null
         };
         channel.postRequest('MapModulePlugin.MapLayerUpdateRequest', [layerId, true, params]);
             </code>
