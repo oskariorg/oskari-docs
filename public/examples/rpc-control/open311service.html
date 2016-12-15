@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="author" content="Team Oskari">
+
+    <title>Inspire workshop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/style.css" rel="stylesheet">
+
+    <!-- jQUery and javascripts enabling RPC functionality -->
+    <script src="lib/jquery-1.11.2.min.js"></script>
+    <script src="../../js/rpc/rpc-client.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/lodash-3.8.0.js"></script>
+    <script src="js/storage.js"></script>
+
+    <style>
+    ul.markers li div.desc {
+        display : none;
+    }
+    ul.markers li.selected h5 {
+        text-decoration : underline;
+    }
+    ul.markers li.selected div.desc {
+        display : block;
+    }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">One address for citizens' services</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">E-services</a></li>
+            <li><a href="#">Services by topic</a></li>
+            <li><a href="#">States</a></li>
+            <li class="active"><a href="mapservice_step1.html">Map service</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-6">
+          <div class="panel panel-default map-panel">
+            <div class="panel-body">
+                <iframe id="publishedMap"
+                      src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2" style="border: none; width: 100%; height: 100%;"
+                      style="border: none; width: 100%; height: 100%;"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-6">
+          <div class="panel panel-default form-panel">
+            <div class="panel-body">
+                <h4>Report disturbances</h4>
+                <form class="form-horizontal">
+                  <!-- FORM DRAW ISSUE -->
+                  <div class="form-group hidden" id="drawForm">
+                      <label for="inputName" class="col-sm-4 control-label">Draw area of sighting to map:</label>
+
+                      <div class="col-sm-8">
+                          <div class="radio">
+                              <label>
+                                  <input type="radio" name="issueType" id="issueType1" checked value="Point">
+                                  Bent traffic sign (Point)
+                              </label>
+                          </div>
+                          <div class="radio">
+                              <label>
+                                  <input type="radio" name="issueType" id="issueType2" value="LineString">
+                                  Graffiti removal (Line)
+                              </label>
+                          </div>
+                          <div class="radio">
+                              <label>
+                                  <input type="radio" name="issueType" id="issueType3" value="Polygon">
+                                  Wild animal encounter (Polygon)
+                              </label>
+                          </div>
+                          <button id="startDrawing" class="btn btn-primary" type="button">Start Drawing</button>
+                          <button id="clearDrawing" class="btn btn-primary" type="button">Clear Drawings</button>
+                      </div>
+                  </div>
+                  <!-- END FORM DRAW ISSUE -->
+                  <!-- HIDDEN FORM -->
+                  <div id="mode1Form" class="hidden">
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-4 control-label">Name</label>
+
+                        <div class="col-sm-8">
+                            <input class="form-control" name="name" id="inputName" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+
+                        <div class="col-sm-8">
+                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="col-sm-4 control-label">Category</label>
+                        <div class="col-sm-8">
+                        <select class="form-control category">
+                          <option value="234">Forest</option>
+                          <option value="176">Graffiti removal</option>
+                          <option value="198">Traffic signs</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="textArea" class="col-sm-4 control-label">Description</label>
+
+                        <div class="col-sm-8">
+                            <textarea id="textArea" name="description" class="form-control" rows="6"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="coordinates" class="col-sm-4 control-label">Coordinates</label>
+                        <div class="col-sm-8">
+                            <input readonly class="form-control" id="coordinates" name="coordinates"
+                                   placeholder="Click the map to give coordinates">
+                        </div>
+                    </div>
+                    <button type="button" id="btnAddNew" class="btn btn-primary">Submit</button>
+                    <button type="button" id="btnAddCancel" class="btn btn-default">Cancel</button>
+                </div>
+                <!-- END HIDDEN FORM -->
+
+                <!-- Listing -->
+                <div id="mode2Form">
+                    <p class="h5">Click marker to get information or</p>
+                    <button id="btnReportNew" class="btn btn-primary">Report new issue</button>
+                    <button type="button" id="btnListReports" class="btn btn-primary">List old reports</button>
+                </div>
+                </form>
+            </div>
+          </div>
+        </div>
+        <!-- FEEDBACK FORM -->
+        <div class="col-sm-5 col-md-5 col-lg-6 feedback hidden">
+          <div class="panel panel-default form-panel">
+            <div class="panel-body fback  pre-scrollable">
+            </div>
+          </div>
+      </div>
+        <!-- END FEEDBACK FORM -->
+      </div>
+
+    </div> <!-- /container -->
+
+<script>
+
+  // constants
+    var IFRAME_DOMAIN = 'http://demo.paikkatietoikkuna.fi';
+    // Referenced HTML-elements
+    var elements = {
+        iframe: $("#publishedMap")[0],
+        coordinateField: $("#coordinates")[0],
+        drawBtn: $("#startDrawing"),
+        clearBtn: $("#clearDrawing"),
+
+        issueRoad: $("#issueType1"),
+        issueEnv: $("#issueType2"),
+        listReports: $("#btnListReports"),
+        drawForm: $("#drawForm"),
+        reportForm: $("#mode1Form"),
+        commentForm: $("#mode2Form"),
+        addBtn : $("#btnAddNew"),
+        cancelBtn :$("#btnAddCancel"),
+        reportBtn : $("#btnReportNew"),
+        feedback : $(".feedback")
+    };
+    // init connection
+    var channel = OskariRPC.connect(
+        elements.iframe,
+        IFRAME_DOMAIN
+    );
+    var drawnFeedback;
+    /**
+     * Sets the value of coordinates field
+     * @param {Double} x lon
+     * @param {Double} y lat
+     */
+    function setCoordinates(coords) {
+        elements.coordinateField.value = coords[0] + ', ' + coords[1];
+    }
+
+    channel.handleEvent('MapClickedEvent',
+        function(data) {
+          if (!elements.reportForm.is(':visible')) {
+              return;
+          }
+          var coords = [data.lon, data.lat];
+            setCoordinates(coords);
+        });
+    channel.handleEvent('FeatureEvent', function(data){
+      if(data.operation === 'click'){
+        highlightFeedbackList(data.features[0].geojson.features[0].properties);
+      }
+    });
+
+    // ---------- Step 2 -------------------------
+
+    channel.onReady(function() {
+        // get layers once we have the connection
+        channel.getAllLayers(
+            function (data) {
+                Util.log(data);
+            }
+        );
+    });
+    function highlightFeedbackList(content){
+      var fb = jQuery('.uniqueFeedback');
+      fb.css("background-color", "");
+        fb.filter(function(){
+          return $('.uniqueFeedback:contains('+content.description+')').css("background-color","pink");
+        });
+      }
+
+    /**
+     * Takes an list of layer ids and shows/hides them
+     * @param  {String[]} layers     list of layer ids
+     * @param  {Boolean}  blnVisible true to show, false to hide
+     */
+    function showLayers(layers, blnVisible) {
+        $.each(layers, function(index, layerId) {
+            channel.postRequest(
+                    'MapModulePlugin.MapLayerVisibilityRequest',
+                    [layerId, blnVisible]
+            );
+        });
+    }
+    function clearDrawings() {
+        var clearData = ['wildlifesighting', true];
+        channel.postRequest('DrawTools.StopDrawingRequest', clearData);
+    };
+
+    /**
+     * Moves map center to given coordinates
+     * @param  {Number} x         lon
+     * @param  {Number} y         lat
+     * @param  {Number} zoomLevel optional zoom level
+     */
+    function moveMap(x, y, zoomLevel) {
+        channel.postRequest(
+            'MapMoveRequest', [x, y,zoomLevel]
+        );
+    };
+    // ---------- Step 3 -------------------------
+    /**
+     * Switch between listing and reporting views
+     * @param  {Boolean} blnShow true to show form, false for listing
+     */
+    function showReport(blnShow) {
+        if(blnShow) {
+            elements.commentForm.addClass('hidden');
+            elements.reportForm.removeClass('hidden');
+            elements.drawForm.removeClass('hidden');
+        }
+        else {
+            elements.commentForm.removeClass('hidden');
+            elements.reportForm.addClass('hidden');
+            elements.drawForm.addClass('hidden');
+        }
+    }
+
+    elements.reportBtn.click(function() {
+        Util.resetForm();
+        showReport(true);
+        return false;
+    });
+    elements.listReports.click(function() {
+      listFeedback();
+    });
+
+    elements.drawBtn.click(function () {
+        clearDrawings();
+        var drawShape = $("input:radio:checked")[0].value;
+        var data = [
+            'wildlifesighting',
+            drawShape,
+            {
+                allowMultipleDrawing: false,
+                modifyControl: false,
+            }
+        ];
+        channel.postRequest('DrawTools.StartDrawingRequest', data);
+    });
+
+
+    elements.cancelBtn.click(function() {
+        showReport(false);
+        return false;
+    });
+    elements.clearBtn.click(function() {
+        clearDrawings();
+        return false;
+    });
+    elements.addBtn.click(function() {
+      clearDrawings();
+        var values = Util.getFormValues();
+        if(!values.coordinates) {
+            alert('Mark the spot by clicking on map');
+            return false;
+        }
+        showReport(false);
+        channel.getMapPosition(function(pdata){
+          if(values.type === 'Polygon'){
+            var payload = {
+              "service_code": $('.category').find("option:selected").val(),
+              "description":values.description,
+              "name":values.name,
+              "geometry":{
+                "type":values.type,
+                "coordinates": drawnFeedback
+              }
+            };
+            var data = {
+            "srs": "EPSG:3067",
+            "payload": payload
+            };
+            channel.postRequest('PostFeedbackRequest', [data]);
+          }
+          else if(values.type === 'LineString'){
+            var payload = {
+              "service_code": $('.category').find("option:selected").val(),
+              "description":values.description,
+              "name":values.name,
+              "geometry":{
+                "type":values.type,
+                "coordinates": drawnFeedback
+              }
+            };
+            var data = {
+            "srs": "EPSG:3067",
+            "payload": payload
+            };
+            channel.postRequest('PostFeedbackRequest', [data]);
+          }
+           else {
+            var payload = {
+              "service_code": $('.category').find("option:selected").val(),
+              "description":values.description,
+              "name":values.name,
+              "lat":pdata.centerY,
+              "long":pdata.centerX
+            };
+            var data = {
+            "srs": "EPSG:3067",
+            "payload": payload
+            };
+            channel.postRequest('PostFeedbackRequest', [data]);
+          }
+      });
+        listFeedback();
+
+        return false;
+    });
+
+    function listFeedback(){
+      var feedbackDiv = jQuery('.feedback');
+      var fb = jQuery('.fback');
+      fb.empty();
+      feedbackDiv.removeClass('hidden');
+      channel.getMapBbox(function (data) {
+          var filterdata = {
+              "start_date": new Date().getTime(),
+              "bbox": data.left + ',' + data.bottom + ',' + data.right + ',' + data.top,
+              "status": "open,closed"
+          };
+          var data = {
+              "srs": "EPSG:3067",
+              "payload": filterdata
+          };
+          channel.postRequest('GetFeedbackRequest', [data]);
+      });
+
+    }
+
+    var eventHandlers = {
+    'FeedbackResultEvent': function(data) {
+        if (!data || !data.success) {
+            // displayMessage('Getting feedback response failed ! ', 5);
+        } else {
+          var fb = jQuery('.fback');
+          if(data.data.getFeedback){
+            _.each(data.data.getFeedback.features, function(feedback){
+              var show = [
+                "service code: " + feedback.properties.service_code + ", ",
+                "service_name: " + feedback.properties.service_name + ", ",
+                "issue description: " + feedback.properties.description
+              ];
+              var uniqueFeedback = jQuery('<div class="uniqueFeedback well"></div>');
+              uniqueFeedback.html(show);
+              fb.append(uniqueFeedback);
+            });
+          }
+            // displayMessage('Getting feedback response success ! ', 5);
+            var geoJSON = data && data.data && data.data.getFeedback ? data.data.getFeedback : undefined;
+            //Plot routes
+            if (geoJSON) {
+                channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [
+                    geoJSON, {
+                        clearPrevious: true,
+                        centerTo: true,
+                        cursor: 'zoom-in',
+                        prio: 4,
+                        featureStyle: {
+                            fill: {
+                                color: '#ff0000'
+                            },
+                            stroke: {
+                                color: '#ff0000',
+                                width: 5
+                            },
+                            text: {
+                                scale: 1.3,
+                                fill: {
+                                    color: 'rgba(0,0,0,1)'
+                                },
+                                stroke: {
+                                    color: 'rgba(255,255,255,1)',
+                                    width: 2
+                                }
+                            }
+                        }
+                    }
+                ]);
+            }
+        }
+    },
+    'DrawingEvent': function(event) {
+      if(event.isFinished){
+        if(event.data.shape === 'Polygon'){
+          setCoordinates(event.geojson.features[0].geometry.coordinates[0][1]);
+          drawnFeedback = event.geojson.features[0].geometry.coordinates[0];
+        }else if(event.data.shape === 'LineString') { //LineString
+          setCoordinates(event.geojson.features[0].geometry.coordinates[0]);
+          drawnFeedback = event.geojson.features[0].geometry.coordinates;
+        }
+        else {
+          return;
+        }
+    }
+    }
+  }
+
+  var rpcEvents = [
+      'FeedbackResultEvent',
+      'MapClickedEvent',
+      'AfterMapMoveEvent',
+      'SearchResultEvent',
+      'FeatureEvent',
+      'DrawingEvent',
+
+  ];
+  // RPC TEST EVENTS
+  jQuery(document).ready(function(){
+      jQuery(rpcEvents).each(function(index, eventName){
+          if(eventName) {
+              channel.handleEvent(eventName, function(data){
+                  channel.log(eventName, data)
+                  if(eventHandlers[eventName]) {
+                      eventHandlers[eventName](data);
+                  }
+              });
+          }
+      });
+  });
+
+</script>
+
+  </body>
+</html>
