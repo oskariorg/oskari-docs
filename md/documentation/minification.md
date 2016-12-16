@@ -79,3 +79,20 @@ With content:
 
     # GraphicsMagick installs in /usr/local/bin
     PATH=${PATH}:/usr/local/bin
+
+## Known issues
+
+### Styles don't work properly after minification
+
+When using calc-function in SCSS-file the SASS-processing in Grunt removes spaces and
+
+    height:calc(100% - 108px);
+
+becomes
+
+    height:calc(100%-108px);
+
+Which breaks the functionality in the browser. To fix this you can use this in SCSS-file:
+
+    height:  unquote("calc(100% - 108px)");
+
