@@ -1,6 +1,6 @@
 # Frontend-tools
 
-There are some helpful tools under Oskari/tools folder under the oskari-frontend reposityry. To use them you need to:
+There are some helpful tools under Oskari/tools folder under the Oskari frontend [repository](https://github.com/nls-oskari/oskari). To use them you need to:
 
 1) install nodejs version 5+ (tested on 5.x and 6.x)
 
