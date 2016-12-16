@@ -7,7 +7,7 @@
     <meta name="description" content="Dummy governmental site with map integration">
     <meta name="author" content="Team Oskari">
 
-    <title>Inspire workshop</title>
+    <title>Open311 Service</title>
 
     <!-- Bootstrap core CSS -->
     <link href="lib/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +20,6 @@
     <script src="../../js/rpc/rpc-client.min.js"></script>
     <script src="js/util.js"></script>
     <script src="js/lodash-3.8.0.js"></script>
-    <script src="js/storage.js"></script>
 
     <style>
     ul.markers li div.desc {
@@ -46,7 +45,7 @@
             <li><a href="#">E-services</a></li>
             <li><a href="#">Services by topic</a></li>
             <li><a href="#">States</a></li>
-            <li class="active"><a href="mapservice_step1.html">Map service</a></li>
+            <li><a href="#">Map service</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </nav>
@@ -217,12 +216,17 @@
     // ---------- Step 2 -------------------------
 
     channel.onReady(function() {
-        // get layers once we have the connection
-        channel.getAllLayers(
-            function (data) {
-                Util.log(data);
-            }
-        );
+        //get a list of all available map layers and toggle the first one
+        channel.getAllLayers(function (layers) {
+            var layer = layers[1];
+            channel.postRequest(
+                    'MapModulePlugin.MapLayerVisibilityRequest',
+                    [layer.id, !layer.visible]
+            );
+            channel.log('MapModulePlugin.MapLayerVisibilityRequest sent with '+
+                'parameters: ', layer.id + ', ' + !layer.visible);
+        });
+
     });
     function highlightFeedbackList(content){
       var fb = jQuery('.uniqueFeedback');
@@ -231,20 +235,7 @@
           return $('.uniqueFeedback:contains('+content.description+')').css("background-color","pink");
         });
       }
-
-    /**
-     * Takes an list of layer ids and shows/hides them
-     * @param  {String[]} layers     list of layer ids
-     * @param  {Boolean}  blnVisible true to show, false to hide
-     */
-    function showLayers(layers, blnVisible) {
-        $.each(layers, function(index, layerId) {
-            channel.postRequest(
-                    'MapModulePlugin.MapLayerVisibilityRequest',
-                    [layerId, blnVisible]
-            );
-        });
-    }
+      
     function clearDrawings() {
         var clearData = ['wildlifesighting', true];
         channel.postRequest('DrawTools.StopDrawingRequest', clearData);
