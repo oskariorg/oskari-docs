@@ -68,7 +68,7 @@
                 <form class="form-horizontal">
                   <!-- FORM DRAW ISSUE -->
                   <div class="form-group hidden" id="drawForm">
-                      <label for="inputName" class="col-sm-4 control-label">Draw area of sighting to map:</label>
+                      <label for="inputName" class="col-sm-4 control-label">Select feedback type:</label>
 
                       <div class="col-sm-8">
                           <div class="radio">
@@ -235,7 +235,7 @@
           return $('.uniqueFeedback:contains('+content.description+')').css("background-color","pink");
         });
       }
-      
+
     function clearDrawings() {
         var clearData = ['wildlifesighting', true];
         channel.postRequest('DrawTools.StopDrawingRequest', clearData);
