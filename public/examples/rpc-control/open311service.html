@@ -271,6 +271,9 @@
         var data = [
             'wildlifesighting',
             drawShape,
+            {
+              allowMultipleDrawing:'single'
+            }
         ];
         channel.postRequest('DrawTools.StartDrawingRequest', data);
     });
