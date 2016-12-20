@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dummy governmental site with map integration">
+    <meta name="description" content="Map-based Open311 feedback demo">
     <meta name="author" content="Team Oskari">
 
     <title>Open311 Service</title>
@@ -199,20 +199,6 @@
         elements.coordinateField.value = coords[0] + ', ' + coords[1];
     }
 
-    channel.handleEvent('MapClickedEvent',
-        function(data) {
-          if (!elements.reportForm.is(':visible')) {
-              return;
-          }
-          var coords = [data.lon, data.lat];
-            setCoordinates(coords);
-        });
-    channel.handleEvent('FeatureEvent', function(data){
-      if(data.operation === 'click'){
-        highlightFeedbackList(data.features[0].geojson.features[0].properties);
-      }
-    });
-
     // ---------- Step 2 -------------------------
 
     channel.onReady(function() {
@@ -286,8 +272,7 @@
             'wildlifesighting',
             drawShape,
             {
-                allowMultipleDrawing: false,
-                modifyControl: false,
+              allowMultipleDrawing:'single'
             }
         ];
         channel.postRequest('DrawTools.StartDrawingRequest', data);
@@ -448,13 +433,29 @@
           return;
         }
     }
+  },
+  'MapClickedEvent':function(data){
+    if(!elements.reportForm.is(':visible')){
+      return;
     }
+    var coords = [data.lon, data.lat];
+      setCoordinates(coords);
+  },
+  'FeatureEvent': function(data){
+    if(data.operation === 'click'){
+      highlightFeedbackList(data.features[0].geojson.features[0].properties);
+    }
+  },
+  'AfterMapMoveEvent': function(data) {
+    var zoom=data.zoom;
+      debugger;
+      return;
+  },
   }
 
   var rpcEvents = [
       'FeedbackResultEvent',
       'MapClickedEvent',
-      'AfterMapMoveEvent',
       'SearchResultEvent',
       'FeatureEvent',
       'DrawingEvent',
