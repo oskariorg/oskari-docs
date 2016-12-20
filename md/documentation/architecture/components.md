@@ -18,7 +18,7 @@ Service modules should be common libraries usable in any application. The actual
 
 * `service-base` has some common helpers and domain classes which are used throughout Oskari backend.
 * `service-permission` is a generic authorization lib for deciding who gets to see/do what
-* `service-search` is a generic search lib that can be extended by adding and registering [search channels](/documentation/backend/searchchannels)
+* `service-search` is a generic search lib that can be extended by adding and registering [search channels](/documentation/backend/search)
 * `service-map` has most (maybe a bit too much) of the business logic for servicing the Oskari functionalities
 * `service-control` defines the control/routing structures/interfaces for control-layer to build upon.
 * `shared-test-resources` has some common helpers/templates to help testing
