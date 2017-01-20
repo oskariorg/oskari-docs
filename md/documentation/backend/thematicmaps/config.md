@@ -47,7 +47,7 @@ A datasource can be registered with a simple SQL:
 
     INSERT INTO oskari_statistical_datasource(locale, config, plugin)
     VALUES('{
-        "en" : { 
+        "en" : {
             "name":"Health and Welfare"
         }}',
         '{
@@ -58,6 +58,22 @@ Where:
 - locale is a JSON with language code at the first level and UI-name of the datasource as the name value. It supports multiple languages like maplayers in Oskari.
 - config is an adapter specific configuration that is used to give the adapter code hints how to process the datasource
 - plugin is the ID for the adapter code to use for this datasource
+
+Config can also include hints for sorting indicator data dimension values to be shown to user:
+
+    {
+      "hints" : {
+        "dimensions" : [ {
+          "id" : "year",
+          "sort" : "DESC"
+        }, {
+          "id" : "gender",
+          "default" : "total"
+        }]
+      }
+    }
+
+Where id value will match the id of a data dimension item in indicator datamodel. Other keys affect the order of allowed values for that dimension. Sort (if present) will be done first with either DESC or ASC value. If default is present the matching allowed value will be moved as the first value in allowed values. You can use both, one or none.
 
 ### Plugins/adapters
 
