@@ -3,7 +3,24 @@
 ## Generic
 
 * Avoid global variables
-* Avoid DOM identifiers
+* Avoid id and name attributes on DOM elements. It's very easy to use conflicting names/ids for elements between different functionalities and in the case of conflict the behavior in browser is propably not what you expect. If you have an input with name="name" in two elements the browser will remove the attribute from the other. This will result in errors even if you use very specific selector to read/assign the value for that field. Use data-attributes or classes instead to avoid this.
+
+**WRONG:**
+
+```javascript
+jQuery('<input type="text" name="name" />');
+jQuery('<input type="text" id="searchfield" />');
+jQuery('#searchfield').val();
+```
+
+**RIGHT:**
+
+```javascript
+jQuery('<input type="text" data-name="name" />');
+jQuery('<div class="search-mainpanel"><input type="text" class="searchfield" /></div>');
+jQuery('.search-mainpanel .searchfield').val();
+```
+
 * Bundles are independent components:
     * a bundle should not hard code references to other bundles or modules
     * a bundle should not poke other bundles' internal structures
