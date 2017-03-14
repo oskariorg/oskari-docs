@@ -53,6 +53,15 @@ function displayMessage(message, tout) {
         }, timeOut * 1000);
 }
 
+function checkMapRotation() {
+  //check if SetRotationRequest is availabe, if true append option to optgroup
+    channel.getSupportedRequests(function(allowed){
+      if(allowed['rotate.map']){
+          jQuery('optgroup[label|="Requests"]').append('<option value="rotate">Rotate map</option>');
+      }
+    });
+}
+
 /* Plot mm size rectange in scale on the map
 * e.g.  A4   size 210 mm x 297 mm
 * @param plotAreaData  [[mm_measure1, mm_measure2,...], scale]e.g. [210,297], 10000]
@@ -413,6 +422,11 @@ var clickHandlers = {
         moveMap(LOCATION_POSIO[0], LOCATION_POSIO[1], 7);
         channel.log('MapModulePlugin.MapMoveRequest posted with data', [LOCATION_POSIO[0], LOCATION_POSIO[1], 7]);
     },
+    'rotate.map': function(deg) {
+      var rot = jQuery(deg.currentTarget).val()
+        channel.postRequest('rotate.map',[rot]);
+        channel.log('rotate.map posted with data', [rot]);
+    },
     'ChangeMapLayerOpacityRequest': function() {
         channel.getAllLayers(function (layers) {
             var layer_id = layers[0].id;
@@ -707,7 +721,7 @@ var clickHandlers = {
     		                  color : 'rgba(255,255,255,1)',
     		                  width : 2
     		              },
-    		              labelProperty: 'label',
+                      labelProperty: 'label',
     		              offsetX: 65,
     		              offsetY: 8
     		          }
@@ -800,7 +814,7 @@ var clickHandlers = {
     'MapLayerUpdateRequest': function() {
         var layerId = 1387;
         var params = {
-            SLD_BODY: 
+            SLD_BODY:
                 '<StyledLayerDescriptor xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd">'+
                 '    <NamedLayer>'+
                 '    <Name>oskari:kunnat2013</Name>'+
@@ -985,10 +999,11 @@ var elements = {
 
 var states = {
     progressSpinnerVisible: false
-};
+  };
 
 
 var rpcEvents = [
+    'map.rotated',
     'AfterAddMarkerEvent',
     'MarkerClickEvent',
     'RouteResultEvent',
@@ -1001,7 +1016,7 @@ var rpcEvents = [
     'DrawingEvent',
     'InfoboxActionEvent',
     'InfoBox.InfoBoxEvent'
-];
+  ];
 var eventHandlers = {
     'SearchResultEvent' : function(data) {
         if(data.success && data.result.totalCount > 0){
@@ -1031,7 +1046,6 @@ var eventHandlers = {
             displayMessage('Search error: ' + data.result.responseText, 5);
         }
     },
-
     'MapClickedEvent': function(data) {
         // add a marker to clicked spot -
         var marker = Util.getMarkerTemplate();
@@ -1511,6 +1525,7 @@ if(logDiv.length) {
 channel.enableDebug(true);
 channel.onReady(function() {
     channel.log('Map is now listening');
+    checkMapRotation();
 
     var expectedOskariVersion = '1.36.0';
     channel.isSupported(expectedOskariVersion, function(blnSupported) {
@@ -1589,4 +1604,3 @@ function navigate(event) {
 
 }
 $('#actionSelector').change();
-

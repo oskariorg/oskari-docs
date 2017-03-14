@@ -37,11 +37,12 @@
             <div class="col-sm-12 col-md-6 col-lg-4 full-height-panel">
                 <div class="panel panel-default map-panel">
                     <div class="panel-body">
-                    <iframe
+                      <iframe
                             id="publishedMap"
                         src="http://demo.paikkatietoikkuna.fi/published/fi/0fcfd236-5079-49f3-81f3-58af23f534d2"
-                        style="border: none; width: 100%; height: 100%;"></iframe>
-                    </div>
+                        style="border: none; width: 100%; height: 100%;">
+                      </iframe>
+               </div>
 
                 </div>
             </div>
@@ -82,6 +83,7 @@
                                         <option value="LayerVisibility">Change map layer visibility</option>
                                         <option value="MapLayerUpdateRequests">Change map layer style</option>
                                         <option value="MapMoveRequest">Move map</option>
+                                        <!-- <option value="SetRotationRequest">Rotate map</option> -->
                                         <option value="ChangeMapLayerOpacityRequest">Change map layer opacity</option>
                                         <option value="GetUserLocationRequest">Get user's location</option>
                                         <option value="ShowProgressSpinnerRequest">Show a progress spinner</option>
@@ -875,6 +877,39 @@ var x = 552935,
 channel.postRequest(
     'MapMoveRequest', [x, y, zoomLevel]
 );
+            </code>
+        </pre>
+    </div>
+
+     <div style="display: none; visibility: hidden;" id="rotate">
+        <button id="rotate.map" class="btn btn-primary exampleready" data-example="rotate.map" value="180">rotate.map</button>
+        <div>
+            <a id="rotateMap" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/maprotator/request/rotate.map.md';
+            document.getElementById("mapMove").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+            channel.postRequest(
+                'rotate.map', [180]
+            );
+            </code>
+        </pre>
+        <button id="re-rotate.map" class="btn btn-primary exampleready" data-example="rotate.map" >Reset Rotation</button>
+        <div>
+            <a id="rotateMap" href="">To the documentation</a>
+        </div>
+        <script type="text/javascript">
+            var documentPathEnd = 'mapping/maprotator/request/rotate.map.md';
+            document.getElementById("mapMove").href = documentPathRequest + documentPathEnd;
+        </script>
+        <pre>
+            <code class="hljs javascript">
+              channel.postRequest(
+                  'rotate.map', []
+              );
             </code>
         </pre>
     </div>
