@@ -33,8 +33,8 @@ In a basic maven setup this will result in files like these:
 
 Existing scripts can be found in Github:
 
- - SQL: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/resources/flyway
- - Java: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/java/flyway
+ - SQL: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/resources/flyway
+ - Java: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/java/flyway
  
 Application-specific upgrade example:
 - Java: https://github.com/arctic-sdi/oskari-server-extensions/tree/develop/server-extension/src/main/java/flyway/asdi

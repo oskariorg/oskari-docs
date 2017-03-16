@@ -1,6 +1,6 @@
 # Frontend-tools
 
-There are some helpful tools under Oskari/tools folder under the Oskari frontend [repository](https://github.com/nls-oskari/oskari). To use them you need to:
+There are some helpful tools under Oskari/tools folder under the Oskari frontend [repository](https://github.com/oskariorg/oskari-frontend). To use them you need to:
 
 1) install nodejs version 5+ (tested on 5.x and 6.x)
 
@@ -16,7 +16,7 @@ The minifying process also generates a sprite image for the generic tools icons 
 
 Minifying the code means that all the files that are needed to build the app are put in a single file and all the "human-friendly" names are changed to be more compact. This will reduce the startup time for the end-user dramatically. With the default download and sample application you can run `npm run build` to generate the minified Javascript files. This will result in `Oskari/dist/servlet` folder being generated.
 
-This works by reading a minifierAppSetup.json file that should match the appsetup (bundle-collection) used on the website including any dynamic (role-based) bundles that are added on the fly. So basically all the bundles you want to use. Here's an example for the basic [geoportal appsetup](https://github.com/nls-oskari/oskari/blob/master/applications/sample/servlet/minifierAppSetup.json) and for an [embedded map](https://github.com/nls-oskari/oskari/blob/master/applications/sample/servlet_published_ol3/minifierAppSetup.json). These are used when running just `npm run build`. If you take a look at the package.json [script-definitions for builds](https://github.com/nls-oskari/oskari/blob/master/tools/package.json) you can see that you can also specify the version and the minifierAppSetups to use for your needs by running a modified command from what are used as the script shortcuts.
+This works by reading a minifierAppSetup.json file that should match the appsetup (bundle-collection) used on the website including any dynamic (role-based) bundles that are added on the fly. So basically all the bundles you want to use. Here's an example for the basic [geoportal appsetup](https://github.com/oskariorg/oskari-frontend/blob/master/applications/sample/servlet/minifierAppSetup.json) and for an [embedded map](https://github.com/oskariorg/oskari-frontend/blob/master/applications/sample/servlet_published_ol3/minifierAppSetup.json). These are used when running just `npm run build`. If you take a look at the package.json [script-definitions for builds](https://github.com/oskariorg/oskari-frontend/blob/master/tools/package.json) you can see that you can also specify the version and the minifierAppSetups to use for your needs by running a modified command from what are used as the script shortcuts.
 
 The easiest modification with most benefit is changing the minifierAppSetup.json files to only include the bundles that you are using. This reduces the amount of code the end-user needs to load. You can also safely rename the "version" folder from `dist/servlet` to `dist/1.0` or similar. Note that you will need to tell the server what client version to serve. This is done by modifying the `oskari-ext.properties` file:
 

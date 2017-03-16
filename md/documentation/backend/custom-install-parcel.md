@@ -74,7 +74,7 @@ Now you are able to create tables with geometry fields.
 
 2) Get the frontend code from github:
 
-    git clone https://github.com/nls-oskari/oskari.git
+    git clone https://github.com/oskariorg/oskari-frontend.git
 
 3) Rename the created oskari folder to Oskari
 
@@ -86,7 +86,7 @@ Now you are able to create tables with geometry fields.
 
 1) Get the backend code from github:
 
-    git clone https://github.com/nls-oskari/oskari-server.git
+    git clone https://github.com/oskariorg/oskari-server.git
 
 
 

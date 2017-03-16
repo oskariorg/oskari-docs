@@ -43,7 +43,7 @@ If you are running an oskari-server-extension you need to also add the dependenc
     <groupId>fi.nls.oskari.service</groupId>
     <artifactId>oskari-control-users</artifactId>
 
-The functionality is mostly contained under [oskari-server/control-users](https://github.com/nls-oskari/oskari-server/tree/develop/control-users) with JSPs that can be overridden
-in oskari-server-extensions using the same filename as the original. There are also localizations for the user registration that can be overridden with [locale/messages-ext.properties](https://github.com/nls-oskari/oskari-server/blob/develop/servlet-map/src/main/resources/locale/messages.properties) files in the server classpath.
+The functionality is mostly contained under [oskari-server/control-users](https://github.com/oskariorg/oskari-server/tree/develop/control-users) with JSPs that can be overridden
+in oskari-server-extensions using the same filename as the original. There are also localizations for the user registration that can be overridden with [locale/messages-ext.properties](https://github.com/oskariorg/oskari-server/blob/develop/servlet-map/src/main/resources/locale/messages.properties) files in the server classpath.
 
 Note! User registration has been tested/implemented only for the case where users are in the Oskari database. Not for SAML logins etc.

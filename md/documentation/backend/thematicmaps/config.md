@@ -83,7 +83,7 @@ Plugins or adapters are used to interpret the statistics data API to a common fo
 
 Eurostat is the statistical office of the European Union situated in Luxembourg. Its mission is to provide high quality statistics for Europe. They offer an API that uses SDMX and JSON-stat as dataformats.
 
-Code: https://github.com/nls-oskari/oskari-server/blob/develop/service-statistics-eurostat/src/main/java/fi/nls/oskari/statistics/eurostat/EurostatStatisticalDatasourceFactory.java
+Code: https://github.com/oskariorg/oskari-server/blob/develop/service-statistics-eurostat/src/main/java/fi/nls/oskari/statistics/eurostat/EurostatStatisticalDatasourceFactory.java
 
 Datasource config:
 
@@ -95,7 +95,7 @@ Datasource config:
 
 PX-Web is a widely used statistics software that offers an API for accessing the data.
 
-Code: https://github.com/nls-oskari/oskari-server/blob/develop/service-statistics-pxweb/src/main/java/fi/nls/oskari/control/statistics/plugins/pxweb/PxwebStatisticalDatasourceFactory.java
+Code: https://github.com/oskariorg/oskari-server/blob/develop/service-statistics-pxweb/src/main/java/fi/nls/oskari/control/statistics/plugins/pxweb/PxwebStatisticalDatasourceFactory.java
 
 Datasource config:
 
@@ -109,7 +109,7 @@ Datasource config:
 
 The Sotkanet Indicator Bank is an API provided by Finnish National Institute for Health and Welfare (THL). It is also used by National Land Survey of Finland to share statistics.
 
-Code: https://github.com/nls-oskari/oskari-server/blob/develop/service-statistics-sotka/src/main/java/fi/nls/oskari/control/statistics/plugins/sotka/SotkaStatisticalDatasourceFactory.java
+Code: https://github.com/oskariorg/oskari-server/blob/develop/service-statistics-sotka/src/main/java/fi/nls/oskari/control/statistics/plugins/sotka/SotkaStatisticalDatasourceFactory.java
 
 Datasource config:
 
