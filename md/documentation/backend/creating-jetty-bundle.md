@@ -22,7 +22,7 @@ Unzip to a location on your computer. The location will be referenced as {JETTY_
 4) Add configuration to serve Oskari frontend files
 
 - add oskari-front.xml to {JETTY_HOME}/contexts/
-- run 'git clone https://github.com/nls-oskari/oskari' in {JETTY_HOME}
+- run 'git clone https://github.com/oskariorg/oskari-frontend' in {JETTY_HOME}
 - after clone you have for example a file in {JETTY_HOME}/oskari/ReleaseNotes.md
 - optionally modify 'resourceBase' in oskari-front.xml to point to a location where Oskari frontend files are located
 

@@ -5,7 +5,7 @@ The latest nginx version at the time of writing is 1.8.1 which has been used to 
 
 *Using a reverse proxy is not required for development, but is recommended for production use*
 
-You can find example configurations in https://github.com/nls-oskari/sample-configs/tree/master/nginx
+You can find example configurations in https://github.com/oskariorg/sample-configs/tree/master/nginx
 
 ![Diagram for nginx proxy](/images/documentation/nginx.png)
 

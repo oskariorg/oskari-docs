@@ -4,7 +4,7 @@ This guide is originally made for Inspire conference workshop. The aim is to dem
 
 The case is that an organization has an existing [website](/examples/rpc-control/) including functionality for [reporting road condition issues](/examples/rpc-control/mapservice_base.html). The location information is address based, but we want to use a map instead. We will first build a [simple](/examples/rpc-control/mapservice_step1.html) map interface, then adjust it to enable reporting of [environmental issues](/examples/rpc-control/mapservice_step2.html) as well and last add some [social features](/examples/rpc-control/mapservice_step3.html). This is done by controlling the map from the embedding page.
 
-The source code for this demo can be found in [GitHub](https://github.com/nls-oskari/oskari.org/tree/master/public/examples/rpc-control).
+The source code for this demo can be found in [GitHub](https://github.com/oskariorg/oskari-docs/tree/master/public/examples/rpc-control).
 
 ## Getting started
 

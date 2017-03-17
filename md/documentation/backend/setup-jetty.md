@@ -2,11 +2,11 @@
 
 After this you will have Oskari running including 
 
-- Oskari frontend code (https://github.com/nls-oskari/oskari)
-- Oskari server (map functionality: https://github.com/nls-oskari/oskari-server/tree/master/webapp-map)
-- Oskari transport (WFS services: https://github.com/nls-oskari/oskari-server/tree/master/webapp-transport)
-- Oskari printout (Print services: https://github.com/nls-oskari/oskari-server/tree/master/servlet-printout)
-- Geoserver 2.7.1.1 with WPS-plugin and Oskari extensions (https://github.com/nls-oskari/oskari-server/tree/master/geoserver-ext)
+- Oskari frontend code (https://github.com/oskariorg/oskari-frontend)
+- Oskari server (map functionality: https://github.com/oskariorg/oskari-server/tree/master/webapp-map)
+- Oskari transport (WFS services: https://github.com/oskariorg/oskari-server/tree/master/webapp-transport)
+- Oskari printout (Print services: https://github.com/oskariorg/oskari-server/tree/master/servlet-printout)
+- Geoserver 2.7.1.1 with WPS-plugin and Oskari extensions (https://github.com/oskariorg/oskari-server/tree/master/geoserver-ext)
 
 ### Requirements
 

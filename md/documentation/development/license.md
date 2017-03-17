@@ -9,8 +9,8 @@ Contributor License Agreement
 
 * The same CLA applies to all git repositories. 
 
-	* [Oskari frontend](https://github.com/nls-oskari/oskari/blob/master/CLA.txt)
-	* [Oskari server](https://github.com/nls-oskari/oskari-server/blob/master/CLA.txt)
+	* [Oskari frontend](https://github.com/oskariorg/oskari-frontend/blob/master/CLA.txt)
+	* [Oskari server](https://github.com/oskariorg/oskari-server/blob/master/CLA.txt)
 	* [Oskari liferay](https://github.com/nls-oskari/oskari-liferay/blob/develop/CLA.txt)
 
 3rd party JavaScript libraries
