@@ -28,8 +28,8 @@ in table named `oskari_status`. Each module can also have their own datasource w
 a common datasource is used (`jdbc/OskariPool`).
 
 The upgrade scripts can be found in Github:
- - SQL: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/resources/flyway
- - Java: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/java/flyway
+ - SQL: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/resources/flyway
+ - Java: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/java/flyway
 
 ## Troubleshooting
 
@@ -243,8 +243,8 @@ The database needs to be updated manually to a state of version 1.30.x. After th
  BUT expects the manual upgrades have been done until version 1.30.x. 
 
 Database upgrade SQL scripts are located under `oskari-server/content-resources/src/main/resources/sql/upgrade/{version}`. SQL scripts can also be found behind these links in github:
-- https://github.com/nls-oskari/oskari-server/tree/master/content-resources/src/main/resources/sql/upgrade
-- https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/resources/sql/upgrade
+- https://github.com/oskariorg/oskari-server/tree/master/content-resources/src/main/resources/sql/upgrade
+- https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/resources/sql/upgrade
 
 There's also `node.js` based upgrade tool under `oskari-server/content-resources/db-upgrade` which is mainly used for updating database content, for instance for adding plugins to the default view.
 This is replaced by the Java upgrades on Oskari 1.31.0.

@@ -47,7 +47,7 @@ Note! The setup webapp is accessible to anyone once deployed so remove it from `
 
 ### Details for configuring manually/debug purposes
 
-The code for configuring geoserver can be found here: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/java/fi/nls/oskari/geoserver
+The code for configuring geoserver can be found here: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/java/fi/nls/oskari/geoserver
 
 1) Create workspace
 
@@ -98,7 +98,7 @@ b) Rendering for WMS
 
 4) Uploads style specific to the functionality
 
-SLD files can be seen here: https://github.com/nls-oskari/oskari-server/tree/develop/content-resources/src/main/resources/sld
+SLD files can be seen here: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/resources/sld
 
 5) Updates layers in database with geoserver info
 

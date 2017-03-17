@@ -5,7 +5,7 @@ How to get set up your Oskari development environment
 ### 1. GitHub, the collaboration platform
 
 The Oskari source code is stored in several separate Git repositories hosted under the [nls-
-oskari](https://github.com/nls-oskari) organization on GitHub.
+oskari](https://github.com/oskariorg) organization on GitHub.
 
 The source code projects on GitHub also facilitate collaboration through hosting the project's
 external bug / ticket trackers.
@@ -26,7 +26,7 @@ Watch:
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/ijaaL_G6Jgo" frameborder="0" allowfullscreen></iframe>
 
-Fork the nls-oskari/oskari and nls-oskari/oskari-server repositories, and check out the source code
+Fork the oskariorg/oskari and oskariorg/oskari-server repositories, and check out the source code
 from your forks to your local computer.
 
 Read Atlassian's [Git Flow documentation](https://www.atlassian.com/git/tutorials/comparing-
@@ -45,16 +45,15 @@ A successfully installed Git Flow plugin can be validated by running the command
 
 #### 1.2 Oskari source code
 
-The `github.com/nls-oskari/oskari` repository contains the frontend JavaScript, CSS and HTML source
+The `github.com/oskariorg/oskari-frontend` repository contains the frontend JavaScript, CSS and HTML source
 code. It assumes being served from webserver path /Oskari with a capital O so you can checkout the repository under the name `Oskari` or configure the webserver to do this. The [Jetty bundle](/download) is configured properly for this. 
 
-The `github.com/nls-oskari/oskari-server` contains the Oskari serverside code and `github.com/nls-oskari/oskari-liferay` contains a Liferay 6.0.6 portlet replacement for the webapp in oskari-server.
+The `github.com/oskariorg/oskari-server` contains the Oskari serverside code and `github.com/nls-oskari/oskari-liferay` contains a Liferay 6.0.6 portlet replacement for the webapp in oskari-server.
 
 #### 1.3 Licensing
 
-The Oskari source code is dual licensed with [EUPL](https://github.com/nls-oskari/oskari-
-server/raw/master/LICENSE-EUPL.pdf) and the [MIT](https://github.com/nls-oskari/oskari-
-server/blob/master/LICENSE-MIT.txt) licenses, which are made available in the source code
+The Oskari source code is dual licensed with [EUPL](https://github.com/oskariorg/oskari-server/raw/master/LICENSE-EUPL.pdf)
+and the [MIT](https://github.com/oskariorg/oskari-server/blob/master/LICENSE-MIT.txt) licenses, which are made available in the source code
 repositories.
 
 Not all of the source code files contain a license header.
@@ -111,7 +110,7 @@ using Node.js tooling.
 Therefore, a developer must install a platform-appropriate Node.js execution and runtime
 environment, along with the NPM package manager and Grunt build tool.
 
-Unfortunately the `nls-oskari/oskari` repository currently has only Windows-specific build scripts,
+Unfortunately the `oskariorg/oskari-frontend` repository currently has only Windows-specific build scripts,
 but they are trivial, and can be translated into a `bash` script suitable for Mac OS X and Linux
 with a minimal effort.
 

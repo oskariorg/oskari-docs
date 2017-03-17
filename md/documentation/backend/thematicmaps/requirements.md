@@ -25,7 +25,7 @@ The sample application has this enabled by default, but there is no sample Flywa
 
 The actual thematic maps user interface is provided by another bundle: statsgrid that needs to be added to the geoportal views.
 
-You can use a Flyway-migration to add it in your own server-extension. Here's an example for the sample application: https://github.com/nls-oskari/oskari-server/blob/master/content-resources/src/main/java/flyway/sample/V1_0_8__add_statsgrid_to_default_views.java
+You can use a Flyway-migration to add it in your own server-extension. Here's an example for the sample application: https://github.com/oskariorg/oskari-server/blob/master/content-resources/src/main/java/flyway/sample/V1_0_8__add_statsgrid_to_default_views.java
 
 Or you can add it manually into the database by replacing [view_id] in the SQL below:
 
@@ -52,11 +52,11 @@ Remember to add the statsgrid bundle to you minifierAppSetup.json as well under 
         }
     }
 
-The sample application has it included as an example: https://github.com/nls-oskari/oskari/blob/1.40.0/applications/sample/servlet/minifierAppSetup.json#L578-L587. Remember to add mapstats from the previous step to the minifierAppSetup.json as well:
+The sample application has it included as an example: https://github.com/oskariorg/oskari-frontend/blob/1.40.0/applications/sample/servlet/minifierAppSetup.json#L578-L587. Remember to add mapstats from the previous step to the minifierAppSetup.json as well:
 
-https://github.com/nls-oskari/oskari/blob/1.40.0/applications/sample/servlet/minifierAppSetup.json#L71-L73
+https://github.com/oskariorg/oskari-frontend/blob/1.40.0/applications/sample/servlet/minifierAppSetup.json#L71-L73
 
-https://github.com/nls-oskari/oskari/blob/1.40.0/applications/sample/servlet_published_ol3/minifierAppSetup.json#L12-L14
+https://github.com/oskariorg/oskari-frontend/blob/1.40.0/applications/sample/servlet_published_ol3/minifierAppSetup.json#L12-L14
 
 After this you should have the bundle included in both minifierAppSetups and the actual GetAppSetup response (database table portti_view_bundle_seq). 
 
@@ -87,7 +87,7 @@ The server-side code for thematic maps are included by default on the sample app
         </dependency>
         <!-- /Statistics plugins -->
 
-Take a look at the sample webapp-map for details: https://github.com/nls-oskari/oskari-server/blob/1.40.0/webapp-map/pom.xml#L58-L71. There might be additional adapters available also. Take a look at the folders under oskari-server starting with 'service-statistics-'.
+Take a look at the sample webapp-map for details: https://github.com/oskariorg/oskari-server/blob/1.40.0/webapp-map/pom.xml#L58-L71. There might be additional adapters available also. Take a look at the folders under oskari-server starting with 'service-statistics-'.
 
 # Next step
 

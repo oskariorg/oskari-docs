@@ -77,5 +77,5 @@ placing it first in startupSequence and minifierAppsetup.json.
 
 # Example bundle
 
-You can use [this bundle](https://github.com/nls-oskari/oskari/blob/develop/packages/elf/bundle/elf-lang-overrides/bundle.js) as an example.
+You can use [this bundle](https://github.com/oskariorg/oskari-frontend/blob/develop/packages/elf/bundle/elf-lang-overrides/bundle.js) as an example.
 

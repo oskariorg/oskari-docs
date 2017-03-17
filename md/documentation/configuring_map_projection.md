@@ -84,7 +84,7 @@ The bounds can be found f. e. in [spatial reference web site](http://spatialrefe
 
 **projectionDefs** should include [proj4js](http://proj4js.org/) configurations for all the projections that are going to be used in the application.
 The oskari-server will try to detect the projections that are used and inject the projectionDefs automatically. The projectionDefs are stored in this
-file: https://github.com/nls-oskari/oskari-server/blob/master/control-base/src/main/resources/fi/nls/oskari/control/view/modifier/bundle/epsg_proj4_formats.json.
+file: https://github.com/oskariorg/oskari-server/blob/master/control-base/src/main/resources/fi/nls/oskari/control/view/modifier/bundle/epsg_proj4_formats.json.
 If the projection you want to use isn't available in the file you can insert the definition manually to the database config or make a pull request/issue to oskari-server
  to add the missing projection to the epsg_proj4_formats.json file.
 
@@ -105,7 +105,7 @@ The projection can be configured to the database with the following kind of SQL.
 
 For user content like myplaces, analysis and userlayers one "native" projection is required for Geoserver config. 
 The easiest way to do this is use the "setup" webapp provided in the Jetty Oskari package. It uses the geoserver REST API to configure workspace, stores, layers and styles for user-generated content.
-The code is available in [Github](https://github.com/nls-oskari/oskari-server/tree/master/webapp-setup) and a precompiled deployable war-file is included in the Jetty-package available for 
+The code is available in [Github](https://github.com/oskariorg/oskari-server/tree/master/webapp-setup) and a precompiled deployable war-file is included in the Jetty-package available for 
 download on [Oskari.org](/download). Just deploy the webapp and access it in browser.
 
 Accessing the webapp will ask for the native projection to use for user-generated content and configure the geoserver configured in oskari-ext.properties:

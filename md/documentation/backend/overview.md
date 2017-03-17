@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `oskari-server` repository contains Java backend used by [Oskari](https://github.com/nls-oskari/oskari) javascript framework. The backend is modularized and tiered into
+The `oskari-server` repository contains Java backend used by [Oskari](https://github.com/oskariorg/oskari-frontend) javascript framework. The backend is modularized and tiered into
 different types of Maven modules:
 * HTTP API tier: webapps, servlets (also portlets in `oskari-liferay` repository)
 * Control tier: maps HTTP requests into service/database calls.

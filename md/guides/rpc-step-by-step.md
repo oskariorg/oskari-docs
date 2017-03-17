@@ -5,7 +5,7 @@ This guide will tell you how to control a published map from the parent document
 ## What do I need?
 
 * published map (map can be published for example at http://www.paikkatietoikkuna.fi/)
-* OskariRPC.js (available on GitHub: https://github.com/nls-oskari/rpc-client)
+* OskariRPC.js (available on GitHub: https://github.com/oskariorg/rpc-client)
 * jschannel.js (available on GitHub: https://github.com/yochannah/jschannel)
 * The html-document in which you want to use a map with functionalities
 * basic knowledge of javascript
