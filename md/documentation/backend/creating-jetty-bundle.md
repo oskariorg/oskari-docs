@@ -33,21 +33,13 @@ Unzip to a location on your computer. The location will be referenced as {JETTY_
 - (OPTIONAL, requires JNDI support in step 3) configure the database connection parameters (user/password) for OskariPool in oskari-map.xml
 - NOTE! even if JNDI pool has been configured the same connection params are needed in oskari-ext.properties: the database creation requires this dual configuration for now.
 
-6) (OPTIONAL) Configure JAAS for login functionality
-
-- requires JNDI support in step 3
-- add jetty-jaas-oskari.xml to {JETTY_HOME}/resources/
-- add oskarirealm.conf to {JETTY_HOME}/resources/
-- modify {JETTY_HOME}/start.ini and add a reference to configuration file 'resources/jetty-jaas-oskari.xml'
-- modify {JETTY_HOME}/contexts/oskari-map.xml to include a securityHandler for JAAS (uncomment the segment)
-
-7) (OPTIONAL) Install and start Redis (required by transport and printout)
+6) (OPTIONAL) Install and start Redis (required by transport and printout)
 
 - Download Redis from http://redis.io/download
 - Start redis-server with default config (localhost:6379)
 - (optional, inherited from oskari-ext.properties if not present) add transport-ext.properties to {JETTY_HOME}/resources/
 
-8) (OPTIONAL) Install geoserver (required for my places/userlayers/analysis)
+7) (OPTIONAL) Install geoserver (required for my places/userlayers/analysis)
 
 - Download geoserver http://geoserver.org/release/2.5.2/ -> Web archive (.war-file)
 - Unzip the downloaded war-file (produces a folder geoserver with for example folder WEB-INF inside)
@@ -60,7 +52,7 @@ Unzip to a location on your computer. The location will be referenced as {JETTY_
 
 - Preconfigured Geoserver data dir is available and pre-configured for use in {JETTY_HOME}/geoserver_data. This includes SLDs for myplaces/analysis/userlayers and configurations for the default database values needed by these services.
 
-9) Start the Jetty by running the command in {JETTY_HOME}
+8) Start the Jetty by running the command in {JETTY_HOME}
 
 	java -jar start.jar
 
