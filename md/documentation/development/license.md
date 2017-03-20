@@ -2,24 +2,21 @@
 
 Oskari Source code is released with a dual license
 
-* [MIT](http://verkosto.oskari.org/oskari-ohjelmisto/lisenssit/mit-lisenssin-ehdot/)
-* [EUPL](https://joinup.ec.europa.eu/community/eupl/og_page/eupl)
+* [MIT](https://github.com/oskariorg/oskari-docs/blob/master/documents/LICENSE-MIT.txt)
+* [EUPL v1.1](https://github.com/oskariorg/oskari-docs/blob/master/documents/LICENSE-EUPL.pdf) - (https://joinup.ec.europa.eu/community/eupl/og_page/eupl)
 
-Contributor License Agreement
+## Contributor License Agreement
 
-* The same CLA applies to all git repositories. 
+Contributors are asked to provide a Contributor License Agreement for working on the project:
+https://github.com/oskariorg/oskari-docs/blob/master/documents/CLA.txt
 
-	* [Oskari frontend](https://github.com/oskariorg/oskari-frontend/blob/master/CLA.txt)
-	* [Oskari server](https://github.com/oskariorg/oskari-server/blob/master/CLA.txt)
-	* [Oskari liferay](https://github.com/nls-oskari/oskari-liferay/blob/develop/CLA.txt)
+The same CLA applies to all Oskari git repositories.
 
-3rd party JavaScript libraries
+## 3rd party JavaScript libraries
 
-* Open Source libraries are used to develop Oskari framework with one exception (for version 7.4):
-    * National Land Survey has purchased a development license for ExtJS 4. Contact Sencha for information on ExtJS 4 licensing.
-* see Open Source [JavaScript libraries](/documentation/libraries) for a list of used JavaScript frameworks
+See Open Source [JavaScript libraries](/documentation/libraries) for a list of used JavaScript frameworks
 
-Oskari Web Site content (graphics and texts)
+## Oskari Web Site content (graphics and texts)
 
 * [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/)
 * Resources
