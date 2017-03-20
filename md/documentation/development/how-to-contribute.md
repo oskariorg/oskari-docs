@@ -4,7 +4,7 @@ The preferred way of contributing to Oskari codebase in a nutshell:
 
 1. Familiarize yourself with the [license terms](/documentation/development/license) and submit a [CLA](https://github.com/oskariorg/oskari-docs/blob/master/documents/CLA.txt) if you have not done that previously
 2. Fork the Oskari repository you want to contribute on GitHub into your own account.
-3. Develop your code in a feature branch. For the curious, here's a look of the [internal git process used by NLS](/documentation/development/oskari-git-process) for Oskari development.
+3. Develop your code in a feature branch. For the curious, here's a look of the [Oskari Git process](/documentation/development/oskari-git-process).
 4. Notify us when the code is ready for QA and integration testing (GitHub pull request)
 
 ## Contributor License Agreement
