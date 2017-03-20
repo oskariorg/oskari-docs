@@ -15,9 +15,17 @@ https://github.com/oskariorg/oskari-docs/blob/master/documents/CLA.txt
 
 ## Working with Git
 
+Code and documentation contributions are done with pull requests for the appropriate repositories (front, server, support-site). When implementing a feature you should consider if the implementation is generic in a sense that it's usable outside your customized application. If the implementation is generic it should be placed on the core-repositories. Remember you can always ask the community for opinions.
+
+If your implementation requires some external service or API that is not accessible to the public etc or if you think no-one else might not benefit from the code as it's too application-specific it propably shouldn't be in the core-repositories. The options then is use the community-repository if you feel that the code could be made more generic at a later stage (maybe even by another contributor) or the repository for your application if it's just too app-specific.
+
+Code that is not maintained will be migrated from core to the community-repository and code from community-repository can be "promoted" to the core. Mostly it's about someone maintaining the code and it being generic enough.
+
+Check these guidelines for common errors: [Tips and Guidelines](/documentation/development/guidelines)
+
 ### Starting
 
-Fork the Oskari repository (([oskari-frontend](https://github.com/oskariorg/oskari-frontend), [oskari-server](https://github.com/oskariorg/oskari-server))) you want to contribute on GitHub into your own account. Clone the Git repository on your development environment and setup the official repository as another remote.
+Fork the Oskari repository ([oskari-frontend](https://github.com/oskariorg/oskari-frontend), [oskari-server](https://github.com/oskariorg/oskari-server)) you want to contribute on GitHub into your own account. Clone the Git repository on your development environment and setup the official repository as another remote.
 
 	git clone https://github.com/{your username}/{oskari repository}.git
 	cd {oskari repository}
@@ -36,6 +44,9 @@ Update your fork with the latest Oskari/continue contributing on previously init
 	git push
 
 ### Developing
+
+* Fix one thing at a time - Do not batch up multiple unrelated changes into a single patch. If you want to fix multiple issues work on them separately and submit separate patches for them.
+* Ensure the patch only contains changes relevant to the issue you are trying to fix. A common mistake is to include whitespace and formatting changes along with the relevant changes. These changes, while they may seem harmless, make the patch much harder to read.
 
 Starting development for a new feature on a new branch based on develop
 
@@ -68,4 +79,9 @@ Master branch always has the latest stable release version.
 
 ### Submit a pull request on GitHub
 
-Before doing that, check these guidelines for common errors in code: [Tips and Guidelines](/documentation/development/guidelines)
+* Visit your GitHub repository page and issue the pull request.
+* Core developers will Review the patch and may require changes or improvements to it prior to it being accepted.
+* It will be up to the submitter to amend the pull request and keep it alive until it gets merged.
+* Please be patient as pull requests are often reviewed in spare time so turn-around can be a little slow.
+* Make sure your code works with the latest for the branch you are working on.
+* Take a look at the [Review guidelines](review)

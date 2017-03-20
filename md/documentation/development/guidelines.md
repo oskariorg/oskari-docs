@@ -50,6 +50,12 @@ For server:
 
 ## Frontend
 
+### Requirements for new bundles to the core
+* API documentation (event, requests, service, config, state)
+* implementation for the bundle API
+* usage instructions documentation of any external dependencies (server routes for example) for the implementation of the bundle
+* implementation needs a responsible party. If there's a bug or something is broken the responsible party is the first contact point. If there's no action taken and no-one else wants to take responsibility the bundle implementation will be migrated to community-repository.
+
 * Avoid global variables
 * Avoid id and name attributes on DOM elements. It's very easy to use conflicting names/ids for elements between different functionalities and in the case of conflict the behavior in browser is propably not what you expect. If you have an input with name="name" in two elements the browser will remove the attribute from the other. This will result in errors even if you use very specific selector to read/assign the value for that field. Use data-attributes or classes instead to avoid this.
 
@@ -116,3 +122,9 @@ function fooBar(arg) {
     return 'foo ' + arg + ' bar';
 }
 ```
+
+### Server
+
+- JUnit tests for any action routes that test parameter/user combinations
+- documentation of external dependencies and possible configurations/properties
+- TODO: more requirements propably
