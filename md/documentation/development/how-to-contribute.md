@@ -69,7 +69,7 @@ Fix an issue of urgency on a new branch based on master
 	# code away (see coding guidelines) with git adds/commits
 	# remember lots of small commits are better than one big one
 	# also describing commit messages are better than repeating the same msg n times
-	git push origin hotfix/my-awesome-feature
+	git push origin hotfix/my-very-urgent-fix
 
 
 Master branch always has the latest stable release version.

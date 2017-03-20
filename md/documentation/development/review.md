@@ -2,7 +2,7 @@
 
 Reviewing code is an invaluable process that is used to ensure that code meets an acceptable level of quality prior to being included in an Oskari release.
 
-Many of the following has been adopted from the [GeoServer](http://docs.geoserver.org/latest/en/developer/policies/review.html) project as the rules they have are very pragmatic.
+Much of the following has been adopted from the [GeoServer](http://docs.geoserver.org/latest/en/developer/policies/review.html) project as the rules they have are very pragmatic.
 
 ## Informal Code review
 
