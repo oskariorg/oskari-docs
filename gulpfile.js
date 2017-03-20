@@ -89,7 +89,7 @@ function getApiVersion() {
 }
 
 function getOskariLocation() {
-    return '../oskari/api/**';
+    return '../oskari-frontend/api/**';
 }
 
 function getApiDocLocation(version) {
