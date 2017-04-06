@@ -15,7 +15,7 @@ var MARKER_TEMPLATE = _.template(
 
 if(DEVELOP){
     IFRAME_DOMAIN = 'http://localhost:8080';
-    jQuery('#publishedMap').prop('src', 'http://localhost:8080/?lang=en&uuid=31cbab75-f123-4202-b06c-3514a3c1a97f');
+    jQuery('#publishedMap').prop('src', 'http://localhost:8080/web/fi/kartta?uuid=48911e06-06ca-4a23-8888-2342b0844206&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true');
 }
 
 //init code highlighting
@@ -252,7 +252,7 @@ var clickHandlers = {
                     ]
                 }
             ];
-                var data = [
+                data = [
                     'myInfoBox',
                     'Generic info box',
                     content,
@@ -423,7 +423,7 @@ var clickHandlers = {
         channel.log('MapModulePlugin.MapMoveRequest posted with data', [LOCATION_POSIO[0], LOCATION_POSIO[1], 7]);
     },
     'rotate.map': function(deg) {
-      var rot = jQuery(deg.currentTarget).val()
+      var rot = jQuery(deg.currentTarget).val();
         channel.postRequest('rotate.map',[rot]);
         channel.log('rotate.map posted with data', [rot]);
     },
@@ -470,7 +470,7 @@ var clickHandlers = {
                 "bbox": data.left + ',' + data.bottom + ',' + data.right + ',' + data.top,
                 "status": "open,closed"
             };
-            var data = {
+            data = {
                 "srs": "EPSG:3067",
                 "payload": filterdata
             };
@@ -516,7 +516,7 @@ var clickHandlers = {
                 channel.log('PostFeedbackRequest posted with data', [data]);
                 break;
             case "polygon":
-                var postdata = {
+                postdata = {
                     "service_code": "180",
                     "description": "Savua ilmassa",
                     "first_name" : "Polygon",
@@ -525,7 +525,7 @@ var clickHandlers = {
                         "type": "Polygon",
                         "coordinates": [[[382472.5,6677324.5],[382328.5,6676636.5],[383288.5,6676332.5],[383528.5,6677100.5],[382472.5,6677324.5]]]}
                 };
-                var data = {
+                data = {
                     "srs":"EPSG:3067",
                     "payload": postdata
                 };
@@ -739,6 +739,70 @@ var clickHandlers = {
         channel.postRequest('MapModulePlugin.RemoveFeaturesFromMapRequest', params);
         channel.log('MapModulePlugin.RemoveFeaturesFromMapRequest posted with params', params);
     },
+    'UpdateFeature_AddWKTFeature': function(){
+        // First add feature, feature format can be an WKT or GeoJSON
+        // Define a wkt-geometry
+        var WKT = 'POLYGON ((358911.7134508261 6639617.669712467, 358911.7134508261 6694516.612323322, 382536.4910289571 6694516.612323322, 382536.4910289571 6639617.669712467, 358911.7134508261 6639617.669712467))';
+
+        // Some attributes for the feature
+        var attributes = {
+          test_property: 1
+        };
+
+        // Styling
+        var featureStyle = {
+          fill: {
+            color: 'rgba(0,0,0,0.3)',
+          },
+          stroke: {
+            color: '#FF0000',
+            width: 10
+          },
+          text : {
+            scale : 1.3,
+            fill : {
+              color : 'rgba(0,0,0,1)'
+            },
+            stroke : {
+              color : 'rgba(255,255,255,1)',
+              width : 2
+            },
+            labelProperty: 'test_property'
+          }
+        };
+
+        // Add features
+        channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [WKT, {
+            layerId: 'MY_VECTOR_LAYER',
+            clearPrevious: true,
+            layerOptions: null,
+            centerTo: false,
+            featureStyle: featureStyle,
+            attributes: attributes
+        }]);
+    },
+    'UpdateFeature_UpdateWKTFeature': function(){
+        // Now update previously added feature
+        // For example change stroke style
+        var featureStyle = {
+          stroke: {
+            color: '#00FF00',
+            width: 5
+          }
+        };
+
+        // Define wanted feature attributes
+        var updatedFeatureAttributes = {'test_property':1};
+        var params = [updatedFeatureAttributes, {
+            featureStyle: featureStyle,
+            layerId: 'MY_VECTOR_LAYER'
+        }];
+
+        channel.postRequest(
+            'MapModulePlugin.AddFeaturesToMapRequest',
+            params
+        );
+    },
     'ZoomToFeaturesRequest': function() {
         channel.postRequest('MapModulePlugin.ZoomToFeaturesRequest',[]);
         channel.log('MapModulePlugin.ZoomToFeaturesRequest posted without params');
@@ -904,7 +968,7 @@ var clickHandlers = {
     },
     'GetPixelMeasuresInScale': function () {
         // A4 example ( size in mm units and portrait orientation
-        var me = scale = document.getElementById("inputPlotScale").value;
+        var scale = document.getElementById("inputPlotScale").value;
         if(scale && Number(scale) < 1){
             jQuery('#publishedMap').parent().find('#id_plot_bbox').remove();
             channel.log('GetPixelMeasuresInScale: ', ' old plot area removed, if any exists');
@@ -1202,7 +1266,7 @@ var eventHandlers = {
 
                         var istop = leg.intermediateStops[j];
 
-                        var feature = {
+                        feature = {
                             "type": "Feature",
                             "geometry": {
                                 "type": "Point",
@@ -1232,7 +1296,7 @@ var eventHandlers = {
                 features.push(endPointFeature);
 
 
-                var geoJSON = {
+                geoJSON = {
                     'type': 'FeatureCollection',
                     'crs': {
                         'type': 'name',
@@ -1476,7 +1540,7 @@ jQuery(document).ready(function(){
     jQuery(rpcEvents).each(function(index, eventName){
         if(eventName) {
             channel.handleEvent(eventName, function(data){
-                channel.log(eventName, data)
+                channel.log(eventName, data);
                 isMarkerOff = false;
                 if(eventHandlers[eventName]) {
                     eventHandlers[eventName](data);
@@ -1508,7 +1572,7 @@ if(logDiv.length) {
             if(typeof arg === 'function') {
                 return;
             }
-            else if(typeof arg === 'object' || typeof arg === 'array') {
+            else if(typeof arg === 'object') {
                 var json = JSON.stringify(arg, null, '  ');
                 json = json.replace(/\\"/g, '"');
                 msg.append('<xmp>' + json + '</xmp>');
@@ -1519,7 +1583,7 @@ if(logDiv.length) {
         });
 
         logDiv.prepend(msg);
-    }
+    };
 }
 
 channel.enableDebug(true);
@@ -1550,7 +1614,7 @@ channel.onReady(function() {
 });
 
 $('#actionSelector').on('change', function(event) {
-    var value = $(this).val(),f
+    var value = $(this).val(),f,
         container = $('#documentationContainer');
     $(logDiv).empty();
     $(container).html('');
