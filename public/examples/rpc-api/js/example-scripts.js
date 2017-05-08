@@ -15,7 +15,7 @@ var MARKER_TEMPLATE = _.template(
 
 if(DEVELOP){
     IFRAME_DOMAIN = 'http://localhost:8080';
-    jQuery('#publishedMap').prop('src', 'http://localhost:8080/web/fi/kartta?uuid=48911e06-06ca-4a23-8888-2342b0844206&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true');
+    jQuery('#publishedMap').prop('src', 'http://localhost:8080/web/fi/kartta?uuid=f3642ad2-f78c-4db3-b23e-2f7d0524cf55&p_p_id=Portti2Map_WAR_portti2mapportlet&p_p_lifecycle=0&p_p_state=exclusive&published=true');
 }
 
 //init code highlighting
@@ -424,8 +424,14 @@ var clickHandlers = {
     },
     'rotate.map': function(deg) {
       var rot = jQuery(deg.currentTarget).val();
+      rot = (!isNaN(rot)) ? parseFloat(rot) : null;
+      if(rot) {
         channel.postRequest('rotate.map',[rot]);
         channel.log('rotate.map posted with data', [rot]);
+        } else {
+            channel.postRequest('rotate.map',[]);
+            channel.log('rotate.map posted with data', []);
+        }
     },
     'ChangeMapLayerOpacityRequest': function() {
         channel.getAllLayers(function (layers) {
