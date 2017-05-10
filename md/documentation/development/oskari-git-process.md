@@ -4,7 +4,10 @@ This document describes the source management process used by the Oskari project
 
 ## Overview
 
-![Oskari git overview](/images/documentation/git_overview.png)
+![Oskari git flow overview](/images/documentation/gitflow.svg)
+
+Read Atlassian's awesome [Git Flow documentation](https://www.atlassian.com/git/tutorials/comparing-
+workflows/gitflow-workflow) for more information.
 
 ## Branches & Repos
 
@@ -171,4 +174,3 @@ Cleanup
     git branch -D hotfix/x.y.z
     # remove remote branch
     git push origin :hotfix/x.y.z
-
