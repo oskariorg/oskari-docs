@@ -1,9 +1,9 @@
 # RPC events
 
-This guide shows how to enable an Oskari event to be transmitted via RPC. This enables the embedding page to be able to 
-react to events on the embedded application. Existing Oskari events are listed [here](/documentation/core-concepts/event-list).
+This guide shows how to enable an Oskari event to be transmitted via RPC. This enables the embedding page to be able to
+react to events on the embedded application. Existing Oskari events are listed [here](/api/events).
 
-1) Implement a getParams() function for the Oskari-event: 
+1) Implement a getParams() function for the Oskari-event:
 
 ```javascript
     /**
@@ -18,7 +18,7 @@ react to events on the embedded application. Existing Oskari events are listed [
 ```
 
 2) Allow the event to be transmitted via RPC:
- 
+
 Either modifying the default allowed events in Oskari/bundles/framework/rpc/instance.js:
 
 ```javascript

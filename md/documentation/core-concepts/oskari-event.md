@@ -1,6 +1,6 @@
 # Event
 
-*List of all Oskari events can be found [here](/documentation/core-concepts/event-list).*
+*List of all Oskari events can be found [here](/api/events).*
 
 Events are a way to communicate with other bundles. They are used by bundles to notify other components in an Oskari application that something has happened. The bundle sends an event through [Oskari core](/documentation/core-concepts/oskari-core) and any bundle registered as an eventlistener for the given event is then notified about the event. For example, when a map is moved, [mapmodule](/documentation/bundles/framework/mapmodule) sends an event called AfterMapMoveEvent. The components which need to know about the mapmove need an eventHandler for AfterMapMoveEvent to get the information and to react to it. For example, the [indexmap-plugin](/documentation/bundles/framework/mapmodule/indexmap) has an eventHandler for AfterMapMoveEvent, and when the mapmodule sends AfterMapMoveEvent, the indexmap gets the information and reacts to it by updating the extent-map to the current location.  
 
@@ -19,15 +19,15 @@ In practise, events are send to all components that are listening to it whereas 
 </div>
 
 
-## 1. Define an event 
+## 1. Define an event
 
 ```javascript
 /**
  * @class Oskari.<mynamespace>.bundle.<mybundle>.event.MyEvent
- * 
- * Used to notify components that ... 
+ *
+ * Used to notify components that ...
  */
-Oskari.clazz.define('Oskari.<mynamespace>.bundle.<mybundle>.event.MyEvent', 
+Oskari.clazz.define('Oskari.<mynamespace>.bundle.<mybundle>.event.MyEvent',
 /**
  * @method create called automatically on construction
  * @static
@@ -47,7 +47,7 @@ function(param) {
         return this.__name;
     },
     /**
-     * @method getParameter 
+     * @method getParameter
      * Returns parameter that components reacting to event should know about
      * @return {String}
      */
@@ -215,12 +215,12 @@ this.onEvent = function(event) {
     var eventHandler = this.eventHandlers[event.getName()];
     if (eventHandler) eventHandler.apply(this, [event]);
 }
-        
+
 for (var p in this.eventHandlers) {
     sandbox.registerForEventByName(this, p);
 }
 ```
-Example: IndexMapPlugin listening to `AfterMapMoveEvent`. 
+Example: IndexMapPlugin listening to `AfterMapMoveEvent`.
 
 ```javascript
 /**
@@ -273,7 +273,7 @@ onEvent: function (event) {
         },
         getName: function () {
             return 'FakeModule';
-        }, 
+        },
         onEvent: function (event) {
             console.log(event);
         }
