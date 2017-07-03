@@ -50,7 +50,7 @@ Search the [api](/api/latest/) for more info of a particular event.
             <td> Sent when a marker is clicked. </td>
             <td>[framework/mapmodule-plugin/markersplugin](/documentation/bundles/framework/mapmodule/markersplugin)</td>
         </tr>
-        
+
         <tr>
             <td>`AfterHighlightMapLayerEvent`</td>
             <td> Sent when a given map layer has been requested to be "highlighted" on map.</td>
@@ -324,7 +324,7 @@ Search the [api](/api/latest/) for more info of a particular event.
         <tr>
             <td>[RouteResultEvent](/documentation/events/routeresultevent)</td>
             <td> Sent when route service get response of `GetRouteRequest`. </td>
-            <td>[framework/routingService](/documentation/bundles/framework/routingservice)</td>
+            <td>[framework/routingService](/api/events#1.42.0/mapping/routingService/event/routeresultevent.md)</td>
         </tr>
         <tr>
             <td>[FeatureEvent](/documentation/events/featureevent)</td>

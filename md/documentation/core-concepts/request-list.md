@@ -101,12 +101,12 @@ Search the [api](/api/latest/) for more info of a particular request.
             <td>`framework/mapmodule-plugin/drawplugin`</td>
         </tr>
         <tr>
-            <td>[DrawTools.StartDrawingRequest](/documentation/requests/startdrawingrequest)</td>
+            <td>[DrawTools.StartDrawingRequest](/api/requests#1.42.0/mapping/drawtools/request/startdrawingrequest.md)</td>
             <td>Start draw functionality</td>
             <td>`mapping/drawtools`</td>
         </tr>
         <tr>
-            <td>[DrawTools.StopDrawingRequest](/documentation/requests/stopdrawingrequest)</td>
+            <td>[DrawTools.StopDrawingRequest](/api/requests#1.42.0/mapping/drawtools/request/stopdrawingrequest.md)</td>
             <td>Stop draw functionality</td>
             <td>`mapping/drawtools`</td>
         </tr>

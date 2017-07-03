@@ -1,6 +1,6 @@
 # Request
 
-*List of all Oskari requests can be found [here](/documentation/core-concepts/request-list).*
+*List of all Oskari requests can be found [here](/api/requests).*
 
 `Requests` are used by bundles to ask another component in an Oskari application to do something. One `request` requests always a specific functionality to be accomplished and there is only one bundle reacting to a specific `request`. However, any bundle can send a `request` to request that specific functionality. Bundles may/should send predetermined parameters with the `request`. Below is an image demonstrating the use of a `request`:
 
@@ -66,7 +66,7 @@ Request should be defined in one js-file under requests-folder under the registe
  * Requests are build and sent through Oskari.mapframework.sandbox.Sandbox.
  * Oskari.mapframework.request.Request superclass documents how to send one.
  */
-Oskari.clazz.define('Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequest', 
+Oskari.clazz.define('Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequest',
 /**
  * @method create called automatically on construction
  * @static
@@ -87,7 +87,7 @@ function(param) {
         return this.__name;
     },
     /**
-     * @method getParameter 
+     * @method getParameter
      * @return {String} something you want to send as param for handling the request
      */
     getParameter : function() {
@@ -121,7 +121,7 @@ Request handler should also be defined in one js-file, preferably under requests
  * @class Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequestHandler
  * Handles Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequest
  */
-Oskari.clazz.define('Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequestHandler', 
+Oskari.clazz.define('Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequestHandler',
 
 /**
  * @method create called automatically on construction
@@ -135,7 +135,7 @@ function(instance) {
     /**
      * Protocol method that is called when a request this handler is registered to is received by core.
      *
-     * @method handleRequest 
+     * @method handleRequest
      * @param {Oskari.mapframework.core.Core} core
      *      reference to the application core (reference sandbox core.getSandbox())
      * @param {Oskari.<mynamespace>.bundle.<mybundle>.request.MyRequest} request

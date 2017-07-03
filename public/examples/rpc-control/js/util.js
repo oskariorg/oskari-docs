@@ -8,7 +8,7 @@
     var Util = {};
 
     /**
-     * Logs messages to console if available. 
+     * Logs messages to console if available.
      * Logs any parameter given to the function.
      */
     Util.log = function() {
@@ -26,8 +26,8 @@
     };
 
     /**
-     * Creates a template with color based on type. 
-     * http://oskari.org/documentation/requests/addmarkerrequest
+     * Creates a template with color based on type.
+     * http://www.oskari.org/api/requests#1.42.0/mapping/mapmodule/request/addmarkerrequest.md
      * @param  {String} type 'road', 'env' or undefined
      * @return {Object} template definition for markers
      */
@@ -41,7 +41,7 @@
     }
 
     /**
-     * Returns a color code based on type. 
+     * Returns a color code based on type.
      * If type is not give, uses Util.getIssueType()
      * @param  {String} type 'road', 'env' or undefined
      * @return {String} hexColor
@@ -58,13 +58,13 @@
 
     /**
      * Serializes form values to a json:
-     *  
+     *
      *  input:radio[@name='issueType']
      *  input[@name='name']
      *  input[@name='email]
      *  textarea[@name="desc"]
      *  input[@name="coordinates"]
-     *  
+     *
      * @return {Object} where keys are form field names
      */
     Util.getFormValues = function() {
