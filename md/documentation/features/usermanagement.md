@@ -123,10 +123,17 @@ Tokens with expiration dates are tracked in the `oskari_users_pending` database 
 If an email has an existing token it will be replaced with a new one with
  new expiration date so one email can only have one token at a time. This means
  that for example registration links will automatically expire if the user uses
- the password reminder.
-
+ the password reminder. Emails and usernames are checked in case-insensitive fashion.
 
 Note! User registration has been tested/implemented only for the case where users are in the Oskari database. Not for SAML logins etc.
+
+### User removal
+
+User content (myplaces, saved views, embedded maps, userlayers, analysis, indicators) is
+ removed from the database with the user. The content removal is done programmatically
+ by searching for instances of [UserContentServices](https://github.com/oskariorg/oskari-server/blob/master/service-base/src/main/java/fi/nls/oskari/service/db/UserContentService.java) with @Oskari annotation. You can search the oskari-server codebase for examples of this if you need to add additional cleanup for user removal.
+
+ Note! Removing a user from the database directly will not remove all content related to the user!
 
 ## Known issues
 
