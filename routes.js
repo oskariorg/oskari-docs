@@ -167,7 +167,7 @@ module.exports = {
         apidocs.doc(ver, bundle, callback);
     },
     about: function (req, res) {
-        res.render('about', getBreadCrumbOptions('about'));
+        res.render('about', getBreadCrumbOptions('about oskari'));
     },
     bundles: function (req, res) {
         readBundleDir(function (files) {
@@ -195,9 +195,6 @@ module.exports = {
     },
     challenge: function (req, res) {
         res.render('challenge', getBreadCrumbOptions('challenge'));
-    },
-    oskari: function (req, res) {
-        res.render('oskari', getBreadCrumbOptions('oskari'));
     },
     search: function (req, res) {
         var q = req.param('q');
