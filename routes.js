@@ -184,9 +184,6 @@ module.exports = {
             });
         });
     },
-    guides: function (req, res) {
-        res.render('guides', getBreadCrumbOptions('guides'));
-    },
     documentation: function (req, res) {
         res.render('documentation', getBreadCrumbOptions('documentation'));
     },
