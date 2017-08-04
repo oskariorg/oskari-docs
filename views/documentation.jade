@@ -156,10 +156,11 @@ block main
     # Guides
 
   div.container
-    div.row
-      :markdown
-        ## Getting started
-        #### What is your aim?
+    div.col-md-12
+      div.row
+        :markdown
+          ## Getting started
+          #### What is your aim?
 
       div.col-md-6
         div.panel.panel-warning
@@ -205,3 +206,32 @@ block main
         :markdown
           ## See the frequently asked questions for more advice
           * [FAQ](/documentation/faq)
+
+  :markdown
+    # Code examples
+  div.container
+    div.row
+      div.col-md-4
+        :markdown
+          ## Sample definitions:
+          * [Sample bundle definition](/guides/quick-start/sample-bundle-definition)
+          * [Sample instance definition](/guides/quick-start/sample-instance-definition)
+          * [Sample request definition](/documentation/core-concepts/oskari-request)
+          * [Sample request handler definition](/documentation/core-concepts/oskari-request)
+
+      div.col-md-4
+          :markdown
+              ## Hooks for custom extensions:
+              * [Adding action routes](/documentation/backend/adding-action-routes)
+              * [Adding search channels](/documentation/features/search)
+
+        div.col-md-4
+        :markdown
+          ## Case examples:
+          * [Installing parcel application](/documentation/backend/custom-install-parcel)
+
+    div.row
+      div.col-md-4
+        :markdown
+          ## Frontend examples:
+          * [Overriding Oskari.org bundle locales](/documentation/frontend/override-locales)
