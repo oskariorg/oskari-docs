@@ -196,6 +196,9 @@ module.exports = {
     challenge: function (req, res) {
         res.render('challenge', getBreadCrumbOptions('challenge'));
     },
+    contributing: function (req, res) {
+        res.render('contributing', getBreadCrumbOptions('contributing'));
+    },
     search: function (req, res) {
         var q = req.param('q');
         if (!q) {

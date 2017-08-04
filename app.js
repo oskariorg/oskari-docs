@@ -38,6 +38,7 @@ app.get('/examples', routes.examples);
 app.get('/about', routes.about);
 app.get('/search', routes.search);
 app.get('/challenge', routes.challenge);
+app.get('/contributing', routes.contributing);
 // new api doc end points
 app.get('/api', routes.apiSelection);
 app.get('/api/bundles', routes.bundlesPage);
