@@ -19,7 +19,6 @@ app.set('view options', {
 app.use(asset(publicDir));
 app.use(express.static(publicDir));
 
-app.get('/guides', routes.guides);
 app.get('/guides/*', routes.md);
 app.get('/documentation', routes.documentation);
 app.get('/documentation/bundles', routes.bundles);
