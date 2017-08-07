@@ -1,149 +1,150 @@
 extends layout
 
 block main
-  :markdown
-    # What is Oskari?
+  div.container
+    :markdown
+      # What is Oskari?
 
-  div.row
-    div.col-md-5
-      :markdown
-        ### Oskari is an open source platform for browsing, sharing and analyzing of geographic information from distributed data sources.
-        ### With Oskari you can
+    div.row
+      div.col-md-5
+        :markdown
+          ### Oskari is an open source platform for browsing, sharing and analyzing of geographic information from distributed data sources.
+          ### With Oskari you can
 
-        * connect  to  standard  OGC data  sources
+          * connect  to  standard  OGC data  sources
 
-        * create a fully functional embedded map in 10 minutes without programming
+          * create a fully functional embedded map in 10 minutes without programming
 
-        * create thematic maps
+          * create thematic maps
 
-        * add your own  data  or dataset
+          * add your own  data  or dataset
 
-        * perform spatial analysis
+          * perform spatial analysis
 
-        * publish thematic maps and analysis results as functional embedded maps
+          * publish thematic maps and analysis results as functional embedded maps
 
-        ### Unleash your data by using Oskari
+          ### Unleash your data by using Oskari
 
-        
-    div.col-md-7
-      div.panel.panel-warning
-        div.panel-heading
-          <img src="/images/oskari_platform.png" class="img-responsive" alt="Responsive image">
+          
+      div.col-md-7
+        div.panel.panel-warning
+          div.panel-heading
+            <img src="/images/oskari_platform.png" class="img-responsive" alt="Responsive image">
 
-  div.row
-    div.col-md-6
-      div.panel.panel-info
-        div.panel-heading
-          :markdown
-            ## Ways to use Oskari:
-            ### Visualize statistical or geographical information by using existing Oskari installation
-            * You can mix and match various geographical and statistical data sources
-            * Import your own data or use standard OGC service interfaces as data source
-
-            ### Create a custom map on your web site
-            * Use existing Oskari installation to create embedded map to your web site
-            * Add the layers you want to show and choose the functionalities and size of the map. You can also import your own data to be shown on an embedded map.
-            * No programming is needed.
-
-            ### Create your own customized web map service using Oskari
-            * Download Oskari source code and start developing your own application
-            * You can use both the Oskari UI and the Oskari service platform or only the UI, in which case you need your own service platform
-
-    div.col-md-6
-      :markdown
-        ## Application areas of Oskari:
-        ### Information services
-        Oskari helps businesses and municipalities offer better online and mobile map services to their citizens and consumers.
-        ### E-government services
-        The Platform allows for interleaving and integration of many different sources of geographical and statistical data into online map visualizations that help power e-government services and decision making processes.
-        ### Situational awareness services
-        Oskari can display real-time data on a map, e.g. current traffic jams, construction areas or traffic cameras. This makes it really easy to inform citizens about changing circumstances or situations they might be interested in.
-        ### Tools of knowledge management
-        Visualizing statistical information on a map helps to empower citizens in decision making processes that affect them. Spatial phenomena can be analyzed and results of spatial analysis published as embedded maps using tools provided by Oskari.
-
-  div.row
-      div.panel.panel-warning
-        div.panel-heading
-          :markdown
-            ## Where is Oskari used?
-        div.panel-body
-          div.col-md-5
-            :markdown
-              ### Oskari is in use at:
-              * [Finnish Geoportal](http://www.paikkatietoikkuna.fi/web/en/map-window)
-              * [Geoportal of Tampere city](http://paikkatietopalvelu.tampere.fi/)
-              * [NLS: Suomi.fi Maps](http://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat)
-              * [NLS: File service of open data](https://tiedostopalvelu.maanmittauslaitos.fi/tp/kartta?lang=en)
-              * [NLS: Old printed maps](http://vanhatpainetutkartat.maanmittauslaitos.fi/?lang=en)
-              * [Lupapiste](https://www.lupapiste.fi/)
-              * [eHarava](http://query.eharava.fi/325?lang=en)
-              * [Liikenneviraston tiedostolatauspalvelu](https://extranet.liikennevirasto.fi/extranet/web/public/latauspalvelu)
-              ### Embedded maps:
-              * [Service points of NLS](http://www.maanmittauslaitos.fi/toiminta/yhteystiedot/palvelupisteet-kartalla)
-              * [TE-palvelut: työpaikkahaku](http://www.te-palvelut.fi/te/fi/index.html)
-              * [Valkeakosken karttapalvelu](http://www.valkeakoski.fi/portal/suomi/tekniset_palvelut/kartat+ja+mittauspalvelut/karttapalvelu#)
-              * [Paimion liikuntatoimi](http://paimio.fi/palvelut/liikunta_ja_ulkoilu)
-              * [Vihdin karttapalvelu](http://www.vihti.fi/karttapalvelu)
-              ### Ongoing projects:
-              * European Location Framework
-              * [Arctic SDI](http://arctic-sdi.org/)
-              * SYKE:n ja Ympäristöministeriön Liiteri-palvelu
-
-          div.col-md-7
-            :markdown
-              <br>
-              <br>
-              Finnish Geoportal
-              <img src="/images/paikkatietoikkuna.PNG" border="1" class="img-responsive" alt="Responsive image">
-
-  :markdown
-    # Oskari Network
-
-    Oskari Network is the stakeholder community of Oskari software. The [website](http://verkosto.oskari.org/) is in Finnish. [Tästä](http://verkosto.oskari.org/) pääset Oskari-verkoston suomenkieliselle sivustolle.
-  
-  
-  :markdown
-    # About this site
-
-  div.row
-    div.col-md-12
-      :markdown
-        This is a support site for the Oskari software containing technical instructions for using, configuring and developing the software. The documentation on this site assumes the reader is somewhat familiar with the basic
-        geographical protocols used extensively in GIS applications, such as
-        WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
-        JavaScript and/or Java development is required to read and understand the frontend and
-        the backend documentation, respectively.
-
-  div.row
-    div.col-md-12
-      :markdown
-        ## Communication
-
+    div.row
       div.col-md-6
         div.panel.panel-info
           div.panel-heading
             :markdown
-              ### Twitter @oskari.org
-              Information channel for new releases, bug and security fixes as well as events related to Oskari.
+              ## Ways to use Oskari:
+              ### Visualize statistical or geographical information by using existing Oskari installation
+              * You can mix and match various geographical and statistical data sources
+              * Import your own data or use standard OGC service interfaces as data source
 
-              <a class="twitter-timeline" href="https://twitter.com/oskari_org">Tweets by oskari_org</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+              ### Create a custom map on your web site
+              * Use existing Oskari installation to create embedded map to your web site
+              * Add the layers you want to show and choose the functionalities and size of the map. You can also import your own data to be shown on an embedded map.
+              * No programming is needed.
 
+              ### Create your own customized web map service using Oskari
+              * Download Oskari source code and start developing your own application
+              * You can use both the Oskari UI and the Oskari service platform or only the UI, in which case you need your own service platform
 
       div.col-md-6
-        div.panel.panel-info
+        :markdown
+          ## Application areas of Oskari:
+          ### Information services
+          Oskari helps businesses and municipalities offer better online and mobile map services to their citizens and consumers.
+          ### E-government services
+          The Platform allows for interleaving and integration of many different sources of geographical and statistical data into online map visualizations that help power e-government services and decision making processes.
+          ### Situational awareness services
+          Oskari can display real-time data on a map, e.g. current traffic jams, construction areas or traffic cameras. This makes it really easy to inform citizens about changing circumstances or situations they might be interested in.
+          ### Tools of knowledge management
+          Visualizing statistical information on a map helps to empower citizens in decision making processes that affect them. Spatial phenomena can be analyzed and results of spatial analysis published as embedded maps using tools provided by Oskari.
+
+    div.row
+        div.panel.panel-warning
           div.panel-heading
             :markdown
-              ### Slack (https://oskari.slack.com/)
-              Slack is a team communication platform. It features e.g.
-              * instant messaging between groups and individuals
-              * message archive and search functionality
-              * message notifications to email
-              * attachments in messages
-              * integration with Twitter, GitHub, Jenkins and other services
-              * multiple client implementations: browser, iOS, Android, ...
-              https://oskari.slack.com instance is available for people developing Oskari
-              Using Oskari Slack requires login. Please contact oskari@nls.fi for credentials.
+              ## Where is Oskari used?
+          div.panel-body
+            div.col-md-5
+              :markdown
+                ### Oskari is in use at:
+                * [Finnish Geoportal](http://www.paikkatietoikkuna.fi/web/en/map-window)
+                * [Geoportal of Tampere city](http://paikkatietopalvelu.tampere.fi/)
+                * [NLS: Suomi.fi Maps](http://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat)
+                * [NLS: File service of open data](https://tiedostopalvelu.maanmittauslaitos.fi/tp/kartta?lang=en)
+                * [NLS: Old printed maps](http://vanhatpainetutkartat.maanmittauslaitos.fi/?lang=en)
+                * [Lupapiste](https://www.lupapiste.fi/)
+                * [eHarava](http://query.eharava.fi/325?lang=en)
+                * [Liikenneviraston tiedostolatauspalvelu](https://extranet.liikennevirasto.fi/extranet/web/public/latauspalvelu)
+                ### Embedded maps:
+                * [Service points of NLS](http://www.maanmittauslaitos.fi/toiminta/yhteystiedot/palvelupisteet-kartalla)
+                * [TE-palvelut: työpaikkahaku](http://www.te-palvelut.fi/te/fi/index.html)
+                * [Valkeakosken karttapalvelu](http://www.valkeakoski.fi/portal/suomi/tekniset_palvelut/kartat+ja+mittauspalvelut/karttapalvelu#)
+                * [Paimion liikuntatoimi](http://paimio.fi/palvelut/liikunta_ja_ulkoilu)
+                * [Vihdin karttapalvelu](http://www.vihti.fi/karttapalvelu)
+                ### Ongoing projects:
+                * European Location Framework
+                * [Arctic SDI](http://arctic-sdi.org/)
+                * SYKE:n ja Ympäristöministeriön Liiteri-palvelu
 
-              Note that Oskari Slack is using the Lite plan, so the message archive is limited in size.
+            div.col-md-7
+              :markdown
+                <br>
+                <br>
+                Finnish Geoportal
+                <img src="/images/paikkatietoikkuna.PNG" border="1" class="img-responsive" alt="Responsive image">
 
-              Slack is great place to ask questions and talk directly to the core developers. However, users are expected to do their research beforehand and ask educated questions.
+    :markdown
+      # Oskari Network
+
+      Oskari Network is the stakeholder community of Oskari software. The [website](http://verkosto.oskari.org/) is in Finnish. [Tästä](http://verkosto.oskari.org/) pääset Oskari-verkoston suomenkieliselle sivustolle.
+    
+    
+    :markdown
+      # About this site
+
+    div.row
+      div.col-md-12
+        :markdown
+          This is a support site for the Oskari software containing technical instructions for using, configuring and developing the software. The documentation on this site assumes the reader is somewhat familiar with the basic
+          geographical protocols used extensively in GIS applications, such as
+          WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
+          JavaScript and/or Java development is required to read and understand the frontend and
+          the backend documentation, respectively.
+
+    div.row
+      div.col-md-12
+        :markdown
+          ## Communication
+
+        div.col-md-6
+          div.panel.panel-info
+            div.panel-heading
+              :markdown
+                ### Twitter @oskari.org
+                Information channel for new releases, bug and security fixes as well as events related to Oskari.
+
+                <a class="twitter-timeline" href="https://twitter.com/oskari_org">Tweets by oskari_org</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+        div.col-md-6
+          div.panel.panel-info
+            div.panel-heading
+              :markdown
+                ### Slack (https://oskari.slack.com/)
+                Slack is a team communication platform. It features e.g.
+                * instant messaging between groups and individuals
+                * message archive and search functionality
+                * message notifications to email
+                * attachments in messages
+                * integration with Twitter, GitHub, Jenkins and other services
+                * multiple client implementations: browser, iOS, Android, ...
+                https://oskari.slack.com instance is available for people developing Oskari
+                Using Oskari Slack requires login. Please contact oskari@nls.fi for credentials.
+
+                Note that Oskari Slack is using the Lite plan, so the message archive is limited in size.
+
+                Slack is great place to ask questions and talk directly to the core developers. However, users are expected to do their research beforehand and ask educated questions.
