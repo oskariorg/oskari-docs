@@ -23,7 +23,7 @@ Copyright 2014 - present NLS under dual license MIT (included LICENSE.md) and [E
 
 ```
 // clone the repository
-cd oskari.org
+cd oskari-docs
 npm install
 node app
 ```
