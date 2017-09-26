@@ -105,6 +105,7 @@ btn.bind('click', function() {
 * Use CSS selectors and traversal to access DOM snippet substructure under the current functionality. Don't alter the UI created by another functionality.
 * Prefix your custom CSS definitions with your `<bundle-identifier>`
 * Avoid post processing of library generated DOM (f.ex ExtJS dom) with jQuery
+* Avoid visible DOM rendering. Hide element before editing and when editing is finished make element again visible. Hide element adding class `oskari-hidden` and make it visible again by removing `oskari-hidden` class.
 
 ## Documentation
 
