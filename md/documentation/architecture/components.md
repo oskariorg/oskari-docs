@@ -1,4 +1,4 @@
-# Component architecture 
+# Component architecture
 
 ## Backend components in oskari-server
 
@@ -18,7 +18,7 @@ Service modules should be common libraries usable in any application. The actual
 
 * `service-base` has some common helpers and domain classes which are used throughout Oskari backend.
 * `service-permission` is a generic authorization lib for deciding who gets to see/do what
-* `service-search` is a generic search lib that can be extended by adding and registering [search channels](/documentation/backend/search)
+* `service-search` is a generic search lib that can be extended by adding and registering [search channels](/documentation/features/search)
 * `service-map` has most (maybe a bit too much) of the business logic for servicing the Oskari functionalities
 * `service-control` defines the control/routing structures/interfaces for control-layer to build upon.
 * `shared-test-resources` has some common helpers/templates to help testing
@@ -29,7 +29,7 @@ Control modules build on top of the service layer.
 
 ![Service description](/images/architecture/Service.png)
 
-* `control-base` is the basis for all control-modules and has most of the basic AJAX handlers needed by the Oskari frontend. 
+* `control-base` is the basis for all control-modules and has most of the basic AJAX handlers needed by the Oskari frontend.
     * *NOTE! `control-base` contains some very specific functionalities that should be separated into separate control-extensions (for example analysis and thematic maps support)*
 * `control-myplaces` has AJAX funtionality related to myplaces functionality.
 * `control-example` has example implementations for AJAX functionalities required by Oskari but usually overridden by platform specific functionalities such as user and content management.
@@ -52,7 +52,7 @@ The interface-modules build on top of the control-modules. Basically an HTTP int
 
 Responsible for:
 
-* Handling user sessions 
+* Handling user sessions
 * Generating an ActionParameters object based on incoming request abstracting/normalizing the request for control layer
 * Forwarding the request to control layer
 
