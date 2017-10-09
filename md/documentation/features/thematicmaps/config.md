@@ -133,9 +133,9 @@ Not all datasources have data for all of the regionsets so as the last step you 
         (SELECT id FROM oskari_statistical_datasource 
             WHERE locale like '%Health and Welfare%'),
         (SELECT id FROM oskari_maplayer WHERE type='statslayer' AND name = 'mylayer'),
-        {});
+        '{}');
 
-The config is an adapter specific configuration that can be used to pass information datasource specific information for the layer. 
+The config is an adapter specific configuration that can be used to pass information datasource specific information for the layer.
 
 The current layer configuration options are listed below.
 
@@ -152,10 +152,10 @@ Doesn't use layer config, but could be used to detect which layer is used for wh
 Uses config:
 
     {
-        "regionType" : "municipality"
+        "regionType" : "kunta"
     }
 
-The Sotkanet data includes hints to indicate that the data is for municipalities or larger areas. The value of regionType should match this hint. For example statistics for municipality might have a region type hint of "kunta" in the stats data. When linking a layer that has municipalities as regions the config should have regionType "kunta". This helps the functionality to filter out layers that don't have data for given regionset off from the user interface.
+The value of "regionType" should match the "category" value  (like "kunta") in SotkaNET regions response. It's used to filter out indicators that the service has, but which don't have a regionset in the Oskari instance and as such can't be visualized in Oskari. SotkaNet data responses include data for all the regionsets and the same config is used to filter the data before it's passed to the frontend in Oskari.
 
 # Known issues
 
