@@ -155,7 +155,7 @@ Uses config:
         "regionType" : "kunta"
     }
 
-The value of "regionType" should match the "category" value  (like "kunta") in SotkaNET regions response. It's used to filter out indicators that the service has, but which don't have a regionset in the Oskari instance and as such can't be visualized in Oskari. SotkaNet data responses include data for all the regionsets and the same config is used to filter the data before it's passed to the frontend in Oskari.
+The value of "regionType" should match the "category" value  (like "kunta") in Sotkanet regions response. It's used to filter out indicators that the service has, but which don't have a regionset in the Oskari instance and as such can't be visualized in Oskari. Sotkanet data responses include data for all the regionsets and the same config is used to filter the data before it's passed to the frontend in Oskari.
 
 # Known issues
 
