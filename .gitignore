@@ -4,3 +4,4 @@ node_modules
 public/release
 generated
 .DS_Store
+npm-debug.log
