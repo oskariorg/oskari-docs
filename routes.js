@@ -94,6 +94,11 @@ var readBundleDir = function (cb) {
     });
 };
 
+function sortByVersion(list) {
+    list.sort(function (a, b) {
+      return a.version.localeCompare(b.version);
+    });
+}
 function getApiJson(funcName, req, res) {
     var version = req.param('version');
     if(version) {
@@ -104,9 +109,7 @@ function getApiJson(funcName, req, res) {
     }
     // return latest if we didn't get any param
     apidocs.getVersions(function(values) {
-        values = values.sort(function(a, b) {
-            return a.version < b.version;
-        });
+        sortByVersion(values);
         var latestVersion = values[0];
         apidocs[funcName](latestVersion, function(json) {
             res.send(json);
@@ -128,9 +131,7 @@ function getApiPage(type, req, res) {
             res.render(pageName, { versions : [], api: [] });
             return;
         }
-        versions = versions.sort(function(a, b) {
-            return a.version < b.version;
-        });
+        sortByVersion(values);
         var latestVersion = versions[0];
         // TODO: do this in parallel instead of seq
         apidocs[functionName](latestVersion, function(api) {
