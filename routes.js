@@ -129,7 +129,7 @@ function getApiPage(type, req, res) {
             return;
         }
         versions = versions.sort(function(a, b) {
-            return a < b;
+            return a.version < b.version;
         });
         var latestVersion = versions[0];
         // TODO: do this in parallel instead of seq
