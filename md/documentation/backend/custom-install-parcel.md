@@ -4,7 +4,7 @@ This document helps to set up the environment. It does NOT instruct how to tune 
 
 Assumes pre-installed:
 
-* JDK 1.6+ (tested with 1.6.18)
+* JDK 1.8+
 * Cygwin32 or 64, if windows environment (Windows 7 tested)
 * Maven 3+ (tested with 3.0.5)
 * PostgresSQL 9.1+ (tested with 9.3) with a oskaridb created for Oskari

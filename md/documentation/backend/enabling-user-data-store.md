@@ -4,7 +4,7 @@
 
 ## Assumes pre-installed:
 
-* JDK 1.6+ (tested with 1.6.18)
+* JDK 1.8+
 * Maven 3+ (tested with 3.0.5)
 * [database available](/documentation/backend/setup-database)
 * existing [server](/documentation/backend/setup-jetty)
