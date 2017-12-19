@@ -10,7 +10,7 @@ After this you will have Oskari running including
 
 ### Requirements
 
-* JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05, should run on OpenJDK as well)
+* JDK 1.8+ (should run on OpenJDK as well)
 * Database available: [Instructions for setting up database](/documentation/backend/setup-database)
 * Redis (Optional, required for WFS and print functionalities): [Setup Redis](/documentation/backend/setup-redis)
 

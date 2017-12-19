@@ -69,7 +69,7 @@ backend server, using the Java development environment.
 
 The principal tools necessary for Java development are:
 
-  * Java Development Kit (JDK) 7+
+  * Java Development Kit (JDK) 8+
   * Maven 3.2.x
   * IntelliJ IDEA 14 Community
 
@@ -80,7 +80,7 @@ For Java files, the project uses indentation of 4 spaces, and the so-called Sun-
 exception of maximum line length of 120 characters.
 
 If you have never used IDEA before, you'll need to specifically register the JDK you previously
-installed as a development JDK, and explicitly set the project Java version to Java 7 from Project
+installed as a development JDK, and explicitly set the project Java version to Java 8 from Project
 Structure settings, after opening the Maven parent projects.
 
 #### 2.2 Java development tools, validation

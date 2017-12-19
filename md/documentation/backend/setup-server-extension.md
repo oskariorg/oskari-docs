@@ -4,7 +4,7 @@ This document describes how to use maven artifacts provided in Oskari Maven repo
 
 ### Requirements
 
-* JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)
+* JDK 1.8+
 * [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * [Jetty bundle](/download) installed
 

@@ -4,7 +4,7 @@ This document describes how to setup development environment for Oskari.
 
 ### Requirements
 
-* JDK 1.7+ (tested with Oracle Java 1.7.0_51 and 1.8.0_05)
+* JDK 1.8+
 * [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
 * Git client (http://git-scm.com/) - Optionally download zip file from https://github.com/oskariorg/oskari-server
 * `{JETTY_HOME}` refers to unzipped [Jetty bundle](/download)
