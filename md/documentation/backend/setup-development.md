@@ -9,6 +9,14 @@ This document describes how to setup development environment for Oskari.
 * Git client (http://git-scm.com/) - Optionally download zip file from https://github.com/oskariorg/oskari-server
 * `{JETTY_HOME}` refers to unzipped [Jetty bundle](/download)
 
+### Setup Git configuration
+
+Configure line endings: [https://help.github.com/articles/dealing-with-line-endings/](https://help.github.com/articles/dealing-with-line-endings/)
+
+Ignore file permissions:
+
+	git config --global core.fileMode false
+
 ### 1. Fetch Oskari-server source code
 
 With commandline git:

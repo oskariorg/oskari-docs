@@ -23,6 +23,14 @@ Code that is not maintained will be migrated from core to the community-reposito
 
 Check these guidelines for common errors: [Tips and Guidelines](/documentation/development/guidelines)
 
+### Setup Git configuration
+
+Configure line endings: [https://help.github.com/articles/dealing-with-line-endings/](https://help.github.com/articles/dealing-with-line-endings/)
+
+Ignore file permissions:
+
+	git config --global core.fileMode false
+
 ### Starting
 
 Fork the Oskari repository ([oskari-frontend](https://github.com/oskariorg/oskari-frontend), [oskari-server](https://github.com/oskariorg/oskari-server)) you want to contribute on GitHub into your own account. Clone the Git repository on your development environment and setup the official repository as another remote.
