@@ -1,6 +1,6 @@
 # Setup Redis for Oskari
 
-Redis is needed for WFS-services (the `transport` webapp) and printing (`oskari-printout-backend` webapp). It's used for caching and  communication between `oskari-map` and `transport`. If you don't need these services you don't need Redis for Oskari.
+Redis is needed for WFS-services (the `transport` webapp) and statistical map functionalities (optional part of `oskari-map` webapp). It's used for caching and communication between `oskari-map` and `transport`. If you don't need these services you don't need Redis for Oskari.
 
 ### 1. Get Redis
 

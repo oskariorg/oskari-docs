@@ -40,7 +40,6 @@ This will build all modules that Oskari server is composed of.
 
 - Map functionality: oskari-server/webapp-map/target/oskari-map.war
 - WFS services: oskari-server/webapp-transport/target/transport.war
-- Print services: oskari-server/servlet-printout/target/oskari-printout-backend.war
 
 ### 4. (Optional) To update geoserver extensions:
 

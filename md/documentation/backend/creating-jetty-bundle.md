@@ -33,7 +33,7 @@ Unzip to a location on your computer. The location will be referenced as {JETTY_
 - (OPTIONAL, requires JNDI support in step 3) configure the database connection parameters (user/password) for OskariPool in oskari-map.xml
 - NOTE! even if JNDI pool has been configured the same connection params are needed in oskari-ext.properties: the database creation requires this dual configuration for now.
 
-6) (OPTIONAL) Install and start Redis (required by transport and printout)
+6) (OPTIONAL) Install and start Redis (required by transport and statistical maps)
 
 - Download Redis from http://redis.io/download
 - Start redis-server with default config (localhost:6379)

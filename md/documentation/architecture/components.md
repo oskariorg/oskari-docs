@@ -5,7 +5,6 @@
 There are three different web applications for Oskari backend functionality at the moment:
 
 * `webapp-map` is the basis for Oskari backend functionality. It produces the map pages and handles AJAX requests.
-* `servlet-printout` handles PDF/PNG print functionalities and print preview images.
 * `transport` handles most of the WFS operations.
 
 The backend components are layered as services, controls, interfaces (though only `webapp-map` uses this extensively at the moment).
@@ -48,7 +47,6 @@ The interface-modules build on top of the control-modules. Basically an HTTP int
 
 * HTTP Servlet: `oskari-server/servlet-map`
 * Webapp: `oskari-server/webapp-map`
-* Portlet: `oskari-liferay/portlet-map-example` (deployable to Liferay Portal)
 
 Responsible for:
 
@@ -61,47 +59,30 @@ Responsible for:
 * Browser
     * Oskari frontend
 
-* Proxy server
-    * HAProxy
-    * Apache
-
 * Application servers - Oskari-map
-    * Tomcat/Liferay
+    * Nginx
+    * Jetty/Oskari-server
     * Jetty/Geoserver
-
-* dmz
     * Jetty/Transport
-    * Redis
-
-* Services
-    * Jetty/Printout
-    * Redis
 
 * Database server
     * Postgres/Database
+    * Redis
 
 ### Case ELF (front-servlet-postgresql)
 
 All in one:
 
-* Proxy: apache
+* Proxy: Nginx
 * oskari-map: Jetty
 * postgres
-
-### Case OskariVM (Ubuntu)
-
-All in one:
-
-* Proxy: Nginx
-* Oskari-map + Geoserver + Transport: Jetty
 
 ### Case dev.paikkatietoikkuna.fi
 
 All in one:
 
-* Proxy: HAProxy + Apache
-* Oskari-map: Tomcat + Liferay
-* Geoserver + Transport + Printout: Jetty
+* Proxy: Nginx
+* Oskari-map + Geoserver + Transport: Jetty
 
 ### Case Liikennevirasto
 

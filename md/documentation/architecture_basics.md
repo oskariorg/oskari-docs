@@ -30,8 +30,8 @@ For a more detailed view of the architecture, see the [frontend architecture](/d
 ![Full stack](/images/architecture/full-stack.png)
 
 
-* Browser - Oskari frontend			
-	- Firefox							
+* Browser - Oskari frontend
+	- Firefox
 	- Chrome
 	- Internet Explorer
 	- Safari
@@ -45,7 +45,6 @@ For a more detailed view of the architecture, see the [frontend architecture](/d
 * Oskari-map
 	- Jetty
 	- Tomcat
-	- Liferay
 
 * Transport/Redis
 	- Jetty
@@ -53,9 +52,6 @@ For a more detailed view of the architecture, see the [frontend architecture](/d
 * Geoserver
 	- Jetty
 	- Tomcat
-
-* Printout/Redis
-	- Jetty
 
 * Database
 	- PostgreSQL

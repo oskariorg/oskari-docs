@@ -143,15 +143,3 @@ After the configuration has been run the result will show additional info if you
 5. Type in for example `EPSG:3067` to the form that opens and click the button. This configures the geoserver stores/layers used by Oskari based on the properties in oskari-ext.properties
 6. Shutdown Jetty, remove the `setup.war` from webapps and start the Jetty
 
-# Configuring new projections for Printout
-
-Edit printout properties file e.g. {JETTY_HOME}\resources\oskari-printout-backend-4326.properties
-
-```
-epsgCode=EPSG:4326  <--  desired crs / EPSG: must be in Uppercase
-layer.template=EPSG-4326_LAYER_TEMPLATE   <-- rename your own template in geowebcache_template.xml
-gridSubsetName=EPSG-4326  <-- rename your own grid subset  in geowebcache_template.xml
-```
-
-Add your template and grid subset definitions into servlet-printout\src\main\resources\fi\nls\oskari\printout\output\map\geowebcache_template.xml and 
-build oskari-server.

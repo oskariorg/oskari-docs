@@ -5,14 +5,13 @@ After this you will have Oskari running including
 - Oskari frontend code (https://github.com/oskariorg/oskari-frontend)
 - Oskari server (map functionality: https://github.com/oskariorg/oskari-server/tree/master/webapp-map)
 - Oskari transport (WFS services: https://github.com/oskariorg/oskari-server/tree/master/webapp-transport)
-- Oskari printout (Print services: https://github.com/oskariorg/oskari-server/tree/master/servlet-printout)
 - Geoserver 2.7.1.1 with WPS-plugin and Oskari extensions (https://github.com/oskariorg/oskari-server/tree/master/geoserver-ext)
 
 ### Requirements
 
 * JDK 1.8+ (should run on OpenJDK as well)
 * Database available: [Instructions for setting up database](/documentation/backend/setup-database)
-* Redis (Optional, required for WFS and print functionalities): [Setup Redis](/documentation/backend/setup-redis)
+* Redis (Optional, required for WFS and statistical functionalities): [Setup Redis](/documentation/backend/setup-redis)
 
 ## Setting up Jetty
 
@@ -71,7 +70,6 @@ Oskari (provided in jetty bundle)
 Oskari-server can run with just the oskari-map webapp. If you don't need all the features, you can remove them from under `{JETTY_HOME}/webapps`:
 - user content functionalities: you can remove `geoserver` folder
 - WFS functionalities: you can remove `transport.war` file
-- Print functionality: you can remove `oskari-printout-backend.war` file
 
 You will also need to remove the corresponding parts of the UI so users don't have access to them. This is done by removing bundles from views and currently it needs to be done by modifying the database content. Bundles are linked to views in the database table `portti_view_bundle_seq` and functionalities are removed from the UI by deleting rows from the table.
 
@@ -83,14 +81,14 @@ You will also need to remove the corresponding parts of the UI so users don't ha
 ### Changing the default port
 
 - change in `{JETTY_HOME}/etc/jetty.xml`
-    
+
     <Call name="addConnector">
       <Arg>
           <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
             <Set name="port"><Property name="jetty.port" default="8080"/></Set>
 
-- change `{JETTY_HOME}/resources/oskari-ext.properties` where ever `8080` is referenced 
-- change `{JETTY_HOME}/resources/transport-ext.properties` where ever `8080` is referenced 
+- change `{JETTY_HOME}/resources/oskari-ext.properties` where ever `8080` is referenced
+- change `{JETTY_HOME}/resources/transport-ext.properties` where ever `8080` is referenced
 - check the "Using external Geoserver" below (also refers to localhost:8080 port)
 
 ### Proxy settings
