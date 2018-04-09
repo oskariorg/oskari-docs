@@ -2,7 +2,7 @@
 
 See [requirements](requirements) for enabling the code that powers the thematic maps functionality.
 
-## Adding region sets as maplayers
+## Adding regionsets as maplayers
 
 Regionsets used for thematic maps are configured in pretty much the same way you might register a wms-layer for Oskari database:
 
@@ -11,7 +11,7 @@ Regionsets used for thematic maps are configured in pretty much the same way you
                         locale,
                         attributes)
     VALUES(
-        'statslayer', 'http://mydomain.com/geoserver/wms', 
+        'statslayer', 'http://mydomain.com/geoserver/wms',
         'mylayer', (SELECT MAX(id) FROM oskari_layergroup),
         '{ "en" : {
             "name":"Municipalities"
@@ -24,22 +24,43 @@ Regionsets used for thematic maps are configured in pretty much the same way you
             }
         }');
 
-Where 
+Where
 - type of the layer is 'statslayer'
-- the url and name should match a layer in a WMS-service
-- locale is a JSON with language code at the first level and UI-name of the layer/regionset as the name value. It supports multiple languages as any other maplayers in Oskari.
+- the url and name should match a layer in a WFS-service (The URL isn't used for anything but permission mapping at this point)
+- locale is a JSON object with language code at the first level and UI-name of the layer/regionset as the name value. It supports multiple languages as any other maplayers in Oskari.
 - groupId is a link to the data provider/organization that provides the layer
 - additional configuration for the attributes column are:
 
-- featuresUrl: URL for corresponding WFS-service. It's used to read all the features to create a list of regions in the region set
+- featuresUrl: URL for corresponding WFS-service. It's used to read all the features to create a list of regions in the region set (this URL is used for now instead of the actual url-field)
 
 - regionIdTag: feature attribute that is the unique id for that region (like municipality/postal/zip code). This is used to map statistics data to a region
 
 - nameIdTag: feature attribute that has the name for the region (this is shown to the end-user as the region name)
 
-The WMS-service should allow SLD_BODY to be posted. An SLD is dynamically created based on the end-user selections for data classification to create a thematic map. Any WMS-service will do. You can use the bundled geoserver to host it or use a service from another service.
+You can use the bundled geoserver to host the regionset layer or use a WFS-service from an external provider.
 
 *Note! Add the [view permissions](/documentation/backend/permissions) for the layer so  users can see it.*
+
+### Regionset as JSON resource
+
+As of 1.46.0 Oskari version regionsets don't need to come from a WFS-service and having them as resource files under the webserver works as well:
+
+**1. Make your GeoJSON resource file available for the webapp container.**
+
+Store the file to the root resource directory for your web application (for example $JETTY_HOME/resources).
+When adding a resource file as a regionset layer configure featuresUrl in layer attributes as follows:
+
+    "resources://${path}"
+
+Where ${path} is relative to the root resource directory in your web application. For example having the file
+ in $JETTY_HOME/resources/regionsets/myfile.geojson would mean featuresUrl value of "resources://regionsets/myfile.geojson"
+
+*Note! The featuresUrl must start with "resources://" for the system to recognize that this layer is resource based.*
+
+**2. The features describing the Regions in your GeoJSON resource need to have atleast two properties.**
+
+ - One describing the id of the Region (the property name is configured as regionIdTag like in WFS-based config)
+ - Another describing the name of the Region (the property name is configured as nameIdTag like in WFS-based config)
 
 ## Adding a datasource
 
