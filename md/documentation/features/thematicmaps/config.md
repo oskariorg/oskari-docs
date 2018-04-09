@@ -62,6 +62,8 @@ Where ${path} is relative to the root resource directory in your web application
  - One describing the id of the Region (the property name is configured as regionIdTag like in WFS-based config)
  - Another describing the name of the Region (the property name is configured as nameIdTag like in WFS-based config)
 
+*Note! It's expected that the geometry in GeoJSON files is in the projection referenced in the srs_name column on oskari_maplayer for the regionset.*
+
 ## Adding a datasource
 
 A datasource can be registered with a simple SQL:
