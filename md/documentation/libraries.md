@@ -7,6 +7,7 @@
 * [jQuery UI](http://jqueryui.com/)
 * [Lo-Dash](http://lodash.com/)
 * [geostats.js](https://github.com/simogeo/geostats)
+* [D3.js](https://github.com/d3/d3)
 
 ## Libraries proven to work with Oskari
 
