@@ -7,12 +7,12 @@ See [requirements](requirements) for enabling the code that powers the thematic 
 Regionsets used for thematic maps are configured in pretty much the same way you might register a wms-layer for Oskari database:
 
     INSERT INTO oskari_maplayer(type, url,
-                        name, groupId,
+                        name, dataprovider_id,
                         locale,
-                        attributes)
+                        attributes, internal, srs_name)
     VALUES(
         'statslayer', 'http://mydomain.com/geoserver/wms',
-        'mylayer', (SELECT MAX(id) FROM oskari_layergroup),
+        'mylayer', (SELECT MAX(id) FROM oskari_dataprovider),
         '{ "en" : {
             "name":"Municipalities"
         }}',
@@ -22,7 +22,7 @@ Regionsets used for thematic maps are configured in pretty much the same way you
                 "regionIdTag":"id",
                 "nameIdTag":"name"
             }
-        }');
+        }', true, 'EPSG:4326');
 
 Where
 - type of the layer is 'statslayer'
@@ -53,9 +53,9 @@ When adding a resource file as a regionset layer configure featuresUrl in layer 
     "resources://${path}"
 
 Where ${path} is relative to the root resource directory in your web application. For example having the file
- in $JETTY_HOME/resources/regionsets/myfile.geojson would mean featuresUrl value of "resources://regionsets/myfile.geojson"
+ in $JETTY_HOME/resources/regionsets/myfile.json would mean featuresUrl value of "resources://regionsets/myfile.json"
 
-*Note! The featuresUrl must start with "resources://" for the system to recognize that this layer is resource based.*
+*Note! The featuresUrl must start with "resources://" for the system to recognize that this layer is resource based and the file-extension MUST be '.json'.*
 
 **2. The features describing the Regions in your GeoJSON resource need to have atleast two properties.**
 
