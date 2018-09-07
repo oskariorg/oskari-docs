@@ -130,7 +130,8 @@ Datasource config:
     {
         "url" : "http://some.pxweb.com/statdb",
         "regionKey" : "name of the attribute for the region id in stats data",
-        "ignoredVariables": ["any", "attributes", "that", "should", "be", "ignored"]
+        "ignoredVariables": ["optional config", "any", "attributes", "that", "should", "be", "ignored"],
+        "timeVariable": "Optional config for id of the variable that describes time like 'year'. This is used for time-series functionality."
     }
 
 #### SotkaNET
@@ -142,7 +143,8 @@ Code: https://github.com/oskariorg/oskari-server/blob/develop/service-statistics
 Datasource config:
 
     {
-        "url" : "http://www.sotkanet.fi/rest"
+        "url" : "http://www.sotkanet.fi/rest",
+        "timeVariable": "Optional config for id of the variable that describes time like 'year'. This is used for time-series functionality. Defaults to 'year' for SotkaNET if not configured."
     }
 
 ## Linking datasources and regionsets
