@@ -68,32 +68,6 @@ var readMdFile = function (req, res, mdDoc, jadePage, options) {
     });
 };
 
-/**
- * Reads the contents of the `bundles` directory under documentation.
- *
- * @param  {Function} cb function to be executed with the files
- * @return {String[]} returns the file names with relative paths in relation
- *                            to the `md` directory.
- */
-var readBundleDir = function (cb) {
-    var execFile = require('child_process').execFile,
-        bundleDir = path.join(__dirname, mdDir, 'documentation', 'bundles');
-
-    execFile('find', [bundleDir], function (err, stdout, stderr) {
-        var files = _.chain(stdout.split('\n'))
-            .map(function (file) {
-                var regex = /bundles\/(.*)\.md$/;
-                return _.last(regex.exec(file));
-            })
-            .reject(function (file) {
-                return file === undefined;
-            })
-            .value();
-
-        cb(files);
-    });
-};
-
 function getApiJson(funcName, req, res) {
     var version = req.param('version');
     if(version) {
@@ -162,21 +136,6 @@ module.exports = {
     },
     about: function (req, res) {
         res.render('about', getBreadCrumbOptions('about'));
-    },
-    bundles: function (req, res) {
-        readBundleDir(function (files) {
-            res.render('bundles', {
-                breadcrumb: ['Bundles', 'bundles'],
-                files: files
-            });
-        });
-    },
-    bundledoc: function (req, res) {
-        readBundleDir(function (files) {
-            readMdFile(req, res, req.path, 'bundles', {
-                files: files
-            });
-        });
     },
     guides: function (req, res) {
         res.render('guides', getBreadCrumbOptions('guides'));
