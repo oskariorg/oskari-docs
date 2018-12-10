@@ -22,8 +22,13 @@ app.use(express.static(publicDir));
 app.get('/guides', routes.guides);
 app.get('/guides/*', routes.md);
 app.get('/documentation', routes.documentation);
-app.get('/documentation/bundles', routes.bundles);
-app.get('/documentation/bundles/*', routes.bundledoc);
+// redirect requests for old bundledocs to the new /api/bundles
+app.get('/documentation/bundles', function (req, res) {
+    res.redirect('/api/bundles');
+});
+app.get('/documentation/bundles/*', function (req, res) {
+    res.redirect('/api/bundles');
+});
 // <remove this after oskari-server release>
 app.get('/documentation/backend/basic-install', function (req, res) {
     // As the README in oskari-server currently points to
