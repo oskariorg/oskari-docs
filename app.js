@@ -36,7 +36,6 @@ app.get('/documentation/*', routes.md);
 app.get('/download', routes.download);
 app.get('/examples', routes.examples);
 app.get('/about', routes.about);
-app.get('/search', routes.search);
 app.get('/challenge', routes.challenge);
 app.get('/oskari', routes.oskari);
 // new api doc end points
@@ -63,8 +62,6 @@ app.use('/apires', express.static(apiResDir));
 
 
 app.get('/', routes.root);
-
-app.post('/search', routes.search);
 
 app.use(function(err, req, res, next) {
     console.error(err);
