@@ -10,9 +10,9 @@ PostGIS extension for serving content and authenticating users.
 * [PostgreSQL 9+](http://www.postgresql.org/) (Known to work with 9.6, 10.x, 11)
 * [PostGIS](http://postgis.net/) (developed using 2.4.0)
 
-### 1. Create empty database with PostGIS extension using pgAdmin or psql
+### 1. Create empty database with PostGIS extension
 
-The default configurations assume the database name is "oskaridb". It's configurable in oskari-ext.properties
+The default configurations assume the database name is "oskaridb". It's configurable in oskari-ext.properties. Run the create database SQL in for example psql or pgAdmin:
 
      CREATE DATABASE oskaridb
      WITH OWNER = postgres
@@ -20,7 +20,11 @@ The default configurations assume the database name is "oskaridb". It's configur
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
+Add the PostGIS extension (for the oskaridb database) by first connecting to the database (example for psql):
+
     \c oskaridb
+
+Add the extension by running SQL:
 
     CREATE EXTENSION postgis;
 
