@@ -1,30 +1,30 @@
-# Setup Geoserver for Oskari
+# Setup GeoServer for Oskari
 
-This document describes how to setup a Geoserver environment for Oskari. Geoserver is needed for these functionalities:
+This document describes how to setup a GeoServer environment for Oskari. Geoserver is needed for these functionalities:
 
 - myplaces
 - analysis
 - userlayers
 
-Note! A prepopulated Geoserver configuration/datadir is available under `{JETTY_HOME}/geoserver_data` in the [Jetty bundle](/download). This however uses preconfigured credentials for geoserver and database which you don't want to use for production. The provided datadir uses EPSG:4326. You can change these by running the setup webapp.
+Note! A prepopulated GeoServer configuration/datadir is available under `{jetty.base}/geoserver_data` in the [Jetty bundle](/download). This however uses preconfigured credentials for geoserver and database which you don't want to use for production. The provided datadir uses EPSG:3857. You can change these by running the setup webapp.
 
 ### Requirements
 
 * [Jetty bundle](/download) installed
-* Optionally an external Geoserver (tested with 2.7.1)
+* Optionally an external GeoServer (tested with the version mentioned on download page)
 
 ### Using the setup webapp
 
-The Jetty Bundle includes a webapp to help configuring a Geoserver for Oskari using Geoservers REST API. The webapp can be found in `{JETTY_HOME}/setup.war`. It can be deployed by moving the war-file in to `{JETTY_HOME}/webapps` and once deployed it can be accessed with http://localhost:8080/setup. The setup asks for the native projection you want to use for saving the usercontent.
+The Jetty Bundle includes a webapp to help configuring a GeoServer for Oskari using GeoServer REST API. The webapp can be found in `{jetty.base}/setup.war`. It can be deployed by moving the war-file in to `{jetty.bse}/webapps` and once deployed it can be accessed with http://localhost:8080/setup. The setup asks for the native projection you want to use for saving the user content.
 
-When using single geoserver, you can use these properties for the setup-webapp:
+When using single GeoServer, you can use these properties for the setup-webapp:
 
 	# geoserver params for setup
 	geoserver.url=http://localhost:8080/geoserver
 	geoserver.user=admin
 	geoserver.password=geoserver
 
-If you use multiple geoservers/different credentials/functionality, you can specify those with: 
+If you want to use multiple GeoServers and/or different credentials per functionality, you can configure with "module" prefixes: 
 
 	# geoserver params for myplaces
 	geoserver.myplaces.url=http://localhost:8080/geoserver1
@@ -43,7 +43,7 @@ If you use multiple geoservers/different credentials/functionality, you can spec
 
 Any missing properties will fallback to one without the module part in the property key.
 
-Note! The setup webapp is accessible to anyone once deployed so remove it from `{JETTY_HOME}/webapps` after doing the configuration.
+Note! The setup webapp is accessible to anyone once deployed so remove it from `{jetty.base}/webapps` after doing the configuration.
 
 ### Details for configuring manually/debug purposes
 
