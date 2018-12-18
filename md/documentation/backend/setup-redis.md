@@ -1,6 +1,6 @@
 # Setup Redis for Oskari
 
-Redis is needed for WFS-services (the `transport` webapp) and statistical map functionalities (optional part of `oskari-map` webapp). It's used for caching and communication between `oskari-map` and `transport`. If you don't need these services you don't need Redis for Oskari.
+Redis is needed for communicating with WFS-services (the `transport` webapp) and statistical map functionalities (optional part of `oskari-map` webapp). Redis is used for caching and communication between `oskari-map` and `transport`. If you don't need these services you don't need Redis for Oskari.
 
 ### 1. Get Redis
 
@@ -12,7 +12,7 @@ And startup `redis-server`. The default port Redis listens to is `6379`.
 
 ### 3. Configure Oskari (Optional)
 
-Oskari expects Redis to be found in localhost:6379. If you have it running on another host/port you need
+Oskari expects Redis to be found in the default port (6379) on the same server as Oskari ("localhost"). If you have it running on another host/port you need
 to change the `oskari-ext.properties`:
 
 	redis.hostname=localhost

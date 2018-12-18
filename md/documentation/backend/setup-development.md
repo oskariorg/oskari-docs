@@ -4,10 +4,10 @@ This document describes how to setup development environment for Oskari.
 
 ### Requirements
 
-* JDK 1.8+
-* [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
+* JDK 8
+* [Maven 3+](http://maven.apache.org/) (developed using 3.5.0)
 * Git client (http://git-scm.com/) - Optionally download zip file from https://github.com/oskariorg/oskari-server
-* `{JETTY_HOME}` refers to unzipped [Jetty bundle](/download)
+* `{jetty.base}` refers to the oskari-server folder in an unzipped [Jetty bundle](/download)
 
 ### Setup Git configuration
 
@@ -26,8 +26,7 @@ With commandline git:
 Note! You can also download the codes in zip format from Github, but for contributing any changes to Oskari git is mandatory. 
 Additional Maven modules can be contributed outside git though if they are compatible with the current develop/master branch, but this is not adviced.
 
-Note! The frontend source code is already available under `{JETTY_HOME}/oskari` in the [Jetty bundle](/download). To update it you can do `git pull` or replace it with code found in https://github.com/oskariorg/oskari-frontend.
-
+Note! The frontend source code is already available under `{jetty.base}/oskari-frontend` in the [Jetty bundle](/download). To update it you can replace it with code found in https://github.com/oskariorg/oskari-frontend.
 
 ### 2. Build Oskari server
 
@@ -45,10 +44,10 @@ This will build all modules that Oskari server is composed of.
 
 a) Run `mvn clean install` in `oskari-server/geoserver-ext/wps`
 
-b) Copy updated artifacts to `{JETTY_HOME}/webapps/geoserver/WEB-INF/lib`:
+b) Copy updated artifacts to `{jetty.base}/webapps/geoserver/WEB-INF/lib`:
 - oskari-server/geoserver-ext/OskariMarkFactory/target/OskariMarkFactory-[version].jar
-- oskari-server/geoserver-ext/wps/IntersectionFeatureCollection2/target/IntersectionFeatureCollection2-2.5.2.jar
-- oskari-server/geoserver-ext/wps/oskari_point_stacker/target/oskari_point_stacker-2.5.2.jar
-- oskari-server/geoserver-ext/wps/ZoneSectorFeatureCollection/target/ZoneSectorFeatureCollection-2.5.2.war
+- oskari-server/geoserver-ext/wps/IntersectionFeatureCollection2/target/IntersectionFeatureCollection2-2.13.2.jar
+- oskari-server/geoserver-ext/wps/oskari_point_stacker/target/oskari_point_stacker-2.13.2.jar
+- oskari-server/geoserver-ext/wps/ZoneSectorFeatureCollection/target/ZoneSectorFeatureCollection-2.13.2.war
 
 [More information](/documentation/development-environment) about git and Oskari development.

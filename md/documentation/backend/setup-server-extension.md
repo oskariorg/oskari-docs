@@ -4,8 +4,8 @@ This document describes how to use maven artifacts provided in Oskari Maven repo
 
 ### Requirements
 
-* JDK 1.8+
-* [Maven 3+](http://maven.apache.org/) (tested with 3.0.5)
+* JDK 8
+* [Maven 3+](http://maven.apache.org/) (developed using 3.5.0)
 * [Jetty bundle](/download) installed
 
 ## 1. Template maven project
