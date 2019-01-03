@@ -7,18 +7,24 @@ block prelude
         h1.landing
           span. Oskari is a framework for easily building multipurpose web mapping applications utilizing distributed Spatial Data Infrastructures like INSPIRE.
       div.row
-        div.carousel.slide(id="carouselMain", data-ride="carousel", data-interval="2500")
+        div.carousel.slide(id="carouselMain", data-ride="carousel", data-interval="3000")
           ol.carousel-indicators
             li.active(data-target="#carouselMain", data-slide-to="0")
             li(data-target="#carouselMain", data-slide-to="1")
             li(data-target="#carouselMain", data-slide-to="2")
+            li(data-target="#carouselMain", data-slide-to="3")
+            li(data-target="#carouselMain", data-slide-to="4")
           div.carousel-inner(role="listbox")
             div.item.active
-              <img alt="" class="first-slide carousel-image img-responsive" src="/images/paikkatietoikkuna.PNG">
+              <img alt="" class="third-slide carousel-image img responsive" src="/images/frontpage_stats.jpg">
+            div.item
+              <img alt="" class="first-slide carousel-image img-responsive" src="/images/frontpage_asdi.jpg">
             div.item
               <img alt="" class="second-slide carousel-image img-responsive" src="/images/frontpage_example_desktop.png">
             div.item
-              <img alt="" class="third-slide carousel-image img responsive" src="/images/demo_oskari_org.PNG">
+              <img alt="" class="second-slide carousel-image img-responsive" src="/images/frontpage_buildings.png">
+            div.item
+              <img alt="" class="second-slide carousel-image img-responsive" src="/images/frontpage_pcloud.png">
 
 block main
   div.container
