@@ -14,4 +14,7 @@ $(function () {
     $('.menu-icon').click(function () {
         $('nav').toggleClass('active');
     });
+
+    // Swipe handler for Carousel
+    $('.carousel').bcSwipe({ threshold: 50 });
 });
