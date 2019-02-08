@@ -113,9 +113,9 @@ function getApiPage(type, req, res) {
 }
 
 function sortApiBySections(api) {
-    const entries = api.api;
-    const sorted = {};
-    for (let i = 0; i < entries.length; i++) {
+    var entries = api.api;
+    var sorted = {};
+    for (var i = 0; i < entries.length; i++) {
         if (!sorted[entries[i].ns]) {
             sorted[entries[i].ns] = [];
         }
