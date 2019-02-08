@@ -29,6 +29,10 @@ function requestNavigation(selector) {
             filterNavigation(this.checked);
         });
 
+        jQuery('#desc-filter').change(function() {
+            jQuery('.navi-section p').toggle();
+        });
+
         var json = {};
 
         APIDOC.versionChanged = function(version, keepPath) {
@@ -55,7 +59,7 @@ function requestNavigation(selector) {
             var navig = jQuery('#bundlenavi');
             navig.find('div.generated').remove();
             // setup new one
-            var panel = getPanel('Requests', json);
+            var panel = getPanel({title: 'Requests', descFilterLabel: 'Description'}, json);
             navig.append(panel);
             if(!keepPath) {
                 // reset to changelog
@@ -65,30 +69,47 @@ function requestNavigation(selector) {
         };
 
         var naviTemplate = jQuery('<div class="panel panel-default generated">'
-            + '<div class="panel-heading"></div>'
+            + '<div class="panel-heading"><label class="desc-filter-label"><input type="checkbox" id="desc-filter" checked="checked"/></label></div>'
             + '<div class="panel-body"><ul></ul></div>'
-         +'</div>');
-        var bundleItemTemplate = jQuery('<li class="requestnavi"><a href="javascript:void(0);"></a></li>');
+            +'</div>');
+        var sectionTemplate = jQuery('<section class="navi-section"><h4></h4><ul></ul></section>');
+        var requestItemTemplate = jQuery('<li class="requestnavi"><a href="javascript:void(0);"></a><p></p></li>');
 
         var getPanel = function(namespace, requests) {
             var panel = naviTemplate.clone();
-            panel.find('div.panel-heading').append(namespace);
+            panel.find('div.panel-heading').append(namespace.title);
+            panel.find('div.panel-heading label').append(' ' + namespace.descFilterLabel);
+            panel.find('#desc-filter').change(function() {
+                jQuery('.navi-section p').toggle();
+            })
             var list = panel.find('ul');
-            requests.forEach(function(req) {
-                var item = bundleItemTemplate.clone();
-                item.attr('data-rpc', req.rpc);
-                item.attr('title', req.desc);
+            var sorted = {};
+            for (var i = 0; i < requests.length; i++) {
+                if (!sorted[requests[i].ns]) {
+                    sorted[requests[i].ns] = [];
+                }
+                sorted[requests[i].ns].push(requests[i]);
+            }
 
-                var link = item.find('a');
-                //link.attr('href', req.path);
-                link.append(req.name);
-                item.on('click', function(e) {
-                    e.preventDefault();
-                    router.navigate(currentVersion + '/' + req.path);
-                });
-
-                list.append(item);
-            });
+            for (var key in sorted) {
+                var section = sectionTemplate.clone();
+                var entries = sorted[key];
+                section.find('h4').text(key);
+                entries.forEach(function(req) {
+                    var item = requestItemTemplate.clone();
+                    var link = item.find('a');
+                    item.attr('data-rpc', req.rpc);
+                    item.attr('title', req.desc);
+                    link.append(req.name);
+                    item.on('click', function(e) {
+                        e.preventDefault();
+                        router.navigate(currentVersion + '/' + req.path);
+                    });
+                    item.find('p').text(req.desc);
+                    section.find('ul').append(item);
+                })
+                list.append(section);
+              }
             return panel;
         };
         var fixCodeHighlights = function() {

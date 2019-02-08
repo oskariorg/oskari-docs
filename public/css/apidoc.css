@@ -12,7 +12,7 @@
     background-color : red;
 }
 
-.bundlenavi:hover, .requestnavi:hover, .eventnavi:hover {
+.bundlenavi:hover {
     text-decoration: underline;
 }
 
@@ -39,4 +39,16 @@
 	float : right;
 	margin-left: 4px;
 	margin-right: 4px;
+}
+
+.navi-section h4 {
+	text-transform: capitalize;
+}
+
+.navi-section p {
+	font-size: 15px;
+}
+
+.panel-heading label {
+	float: right;
 }

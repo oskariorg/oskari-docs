@@ -103,10 +103,25 @@ function getApiPage(type, req, res) {
         // TODO: do this in parallel instead of seq
         apidocs[functionName](latestVersion, function(api) {
             apidocs.log(latestVersion, function(log) {
+                if (type === 'requests' || type === 'events') {
+                    sortApiBySections(api);
+                }
                 res.render(pageName, {versions : versions, api : api.api, changelog : log });
             })
         });
     });
+}
+
+function sortApiBySections(api) {
+    const entries = api.api;
+    const sorted = {};
+    for (let i = 0; i < entries.length; i++) {
+        if (!sorted[entries[i].ns]) {
+            sorted[entries[i].ns] = [];
+        }
+        sorted[entries[i].ns].push(entries[i]);
+    }
+    api.api = sorted;
 }
 
 module.exports = {
