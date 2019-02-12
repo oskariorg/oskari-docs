@@ -46,8 +46,7 @@ Definition/example:
         "offsetX": 0, // image offset x
         "offsetY": 0, // image offset y
         "opacity": 0.7, // image opacity
-        "radius"
-        2, // image radius
+        "radius": 2, // image radius
         "fill": {
             "color": "#ff00ff" // image fill color
         }
