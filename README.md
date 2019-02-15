@@ -53,3 +53,7 @@ This updates the public/js/rpc/rpc-client.min.js file
 2. Run `VERSION=1.45.0 npm run docs`
 
 This generates files under generated/api/[version] folder.
+
+# Generating database documentation
+
+A mini-site documenting the database structure can be generated with a [custom fork of Schemaspy](https://github.com/oskariorg/schemaspy). Java 8 or newer is required. Command `npm run db` generates documentation into directory `generated/db` by connecting to a database instance and reading its structure. By default a database named `oskaridb` on localhost is used, but any Oskari database instance can be used by changing `schemaspy/conf.properties`. The generated db documentation is mapped to route `/db/`.

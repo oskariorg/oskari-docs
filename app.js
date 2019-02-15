@@ -68,6 +68,8 @@ app.use('/apires', express.static(apiResDir));
 
 app.get('/', routes.root);
 
+app.use('/db', express.static('generated/db'));
+
 app.use(function(err, req, res, next) {
     console.error(err);
     next(err);
