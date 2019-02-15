@@ -2,6 +2,8 @@
 
 JSON style object for styling layers. See example usages in AddFeaturesToMapRequest or Vector Tile Layer Plugin. VisualizationForm component also supports getting and setting style values in Oskari style format.
 
+All of the fields and objects defined here are optional in the Oskari style JSON. Anything can be omitted from the example below.
+
 Definition/example:
 
 ```
