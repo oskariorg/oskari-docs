@@ -65,10 +65,10 @@ var apiResDir = path.join(__dirname, 'generated/api')
 app.use(asset(apiResDir));
 app.use('/apires', express.static(apiResDir));
 
+// generated db documentation
+app.use('/db', express.static(path.join(__dirname, 'generated/db')));
 
 app.get('/', routes.root);
-
-app.use('/db', express.static('generated/db'));
 
 app.use(function(err, req, res, next) {
     console.error(err);
