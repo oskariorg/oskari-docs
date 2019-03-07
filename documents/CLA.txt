@@ -1,11 +1,11 @@
 		            Oskari.org
-			  Oskari Network
+			  Oskari Community
      Individual Contributor License Agreement ("Agreement") V1.0
        http://www.oskari.org/documentation/development/license
 
 Thank you for your interest in Oskari. In order to clarify the
 intellectual property license granted with Contributions from any
-person or entity, the Oskari Network, represented by the Coordinator,
+person or entity, the Oskari Community, represented by the Coordinator,
 must have a Contributor License Agreement ("CLA") on file that has
 been signed by each Contributor, indicating agreement to the license
 terms below.
@@ -19,7 +19,7 @@ and email a pdf file of this Agreement to oskari@nls.fi. Alternatively,
 you may send an original signed Agreement to:
    
        Attn: National Land Survey of Finland
-       Oskari Network Coordinator / Jani Kylmäaho
+       Oskari Community Coordinator / Timo Aarnio
        P.O. BOX 84
        00521 Helsinki, Finland
        
@@ -42,19 +42,19 @@ your records.
 
 
 You accept and agree to the following terms and conditions for Your
-present and future Contributions submitted to Oskari Network. In
-return, Oskari Network shall not use Your Contributions in a way that
+present and future Contributions submitted to Oskari Community. In
+return, Oskari Community shall not use Your Contributions in a way that
 is contrary to the public benefit or inconsistent with its nonprofit
 status and bylaws in effect at the time of the Contribution. Except
-for the license granted herein to Oskari Network and recipients of
-software distributed by Oskari Network, You reserve all right, title,
+for the license granted herein to Oskari Community and recipients of
+software distributed by Oskari Community, You reserve all right, title,
 and interest in and to Your Contributions.
 
 1. Definitions.
 
    "You" (or "Your") shall mean the copyright owner or legal entity
    authorized by the copyright owner that is making this Agreement
-   with Oskari Network. For legal entities, the entity making a
+   with Oskari Community. For legal entities, the entity making a
    Contribution and all other entities that control, are controlled
    by, or are under common control with that entity are considered to
    be a single Contributor. For the purposes of this definition,
@@ -65,11 +65,11 @@ and interest in and to Your Contributions.
 
    "Contribution" shall mean any original work of authorship,
    including any modifications or additions to an existing work, that
-   is intentionally submitted by You to Oskari Network for inclusion
+   is intentionally submitted by You to Oskari Community for inclusion
    in, or documentation of, any of the products owned or managed by
-   Oskari Network (the "Work"). For the purposes of this definition,
+   Oskari Community (the "Work"). For the purposes of this definition,
    "submitted" means any form of electronic, verbal, or written
-   communication sent to Oskari Network or its representatives,
+   communication sent to Oskari Community or its representatives,
    including but not limited to communication on electronic mailing
    lists, source code control systems, and issue tracking systems that
    are managed by, or on behalf of, Oskari for the purpose of
@@ -78,16 +78,16 @@ and interest in and to Your Contributions.
    as "Not a Contribution."
 
 2. Grant of Copyright License. Subject to the terms and conditions of
-   this Agreement, You hereby grant to Oskari Network and to
-   recipients of software distributed by Oskari Network a perpetual,
+   this Agreement, You hereby grant to Oskari Community and to
+   recipients of software distributed by Oskari Community a perpetual,
    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
    copyright license to reproduce, prepare derivative works of,
    publicly display, publicly perform, sublicense, and distribute Your
    Contributions and such derivative works.
 
 3. Grant of Patent License. Subject to the terms and conditions of
-   this Agreement, You hereby grant to Oskari Network and to
-   recipients of software distributed by Oskari Network a perpetual,
+   this Agreement, You hereby grant to Oskari Community and to
+   recipients of software distributed by Oskari Community a perpetual,
    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
    (except as stated in this section) patent license to make, have
    made, use, offer to sell, sell, import, and otherwise transfer the
@@ -108,8 +108,8 @@ and interest in and to Your Contributions.
    that you create that includes your Contributions, you represent
    that you have received permission to make Contributions on behalf
    of that employer, that your employer has waived such rights for
-   your Contributions to Oskari Network, or that your employer has
-   executed a separate Corporate CLA with Oskari Network.
+   your Contributions to Oskari Community, or that your employer has
+   executed a separate Corporate CLA with Oskari Community.
 
 5. You represent that each of Your Contributions is Your original
    creation (see section 7 for submissions on behalf of others).  You
@@ -129,14 +129,14 @@ and interest in and to Your Contributions.
    INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE.
 
 7. Should You wish to submit work that is not Your original creation,
-   You may submit it to Oskari Network separately from any
+   You may submit it to Oskari Community separately from any
    Contribution, identifying the complete details of its source and of
    any license or other restriction (including, but not limited to,
    related patents, trademarks, and license agreements) of which you
    are personally aware, and conspicuously marking the work as
    "Submitted on behalf of a third-party: [named here]".
 
-8. You agree to notify Oskari Network of any facts or circumstances of
+8. You agree to notify Oskari Community of any facts or circumstances of
    which you become aware that would make these representations
    inaccurate in any respect.
 
