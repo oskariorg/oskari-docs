@@ -47,7 +47,7 @@ SELECT * from portti_view where type IN ('DEFAULT', 'PUBLISH');
 },
 "projectionDefs": {
    "EPSG:3067": "+proj=utm +zone=35 +ellps=GRS80 +units=m +no_defs",
-   "EPSG:4326': '+title=WGS 84 +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+   "EPSG:4326": "+title=WGS 84 +proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
 }
 ... there's propably more than these in the config, but the above are projection related ...
 }
