@@ -13,16 +13,18 @@ Development is not just coding, it can be bug reporting, finding funding or mark
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
 ### PSC and OSGeo
+
 In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established and Oskari applied for OSGeo Foundations Incubation process to gain stability and interest also in the global open source society.
 
-### Joint development Forum in Finland
-Joint development are being created by several organisational member belonging to the [JDF](JDF.md).
+### Joint Development Forum
+
+Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF.md).
 
 ### Community members
 
 If you want to join the Oskari network as a organizational member, describe your [development ideas on Oskari software here](https://docs.google.com/forms/d/e/1FAIpQLSd2KZOQeJ5xDivG-X0r0HzMArHcRU6DRbb1hpS1uUS87VrY3w/viewform). It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. 
 
-Allready now we have lot's of organisation involved! We welcome also members from outside Finland 😉
+Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. If you want to change your description, please contact info@oskari.org. 
 
 **[CGI Finland Ltd](http://www.cgi.fi/)**
 
