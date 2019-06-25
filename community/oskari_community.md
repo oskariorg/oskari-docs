@@ -6,25 +6,19 @@ Oskari development started already in 2008 when the first plans for Finnish nati
 
 In 2011 Oskari's source code was opened because the interest within other organisation for similar map services became evident. After this the utilization of Oskari has grown from public sector using Oskari in multiple ways to companies providing Oskari based services. 
 
-The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was established. Now we have tens of organisations involved in Finland and abroad! In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established and Oskari applied for OSGeo Foundations Incubation process to gain stability and interest also in the global open source society.
+The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was established. Now we have tens of organisations involved in Finland and abroad! 
 
 Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the community goals and tasks and join the development!
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
-## Communication
+### PSC and OSGeo
+In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established and Oskari applied for OSGeo Foundations Incubation process to gain stability and interest also in the global open source society.
 
-If you have something Oskari related on you mind ask for ideas or support from [Oskari OSGeo mailing list](Oskari-user@lists.osgeo.org). The mailing list is open and search engines can find the discussion threads. This helps finding solutions for already asked questions.
+### Joint development Forum in Finland
+Joint development are being created by several organisational member belonging to the [JDF](JDF.md).
 
-If you need to ask something really quick, use the [Oskari Gitter channel](https://gitter.im/oskariorg/chat). Remember Gitter is really good for instant messaging, but bear in mind that the history of the discussions might not be easily found, so we encourage to use the mailing list. Please chat in English so everyone can participate in the discussion.
-
-All communication channels are listed in [About](http://oskari.org/about).
-
-## Meetups
-
-Host an Oskari event or join them. We'll try to arrange [Oskari-meetups](https://www.meetup.com/Oskari-Your-geospatial-friend/) every two months - you can always ask us for a visit!
-
-## Community members
+### Community members
 
 If you want to join the Oskari network as a organizational member, describe your [development ideas on Oskari software here](https://docs.google.com/forms/d/e/1FAIpQLSd2KZOQeJ5xDivG-X0r0HzMArHcRU6DRbb1hpS1uUS87VrY3w/viewform). It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. 
 
