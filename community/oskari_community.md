@@ -24,80 +24,124 @@ If you want to join the Oskari network as a organizational member, describe your
 
 Allready now we have lot's of organisation involved! We welcome also members from outside Finland 😉
 
-**CGI Finland Ltd**
+**[CGI Finland Ltd](http://www.cgi.fi/)**
 
-**City of Helsinki**
+**[City of Helsinki](http://www.helsinki.fi/)**
 
-**City of Tampere**
+Helsinki City is a member of Oskari Joint Development Forum. Contact for the City of Helsinki is Outi Hermans.
 
-**City of Turku**
+**[City of Tampere](http://www.tampere.fi/)**
 
-**COSS association**
+City of Tampere is utilizing and developing [Oskari software to internal & external use](https://kartat.tampere.fi/oskari/). Contact: Anna Mustajoki
 
-**Cybercom Ltd**
+**[City of Turku](http://www.turku.fi/)**
 
-**Finnish Transport Safety Agency**
+City of Turku is involved in Oskari development through [Lounaistieto](https://karttapalvelu.lounaistieto.fi/) services. Contacts: Katariina Hilke (City of Turku) & Natalia Räikkönen (Regional Council of Southwest Finland)
 
-**Finnish Heritage Agency**
+**[COSS association](https://coss.fi/)**
 
-**Geological Institute of Finland**
+**[Cybercom Ltd](https://www.cybercom.com/)**
 
-**Gispo Ltd** "We offer training on Oskari based services and facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd
+**[Finnish Transport Safety Agency](https://www.trafi.fi/en)**
 
-**Gofore Ltd**
+**[Finnish Heritage Agency](http://www.nba.fi/)**
 
-**Helsinki Environmental Services**
+[Cultural environment information services are using Oskari mapservice](https://kartta.museoverkko.fi/). Contact: Minna Ryyppö, Finnish Heritage Agency.
 
-**Infotripla Ltd** "We offer geospatial interfaces about road information, like weather stations and traffic jams, and Oskari works as a client for our data" - Juha Laakso, Infotripla Ltd
+**[Geological Institute of Finland](http://www.gtk.fi/)**
 
-**Cinia Ltd** "Many of our software projects have map based functionalities, so it is good to have Oskari as an option!", Kimmo Alamartimo, Cinia Ltd
+**[Gispo Ltd](http://www.gispo.fi/)** 
 
-**Lappeenranta University of Technology**
+"We offer training on Oskari based services and facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd
 
-**National Land Survey of Finland**
+**[Gofore Ltd](http://www.gofore.com/)**
 
-**National Land Survey of Island**  "Oskari is used as a mapviewer and connection tool to our National Geodata Portal in relation with National Spatial Data Infrastructure and INSPIRE." - Hafliði Sigtryggur, NLS-IS Magnússon
+**[Helsinki Environmental Services](https://www.hsy.fi/)** 
 
-**Natural Resources Institute Finland (Luke)** "Luke published a Biomass Atlas in spring 2017 based on Oskari with new component development. Oskari functionalities are further utilized in Baltic Forbio project with Finland, Sweden, Estonia, Lithuania and Latvia"  - Eeva Lehtonen, Luke
+[Helsinki Region Environment’s (HSY) Oskari map service](https://kartta.hsy.fi/) is a download service for open data. HSY uses Oskari-based platforms also in extra- and intranet environments inside the organisation. Contact members in HSY: Elina Ojanperä and Henna-Kaisa Stjerberg.
 
-**Nitor Creations Ltd**
+**[Infotripla Ltd](http://www.infotripla.fi/)** 
 
-**Ministry of Economic Affairs and Employment (Finland)**
+"We offer geospatial interfaces about road information, like weather stations and traffic jams, and Oskari works as a client for our data" - Juha Laakso, Infotripla Ltd
 
-**Ministry of Environment (Finland)**
+**[Cinia Ltd](http://www.cinia.fi/)** 
 
-**Open Knowledge Finland**
+"Many of our software projects have map based functionalities, so it is good to have Oskari as an option!", Kimmo Alamartimo, Cinia Ltd
 
-**PaikkaOppi** "We are establishing a new version of learning environment for GIS called PaikkaOppi using Oskari based service" Virpi Hirvensalo, City of Turku
+**[Lappeenranta University of Technology](http://www.lut.fi/)**
 
-**Paikkatietokonsultit Ltd**
+**[National Land Survey of Finland](http://www.maanmittauslaitos.fi/)**
 
-**Population Register Centre**
+Oskari is being used in several services and projects in National Land Survey of Finland: [Paikkatietoikkuna](http://www.paikkatietoikkuna.fi/), [Mapsite](https://asiointi.maanmittauslaitos.fi/karttapaikka/), Suomi.fi-maps, [Arctic SDI Geoportal](https://arctic-sdi.org/), ELS Showcase Application etc. Contact: Timo Aarnio.
 
-**Pulakka Lab Ltd**
+**[National Land Survey of Island](https://www.lmi.is/en/)**  
 
-**Reaktor Ltd**
+"Oskari is used as a mapviewer and connection tool to our National Geodata Portal in relation with National Spatial Data Infrastructure and INSPIRE." - Hafliði Sigtryggur, NLS-IS Magnússon
 
-**Regional Authorities in Finland**
+**[Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/)**
+
+"Luke published a [Biomass Atlas in spring 2017](https://www.luke.fi/biomassa-atlas/en/) based on Oskari with new component development. Oskari functionalities are further utilized in Baltic Forbio project with Finland, Sweden, Estonia, Lithuania and Latvia"  - Eeva Lehtonen, Luke 
+
+
+**[Nitor Creations Ltd](http://www.nitorcreations.com/)**
+
+**[Ministry of Economic Affairs and Employment (Finland)](http://www.tem.fi/)**
+
+**[Ministry of Environment (Finland)](http://www.ym.fi/fi-FI)**
+
+**[Open Knowledge Finland](http://okf.fi/about/)**
+
+**[PaikkaOppi](http://www.paikkaoppi.fi/fi/)** 
+
+"We are establishing a new version of learning environment for GIS called PaikkaOppi using Oskari based service" Virpi Hirvensalo, City of Turku
+
+**[Paikkatietokonsultit Ltd](http://www.paikkatietokonsultit.fi/)**
+
+**[Population Register Centre](https://verkosto.oskari.org/vaestorekisterikeskus/)**
+
+Suomi.fi maps utilize Oskari for creating public sector digital services. Suomi.fi maps is provided by National Land Survey. Contact for Oskari community in Population Register Centre is Rosa Arola.
+
+**[Pulakka Lab Ltd](https://www.pulakka.com/)**
+
+**[Reaktor Ltd](http://www.reaktor.fi/)**
+
+**[Regional Authorities in Finland](http://www.avi.fi/)**
 
 **Regional Council of Southwest Finland**
 
 **SC5 Online Ltd**
 
-**Sitowise Ltd** "Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava." - Jan Lindbom, Sitowise Ltd
+**[Sitowise Ltd](https://www.sitowise.com/en)** 
 
-**Spatineo Ltd**
+"Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava." - Jan Lindbom, Sitowise Ltd 
 
-**Statistics Finland**
+Sitowise provides its customers the full range of built environment services from planning to expert and digital services. Sitowise has a vast experience and strong expertise with developing Oskari-based GIS solutions for different types of organisations, making Sitowise one of the global leaders with Oskari knowledge.
 
-**Suomen latu**
+Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava. Sitowise has been a part of the Oskari development from the beginning by acquiring Dimenteq in the beginning of February 2018.
 
-**Tampere University of Technology** "We have expertise in management of large data masses and imagery analysis and provide courses on GIS, image handling and pattern recognition. Now Oskari is being installed as part of MIKÄ DATA project where data based services are created for farmers." - Petri Linna
+**[Spatineo Ltd](http://www.spatineo.com/)**
 
-**Ubigu Ltd** "We offer consulting, installation and maintanence services for Oskari"  Marko Kauppi, Ubigu
+**[Statistics Finland](http://www.stat.fi/)**
+
+Statistics Finland is involved in the development of statistical data utilization and thematic mapping properties in Oskari. Project owner: Rina Tammisto, Statistics Finland
+
+**[Suomen latu](https://www.suomenlatu.fi/en)**
+
+**[Tampere University of Technology](http://www.tut.fi/fi/pori/index.htm)** 
+
+"We have expertise in management of large data masses and imagery analysis and provide courses on GIS, image handling and pattern recognition. Now Oskari is being installed as part of MIKÄ DATA project where data based services are created for farmers." - Petri Linna
+
+**[Ubigu Ltd](https://www.ubigu.fi/en/)** 
+
+"We offer consulting, installation and maintanence services for Oskari"  Marko Kauppi, Ubigu
 
 **Unelmakouluprojekti**
 
-**Väylä Finnish Transport Infrastructure Agency**
+**[Väylä Finnish Transport Infrastructure Agency](https://vayla.fi/web/en)**
 
-**XAMK** "We want to utilize Oskari in our research and education when suitable project needs web based GIS solution. In education we use Oskari as an example of open source development and map based services. We hope to utilize Oskari even more in the future" Esa Hannus, XAMK.
+The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released.
+Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency
+
+**[XAMK](https://www.xamk.fi/en/frontpage/)** 
+
+"We want to utilize Oskari in our research and education when suitable project needs web based GIS solution. In education we use Oskari as an example of open source development and map based services. We hope to utilize Oskari even more in the future" Esa Hannus, XAMK.
