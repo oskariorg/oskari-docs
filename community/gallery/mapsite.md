@@ -2,6 +2,8 @@
 
 The National Land Survey of Finland has been diligently enhancing their digital services for their customers and the [Mapsite (Karttapaikka)](https://asiointi.maanmittauslaitos.fi/karttapaikka/?lang=en) is one of the most used and oldest map services in Finland.
 
+![Mapsite](../../public/images/example_mapsite.png)
+
 ### It was first published already in 1996
 
 At that time it was the world’s first national map service!
