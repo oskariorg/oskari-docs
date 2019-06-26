@@ -20,16 +20,15 @@ You can also buy maps from the service, although most of the datasets are also a
 In 2018 there were almost 5 million visitors in the service (around 13 600 visits per day) and we sold 2730 print layouts and 7206 copies of prints!_
 
 
-The Mapsite is developed with Mobile First approach
+### The Mapsite is developed with Mobile First approach
+
 – _It scales to mobile, tablet and desktop use, Viitala continues. 
 It is so called single-page application that uses the users browser to access the server and database. 
 The service is created with Oskari API with Suomi.fi-maps and also includes a lot of tailoring regarding the layout. 
-From Suomi.fi -maps the Mapsite reaches datasets like basic map, background mapset and a plain map designed to people with seeing constraints. 
-The Mapsite also fetches data straight from NLS-FI own interfaces._
+From Suomi.fi -maps the Mapsite reaches datasets like basic map, background mapset and a plain map designed to people with seeing constraints.The Mapsite also fetches data straight from NLS-FI own interfaces._
 
 Any future plans?
 
-– _We would like to add continuous location possibility to the map, so that the location pointer would follow the user when for example doing field work. 
-Also the user should be able to add own markings and POIs to the map._
+– _We would like to add continuous location possibility to the map, so that the location pointer would follow the user when for example doing field work. Also the user should be able to add own markings and POIs to the map._
 
  
