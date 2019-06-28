@@ -12,9 +12,13 @@ Development is not just coding, it can be bug reporting, finding funding or mark
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
+### Individuals
+
+Anyone is free to use Oskari source code and make it even better! If you have an idea, please join Oskari discussion in [Gitter](https://gitter.im/oskariorg/chat). 
+
 ### PSC and OSGeo
 
-In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established and Oskari applied for OSGeo Foundations Incubation process to gain stability and interest also in the global open source society.
+In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established. Oskari's PSC (Project Streeting Committee) is responsible for checking the code and they decide which features are added to the Oskari core.
 
 ### Joint Development Forum
 
@@ -22,7 +26,7 @@ Joint Development Forum is a tight group of organisations that have an interest 
 
 ### Community members
 
-If you want to join the Oskari network as a organizational member, describe your [development ideas on Oskari software here](https://docs.google.com/forms/d/e/1FAIpQLSd2KZOQeJ5xDivG-X0r0HzMArHcRU6DRbb1hpS1uUS87VrY3w/viewform). It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. 
+It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. Tell us how you are going to take advantage of Oskari, it can be software development, arranging meetups, education - all activities are encouraged. If you want to join the Oskari network as a organizational member, describe your [organisation and development ideas on Oskari here](https://docs.google.com/forms/d/e/1FAIpQLSd2KZOQeJ5xDivG-X0r0HzMArHcRU6DRbb1hpS1uUS87VrY3w/viewform). 
 
 Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. If you want to change your description, please contact info@oskari.org. 
 
