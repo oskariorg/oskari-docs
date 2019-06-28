@@ -8,7 +8,7 @@ In 2011 Oskari's source code was opened because the interest within other organi
 
 The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was established. Now we have tens of organisations involved in Finland and abroad! 
 
-Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the community goals and tasks and join the development!
+Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the [community goals and tasks](community_goals.md) and join the development!
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
