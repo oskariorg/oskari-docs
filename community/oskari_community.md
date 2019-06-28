@@ -20,6 +20,10 @@ Anyone is free to use Oskari source code and make it even better! If you have an
 
 In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established. Oskari's PSC (Project Streeting Committee) is responsible for checking the code and they decide which features are added to the Oskari core.
 
+Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the community goals and tasks and join the development!
+
+If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
+
 ### Joint Development Forum
 
 Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF.md).
