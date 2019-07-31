@@ -40,6 +40,10 @@ City of Tampere is utilizing and developing [Oskari software to internal & exter
 
 City of Turku is involved in Oskari development through [Lounaistieto](https://karttapalvelu.lounaistieto.fi/) services. Contacts: Katariina Hilke (City of Turku) & Natalia Räikkönen (Regional Council of Southwest Finland)
 
+**[Codento Ltd](https://codento.fi/)**
+
+At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise.
+
 **[COSS association](https://coss.fi/)**
 
 **[Cybercom Ltd](https://www.cybercom.com/)**
