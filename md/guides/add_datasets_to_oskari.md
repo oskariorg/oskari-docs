@@ -27,12 +27,14 @@ You can also share your datasets to your customers or colleagues through "Map Pu
 1. Register/sign in first to your Oskari instance
 2. After signing in, there is a toolbar available where you can choose if you want to add points, lines or polygons to the map
 
-![Add data](../../public/images/My_data_dialogue.PNG)
+![Add data](../../public/images/add_data.PNG)
 
 3. Click the tool you want to use and click on the map and draw as many features you want and save your places.
 4. Add description, labels and URL-links if needed. Also image-links are supported. Choose where the features are saves either by creating a new layer or choosing a suitable layer from your existing map layers.
 5. Check "My data" dialogue > Places tab, there you can see all your own place markings and also edit or delete them.
 
-![My data](../../public/images/my_data_dialogue.PNG)
+![Add data](../../public/images/My_data_dialogue.PNG)
+
+You can also watch this video where you can see how to add datasets to the map and also how publish a map with your own data. 
 
 [![Watch a video](https://img.youtube.com/vi/zNTOwhhNAQk/maxresdefault.jpg)](https://youtu.be/zNTOwhhNAQk)
