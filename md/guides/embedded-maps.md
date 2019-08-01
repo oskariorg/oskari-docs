@@ -12,7 +12,7 @@ When the publishing has been done, you can afterwards change the layers or add f
 3. Click "Map Publishing"
 4. A dialogue for creating embedded maps appears
 
-![Create embedded map](../../public/images/embedded_maps.PNG)
+<img src="../../public/images/embedded_maps.PNG" widht="250"/>
 
 5. Add your website address without http and www prefixes
 6. Add Map Name
@@ -24,8 +24,4 @@ When the publishing has been done, you can afterwards change the layers or add f
 
 ![Create embedded map](../../public/images/My_data_embedded_maps.png)
 
-In this video [![Watch a video](https://img.youtube.com/vi/zNTOwhhNAQk/maxresdefault.jpg)](https://youtu.be/zNTOwhhNAQk) you can see how to create a map view that you can publish on your own site. The screen capture video is done using Paikkatietoikkuna.fi. Below you can see the same example as embedded map. 
-
-<figure class="video_container">
-<iframe src="https://kartta.paikkatietoikkuna.fi/published/en/ca91e9e6-67a2-4693-b69e-0f8ec0e7e53a" allow="geolocation" style="border: none; width: 700px; height: 600px;"></iframe>
-</figure>
+In this video [![Watch a video](https://img.youtube.com/vi/zNTOwhhNAQk/maxresdefault.jpg)](https://youtu.be/zNTOwhhNAQk) you can see how to create a map view that you can publish on your own site. The screen capture video is done using Paikkatietoikkuna.fi. 
