@@ -20,14 +20,14 @@ You can also share your datasets to your customers or colleagues through "Map Pu
 4. You can also modify the default visualization if you want
 5. The dataset can now be found from "My data" dialogue > Datasets and also from the "Map Layers" list: "Own datasets"
 
-![My data](../../public/images/my_datasets.PNG)
+![My data](../../public/images/My_datasets.PNG)
 
 ### Adding POI's, lines and areas
 
 1. Register/sign in first to your Oskari instance
 2. After signing in, there is a toolbar available where you can choose if you want to add points, lines or polygons to the map
 
-![Add data](../../public/images/add_data.PNG)
+![Add data](../../public/images/My_data_dialogue.PNG)
 
 3. Click the tool you want to use and click on the map and draw as many features you want and save your places.
 4. Add description, labels and URL-links if needed. Also image-links are supported. Choose where the features are saves either by creating a new layer or choosing a suitable layer from your existing map layers.
