@@ -41,6 +41,7 @@ Organisation | Description
 **[City of Tampere](http://www.tampere.fi/)** | City of Tampere is utilizing and developing [Oskari software to internal & external use](https://kartat.tampere.fi/oskari/). Contact: Anna Mustajoki
 **[City of Turku](http://www.turku.fi/)** | City of Turku is involved in Oskari development through [Lounaistieto](https://karttapalvelu.lounaistieto.fi/) services. Contacts: Katariina Hilke (City of Turku) & Natalia Räikkönen (Regional Council of Southwest Finland)
 **[COSS association](https://coss.fi/)** | -
+**[Codento Ltd](https://codento.fi/)** | At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise.
 **[Cybercom Ltd](https://www.cybercom.com/)** | -
 **[Finnish Transport Safety Agency](https://www.trafi.fi/en)** | -
 **[Finnish Heritage Agency](http://www.nba.fi/)** | [Cultural environment information services](https://kartta.museoverkko.fi/) are using Oskari. Contact: Minna Ryyppö, Finnish Heritage Agency.
@@ -72,6 +73,6 @@ Organisation | Description
 **[Suomen latu](https://www.suomenlatu.fi/en)**| -
 **[Tampere University of Technology](http://www.tut.fi/fi/pori/index.htm)**| "We have expertise in management of large data masses and imagery analysis and provide courses on GIS, image handling and pattern recognition. Now Oskari is being installed as part of MIKÄ DATA project where data based services are created for farmers." - Petri Linna
 **[Ubigu Ltd](https://www.ubigu.fi/en/)**| "We offer consulting, installation and maintanence services for Oskari"  Marko Kauppi, Ubigu
-**Unelmakouluprojekti**
+**Unelmakouluprojekti**| -
 **[Väylä Finnish Transport Infrastructure Agency](https://vayla.fi/web/en)**| The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released. Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency
 **[XAMK](https://www.xamk.fi/en/frontpage/)** | "We want to utilize Oskari in our research and education when suitable project needs web based GIS solution. In education we use Oskari as an example of open source development and map based services. We hope to utilize Oskari even more in the future" Esa Hannus, XAMK.
