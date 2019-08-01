@@ -16,14 +16,14 @@ When the publishing has been done, you can afterwards change the layers or add f
 
 5. Add your website address without http and www prefixes
 6. Add Map Name
-7. Choose suitable other parameters, like map sixe, what tools you want to use and how they are placed. You can also add map layers at this point
+7. Choose suitable other parameters, like map sixe, what tools you want to use and how they are placed. You can also add more map layers at this point
 8. Save your embedded maps
 9. Add the iframe-code you receive to your website
-10. You can also change information on your published maps through "My data" dialogue
+10. You can also edit the published map thorugh "My data" dialogue
 
 
 ![Create embedded map](../../public/images/My_data_embedded_maps.png)
 
-In this video you can see how to create a map view that you can publish on your own site. The screen capture video is done using Paikkatietoikkuna.fi. 
+In the end of this video you can see how to create a map view that you can publish on your own site. The screen capture video is done using Paikkatietoikkuna.fi. 
 
  [![Watch a video](https://img.youtube.com/vi/zNTOwhhNAQk/maxresdefault.jpg)](https://youtu.be/zNTOwhhNAQk)
