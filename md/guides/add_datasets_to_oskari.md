@@ -25,4 +25,4 @@ You can also share your datasets to your customers or colleagues through "Map Pu
 4. Add description, labels and URL-links if needed. Choose where the features are saves either by creating a new layer or choosing from existing map layers.
 5. Check "My data" dialogue and Places tab, there you can see all your own place markings and also edit or delete them.
 
-<video src="Add_features_to_map_english.mp4" width="320" height="200" controls preload></video>
+[![Watch a video](https://img.youtube.com/vi/zNTOwhhNAQk/maxresdefault.jpg)](https://youtu.be/zNTOwhhNAQk)
