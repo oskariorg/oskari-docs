@@ -12,7 +12,7 @@ When the publishing has been done, you can afterwards change the layers or add f
 3. Click "Map Publishing"
 4. A dialogue for creating embedded maps appears
 
-![Create embedded map](../../public/images/embedded_maps.png)
+![Create embedded map](../../public/images/embedded_maps.PNG)
 
 5. Add your website address without http and www prefixes
 6. Add Map Name
