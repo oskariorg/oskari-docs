@@ -8,7 +8,7 @@ GIS datasests and statistics about environmental and land use planning issues.
 It contains over 1000 statistics, hundreds of map layers, national land use plans and about 20 000 Forms for monitoring local detailed plans. 
 It also contains possibility to share workspaces.
 
-![Liiteri](../../public/images/liiteri.PNG")
+![Liiteri](../../public/images/liiteri.PNG)
 
 Liiteri serves especially the officials and companies working within the field of land use planning and built environment. 
 Liiteri can be used in land use planning, checking and deciding on building permissions and building allowances, 
@@ -17,15 +17,21 @@ drafting plans for strategies and it also supports the evaluation of land use pl
 Liiteri is also useful for students and researchers. 
 Citizens can also use the service and find information about their nearby amenities or status of the land use planning in their area.
 
+![Liiteri](../../public/images/Liiteri_tilastot.png)
+
 ### The information service was built by tailoring Oskari
 Liiteri development started already in 2012 when there was a huge national program for "Enhancing the electronic democracy tools" (SADe). 
 During that program a map service was being developed which resulted in the born of Oskari. 
 So it was quite natural that the software developed in the same program would be utilized also in Liiteri. 
 Also at that time the government wanted to support open source solutions in general. 
 
+<img src="../../public/images/kaavahaku_liiteri.PNG" width="500"/>
+
 But Liiteri is not just a map service, it is a information and analysis service and this has required for us to create lots of new tools on top of Oskari. 
 This needs to be taken into account when updating core Oskari. The more you tailor, the more challenging it becomes to keep the whole system up to date. 
 This has been noted also with Liiteri service.
+
+![Liiteri](../../public/images/kaavamerkinnat.PNG)
 
 ### Wish list for Oskari
 Oskari is quite logic for users and it is used by many other organisations in Finland and so it is familiar tool for the users. 
