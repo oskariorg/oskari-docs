@@ -12,14 +12,17 @@ When the publishing has been done, you can afterwards change the layers or add f
 3. Click "Map Publishing"
 4. A dialogue for creating embedded maps appears
 
-![Create embedded map](../../public/images/My_data_embedded_maps.png)
+![Create embedded map](../../public/images/embedded_maps.png)
 
 5. Add your website address without http and www prefixes
 6. Add Map Name
 7. Choose suitable other parameters, like map sixe, what tools you want to use and how they are placed. You can also add map layers at this point
 8. Save your embedded maps
 9. Add the iframe-code you receive to your website
-10. You can also change the 
+10. You can also change information on your published maps through "My data" dialogue
+
+
+![Create embedded map](../../public/images/My_data_embedded_maps.png)
 
 In this video above you can see how create a map view that you can be publish on your own site. 
 The screen capture video is done using Paikkatietoikkuna.fi. Below you can see the same example as embedded map. 
