@@ -24,9 +24,8 @@ When the publishing has been done, you can afterwards change the layers or add f
 
 ![Create embedded map](../../public/images/My_data_embedded_maps.png)
 
-In this video above you can see how create a map view that you can be publish on your own site. 
-The screen capture video is done using Paikkatietoikkuna.fi. Below you can see the same example as embedded map. 
+In this video [![Watch a video](https://img.youtube.com/vi/zNTOwhhNAQk/maxresdefault.jpg)](https://youtu.be/zNTOwhhNAQk) you can see how to create a map view that you can publish on your own site. The screen capture video is done using Paikkatietoikkuna.fi. Below you can see the same example as embedded map. 
 
 <figure class="video_container">
-<iframe src="https://kartta.paikkatietoikkuna.fi/published/en/ca91e9e6-67a2-4693-b69e-0f8ec0e7e53a" width="300" height="150"></iframe>
+<iframe src="https://kartta.paikkatietoikkuna.fi/published/en/ca91e9e6-67a2-4693-b69e-0f8ec0e7e53a" allow="geolocation" style="border: none; width: 700px; height: 600px;"></iframe>
 </figure>
