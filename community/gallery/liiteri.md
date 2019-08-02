@@ -23,10 +23,12 @@ During that program a map service was being developed which resulted in the born
 So it was quite natural that the software developed in the same program would be utilized also in Liiteri. 
 Also at that time the government wanted to support open source solutions in general. 
 
-<img src="../../public/images/Liiteri_tilastot.png" width="500"/>
+<img src="../../public/images/Liiteri_tilastot.png" width="550"/>
+
 *Liiteri utilizes Oskari's statistical tools*
 
-<img src="../../public/images/kaavahaku_liiteri.PNG" width="500"/>
+<img src="../../public/images/kaavahaku_liiteri.PNG" width="550"/>
+
 *Liiteri is an example how you can tailor Oskari and add own functionalities to the UI. Liiteri has e.g. a possibility to search detailed land use plans and their status in Finland*
 
 But Liiteri is not just a map service, it is a information and analysis service and this has required for us to create lots of new tools on top of Oskari. 
