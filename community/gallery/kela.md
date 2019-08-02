@@ -1,8 +1,7 @@
 ## The Social Insurance Institution of Finland took Oskari API in use
 
-Service points from [The Social Insurance Institution of Finland (Kela)](https://www.kela.fi/web/en/terms-of-use) can now be observed with a new web map service. 
-It is provided by an Oskari based service called [Suomi.fi - maps](https://esuomi.fi/?lang=en). 
-Suomi.fi Service is being developed by the Population Register Centre of Finland. 
+Service points of [The Social Insurance Institution of Finland (Kela)](https://www.kela.fi/web/en) can now be observed with a new [web map service](https://www.kela.fi/palvelupisteen-haku). 
+The map platform is provided by an Oskari based service called [Suomi.fi - maps](https://esuomi.fi/?lang=en). 
 
 <img src="../../public/images/kela.PNG"/>
 
@@ -36,4 +35,4 @@ They download information from the national Service database to Kela's own datab
 to ensure the delivery through the application as fast as possible.
 
 More information about how to get [Suomi.fi Maps in use (in Finnish)](https://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat) and 
-[Suomi.fi Services](https://esuomi.fi/?lang=en).
+[Suomi.fi Services](https://esuomi.fi/?lang=en). Suomi.fi Service is being developed by the Population Register Centre of Finland. 
