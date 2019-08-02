@@ -4,7 +4,7 @@ HSY (Helsinki Environmental Services) is one of the many organisations in Finlan
 
 **Henna-Kaisa Stjernberg**, GIS specialist in HSY, tells us now how exactly Oskari is used at HSY and what are their future plans for Oskari.
 
-2We have a special Oskari working group inside HSY which tests, coordinates and participates in the development and maintenance meetings. 
+"We have a special Oskari working group inside HSY which tests, coordinates and participates in the development and maintenance meetings. 
 Our different sectors order or list these development needs and they are discussed within 
 the group and decided which procedures are to be done at what stage and when", she explains.
 
@@ -15,8 +15,7 @@ The service environment contains also PostGIS database and GeoServer software wh
 
 ### We use Oskari to create news to public
 "We use Oskari in quite many use cases. In the open side which you can go see at [https://kartta.hsy.fi/](https://kartta.hsy.fi/) 
-our customers have a possibility to download some of the datasets we provide, using special Oskari tool called the **Download basket** 
-- it is a tool we developed together with other Oskari community organisations and one of the first community bundles created for Oskari. 
+our customers have a possibility to download some of the datasets we provide, using special Oskari tool called the **Download basket**. It is a tool we developed together with other Oskari community organisations and one of the first community bundles created for Oskari. 
 Some of the datasets are also available through the open service in realtime, like air quality."
 
 "We use Oskari also to create news to public about certain phenomena using the embedded map functionality Oskari provides", 
@@ -25,7 +24,9 @@ she continues.
 The embedded map is for example used when HSY wants to steer some projects like the mining work at Blominmäki hill at City of Espoo. 
 The contractor updates the mining activities by clicking the map - a tool created on top of the embedded map using Oskari API.
 
-Embedded map is used to collect information from the contractor about the progress of mining operations in Blominmäki Espoo. 
+<img src="../../public/images/hsy_blominmaki_louhinta.PNG" width="850"/>
+
+*Embedded map is used to collect information from the contractor about the progress of mining operations in Blominmäki Espoo.* 
 
 ### Internal Oskari bundles serve HSY's versatile needs
 The extranet service is mainly used to deliver datasets to certain user groups like consultants, 
@@ -42,6 +43,8 @@ These internal Oskari bundles are at the moment only built for our needs and the
 a new Oskari release is available. The special bundles are developed following the architectural principles of Oskari, 
 so the updates cascade fairly easily."
 
+<img src="../../public/images/HSY_pipelinetool.PNG" width="850"/>
+
 *The Pipeline tool is developed specially for HSYs internal needs.*
 
 ### We hope that we can serve the citizens faster and better
@@ -50,8 +53,7 @@ following the excavation and transportation of land masses. Also in the waste ma
 Ämmänsuo waste treatment center they are using Oskari to manage the different waste deposits by 
 editing the deposits' geometry and attributes. This is only for our internal Oskari use."
 
-"We are also eager to test Oskari API more. We are currently developing a Climate Atlas service using Oskari RPC
-- an embedded map with RPC calls from the website. When finished, the Climate Atlas provides the possibility to search data 
+"We are also eager to test Oskari API more. We are currently developing a Climate Atlas service using Oskari RPC, an embedded map with RPC calls from the website. When finished, the Climate Atlas provides the possibility to search data 
 with certain criteria and users can also add own information. 
 Oskari API provides lots of possibilities and it has gain interest in our different sectors, 
 so let's see what we come up with it in the future!"
