@@ -37,7 +37,7 @@ This has been noted also with Liiteri service.
 
 ### Wish list for Oskari
 Oskari is quite logic for users and it is used by many other organisations in Finland and so it is familiar tool for the users. 
-Because it is open source, it is easy to develop it with different supplier s- so we are not that tied to only one service provider.
+Because it is open source, it is easy to develop it with different supplier so we are not that tied to only one service provider.
 
 We wish there was a way to ease the adding of interfaces to Oskari, it is now quite difficult since some of the interfaces act differently in e.g. other clients like QGIS. 
 Oskari is more picky on the standards.
