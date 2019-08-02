@@ -29,7 +29,7 @@ Also at that time the government wanted to support open source solutions in gene
 
 <img src="../../public/images/kaavahaku_liiteri.PNG" width="550"/>
 
-*Liiteri is an example how you can tailor Oskari and add own functionalities to the UI. Liiteri has e.g. a possibility to search detailed land use plans and their status in Finland*
+*Liiteri is an example how you can tailor Oskari and add own functionalities to the UI. Liiteri has e.g. a possibility to search detailed land use plans and their status in Finland.*
 
 But Liiteri is not just a map service, it is a information and analysis service and this has required for us to create lots of new tools on top of Oskari. 
 This needs to be taken into account when updating core Oskari. The more you tailor, the more challenging it becomes to keep the whole system up to date. 
