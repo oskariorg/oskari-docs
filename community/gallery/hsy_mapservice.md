@@ -1,6 +1,6 @@
 ## HSY and environmental services with Oskari
 
-HSY (Helsinki Environmental Services) is one of the many organisations in Finland to use Oskari as a tool for external and internal GIS use.
+HSY ([Helsinki Environmental Services](https://www.hsy.fi/fi/asukkaalle/Sivut/default.aspx)) is one of the many organisations in Finland to use Oskari as a tool for external and internal GIS use.
 
 **Henna-Kaisa Stjernberg**, GIS specialist in HSY, tells us now how exactly Oskari is used at HSY and what are their future plans for Oskari.
 
