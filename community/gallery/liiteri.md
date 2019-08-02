@@ -17,21 +17,21 @@ drafting plans for strategies and it also supports the evaluation of land use pl
 Liiteri is also useful for students and researchers. 
 Citizens can also use the service and find information about their nearby amenities or status of the land use planning in their area.
 
-![Liiteri](../../public/images/Liiteri_tilastot.png)
-
 ### The information service was built by tailoring Oskari
 Liiteri development started already in 2012 when there was a huge national program for "Enhancing the electronic democracy tools" (SADe). 
 During that program a map service was being developed which resulted in the born of Oskari. 
 So it was quite natural that the software developed in the same program would be utilized also in Liiteri. 
 Also at that time the government wanted to support open source solutions in general. 
 
+<img src="../../public/images/Liiteri_tilastot.png" width="500"/>
+*Liiteri utilizes Oskari's statistical tools*
+
 <img src="../../public/images/kaavahaku_liiteri.PNG" width="500"/>
+*Liiteri is an example how you can tailor Oskari and add own functionalities to the UI. Liiteri has e.g. a possibility to search detailed land use plans and their status in Finland*
 
 But Liiteri is not just a map service, it is a information and analysis service and this has required for us to create lots of new tools on top of Oskari. 
 This needs to be taken into account when updating core Oskari. The more you tailor, the more challenging it becomes to keep the whole system up to date. 
 This has been noted also with Liiteri service.
-
-![Liiteri](../../public/images/kaavamerkinnat.PNG)
 
 ### Wish list for Oskari
 Oskari is quite logic for users and it is used by many other organisations in Finland and so it is familiar tool for the users. 
