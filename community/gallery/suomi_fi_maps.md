@@ -3,7 +3,7 @@
 Finnish public sector organisations and actors performing official public regulatory roles have the possibility
 to utilize [Suomi.fi - maps](http://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat) service for free. 
 
-<img scr="../../public/images/suomifi.PNG/>"
+<img scr="../../public/images/suomifi.PNG"/>
 
 This provides for example the Finnish municipalities the possibility to create 
 embedded maps to their own websites and gain a stack of high quality data at the same time. 
