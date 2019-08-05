@@ -14,4 +14,4 @@ One example of this is the [fishing restrictions service](https://kalastusrajoit
 
 <img src="../../public/images/kalastusrajoitus.PNG" width="850"/>
 
-Population Register Centre in Finland is responsible for the development of Suomi.fi -maps together with National Land Survey of Finland. 
+The Population Register Centre in Finland is responsible for the development of Suomi.fi -maps together with the National Land Survey of Finland. 
