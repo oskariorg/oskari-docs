@@ -10,7 +10,7 @@ Develops new features or improves existing functionalities in Oskari. Can contri
 - Version management: Git
 - Frontend: JavaScript, HTML, CSS, OpenLayers 3+
 - Backend: Java, PostgreSQL, PostGIS, GeoServer, GeoTools
-- Build infrastructure & tests: Jenkins, Travis CI, Selenium, Robot Framework
+- Build infrastructure & tests: Maven/JUnit for server, Webpack/Jest for frontend.
 - Understanding about the following software: GeoServer, PostGIS, Jetty, Redis, Nginx
 - Understanding OGC standards: WMS, WMTS, WFS, WPS, WCS
 
