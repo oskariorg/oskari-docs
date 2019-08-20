@@ -31,7 +31,7 @@ You should now have a CodePen project that you can edit with files:
 - scripts/styles.js
 - scripts/index.js
 
-Note! If you have some webserver running on your laptop you can just as easily use your favorite editor for creating this. Just run the code on your computer if you have an environment to serve static files for a browser (files opened without a server might not work properly).
+Note that if you have some webserver running on your laptop you can just as easily use your favorite editor for creating this. Just run the code on your computer.
 
 ## Adding the map
 
@@ -52,28 +52,25 @@ Note! If you have some webserver running on your laptop you can just as easily u
 
 ## First contact
 
-To interact with the map we will be needing a small JavaScript library called Oskari RPC client for the page. You can find it in npm and GitHub but for maximum compatibility with CodePen we will hotlink it from oskari.org. 
+To interact with the map we will be needing a small Javascript library
 
-Add the script tag in `index.html` next to the other script tags where it says:
-
-`<!-- Include RPC client library here -->`
+First we include RPC javascript in html
 ```html
 <script src="https://oskari.org/js/rpc/rpc-client.min.js"></script>
 ```
 
-In production apps we recommend using the library fromt official repositories:
+Next we embed a published map by copying the iframe code from the Oskari-based map application to html template
+```html
+<iframe src="https://demo-kartta.paikkatietoikkuna.fi/published/fi/c4ddaa13-ba2a-4593-bb85-5dbaecf7fd6c" allow="geolocation" id="map" style="border: none; width: 100%; height: 100%;"></iframe>
+```
 
-- https://www.npmjs.com/package/oskari-rpc
-- https://github.com/oskariorg/rpc-client
+That's the html code so far. Then let's take a closer took to the JavaScript.
 
-That's the html code so far. Let's take a closer took at the JavaScript.
-
-Open the `scripts/index.js` file in the editor and add the following:
-
-```javascript
-const IFRAME_DOMAIN = 'https://demo.oskari.org';
-const MAP_EL = document.getElementById('map');
-const channel = OskariRPC.connect(MAP_EL, IFRAME_DOMAIN);
+First we initialize the RPC connection. Note that the IFRAME_DOMAIN must match to the source domain in the iframe.
+```html
+const IFRAME_DOMAIN = 'https://demo-kartta.paikkatietoikkuna.fi';
+const mapEl = document.getElementById('map');
+const channel = OskariRPC.connect(mapEl, IFRAME_DOMAIN);
 var metadata;
 channel.onReady(function() {
     //channel is now ready and listening.
@@ -85,38 +82,28 @@ channel.onReady(function() {
     });
 });
 ```
-
-First we initialize a connection to the map. We need to pass `connect()` a reference to the map iframe and give it the domain where the map was published from (the `IFRAME_DOMAIN` must match to the source domain in the iframe). We get a reference to `channel` from the `connect()` that we can use for interacting with the map. Once the connection is made the `onReady()` callback is called on the `channel`.
-
-You can query information about the map "environment" by calling `channel.getInfo()`. Most of the operations on RPC are asynchronous so we will be using callback-functions that get called once we have the response. The metadata we get from `getInfo()` includes the coordinate reference system used by the map that we should use when we interact with the map and things like version of the Oskari instance that we are interacting with. 
-
-The Oskari version tells us what version of the API is running on the map and is directly linked to the version of API documentation in:
-
-- https://oskari.org/api/requests#1.52.0
-- https://oskari.org/api/events#1.52.0
-
-Not all of the functionality is available through RPC so there's a filter on the API documentation to just show requests and events that's relevant to RPC (The RPC only checkbox).
-
-Now when you run the app you should see the message `Map is now listening' on developer console (opened by F12 on the keyboard). To this without the developer console we can add a snippet that tells us the coordinates of a clicked location:
-
-```javascript
+Then we test the RPC-functionality using MapClickedEvent to cause alert that shows the clicked coordinates and coordinate system.
+```html
 channel.handleEvent('MapClickedEvent', function(data) {
   alert('Map clicked! At ' + data.lon + ', ' + data.lat + ' (' + metadata.srs + ')');
 });
 ```
 
-Now that we are familiar with the basic setup let's start building our own map application showing attractions of Bucharest!
+Now that we are familiar with the basic setup, let's start building our own map application showing attractions of Bucharest!
 
 ## Adding RPC functionality
 
-1. Add attractions to map
+1. Publish a map
+Publish a world-wide map from the https://demo.oskari.org/. 
 
-A geojson including five attractions in Bucharest can be found in the file named `poi.json` in the CodePen project. There is also a helper function that reads the file and returns a Promise-object containing the features (`HELPER.getFeatures()`).
+2. Add map to the CodePen html template
+Copy the iframe code and replace the existing one in the CodePen html template with this new one
 
-Let's use the RPC request `AddFeaturesToMapRequest` to add the attractions on the map. Open the `scripts/index.js` file on CodePen and add this snippet to it:
+3. Add attractions to map
+- The geojson including five attractions in Bucharest is named as poi.json as can be found ready in project
+- Let's use the RPC request *AddFeaturesToMapRequest* to add the attractions to map
 
-```javascript
-const LAYER_ID = 'attractions';
+```html
 HELPER.getFeatures().then(function(geojson) {
   channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [geojson, {
     layerId: LAYER_ID,
@@ -126,28 +113,14 @@ HELPER.getFeatures().then(function(geojson) {
   alert(err);
 });
 ```
-Now we can see the attractions on a map but it doesn't give us very much information of them. Let's add a sidebar for showing the names and other information of attractions.
+Now we can see the attractions on a map, but it doesn't give us very much information of them. Let's make sidebar for showing the names and other information of attractions.
 
-2. List attraction to side panel
+4. List attraction to side panel
+We create the sidebar for listing the attractions on a map. Each attraction will be list in it's own collapsible panel so that the information can be seen by clicking the name of the attraction.
 
-The template already includes a navigation element as a placeholder for the sidebar. We can modify the CSS a bit to show it. Open `styles/index.scss` and modify the `left` property under `#map` from 0 to 25%:
+We add that functionality to the same function we used in previous step. After this the function will be as follows:
 
-```css
-#map { 
-  /* Map element placement */
-  ...
-  left: 25%;
-  ...
-} 
-```
-
-After this the map doesn't cover the whole page any more but we have a sidebar next to it with a heading 'Attractions in Bucharest'.
-
-We can modify the code where we add the attractions to the map to also add them to the sidebar on the page. There's some more helper functions to help you do this. They get you easy access to the HTML elements (`HELPER.getFeatureUI()` gives you reference to the sidebar) on the page and output HTML for a given feature (`HELPER.createFeaturePanel()`) so you don't have to type it in yourself. 
-
-Each attraction will be listed in it's own collapsible panel so that the information can be seen by clicking the name of the attraction. We add code for populating the sidebar to the same getFeatures() handling we used in previous step. After this the function will be as follows:
-
-```javascript
+```html
 HELPER.getFeatures().then(function(geojson) {
   let listUI = HELPER.getFeatureUI();
   geojson.features.forEach(feature => {
@@ -164,9 +137,7 @@ HELPER.getFeatures().then(function(geojson) {
 });
 ```
 
-After this you should see the attractions on the sidebar. Now we need to add some functionality to create the link between the side panel and the map.
-
--------
+Now we need to add some functionality to create the link between the side panel and the map.
 
 5. Create interaction between the map and the side panel
 
