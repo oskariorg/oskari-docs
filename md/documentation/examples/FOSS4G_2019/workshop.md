@@ -33,7 +33,7 @@ You should now have a CodePen project that you can edit with files:
 
 Note! If you have some webserver running on your laptop you can just as easily use your favorite editor for creating this. Just run the code on your computer if you have an environment to serve static files for a browser (files opened without a server might not work properly).
 
-## Adding the map
+## Adding the map aka "It's not easy being green"
 
 1. Open https://demo.oskari.org
 2. Log in using credentials user/user
@@ -48,7 +48,7 @@ Note! If you have some webserver running on your laptop you can just as easily u
 <iframe src="https://demo.oskari.org/?lang=en&uuid=93235644-944d-466c-85c0-46945f75ff33" allow="geolocation" style="border: none; width: 100%; height: 100%;"></iframe>
 ```
 6. Open `index.html` in your CodePen project and replace `<div id="map"></div>` with the iframe.
-7. Add `id="map"` on the `iframe` tag so our styles affect it
+7. Add `id="map"` on the `iframe` tag so our styles (in `styles/index.scss`) affect it
 
 ## First contact
 
@@ -61,7 +61,7 @@ Add the script tag in `index.html` next to the other script tags where it says:
 <script src="https://oskari.org/js/rpc/rpc-client.min.js"></script>
 ```
 
-In production apps we recommend using the library fromt official repositories:
+In production apps we recommend using the library from official repositories:
 
 - https://www.npmjs.com/package/oskari-rpc
 - https://github.com/oskariorg/rpc-client
@@ -107,9 +107,9 @@ channel.handleEvent('MapClickedEvent', function(data) {
 
 Now that we are familiar with the basic setup let's start building our own map application showing attractions of Bucharest!
 
-## Adding RPC functionality
+You can remove the snippet with `MapClickedEvent` from the project as we don't need that after testing everything was ok.
 
-1. Add attractions to map
+## Add attractions to map
 
 A geojson including five attractions in Bucharest can be found in the file named `poi.json` in the CodePen project. There is also a helper function that reads the file and returns a Promise-object containing the features (`HELPER.getFeatures()`).
 
@@ -126,11 +126,13 @@ HELPER.getFeatures().then(function(geojson) {
   alert(err);
 });
 ```
-Now we can see the attractions on a map but it doesn't give us very much information of them. Let's add a sidebar for showing the names and other information of attractions.
+We use another helper (`STYLES`) here for shortening the code and using predefined styles for the map. You can find the style definition in `scripts/styles.js`. You can find out the styling options here: https://www.oskari.org/documentation/examples/oskari-style
 
-2. List attraction to side panel
+Now we can see the attractions on a map but it doesn't give us very much information of them. Let's add a side panel for showing the names and other information of attractions.
 
-The template already includes a navigation element as a placeholder for the sidebar. We can modify the CSS a bit to show it. Open `styles/index.scss` and modify the `left` property under `#map` from 0 to 25%:
+## Adding a side panel
+
+The template already includes a navigation element as a placeholder for the side panel. We can modify the CSS a bit to show it. Open `styles/index.scss` and modify the `left` property under `#map` from 0 to 25%:
 
 ```css
 #map { 
@@ -141,112 +143,147 @@ The template already includes a navigation element as a placeholder for the side
 } 
 ```
 
-After this the map doesn't cover the whole page any more but we have a sidebar next to it with a heading 'Attractions in Bucharest'.
+After this the map doesn't cover the whole page any more and we have a side panel next to it with a heading 'Attractions in Bucharest'.
 
-We can modify the code where we add the attractions to the map to also add them to the sidebar on the page. There's some more helper functions to help you do this. They get you easy access to the HTML elements (`HELPER.getFeatureUI()` gives you reference to the sidebar) on the page and output HTML for a given feature (`HELPER.createFeaturePanel()`) so you don't have to type it in yourself. 
+## List attractions on side panel
 
-Each attraction will be listed in it's own collapsible panel so that the information can be seen by clicking the name of the attraction. We add code for populating the sidebar to the same getFeatures() handling we used in previous step. After this the function will be as follows:
+We can modify the code where we added attractions to the map (in `scripts/index.js`) to also add them to the side panel on the page. There's some more helper functions to help you with this. They get you easy access to the HTML elements (`HELPER.getFeatureUI()` gives you reference to the side panel) on the page and output HTML for a given feature (`HELPER.createFeaturePanel()`) so you don't have to type it in yourself. 
+
+Each attraction will be listed in it's own collapsible panel so that the information can be seen by clicking the name of the attraction. We add code for populating the side panel to the same getFeatures() handling we used in previous step. After this the function will be as follows:
 
 ```javascript
 HELPER.getFeatures().then(function(geojson) {
   let listUI = HELPER.getFeatureUI();
+  // add attractions to side panel
   geojson.features.forEach(feature => {
     const panel = HELPER.createFeaturePanel(feature);
     listUI.append(panel);
   });
-  
+  // add attractions to map
   channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [geojson, {
     layerId: LAYER_ID,
     featureStyle: STYLES.normal
   }]);
 }).catch(function (err) {
+  // this is an error handler in case of network error
   alert(err);
 });
 ```
 
-After this you should see the attractions on the sidebar. Now we need to add some functionality to create the link between the side panel and the map.
+After this you should see the attractions on the side panel. Now we need to add some functionality to create the link between the side panel and the map.
 
--------
+## Highlight attraction on map
 
-5. Create interaction between the map and the side panel
+Next we will be adding interaction between the side panel and the map. We want to highlight features on the map when they are clicked on the panel. Feature styles can be updated  using the same request as adding features (`AddFeaturesToMapRequest`) but giving a filter object matching feature properties that is used to identify feature(s) to be updated and the updated style. Here we use id to select a single feature as we only want to change the style of one feature.
 
-Next we want to highlight features on a map while they are clicked on the sidebar menu. Features styles can be updated by using the same request when adding features (addFeaturesToMapRequest) but giving the feature attributes and the wanted style.
+Let's add a helper function in `scripts/index.js` to update a style of a feature by id:
 
-Let's make the functions featureClicked and setFeatureStyle which handle the feature click and highlight the clicked feature.
+```javascript
+function setFeatureStyle (id, style) {
+  channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [{ 'id': id }, {
+      layerId: LAYER_ID,
+      featureStyle: style
+  }]);
+}
+```
 
-```html
+Now let's modify the code that adds attractions to the UI and add a click listener on each  attraction panel to update the style of the matching feature:
+
+```javascript
+HELPER.getFeatures().then(function(geojson) {
+  let listUI = HELPER.getFeatureUI();
+  // add attractions to side panel
+  geojson.features.forEach(feature => {
+    const panel = HELPER.createFeaturePanel(feature);
+
+    // on click -> update feature style
+    panel.on('click', () => setFeatureStyle(feature.properties.id, STYLES.selected));
+
+    listUI.append(panel);
+  });
+  // add attractions to map
+  channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [geojson, {
+    layerId: LAYER_ID,
+    featureStyle: STYLES.normal
+  }]);
+}).catch(function (err) {
+  // this is an error handler in case of network error
+  alert(err);
+});
+```
+
+After this the attractions on map are highlighted when clicked on the side panel. There's a problem though. The previously highlighted feature is not reset when another is clicked so you will eventually end up with all the features having the highlighted style.
+
+Let's add some more code in `scripts/index.js` to fix this:
+
+```javascript
 var selectedFeature = null;
-function featureClicked(id, scroll) {
-  if(id == selectedFeature) {
+
+function featureClicked (id) {
+  if (id == selectedFeature) {
     return;
   }
   if (selectedFeature) {
     // reset style on previously selected
     setFeatureStyle(selectedFeature, STYLES.normal);
   }
+  // update the selected feature and highlight the feature
   selectedFeature = id;
   setFeatureStyle(id, STYLES.selected);
 }
-
-function setFeatureStyle(id, style) {
-  channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [{ 'id': id }, {
-      featureStyle: style,
-      layerId: LAYER_ID 
-  }]);
-}
 ```
 
-Now we need to listen panel click and react to them. We add the click listener to the same function used to render the sidebar. After that the function looks as follows:
+Now let's modify the `click` handler on the features loop to use the new function instead of calling `setFeatureStyle()`:
 
-```html
-HELPER.getFeatures().then(function(geojson) {
-  let listUI = HELPER.getFeatureUI();
-  geojson.features.forEach(feature => {
-    const panel = HELPER.createFeaturePanel(feature);
-    panel.on('click', () => featureClicked(feature.properties.id, false));
-    listUI.append(panel);
-  });
-  
-  channel.postRequest('MapModulePlugin.AddFeaturesToMapRequest', [geojson, {
-    layerId: LAYER_ID,
-    featureStyle: STYLES.normal
-  }]);
-}).catch(function (err) {
-  alert(err);
-});
+```javascript
+    // on click -> update feature style
+    panel.on('click', () => featureClicked(feature.properties.id));
 ```
-Now we know where the attractions are on a map, but what if we want to know which feature on a map is which attraction? We need to listen feature clicks on a map and highlight right attraction on a sidebar.
 
-6. Catch feature clicks and add functionality
+Now the style of the previously selected feature is reset before new selection is highlighted.
 
-When feature is clicked the *featureEvent* is sent with the parameter "operation: click". The event includes the clicked feature. Let's listen to featureEvent and hightlight the name of the clicked feature from the sidebar.
+Now we know where the attractions are on map but what if we want to know which feature on the map is which attraction? We need to react to feature clicks on the map and highlight the matching attraction on the side panel.
 
-```html
+## Catching clicks
+
+When a feature is clicked on the map a `FeatureEvent` is triggered. It is also triggered when a feature is added or removed but we want to focus on clicks and the event has an `operation` property to indicate what actually happened. The event also includes any features that were "hit" by the click. Let's listen to `FeatureEvent` and highlight the name of the clicked feature from the side panel.
+
+This snippet is added to `scripts/index.js`:
+
+```javascript
 channel.handleEvent('FeatureEvent', function(data) {
   if (data.operation !== 'click') {
+    // we are not interested in features being added or removed
+    // so skip if not clicked
     return;
   }
-  // just the attractions added on default vector layer
+  // filter out features that are not on our vector layer
+  // and pick the id from attractions
   let clickedAttractions = data.features
     .filter(feat => feat.layerId === LAYER_ID)
     .map(feat => feat.geojson.features[0].properties.id);
+
+  // if we hit one or more attractions -> select the first one
   if (clickedAttractions.length) {
-    featureClicked(clickedAttractions[0], true);
+    featureClicked(clickedAttractions[0]);
   }
 });
 ```
-We use the same featureClicked function as before but add one line there:
+We use the same `featureClicked()` function as before but add one line `HELPER.highlightMenu(id)`:
 
-```html
-HELPER.highlightMenu(id, scroll);
+```javascript
+function featureClicked(id) {
+  if (id == selectedFeature) {
+    return;
+  }
+  HELPER.highlightMenu(id);
+  ... the rest of the function...
+}
 ```
-The function highlightMenu is given us allready in helper functions and highlights the sidebar attraction name for us.
+The function `highlightMenu()` highlights the attraction on the side panel and is part of the helper functions as it's just HTML handling which is not the focus of this workshop. By using the same function we get the benefit of not needing to care if the feature was clicked on the map or on the menu and can just do the stuff that should happen if an attraction is selected by any means.
 
-Now we get the information by clicking the features, but next we wan't to get information by hovering the them.
+Our app is almost ready now. We have attractions on the side panel and on the map and we get the information about them no matter how we select them. Next we make it easier to see what the feature on the map is by hovering on it.
 
-6. Add hover functionality
+## Hovering like there's no tomorrow
 
-
-
-
-
+TODO:  the rest
