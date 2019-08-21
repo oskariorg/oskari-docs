@@ -75,9 +75,9 @@ const IFRAME_DOMAIN = 'https://demo.oskari.org';
 const MAP_EL = document.getElementById('map');
 const channel = OskariRPC.connect(MAP_EL, IFRAME_DOMAIN);
 var metadata;
-channel.onReady(function() {
+channel.onReady(function (info) {
     //channel is now ready and listening.
-    channel.log('Map is now listening');
+    channel.log('Map is now listening', info);
     // getInfo can be used to get the current Oskari version
     channel.getInfo(function(oskariInfo) {
        channel.log('Current Oskari-instance reports version as: ', oskariInfo);
@@ -280,10 +280,51 @@ function featureClicked(id) {
   ... the rest of the function...
 }
 ```
-The function `highlightMenu()` highlights the attraction on the side panel and is part of the helper functions as it's just HTML handling which is not the focus of this workshop. By using the same function we get the benefit of not needing to care if the feature was clicked on the map or on the menu and can just do the stuff that should happen if an attraction is selected by any means.
+The `highlightMenu()` function highlights the attraction on the side panel and is part of the helper functions as it's just HTML handling which is not the focus of this workshop. By using the same function we get the benefit of not needing to care if the feature was clicked on the map or on the menu and can just do the stuff that should happen if an attraction is selected by any means.
 
 Our app is almost ready now. We have attractions on the side panel and on the map and we get the information about them no matter how we select them. Next we make it easier to see what the feature on the map is by hovering on it.
 
 ## Hovering like there's no tomorrow
 
-TODO:  the rest
+To make it easier to identify attractions on the map we are going to show the name of the attraction when the mouse cursor is on top of it. For getting a hover style on the map we need to initialize the layer we are using with `VectorLayerRequest`.
+
+Modify the callback for `channel.onReady()` in `scripts/index.js` by adding this to the end of the function:
+
+```javascript
+channel.onReady(function () {
+    // there can be some code at the start of the function that is mostly logging
+    // you can remove it or leave it and add this at the end:
+
+    // initialize layer to get hover style on the layer
+    channel.postRequest('VectorLayerRequest', [{ 
+      layerId: LAYER_ID,
+      hover: STYLES.hover
+    }]);
+});
+```
+
+Now you should see a small popup next to an attraction when you move your mouse on top of one.
+
+## Thank you!!
+
+Sources for this workshop: https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2019
+
+Additional resources for pushing forward:
+
+- https://oskari.org/
+- https://oskari.org/examples/rpc-api/rpc_example.html
+- https://oskari.org/api/requests
+- https://oskari.org/api/events
+- https://www.oskari.org/documentation/examples/oskari-style
+- https://github.com/oskariorg
+- https://twitter.com/oskari_org
+- https://gitter.im/oskariorg/chat
+- Mailing list: Oskari-user@lists.osgeo.org
+ 
+ ## Disclaimers and things to look out for
+
+ Note that we will be erasing the database on demo.oskari.org periodically so the embedded maps published today might not be there tomorrow. You can setup your own Oskari instance by following the instructions on https://oskari.org.
+
+If you want to use React when building an RPC-based app we have an example of such https://github.com/oskariorg/rpc-client/tree/master/examples/react
+
+ You can follow changes between versions that _might_ break an RPC-based application by checking https://github.com/oskariorg/oskari-frontend/blob/master/api/CHANGELOG.md (also visible as API-documention root). To see the Oskari version of a instance you can use  `channel.getInfo()` in RPC. It's wise to trigger an update email in your app if the expected version changes so you can check that your app wasn't broken by an Oskari version update on the instance you have published your map from. We try to maintain backwards compatibility within reason but can't affect when or how a given Oskari instance is updated.
