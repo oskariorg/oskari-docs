@@ -18,7 +18,7 @@ In this workshop we use CodePen for the development so you only need a browser (
 
 As an example and a starting point the template has a full screen placeholder for a map that is lime green. The template also includes helper scripts that will let us skip some of the coding that is not related to Oskari.
 
-You can preview a finished product of what we will be creating here: https://codepen.io/zakarfin/project/editor/ZdNWjV#
+You can preview a finished product of what we will be creating here: https://codepen.io/zakarfin/project/editor/ZdNWjV# and the sources are also available in [GitHub](https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2019).
 
 ## First look
 
