@@ -55,3 +55,137 @@ Definition/example:
     }
 }
 ```
+Optional style examples:
+
+```
+"optionalStyles":[{
+    "property": {
+        "value": 50,
+        "key": "naiset_p",
+        "operator": "greater" // greater, greaterEqual, less, lessEqual, like, equal, between, betweenEqual
+    },
+    "fill": {
+        "color": "#FF0000"
+    }
+    }, {
+    "property": {
+        "value": [0,50],
+        "key": "naiset_p",
+        "operator": "between"
+    },
+    "fill": {
+        "color": "#0000FF"
+    }
+}];
+```
+
+AND, OR, NOT
+values in array (NOT single value).
+```
+"optionalStyles":[{
+    "property": {
+        "value": ["linna", "kylä", "järvi"],
+        "key": "nimi",
+        "logical": "OR", // AND, OR, NOT
+        "operator": "like" // greaterEqual, less, lessEqual, like, equal, between, betweenEqual
+    },
+    "fill": {
+        "color": "#0000FF"
+    }
+```
+
+Like in WFS feature filtering
+```
+"optionalStyles":[{
+    "filter": [
+        {
+            "caseSensitive":false,
+            "attribute":"kkonn",
+            "operator":"=",
+            "value":"5"
+        }, {
+            "boolean":"AND"
+        }, {
+            "caseSensitive":false,
+            "attribute":"onntyyppi",
+            "operator":"=",
+            "value":"3"
+        }, {
+            "boolean":"OR"
+        }, {
+            "caseSensitive":false,
+            "attribute":"onntyyppi",
+            "operator":">",
+            "value":"7"
+        }, {
+            "boolean":"AND"
+        }, {
+            "caseSensitive":false,
+            "attribute":"vvonn",
+            "operator":"=",
+            "value":"5"
+        }
+    ],
+    "fill": {
+        "color": "#FF0000"
+    }
+}];
+```
+
+GeoStyler:
+```
+"filter": [
+    "&&",
+    [
+        "*=",
+        "nimi",
+        "linna"
+    ],
+    [
+        "||",
+        [
+        "==",
+        "maara",
+        "1"
+        ],
+        [
+        "==",
+        "maara",
+        "10"
+        ]
+    ]
+],
+"symbolizers": []
+```
+
+How should multi optional styles work:
+- Should we take first matching style or loop all and use last styling
+
+```
+"features" [
+    {
+        "name": "Helsinki",
+        "population": "5000000"
+    }
+];
+
+optionalStyles":[{
+    "property": {
+        "value": "Helsinki",
+        "key": "name"
+    },
+    "fill": {
+        "color": "#0000FF"
+    }
+}, {
+     "property": {
+        "value": 5000000,
+        "key": "population"
+    },
+    "fill": {
+        "area": {
+            "pattern": 3
+        }
+    }
+}
+```
