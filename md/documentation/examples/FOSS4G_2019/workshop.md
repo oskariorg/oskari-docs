@@ -2,7 +2,7 @@
 
 This document guides you through the Oskari workshop describing the steps needed to embed a map to a webpage and control it using Oskari RPC functionality. In this workshop we will:
 
-1. publish a map from https://demo.oskari.org
+1. publish a map from https://demo.oskari.org or other Oskari instance
 2. embed the map to a webpage
 3. add attractions in Bucharest to the map
 4. add interaction between the map and the page to get information about the attractions.
@@ -16,14 +16,18 @@ In this workshop we use CodePen for the development so you only need a browser (
 
 As an example and a starting point the template has a full screen placeholder for a map that is lime green. The template also includes helper scripts that will let us skip some of the coding that is not related to Oskari.
 
-You can preview a finished product of what we will be creating here: https://codepen.io/zakarfin/project/editor/ZdNWjV# and the sources are also available in [GitHub](https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2019).
+You can preview a finished product of what we will be creating here: 
+https://codepen.io/zakarfin/project/editor/ZdNWjV# (created with demo.oskari.org) 
+https://codepen.io/sannajokela/project/full/ZLxOpQ (created with www.paikkatietoikkuna.fi)
+
+and the sources are also available in [GitHub](https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2019).
 
 ## First look
 
 You should now have a CodePen project that you can edit with files:
 
 - index.html
-- poi.json
+- poi.json ==> this file contains sights from Bucharest, you can create your own POI data e.g. with QGIS (check the used coordinate system and be sure it is the same as the embedded map from Oskari)
 - styles/index.scss
 - scripts/helper.js
 - scripts/styles.js
@@ -33,7 +37,7 @@ Note! If you have some webserver running on your laptop you can just as easily u
 
 ## Adding the map aka "It's not easy being green"
 
-1. Open https://demo.oskari.org
+1. Open https://demo.oskari.org or other Oskari instance that allows embedded map functionality
 2. Log in using credentials user/user
 3. Click 'MAP PUBLISHING'
 4. Insert details about the map:
@@ -66,8 +70,8 @@ In production apps we recommend using the library from official repositories:
 
 That's the html code so far. Let's take a closer look at the JavaScript.
 
-Open the `scripts/index.js` file in the editor and add the following:
-
+Open the `scripts/index.js` file in the editor and add the following (check that the iframe domain is correct if you are using another Oskari instance than demo.oskari.org):
+ 
 ```javascript
 const IFRAME_DOMAIN = 'https://demo.oskari.org';
 const MAP_EL = document.getElementById('map');
