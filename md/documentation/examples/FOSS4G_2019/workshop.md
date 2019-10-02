@@ -51,6 +51,7 @@ Note! If you have some webserver running on your laptop you can just as easily u
 ```
 6. Open `index.html` in your CodePen project and replace `<div id="map"></div>` with the iframe.
 7. Add `id="map"` on the `iframe` tag so our styles (in `styles/index.scss`) affect it
+8. You can also change things like the `<title>` and texts on the page under `<body>` on `index.html` if you want to customize the page further.
 
 ## First contact
 
