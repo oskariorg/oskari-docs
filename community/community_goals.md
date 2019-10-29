@@ -15,13 +15,13 @@ Develop open source Oskari sofware into more universal, versatile and user frien
 
 ## Community Tasks
 
-- Familiarize your self with the Oskari procedure of [how to contribute](http://oskari.org/documentation/development/how-to-contribute).
-- Find support for software development from other members of the community. See [communication channels](http://oskari.org/about)
+- Familiarize your self with the Oskari procedure of [how to contribute](/documentation/development/how-to-contribute).
+- Find support for software development from other members of the community. See [communication channels](/about)
 - Discuss about the software architecture and develop the software.
 - Evaluate the possible add-on software and technologies
 - Create bug reports or improvement proposals to [GitHub](https://github.com/oskariorg).
-- Document the developed features and code properly and make sure the PSC receives information about the developed issues (see also [Reporting issues & documenting](http://oskari.org/documentation/development/issuetypes))
-- Publish the developed results as open source according to licencing provided by [OSGeo Foundation](http://www.osgeo.org/) and [Oskari](http://oskari.org/documentation/development/license)
+- Document the developed features and code properly and make sure the PSC receives information about the developed issues (see also [Reporting issues & documenting](/documentation/development/issuetypes))
+- Publish the developed results as open source according to licencing provided by [OSGeo Foundation](http://www.osgeo.org/) and [Oskari](/documentation/development/license)
 
 ##Community Roles
 
