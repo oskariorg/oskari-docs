@@ -43,7 +43,7 @@ These internal Oskari bundles are at the moment only built for our needs and the
 a new Oskari release is available. The special bundles are developed following the architectural principles of Oskari, 
 so the updates cascade fairly easily."
 
-<img src="../../public/images/HSY_pipelinetool.PNG" width="850"/>
+<img src="/images/HSY_pipelinetool.PNG" width="850"/>
 
 *The Pipeline tool is developed specially for HSYs internal needs.*
 
