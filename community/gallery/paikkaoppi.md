@@ -6,7 +6,7 @@ Now its use has spread also to other educational levels.
 With PaikkaOppi the school pupils can learn how to use spatial information in different school subjects. 
 Now it has been freshened and is using a new platform.
 
-<img src="../../public/images/paikkaoppi.png"/>
+<img src="/images/paikkaoppi.png"/>
 
 The new PaikkaOppi uses now an embedded map published from the Finnish national geoportal called [Paikkatietoikkuna](www.paikkatietoikkuna.fi). 
 The embedded map has been integrated to the user management of the educational boards in Finnish municipalities. 
