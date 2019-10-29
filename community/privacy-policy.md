@@ -1,6 +1,6 @@
 ## Who are we?
 Our website address is https://oskari.org. The web page is ment for informing Oskari Community about Oskari related development and news. 
-The pages are combiled from GitHub. See also [GitHub pricacy policy](https://help.github.com/en/articles/github-privacy-statement).
+The pages are combiled from GitHub. See also [GitHub privacy policy](https://help.github.com/en/articles/github-privacy-statement).
 
 ## What other information do we gather in Oskari.org site
 
