@@ -3,7 +3,7 @@
 Finnish public sector organisations and actors performing official public regulatory roles have the possibility
 to utilize [Suomi.fi - maps](http://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat) service for free. 
 
-<img src="/images/suomifi.PNG" width="850"/>
+<img src="images/suomifi.png" width="850"/>
 
 This provides for example the Finnish municipalities the possibility to create 
 embedded maps to their own websites and gain a stack of high quality data at the same time. 
@@ -12,6 +12,6 @@ part of improved services for the public. The service provides also a possibilit
 With Oskari APi (RPC) it is also possible to tailor the Suomi.fi -maps and apply own visual look or utilize own databases. 
 One example of this is the [fishing restrictions service](https://kalastusrajoitus.fi/#/kalastusrajoitus).
 
-<img src="/images/kalastusrajoitus.PNG" width="850"/>
+<img src="images/kalastusrajoitus.png" width="850"/>
 
 The Population Register Centre in Finland is responsible for the development of Suomi.fi -maps together with the National Land Survey of Finland. 
