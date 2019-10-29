@@ -4,7 +4,7 @@ This is a short story how Oskari was born.
 In late 2000s the National Land Survey of Finland started to draft ideas for national geoportal in order to full fill 
 Eu's INSPIRE directives and other national GIS requirements. 
 
-<img src="../../public/images/pt_ikkuna.PNG"/>
+<img src="/images/pt_ikkuna.PNG"/>
 
 And they went open source. Hence the first baby steps towards creating Oskari were taken.
 
