@@ -4,7 +4,7 @@ City of Tampere is one of the most long term users of Oskari. [City of Tampere m
 is the public view to the information the city provides to its citizens but Oskari is also in internal use with the city officials. 
 The map service is basic Oskari implementation excluding some graphical elements.
 
-<img src="images/tampere.png"/>
+<img src="/images/gallery/tampere.png"/>
 
 ### Providing the right users the right data
 One of the interesting things in Tampere case is that the city official's user IDs have been incorporated within the Oskari installation 

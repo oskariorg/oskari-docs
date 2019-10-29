@@ -3,7 +3,7 @@
 Service points of [The Social Insurance Institution of Finland (Kela)](https://www.kela.fi/web/en) can now be observed with a new [web map service](https://www.kela.fi/palvelupisteen-haku). 
 The map platform is provided by an Oskari based service called [Suomi.fi - maps](https://esuomi.fi/?lang=en). 
 
-<img src="images/kela.png"/>
+<img src="/images/gallery/kela.png"/>
 
 The possibility to publish embedded maps from Oskari based services enables also the creation of own tailored light weight web maps 
 using Oskari API. The embedded map can be used to retrieve information from your website or own databases. 
