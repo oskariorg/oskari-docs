@@ -38,10 +38,11 @@ Organisation | Description
 -------------| -----------
 **[CGI Finland Ltd](http://www.cgi.fi/)** | - 
 **[City of Helsinki](http://www.helsinki.fi/)** | Helsinki City is a member of Oskari Joint Development Forum. Contact for the City of Helsinki is Outi Hermans.
+**[City of Joensuu](http://www.joensuu.fi/)** | "The aim of City of Joensuu is to utilize Oskari map service as a platform for geospatial knowledge management." - Jarno Kinnunen
 **[City of Tampere](http://www.tampere.fi/)** | City of Tampere is utilizing and developing [Oskari software to internal & external use](https://kartat.tampere.fi/oskari/). Contact: Anna Mustajoki
 **[City of Turku](http://www.turku.fi/)** | City of Turku is involved in Oskari development through [Lounaistieto](https://karttapalvelu.lounaistieto.fi/) services. Contacts: Katariina Hilke (City of Turku) & Natalia Räikkönen (Regional Council of Southwest Finland)
 **[COSS association](https://coss.fi/)** | -
-**[Codento Ltd](https://codento.fi/)** | At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise.
+**[Codento Ltd](https://codento.fi/)** | "At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise."
 **[Cybercom Ltd](https://www.cybercom.com/)** | -
 **[Finnish Transport Safety Agency](https://www.trafi.fi/en)** | -
 **[Finnish Heritage Agency](http://www.nba.fi/)** | [Cultural environment information services](https://kartta.museoverkko.fi/) are using Oskari. Contact: Minna Ryyppö, Finnish Heritage Agency.
@@ -51,6 +52,7 @@ Organisation | Description
 **[Helsinki Environmental Services](https://www.hsy.fi/)** | [Helsinki Region Environment’s (HSY) Oskari map service](https://kartta.hsy.fi/) is a download service for open data. HSY uses Oskari-based platforms also in extra- and intranet environments inside the organisation. Contact members in HSY: Elina Ojanperä and Henna-Kaisa Stjerberg.
 **[Infotripla Ltd](http://www.infotripla.fi/)** |"We offer geospatial interfaces about road information, like weather stations and traffic jams, and Oskari works as a client for our data" - Juha Laakso, Infotripla Ltd
 **[Cinia Ltd](http://www.cinia.fi/)** | "Many of our software projects have map based functionalities, so it is good to have Oskari as an option!", Kimmo Alamartimo, Cinia Ltd
+**[Codento Ltd](http://www.codento.fi/)** | "At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise"
 **[Lappeenranta University of Technology](http://www.lut.fi/)** | -
 **[National Land Survey of Finland](http://www.maanmittauslaitos.fi/)** | Oskari is being used in several services and projects in National Land Survey of Finland: [Paikkatietoikkuna](http://www.paikkatietoikkuna.fi/), [Mapsite](https://asiointi.maanmittauslaitos.fi/karttapaikka/), Suomi.fi-maps, [Arctic SDI Geoportal](https://arctic-sdi.org/), ELS Showcase Application etc. Contact: Timo Aarnio.
 **[National Land Survey of Island](https://www.lmi.is/en/)** | "Oskari is used as a mapviewer and connection tool to our National Geodata Portal in relation with National Spatial Data Infrastructure and INSPIRE." - Hafliði Sigtryggur, NLS-IS Magnússon
