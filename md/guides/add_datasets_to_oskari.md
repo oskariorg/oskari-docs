@@ -14,26 +14,26 @@ You can also share your datasets to your customers or colleagues through "Map Pu
 1. Register/sign in first to your Oskari instance
 2. After signing in, there is a toolbar available where you can download your own datasets in zip-format (.shp, .mif/mid, .gpx or .kml) or you can add points, lines or areas. Import your own datasets.
 
-![Add data](/images/add_data.PNG)
+![Add data](/images/add_data.png)
 
 3. Add the name and short description and source of the datasets
 4. You can also modify the default visualization if you want
 5. The dataset can now be found from "My data" dialogue > Datasets and also from the "Map Layers" list: "Own datasets"
 
-![My data](/images/My_datasets.PNG)
+![My data](/images/My_datasets.png)
 
 ### Adding POI's, lines and areas
 
 1. Register/sign in first to your Oskari instance
 2. After signing in, there is a toolbar available where you can choose if you want to add points, lines or polygons to the map
 
-![Add data](/images/add_data.PNG)
+![Add data](/images/add_data.png)
 
 3. Click the tool you want to use and click on the map and draw as many features you want and save your places.
 4. Add description, labels and URL-links if needed. Also image-links are supported. Choose where the features are saves either by creating a new layer or choosing a suitable layer from your existing map layers.
 5. Check "My data" dialogue > Places tab, there you can see all your own place markings and also edit or delete them.
 
-![Add data](/images/My_data_dialogue.PNG)
+![Add data](/images/My_data_dialogue.png)
 
 You can also watch this video where you can see how to add datasets to the map and also how publish a map with your own data. 
 
