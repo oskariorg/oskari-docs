@@ -23,10 +23,10 @@ Rina Tammisto, Statistics Finland
 - Timo Aarnio, National Land Survey (Finland)
 - Rosa Arola (Population Register Centre of Finland)
 - Outi Hermans, City of Helsinki
-- Katariina Hilke, City of Turku
+- Harri Soini, City of Turku
 - Eeva Lehtonen, Luke
 - Jan Lindbom, Sitowise Ltd (Community member)
-- Anna Mustaoja, City of Tampere
+- Anna Mustaoja/Jussi Tahvanainen, City of Tampere
 - Markku Pitkänen/Jenni Silvennoinen , Väylä
 - Minna Ryyppö/Miikka Haimila, National Board of Antiquities (Finland)
 - Natalia Räikkönen, Regional Council of Southwest Finland
@@ -46,4 +46,4 @@ Thank you for your work and participation in Oskari Joint Development Forum work
 - Marko Kauppi, Ubigu Ltd (2018)
 - Eki Karlsson, Suomen latu ry (2017)
 - Minna Lumiluoto, Cybercom Ltd (2016)
-- Jan Lindbom, Dimenteq Ltd (2016-2017)
+- Dimenteq Ltd (2016-2017)

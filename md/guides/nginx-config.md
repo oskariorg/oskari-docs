@@ -96,6 +96,21 @@ Edit the following line to match the IP-address you wish to grant access to Geos
 
 ```
 
+#### Cross-site request forgery protection
+
+Java libraries don't support the SameSite-flag for cookies yet so we need to protect our service from session manipulation and CSRF by modifying the cookies on nginx.
+This snippet modifies the cookie Jetty gives and adds secure, httponly and samesite-flags on it. SameSite-flag means that browsers don't send for example the session cookie when requests originate from a different domain.
+
+```
+    # Oskari-server Jetty location
+    location / {
+        ...
+
+        # set all cookies to secure, httponly and samesite by modifying "path"
+        proxy_cookie_path / "/; secure; HttpOnly; SameSite=lax";
+    }
+```
+
 ## HTTPS-configuration
 
 The following enables HTTPS on the server. Add the certificates on:
@@ -117,19 +132,13 @@ or change the configuration accordingly.
     add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
     server_tokens off;
     # /ssl config
-
-    location ^~ /tiles/ {
-    	...
-    }
-
 ```
 
-### The /tiles configuration
+### Proxying requests to non-secure services
 
-Oskari-server can be configured to modify any maplayer urls to be prefixed with a value stripping the protocol part of the url.
-This requires the application server to be aware of the secure request.
+Oskari-server will proxy any map layer services that are not secure (https) to allow browsers show the map on secure domain.
+This requires the application server to be aware if the incoming request is secure. 
 In Jetty this can be accomplished by forwarding some headers to Jetty hosting oskari-map:
-
 
 ```
     location / {
@@ -141,65 +150,21 @@ In Jetty this can be accomplished by forwarding some headers to Jetty hosting os
 
 ```
 
-The Jetty must also be configured to be aware that it has a reverse-proxy. This is done by modifying `{jetty.home}/etc/jetty.xml`:
-
-
-```
-    <Call name="addConnector">
-      <Arg>
-          <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
-            <Set name="host"><Property name="jetty.host" /></Set>
-            <Set name="port"><Property name="jetty.port" default="8080"/></Set>
-            <Set name="forwarded">true</Set>
-            ...
+The Jetty must also be configured to be aware that it has a reverse-proxy. This is done by modifying `{jetty.base}/start.d/oskari.ini`:
 
 ```
-Add the `forwarded=true` setting for the connector. This allows Oskari-server to get the secure request information.
-For secure requests the maplayer urls will be prefixed by a property-value (configured in `oskari-ext.properties`, defaults to `https://`):
-
-
+# ---------------------------------------
+# Module: http-forwarded
+# Enable X-Forwarded-For headers handling
+# Needed for:
+# - Webpack frontend development
+# - forward proxy on production (for example nginx -> jetty) where the proxy is handling TLS etc
+# ---------------------------------------
+--module=http-forwarded
 ```
-	maplayer.wmsurl.secure=/tiles/
 
-```
-
-This allows you to support HTTPS for maplayers that don't support it on the mapservice.
+This enables the http-forwarded module for Jetty 9 which allows webapps like Oskari-server get additional information about the requests it receives.
+This allows Oskari to proxy requests that don't support HTTPS.
 
 **Note! This also adds a great amount of network traffic going through your server!**
-
-The final piece missing for HTTPS is configuring nginx to proxy anything starting with `/tiles` to the correct servers:
-
-
-```
-    # SSL maplayer tile proxying (optional, required for https tiles from services without https-support)
-    # requires DNS resolver configured in ../nginx.conf -> resolver a.b.c.d;
-    location ^~ /tiles/ {
-        # Restrict accesss to requests with current domain as referer - EDIT THE DOMAIN
-        if ($http_referer !~ "https://your.host.com/"){
-          return 403;
-        }
-
-        rewrite ^/tiles/(.*)$ $1 break;
-        proxy_pass http://$1$is_args$args;
-    }
-
-```
-
-You will also need to configure a DNS resolver for these requests. It's done in `/etc/nginx/nginx.conf`:
-
-```
-    # from /etc/resolv.conf to get the nameserver
-    # required for /tiles proxying when HTTPS
-    # if not using /tiles this can be removed
-    resolver 8.8.8.8;
-
-```
-
-**Note! You will want to restrict the traffic** so only legit maplayer tile requests are being passed.
-In the sample the referer-header is checked to see that it matches the site hosting Oskari. 
-Modify `your.host.com` to match the domain.
-
-
-
-
 
