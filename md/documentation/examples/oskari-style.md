@@ -61,7 +61,7 @@ The objects should have an `property` parameter to match features with.
 "optionalStyles": [{
     "property": {
         "key": "type"
-        "value": ["5", "10"]
+        "value": "5"
     }
     "fill": {
         "color": "#0000ff"
