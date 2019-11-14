@@ -52,7 +52,9 @@ Definition/example:
         "fill": {
             "color": "#ff00ff" // image fill color
         }
-    }
+    },
+    "inherit": false, // For hover. Set true if you wan't to extend original feature style.
+    "effect": "auto normal" // Requires inherit: true. Lightens or darkens original fill color. Values [darken, lighten, auto] and [minor, normal, major].
 }
 
 "optionalStyles" is an array containing style objects.
