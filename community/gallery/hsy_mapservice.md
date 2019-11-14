@@ -14,7 +14,7 @@ one open for public use, one for extranet use and one for intranet use for inter
 On top of the three services we have test services, so actually we have 6 Oskari instances to maintain. 
 The service environment contains also PostGIS database and GeoServer software which provides the GIS interfaces.
 
-### We use Oskari to create news to publi
+### We use Oskari to create news to public
 We use Oskari in quite many use cases. In the open side which you can go see at [https://kartta.hsy.fi/](https://kartta.hsy.fi/) 
 our customers have a possibility to download some of the datasets we provide, using special Oskari tool called the **Download basket**. It is a tool we developed together with other Oskari community organisations and one of the first community bundles created for Oskari. 
 Some of the datasets are also available through the open service in realtime, like air quality.
