@@ -7,7 +7,7 @@ All of the fields and objects defined here are optional in the Oskari style JSON
 Definition/example:
 
 ```
-"featureStyle/optionalStyle": {
+"featureStyle": {
     "fill": { // fill styles
         "color": "#ff00ff", // fill color
         "area": {
@@ -52,6 +52,21 @@ Definition/example:
         "fill": {
             "color": "#ff00ff" // image fill color
         }
-    }
+    },
+    "inherit": false, // For hover. Set true if you wan't to extend original feature style.
+    "effect": "auto normal" // Requires inherit: true. Lightens or darkens original fill color. Values [darken, lighten, auto] and [minor, normal, major].
 }
+
+"optionalStyles" is an array containing style objects.
+The objects should have an `property` parameter to match features with.
+
+"optionalStyles": [{
+    "property": {
+        "key": "type"
+        "value": "5"
+    }
+    "fill": {
+        "color": "#0000ff"
+    }
+}]
 ```
