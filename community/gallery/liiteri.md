@@ -8,7 +8,7 @@ GIS datasests and statistics about environmental and land use planning issues.
 It contains over 1000 statistics, hundreds of map layers, national land use plans and about 20 000 Forms for monitoring local detailed plans. 
 It also contains possibility to share workspaces.
 
-![Liiteri](/images/gallery/liiteri.png)
+<img src="/images/gallery/liiteri.png"  width="550"/>
 
 Liiteri serves especially the officials and companies working within the field of land use planning and built environment. 
 Liiteri can be used in land use planning, checking and deciding on building permissions and building allowances, 
@@ -18,14 +18,13 @@ Liiteri is also useful for students and researchers.
 Citizens can also use the service and find information about their nearby amenities or status of the land use planning in their area.
 
 ### The information service was built by tailoring Oskari
-Liiteri development started already in 2012 when there was a huge national program for "Enhancing the electronic democracy tools" (SADe). 
-During that program a map service was being developed which resulted in the born of Oskari. 
+Liiteri development started already in 2012 when there was a huge national program for "Enhancing the electronic democracy tools" (SADe). During that program a map service was being developed by the NLS-FI (later known as Oskari). 
 So it was quite natural that the software developed in the same program would be utilized also in Liiteri. 
 Also at that time the government wanted to support open source solutions in general. 
 
 <img src="/images/gallery/Liiteri_tilastot.png" width="550"/>
 
-*Liiteri utilizes Oskari's statistical tools*
+*Liiteri utilizes statistical tools in Oskari*
 
 <img src="/images/gallery/kaavahaku_liiteri.png" width="550"/>
 
