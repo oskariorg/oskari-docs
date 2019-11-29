@@ -2,9 +2,8 @@
 
 After this you will have Oskari running including
 
-- Oskari frontend code (https://github.com/oskariorg/oskari-frontend)
-- Oskari server (map functionality: https://github.com/oskariorg/oskari-server/tree/master/webapp-map)
-- Oskari transport (WFS services: https://github.com/oskariorg/oskari-server/tree/master/webapp-transport)
+- Oskari-frontend based sample-application (https://github.com/oskariorg/sample-application)
+- Oskari-server based sample webapp (https://github.com/oskariorg/sample-server-extension)
 - Geoserver with WPS-plugin and Oskari extensions (https://github.com/oskariorg/oskari-server/tree/master/geoserver-ext)
 
 ### Requirements
