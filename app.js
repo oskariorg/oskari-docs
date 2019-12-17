@@ -71,6 +71,9 @@ var apiResDir = path.join(__dirname, 'generated/api')
 app.use(asset(apiResDir));
 app.use('/apires', express.static(apiResDir));
 
+// generated jsdocs
+app.use('/jsdoc', express.static(path.join(__dirname, 'generated/api/jsdoc')));
+
 // generated db documentation
 app.use('/db', express.static(path.join(__dirname, 'generated/db')));
 

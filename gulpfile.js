@@ -92,8 +92,15 @@ function getOskariLocation() {
     return '../oskari-frontend/api/**';
 }
 
+function getOskariCoreLocation() {
+    return '../oskari-frontend/src';
+}
+
 function getApiDocLocation(version) {
     return 'generated/api/' + (version || getApiVersion());
+}
+function getJsDocLocation() {
+    return 'generated/api/jsdoc/' + getApiVersion();
 }
 
 gulp.task('oskari-api-struct', function(done) {
@@ -117,14 +124,26 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
 
     // Clean the destPath
     var destPath = getApiDocLocation();
+    var apiVersion = getApiVersion();
     var fs = require('fs');
     var index = JSON.parse(fs.readFileSync(destPath + '/api.json'));
     console.log('Creating documentation based on:', index);
     // create the docs and provide the index
     gulp.src(getOskariLocation())
-        .pipe(apiGenerator(getApiVersion(), index))
+        .pipe(apiGenerator(apiVersion, index))
         .pipe(gulp.dest(destPath));
-        console.log('api done')
+    console.log('api done');
+    console.log('Starting a child process to generate js docs.');
+    var exec = require('child_process').exec;
+    exec(`jsdoc ${getOskariCoreLocation()}/react -r -d ${getJsDocLocation()}`, function (err, stdout, stderr) {
+        if (stdout) {
+            console.log(stdout);
+        }
+        if (stderr) {
+            console.log(stderr);
+        }
+        console.log('Js docs done.');
+    });
 });
 
 
