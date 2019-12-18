@@ -92,15 +92,11 @@ function getOskariLocation() {
     return '../oskari-frontend/api/**';
 }
 
-function getOskariCoreLocation() {
-    return '../oskari-frontend/src';
-}
-
 function getApiDocLocation(version) {
     return 'generated/api/' + (version || getApiVersion());
 }
 function getJsDocLocation() {
-    return 'generated/api/jsdoc/' + getApiVersion();
+    return 'generated/jsdoc/' + getApiVersion();
 }
 
 gulp.task('oskari-api-struct', function(done) {
@@ -133,16 +129,30 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
         .pipe(apiGenerator(apiVersion, index))
         .pipe(gulp.dest(destPath));
     console.log('api done');
+
     console.log('Starting a child process to generate js docs.');
     var exec = require('child_process').exec;
-    exec(`jsdoc ${getOskariCoreLocation()}/react -r -d ${getJsDocLocation()}`, function (err, stdout, stderr) {
-        if (stdout) {
-            console.log(stdout);
+    var jsDocParams = [
+        {
+            config: 'jsdoc/core.json',
+            destination: `${getJsDocLocation()}/core`
+        }, 
+        {
+            config: 'jsdoc/oskari-ui.util.json',
+            destination: `${getJsDocLocation()}/oskari-ui/util`
         }
-        if (stderr) {
-            console.log(stderr);
-        }
-        console.log('Js docs done.');
+    ];
+    jsDocParams.forEach(params => {
+        console.log(`Generating jsDoc with config ${params.config}...`);
+        exec(`jsdoc -c ${params.config} -d ${params.destination}`, function (err, stdout, stderr) {
+            if (stdout) {
+                console.log(stdout);
+            }
+            if (stderr) {
+                console.log(stderr);
+            }
+            console.log(`${params.config} processed`);
+        });
     });
 });
 
