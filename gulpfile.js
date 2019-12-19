@@ -101,6 +101,23 @@ function getJsDocLocation() {
 function getJsDocConfigLocation() {
     return 'jsdoc';
 }
+function clearDir (directory, callback) {
+    var rimraf = require("rimraf");
+    rimraf(directory, callback);
+}
+function generateJsDocs (configPath, destination) {
+    console.log(`Generating jsDoc to ${destination}`);
+    var exec = require('child_process').exec;
+    exec(`jsdoc -c ${configPath} -d ${destination}`, function (err, stdout, stderr) {
+        if (stdout) {
+            console.log(stdout);
+        }
+        if (stderr) {
+            console.log(stderr);
+        }
+        console.log(`${configPath} processed`);
+    });
+}
 
 gulp.task('oskari-api-struct', function(done) {
     console.log('oskari-api-struct creates api.json in ' + getApiDocLocation());
@@ -134,34 +151,25 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
 
     console.log('Starting a child process to generate js docs.');
     var path = require('path');
-    var rimraf = require("rimraf");
-    var exec = require('child_process').exec;
     var jsDocConfigLocation = getJsDocConfigLocation();
-    fs.readdir(jsDocConfigLocation, (err, files) => {
+    fs.readdir(jsDocConfigLocation, function (err, files) {
         if (err) {
             console.log(err);
             return;
         }
-        console.log(JSON.stringify(files, null, 2));
-        files.forEach(file => {
+        files.forEach(function (file) {
             if (!['.js', '.json'].includes(path.extname(file))) {
                 console.log(`Filtered out jsdoc config ${file}. Only js and json config files are accepted.`);
                 return;
             }
-            const configPath = path.join(jsDocConfigLocation, file);
-            const destination = path.join(getJsDocLocation(), path.parse(file).name);
+            var configPath = path.join(jsDocConfigLocation, file);
+            var destination = path.join(getJsDocLocation(), path.parse(file).name);
             console.log(`Cleaning destination folder for ${configPath}.`);
-            rimraf(destination, () => {
-                console.log(`Generating jsDoc to ${destination}`);
-                exec(`jsdoc -c ${configPath} -d ${destination}`, function (err, stdout, stderr) {
-                    if (stdout) {
-                        console.log(stdout);
-                    }
-                    if (stderr) {
-                        console.log(stderr);
-                    }
-                    console.log(`${configPath} processed`);
-                });
+            clearDir(destination, function (err) {
+                if (err) {
+                    return;
+                }
+                generateJsDocs(configPath, destination);
             });
         })
     });
