@@ -1,0 +1,27 @@
+{
+    "plugins": [],
+    "recurseDepth": 10,
+    "source": {
+        "include": [
+            "../oskari-frontend/src/BasicBundle.js",
+            "../oskari-frontend/bundles/sample/mymodernbundle",
+            "../oskari-frontend/packages/sample/bundle/mymodernbundle/bundle.js"
+        ],
+        "exclude": ["../oskari-frontend/src/react"],
+        "includePattern": ".+\\.js(x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "sourceType": "module",
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "recurse": true,
+        "readme": "jsdoc/README.md"
+    }
+}

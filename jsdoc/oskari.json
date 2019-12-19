@@ -2,7 +2,10 @@
     "plugins": [],
     "recurseDepth": 10,
     "source": {
-        "include": ["../oskari-frontend/src/react/util", "../oskari-frontend/src/react/util/README.md"],
+        "include": [
+            "../oskari-frontend/src/BasicBundle.js"
+        ],
+        "exclude": ["../oskari-frontend/src/react"],
         "includePattern": ".+\\.js(x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
@@ -16,6 +19,7 @@
         "monospaceLinks": false
     },
     "opts": {
-        "recurse": true
+        "recurse": true,
+        "readme": "jsdoc/README.md"
     }
 }
