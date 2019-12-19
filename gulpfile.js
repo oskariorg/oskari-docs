@@ -123,13 +123,12 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
 
     // Clean the destPath
     var destPath = getApiDocLocation();
-    var apiVersion = getApiVersion();
     var fs = require('fs');
     var index = JSON.parse(fs.readFileSync(destPath + '/api.json'));
     console.log('Creating documentation based on:', index);
     // create the docs and provide the index
     gulp.src(getOskariLocation())
-        .pipe(apiGenerator(apiVersion, index))
+        .pipe(apiGenerator(getApiVersion(), index))
         .pipe(gulp.dest(destPath));
     console.log('api done');
 
