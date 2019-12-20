@@ -45,7 +45,7 @@ Organisation | Description
 **[Codento Ltd](https://codento.fi/)** | "At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise."
 **[Cybercom Ltd](https://www.cybercom.com/)** | -
 **[Finnish Transport Safety Agency](https://www.trafi.fi/en)** | -
-**[Finnish Heritage Agency](http://www.nba.fi/)** | [Cultural environment information services](https://kartta.museoverkko.fi/) are using Oskari. Contact: Minna Ryyppö, Finnish Heritage Agency.
+**[Finnish Heritage Agency](https://www.museovirasto.fi/en/)** | [Cultural environment information services](https://kartta.museoverkko.fi/) are using Oskari. Contact: Minna Ryyppö, Finnish Heritage Agency.
 **[Geological Institute of Finland](http://www.gtk.fi/)**| -
 **[Gispo Ltd](http://www.gispo.fi/)** | "We offer training on Oskari based services and facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd
 **[Gofore Ltd](http://www.gofore.com/)**|-
@@ -67,7 +67,7 @@ Organisation | Description
 **[Pulakka Lab Ltd](https://www.pulakka.com/)**| -
 **[Reaktor Ltd](http://www.reaktor.fi/)**| -
 **[Regional Authorities in Finland](http://www.avi.fi/)**| -
-**Regional Council of Southwest Finland**| -
+**[Regional Council of Southwest Finland](https://www.lounaistieto.fi/)**| -
 **SC5 Online Ltd**| -
 **[Sitowise Ltd](https://www.sitowise.com/en)**| "Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava," Jan Lindbom, Sitowise Ltd. Sitowise provides its customers the full range of built environment services from planning to expert and digital services. Sitowise has a vast experience and strong expertise with developing Oskari-based GIS solutions for different types of organisations, making Sitowise one of the global leaders with Oskari knowledge.Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava. Sitowise has been a part of the Oskari development from the beginning by acquiring Dimenteq in the beginning of February 2018.
 **[Spatineo Ltd](http://www.spatineo.com/)**| -
