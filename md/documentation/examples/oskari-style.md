@@ -181,12 +181,13 @@ Defined style options are affected featuers which type is 'road' and id is 1, 5 
 ```
 Defined style options are affected featuers which surface property is 'tarmac' (case insensitive)or type is '*path*' or speedLimit is between 50 and 80 (begin and end values are included).
 
+## RPC examples
+[Add or remove vector features](/examples/rpc-api/rpc_example.html)
+
 ## Related bundles
-[WFSVector] (/api/bundles/mapping/wfsvector)
+[WFSVector](/api/bundles/mapping/wfsvector)
 
 ## Related api
 [VectorLayerRequest](/api/requests/#unreleased/mapping/mapmodule/request/vectorlayerrequest)
-[AddFeaturesToMapRequest](/api/requests/#unreleased/mapping/mapmodule/request/addfeaturestomaprequest)
 
-## RPC examples
-[Add or remove vector features] (/examples/rpc-api/rpc_example.html)
+[AddFeaturesToMapRequest](/api/requests/#unreleased/mapping/mapmodule/request/addfeaturestomaprequest)
