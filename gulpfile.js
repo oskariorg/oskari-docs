@@ -158,7 +158,7 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
             return;
         }
         files.forEach(function (file) {
-            if (!['.js', '.json'].includes(path.extname(file))) {
+            if (['.js', '.json'].indexOf(path.extname(file)) === -1) {
                 console.log(`Filtered out jsdoc config ${file}. Only js and json config files are accepted.`);
                 return;
             }
