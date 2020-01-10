@@ -194,5 +194,22 @@ module.exports = {
     },
     root: function (req, res) {
         res.render('index');
+    },
+    checkLatestVersion: function (req, res, next) {
+        if (!req.url.includes('latest')) {
+            next();
+            return;
+        }
+        var version = apidocs.getLatestVersion();
+        if (!version) {
+            console.log('version not found');
+            res.send(404);
+            return;
+        }
+        var url = req.url.replace(/\/latest\//, `/${version}/`);
+        console.log('redirecting to ' + url)
+        req.url = url;
+        next();
+        return;
     }
 };
