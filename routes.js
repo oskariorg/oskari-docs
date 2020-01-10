@@ -196,7 +196,7 @@ module.exports = {
         res.render('index');
     },
     checkLatestVersion: function (req, res, next) {
-        if (!req.url.includes('latest')) {
+        if (req.url.indexOf('latest') === -1) {
             next();
             return;
         }
