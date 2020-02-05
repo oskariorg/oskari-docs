@@ -30,7 +30,7 @@ Organisation | Member | Logo | Info
 [Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="100"/> | 
 [Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/) | **Eeva Lehtonen** |  <img src="/images/logo/luke.jpg" width="100"/> | Community representative
 [National Land Survey of Finland](http://www.maanmittauslaitos.fi/) | **Timo Aarnio, Jaakko Viitala** | <img src="/images/logo/nls.png" width="100"/> |
-[Digital and population data services](https://dvv.fi/en/individuals|**Jari Suhonen**| <img src="/images/logo/vrk.jpg" width="100"/> |
+[Digital and population data services](https://dvv.fi/en/individuals|**Jari Suhonen**| <img src="/images/logo/dvv.png" width="100"/> |
 [Regional Council of Southwest Finland / Lounaistieto](https://www.lounaistieto.fi/) |**Natalia Räikkönen**|  <img src="/images/logo/vsl.png" width="100"/> | Joint membership / Lounaistieto
 [Sitowise Ltd](https://www.sitowise.com/en) | **Jan Lindbom, Minna Huovinen** |  <img src="/images/logo/sitowise.png" width="100"/> | Community representative
 [Statistics Finland](http://www.stat.fi/)|**Rina Tammisto** |  <img src="/images/logo/statistics.png" width="100"/> | 
