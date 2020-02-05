@@ -14,7 +14,7 @@ In 2020 the membership fee was 5000€/Project owner.
 
 If your organisation is willing to support JDF work, please contact Communication Coordinator (info@oskari.org).  Memos are available in [Finnish here since 2017](https://docs.google.com/document/d/12jbK_N4R3qOoUCuy6waTilBzTdire92CZzWMHLN2Gm4/edit#).
 
-### Members of JDF in 2019
+### Members of JDF in 2020
 
 **Head of Board**
 Rina Tammisto, Statistics Finland
