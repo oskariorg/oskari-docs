@@ -23,10 +23,11 @@ Rina Tammisto, Statistics Finland
 
 Organisation | Member | Logo | Info
 -------------| ----------- |----------------- | ----------
-[Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba_logo.png" width="100"/> | 
 [City of Helsinki](http://www.helsinki.fi/)| **Outi Hermans**| <img src="/images/logo/hki.png" width="100"/> |
 [City of Tampere](http://www.tampere.fi/)| **Anna Mustajoki, Jussi Tahvanainen** |  <img src="/images/logo/tre.png" width="100"/> | 
-[City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="100"/> | Joint membership / Lounaistieto
+[City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="100"/> | Joint membership / Lounaistieto |
+[Digital and population data services agency](https://dvv.fi/en/individuals)|**Jari Suhonen**| <img src="/images/logo/vrk.jpg" width="100"/> |
+[Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba.png" width="100"/> | 
 [Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="100"/> | 
 [Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/) | **Eeva Lehtonen** |  <img src="/images/logo/luke.jpg" width="100"/> | Community representative
 [National Land Survey of Finland](http://www.maanmittauslaitos.fi/) | **Timo Aarnio, Jaakko Viitala** | <img src="/images/logo/nls.png" width="100"/> |

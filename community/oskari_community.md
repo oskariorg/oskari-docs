@@ -40,16 +40,18 @@ Organisation | Description
 **[City of Helsinki](http://www.helsinki.fi/)** | Helsinki City is a member of Oskari Joint Development Forum. Contact for the City of Helsinki is Outi Hermans.
 **[City of Joensuu](http://www.joensuu.fi/)** | "The aim of City of Joensuu is to utilize Oskari map service as a platform for geospatial knowledge management." - Jarno Kinnunen
 **[City of Tampere](http://www.tampere.fi/)** | City of Tampere is utilizing and developing [Oskari software to internal & external use](https://kartat.tampere.fi/oskari/). Contact: Anna Mustajoki
-**[City of Turku](http://www.turku.fi/)** | City of Turku is involved in Oskari development through [Lounaistieto](https://karttapalvelu.lounaistieto.fi/) services. Contacts: Katariina Hilke (City of Turku) & Natalia Räikkönen (Regional Council of Southwest Finland)
+**[City of Turku](http://www.turku.fi/)** | City of Turku is involved in Oskari development through [Lounaistieto](https://karttapalvelu.lounaistieto.fi/) services. Contacts: Harri Soini (City of Turku) & Natalia Räikkönen (Regional Council of Southwest Finland)
 **[COSS association](https://coss.fi/)** | -
 **[Codento Ltd](https://codento.fi/)** | "At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise."
 **[Cybercom Ltd](https://www.cybercom.com/)** | -
+**[Digital and population data services agency](https://dvv.fi/en/individuals)**|Suomi.fi maps utilize Oskari for creating public sector digital services. Suomi.fi maps is provided by National Land Survey. Contact for Oskari community in Population Register Centre is Jari Suhonen.
 **[Finnish Transport Safety Agency](https://www.trafi.fi/en)** | -
-**[Finnish Heritage Agency](http://www.nba.fi/)** | [Cultural environment information services](https://kartta.museoverkko.fi/) are using Oskari. Contact: Minna Ryyppö, Finnish Heritage Agency.
+**[Finnish Heritage Agency](https://www.museovirasto.fi/en/)** | [Cultural environment information services](https://kartta.museoverkko.fi/) are using Oskari. Contact: Minna Ryyppö, Finnish Heritage Agency.
 **[Geological Institute of Finland](http://www.gtk.fi/)**| -
 **[Gispo Ltd](http://www.gispo.fi/)** | "We offer training on Oskari based services and facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd
 **[Gofore Ltd](http://www.gofore.com/)**|-
 **[Helsinki Environmental Services](https://www.hsy.fi/)** | [Helsinki Region Environment’s (HSY) Oskari map service](https://kartta.hsy.fi/) is a download service for open data. HSY uses Oskari-based platforms also in extra- and intranet environments inside the organisation. Contact members in HSY: Elina Ojanperä and Henna-Kaisa Stjerberg.
+**[Hubble Ltd](https://hubble.fi/)** |"Hubble is an agile software developer with a mission to humanize technology. We can help companies and communities in all projects that require Oskari development skills." - Jani Nurmi, Hubble Ltd
 **[Infotripla Ltd](http://www.infotripla.fi/)** |"We offer geospatial interfaces about road information, like weather stations and traffic jams, and Oskari works as a client for our data" - Juha Laakso, Infotripla Ltd
 **[Cinia Ltd](http://www.cinia.fi/)** | "Many of our software projects have map based functionalities, so it is good to have Oskari as an option!", Kimmo Alamartimo, Cinia Ltd
 **[Codento Ltd](http://www.codento.fi/)** | "At Codento we firmly believe in the power of open-source technologies such as Oskari. Our objective is to achieve cost-effective software development. We deliver maintainable software with a long and healthy life span. Codento provides both software engineering and GIS expertise"
@@ -63,11 +65,10 @@ Organisation | Description
 **[Open Knowledge Finland](http://okf.fi/about/)**| -
 **[PaikkaOppi](http://www.paikkaoppi.fi/fi/)** | "We are establishing a new version of learning environment for GIS called PaikkaOppi using Oskari based service" Virpi Hirvensalo, City of Turku
 **[Paikkatietokonsultit Ltd](http://www.paikkatietokonsultit.fi/)**| -
-**[Population Register Centre](https://verkosto.oskari.org/vaestorekisterikeskus/)**|Suomi.fi maps utilize Oskari for creating public sector digital services. Suomi.fi maps is provided by National Land Survey. Contact for Oskari community in Population Register Centre is Rosa Arola.
 **[Pulakka Lab Ltd](https://www.pulakka.com/)**| -
 **[Reaktor Ltd](http://www.reaktor.fi/)**| -
 **[Regional Authorities in Finland](http://www.avi.fi/)**| -
-**Regional Council of Southwest Finland**| -
+**[Regional Council of Southwest Finland](https://www.lounaistieto.fi/)**| -
 **SC5 Online Ltd**| -
 **[Sitowise Ltd](https://www.sitowise.com/en)**| "Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava," Jan Lindbom, Sitowise Ltd. Sitowise provides its customers the full range of built environment services from planning to expert and digital services. Sitowise has a vast experience and strong expertise with developing Oskari-based GIS solutions for different types of organisations, making Sitowise one of the global leaders with Oskari knowledge.Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava. Sitowise has been a part of the Oskari development from the beginning by acquiring Dimenteq in the beginning of February 2018.
 **[Spatineo Ltd](http://www.spatineo.com/)**| -
