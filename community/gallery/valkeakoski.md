@@ -5,7 +5,7 @@ In 2018 they started to use Oskari map platform as their internal map site and n
 [https://kartat.vlk.fi/](https://kartat.vlk.fi/). Valkeakoski is the second municipality in Finland to start using Oskari, 
 Tampere being the first.
 
-<img src="images/valkeakoski.png" width="850"/>
+<img src="/images/gallery/valkeakoski.png" width="850"/>
 
 We asked **Kai Takkunen**, GIS engineer at Valkeakoski municipality, how they ended up using Oskari and how the installation was done.
 

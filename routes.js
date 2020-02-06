@@ -1,10 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     md = require('marked'),
-    _ = require('lodash-node'),
-    http = require('http'),
-    mdDir = 'md',
-    releaseDir = path.join(__dirname, 'public', 'release');
+    _ = require('lodash-node');
 
 var apidocs = require('./lib/apidocs');
 
@@ -31,8 +28,8 @@ var getBreadCrumbOptions = function () {
     return options;
 };
 
-var readMdFile = function (req, res, mdDoc, jadePage, options) {
-    var mdDocPath = path.join(__dirname, mdDir, (mdDoc + '.md'));
+var readMdFileFromBaseDir = function (req, res, baseDir, mdDoc, jadePage, options) {
+    var mdDocPath = path.join(__dirname, baseDir, (mdDoc + '.md'));
     jadePage = jadePage || 'page';
     options = options || {};
 
@@ -66,6 +63,11 @@ var readMdFile = function (req, res, mdDoc, jadePage, options) {
         });
 
     });
+
+}
+
+var readMdFile = function (req, res, mdDoc, jadePage, options) {
+    readMdFileFromBaseDir(req, res, 'md', mdDoc, jadePage, options);
 };
 
 function getApiJson(funcName, req, res) {
@@ -187,7 +189,27 @@ module.exports = {
     md: function (req, res) {
         readMdFile(req, res, req.path);
     },
+    community: function (req, res) {
+        readMdFileFromBaseDir(req, res, 'community', req.path.substring('community'.length + 1));
+    },
     root: function (req, res) {
         res.render('index');
+    },
+    checkLatestVersion: function (req, res, next) {
+        if (req.url.indexOf('latest') === -1) {
+            next();
+            return;
+        }
+        var version = apidocs.getLatestVersion();
+        if (!version) {
+            console.log('version not found');
+            res.send(404);
+            return;
+        }
+        var url = req.url.replace(/\/latest\//, `/${version}/`);
+        console.log('redirecting to ' + url)
+        req.url = url;
+        next();
+        return;
     }
 };

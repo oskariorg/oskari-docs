@@ -1,9 +1,11 @@
+Date: 5.11.2018
+
 ## The Social Insurance Institution of Finland took Oskari API in use
 
-Service points of [The Social Insurance Institution of Finland (Kela)](https://www.kela.fi/web/en) can now be observed with a new [web map service](https://www.kela.fi/palvelupisteen-haku). 
+Service points of [The Social Insurance Institution of Finland (Kela)](https://www.kela.fi/web/en) can now be observed with a [web map service](https://www.kela.fi/palvelupisteen-haku). 
 The map platform is provided by an Oskari based service called [Suomi.fi - maps](https://esuomi.fi/?lang=en). 
 
-<img src="images/kela.png"/>
+<img src="/images/gallery/kela.png" width="500"/>
 
 The possibility to publish embedded maps from Oskari based services enables also the creation of own tailored light weight web maps 
 using Oskari API. The embedded map can be used to retrieve information from your website or own databases. 
@@ -21,7 +23,7 @@ The querying of the data was quite simple. However the database does not suit to
 The organisations in Finland still have some learning to do - how they are delivering their service point information as 
 fast as possible to the national database", continues Vuorinen.
 
-### Documentation needs improvment
+### Documentation needs improvement
 Vuorinen is relatively pleased with Suomi.fi -maps service. Compared to their last service, the current one is considerably 
 more modern and responsive and thus reachable with mobile use also. 
 
@@ -31,7 +33,7 @@ handling web maps, but there is still need for improving the documentation.
 ### Oskari API and your own datasets
 Kela service search utilizes the Oskari RPC technology a.c.a. Oskari API. 
 In this case the API is used to fetch data from Kela's json interface. 
-They download information from the national Service database to Kela's own databases couple times a day 
+They download information from the National Service database to Kela's own databases couple times a day 
 to ensure the delivery through the application as fast as possible.
 
 More information about how to get [Suomi.fi Maps in use (in Finnish)](https://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat) and 

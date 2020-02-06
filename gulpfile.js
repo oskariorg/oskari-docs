@@ -95,6 +95,29 @@ function getOskariLocation() {
 function getApiDocLocation(version) {
     return 'generated/api/' + (version || getApiVersion());
 }
+function getJsDocLocation() {
+    return 'generated/jsdoc/' + getApiVersion();
+}
+function getJsDocConfigLocation() {
+    return 'jsdoc';
+}
+function clearDir (directory, callback) {
+    var rimraf = require("rimraf");
+    rimraf(directory, callback);
+}
+function generateJsDocs (configPath, destination) {
+    console.log(`Generating jsDoc to ${destination}`);
+    var exec = require('child_process').exec;
+    exec(`jsdoc -c ${configPath} -d ${destination}`, function (err, stdout, stderr) {
+        if (stdout) {
+            console.log(stdout);
+        }
+        if (stderr) {
+            console.log(stderr);
+        }
+        console.log(`${configPath} processed`);
+    });
+}
 
 gulp.task('oskari-api-struct', function(done) {
     console.log('oskari-api-struct creates api.json in ' + getApiDocLocation());
@@ -124,7 +147,32 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
     gulp.src(getOskariLocation())
         .pipe(apiGenerator(getApiVersion(), index))
         .pipe(gulp.dest(destPath));
-        console.log('api done')
+    console.log('api done');
+
+    console.log('Starting a child process to generate js docs.');
+    var path = require('path');
+    var jsDocConfigLocation = getJsDocConfigLocation();
+    fs.readdir(jsDocConfigLocation, function (err, files) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        files.forEach(function (file) {
+            if (['.js', '.json'].indexOf(path.extname(file)) === -1) {
+                console.log(`Filtered out jsdoc config ${file}. Only js and json config files are accepted.`);
+                return;
+            }
+            var configPath = path.join(jsDocConfigLocation, file);
+            var destination = path.join(getJsDocLocation(), path.parse(file).name);
+            console.log(`Cleaning destination folder for ${configPath}.`);
+            clearDir(destination, function (err) {
+                if (err) {
+                    return;
+                }
+                generateJsDocs(configPath, destination);
+            });
+        })
+    });
 });
 
 

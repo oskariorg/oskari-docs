@@ -1,5 +1,6 @@
 var express = require('express');
 var path    = require('path');
+var fs      = require('fs');
 var asset   = require('static-asset');
 var routes  = require('./routes');
 
@@ -38,11 +39,18 @@ app.get('/documentation/backend/basic-install', function (req, res) {
 });
 // </remove this after oskari-server release>
 app.get('/documentation/*', routes.md);
+
+// FIXME: I understand that these credentials are in plain text and visible in public GitHub. The contents are not secret. 
+// The route is just meant to be used as a preview and having basic auth makes you think twice before linking from other sites.
+// Once we move the contents to intended places we can remove this route completely
+app.get('/community/*', express.basicAuth('sanna', 'preview'), routes.community);
+
 app.get('/download', routes.download);
 app.get('/examples', routes.examples);
 app.get('/about', routes.about);
 app.get('/challenge', routes.challenge);
 app.get('/oskari', routes.oskari);
+
 // new api doc end points
 app.get('/api', routes.apiSelection);
 app.get('/api/bundles', routes.bundlesPage);
@@ -64,6 +72,10 @@ app.get('/apidoc/:ver/*', function(req, res) {
 var apiResDir = path.join(__dirname, 'generated/api')
 app.use(asset(apiResDir));
 app.use('/apires', express.static(apiResDir));
+
+// generated jsdocs
+app.use('/jsdoc', routes.checkLatestVersion);
+app.use('/jsdoc', express.static(path.join(__dirname, 'generated/jsdoc')));
 
 // generated db documentation
 app.use('/db', express.static(path.join(__dirname, 'generated/db')));
