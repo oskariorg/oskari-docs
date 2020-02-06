@@ -14,7 +14,7 @@ In 2019 the membership fee was 5000€/Project owner.
 
 If your organisation is willing to support JDF work, please contact Communication Coordinator (info@oskari.org).  Memos are available in [Finnish here since 2017](https://docs.google.com/document/d/12jbK_N4R3qOoUCuy6waTilBzTdire92CZzWMHLN2Gm4/edit#).
 
-### Members of JDF in 2019
+### Members of JDF in 2020
 
 **Head of Board**
 Rina Tammisto, Statistics Finland
@@ -23,16 +23,16 @@ Rina Tammisto, Statistics Finland
 
 Organisation | Member | Logo | Info
 -------------| ----------- |----------------- | ----------
-[Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba_logo.png" width="100"/> | 
 [City of Helsinki](http://www.helsinki.fi/)| **Outi Hermans**| <img src="/images/logo/hki.png" width="100"/> |
 [City of Tampere](http://www.tampere.fi/)| **Anna Mustajoki, Jussi Tahvanainen** |  <img src="/images/logo/tre.png" width="100"/> | 
-[City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="100"/> | Joint membership / Lounaistieto
+[City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="100"/> | Joint membership / Lounaistieto |
+[Digital and population data services agency](https://dvv.fi/en/individuals)|**Jari Suhonen**| <img src="/images/logo/vrk.jpg" width="100"/> |
+[Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba.png" width="100"/> | 
 [Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="100"/> | 
 [Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/) | **Eeva Lehtonen** |  <img src="/images/logo/luke.jpg" width="100"/> | Community representative
 [National Land Survey of Finland](http://www.maanmittauslaitos.fi/) | **Timo Aarnio, Jaakko Viitala** | <img src="/images/logo/nls.png" width="100"/> |
-[Population Register Centre](https://verkosto.oskari.org/vaestorekisterikeskus/)|**Rosa Arola**| <img src="/images/logo/vrk.jpg" width="100"/> |
 [Regional Council of Southwest Finland / Lounaistieto](https://www.lounaistieto.fi/) |**Natalia Räikkönen**|  <img src="/images/logo/vsl.png" width="100"/> | Joint membership / Lounaistieto
-[Sitowise Ltd](https://www.sitowise.com/en) | **Jan Lindbom** |  <img src="/images/logo/sitowise.png" width="100"/> | Community representative
+[Sitowise Ltd](https://www.sitowise.com/en) | **Jan Lindbom, Minna Huovinen** |  <img src="/images/logo/sitowise.png" width="100"/> | Community representative
 [Statistics Finland](http://www.stat.fi/)|**Rina Tammisto** |  <img src="/images/logo/statistics.png" width="100"/> | 
 [Väylä Finnish Transport Infrastructure Agency](https://vayla.fi/web/en) | **Markku Pitkänen, Jenni Silvennoinen** |  <img src="/images/logo/vayla.png" width="100"/> | 
 
