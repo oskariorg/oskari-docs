@@ -10,7 +10,7 @@ Oskari is being developed together. Especially the members of the Joint Developm
 
 The JDF is formed by signing a contract with NLS. NLS has promised to provide technical support and counselling for the JDF Project Owners. NLS acts also as the legal entity handling financial issues for the JDF. The activities of the JDF and membership payments are decided by the members of the JDF annually.
 
-In 2019 the membership fee was 5000€/Project owner.
+In 2020 the membership fee was 5000€/Project owner.
 
 If your organisation is willing to support JDF work, please contact Communication Coordinator (info@oskari.org).  Memos are available in [Finnish here since 2017](https://docs.google.com/document/d/12jbK_N4R3qOoUCuy6waTilBzTdire92CZzWMHLN2Gm4/edit#).
 
@@ -31,6 +31,7 @@ Organisation | Member | Logo | Info
 [Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="100"/> | 
 [Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/) | **Eeva Lehtonen** |  <img src="/images/logo/luke.jpg" width="100"/> | Community representative
 [National Land Survey of Finland](http://www.maanmittauslaitos.fi/) | **Timo Aarnio, Jaakko Viitala** | <img src="/images/logo/nls.png" width="100"/> |
+[Digital and population data services](https://dvv.fi/en/individuals|**Jari Suhonen**| <img src="/images/logo/dvv.png" width="100"/> |
 [Regional Council of Southwest Finland / Lounaistieto](https://www.lounaistieto.fi/) |**Natalia Räikkönen**|  <img src="/images/logo/vsl.png" width="100"/> | Joint membership / Lounaistieto
 [Sitowise Ltd](https://www.sitowise.com/en) | **Jan Lindbom, Minna Huovinen** |  <img src="/images/logo/sitowise.png" width="100"/> | Community representative
 [Statistics Finland](http://www.stat.fi/)|**Rina Tammisto** |  <img src="/images/logo/statistics.png" width="100"/> | 
