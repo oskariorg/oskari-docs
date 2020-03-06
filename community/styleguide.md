@@ -41,4 +41,4 @@ TBD
 Preferable (https://ant.design/components/icon/)[Icon library] used in some occasions also in Oskari map services
 
 # Other guidelines
-(UI Guide from 2015)[https://oskari.org/files/Oskari-UXGuide_EN-18-11-2015.pdf] - needs updating
+[UI Guide from 2015](https://oskari.org/files/Oskari-UXGuide_EN-18-11-2015.pdf) - needs updating
