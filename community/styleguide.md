@@ -16,8 +16,6 @@ White (use preferably with black background)
 <img src="/images/oskari_logo_rgb.png" width="500"/>
 Orange with grey text
 
-Download logo file
-
 # Typography
 
 Fonts? 
