@@ -40,14 +40,14 @@ Oskari Otter is the maskot for Oskari Community. Use it with care.
 # Secondary colors 
 
 ## Yellow
-- #ffd400 (yellow) used as highlight color for icons and background for tittles within website
-- #fdf8d9 (light yellow) used as highlight color for pop-ups and flyouts and within website panel tittle background
+- #ffd400 (yellow) used as highlight color for icons and background for titles within website
+- #fdf8d9 (light yellow) used as highlight color for pop-ups and flyouts and within website panel title background
 
 ## Blue
 - #091ff (blue) used with hyperlinks and primary buttons
 
 ## Grey
-- #D9D9D9 (grey) as background for tittles within website
+- #D9D9D9 (grey) as background for titles within website
 
 - #e6e6e6 (grey) border color in tables
 - #f3f3f3 (light grey) background color for accordion element in Map Layers
