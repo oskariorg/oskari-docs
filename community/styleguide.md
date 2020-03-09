@@ -45,6 +45,7 @@ Oskari Otter is the maskot for Oskari Community. Use it with care.
 
 ## Blue
 - #0091ff (blue) used with hyperlinks and primary buttons
+- #428bca (blue) used with hyperlinks within website
 
 ## Grey
 - #D9D9D9 (grey) as background for titles within website
