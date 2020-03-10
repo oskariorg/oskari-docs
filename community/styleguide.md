@@ -10,13 +10,18 @@ This guide is based on a UI desing from 2019 and a UI guide from 2015 and Oskari
 
 # Logo
 <img src="/images/oskari_logo_black.png" width="500"/>
-Black (use preferably with with background)
+Black (use preferably with white background)
+[Black svg](/images/oskari_k.svg)
 
-<img src="/images/oskari_logo_white.png" width="500"/>
-White (use preferably with black background)
+<img src="/images/oskari_logo_white.png" width="200"/>
+White small (use preferably with black background)
+<img src="/images/oskari_logo_white_401_114.png" width="401"/>
+White (401 * 114)
+[White svg](/images/oskari_w.svg)
 
 <img src="/images/oskari_logo_rgb.png" width="500"/>
 Orange with grey text
+[RGB svg](/images/oskari_rgb.svg)
 
 # Typography
 
