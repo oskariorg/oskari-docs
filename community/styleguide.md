@@ -39,7 +39,7 @@ Oskari Otter is the maskot for Oskari Community. Use it with care.
 NEW:
 - #ffd400 (primary-color)
 - #fdf8d9 (primary-light)
-- #ecb900 (pirmary dark)
+- #ecb900 (primary dark)
 
 OLD: 
 - #ffd400 (yellow) used as highlight color for icons and background for titles within website
@@ -88,4 +88,3 @@ NEW:
 # Sources
 - [NEW Style Guide created in 2019 for UI desing purposes](https://app.zeplin.io/project/5da6cb75d547d809d5fd4c4e/styleguide/colors)
 - [UI Guide from 2015](https://oskari.org/files/Oskari-UXGuide_EN-18-11-2015.pdf)
-
