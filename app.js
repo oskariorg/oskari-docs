@@ -40,10 +40,9 @@ app.get('/documentation/backend/basic-install', function (req, res) {
 // </remove this after oskari-server release>
 app.get('/documentation/*', routes.md);
 
-// FIXME: I understand that these credentials are in plain text and visible in public GitHub. The contents are not secret. 
-// The route is just meant to be used as a preview and having basic auth makes you think twice before linking from other sites.
+// The route is just meant to be used as a preview and should not be used for linking from other sites.
 // Once we move the contents to intended places we can remove this route completely
-app.get('/community/*', express.basicAuth('sanna', 'preview'), routes.community);
+app.get('/community/*', routes.community);
 
 app.get('/download', routes.download);
 app.get('/examples', routes.examples);
