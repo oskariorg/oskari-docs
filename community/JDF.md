@@ -26,7 +26,7 @@ Organisation | Member | Logo | Info
 [City of Helsinki](http://www.helsinki.fi/)| **Outi Hermans**| <img src="/images/logo/hki.png" width="100"/> |
 [City of Tampere](http://www.tampere.fi/)| **Anna Mustajoki, Jussi Tahvanainen** |  <img src="/images/logo/tre.png" width="100"/> | 
 [City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="100"/> | Joint membership / Lounaistieto |
-[Digital and population data services agency](https://dvv.fi/en/individuals)|**Jari Suhonen**| <img src="/images/logo/vrk.jpg" width="100"/> |
+[Digital and population data services agency](https://dvv.fi/en/individuals)|**Jari Suhonen**| <img src="/images/logo/dvv.png" width="100"/> |
 [Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba.png" width="100"/> | 
 [Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="100"/> | 
 [Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/) | **Eeva Lehtonen** |  <img src="/images/logo/luke.jpg" width="100"/> | Community representative
