@@ -1,5 +1,5 @@
 
-*Date: 14.4. 2020*
+*Date: 14.4.2020*
 
 ## Arctic SDI Geportal brings support to different projections
 
