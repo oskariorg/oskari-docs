@@ -7,7 +7,7 @@ The Arctic SDI Geoportal joint effort aims at creating a spatial data infrastruc
 
 The Arctic SDI Geoportal facilitates the discovery, visualization, evaluation, download and integration of geographic data from a variety of sources for the Arctic.
 
-<img src="/images/gallery/arctic_sdi_projection.png" width="500"/>
+<img src="/images/gallery/asdi.png" width="500"/>
 
 Test for example the projection support that enables user to change projections for the map service on the fly. 
 
