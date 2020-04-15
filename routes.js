@@ -66,10 +66,6 @@ var readMdFileFromBaseDir = function (req, res, baseDir, mdDoc, jadePage, option
 
 }
 
-var readMdFile = function (req, res, mdDoc, jadePage, options) {
-    readMdFileFromBaseDir(req, res, 'md', mdDoc, jadePage, options);
-};
-
 function getApiJson(funcName, req, res) {
     var version = req.param('version');
     if(version) {
@@ -187,7 +183,7 @@ module.exports = {
         */
     },
     md: function (req, res) {
-        readMdFile(req, res, req.path);
+        readMdFileFromBaseDir(req, res, 'md', req.path);
     },
     community: function (req, res) {
         readMdFileFromBaseDir(req, res, 'community', req.path.substring('community'.length + 1));
