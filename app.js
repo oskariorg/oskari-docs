@@ -30,14 +30,6 @@ app.get('/documentation/bundles', function (req, res) {
 app.get('/documentation/bundles/*', function (req, res) {
     res.redirect('/api/bundles');
 });
-// <remove this after oskari-server release>
-app.get('/documentation/backend/basic-install', function (req, res) {
-    // As the README in oskari-server currently points to
-    // /documentation/backend/basic-install
-    // let's do a temporary redirect
-    res.redirect('/documentation/backend/overview');
-});
-// </remove this after oskari-server release>
 app.get('/documentation/*', routes.md);
 
 // The route is just meant to be used as a preview and should not be used for linking from other sites.
