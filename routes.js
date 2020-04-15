@@ -28,23 +28,47 @@ var getBreadCrumbOptions = function () {
     return options;
 };
 
-var readMdFileFromBaseDir = function (req, res, baseDir, mdDoc, jadePage, options) {
-    var mdDocPath = path.join(__dirname, baseDir, (mdDoc + '.md'));
-    jadePage = jadePage || 'page';
-    options = options || {};
+const findFilePath = function (basePath, page, callback) {
+    // try basePath + .md and basePath + /index.md
+    if (page.endsWith(path.sep)) {
+        page = page.substring(page.length -1);
+    }
+    const requestedPath = path.join(basePath, page);
+    fs.stat(requestedPath + '.md', function(ignoredErr, mdStats) {
+        // err is ok since we have a fallback coming up if this was not a direct hit
+        // found direct md file
+        if (mdStats && mdStats.isFile()) {
+            callback(null, requestedPath + '.md', mdStats);
+            return;
+        }
+        // check if the path was a dir that has index.md
+        const indexFilePath = path.join(requestedPath, 'index.md');
+        fs.stat(indexFilePath, function(ignoredErr, indexFileStats) {
+            if (indexFileStats && indexFileStats.isFile()) {
+                callback(null, indexFilePath, indexFileStats);
+                return;
+            }
+            // Custom error thrower
+            callback("Couldn't find file for " + requestedPath + ". Tried:\n - " + page + '.md\n - ' + page + '/index.md');
+        });
+    });
+};
 
-    fs.readFile(mdDocPath, 'utf8', function (err, mdFile) {
+var readMdFileFromBaseDir = function (res, baseDir, mdDoc, jadePage = 'page', options = {}) {
+    const requestedPath = path.join(__dirname, baseDir);
+    findFilePath(requestedPath, mdDoc, function (err, pathToFile, stats) {
         if (err) {
             console.error(err);
             return res.render('404');
         }
 
-        options.content = md(mdFile);
-        fs.stat(mdDocPath, function (err, stats) {
+        fs.readFile(pathToFile, 'utf8', function (err, mdFile) {
             if (err) {
                 console.error(err);
                 return res.render('404');
             }
+            // md to html
+            options.content = md(mdFile);
             if (stats && stats.mtime) {
                 options.content += '<p>Last modified: ' + stats.mtime + '</p>';
             }
@@ -61,9 +85,7 @@ var readMdFileFromBaseDir = function (req, res, baseDir, mdDoc, jadePage, option
             );
             res.render(jadePage, options);
         });
-
     });
-
 }
 
 function getApiJson(funcName, req, res) {
@@ -180,10 +202,10 @@ module.exports = {
         */
     },
     md: function (req, res) {
-        readMdFileFromBaseDir(req, res, 'md', req.path);
+        readMdFileFromBaseDir(res, 'md', req.path);
     },
     community: function (req, res) {
-        readMdFileFromBaseDir(req, res, 'community', req.path.substring('community'.length + 1));
+        readMdFileFromBaseDir(res, 'community', req.path.substring('community'.length + 1));
     },
     root: function (req, res) {
         res.render('index');
