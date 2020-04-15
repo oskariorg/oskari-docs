@@ -47,7 +47,6 @@ app.get('/community/*', routes.community);
 app.get('/download', routes.download);
 app.get('/examples', routes.examples);
 app.get('/about', routes.about);
-app.get('/challenge', routes.challenge);
 app.get('/oskari', routes.oskari);
 
 // new api doc end points

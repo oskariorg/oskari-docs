@@ -159,9 +159,6 @@ module.exports = {
     examples: function (req, res) {
         res.render('examples', getBreadCrumbOptions('examples'));
     },
-    challenge: function (req, res) {
-        res.render('challenge', getBreadCrumbOptions('challenge'));
-    },
     oskari: function (req, res) {
         res.render('oskari', getBreadCrumbOptions('oskari'));
     },
