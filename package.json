@@ -3,7 +3,7 @@
   "description": "Oskari map application framework's website",
   "version": "0.1.0",
   "dependencies": {
-    "express": "3.11.0",
+    "express": "4.17.1",
     "gulp": "3.4.0",
     "gulp-autoprefixer": "0.0.6",
     "gulp-concat": "~2.1.7",
@@ -11,13 +11,14 @@
     "gulp-minify-css": "~0.3.0",
     "gulp-uglify": "~0.1.0",
     "gulp-util": "~2.2.12",
-    "highlight.js": "~8.0.0",
-    "oskari-rpc": "2.1.0",
-    "jade": "1.1.5",
-    "lodash-node": "~2.4.1",
-    "marked": "^0.3.18",
+    "highlight.js": "9.18.1",
+    "jstransformer-markdown-it": "^2.1.0",
+    "lodash": "4.17.15",
+    "marked": "0.8.2",
     "navigo": "1.2.1",
-    "static-asset": "~0.5.2"
+    "oskari-rpc": "2.1.0",
+    "pug": "2.0.4",
+    "static-asset": "0.6.0"
   },
   "devDependencies": {
     "del": "2.2.0",
@@ -26,7 +27,6 @@
     "gulp-livereload": "1.5.0",
     "gulp-rename": "1.2.2",
     "jsdoc": "3.6.3",
-    "lodash": "4.17.13",
     "through2": "2.0.1",
     "tiny-lr": "0.0.7"
   },

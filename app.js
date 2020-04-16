@@ -13,7 +13,7 @@ var app = express();
 // Configurations
 app.set('port', port);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.set('view options', {
     layout: false
 });

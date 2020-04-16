@@ -1,30 +1,28 @@
 extends layout
 
 block main
-  :markdown
-    # About this site
+  h1 About this site
 
   div.row
     div.col-md-12
-      :markdown
-        This is a support site for the Oskari software containing technical instructions for using, configuring and developing the software. The documentation on this site assumes the reader is somewhat familiar with the basic
-        geographical protocols used extensively in GIS applications, such as
-        WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
-        JavaScript and/or Java development is required to read and understand the frontend and
-        the backend documentation, respectively.
+      p This is a support site for the Oskari software containing technical instructions for using, configuring and developing the software. The documentation on this site assumes the reader is somewhat familiar with the basic
+        | geographical protocols used extensively in GIS applications, such as
+        | WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
+        | JavaScript and/or Java development is required to read and understand the frontend and
+        | the backend documentation, respectively.
 
     div.col-md-12
     
       div.col-md-6
         div.panel.panel-info
           div.panel-heading
-            :markdown
-              ### Mailing list (<a href="mailto:Oskari-user@lists.osgeo.org">Oskari-user@lists.osgeo.org</a>)
+            :markdown-it
+              ### Mailing list ([Oskari-user@lists.osgeo.org](mailto:Oskari-user@lists.osgeo.org))
               The mailinglist is the main contact point for anything Oskari related. If you have something Oskari related on you mind ask for ideas or support from the mailing list.
               It can be used to discuss anything between developers, PSC and other interested parties of the community. 
               The mailing list is open and search engines can find the discussion threads. This helps finding solutions for already asked questions.
 
-              ### Gitter (https://gitter.im/oskariorg/chat)
+              ### Gitter ([gitter.im/oskariorg/chat](https://gitter.im/oskariorg/chat))
               For things that are more easily dealt with in a chat environment instead of emails. 
               If you need to ask something really quick, use Gitter. Remember Gitter is really good for instant messaging, but bear in mind that the history of the discussions might not be easily found. 
               So we encourage to use the mailing list. Please chat in English so everyone can participate in the discussion.
@@ -32,22 +30,22 @@ block main
               ### Twitter [@oskari.org](https://twitter.com/oskari_org)
               Follow us at Twitter to get additional exposure to the community.
 
-              ### Developer blog (https://oskariorg.github.io/)
+              ### Developer blog ([oskariorg.github.io/](https://oskariorg.github.io/))
               Developer blog contains memos from the PSC-meetings and and is the place for posts about development related experiences.
 
-              ### Meetups (https://www.meetup.com/Oskari-Your-geospatial-friend/)
+              ### Meetups ([meetup.com](https://www.meetup.com/Oskari-Your-geospatial-friend/))
               Host an Oskari event or join them. We'll try to arrange Oskari-meetups every two months - you can always ask us for a visit!
               
-              ### Newsletter(<a href="https://oskari.us17.list-manage.com/subscribe/post?u=253c109a78589154d2a011276&id=5f8a9cf6a6">Order here</a>)
+              ### Newsletter([Order here](https://oskari.us17.list-manage.com/subscribe/post?u=253c109a78589154d2a011276&id=5f8a9cf6a6))
               Oskari newsletter will be sent 4 times a year. Subscribe Oskari news to your email.
               
-              ### Oskari Community Manager (<a href="mailto:info@oskari.org">info@oskari.org</a>) 
+              ### Oskari Community Manager ([info@oskari.org](mailto:info@oskari.org)) 
               Contact Oskari Community Manager if you want to share your project or use case in these web pages or have some other Oskari Community issues on your mind. 
              
       div.col-md-6
         div.panel.panel-info
           div.panel-heading
-            :markdown
+            :markdown-it
               ### Source code
               Oskari source code and most [content for this site](https://github.com/oskariorg/oskari-docs):
 
@@ -59,11 +57,11 @@ block main
               * [Oskari frontend community modules](https://github.com/oskariorg/oskari-frontend-contrib)
 
               ### Issue tracking
-              Reporting issues for any part of Oskari: https://github.com/oskariorg/oskari-docs/issues
+              Reporting issues for any part of Oskari: [GitHub issues](https://github.com/oskariorg/oskari-docs/issues)
 
               ### Roadmap
               Features that are planned on being added by the community:
-              https://github.com/oskariorg/oskari-docs/labels/roadmap
+              [GitHub roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap)
 
               Ones without additional "approved" label are still under consideration.
 

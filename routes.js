@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     md = require('marked'),
-    _ = require('lodash-node');
+    _ = require('lodash');
 
 var apidocs = require('./lib/apidocs');
 
