@@ -12,11 +12,12 @@
     "gulp-uglify": "~0.1.0",
     "gulp-util": "~2.2.12",
     "highlight.js": "9.18.1",
-    "oskari-rpc": "2.1.0",
-    "jade": "1.1.5",
+    "jstransformer-markdown-it": "^2.1.0",
     "lodash": "4.17.15",
     "marked": "0.8.2",
     "navigo": "1.2.1",
+    "oskari-rpc": "2.1.0",
+    "pug": "2.0.4",
     "static-asset": "0.6.0"
   },
   "devDependencies": {
