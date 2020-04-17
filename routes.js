@@ -172,15 +172,16 @@ module.exports = {
     gallery: function (req, res) {
         let filename = req.path.substring('gallery'.length + 1) + '.html';
         var opts = getBreadCrumbOptions('gallery');
-        if (filename === '/.html') {
+        if (filename === '/.html' || filename === '.html') {
             filename = 'gallery.json';
         }
-        fs.readFile('./generated/gallery/' + filename, 'utf8', function (err, htmlFile) {
+        const requestedPath = path.join(__dirname, './generated/gallery/', filename);
+        fs.readFile(requestedPath, 'utf8', function (err, fileContents) {
             if (err) {
                 res.sendStatus(404);
                 return;
             }
-            opts.content = htmlFile;
+            opts.content = fileContents;
             res.render('page', opts);
         });
     },
