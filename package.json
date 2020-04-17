@@ -34,7 +34,8 @@
     "start": "node app.js",
     "build": "./node_modules/.bin/gulp build",
     "build-rpc": "./node_modules/.bin/gulp rpc-client",
-    "docs": "./node_modules/.bin/gulp oskari-api -$VERSION",
+    "docs": "./node_modules/.bin/gulp oskari-api -2.0",
+    "postbuild": "./node_modules/.bin/gulp oskari-gallery",
     "db": "java -jar ./schemaspy/schemaspy.jar -configFile ./schemaspy/conf.properties -dp ./schemaspy/postgresql-42.2.5.jar -o generated/db"
   }
 }

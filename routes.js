@@ -169,6 +169,21 @@ module.exports = {
     apiDoc : function (ver, bundle, callback) {
         apidocs.doc(ver, bundle, callback);
     },
+    gallery: function (req, res) {
+        let filename = req.path.substring('gallery'.length + 1) + '.html';
+        var opts = getBreadCrumbOptions('gallery');
+        if (filename === '/.html') {
+            filename = 'gallery.json';
+        }
+        fs.readFile('./generated/gallery/' + filename, 'utf8', function (err, htmlFile) {
+            if (err) {
+                res.sendStatus(404);
+                return;
+            }
+            opts.content = htmlFile;
+            res.render('page', opts);
+        });
+    },
     about: function (req, res) {
         res.render('about', getBreadCrumbOptions('about'));
     },
@@ -218,7 +233,7 @@ module.exports = {
         var version = apidocs.getLatestVersion();
         if (!version) {
             console.log('version not found');
-            res.send(404);
+            res.sendStatus(404);
             return;
         }
         var url = req.url.replace(/\/latest\//, `/${version}/`);

@@ -74,6 +74,8 @@ gulp.task('watch', function() {
 // -------------- API GENERATOR -----------------------------------
 var apiStructGenerator = require('./lib/gulp-oskariapi-structure');
 var apiGenerator       = require('./lib/gulp-oskariapi');
+var galleryStructGenerator = require('./lib/gulp-gallery-structure');
+var galleryGenerator       = require('./lib/gulp-gallery');
 
 /**
  * Returns the version for Oskari API
@@ -100,6 +102,9 @@ function getJsDocLocation() {
 }
 function getJsDocConfigLocation() {
     return 'jsdoc';
+}
+function getGalleryLocation() {
+    return 'generated/gallery/';
 }
 function clearDir (directory, callback) {
     var rimraf = require("rimraf");
@@ -175,6 +180,35 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
     });
 });
 
+gulp.task('oskari-gallery-struct', function(done) {
+    console.log('oskari-gallery-struct creates gallery.json in ' + getGalleryLocation());
+
+    var destPath = getGalleryLocation();
+    var del = require('del');
+    del([destPath]).then(function() {
+        gulp.src('./community/gallery/*')
+            .pipe(galleryStructGenerator())
+            .pipe(gulp.dest(destPath))
+            .on('end', function() {
+                console.log('struct gallery done');
+                done();
+            });
+    });
+});
+
+gulp.task('oskari-gallery', ['oskari-gallery-struct'], function() {
+    console.log('oskari-gallery');
+
+    var destPath = getGalleryLocation();
+    var fs = require('fs');
+    var index = JSON.parse(fs.readFileSync(destPath + '/gallery.json'));
+    console.log('Creating gallery based on:', index);
+    // create the docs and provide the index
+    gulp.src('./community/gallery/*')
+        .pipe(galleryGenerator(index))
+        .pipe(gulp.dest(destPath));
+    console.log('gallery done');
+});
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['scripts', 'stylesheets', 'livereload', 'watch']);
