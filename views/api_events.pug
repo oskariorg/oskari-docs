@@ -32,8 +32,8 @@ block main
                             h4= key
                             ul
                                 each event in value
-                                    li.eventnavi(data-rpc="#{event.rpc}", title="#{event.desc}")
-                                        a(href="#{versions[0]}/#{event.path}", data-navigo)= event.name
+                                    li.eventnavi(data-rpc=`${event.rpc}`, title=`${event.desc}`)
+                                        a(href=`${versions[0]}/${event.path}`, data-navigo)= event.name
                                         p= event.desc
 
     div.col-md-8(id="bundlecontent")!= changelog

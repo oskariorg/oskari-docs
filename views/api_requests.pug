@@ -32,8 +32,8 @@ block main
                             h4= key
                             ul
                                 each requ in value
-                                    li.requestnavi(data-rpc="#{requ.rpc}", title="#{requ.desc}")
-                                        a(href="#{versions[0]}/#{requ.path}", data-navigo)= requ.name
+                                    li.requestnavi(data-rpc=`${requ.rpc}`, title=`${requ.desc}`)
+                                        a(href=`${versions[0]}/${requ.path}`, data-navigo)= requ.name
                                         p= requ.desc
 
     div.col-md-8(id="bundlecontent")!= changelog
