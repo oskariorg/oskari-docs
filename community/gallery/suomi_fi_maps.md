@@ -7,14 +7,14 @@ Suomi.fi-maps is part of the Finnish e-services for public sector organisations.
 Finnish public sector organisations and actors performing official public regulatory roles have the possibility
 to utilize [Suomi.fi - maps](http://www.maanmittauslaitos.fi/asioi-verkossa/suomifi-kartat) service for free. This provides for example the Finnish municipalities the possibility to create embedded maps to their own websites and gain a stack of high quality data at the same time. 
 
-<img src="/images/gallery/suomifi.png" width="500"/>
+<img src="/images/gallery/suomifi.png"  class="img-responsive"/>
 
 The available background maps and layers include basic data from Finland like topographical maps, cadastral borders and aerial photographs. It also offers the possibility to add users own layers to the service like own geospatial interfaces and datasets. 
 
 One of the most interesting datasets added to the service is a simplified map for visually impaired and it is essential 
 part of improved services for the public. With Oskari API (RPC) it is also possible to tailor the Suomi.fi -maps and apply own visual look or utilize own databases. 
 
-<img src="/images/gallery/kalastusrajoitus.png" width="500"/>
+<img src="/images/gallery/kalastusrajoitus.png"  class="img-responsive"/>
 
 _One example of this is the [fishing restrictions service](https://kalastusrajoitus.fi/#/kalastusrajoitus)._
 

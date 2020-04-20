@@ -12,7 +12,7 @@ Kinnunen stated already last fall during the Oskari & OSGeo tour that the leader
 
 Managing with information refers to the ability to collect data from different systems and sources, combining and analysing them and reporting the findings. Kinnunen eventually reckoned that Oskari’s abilities could suit these purposes and that it could complete the existing commercial municipal registry system provided by [Trimble](https://www.trimble.com/) (used in many Finnish municipalities). Last year they already created nice visualisations and informative maps about [population](https://oskari.joensuu.fi/?zoomLevel=8&coord=641888.7390984665_6944235.880752566&mapLayers=20+100+default,115+100+Muutos:%202014%20-%20nykyhetki&uuid=8c4d8671-cd00-41eb-992a-0aa6f21c463c&noSavedState=true&showIntro=false) and [building](https://oskari.joensuu.fi/?zoomLevel=8&coord=642621.2491746544_6944036.380971023&mapLayers=20+100+default,126+100+,129+100+,130+100+&uuid=8c4d8671-cd00-41eb-992a-0aa6f21c463c&noSavedState=true&showIntro=false) changes inside the City of Joensuu by joining GFI (GetFeatureInfo) request with Google Chart API resulting in good quality pop-up infos ([check out an example in Jarno’s blog](https://www.paikkatietomies.fi/webbikartta-oskari-karttapalvelun-avulla/)).
 
-<img src="/images/gallery/joensuu.png" width="500"/>
+<img src="/images/gallery/joensuu.png" class="img-responsive"/>
 
 *Example of GFI pop-ups with Google Charts integration.* 
 

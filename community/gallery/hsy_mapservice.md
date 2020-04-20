@@ -24,7 +24,7 @@ We use Oskari also to create news to public about certain phenomena using the em
 The embedded map is for example used when HSY wants to steer some projects like the mining work at Blominmäki hill at City of Espoo. 
 The contractor updates the mining activities by clicking the map - a tool created on top of the embedded map using Oskari API.
 
-<img src="/images/gallery/hsy_blominmaki_louhinta.png" width="500"/>
+<img src="/images/gallery/hsy_blominmaki_louhinta.png" class="img-responsive"/>
 
 *Embedded map is used to collect information from the contractor about the progress of mining operations in Blominmäki Espoo.* 
 
@@ -41,7 +41,7 @@ where it is possible to connect to the existing pipelines. Also we use the intra
 a new Oskari release is available. The special bundles are developed following the architectural principles of Oskari, 
 so the updates cascade fairly easily.
 
-<img src="/images/gallery/HSY_pipelinetool.png" width="500"/>
+<img src="/images/gallery/HSY_pipelinetool.png" class="img-responsive"/>
 
 *The Pipeline tool is developed specially for HSYs internal needs.*
 

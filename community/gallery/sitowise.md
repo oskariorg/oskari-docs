@@ -1,3 +1,10 @@
+---
+title:  Sitowise with different offerings
+description: We firmly believe in Oskari!
+date: 2020-04-14
+image: /images/gallery/privateroads.png
+---
+
 ## We firmly believe in Oskari!
 
 **Minna Huovinen** from Sitowise Ltd is leading several open source projects, Oskari is only one of the tools they are using - GeoServer, QGIS, Leaflet and all the FOSS4G tools are part of their repertuar. 
@@ -28,7 +35,7 @@ A fairly widely used service was created by Sitowise for Väylä where Oskari's 
 
 *Seutuatlas providing information about energy efficiency in Helsinki region.*
 
-<img src="/images/gallery/provateroad.png" width="500"/>
+<img src="/images/gallery/privateroads.png"  class="img-responsive"/>
 
 *Private roads on a map (black ones have not been submitted to the system).*
 

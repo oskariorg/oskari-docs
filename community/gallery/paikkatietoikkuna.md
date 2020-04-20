@@ -1,3 +1,9 @@
+---
+title: Paikkatietoikkuna
+description: National portal for geospatial information in Finland.
+date: 2020-04-14
+image: /images/gallery/pt_ikkuna.png
+---
 *Date: 2019-01-03*
 
 ## Paikkatietoikkuna – the national portal for geospatial information in Finland
@@ -6,7 +12,7 @@ This is a short story how Oskari was born.
 In late 2000s the National Land Survey of Finland started to draft ideas for national geoportal in order to full fill 
 Eu's INSPIRE directives and other national GIS requirements. 
 
-<img src="/images/gallery/pt_ikkuna.png" width="500"/>
+<img src="/images/gallery/pt_ikkuna.png"  class="img-responsive"/>
 
 And they went open source. Hence the first baby steps towards creating Oskari were taken.
 

@@ -8,7 +8,7 @@ GIS datasests and statistics about environmental and land use planning issues.
 It contains over 1000 statistics, hundreds of map layers, national land use plans and about 20 000 Forms for monitoring local detailed plans. 
 It also contains possibility to share workspaces.
 
-<img src="/images/gallery/liiteri.png"  width="550"/>
+<img src="/images/gallery/liiteri.png"   class="img-responsive"/>
 
 Liiteri serves especially the officials and companies working within the field of land use planning and built environment. 
 Liiteri can be used in land use planning, checking and deciding on building permissions and building allowances, 
@@ -22,11 +22,11 @@ Liiteri development started already in 2012 when there was a huge national progr
 So it was quite natural that the software developed in the same program would be utilized also in Liiteri. 
 Also at that time the government wanted to support open source solutions in general. 
 
-<img src="/images/gallery/Liiteri_tilastot.png" width="550"/>
+<img src="/images/gallery/Liiteri_tilastot.png" class="img-responsive"/>
 
 *Liiteri utilizes statistical tools in Oskari*
 
-<img src="/images/gallery/kaavahaku_liiteri.png" width="550"/>
+<img src="/images/gallery/kaavahaku_liiteri.png"  class="img-responsive"/>
 
 *Liiteri is an example how you can tailor Oskari and add own functionalities to the UI. Liiteri has e.g. a possibility to search detailed land use plans and their status in Finland.*
 
