@@ -1,0 +1,21 @@
+extends layout
+
+
+block main
+  :markdown-it
+    # Gallery
+
+  div.container
+      each item, index in gallery
+          if index%3 === 0
+              div.row
+              
+          div.col-md-4
+            div.panel.panel-warning.panelexample
+              div.panel-heading
+                h4= item.title
+              div.panel-body 
+                a(href=`${item.url}`)
+                  img.img-responsive(src=item.image)
+                p= item.description
+                

@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "dependencies": {
     "express": "4.17.1",
+    "front-matter": "^3.1.0",
     "gulp": "3.4.0",
     "gulp-autoprefixer": "0.0.6",
     "gulp-concat": "~2.1.7",
@@ -34,7 +35,7 @@
     "start": "node app.js",
     "build": "./node_modules/.bin/gulp build",
     "build-rpc": "./node_modules/.bin/gulp rpc-client",
-    "docs": "./node_modules/.bin/gulp oskari-api -2.0",
+    "docs": "./node_modules/.bin/gulp oskari-api -$VERSION",
     "postbuild": "./node_modules/.bin/gulp oskari-gallery",
     "db": "java -jar ./schemaspy/schemaspy.jar -configFile ./schemaspy/conf.properties -dp ./schemaspy/postgresql-42.2.5.jar -o generated/db"
   }

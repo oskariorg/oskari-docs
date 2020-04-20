@@ -41,6 +41,7 @@ app.get('/examples', routes.examples);
 app.get('/about', routes.about);
 app.get('/oskari', routes.oskari);
 
+app.get('/gallery', routes.gallery);
 app.get('/gallery/*', routes.gallery);
 // app.use('/gallery', express.static(path.join(__dirname, 'generated/gallery')));
 

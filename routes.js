@@ -5,26 +5,26 @@ var fs = require('fs'),
 
 var apidocs = require('./lib/apidocs');
 
-var prettyPrint = function (str) {
-    var ret = str.charAt(0).toUpperCase() + str.slice(1),
-        re = /-/g;
+const prettyPrint = function (str) {
+    const ret = str.charAt(0).toUpperCase() + str.slice(1);
+    const dash = /-/g;
+    const underscore = /_/g;
 
-    return ret.replace(re, ' ');
+    // replace - and _ on names with spaces
+    return ret.replace(dash, ' ').replace(underscore, ' ');
 }
 
-var getBreadCrumbOptions = function () {
+var getBreadCrumbOptions = function (...args) {
     var options = {
-            breadcrumb: []
-        },
-        i;
-
-    for (i = 0; i < arguments.length; i += 1) {
-        if (arguments[i].isArray) {
-            options.breadcrumb.push(arguments[i]);
+        breadcrumb: []
+    };
+    args.forEach(step => {
+        if (step.isArray) {
+            options.breadcrumb.push(step);
         } else {
-            options.breadcrumb.push([prettyPrint(arguments[i]), arguments[i]]);
+            options.breadcrumb.push([prettyPrint(step), '/' + step]);
         }
-    }
+    });
     return options;
 };
 
@@ -170,10 +170,13 @@ module.exports = {
         apidocs.doc(ver, bundle, callback);
     },
     gallery: function (req, res) {
-        let filename = req.path.substring('gallery'.length + 1) + '.html';
+        let page = req.path.substring('gallery'.length + 1);
+        let filename = page + '.html';
         var opts = getBreadCrumbOptions('gallery');
-        if (filename === '/.html' || filename === '.html') {
+        if (!page || page === '/') {
             filename = 'gallery.json';
+        } else {
+            opts.breadcrumb.push([prettyPrint(page.substring(1)), '/gallery' + page]);
         }
         const requestedPath = path.join(__dirname, './generated/gallery/', filename);
         fs.readFile(requestedPath, 'utf8', function (err, fileContents) {
@@ -181,8 +184,13 @@ module.exports = {
                 res.sendStatus(404);
                 return;
             }
-            opts.content = fileContents;
-            res.render('page', opts);
+            if (filename === 'gallery.json') {
+                opts.gallery = JSON.parse(fileContents);
+                res.render('gallery', opts);
+            } else {
+                opts.content = fileContents;
+                res.render('page', opts);
+            }
         });
     },
     about: function (req, res) {

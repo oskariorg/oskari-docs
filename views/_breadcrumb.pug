@@ -1,7 +1,7 @@
 if breadcrumb
     ol.breadcrumb
         li
-            a(href="/") Home
+            a(href="/") Home 
             each bread, index in breadcrumb
                 - var clazz = breadcrumb.length - 1 === index ? 'active': ''
                 li(class=clazz)
