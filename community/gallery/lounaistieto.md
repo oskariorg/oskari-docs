@@ -1,3 +1,10 @@
+---
+title: Southwest Finland Regional Inforshare / Lounaistieto
+description: The  map service hosts a variety of GI data from the region. The map service is a good example of basic Oskari service without any tailoring.
+date: 2017-09-06
+image: /images/gallery/lounaistieto.png
+---
+
 *Date: 2017-09-06*
 
 ## Lounaistieto - offering geospatial infromation from Southwest Finland
