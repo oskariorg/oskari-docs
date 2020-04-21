@@ -1,4 +1,11 @@
-*Date: 2018-11-23*
+---
+title: GIS education portal PaikkaOppi 
+description: The new PaikkaOppi uses now an embedded map published from the Finnish national geoportal.
+date: 2018-11-23
+image: /images/gallery/paikkaoppi.png
+---
+
+*Date: 23.11.2018*
 
 ## GIS education portal PaikkaOppi turned 10 years in 2018
 
@@ -41,13 +48,13 @@ Of course there is still some little tweaking to do. The use of PaikkaOppi can b
 
 The service is free to use and stays that way in the future. 
 
-[TOP-center in the City of Turku educational sector](https://edu.turku.fi/top-keskus/) is responsible for the coordinaton of the service development. 
+- [TOP-center in the City of Turku educational sector](https://edu.turku.fi/top-keskus/) is responsible for the coordinaton of the service development. 
 
-The service is developed and maintained at the moment through [CSC](https://www.csc.fi/) servers and financed by the [National Board of Education](https://www.oph.fi/). 
+- The service is developed and maintained at the moment through [CSC](https://www.csc.fi/) servers and financed by the [National Board of Education](https://www.oph.fi/). 
 
-The datasets are constantly up-to-date and come straight through interfaces gathered to Paikkatietoikkuna.
+- The datasets are constantly up-to-date and come straight through interfaces gathered to Paikkatietoikkuna.
 
-The new service can be accessed by the teachers with MPASS user accounts and can be found here: [https://paikkaoppi.csc.fi](https://paikkaoppi.csc.fi]).
+- The new service can be accessed by the teachers with MPASS user accounts and can be found here: [https://paikkaoppi.csc.fi](https://paikkaoppi.csc.fi]).
 
 More information of the service, contact project coordinator of PaikkaOppi:
 Virpi Hirvensalo, virpi.hirvensalo@turku.fi
