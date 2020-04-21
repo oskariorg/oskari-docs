@@ -1,6 +1,6 @@
 ---
-title:  Sitowise with different offerings
-description: We firmly believe in Oskari!
+title:  Sitowise hosts and develops Oskari
+description: Oskari is easy to take into use and it is very user friendly. We have over 10 projects where we develop Oskari in one way or another
 date: 2020-04-14
 image: /images/gallery/privateroads.png
 ---
