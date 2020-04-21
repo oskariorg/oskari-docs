@@ -1,3 +1,10 @@
+---
+title: Fishing restrictions
+description: Service gathering all the official fishing restriction areas together
+date: 2020-02-26
+image: http://img.youtube.com/vi/y5WDdfBVE88/0.jpg
+---
+
 *Date: 26.2.2020*
 
 ## Find the best and legal place to fish
