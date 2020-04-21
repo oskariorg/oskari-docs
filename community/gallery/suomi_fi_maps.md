@@ -1,4 +1,11 @@
-*Date: 2019-11-15*
+---
+title: Suomi.fi-maps 
+description: Suomi.fi-maps is part of the Finnish e-services for public sector organisations. Through Suomi.fi-maps the public sector can provide published maps to their own web-sites utilizing national geospatial datasets.
+date: 2019-11-15
+image: /images/gallery/suomifi.png
+---
+
+*Date: 15.11.2019*
 
 ## Suomi.fi-maps is a unique and FREE possibility for public sector organisations
 
