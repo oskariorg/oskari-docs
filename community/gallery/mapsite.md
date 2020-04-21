@@ -1,4 +1,11 @@
-*Date: 2019-06-18*
+---
+title: NLS-FI Mapsite
+description: With Mapsite you can do basic web-map functionalities, browse map layers, measure distances and search places by name or address. It is mainly used by citizens and land owners to check their plots and real estates
+date: 2019-06-18
+image: /images/gallery/example_mapsite.png
+---
+
+*Date: 18.6.2019*
 
 ## NLS-FI Mapsite – worlds first national map service in the World Wide Web
 
@@ -13,7 +20,7 @@ In the beginning there was no model for a user interface for a map service on th
 
 The latest Oskari based service was published in 2016. It is also constantly being developed as part of the NLS-FI digital services.
 
-Whit Mapsite you can do basic web-map functionalities, browse map layers, measure distances and search places by name or address. It is mainly used by citizens and land owners to check their plots and real estates but also by the Finnish GIS tribe since the Mapsite provides a very easy tool for defining the nearest address or coordinates of your whereabouts.
+With Mapsite you can do basic web-map functionalities, browse map layers, measure distances and search places by name or address. It is mainly used by citizens and land owners to check their plots and real estates but also by the Finnish GIS tribe since the Mapsite provides a very easy tool for defining the nearest address or coordinates of your whereabouts.
 
 ### Map prints are still needed
 You can also buy maps from the service, although most of the datasets are also available as open data. The available map layers contain e.g. cadastral boundaries, hillshade, aerial images and topographic maps.
