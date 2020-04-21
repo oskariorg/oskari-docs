@@ -1,3 +1,10 @@
+---
+title: City of Joensuu
+description: Managing with information provides valuable insights about our living environment and Oskari in Joensuu is providing this.
+date: 2020-01-29
+image: /images/gallery/joensuu.png
+---
+
 *Date: 29.1.2020*
 
 ## City of Joensuu takes Oskari to the next level
