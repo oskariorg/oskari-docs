@@ -1,3 +1,10 @@
+---
+title: Valkeakoski, example of municipality Oskari use
+description: The Oskari setup we have is the *“basic”* Oskari installation with hierarchical layer tool in use. 
+date: 2019-02-14
+image: /images/gallery/valkeakoski.png
+---
+*Date: 14.2.2019*
 ## Valkeakoski – pioneering Oskari in municipality use
 
 Valkeakoski is town located 35 km south from Tampere city with little over 21 000 inhabitants. 
