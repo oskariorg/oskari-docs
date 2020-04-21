@@ -1,3 +1,10 @@
+---
+title: Helsinki Environmental Service open data map portal
+description: Three different Oskari instances. One open for public use, one for extranet use and one for intranet use for internal actions. 
+date: 2019-02-14
+image: /images/gallery/hsy_blominmaki_louhinta.png
+---
+
 *Date: 2019-02-14*
 
 ## HSY and environmental services with Oskari
