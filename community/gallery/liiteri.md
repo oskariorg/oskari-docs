@@ -1,5 +1,5 @@
 ---
-title: Liiter service
+title: Liiteri service
 description: Data from our everyday environment provided by Finnish Environment Institute
 date: 2019-04-05
 image: /images/gallery/liiteri.png
