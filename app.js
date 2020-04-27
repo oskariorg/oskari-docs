@@ -37,14 +37,13 @@ app.get('/documentation/*', routes.md);
 app.get('/community/*', routes.community);
 
 app.get('/download', routes.download);
-app.get('/examples', routes.examples);
 app.get('/about', routes.about);
 app.get('/oskari', routes.oskari);
 
+// Examples is kept for legacy link support. The new path is gallery.
+app.get('/examples', routes.gallery);
 app.get('/gallery', routes.gallery);
 app.get('/gallery/*', routes.gallery);
-// app.use('/gallery', express.static(path.join(__dirname, 'generated/gallery')));
-
 
 // new api doc end points
 app.get('/api', routes.apiSelection);
