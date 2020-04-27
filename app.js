@@ -40,8 +40,6 @@ app.get('/download', routes.download);
 app.get('/about', routes.about);
 app.get('/oskari', routes.oskari);
 
-// Examples is kept for legacy link support. The new path is gallery.
-app.get('/examples', routes.gallery);
 app.get('/gallery', routes.gallery);
 app.get('/gallery/*', routes.gallery);
 
