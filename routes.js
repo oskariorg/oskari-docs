@@ -202,9 +202,6 @@ module.exports = {
     documentation: function (req, res) {
         res.render('documentation', getBreadCrumbOptions('documentation'));
     },
-    examples: function (req, res) {
-        res.render('examples', getBreadCrumbOptions('examples'));
-    },
     oskari: function (req, res) {
         res.render('oskari', getBreadCrumbOptions('oskari'));
     },
