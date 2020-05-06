@@ -24,7 +24,7 @@ Problem solving esp. with API’s
 
 ### Requirements:
 - Build infrastructure, see also Oskari developer
-- Oskari architecture, bundles and component
+- Oskari architecture, bundles and components
  
 ## Oskari content administrator
 
@@ -32,7 +32,7 @@ Acts as the administrator of Oskari instance: adds new dataset layers to Oskari 
 
 ### Other possible tasks:
 
-- Usually also creates the geospatial interfaces from datasets with suitable software (e.g. MapServer, GeoServer, ArcGIS Server) including managing GetFeatureInfo requests (what information are shown in pop-up info tool in Oskari and how), visualizing the layers (e.g. using SLD) and configuring legends. Maintaining of those interfaces.
+- Usually also creates the geospatial interfaces from datasets with suitable software (e.g. MapServer, GeoServer, ArcGIS Server) including managing GetFeatureInfo requests (what information are shown in pop-up info tool in Oskari and how), visualizing the layers (e.g. using SLD) and configuring legends. Maintains usually also those interfaces.
 
 ### Requirements:
 
