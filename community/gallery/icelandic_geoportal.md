@@ -15,9 +15,9 @@ The service provides Iceland their National spatial data infrastructure and acts
 
 <img src="/images/gallery/nls_is.png" class="img-responsive"/>
 
-*"We liked Oskari because it is a one-stop-shop, that is you can view the data, you can compare it with other data and you can read about the data as it has the access to the Metadata portal and finally it has the option of creating embedded maps. We are very grateful for Oskari, it fits well into our SDI which is mainly built out of open source components,"* says **Hafliði Sigtryggur Magnússon** from the National Landsurvey of Iceland. He has been actively involved with the Oskari PSC work also. 
+*We liked Oskari because it is a one-stop-shop, that is you can view the data, you can compare it with other data and you can read about the data as it has the access to the Metadata portal and finally it has the option of creating embedded maps. We are very grateful for Oskari, it fits well into our SDI which is mainly built out of open source components,* says **Hafliði Sigtryggur Magnússon** from the National Landsurvey of Iceland. He has been actively involved with the Oskari PSC work also. 
 
-*"Next steps would be to refresh the Oskari UI and create own themes, now only INSPIRE-themes available",* Magnússon continues. 
+*Next steps would be to refresh the Oskari UI and create own themes, now only INSPIRE-themes available,* Magnússon continues. 
 
 More information about the service: 
 Hafliði Sigtryggur Magnússon

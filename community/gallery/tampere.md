@@ -1,5 +1,5 @@
 ---
-title: Oskari as a City map service
+title: City of Tampere and their very own Oskari
 description: City of Tampere mapservice is the public view to the information the city provides to its citizens but Oskari is also in internal use with the city officials. 
 date: 2019-11-15
 image: /images/gallery/tampere.png

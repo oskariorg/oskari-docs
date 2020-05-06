@@ -23,19 +23,19 @@ Rina Tammisto, Statistics Finland
 
 Organisation | Member | Logo | Info
 -------------| ----------- |----------------- | ----------
-[City of Helsinki](http://www.helsinki.fi/)| **Outi Hermans**| <img src="/images/logo/hki.png" width="100"/> |
-[City of Tampere](http://www.tampere.fi/)| **Anna Mustajoki, Jussi Tahvanainen** |  <img src="/images/logo/tre.png" width="100"/> | 
-[City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="100"/> | Joint membership / Lounaistieto |
-[Digital and population data services agency](https://dvv.fi/en/individuals)|**Jari Suhonen**| <img src="/images/logo/dvv.png" width="100"/> |
-[Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba.png" width="100"/> | 
-[Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="100"/> | 
-[Natural Resources Institute Finland (Luke)](https://www.luke.fi/en/) | **Eeva Lehtonen** |  <img src="/images/logo/luke.jpg" width="100"/> | Community representative
-[National Land Survey of Finland](http://www.maanmittauslaitos.fi/) | **Timo Aarnio, Jaakko Viitala** | <img src="/images/logo/nls.png" width="100"/> |
-[Digital and population data services](https://dvv.fi/en/individuals|**Jari Suhonen**| <img src="/images/logo/dvv.png" width="100"/> |
-[Regional Council of Southwest Finland / Lounaistieto](https://www.lounaistieto.fi/) |**Natalia Räikkönen**|  <img src="/images/logo/vsl.png" width="100"/> | Joint membership / Lounaistieto
-[Sitowise Ltd](https://www.sitowise.com/en) | **Jan Lindbom, Minna Huovinen** |  <img src="/images/logo/sitowise.png" width="100"/> | Community representative
-[Statistics Finland](http://www.stat.fi/)|**Rina Tammisto** |  <img src="/images/logo/statistics.png" width="100"/> | 
-[Väylä Finnish Transport Infrastructure Agency](https://vayla.fi/web/en) | **Markku Pitkänen, Jenni Silvennoinen** |  <img src="/images/logo/vayla.png" width="100"/> | 
+[City of Helsinki](http://www.helsinki.fi/)| **Outi Hermans**| <img src="/images/logo/hki.png" width="200"/> |
+[City of Joensuu](https://www.joensuu.fi/) | **Jarno Kinnunen** |  <img src="/images/logo/joensuu.png" width="200"/> | Community representative |
+[City of Tampere](http://www.tampere.fi/)| **Anna Mustajoki, Jussi Tahvanainen** |  <img src="/images/logo/tre.png" width="200"/> | 
+[City of Turku](http://www.turku.fi/) | **Harri Soini**|  <img src="/images/logo/turku.png" width="200"/> | Joint membership / Lounaistieto |
+[Digital and population data services agency](https://dvv.fi/en/individuals) |**Jari Suhonen**| <img src="/images/logo/dvv.png" width="200"/> |
+[Finnish Heritage Agency](https://www.museovirasto.fi/en/) |**Minna Ryyppö, Miikka Haimila**|  <img src="/images/logo/nba.png" width="200"/> | 
+[Helsinki Region Environmental services](https://www.hsy.fi/)|**Henna-Kaisa Stjernberg**|  <img src="/images/logo/hsy.png" width="200"/> | 
+[National Land Survey of Finland](http://www.maanmittauslaitos.fi/) | **Timo Aarnio, Jaakko Viitala** | <img src="/images/logo/nls.png" width="200"/> |
+[Digital and population data services](https://dvv.fi/en/individuals|**Jari Suhonen**| <img src="/images/logo/dvv.png" width="200"/> |
+[Regional Council of Southwest Finland / Lounaistieto](https://www.lounaistieto.fi/) |**Natalia Räikkönen**|  <img src="/images/logo/vsl.png" width="200"/> | Joint membership / Lounaistieto
+[Sitowise Ltd](https://www.sitowise.com/en) | **Jani Levonen** |  <img src="/images/logo/sitowise.png" width="200"/> | Community representative
+[Statistics Finland](http://www.stat.fi/)|**Rina Tammisto** |  <img src="/images/logo/statistics.png" width="200"/> | 
+[Väylä Finnish Transport Infrastructure Agency](https://vayla.fi/web/en) | **Markku Pitkänen, Jenni Silvennoinen** |  <img src="/images/logo/vayla.png" width="200"/> | 
 
 **Communication Coordinator**
 Sanna Jokela, Gispo Ltd
@@ -46,7 +46,9 @@ Timo Aarnio & Sami Mäkinen, National Land Survey of Finland
 **Former Community representatives**
 Thank you for your work and participation in Oskari Joint Development Forum work! It has been a huge asset to Oskari community!
 
+- Minna Huovinen, Sitowise Ltd (2019)
+- Eeva Lehtonen, Natural Resources Institute Finland (2019)
 - Marko Kauppi, Ubigu Ltd (2018)
 - Eki Karlsson, Suomen latu ry (2017)
 - Minna Lumiluoto, Cybercom Ltd (2016)
-- Dimenteq Ltd (2016-2017)
+- Jan Lindbom, Dimenteq Ltd/Sitowise Ltd (2016-2018)

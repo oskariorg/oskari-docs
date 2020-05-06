@@ -6,7 +6,7 @@ Oskari development started already in 2008 when the first plans for Finnish nati
 
 In 2011 Oskari's source code was opened because the interest within other organisation for similar map services became evident. After this the utilization of Oskari has grown from public sector using Oskari in multiple ways to companies providing Oskari based services. 
 
-The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was established. Now we have tens of organisations involved in Finland and abroad! 
+The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was founded. Now we have tens of organisations involved in Finland and abroad! 
 
 Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the [community goals and tasks](community_goals.md) and join the development!
 
@@ -20,10 +20,6 @@ Anyone is free to use Oskari source code and make it even better! If you have an
 
 In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-Steering-Committee) was established. Oskari's PSC (Project Streeting Committee) is responsible for checking the code and they decide which features are added to the Oskari core.
 
-Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the community goals and tasks and join the development!
-
-If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
-
 ### Joint Development Forum
 
 Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF.md).
@@ -35,7 +31,7 @@ It is totally free to be part of the Community. Organisational members have the 
 Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. If you want to change your description, please contact info@oskari.org. 
 
 Organisation | Description
--------------| -----------
+:---: | :---:
 **[CGI Finland Ltd](http://www.cgi.fi/)** | - 
 **[City of Helsinki](http://www.helsinki.fi/)** | Helsinki City is a member of Oskari Joint Development Forum. Contact for the City of Helsinki is Outi Hermans.
 **[City of Joensuu](http://www.joensuu.fi/)** | "The aim of City of Joensuu is to utilize Oskari map service as a platform for geospatial knowledge management." - Jarno Kinnunen

@@ -23,6 +23,6 @@ Develop open source Oskari sofware into more universal, versatile and user frien
 - Document the developed features and code properly and make sure the PSC receives information about the developed issues (see also [Reporting issues & documenting](/documentation/development/issuetypes))
 - Publish the developed results as open source according to licencing provided by [OSGeo Foundation](http://www.osgeo.org/) and [Oskari](/documentation/development/license)
 
-##Community Roles
+## Community Roles
 
 See [Oskari Community](oskari_community.md)
