@@ -22,13 +22,13 @@ The new PaikkaOppi uses now an embedded map published from the Finnish national 
 The service has been tailored to accommodate the needs of teachers and pupils: 
 the teachers can create own assignments to kids and also share those with their colleagues.
 
-*"The main goal was to have a service that would be easy to use. Our national curriculum also gave boundaries what PaikkaOppi could be: 
-it can now be used in  different learning environments, different subjects and age-groups",* 
+*The main goal was to have a service that would be easy to use. Our national curriculum also gave boundaries what PaikkaOppi could be: 
+it can now be used in  different learning environments, different subjects and age-groups,* 
 states **Virpi Hirvensalo**, the project manager of PaikkaOppi.
 
-*"Oskari was chosen as the development platform, because PaikkaOppi wanted to be built on top of open source. 
+*Oskari was chosen as the development platform, because PaikkaOppi wanted to be built on top of open source. 
 Open platform makes it possible to create new services for schools and for all those who are interested in GIS. 
-It rises the interest and effectiveness of the service,"* she continues.
+It rises the interest and effectiveness of the service," she continues.
 
 ### Most of the map options come from Paikkatietoikkuna
 PaikkaOppi has been developed using Paikkatietoikkuna and its contents and Oskari's API. 
@@ -43,8 +43,8 @@ The students can also be assigned to gather information about their environment 
 
 The new platform has been tested with school kids with different client devices.
 
-*"You can say that in most parts the pupils have managed to use the new service well and have found the new functionalities fairly easy. 
-Of course there is still some little tweaking to do. The use of PaikkaOppi can be done in different devices because it has been created with responsive style. This means that the pupils can use the service in class rooms and also in the field and trips"*, explains Hirvensalo.
+*You can say that in most parts the pupils have managed to use the new service well and have found the new functionalities fairly easy. 
+Of course there is still some little tweaking to do. The use of PaikkaOppi can be done in different devices because it has been created with responsive style. This means that the pupils can use the service in class rooms and also in the field and trips", explains Hirvensalo.
 
 The service is free to use and stays that way in the future. 
 
