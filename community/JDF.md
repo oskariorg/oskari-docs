@@ -21,6 +21,93 @@ Rina Tammisto, Statistics Finland
 
 **Members**
 
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Organisation</th>
+      <th scope="col">Member</th>
+      <th scope="col">Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>[![City of Helsinki]<img src="/images/logo/hki.png" width="200"/>](http://www.helsinki.fi/)</td>
+      <td>Outi Hermans</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>[![City of Joensuu]<img src="/images/logo/joensuu.png" width="200"/>](https://www.joensuu.fi/)</td>
+      <td>Jarno Kinnunen</td>
+      <td>Community representative</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>[![City of Tampere]<img src="/images/logo/tre.png" width="200"/>](https://www.tampere.fi/)</td>
+      <td>Jussi Tahvanainen</td>
+      <td></td>
+    </tr>
+      <tr>
+      <th scope="row">4</th>
+      <td>[![City of Turku]<img src="/images/logo/turku.png" width="200"/>](https://www.turku.fi/)</td>
+      <td>Harri Soini</td>
+      <td>Joint membership with Lounaistieto</td>
+    </tr>
+     <tr>
+      <th scope="row">5</th>
+      <td>[![Digital and population data services agency]<img src="/images/logo/dvv.png" width="200"/>](https://dvv.fi/en/individuals)</td>
+      <td>Jari Suhonen</td>
+      <td></td>
+    </tr>
+     <tr>
+      <th scope="row">6</th>
+      <td>[![Finnish Heritage Agency]<img src="/images/logo/nba.png" width="200"/>](https://www.museovirasto.fi/en/)</td>
+      <td>Minna Ryyppö, Miikka Haimila</td>
+      <td></td>
+    </tr>
+     <tr>
+      <th scope="row">7</th>
+      <td>[![Helsinki Region Environmental services]<img src="/images/logo/hsy.png" width="200"/>](https://www.hsy.fi/)</td>
+      <td>Henna-Kaisa Stjernberg</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>[![National Land Survey of Finland]<img src="/images/logo/nls.png" width="200"/>](https://www.maanmittauslaitos.fi/)</td>
+      <td>Timo Aarnio, Jaakko Viitala</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>[![Regional Council of Southwest Finland / Lounaistieto]<img src="/images/logo/vsl.png" width="200"/>](https://www.lounaistieto.fi/)</td>
+      <td>Natalia Räikkönen</td>
+      <td>Joint membership with City of Turku</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>[![Sitowise Ltd]<img src="/images/logo/sitowise.png" width="200"/>](https://www.sitowise.com/en)</td>
+      <td>Jani Levonen</td>
+      <td>Community representative</td>
+    </tr>
+     <tr>
+      <th scope="row">11</th>
+      <td>[![Statistics Finland]<img src="/images/logo/statistics.png" width="200"/>](http://www.stat.fi/)</td>
+      <td>Rina Tammisto</td>
+      <td>Community representative</td>
+    </tr>
+     <tr>
+      <th scope="row">12</th>
+      <td>[![Väylä Finnish Transport Infrastructure Agency]<img src="/images/logo/vayla.png" width="200"/>](https://vayla.fi/web/en)</td>
+      <td>Markku Pitkänen, Jenni Silvennoinen</td>
+      <td>Community representative</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 Organisation | Member | Logo | Info
 -------------| ----------- |----------------- | ----------
 [City of Helsinki](http://www.helsinki.fi/)| **Outi Hermans**| <img src="/images/logo/hki.png" width="200"/> |
