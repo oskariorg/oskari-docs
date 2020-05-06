@@ -2,7 +2,7 @@
 title: Fishing restrictions
 description: Service gathering all the official fishing restriction areas together
 date: 2020-02-26
-image: http://img.youtube.com/vi/y5WDdfBVE88/0.jpg
+image: /images/gallery/kalastusrajoitus.png
 ---
 
 *Date: 26.2.2020*
@@ -33,7 +33,7 @@ Finding fishing restrictions from the service is fairly easy. The only problem i
 
 ### Suomi.fi-maps provides a solid background for up-to-date data
 
-The detailed information from the various fishing restrictions are shown on an embedded map created with Suomi.fi-maps (using Oskari API as described before). Suomi.fi-maps is an electronic service for public sector authorities in Finland.
+The detailed information from the various fishing restrictions are shown on an embedded map created with Suomi.fi-maps ([using Oskari API](https://oskari.org/examples/rpc-api/rpc_example.html)). Suomi.fi-maps is an electronic service for public sector authorities in Finland.
 
 The restriction data is updated every weekday. The information will soon also provide an overview of demanded catch measurements and close seasons that concern larger regions.
 
@@ -43,7 +43,7 @@ The Fishing restriction service development is coordinated by the Finnish Food A
 
 ## Suomi.fi-maps inside the Food Athority
 
-The Fishing restriction service is only one of the many Suomi.fi-maps based services that have been taken in use during the past few years in Finnish Food Authority. In some cases Suomi.fi-maps is used to provide the “dot on the map” and in some cases for digitizing new information. Härkönen lists some of them here, most of them need registration so the actual map-part is not visible to public:
+The Fishing restriction service is only one of the many Suomi.fi-maps based services that have been taken in use during the past few years in [Finnish Food Authority](https://www.ruokavirasto.fi/en/). In some cases Suomi.fi-maps is used to provide the “dot on the map” and in some cases for digitizing new information. Härkönen lists some of them here, most of them need registration so the actual map-part is not visible to public:
 
 - Sisaalis (electronic service for providing catch information in fresh water areas)
 - Sähi (fish transplanting service)
