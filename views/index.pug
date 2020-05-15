@@ -1,83 +1,138 @@
 extends layout
 
 block prelude
-  div.frontpage-logobar
-    div.container.landing-container
-      div.row
+
+    div.frontpage-logobar
+     div.container.landing-container
+      div.col-md-6
+       div.row
         h1.landing
-          span Oskari is a framework for easily building multipurpose web mapping applications utilizing distributed Spatial Data Infrastructures like INSPIRE.
-      div.row
-        div.carousel.slide(id="carouselMain", data-ride="carousel", data-interval="3000" data-pause="false")
+          span Meet Oskari! Your geospatial friend! 
+       div.row
+        h4.landing
+          span Oskari is an Open source software for building web mapping applications
+       div.row
+        h4.landing
+         :markdown-it
+          Read our [blog](https://oskariorg.github.io/) for latest news!
+
+      div.col-md-6
+        div.carousel.slide(id="carouselMain", data-ride="carousel", data-interval="10000" data-pause="false")
           ol.carousel-indicators
             li.active(data-target="#carouselMain", data-slide-to="0")
             li(data-target="#carouselMain", data-slide-to="1")
             li(data-target="#carouselMain", data-slide-to="2")
             li(data-target="#carouselMain", data-slide-to="3")
             li(data-target="#carouselMain", data-slide-to="4")
+            li(data-target="#carouselMain", data-slide-to="5")
           div.carousel-inner(role="listbox")
             div.item.active
-              <img alt="" class="third-slide carousel-image img responsive" src="/images/frontpage_stats.jpg">
+              <img alt="" class="third-slide carousel-image img responsive" src="/images/gallery/lounaistieto.png">
             div.item
-              <img alt="" class="first-slide carousel-image img-responsive" src="/images/frontpage_asdi.png">
+              <img alt="" class="first-slide carousel-image img-responsive" src="/images/gallery/suomifi.png">
             div.item
-              <img alt="" class="second-slide carousel-image img-responsive" src="/images/frontpage_example_desktop.png">
+              <img alt="" class="second-slide carousel-image img-responsive" src="/images//gallery/example_mapsite.png">
             div.item
-              <img alt="" class="second-slide carousel-image img-responsive" src="/images/frontpage_buildings.png">
+              <img alt="" class="second-slide carousel-image img-responsive" src="/images//gallery/asdi.png">
             div.item
-              <img alt="" class="second-slide carousel-image img-responsive" src="/images/frontpage_pcloud.png">
+              <img alt="" class="second-slide carousel-image img-responsive" src="/images//gallery/nls_is.png">
+            div.item
+              <a href="https://wiki.osgeo.org/wiki/Oskari_Incubation_Status" target="_blank"><img alt="" class="second-slide carousel-image img-responsive" src="/images/OSGeo_incubation.svg"></a>
 
 block main
+  
   div.container
+ 
     div.col-md-4
+      h2 Oskari Users
+      div.panel-body
+        :markdown-it
+          * [About](/about)
+          * [Gallery](/gallery) 
+          * [Community](/community/oskari_community)
+          * [Blog](https://oskariorg.github.io/)
+          * [FAQ](/documentation/faq)
+          * [Oskari user mailing list](Oskari-user@lists.osgeo.org)
+
+    div.col-md-4
+      h2 Oskari Project owner
+      div.panel-body
+        :markdown-it
+          * [Roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap)
+          * [Release notes](https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNotes.md)
+          * [Bundles](/api/bundles)
+          * [RPC Guide](guides/rpc-step-by-step)
+          * [Found a bug? Report an issue](https://github.com/oskariorg/oskari-docs/issues)
+
+    div.col-md-4
+      h2 Oskari Developer
+      div.panel-body
+        :markdown-it
+          * [Documentation guidelines](documentation/development/guidelines)
+          * [How to contribute](documentation/development/how-to-contribute)
+          * [Frontend](https://github.com/oskariorg/oskari-frontend)
+          * [Backend](https://github.com/oskariorg/oskari-server)
+          * [Bundles](https://oskari.org/documentation/core-concepts/oskari-bundle)
+          * [Requests](https://oskari.org/documentation/core-concepts/oskari-request)
+          * [Events](https://oskari.org/documentation/core-concepts/oskari-event)
+          * [RPC (Oskari API)](https://oskari.org/examples/rpc-api/rpc_example.html)
+          * [Ask for help in Gitter](https://gitter.im/oskariorg/chat) 
+
+  <hr>
+
+    div.container
+
+      div.col-md-4
+       h2 Oskari on Twitter
+       div.panel-body
+               <a class="twitter-timeline" data-tweet-limit="1" href="https://twitter.com/oskari_org">Tweets by oskari_org</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      div.col-md-8
+
+       div.row
+        h2 
+          span Oskari is an open source GIS platform 
+       div.row
+        h4
+          span Oskari is an open source software for building web maps and displaying and analyzing geospatial data. Oskari supports the EU directive INSPIRE and OGC standards. 
+       div.row
+        h4
+          span With Oskari installation you can also publish and share embedded maps and tailor them with Oskari API (using RPC).
+       div.row
+        h4 
+           span Oskari loves statistical interfaces and you can use it to create cool choropleth maps.
+       div.row
+        h4 
+           span Oskari uses standard Open Source components such as OpenLayers, GeoTools, GeoServer, Jackson and jQuery. The developed Open Source code stitches these applications together and makes it possible to extend the functionality of the platform in a coordinated manner.
+       div.row
+        h4
+           span Oskari user interface is implemented as a collection of reusable bundles. Bundles are used as uniform containers to ship and share new functionality to the application setups. Additions to existing functionality are implemented as Plugins shipped within the bundles.
+       div.row
+        h4
+           span Server-side functionality of the platform is implemented as a Java servlet, which can also be extended to handle new functionality.
+
+
+  div.container
+ 
+    div.col-md-6
       h2 Open Source
       h4 All the developed code is released under Open Source Licenses (MIT/EUPL). Oskari uses standard Open Source components such as OpenLayers, GeoTools and GeoServer.
 
-    div.col-md-4
+    div.col-md-6
         h2 OSGeo incubation
         h4 Currently Oskari is in the incubation process to become an OSGeo member project: <a href="https://wiki.osgeo.org/wiki/Oskari_Incubation_Status" target="_blank"><img src="/images/OSGeo_incubation.svg" class="img-responsive" alt="Responsive image">
           </a>
 
-    div.col-md-4.oskari-network
-      :markdown-it
-        ## Oskari Network
-        #### Oskari Network is the stakeholder community of Oskari software. The website contains additional information about Oskari: [https://verkosto.oskari.org](https://verkosto.oskari.org/en/front-page/)
-
-  <hr>
-
   div.container
-    div.col-md-6
-      div.panel.panel-warning
-          div.panel-heading
-            h4 How is Oskari implemented?
-
-          div.panel-body
-            :markdown-it
-              * Oskari user interface is implemented as a collection of reusable bundles. Bundles are used as uniform containers to ship and share new functionality to the application setups.
-
-              * Additions to existing functionality are implemented as Plugins shipped within the bundles.
-
-              * Server-side functionality of the platform is implemented as a Java servlet, which can also be extended to handle new functionality.
-
-              * Oskari uses standard Open Source components such as OpenLayers, GeoTools, GeoServer, Jackson and jQuery. The developed Open Source code stitches these applications together and makes it possible to extend the functionality of the platform in a coordinated manner.
-
-              * Oskari enables controlled extensibility. The service platform is kept flexible: functionality can be added both to the user interface and the server, and the application libraries can be changed.
-
-
-    div.col-md-6
-      div.panel.panel-warning.news-panel
-        div.panel-heading
-          h4 Latest news:
-
-
-        div.panel-body
-
-          div.panel.panel-warning
-            div.panel-body
-              :markdown-it
-                #### Developer blog
-                  News and tidings can be found in the [blog](https://oskariorg.github.io/)
-
-
-          div.panel.panel-warning
-            div.panel-body
-               <a class="twitter-timeline" data-tweet-limit="5" href="https://twitter.com/oskari_org">Tweets by oskari_org</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+     div.col-md-4
+        div.panel.panel-warning
+           div.panel-heading
+             h4 <a href="mailto:Oskari-user@lists.osgeo.org" target=_blank">Join our Oskari mailing list</a>
+     div.col-md-4
+        div.panel.panel-warning
+           div.panel-heading
+             h4 <a href="https://gitter.im/oskariorg/chat" target="_blank">Chat in Oskari Gitter</a>
+     div.col-md-4
+        div.panel.panel-warning
+           div.panel-heading
+             h4 <a href="https://github.com/oskariorg/oskari-docs/issues" target="_blank">Found a bug? Create an issue</a>

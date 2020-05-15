@@ -12,6 +12,15 @@ Development is not just coding, it can be bug reporting, finding funding or mark
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
+### Community documents
+
+- [Community goals](/community/community_goals)
+- [Joint development forum](/community/JDF)
+- [Privacy policy](/community/privacy-policy)
+- [Community roles](/community/roles)
+- [Community styleguide](/community/styleguide)
+- [Crowdfunding](/community/crowdfunding)
+
 ### Individuals
 
 Anyone is free to use Oskari source code and make it even better! If you have an idea, please join Oskari discussion in [Gitter](https://gitter.im/oskariorg/chat). 
