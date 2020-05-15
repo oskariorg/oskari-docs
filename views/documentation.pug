@@ -3,15 +3,53 @@ extends layout
 block main
   div.row
     div.col-md-12
-
       :markdown-it
           # Documentation
-          Oskari is an Open source distributed and extensible geoportal built with Java and Javascript. The goal is to help businesses and municipalities offer better online and mobile map services to their citizens and consumers. Take a look at the [features](/documentation/features) it provides and the [roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap) for things on their way. A sample application is provided as [download](/download) and live demo http://demo.oskari.org. ([Read more](/documentation/development_basics))
+          Oskari is an Open source distributed and extensible geoportal built with Java and Javascript. The goal is to help businesses and municipalities offer better online and mobile map services to their citizens and consumers. Take a look at the [features](/documentation/features) it provides and the [roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap) for things on their way. A sample application is provided as [download](/download) and live [demo](http://demo.oskari.org). [Read also development basics.](/documentation/development_basics)
+  div.row
+    div.col-md-4
+      :markdown-it
+         ### Issue tracking
+          Reporting issues for any part of Oskari: [GitHub issues](https://github.com/oskariorg/oskari-docs/issues)
+    div.col-md-4
+      :markdown-it
+         ### Roadmap
+          Features that are planned on being added by the community:[GitHub roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap). Ones without additional "approved" label are still under consideration.
+
+    div.col-md-4
+      :markdown-it
+         ### Contribute
+          The documentation below describes the internal workings of Oskari and
+          helps you to extend it to your needs and make meaningful contributions
+          for the community!
+          * [How to contribute/Getting involved](/documentation/development/how-to-contribute)
+          * [Git process](/documentation/development/oskari-git-process)
+          * [Development guidelines](/documentation/development/guidelines)
 
   div.row
     div.col-md-4
       :markdown-it
-        #### Running an Oskari instance
+          ### Sample app
+          The sample app can be used as a template for building your own Oskari-based geoportal.
+          Select functionalities you want to include and add your own application specific customizations for your needs like initial map layers, users etc.
+          The sample app uses Oskari as dependency on npm for frontend and Maven for server.
+          This is the app you get from the [download](/download) page.
+          * [Sample frontend app](https://github.com/oskariorg/sample-application) built on top of oskari-frontend
+          * [Sample server / Java webapp](https://github.com/oskariorg/sample-server-extension) built on top of oskari-server
+          * [Sample configurations](https://github.com/oskariorg/sample-configs) for running the Oskari services
+
+    div.col-md-4
+      :markdown-it
+         ### Source code for Oskari
+          * [Oskari frontend](https://github.com/oskariorg/oskari-frontend) Javascript-based code to use on your app
+          * [Oskari server](https://github.com/oskariorg/oskari-server) Maven-packaged Java code to use on your app
+          * [RPC client library](https://github.com/oskariorg/rpc-client) for controlling embedded maps
+          * [Oskari frontend community modules](https://github.com/oskariorg/oskari-frontend-contrib) additional frontend bundles for more functionality
+          * [Code and content for this site](https://github.com/oskariorg/oskari-docs)
+
+    div.col-md-4
+      :markdown-it
+        ### Running an Oskari instance
         * [Architecture](/documentation/architecture_basics)
         * [Setup database](/documentation/backend/setup-database)
         * [Setup Jetty](/documentation/backend/setup-jetty)
@@ -21,9 +59,10 @@ block main
         * [Setup nginx](/guides/nginx-config) (Optional)
         * [Optimizing for production](/documentation/minification)
 
-    div.col-md-4
+  di.row
+    div.col-md-8
       :markdown-it
-        #### Customizing Oskari
+        ### Customizing Oskari
         * [Create a custom frontend application](/documentation/setup-frontend-application)
         * [Create a custom Oskari-server extension](/documentation/backend/setup-server-extension)
         * [Configuring 3D map view](/documentation/features/3D)
@@ -43,42 +82,20 @@ block main
     div.col-md-4
       div.panel.panel-info
         div.panel-heading
-          h4 Using a hosted Oskari - RPC
           :markdown-it
+           ### Using a hosted Oskari - RPC
+
             One of the features of Oskari is the ability to embed a map to another website. RPC-functionality allows a developer to control the embedded map and react to events on the map from the embedding website. ([Read more](/documentation/rpc/index))
 
             * [RPC usage](/examples/rpc-api/rpc_example.html)
             * [Request API](/api/requests)
             * [Events API](/api/events)
 
-  div.row
-    div.col-md-6
 
-      :markdown-it
-        ## Contributing to Oskari
 
-        The documentation below describes the internal workings of Oskari and
-        helps you to extend it to your needs and make meaningful contributions
-        for the community!
 
-        * [How to contribute/Getting involved](/documentation/development/how-to-contribute)
-        * [Reporting issues and documenting roadmap](/documentation/development/issuetypes)
-        * [Roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap)
-        * [Git process used by NLS](/documentation/development/oskari-git-process)
-        * [Guidelines](/documentation/development/guidelines)
-        
-    div.col-md-6
 
-      :markdown-it
-        ## Community pages
 
-        * [Community goals](/community/community_goals)
-        * [Joint development forum](/community/JDF)
-        * [Oskari Community](/community/oskari_community)
-        * [Privacy policy](/community/privacy-policy)
-        * [Community roles](/community/roles)
-        * [Community styleguide](/community/styleguide)
-        * [Crowdfunding](/community/crowdfunding)
 
   div.row
     div.col-md-12
