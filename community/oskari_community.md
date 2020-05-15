@@ -285,7 +285,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
      <tr>
       <th scope="row">40</th>
       <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="V�yl� Finnish Transport Infrastructure Agency"></a></td>
-      <td>The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released. Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency. Contact: Markku Pitk�nen, Jenni Silvennoinen</td>
+      <td>The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released. Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency. Contact: Markku Pitkänen, Jenni Silvennoinen</td>
       <td>Member</td>
     </tr>
       <tr>
