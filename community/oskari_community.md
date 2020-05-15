@@ -15,11 +15,11 @@ If you can't find resources for developing, you can always try to set up a crowd
 ### Community documents
 
 - [Community goals](/community/community_goals)
-- [Joint development forum](/community/JDF)
-- [Privacy policy](/community/privacy-policy)
 - [Community roles](/community/roles)
-- [Community styleguide](/community/styleguide)
+- [Joint development forum](/community/JDF)
+- [Oskari style guide](/community/styleguide)
 - [Crowdfunding](/community/crowdfunding)
+- [Privacy policy](/community/privacy-policy)
 
 ### Individuals
 

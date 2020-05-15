@@ -2,13 +2,13 @@
 
 Oskari is being developed together. Especially the members of the Joint Development Forum are eager to find solutions and funding together. 
 
-**Oskari Project owners** and current **Technical coordinator** (National Land Survey of Finland, NLS) have formed a **Joint Development Forum (JDF)** to develop Oskari together. The JDF invites all interested community members to participate in the forum activities.
+**Oskari Project owners** and current **Technical coordinator** (National Land Survey of Finland, NLS-FI) have formed a **Joint Development Forum (JDF)** to develop Oskari together. The JDF invites all interested community members to participate in the forum activities.
 
 **1-2 organisational members** are also selected to represent the whole **Oskari Community** during the Oskari Community Day (usually held in April-May in Finland). The selection is done by the Community.
 
 **Oskari Communication Coordinator** acts as the secretary for the JDF and is guided by the JDF.
 
-The JDF is formed by signing a contract with NLS. NLS has promised to provide technical support and counselling for the JDF Project Owners. NLS acts also as the legal entity handling financial issues for the JDF. The activities of the JDF and membership payments are decided by the members of the JDF annually.
+The JDF is formed by signing a contract with NLS-FI. NLS-FI has promised to provide technical support and counselling for the JDF Project Owners. NLS-FI acts also as the legal entity handling financial issues for the JDF. The activities of the JDF and membership payments are decided by the members of the JDF annually.
 
 In 2020 the membership fee was 5000€/Project owner.
 
@@ -19,6 +19,11 @@ If your organisation is willing to support JDF work, please contact Communicatio
 **Head of Board**
 Rina Tammisto, Statistics Finland
 
+**Communication Coordinator**:
+Sanna Jokela, Gispo Ltd
+
+**Technical Coordinator**:
+Timo Aarnio & Sami Mäkinen, National Land Survey of Finland
 
 **Members:**
 
@@ -55,7 +60,7 @@ Rina Tammisto, Statistics Finland
       <th scope="row">4</th>
       <td><a href="http://www.turku.fi/" target="_blank"><img src="/images/logo/turku.png" width="200" alt="City of Turku"></a></td>
       <td>Harri Soini</td>
-      <td>Joint membership with Lounaistieto</td>
+      <td>Joint membership with Regional Council of Southwest Finland</td>
     </tr>
      <tr>
       <th scope="row">5</th>
@@ -66,7 +71,7 @@ Rina Tammisto, Statistics Finland
      <tr>
       <th scope="row">6</th>
       <td><a href="https://www.museovirasto.fi/en/" target="_blank"><img src="/images/logo/nba.png" width="200" alt="Finnish Heritage Agency"></a></td>
-      <td>Minna Ryyppö, Miikka Haimila</td>
+      <td>Minna Ryyppö</td>
       <td></td>
     </tr>
      <tr>
@@ -108,13 +113,7 @@ Rina Tammisto, Statistics Finland
   </tbody>
 </table>
 
-**Communication Coordinator**
-Sanna Jokela, Gispo Ltd
-
-**Technical Coordinator**
-Timo Aarnio & Sami Mäkinen, National Land Survey of Finland
-
-**Former Community representatives**
+**Former Community representatives**:
 Thank you for your work and participation in Oskari Joint Development Forum work! It has been a huge asset to Oskari community!
 
 - Minna Huovinen, Sitowise Ltd (2019)
