@@ -12,6 +12,15 @@ Development is not just coding, it can be bug reporting, finding funding or mark
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
+### Community documents
+
+- [Community goals](/community/community_goals)
+- [Community roles](/community/roles)
+- [Joint development forum](/community/JDF)
+- [Oskari style guide](/community/styleguide)
+- [Crowdfunding](/community/crowdfunding)
+- [Privacy policy](/community/privacy-policy)
+
 ### Individuals
 
 Anyone is free to use Oskari source code and make it even better! If you have an idea, please join Oskari discussion in [Gitter](https://gitter.im/oskariorg/chat). 
@@ -284,7 +293,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
     </tr>
      <tr>
       <th scope="row">40</th>
-      <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="V�yl� Finnish Transport Infrastructure Agency"></a></td>
+      <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="Väylä Finnish Transport Infrastructure Agency"></a></td>
       <td>The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released. Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency. Contact: Markku Pitkänen, Jenni Silvennoinen</td>
       <td>Member</td>
     </tr>

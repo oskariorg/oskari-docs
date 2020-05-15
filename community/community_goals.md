@@ -25,4 +25,4 @@ Develop open source Oskari sofware into more universal, versatile and user frien
 
 ## Community Roles
 
-See [Oskari Community](oskari_community.md)
+See [Oskari Community Roles](/community/roles)
