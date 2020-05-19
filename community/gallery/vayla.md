@@ -15,7 +15,7 @@ The Finnish Transport Infrastructure Agency Väylä uses Oskari as a platform of
 *In 2019 we had 22 000 visits from unique IP-address to our download and viewing service. The service was used over 40 000 times and we offered over 730 GB of data to our users*, 
 states Markku Pitkänen, expert for transport infrastructure information at Väylä. 
 
-Oskari is also used inside Palauteväylä, which is a national feedback-service for roads, tracks and waterways (operated togther with Väylä, Centres of Environment, Traffic and Economic and Traffic Management Finland Group).  
+Oskari is also used inside Palauteväylä, which is a national feedback-service for roads, tracks and waterways (operated together with Väylä, Centre of Economic Development, Transport and the Environment and Traffic Management Finland Group).  
 
 <img src="/images/gallery/privateroads.png" class="img-responsive"/>
 
@@ -25,8 +25,8 @@ At the moment (spring 2020) Väylä is doing a POC (proof of concept) with Oskar
 The close interaction with the community offer possibilities to implement new technologies and features in agile manner. 
 Also doing things together brings cost savings to all the organisations involved and enables the efficient use of resources*, Pitkänen continues. 
 
-*Väylä is also currently involwed in a gorvernmental project aiming for opening and utilization of information. 
-In this project we are creating a operational model that supports the publication of public information as open data more systematic and thus enabling the more broader use of data. 
+*Väylä is also currently involved in a governmental project aiming for opening and utilization of information. 
+In this project we are creating a operational model that supports more systematic publication of public information as open data more and thus enables more widescale use of data. 
 Developing and using Oskari and being part of the open source community is strtegically in line with the governmental project*, concludes Pitkänen.
 
 Markku Pitkänen,
