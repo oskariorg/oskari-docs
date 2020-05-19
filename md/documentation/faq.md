@@ -53,7 +53,16 @@ Oskari is updated every now and then (approximately once in every 2-4 months) an
 See [GitHub](https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNotes.md). Notice that you can view all previous release notes from the same page. Release notes will be posted to the audience also through the [Oskari user email list](https://lists.osgeo.org/mailman/listinfo/oskari-user), so go ahead and join the list so you know when to update. New releases are informed also via social media in Twitter and Gitter.
 
 ## How to change versions?
-Read how to [upgrade Oskari versions](https://oskari.org/documentation/backend/upgrading), remember to upgrade database schema as well.
+
+1) Update the oskari-frontend dependency in package.json for frontend
+2) Update oskari.version property in pom.xml for server
+3) Build new frontend and server as usual
+4) See Migration Guide for any manual steps required between updating from your current version to the one you are updating to: https://github.com/oskariorg/oskari-server/blob/master/MigrationGuide.md
+5) Check Release Notes on repositories for more information about changes:
+- https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNotes.md
+- https://github.com/oskariorg/oskari-server/blob/master/ReleaseNotes.md
+
+The database schema and content is upgraded automatically when you start the newly build application. Read more about [automatic upgrades in Oskari](https://oskari.org/documentation/backend/upgrading).
 
 # FAQ for users
 
