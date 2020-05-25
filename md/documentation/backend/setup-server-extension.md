@@ -10,28 +10,28 @@ This document describes how to use maven artifacts provided in Oskari Maven repo
 
 ## 1. Template maven project
 
-[Download](https://github.com/oskariorg/oskari-server-extension-template) a template for the webapp
+[Generate](https://github.com/oskariorg/sample-server-extension/generate) a copy for an Oskari based server webapp from our template
 
 ## 2. Start modifying the content
 
-- Edit the `pom.xml`s to change the groupId/artifactId and [oskari.version](https://github.com/oskariorg/oskari-server-extension-template/blob/ba7fffa3fc4bf7c378ba51edd988131fb0abebaa/pom.xml#L13).
+- Edit the `pom.xml`s to change the groupId/artifactId and [oskari.version](https://github.com/oskariorg/sample-server-extension/blob/1.2.1/pom.xml#L13).
 - Edit the `pom.xml`s to add/change the included dependencies
-- Edit the app-resources to configure app-myapp.json/myapp-view.json/mylayer.json. These are used by default since webapp-map overrides app-default.json.
-- Edit the myapp.jsp under webapp-map to modify the base HTML.
-- Create your own action routes like [MyAction](https://github.com/oskariorg/oskari-server-extension-template/blob/master/server-extension/src/main/java/my/app/MyActionHandler.java) under server-extension.
+- The [app-resources](https://github.com/oskariorg/sample-server-extension/tree/1.2.1/app-resources) contain configurations what functionalities, users, map layers and other content to initialize for the Oskari-based server.
+- Edit the [geoportal.jsp](https://github.com/oskariorg/sample-server-extension/blob/1.2.1/webapp-map/src/main/webapp/WEB-INF/jsp/geoportal.jsp) under webapp-map to modify the base HTML.
+- Create your own action routes like [MyAction](https://github.com/oskariorg/sample-server-extension/blob/1.2.1/app-specific-code/src/main/java/org/oskari/example/MyActionHandler.java) under server-extension.
 
-The released Oskari artifacts are downloaded from oskari.org Maven repository:
+The Oskari dependencies are downloaded from oskari.org Maven repository:
 
  	<repositories>
         <repository>
             <id>oskari_org</id>
             <name>Oskari.org release repository</name>
-            <url>http://oskari.org/nexus/content/repositories/releases/</url>
+            <url>https://oskari.org/nexus/content/repositories/releases/</url>
         </repository>
         <repository>
             <id>oskari_org_snapshot</id>
             <name>Oskari.org snapshot repository</name>
-            <url>http://oskari.org/nexus/content/repositories/snapshots/</url>
+            <url>https://oskari.org/nexus/content/repositories/snapshots/</url>
         </repository>
  	</repositories>
 
@@ -39,16 +39,16 @@ The released Oskari artifacts are downloaded from oskari.org Maven repository:
 
 This will build your webapp and include your code on top of the Oskari-server.
 
-    cd oskari-server-extension
+    cd sample-server-extension
     mvn clean install
 
 ## 4.Deploy to servers
 
-Copy the war packages from under `oskari-server-extension/webapp-map/target/` and `oskari-server-extension/webapp-transport/target/` to your servers deploy folder `{JETTY_HOME}/webapps`
+Copy the `oskari-map.war` file from under `sample-server-extension/webapp-map/target/` to your servers deploy folder `{JETTY_HOME}/webapps` replacing the old one.
 
 **Note!** You will need to adjust oskari-ext.properties accordingly. For example if you only add one view, the id of that view should be the default view in oskari-ext.properties OR you can remove the default view configuration so it will use the view type "DEFAULT" on database to detect the default view.
 
 ## Examples
 
-- ELF: https://github.com/elf-oskari/oskari-server-extensions
-- ASDI: https://github.com/arctic-sdi/oskari-server-extensions
+- National Geoportal of Finland: https://github.com/nls-oskari/kartta.paikkatietoikkuna.fi
+- Arctic-SDI geoportal: https://github.com/arctic-sdi/oskari-server-extensions
