@@ -10,14 +10,14 @@ image: /images/gallery/vayla.png
 
 The Finnish Transport Infrastructure Agency Väylä uses Oskari as a platform offering their users  possibilities to [view and download datasets](https://julkinen.vayla.fi/oskari/?lang=en). 
 
-<img src="/images/gallery/vayla.png" width="750" class="img-responsive"/>
+<img src="/images/gallery/vayla.png" class="img-responsive"/>
 
 *In 2019 we had 22 000 visits from unique IP-address to our download and viewing service. The service was used over 40 000 times and we offered over 730 GB of data to our users*, 
 states Markku Pitkänen, expert for transport infrastructure information at Väylä. 
 
 Oskari is also used inside Palauteväylä, which is a national feedback-service for roads, tracks and waterways (operated together with Väylä, Centre of Economic Development, Transport and the Environment and Traffic Management Finland Group).  
 
-<img src="/images/gallery/privateroads.png" width="750" class="img-responsive"/>
+<img src="/images/gallery/privateroads.png" class="img-responsive"/>
 
 At the moment (spring 2020) Väylä is doing a POC (proof of concept) with Oskari. In this project they are testing how to implement Oskari in a AWS cloud service. Within the POC they are also testing how new API formats, 3D modelling and images are shown and handeled within Oskari map UI. 
 
