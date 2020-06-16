@@ -22,7 +22,7 @@ Black (use preferably with white background)
 
 [PNG: Black](/images/oskari_logo_black.png)
 
-[SVG:Black](/images/oskari_k.svg)
+[SVG: Black](/images/oskari_k.svg)
 
 ---
 
