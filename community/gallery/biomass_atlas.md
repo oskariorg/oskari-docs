@@ -2,7 +2,7 @@
 title:  Calculate the potential potato crop with Biomass Atlas
 description: Biomass Atlas is a cool Oskari setup for fetching information from natural resources in Finland
 date: 2020-07-30
-image: /images/gallery/biomass.png
+image: /images/gallery/biomass_atlas.png
 ---
 *Date: 30.7.2020*
 
