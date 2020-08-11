@@ -1,8 +1,8 @@
 ## Oskari Commercial Support
 
 There are a number of organizations in the Oskari community that offer commercial support for Oskari. Support can be training, developing, installation or service management. 
-Open Source does not equal "free", so commercial services are essential part of the open source ecosystem. 
-If your organisation provides Oskari services commercially and is not found from the list, please make a pull request and add your information to the list.
+Oskari is open source software and free to use but you don't always have the resources to install, manage and customize the software to your needs so commercial services are essential part of the open source ecosystem. 
+If your organisation provides Oskari services commercially and is not found on the list, please make a pull request and add your information to the list.
 
 
 ### Companies offering Oskari support
@@ -16,7 +16,7 @@ If your organisation provides Oskari services commercially and is not found from
   </thead>
   <tbody>
     <tr>
-      <td><a href="http://www.cgi.fi/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fi/b/b8/CGI_logo_180x180.png" wifth="300" alt="CGI Finland LTd"></a></td>
+      <td><a href="http://www.cgi.fi/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fi/b/b8/CGI_logo_180x180.png" wifth="300" alt="CGI Finland Ltd"></a></td>
       <td>-</td>
     </tr>
     </tr>
@@ -46,7 +46,7 @@ If your organisation provides Oskari services commercially and is not found from
     </tr>
       <tr>
       <td><a href="https://www.ubigu.fi/en/" target="_blank"><img src="https://www.ubigu.fi/img/logos/ubigu_logo.svg" wifth="300" alt="Ubigu Ltd"></a></td>
-      <td>"We offer consulting, installation and maintanence services for Oskari"  Marko Kauppi, Ubigu</td>
+      <td>"We offer consulting, installation and maintenance services for Oskari"  Marko Kauppi, Ubigu</td>
     </tr>
   </tbody>
 </table>
