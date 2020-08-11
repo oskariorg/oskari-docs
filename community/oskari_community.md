@@ -16,7 +16,7 @@ If you can't find resources for developing, you can always try to set up a crowd
 
 We encourage you to join Oskari development in different ways. 
 
-If you wish to implement a new feature for Oskari, create [an issue of your idea to GitHub](https://github.com/oskariorg/oskari-docs/issues) and describe it well. Check also the [Community goals](/community/community_goals). 
+If you wish to implement a new feature for Oskari, let the world know about it by creating [an issue of your idea to GitHub](https://github.com/oskariorg/oskari-docs/issues) and describe it well. Check also the [Community goals](/community/community_goals). 
 
 Here is a [template for creating Oskari OIPS](https://github.com/oskariorg/oskari-docs/wiki/Improvement-Proposal-Template) (Oskari improvement proposal).
 
