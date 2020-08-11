@@ -12,6 +12,10 @@ Development is not just coding, it can be bug reporting, finding funding or mark
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
+## Joint development
+
+We encourage Oskari development to reach our community goals. If you wish to enbark a new feature for Oskari or develope Oskari together, create [an issue of your idea to GitHub](https://github.com/oskariorg/oskari-docs/issues) and describe it well. If you are creating the feature together with others, add the relevant members to your issue. Here is a [template for creating Oskari OIPS](https://github.com/oskariorg/oskari-docs/wiki/Improvement-Proposal-Template) (Oskari improvement proposal).
+
 ### Community documents
 
 - [Community goals](/community/community_goals)
