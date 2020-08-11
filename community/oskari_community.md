@@ -51,7 +51,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td><a href="http://www.cgi.fi/" target="_blank">CGI Finland LTd
+      <td><a href="http://www.cgi.fi/" target="_blank">CGI Finland Ltd
           </a></td>
       <td>-</td>
       <td></td>
@@ -129,7 +129,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <tr>
       <th scope="row">13</th>
       <td><a href="http://www.gispo.fi/" target="_blank">Gispo Ltd</a></td>
-      <td>"We offer training, conculting, development and maintanence on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
+      <td>"We offer training, conculting, development and maintenance on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
       <td>-</td>
     </tr>
       <tr>
@@ -282,7 +282,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <tr>
       <th scope="row">38</th>
       <td><a href="https://www.ubigu.fi/en/" target="_blank">Ubigu Ltd</a></td>
-      <td>"We offer consulting, installation and maintanence services for Oskari"  Marko Kauppi, Ubigu</td>
+      <td>"We offer consulting, installation and maintenance services for Oskari"  Marko Kauppi, Ubigu</td>
       <td>-</td>
     </tr>
       <tr>
