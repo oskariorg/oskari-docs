@@ -17,7 +17,7 @@ If your organisation provides Oskari services commercially and is not found on t
   <tbody>
     <tr>
       <td><a href="http://www.cgi.fi/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fi/b/b8/CGI_logo_180x180.png" wifth="300" alt="CGI Finland Ltd"></a></td>
-      <td>-</td>
+      <td>"We offer consulting on Oskari related topics, mainly software development and maintenance." - Jan Wolski, CGI Finland Ltd</td>
     </tr>
     </tr>
       <tr>
