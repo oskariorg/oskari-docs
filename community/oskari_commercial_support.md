@@ -26,7 +26,7 @@ If your organisation provides Oskari services commercially and is not found on t
     </tr>
       <tr>
       <td><a href="http://www.gispo.fi/" target="_blank"><img src="https://www.gispo.fi/~gispo/wp-content/themes/gispo/gispologosvg.svg" wifth="300" alt="Gispo Ltd"></a></td>
-      <td>"We offer training, conculting, development and maintanence on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
+      <td>"We offer training, consulting, development and maintanence on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
     </tr>
       <tr>
       <td><a href="https://hubble.fi/" target="_blank"><img src="https://hubble.fi/wp-content/uploads/2018/12/logo-before.png" wifth="300" alt="Hubble Ltd"></a></td>
