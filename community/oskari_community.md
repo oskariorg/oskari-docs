@@ -233,80 +233,86 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <td>-</td>
       <td>-</td>
     </tr>
-      <tr>
+     <tr>
       <th scope="row">29</th>
-      <td><a href="https://www.pulakka.com/" target="_blank">Pulakka Lab </a></td>
+      <td><a href="https://phz.fi/" target="_blank">PHZ Full Stack</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
       <th scope="row">30</th>
-      <td><a href="http://www.reaktor.fi/" target="_blank">Reaktor Ltd</a></td>
+      <td><a href="https://www.pulakka.com/" target="_blank">Pulakka Lab </a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
       <th scope="row">31</th>
-      <td><a href="http://www.avi.fi" target="_blank">Regional Authorities in Finland</a></td>
+      <td><a href="http://www.reaktor.fi/" target="_blank">Reaktor Ltd</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
       <th scope="row">32</th>
+      <td><a href="http://www.avi.fi" target="_blank">Regional Authorities in Finland</a></td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+      <tr>
+      <th scope="row">33</th>
       <td><a href="https://www.varsinais-suomi.fi/en/" target="_blank"><img src="/images/logo/vsl.png" width="200" alt="Regional Council of Southwest Finland / Lounaistieto"></a></td>
       <td>Regional Council of Southwest Finland is providing Lounaistieto information service together with other organisations. Oskari is used within <a href="https://karttapalvelu.lounaistieto.fi/" target="_blank">Lounaistieto map service</a>. Contact: Natalia Räikkönen</td>
       <td>Joint membership with City of Turku</td>
     </tr>
       <tr>
-      <th scope="row">33</th>
+      <th scope="row">34</th>
       <td><a href="https://www.sitowise.com/en" target="_blank"><img src="/images/logo/sitowise.png" width="200" alt="Sitowise Ltd"></a></td>
       <td>"Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava," Jan Lindbom, Sitowise Ltd. Sitowise provides its customers the full range of built environment services from planning to expert and digital services. Sitowise has a vast experience and strong expertise with developing Oskari-based GIS solutions for different types of organisations, making Sitowise one of the global leaders with Oskari knowledge.Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava. Sitowise has been a part of the Oskari development from the beginning by acquiring Dimenteq in the beginning of February 2018. Contact: Jani Levonen.</td>
       <td>Community representative</td>
     </tr>
       <tr>
-      <th scope="row">34</th>
+      <th scope="row">35</th>
       <td><a href="http://www.spatineo.com/" target="_blank">Spatineo Ltd</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
      <tr>
-      <th scope="row">35</th>
+      <th scope="row">36</th>
       <td><a href="http://www.stat.fi/" target="_blank"><img src="/images/logo/statistics.png" width="200" alt="Statistics Finland"></a></td>
       <td>Statistics Finland is involved in the development of statistical data utilization and thematic mapping properties in Oskari. Project owner: Rina Tammisto, Statistics Finland</td>
       <td>Member</td>
     </tr>
       <tr>
-      <th scope="row">36</th>
+      <th scope="row">37</th>
       <td><a href="https://www.suomenlatu.fi/en/" target="_blank">Suomen latu</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
-      <th scope="row">37</th>
+      <th scope="row">38</th>
       <td><a href="http://www.tut.fi/fi/pori/index.htm" target="_blank">Tampere University of Technology</a></td>
       <td>"We have expertise in management of large data masses and imagery analysis and provide courses on GIS, image handling and pattern recognition. Now Oskari is being installed as part of MIKÄ DATA project where data based services are created for farmers." - Petri Linna</td>
       <td>-</td>
     </tr>
       <tr>
-      <th scope="row">38</th>
+      <th scope="row">39</th>
       <td><a href="https://www.ubigu.fi/en/" target="_blank">Ubigu Ltd</a></td>
       <td>"We offer consulting, installation and maintenance services for Oskari"  Marko Kauppi, Ubigu</td>
       <td>-</td>
     </tr>
       <tr>
-      <th scope="row">39</th>
+      <th scope="row">40</th>
       <td>Unelmakouluprojekti</td>
       <td>-</td>
       <td>-</td>
     </tr>
      <tr>
-      <th scope="row">40</th>
+      <th scope="row">41</th>
       <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="Väylä Finnish Transport Infrastructure Agency"></a></td>
       <td>The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released. Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency. Contact: Markku Pitkänen, Jenni Silvennoinen</td>
       <td>Member</td>
     </tr>
       <tr>
-      <th scope="row">41</th>
+      <th scope="row">42</th>
       <td><a href="https://www.xamk.fi/en/frontpage/" target="_blank">XAMK</a></td>
       <td>"We want to utilize Oskari in our research and education when suitable project needs web based GIS solution. In education we use Oskari as an example of open source development and map based services. We hope to utilize Oskari even more in the future" Esa Hannus, XAMK.</td>
       <td>-</td>
