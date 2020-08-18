@@ -61,7 +61,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <th scope="row">1</th>
       <td><a href="http://www.cgi.fi/" target="_blank">CGI Finland Ltd
           </a></td>
-      <td>-</td>
+      <td>CGI offers consulting on Oskari related topics, mainly software development and maintenance. Contact: Jan Wolski</td>
       <td></td>
     </tr>
     <tr>
