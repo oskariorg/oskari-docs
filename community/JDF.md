@@ -12,7 +12,10 @@ The JDF is formed by signing a contract with NLS-FI. NLS-FI has promised to prov
 
 In 2020 the membership fee was 5000€/Project owner.
 
-If your organisation is willing to support JDF work, please contact Communication Coordinator (info@oskari.org).  Memos are available in [Finnish here since 2017](https://docs.google.com/document/d/12jbK_N4R3qOoUCuy6waTilBzTdire92CZzWMHLN2Gm4/edit#).
+If your organisation is willing to support JDF work, please contact Communication Coordinator (info@oskari.org).  
+
+[JDF memos](https://github.com/oskariorg/oskari-docs/tree/master/community/memos/) are available in Finnish.
+
 
 ### Members of JDF in 2020
 
