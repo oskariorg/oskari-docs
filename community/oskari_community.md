@@ -28,6 +28,7 @@ Here is a [template for creating Oskari OIP](https://github.com/oskariorg/oskari
 - [Oskari style guide](/community/styleguide)
 - [Crowdfunding](/community/crowdfunding)
 - [Privacy policy](/community/privacy-policy)
+- [Companies offering commercial support for Oskari](/community/oskari_commercial_support)
 
 ### Individuals
 
