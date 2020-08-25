@@ -28,6 +28,7 @@ Here is a [template for creating Oskari OIP](https://github.com/oskariorg/oskari
 - [Oskari style guide](/community/styleguide)
 - [Crowdfunding](/community/crowdfunding)
 - [Privacy policy](/community/privacy-policy)
+- [Companies offering commercial support for Oskari](/community/oskari_commercial_support)
 
 ### Individuals
 
@@ -43,9 +44,9 @@ Joint Development Forum is a tight group of organisations that have an interest 
 
 ### Community members
 
-It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. Tell us how you are going to take advantage of Oskari, it can be software development, arranging meetups, education - all activities are encouraged. If you want to join the Oskari network as a organizational member, describe your [organisation and development ideas on Oskari here](https://docs.google.com/forms/d/e/1FAIpQLSd2KZOQeJ5xDivG-X0r0HzMArHcRU6DRbb1hpS1uUS87VrY3w/viewform). 
+It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. Tell us how you are going to take advantage of Oskari, it can be software development, arranging meetups, education - all activities are encouraged. If you want to join the Oskari network as a organizational member or want to change your description, please contact info@oskari.org or make a pull request and describe your [organisation and development ideas on Oskari here](https://github.com/oskariorg/oskari-docs/blob/master/community/oskari_community.md). 
 
-Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. If you want to change your description, please contact info@oskari.org or make a [pull request](https://github.com/oskariorg/oskari-docs/blob/master/community/oskari_community.md). 
+Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. 
 
 <table class="table table-striped">
   <thead>
@@ -137,7 +138,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <tr>
       <th scope="row">13</th>
       <td><a href="http://www.gispo.fi/" target="_blank">Gispo Ltd</a></td>
-      <td>"We offer training, conculting, development and maintenance on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
+      <td>"We offer training, consulting, development and maintenance on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
       <td>-</td>
     </tr>
       <tr>
