@@ -8,9 +8,9 @@ Oskari is being developed together. Especially the members of the Joint Developm
 
 **Oskari Communication Coordinator** acts as the secretary for the JDF and is guided by the JDF.
 
-The JDF is formed by signing a contract with NLS-FI. NLS-FI has promised to provide technical support and counselling for the JDF Project Owners. NLS-FI acts also as the legal entity handling financial issues for the JDF. The activities of the JDF and membership payments are decided by the members of the JDF annually.
+The JDF is formed by signing [a contract (at the moment only available in Finnish)](https://github.com/oskariorg/oskari-docs/tree/master/community/JDF_contract_template.pdf) with NLS-FI. NLS-FI has promised to provide technical support and counselling for the JDF Project Owners. NLS-FI acts also as the legal entity handling financial issues for the JDF. The activities of the JDF and membership payments are decided by the members of the JDF annually.
 
-In 2020 the membership fee was 5000€/Project owner.
+In 2020 the membership fee was 5000€/Project owner. 
 
 If your organisation is willing to support JDF work, please contact Communication Coordinator (info@oskari.org).  
 
