@@ -45,7 +45,7 @@ If your organisation provides Oskari services commercially and is not found on t
       <td>"Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava," Jan Lindbom, Sitowise Ltd. Sitowise provides its customers the full range of built environment services from planning to expert and digital services. Sitowise has a vast experience and strong expertise with developing Oskari-based GIS solutions for different types of organisations, making Sitowise one of the global leaders with Oskari knowledge.Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava. Sitowise has been a part of the Oskari development from the beginning by acquiring Dimenteq in the beginning of February 2018. Contact: Jani Levonen.</td>
     </tr>
       <tr>
-      <td><a href="https://www.ubigu.fi/en/" target="_blank"><img src="https://www.ubigu.fi/img/logos/ubigu_logo.svg" wifth="300" alt="Ubigu Ltd"></a></td>
+      <td><a href="https://www.ubigu.fi/en/" target="_blank"><img src="/images/logo/ubigu.svg" wifth="300" alt="Ubigu Ltd"></a></td>
       <td>"We offer consulting, installation and maintenance services for Oskari"  Marko Kauppi, Ubigu</td>
     </tr>
   </tbody>
