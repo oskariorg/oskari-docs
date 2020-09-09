@@ -1,12 +1,17 @@
 ## Visual Style Guide for Oskari
 
-Version 1.0
+Version 1.1
 
-This is our Oskari Visual Style Guide. This document defines standards for the use of the our visual identity.
+This is  Oskari Visual Style Guide. This document defines standards for the use of Oskari visual identity for marketing purposes. 
 
-The Visual Style Guide is a living document, initiated with the goal of developing a consistent message and image for Oskari. It is a “living” document because we expect it to expand as we cover more use cases where visual consistency is important and can be described using simpler rules. The standards and simple policies described here are designed to maintain the uniformity of presentation necessary for successful promotion and marketing efforts for the Oskari project.
+Your own Oskari can be modified to what ever look you like :)
 
-This guide is based on a UI desing from 2019 and a UI guide from 2015 and Oskari Otter design from 2019. 
+But we appreciate if you would use Oskari logo and visual style guidelines when presenting Oskari software to the community (e.g. meetups around Oskari, slideshows about Oskari and so forth). 
+The goal is to develop a consistent message and image for Oskari. 
+
+The Visual Style Guide is evolving, so remember to check the latest guidelines from here every now and then. 
+
+This guide is based on a UX design from 2019 and a UX guide from 2015 and Oskari Otter design from 2019. 
 
 # Logo
 
@@ -14,22 +19,34 @@ Black (use preferably with white background)
 
 <img src="/images/oskari_logo_black.png" width="250"/>
 
-[Black svg](/images/oskari_k.svg)
 
----
-[White small (use preferably with black background)](/images/oskari_logo_white.png)
+[PNG: Black](/images/oskari_logo_black.png)
 
-[White (401 * 114)](/images/oskari_logo_white_401_114.png)
-
-[White svg](/images/oskari_w.svg)
+[SVG: Black](/images/oskari_k.svg)
 
 ---
 
-<img src="/images/oskari_logo_rgb.png" width="250"/>
+White (use preferably with black background)
+
+<div style="width:400px; height: 200x; background-color:#000000;"><img src="/images/oskari_logo_white.png"/></div>
+
+
+[PNG: White](/images/oskari_logo_white.png)
+
+[PNG: White (401 * 114)](/images/oskari_logo_white_401_114.png)
+
+[SVG: White](/images/oskari_w.svg)
+
+---
 
 Orange with grey text
 
-[RGB svg](/images/oskari_rgb.svg)
+<img src="/images/oskari_logo_rgb.png" width="250"/>
+
+
+[PNG: RGB](/images/oskari_logo_rgb.png)
+
+[SVG: RGB](/images/oskari_rgb.svg)
 
 ---
 
@@ -46,10 +63,10 @@ Oskari Otter is the maskot for Oskari Community. Use it with care.
 # Primary colors
 
 ## Yellow
-NEW:
-- #ffd400 (primary-color) 
-- #fdf8d9 (primary-light)
-- #ecb900 (primary dark)
+
+<div style="width:200px; height: 50px; background-color:#ffd400; color:#ffffff">#ffd400 (primary-color) </div>
+<div style="width:200px; height: 50px; background-color:#fdf8d9; color:#000000"">#fdf8d9 (primary-light)</div>
+<div style="width:200px; height: 50px; background-color:#ecb900; color:#000000"">#ecb900 (primary-dark)</div>
 
 OLD: 
 - #ffd400 (yellow) used as highlight color for icons and background for titles within website
@@ -60,9 +77,9 @@ OLD:
 
 ## Blue
 
-NEW:
-- #006ce8 (blue, light) 
-- #003fc3 (blue, dark)
+<div style="width:200px; height: 50px; background-color:#006ce8; color:#ffffff">#006ce8 (blue, light)</div>
+<div style="width:200px; height: 50px; background-color:#003fc3; color:#ffffff"">#003fc3 (blue, dark)</div>
+
 
 OLD:
 - #eef8ff (blue, light) used with hyperlinks and primary buttons
@@ -71,13 +88,12 @@ OLD:
 
 ## Grey
 
-NEW:
-- #949494 (midgray)
-- #d9d9d9 (lightgray)
-- #595959 (darkgray)
-- #3c3c3c (textgray)
-- #fafafa (lightest-gray)
-- #f3f3f3 (bg)
+<div style="width:200px; height: 50px; background-color:#949494; color:#ffffff">#949494 (midgray)</div>
+<div style="width:200px; height: 50px; background-color:#d9d9d9; color:#000000"">#d9d9d9 (lightgray)</div>
+<div style="width:200px; height: 50px; background-color:#595959; color:#ffffff"">#595959 (darkgray)</div>
+<div style="width:200px; height: 50px; background-color:#3c3c3c; color:#ffffff"">#3c3c3c (textgray)</div>
+<div style="width:200px; height: 50px; background-color:#fafafa; color:#000000"">#fafafa (lightest-gray))</div>
+<div style="width:200px; height: 50px; background-color:#f3f3f3; color:#000000"">#f3f3f3 (bg)</div>
  
 OLD:
 - #262626 (dark grey) used with Otter and website
@@ -88,13 +104,13 @@ OLD:
 - #fafafa (light grey) background color for content boxes in map service
 
 ## Warning-color
-NEW:
-- #f5222d (warning-red)
-- #fff1f1 (warning-light)
+
+<div style="width:200px; height: 50px; background-color:#f5222d; color:#ffffff">#f5222d (warning-red))</div>
+<div style="width:200px; height: 50px; background-color:#fff1f1; color:#000000"">#fff1f1 (warning-light)</div>
 
 # Icons
 - Preferably use this [Icon library](https://ant.design/components/icon/) for symbols
 
 # Sources
-- [NEW Style Guide created in 2019 for UI desing purposes](https://app.zeplin.io/project/5da6cb75d547d809d5fd4c4e/styleguide/colors)
-- [UI Guide from 2015](https://oskari.org/files/Oskari-UXGuide_EN-18-11-2015.pdf)
+- New colors from a design by NLS-FI in 2019
+- OLD colors from [UX Guide from 2015](https://oskari.org/files/Oskari-UXGuide_EN-18-11-2015.pdf)
