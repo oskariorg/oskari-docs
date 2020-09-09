@@ -1,5 +1,9 @@
 ## Sprite icons
 
+Note! This documentation has been mostly moved from another page and might be outdated!
+
+---
+
 The minifying process also generates a sprite image for the generic tools icons used in Oskari. This requires an additional software to be installed called [GraphicsMagick](http://www.graphicsmagick.org/). Pretty any version has worked for us. The latest that we've used is `1.3.25`, but earlier versions have worked as well without any modification. See install instructions at the end of the page.
 
 ## Troubleshooting
@@ -12,9 +16,6 @@ We've installed graphicsmagick with these steps on Redhat/Centos 6:
     # Get GraphicsMagick source
     sudo wget http://ftp.icm.edu.pl/pub/unix/graphics/GraphicsMagick/1.3/GraphicsMagick-1.3.25.tar.gz
     tar zxvf GraphicsMagick-1.3.25.tar.gz
-    # for png support check that these are installed
-    sudo yum install libpng
-    sudo yum install libpng-devel
     # Configure and compile
     cd GraphicsMagick-1.3.25
     sudo ./configure --enable-shared
