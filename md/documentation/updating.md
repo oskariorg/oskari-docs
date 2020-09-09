@@ -49,17 +49,23 @@ Note! To use the newly built frontend you will need to update `oskari-ext.proper
 
       oskari.client.version=dist/[version from your package.json]
 
-# Minifying JavaScript code for production
+# Building the frontend for production
 
-Minifying the code means that all the files that are needed to build the app are put in a single file and all the "human-friendly" names are changed to be more compact. This will reduce the startup time for the end-user dramatically. With the default download and sample application you can run `npm run build` to generate the minified Javascript files. This will result in `Oskari/dist/servlet` folder being generated.
+Modern web applications are developed using JavaScript syntax that is not fully supported by older browsers and the code needs to be processed before it can be used by end-user browsers. This step also includes bundling and minifying the code so it's more compact for consumption than the human-friendly version that is used for development. This will reduce the startup time for the end-user dramatically.
 
-This works by reading a minifierAppSetup.json file that should match the appsetup (bundle-collection) used on the website including any dynamic (role-based) bundles that are added on the fly. So basically all the bundles you want to use. Here's an example for the basic [geoportal appsetup](https://github.com/oskariorg/oskari-frontend/blob/master/applications/sample/servlet/minifierAppSetup.json) and for an [embedded map](https://github.com/oskariorg/oskari-frontend/blob/master/applications/sample/servlet_published_ol3/minifierAppSetup.json). These are used when running just `npm run build`. If you take a look at the package.json [script-definitions for builds](https://github.com/oskariorg/oskari-frontend/blob/master/tools/package.json) you can see that you can also specify the version and the minifierAppSetups to use for your needs by running a modified command from what are used as the script shortcuts.
+With the default sample application (a pre-built version included in the zip downloda) you can run `npm run build` to generate the minified Javascript files. This will result in folders and files generated under `[your frontend repository root]/dist/`.
 
-The easiest modification with most benefit is changing the minifierAppSetup.json files to only include the bundles that you are using. This reduces the amount of code the end-user needs to load. You can also safely rename the "version" folder from `dist/servlet` to `dist/1.0` or similar. Note that you will need to tell the server what client version to serve. This is done by modifying the `oskari-ext.properties` file:
+This works by reading a main.js file that should match the appsetup (bundle collection) used on the website you are creating including any dynamic (role-based) bundles that are added on the fly. So basically all the bundles you want to use in that application. Here's an example for the basic [geoportal appsetup](https://github.com/oskariorg/sample-application/blob/1.3.0/applications/geoportal/main.js) and for an [embedded map](https://github.com/oskariorg/sample-application/blob/1.3.0/applications/embedded/main.js). These are processed when running `npm run build`.
 
-    # this will toggle minified code on (false) and off (true)
-    development=false
-    # this will link the correct version of the frontend for the user (if you renamed 'servlet' to '1.0' use 'dist/1.0')
-    oskari.client.version=dist/servlet
+ If you take a look at the package.json [script for build](https://github.com/oskariorg/sample-application/blob/1.3.0/package.json#L19) you can see that the parameter `--env.appdef=applications` is used to point the build to search for applications under the `applications` folder. You can change this in your own app as you wish.
 
-If the code changes you can do `npm run build` again to create new minified result. You will need to do this when updating the new version or after changing any custom code/bundles you want to use.
+The best point to start customizing your app is changing the `main.js` file under `geoportal` application to only include the bundles that you are using. This reduces the amount of code the end-user needs to load. You can also safely remove the 3D applications if you don't need them. The application for `embedded`/published maps usually stays more or less the same and the `geoportal` one is usually customized based on requirements.
+
+When changing main.js to include application specific bundles and/or customizing the application you need to run `npm run build` again to create new minified result. You will also need to do this when updating the new version of Oskari or after changing any application specific code/bundles you want to use.
+
+## Developing the application specific code
+
+ While developing your application it's recommended to run `npm run start` instead of `npm run build` over and over again. The start script launches a dev-server for the frontend that will process the code while you develop it. The dev-server starts at port 8081 and assumes the normal backend is running on the default port 8080 (The oskari-server based server component). The dev-server also assumes that the client version on the server is configured in `oskari-ext.properties` under `oskari-server/resources` as:
+
+      oskari.client.version=dist/devapp
+
