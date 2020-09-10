@@ -2,27 +2,19 @@
 
 Note! We are updating the frontend and server versions at the same time and for best compatibility it's best to use same version in both.
 
-## Frontend
+## Migration and release notes
 
-Updating an Oskari application that is based on the [sample-application](https://github.com/oskariorg/sample-application) template is fairly simple. For the frontend the oskari-frontend (and possible oskari-frontend-contrib) dependency is updated by changing the version number in [package.json](https://github.com/oskariorg/sample-application/blob/1.2.1/package.json#L9) file from the current version in the app:
-```
-  "dependencies": {
-    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#1.55.2"
-  },
-```
+Simply updating the Oskari dependency versions for frontend and server and building new versions is enough in most cases. But sometimes there are additional things that need to done when updating. The additional steps will help you when for example the code doesn't compile after updating (some class might have changed on the server for example) or there might be some things that should be done while updating that are not as obvious. These things are documented on the `Migration Guide` in oskari-server repository. You should at least skim through the `Release notes` for both server and frontend to see if there are something that affects you. 
 
-To the new version:
+So take a look at these before updating:
 
-```
-  "dependencies": {
-    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#1.56.0"
-  },
+- [Migration Guide](https://github.com/oskariorg/oskari-server/blob/master/MigrationGuide.md)
+- [Server release notes](https://github.com/oskariorg/oskari-server/blob/master/ReleaseNotes.md)
+- [Frontend release notes](https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNotes.md)
 
-```
-
-When updating Oskari version you might also want to change the application version in [package.json](https://github.com/oskariorg/sample-application/blob/1.2.1/package.json#L3) on your application to signal that the application is updated.
-
-After this you need to run `npm install` to install any new/changed libraries and `npm run build` to generate a new build under `[your-application-repository-root]/dist/[version on package.json]`. After building the application server can be served as static resources from Jetty/nginx or similar server.
+It might be also a good idea to see any PRs/changes for the sample application to see if you should adapt your application:
+- https://github.com/oskariorg/sample-application
+- https://github.com/oskariorg/sample-server-extension
 
 ## Server
 
@@ -45,11 +37,34 @@ To the new version:
 ```
 After this run `mvn clean install` to generate a new `oskari-map.war` under `[your-server-repository-root]/webapp-map/target`. Replace the `oskari-map.war` under the `oskari-server/webapps` folder (in a setup similar to the Oskari/Jetty download package) with the new one.
 
+## Frontend
+
+Updating an Oskari application that is based on the [sample-application](https://github.com/oskariorg/sample-application) template is fairly simple. For the frontend the oskari-frontend (and possible oskari-frontend-contrib) dependency is updated by changing the version number in [package.json](https://github.com/oskariorg/sample-application/blob/1.2.1/package.json#L9) file from the current version in the app:
+```
+  "dependencies": {
+    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#1.55.2"
+  },
+```
+
+To the new version:
+
+```
+  "dependencies": {
+    "oskari-frontend": "https://git@github.com/oskariorg/oskari-frontend.git#1.56.0"
+  },
+
+```
+
+When updating Oskari version you might also want to change the application version in [package.json](https://github.com/oskariorg/sample-application/blob/1.2.1/package.json#L3) on your application to signal that the application is updated.
+
+After this you need to run `npm install` to install any new/changed libraries and `npm run build` to generate a new build under `[your-application-repository-root]/dist/[version on package.json]`. After building the application server can be served as static resources from Jetty/nginx or similar server.
+
 Note! To use the newly built frontend you will need to update `oskari-ext.properties` under `oskari-server/resources` to link the new frontend version:
 
       oskari.client.version=dist/[version from your package.json]
 
-# Building the frontend for production
+
+### Building the frontend for production
 
 Modern web applications are developed using JavaScript syntax that is not fully supported by older browsers and the code needs to be processed before it can be used by end-user browsers. This step also includes bundling and minifying the code so it's more compact for consumption than the human-friendly version that is used for development. This will reduce the startup time for the end-user dramatically.
 
