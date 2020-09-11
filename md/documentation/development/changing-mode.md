@@ -1,5 +1,7 @@
 # Mode
 
+**Note! This is not used currently in Oskari and is probably outdated:**
+
 Mode in this context describes an alternate user interface layout and setup that is entered and exited. The default layout is resumed upon exit. Mode is implemented as an extension bundle.
 
 ## Mode View and Mode Toolbar implementation requirements

@@ -1,5 +1,8 @@
 # Adding 3rd party JavaScript libraries
 
+Usually using `npm install --save` to add a library and `import` it as ES-module is enough and the recommended approach. 
+However sometimes you might need a more old-school approach that is described below:
+
 * Add library files under `Oskari/libraries/<yourLibrary>/`
 
 * If your library is just for your own bundle
