@@ -20,4 +20,4 @@ Bugs for bundles in community-repository should be reported on the appropriate r
 
 ## OIP-issues
 
-Normally simple pull requests are enough to get the work done. However if you for example want to change how Oskari works at it's core you should create an Oskari improvement proposal. The issue should describe the proposed changes very clearly (even on code level), what impact it will have and what are the reasons for the change. The PSC will vote on any OIPs.
+Normally simple pull requests are enough to get the work done. However if you for example want to change how Oskari works at its core you should create an Oskari improvement proposal. The issue should describe the proposed changes very clearly (even on code level), what impact it will have and what are the reasons for the change. The PSC will vote on any OIPs.
