@@ -3,13 +3,13 @@
 Usually using `npm install --save` to add a library and `import` it as ES-module is enough and the recommended approach. 
 However sometimes you might need a more old-school approach that is described below:
 
-* Add library files under `Oskari/libraries/<yourLibrary>/`
+* Add library files under `[oskari-frontend or your repository]/libraries/<yourLibrary>/`
 
 * If your library is just for your own bundle
     * reference library files in your `bundle.js`
 
 * If your library is for several bundles
-    * create a new `bundle.js` under `Oskari/packages/libraries/<yourLibrary>/`
+    * create a new `bundle.js` under `[oskari-frontend or your repository]/packages/libraries/<yourLibrary>/`
     * include this new "library bundle" in the startup sequence of your bundle
 
 Example of library `bundle.js`:
