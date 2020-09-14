@@ -46,23 +46,10 @@ upstream oskariserver {
 
 ```
 
-Oskari-server, transport and Geoserver can all be on the same Jetty, but having Geoserver on the same JVM affects projection
+Oskari-server and Geoserver can both be on the same Jetty, but having Geoserver on the same JVM affects projection
  handling due to this: http://docs.geotools.org/latest/userguide/library/referencing/order.html
 
-Because of this reason it's recommended that Geoserver is not running on the same Jetty as Oskari-server/transport.
-
-### Oskari transport
-
-Oskari transport should be running on localhost in port 8081.
-This can be changed by modifying these lines:
-
-
-```
-upstream transport {
-    server localhost:8081;
-}
-
-```
+Because of this reason it's recommended that Geoserver is not running on the same Jetty as Oskari-server.
 
 ### Geoserver for myplaces/analysis/userlayers
 
