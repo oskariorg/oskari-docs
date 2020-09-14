@@ -15,11 +15,17 @@
 
 ### Create user data tables to oskaridb database for kmz, shz (shp file set) file import storage
 
-Use pgAdmin or psql to execute below SQL-script file
+Enable Flyway-module `userlayer` on `oskari-ext.properties`:
 
-    \content-resources\src\main\resources\sql\PostgreSQL\create_userdata_tables.sql
+    db.additional.modules=[...], userlayer
 
-### Add wfs base layer to oskari_maplayer table for userlayer featuredata management (transport)
+# Note! Everything below is outdated
+
+But might give you hints what is required for userlayers to work
+
+---
+
+### Add wfs base layer to oskari_maplayer table for userlayer featuredata management
 
 Use pgAdmin or psql to execute below SQL-script file
 
