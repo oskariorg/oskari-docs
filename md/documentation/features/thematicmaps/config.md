@@ -153,7 +153,7 @@ Not all datasources have data for all of the regionsets so as the last step you 
 
 
     INSERT INTO 
-        oskari_statistical_layer(datasource_id, layer_id, config)
+        oskari_statistical_datasource_regionsets(datasource_id, layer_id, config)
     VALUES(
         (SELECT id FROM oskari_statistical_datasource 
             WHERE locale like '%Health and Welfare%'),
