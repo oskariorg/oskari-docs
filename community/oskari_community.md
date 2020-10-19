@@ -8,7 +8,7 @@ In 2011 Oskari's source code was opened because the interest within other organi
 
 The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was founded. Now we have tens of organisations involved in Finland and abroad! 
 
-Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the [community goals and tasks](community_goals.md) and join the development!
+Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the [community goals and tasks](community_goals) and join the development!
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
 
@@ -40,7 +40,7 @@ In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-
 
 ### Joint Development Forum
 
-Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF.md).
+Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF).
 
 ### Community members
 
