@@ -2,42 +2,41 @@
 
 JSON style object for styling layers. VisualizationForm component also supports getting and setting style values in Oskari style format.
 
-All of the fields and objects defined here are optional in the Oskari style JSON. Anything can be omitted from the example below.
-
 ## Use cases
-- Define styling for WFS layers handled by WfsVectorLayerPlugin
+- Define styling for vector layers handled by WfsVectorLayerPlugin
 - Define styling for feature layers
 - VisualizationForm
 
-Oskari style definition:
+## Oskari style definition
+All of the fields and objects defined here are optional in the Oskari style JSON. Anything can be omitted from the example below.
 
 ```javascript
 {
     "fill": { // fill styles
-        "color": "#ff00ff", // fill color
+        "color": "#FAEBD7", // fill color
         "area": {
             "pattern": -1 // fill style
         }
     },
     "stroke": { // stroke styles
-        "color": "#ff00ff", // stroke color
-        "width": 3, // stroke width
-        "lineDash": "dot", // line dash, also supported: dash, dashdot, longdash, longdashdot or solid
-        "lineCap": "but", // line cap, also supported: round or square
+        "color": "#000000", // stroke color
+        "width": 1, // stroke width
+        "lineDash": "solid", // line dash, supported: dash, dashdot, dot, longdash, longdashdot and solid
+        "lineCap": "round", // line cap, supported: mitre, round and square
         "area": {
-            "color": "#ff00ff", // area stroke color
-            "width": 3, // area stroke width
+            "color": "#000000", // area stroke color
+            "width": 1, // area stroke width
             "lineDash": "dot", // area line dash
-            "lineJoin": "mitre" // area line corner
+            "lineJoin": "round" // area line corner
         }
     },
     "text": { // text style
         "fill": { // text fill style
-            "color": "#0000ff" // fill color
+            "color": "#000000" // fill color
         },
         "stroke": { // text stroke style
-            "color": "#ff00ff", // stroke color
-            "width": 4 // stroke width
+            "color": "#ffffff", // stroke color
+            "width": 1 // stroke width
         },
         "font": "bold 12px Arial", // font
         "textAlign": "top", // text align
@@ -47,7 +46,7 @@ Oskari style definition:
         "labelProperty": "propertyName" // read label from feature property
     },
     "image": { // image style
-        "shape": "marker.png", // external icon
+        "shape": 5, // 0-6 for default markers. svg or external icon path
         "size": 3, // Oskari icon size.
         "sizePx": 20, // Exact icon px size. Used if 'size' not defined.
         "offsetX": 0, // image offset x
@@ -57,56 +56,39 @@ Oskari style definition:
         "fill": {
             "color": "#ff00ff" // image fill color
         }
-    }
-}
-```
-## Layer styling
-WFS layer styling is stored in options field.
-```javascript
-{
-  "Custom MVT style": {
-    "featureStyle": {...},
-    "optionalStyles": [{...}]
-  },
-  ...
-}
-```
-
-## Optional style filttering
-
-The styling definitions for optional style is same as above but in optional style you also need to specify the feature it is used for with property object. To filter features by different property keys you can use AND or OR properties. Use only one (or two for ranges) value definition. If additional definitions is given then first definion takes place (order in below).
-
-```javascript
-{
-    property: {
-        key: 'id', // feature property what checked for use optional style
-        caseSensitive: true, // should string comparison
-
-        // For number values
-        greaterThan: 60, // strictly greater than
-        atLeast: 60, // greater than or equal to
-        lessThan: 80, // strictly  less than
-        atMost: 80, // less than or equal to
-        // For ranges use two of above
-
-        // For string values
-        like: 'tarm' || ['tarmac','sand', 'gravel'], // feature property string value includes
-        notLike: 'tarm' || ['tarmac','sand'], // includes not
-
-        // For string and number values
-        in: ['tarmac','sand', 'gravel'], // multiple equality
-        notIn: ['sand', 'gravel'], // multiple equality not
-        value: '' // equal
-
-        // Regular expression
-        regexp: '' // the text of the regular expression
     },
-    AND: [], // to add multiple properties
-    OR: [], // to add multiple properties
-    stroke: {},
-    fill: {},
-    image: {},
-    text: {}
+    "inherit": false, // For hover. Set true if you wan't to extend original feature style.
+    "effect": "auto normal" // Requires inherit: true. Lightens or darkens original fill color. Values [darken, lighten, auto] and [minor, normal, major].
+}
+```
+## Vector layer styling
+Vector layer styling is stored in options field. Feature style overrides default style definitions for all features. Optional styles are used for specific features only which overrids default and feature style definitions. One named style has only one feature style and may have more than one optional styles.
+
+```javascript
+{
+    "styles": {
+        "Custom MVT style": {
+            "featureStyle": {...},
+            "optionalStyles": [{...}]
+        }
+    }
+...
+}
+```
+
+### WFS layer styling example
+WFS layer options field:
+```javascript
+{
+    "styles":{
+        "Red lines": {
+            "featureStyle": {
+                "stroke": {
+                    "color": "#ff0000"
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -116,11 +98,7 @@ Hover options describes how to visualize layer's features on hover and what kind
 
 ```javascript
 {
-    // Apply hover style only on features having property "class" with value "building"
-    filter: [
-        {key: 'class', value: 'building'}
-    ],
-    featureStyle: { // TODO should this be removed
+    featureStyle: {
         inherit: true,
         effect: 'darken',
         // Oskari style definitions
@@ -140,54 +118,77 @@ Hover options describes how to visualize layer's features on hover and what kind
 }
 ```
 
-Filtering features with different property keys:
+## Optional styles
+The styling definitions for optional style is same as above. Features that uses optional style are filtered with [Oskari filter](/documentation/examples/oskari-filter) definition by features' property keys and values. To filter features by different property keys you can use AND or OR operators.
+
+### Optional style examples
+To define style which is affected to featuers which regionCode is '091'.
 ```javascript
 [{
-    AND: [{
-        key: 'id',
-        in: [1, 5, 12]
-    }, {
-        key: 'type',
-        value: 'road'
-    }],
-    stroke: {},
-    fill: {},
-    image: {},
-    text: {}
+    "property": {
+        "key": "regionCode",
+        "value": "091"
+    },
+    "fill": {
+        "color": "#ff0000"
+    }
 }]
 ```
-Defined style options are affected featuers which type is 'road' and id is 1, 5 or 12.
+
+Filtering features with different property keys use AND and OR operators. To define style which is affected to features which type is 'city' or 'town' and population is greater than 10000.
+```javascript
+[{
+    "AND": [{
+        "key": "type",
+        "in": ["city", "town"]
+    }, {
+        "key": "population",
+        "greaterThan": 10000
+    }],
+    "image": {
+        "shape": 5,
+        "size": 4,
+        "fill": {
+            "color": "#3333ff"
+        }
+    },
+    "text": {
+        "labelProperty": "name"
+    }
+}]
+```
+To define style which is affected to features which surface property is 'tarmac' (case insensitive) or type is '\*road\*' or speedLimit is between 50 and 80 (begin and end values are included).
 
 ```javascript
 [{
-    OR: [{
-        key: 'surface',
-        value: 'tarmac',
-        caseSensitive: false
+    "OR": [{
+        "key": "surface",
+        "value": "tarmac",
+        "caseSensitive": false
     }, {
-        key: 'type',
-        like: 'path'
+        "key": "type",
+        "like": "road"
     }, {
-        key: 'speedLimit',
-        atLeast: 50,
-        atMost: 80
+        "key": "speedLimit",
+        "atLeast": 60,
+        "atMost": 100
 
     }],
-    stroke: {},
-    fill: {},
-    image: {},
-    text: {}
+    "stroke": {
+        "color": "#ff0000",
+        "width": 3
+    }
 }]
 ```
-Defined style options are affected featuers which surface property is 'tarmac' (case insensitive)or type is '*path*' or speedLimit is between 50 and 80 (begin and end values are included).
+
+## Related bundles
+[WFSVector](/api/bundles/#unreleased/mapping/wfsvector)
+
+## Related API
+[AddFeaturesToMapRequest](/api/requests/#unreleased/mapping/mapmodule/request/addfeaturestomaprequest)
+
+
+[VectorLayerRequest](/api/requests/#unreleased/mapping/mapmodule/request/vectorlayerrequest)
 
 ## RPC examples
 [Add or remove vector features](/examples/rpc-api/rpc_example.html)
-
-## Related bundles
-[WFSVector](/api/bundles/mapping/wfsvector)
-
-## Related api
-[VectorLayerRequest](/api/requests/#unreleased/mapping/mapmodule/request/vectorlayerrequest)
-
-[AddFeaturesToMapRequest](/api/requests/#unreleased/mapping/mapmodule/request/addfeaturestomaprequest)
