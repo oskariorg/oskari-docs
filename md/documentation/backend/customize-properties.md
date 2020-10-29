@@ -24,21 +24,3 @@ Examples:
     oskari.locales=en_US,fi_FI,sv_SE
 
 The properties also setup various url links for search service, GIS metadata, GeoServer myplaces, print service, etc that needs to be modified to match the server environment.
-
-
-### Configuration for transport (WFS-service integration)
-
-Config options for `transport-ext.properties` for controlling when to stop sending requests to WFS-services that don't answer fast enough
-(service might be slowed down by getting too many requests and we don't want to pile up requests that will fail):
-
-    # Timeout WFS-requests after 25 seconds by default
-    oskari.transport.job.timeoutms = 25000
-
-    # milliseconds as observation window for counting failures before stop sending more WFS-requests to a problematic service (defaults 100 seconds)
-    oskari.transport.rollingwindow = 100000
-
-    # amount of WFS-requests that need to fail/layer in rolling window to do a cooldown (circuit break)
-    oskari.transport.failrequests = 5
-
-    # milliseconds to wait after circuit break until start sending new WFS-requests to problematic WFS-service (defaults 20 seconds)
-    oskari.transport.sleepwindow = 20000

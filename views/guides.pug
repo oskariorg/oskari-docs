@@ -1,0 +1,69 @@
+extends layout
+
+block main
+
+  :markdown-it
+    # Guides
+    If you are not already familiar with Oskari we recommend that you first take a look at [Oskari - Basics](/documentation)
+
+  div.container
+    div.row
+      :markdown-it
+        ## Getting started
+        #### What is your aim?
+
+      div.col-md-6
+        div.panel.panel-warning
+          div.panel-heading
+            h4 I want to learn about the modular User Interface
+
+          div.panel-body
+            :markdown-it
+              This guide gives you a quick start to Oskari UI development.
+
+              1. [Introduction to Oskari Frontend development](/guides/quick-start/my-first-bundle)
+              2. [Bundle documentation](/api/bundles)
+              3. [List of Oskari requests](/api/requests)
+              4. [List of Oskari events](/api/events)
+              5. [Frontend documentation](/documentation)
+
+      div.col-md-6
+        div.panel.panel-warning
+          div.panel-heading
+            h4 I want to take full advantage of Oskari
+
+          div.panel-body
+            :markdown-it
+              These steps are all you need to setup the Oskari stack and get started on developing your custom application.
+
+              1. [Setup database](/documentation/backend/setup-database)
+              2. [Setup Redis](/documentation/backend/setup-redis) (Optional, needed for WFS/Print)
+              3. [Setup Jetty](/documentation/backend/setup-jetty)
+              4. [Setup development environment](/documentation/backend/setup-development)
+    <hr>
+
+    div.row
+      div.col-md-6
+        :markdown-it
+          ## Oskari-frontend concepts
+          * [Oskari-frontend folder structure](/guides/oskari-frontend_folder_structure)
+          * [Sample bundle definition](/guides/quick-start/sample-bundle-definition)
+          * [Sample instance definition](/guides/quick-start/sample-instance-definition)
+          * [Sample request definition](/documentation/core-concepts/oskari-request)
+          * [Sample request handler definition](/documentation/core-concepts/oskari-request)
+
+          ## Frontend examples
+          * [Overriding Oskari-frontend bundle locales](/documentation/frontend/override-locales)
+          * [Enabling Oskari events in RPC](/guides/rpc-events)
+      div.col-md-6
+        :markdown-it
+            ## Hooks for oskari-server extensions
+            * [Adding action routes](/documentation/backend/adding-action-routes)
+            * [Adding search channels](/documentation/features/search)
+
+            ## RPC examples
+            * [Oskari RPC examples](/examples/rpc-api/rpc_example.html)
+            * [RPC workshop](/documentation/examples/FOSS4G_2019/workshop)
+
+            ## See the frequently asked questions for more advice
+            * [FAQ](/documentation/faq)

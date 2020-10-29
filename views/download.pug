@@ -1,0 +1,56 @@
+extends layout
+
+block main
+    :markdown-it
+        # Download
+
+    div.row
+        div.col-md-12
+            div.panel.panel-warning
+                div.panel-heading
+                    h4
+
+                    div
+                        a.btn.btn-primary.btn-lg( href="/build/server/oskari-latest-stable.zip" ) Download latest
+                        | 
+                        a.btn.btn-primary.btn-lg( href="http://download.osgeo.org/oskari/", target="_blank" ) More versions/mirror (download.osgeo.org)
+                        
+
+                    div
+                        br
+                        p
+                            a( href="/documentation/backend/setup-jetty" ) Instructions 
+                            | on how to run and configure Oskari Jetty bundle.
+
+                        p  Includes prebuilt and configured:
+                            ul
+                                li Oskari-frontend based sample application (
+                                    a(href="https://github.com/oskariorg/sample-application", target="_blank") https://github.com/oskariorg/sample-application)
+                                li Oskari-server based sample web app (
+                                    a(href="https://github.com/oskariorg/sample-server-extension", target="_blank")  https://github.com/oskariorg/sample-server-extension)
+                                li Oskari setup application for initializing GeoServer stores after changing defaults (native projection/credentials):
+                                    a(href="https://github.com/oskariorg/oskari-server/tree/master/webapp-setup", target="_blank")  https://github.com/oskariorg/oskari-server/tree/master/webapp-setup)
+                                li Geoserver 2.17.2 with WPS-plugin and Oskari extensions (
+                                    a(href="https://github.com/oskariorg/oskari-server/tree/master/geoserver-ext", target="_blank") https://github.com/oskariorg/oskari-server/tree/master/geoserver-ext)
+
+
+    div.row
+        :markdown-it
+
+            ## Github repositories
+
+            * [Sample frontend application](https://github.com/oskariorg/sample-application) that you can use as an example to build your own Oskari-based apps
+            * [Sample server application](https://github.com/oskariorg/sample-server-extension) that you can use as an example to build your own Oskari-based server
+            * [Sample configurations](https://github.com/oskariorg/sample-configs) example configurations and base for the downloadable zip
+            * [oskari-frontend](https://github.com/oskariorg/oskari-frontend) components for building Oskari-based frontend applications
+            * [oskari-server](https://github.com/oskariorg/oskari-server) components for building Oskari-based server
+            * [RPC client library](https://github.com/oskariorg/rpc-client) for controlling Oskari-based embedded maps
+            * [Oskari.org site](https://github.com/oskariorg/oskari-docs) documentations/issue tracker etc
+
+            Master branch has stable production ready code that is in use for example at [Demo.oskari.org](https://demo.oskari.org) and [Paikkatietoikkuna.fi](https://kartta.paikkatietoikkuna.fi).
+
+            Develop branch has the most recent code which is more of a work in progress and may contain bugs and is in use in for [Dev.oskari.org](https://dev.oskari.org).
+
+            ## License
+
+            Read about Oskari Source code licensing from [here](/documentation/development/license).

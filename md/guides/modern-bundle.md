@@ -34,7 +34,8 @@ A Service can also be exposed to other bundles with a call to `sandbox.registerS
 
 All files within bundles should be referenced with [ES6 import-statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import). Your [bundle definition](/guides/quick-start/sample-bundle-definition) should only have one JS file (instance.js) that is the entrypoint to the functionality of the bundle. This file should then `import` all JS/CSS/SCSS it needs (and those imported files import their own dependecies).
 
-Register your entrypoint ES6 class with `Oskari.clazz.defineES` in `instance.js`:
+Register your entrypoint ES6 class with `Oskari.clazz.defineES` in `instance.js`.
+See a simple bundle [example](/jsdoc/latest/modernbundle/module-SimpleBundle.html) with [sources](/jsdoc/latest/modernbundle/bundles_sample_mymodernbundle_instance.js.html).
 
 ```javascript
 import MyService from './service'

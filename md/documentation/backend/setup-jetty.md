@@ -2,9 +2,8 @@
 
 After this you will have Oskari running including
 
-- Oskari frontend code (https://github.com/oskariorg/oskari-frontend)
-- Oskari server (map functionality: https://github.com/oskariorg/oskari-server/tree/master/webapp-map)
-- Oskari transport (WFS services: https://github.com/oskariorg/oskari-server/tree/master/webapp-transport)
+- Oskari-frontend based sample-application (https://github.com/oskariorg/sample-application)
+- Oskari-server based sample webapp (https://github.com/oskariorg/sample-server-extension)
 - Geoserver with WPS-plugin and Oskari extensions (https://github.com/oskariorg/oskari-server/tree/master/geoserver-ext)
 
 ### Requirements
@@ -71,7 +70,6 @@ Oskari (provided in Jetty bundle)
 
 Oskari-server can run with just the oskari-map webapp. If you don't need all the features, you can remove them from under `{jetty.base}/webapps`:
 - user content functionalities: you can remove `geoserver` folder
-- WFS functionalities: you can remove `transport.war` file
 
 You will also need to remove the corresponding parts of the UI so users don't have access to them. This is done by removing "bundles" from "appsetups" (these are Oskari concepts: bundles provide  functionalities and appsetup defines which bundles are used in your app) and currently it needs to be done by modifying the database content. Bundles are linked to appsetups in the database table `portti_view_bundle_seq` and functionalities are removed from the UI by deleting rows from the table.
 
@@ -87,7 +85,6 @@ You will also need to remove the corresponding parts of the UI so users don't ha
     java -jar ${jetty.home}/start.jar jetty.http.port=8080
 
 - change `{jetty.base}/resources/oskari-ext.properties` where ever `8080` is referenced
-- change `{jetty.base}/resources/transport-ext.properties` where ever `8080` is referenced
 - check the "Using external Geoserver" below (also refers to localhost:8080 port)
 
 ### Proxy settings

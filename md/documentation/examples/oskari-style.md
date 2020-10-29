@@ -10,6 +10,7 @@ JSON style object for styling layers. VisualizationForm component also supports 
 ## Oskari style definition
 All of the fields and objects defined here are optional in the Oskari style JSON. Anything can be omitted from the example below.
 
+
 ```javascript
 {
     "fill": { // fill styles
@@ -61,6 +62,7 @@ All of the fields and objects defined here are optional in the Oskari style JSON
     "effect": "auto normal" // Requires inherit: true. Lightens or darkens original fill color. Values [darken, lighten, auto] and [minor, normal, major].
 }
 ```
+
 ## Vector layer styling
 Vector layer styling is stored in options field. Feature style overrides default style definitions for all features. Optional styles are used for specific features only which overrids default and feature style definitions. One named style has only one feature style and may have more than one optional styles.
 

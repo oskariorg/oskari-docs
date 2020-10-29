@@ -13,17 +13,17 @@
 
 ## Configuration
 
-### Create analysis tables to oskaridb database for analysis result storage
+### Create database tables to oskaridb database for analysis result storage
 
-    cd oskari-server/content-resources
-    mvn compile exec:java -Doskari.dropdb=true -Doskari.setup=postgres-add-analysis.json
+Enable Flyway-module `analysis` on `oskari-ext.properties`:
 
-### Register analyse bundle
+    db.additional.modules=[...], analysis
 
-use pgAdmin or psql to execute below SQL script file
+# Note! Everything below is outdated
 
-    \content-resources\src\main\resources\sql\views\01-bundles\analysis\001-analyse.sql
+But might give you hints what is required for analysis to work
 
+---
 
 ### Create a new view  (analysis + myplaces + wfs)
 
@@ -130,10 +130,6 @@ Check settings in `{jetty}/resources/oskari-ext.properties` and uncomment or add
     # oskari.proxyservices = print, property, wfsquery, myplacestile, analysistile
     oskari.proxyservices = wfsquery, myplacestile, analysistile
 
-
-### Install WFS transport service
-
-Look at [setting up transport wfs service](/documentation/backend/installing-transport) (*skip this, if already installed*).
 
 ### Test Geoserver WPS
 

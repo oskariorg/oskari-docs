@@ -1,0 +1,27 @@
+extends layout
+
+block main
+
+  :markdown-it
+    # Oskari API
+    Oskari API is defined as bundles. Bundle is a definition of functionality that may provide external API to control the functionality.
+
+  div
+      div.col-md-6
+        div.panel.panel-warning
+          div.panel-heading
+            h4 Building custom Oskari application
+
+          div.panel-body
+            :markdown-it
+              Choose the functionalities from [bundle documentation](/api/bundles)
+
+      div.col-md-6
+        div.panel.panel-warning
+          div.panel-heading
+            h4 Working with an existing Oskari application
+
+          div.panel-body
+            :markdown-it
+              * [Controlling existing functionality](/api/requests)
+              * [Reacting to events](/api/events)

@@ -1,5 +1,6 @@
 var express = require('express');
 var path    = require('path');
+var fs      = require('fs');
 var asset   = require('static-asset');
 var routes  = require('./routes');
 
@@ -12,7 +13,7 @@ var app = express();
 // Configurations
 app.set('port', port);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.set('view options', {
     layout: false
 });
@@ -29,20 +30,19 @@ app.get('/documentation/bundles', function (req, res) {
 app.get('/documentation/bundles/*', function (req, res) {
     res.redirect('/api/bundles');
 });
-// <remove this after oskari-server release>
-app.get('/documentation/backend/basic-install', function (req, res) {
-    // As the README in oskari-server currently points to
-    // /documentation/backend/basic-install
-    // let's do a temporary redirect
-    res.redirect('/documentation/backend/overview');
-});
-// </remove this after oskari-server release>
 app.get('/documentation/*', routes.md);
+
+// The route is just meant to be used as a preview and should not be used for linking from other sites.
+// Once we move the contents to intended places we can remove this route completely
+app.get('/community/*', routes.community);
+
 app.get('/download', routes.download);
-app.get('/examples', routes.examples);
 app.get('/about', routes.about);
-app.get('/challenge', routes.challenge);
 app.get('/oskari', routes.oskari);
+
+app.get('/gallery', routes.gallery);
+app.get('/gallery/*', routes.gallery);
+
 // new api doc end points
 app.get('/api', routes.apiSelection);
 app.get('/api/bundles', routes.bundlesPage);
@@ -64,6 +64,10 @@ app.get('/apidoc/:ver/*', function(req, res) {
 var apiResDir = path.join(__dirname, 'generated/api')
 app.use(asset(apiResDir));
 app.use('/apires', express.static(apiResDir));
+
+// generated jsdocs
+app.use('/jsdoc', routes.checkLatestVersion);
+app.use('/jsdoc', express.static(path.join(__dirname, 'generated/jsdoc')));
 
 // generated db documentation
 app.use('/db', express.static(path.join(__dirname, 'generated/db')));

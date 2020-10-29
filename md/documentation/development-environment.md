@@ -103,7 +103,7 @@ environment, along with the NPM package manager.
 The primary Oskari server components store their data on PostgreSQL 9.x+ databases, and perform some
 of the spatial analysis of the data on the database layer, using the PostGIS extension.
 
-Some of the backend components (transport) cache map tiles on a Redis server.
+Some of the backend functionality cache data on a Redis server.
 
 Again, these components should be installed locally, in a platform-appropriate manner. On Linux,
 using `apt-get` or `yum`, on Mac OS X using Homebrew, and on Windows, installer EXE or MSIs.
@@ -146,8 +146,7 @@ settings specified in the `oskari(-ext).properties` file.
 
 #### 2.7 GeoServer and customization components
 
-The Oskari service contains various functionality, such as the `transport` service,
-as well as the [my places](/documentation/backend/enabling-myplaces) and
+The Oskari service contains various functionality, such as the [my places](/documentation/backend/enabling-myplaces) and
 [analysis](/documentation/backend/enabling-analyse) modules, which depend on a
 functional and customized GeoServer installation.
 

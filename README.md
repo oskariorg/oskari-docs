@@ -14,11 +14,6 @@ All Oskari-related issues should be reported here: https://github.com/oskariorg/
 
 Please read the [contribution guidelines](http://oskari.org/documentation/development/how-to-contribute) before contributing pull requests to the Oskari project.
 
-## Copyright and license
-
-Copyright 2014 - present NLS under dual license MIT (included LICENSE.md) and [EUPL v1.1](https://joinup.ec.europa.eu/software/page/eupl/licence-eupl)
-(any language version applies, English version is included in https://github.com/oskariorg/oskari-docs/blob/master/documents/LICENSE-EUPL.pdf).
-
 ------------------
 
 ## Installation
@@ -59,3 +54,13 @@ This generates files under generated/api/[version] folder.
 # Generating database documentation
 
 A mini-site documenting the database structure can be generated with a [custom fork of Schemaspy](https://github.com/oskariorg/schemaspy). Java 8 or newer is required. Command `npm run db` generates documentation into directory `generated/db` by connecting to a database instance and reading its structure. By default a database named `oskaridb` on localhost is used, but any Oskari database instance can be used by changing `schemaspy/conf.properties`. The generated db documentation is mapped to route `/db/`.
+
+## License
+ 
+This work is dual-licensed under MIT and [EUPL v1.1](https://joinup.ec.europa.eu/software/page/eupl/licence-eupl) 
+(any language version applies, English version is included in https://github.com/oskariorg/oskari-docs/blob/master/documents/LICENSE-EUPL.pdf).
+You can choose between one of them if you use this work.
+ 
+`SPDX-License-Identifier: MIT OR EUPL-1.1`
+
+Copyright (c) 2014-present National Land Survey of Finland

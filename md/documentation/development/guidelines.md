@@ -3,9 +3,9 @@
 ### Generic
 
 * There's a difference for developing generic Oskari functionality and application specific functionality.
-* Oskari repositories should not contain application specific functionalities (community-repository can contain application specific code).
+* Oskari repositories should not contain application specific functionalities (community-repository can contain application specific code as examples).
 * In general smaller pull requests will be reviewed and merged faster as they usually are easier to review and test than large ones.
-* In most cases you want to use develop-branch as baseline. Only use master if you need something urgently fixed.
+* In most cases you want to use develop-branch as baseline. Only use master as base if you need something urgently fixed (included in a hotfix for latest version).
 
 ### Code
 - Use english and descriptive names for variables/methods etc
@@ -26,7 +26,7 @@
 ### Pull requests
 - Keep pull requests small/having a single feature
 - See https://github.com/blog/1943-how-to-write-the-perfect-pull-request
-- Be very careful when making changes to existing sources (maven modules or frontend bundles) since it's easy to break an unexpected part of an app this way.
+- Be very careful when making changes to existing sources (maven modules or frontend bundles) since it's easy to break another part of an app calling the changed function.
 - Create separate pull request for changes to existing source with documentation what the change enables you to do.
 - Entirely new features/functionalities should be created as new maven modules on oskari-server and bundles on frontend. Oskari-server uses layered naming for modules:
     - service-[functionality] as a library for the generic functionality

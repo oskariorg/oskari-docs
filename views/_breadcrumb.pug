@@ -1,0 +1,11 @@
+if breadcrumb
+    ol.breadcrumb
+        li
+            a(href="/") Home 
+            each bread, index in breadcrumb
+                - var clazz = breadcrumb.length - 1 === index ? 'active': ''
+                li(class=clazz)
+                    if bread.length === 2
+                        a(href=bread[1])= bread[0]
+                    else
+                        span()= bread[0]

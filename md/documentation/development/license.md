@@ -10,7 +10,8 @@ Oskari Source code is released with a dual license
 Contributors are asked to provide a Contributor License Agreement for working on the project:
 https://github.com/oskariorg/oskari-docs/blob/master/documents/CLA.txt
 
-The same CLA applies to all Oskari git repositories.
+You can send a picture of the signed CLA as an email to `info at oskari.org`.
+The same CLA applies to all [Oskari git repositories](https://GitHub.com/oskariorg).
 
 ## 3rd party JavaScript libraries
 

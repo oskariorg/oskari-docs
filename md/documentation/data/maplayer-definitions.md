@@ -30,8 +30,6 @@ WFS layer is based on features described with GML as opposed to WMS image tiles.
 
 WFS layers can be queried and data for the features displayed in the view port can be shown on a data table. WFS features can also be highlighted by clicking them on map or by selecting it in the data table. This functionality is implemented in bundles `mapwfs2` (display) and `featuredata` (data table).
 
-See [here](https://github.com/oskariorg/oskari-frontend/blob/master/docs/md/architecture/wfs.md) and [here](http://oskari.org/documentation/architecture/wfs) for more complete documentation.
-
 [data format explained](/documentation/data/wfs-layer)
 
 ### WMTS Layer

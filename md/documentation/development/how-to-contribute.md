@@ -5,19 +5,22 @@ The preferred way of contributing to Oskari codebase in a nutshell:
 1. Familiarize yourself with the [license terms](/documentation/development/license) and submit a [CLA](https://github.com/oskariorg/oskari-docs/blob/master/documents/CLA.txt) if you have not done that previously
 2. Fork the Oskari repository you want to contribute on GitHub into your own account.
 3. Develop your code in a feature branch. For the curious, here's a look of the [Oskari Git process](/documentation/development/oskari-git-process).
-4. Notify us when the code is ready for QA and integration testing (GitHub pull request)
+4. Notify us when the code is ready for review (by creating a pull request in GitHub)
 
 ## Contributor License Agreement
 
-Contributors are asked to provide a Contributor License Agreement for working on the project:
+Contributors are required to provide a Contributor License Agreement for working on the project:
 
 https://github.com/oskariorg/oskari-docs/blob/master/documents/CLA.txt
 
+You can send a picture of the signed CLA as an email to `info at oskari.org`.
+The same CLA applies to all [Oskari git repositories](https://GitHub.com/oskariorg).
+
 ## Working with Git
 
-Code and documentation contributions are done with pull requests for the appropriate repositories (front, server, support-site). When implementing a feature you should consider if the implementation is generic in a sense that it's usable outside your customized application. If the implementation is generic it should be placed on the core-repositories. Remember you can always ask the community for opinions.
+Code and documentation contributions are done with pull requests for the appropriate repositories (frontend, server, support-site, sample app). When implementing a feature you should consider if the implementation is generic in a sense that it's usable to others outside your customized application and environment. If the implementation is generic it should be placed on the core-repositories. Remember you can always ask the community for opinions.
 
-If your implementation requires some external service or API that is not accessible to the public etc or if you think no-one else might not benefit from the code as it's too application-specific it propably shouldn't be in the core-repositories. The options then is use the community-repository if you feel that the code could be made more generic at a later stage (maybe even by another contributor) or the repository for your application if it's just too app-specific.
+If your implementation requires some external service or API that is not accessible to the public etc or if you think no-one else will not benefit from the code as it's too application-specific it probably shouldn't be in the core-repositories. An option then is to use the community-repository if you feel that the code could be made more generic at a later stage (maybe even by another contributor). Even if the functionality feels too app-specific and you only have it on your application repository we can advertise it on a gallery page in oskari.org or something similar. It's always fun to see how Oskari is being used so don't be shy letting us know in any case!
 
 Code that is not maintained will be migrated from core to the community-repository and code from community-repository can be "promoted" to the core. Mostly it's about someone maintaining the code and it being generic enough.
 
@@ -53,8 +56,8 @@ Update your fork with the latest Oskari/continue contributing on previously init
 
 ### Developing
 
-* Fix one thing at a time - Do not batch up multiple unrelated changes into a single patch. If you want to fix multiple issues work on them separately and submit separate patches for them.
-* Ensure the patch only contains changes relevant to the issue you are trying to fix. A common mistake is to include whitespace and formatting changes along with the relevant changes. These changes, while they may seem harmless, make the patch much harder to read.
+* Fix one thing at a time - Do not combine multiple unrelated changes into a single patch. If you want to fix multiple issues work on them separately and submit separate patches for them.
+* Ensure the patch only contains changes relevant to the issue you are trying to fix. A common mistake is to include whitespace and formatting changes along with the relevant changes. These changes, while they may seem harmless, make the patch much harder to read. For you this means the change will not be merged as quickly as it could be.
 
 Starting development for a new feature on a new branch based on develop
 
@@ -76,7 +79,7 @@ Fix an issue of urgency on a new branch based on master
 	git checkout -b hotfix/my-very-urgent-fix
 	# code away (see coding guidelines) with git adds/commits
 	# remember lots of small commits are better than one big one
-	# also describing commit messages are better than repeating the same msg n times
+	# also describing commit messages are better than repeating the same msg multiple times
 	git push origin hotfix/my-very-urgent-fix
 
 

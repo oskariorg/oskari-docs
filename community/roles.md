@@ -15,21 +15,24 @@ Develops new features or improves existing functionalities in Oskari. Can contri
 - Understanding OGC standards: WMS, WMTS, WFS, WPS, WCS
 
 ## Oskari technical maintainer
-Usually same individual as developer but not always. Mounts Oskari instance to requested server environment. Keeps Oskari software up-to date, checks the versioning of the software when a new release is available. Activates the necessary bundles and creates possible user management integration for the organisation. Adds datasets/integrations using different API’s to Oskari instances if needed. Configures Oskari instance with possible metadata service providing metadata in CSW format. Checks also the connections to location search integrations.
+
+Usually same individual as developer but not always. Installs an Oskari instance to requested server environment. Keeps Oskari software up-to date, checks the versioning of the software when a new release is available. Activates the necessary bundles and creates possible user management integration for the organisation. Adds datasets/integrations using different API’s to Oskari instances if needed. Configures Oskari instance with possible metadata service providing metadata in CSW format. Checks also the connections to location search integrations.
 
 ### Other possible tasks:
-problem solving esp. with API’s
+
+Problem solving esp. with API’s
 
 ### Requirements:
 - Build infrastructure, see also Oskari developer
-- Oskari architecture, bundles and component
+- Oskari architecture, bundles and components
  
 ## Oskari content administrator
+
 Acts as the administrator of Oskari instance: adds new dataset layers to Oskari and also administers the users and rights for end users (layer privileges). Can also customize the basic settings of Oskari layers: scale, bounding boxes, legends and links to metadata of map layers. Understands the functionalities of WMS, WFS, WMTS and WCS standards, understands parameters of GetCapabilities requests.
 
 ### Other possible tasks:
 
-- Usually also creates the geospatial interfaces from datasets with suitable software (e.g. MapServer, GeoServer, ArcGIS Server) including managing GetFeatureInfo requests (what information are shown in pop-up info tool in Oskari and how), visualizing the layers (e.g. using SLD) and configuring legends. Maintaining of those interfaces.
+- Usually also creates the geospatial interfaces from datasets with suitable software (e.g. MapServer, GeoServer, ArcGIS Server) including managing GetFeatureInfo requests (what information are shown in pop-up info tool in Oskari and how), visualizing the layers (e.g. using SLD) and configuring legends. Maintains usually also those interfaces.
 
 ### Requirements:
 

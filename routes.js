@@ -1,53 +1,74 @@
 var fs = require('fs'),
     path = require('path'),
     md = require('marked'),
-    _ = require('lodash-node'),
-    http = require('http'),
-    mdDir = 'md',
-    releaseDir = path.join(__dirname, 'public', 'release');
+    _ = require('lodash');
 
 var apidocs = require('./lib/apidocs');
 
-var prettyPrint = function (str) {
-    var ret = str.charAt(0).toUpperCase() + str.slice(1),
-        re = /-/g;
+const prettyPrint = function (str) {
+    const ret = str.charAt(0).toUpperCase() + str.slice(1);
+    const dash = /-/g;
+    const underscore = /_/g;
 
-    return ret.replace(re, ' ');
+    // replace - and _ on names with spaces
+    return ret.replace(dash, ' ').replace(underscore, ' ');
 }
 
-var getBreadCrumbOptions = function () {
+var getBreadCrumbOptions = function (...args) {
     var options = {
-            breadcrumb: []
-        },
-        i;
-
-    for (i = 0; i < arguments.length; i += 1) {
-        if (arguments[i].isArray) {
-            options.breadcrumb.push(arguments[i]);
+        breadcrumb: []
+    };
+    args.forEach(step => {
+        if (step.isArray) {
+            options.breadcrumb.push(step);
         } else {
-            options.breadcrumb.push([prettyPrint(arguments[i]), arguments[i]]);
+            options.breadcrumb.push([prettyPrint(step), '/' + step]);
         }
-    }
+    });
     return options;
 };
 
-var readMdFile = function (req, res, mdDoc, jadePage, options) {
-    var mdDocPath = path.join(__dirname, mdDir, (mdDoc + '.md'));
-    jadePage = jadePage || 'page';
-    options = options || {};
+const findFilePath = function (basePath, page, callback) {
+    // try basePath + .md and basePath + /index.md
+    if (page.endsWith(path.sep)) {
+        page = page.substring(page.length -1);
+    }
+    const requestedPath = path.join(basePath, page);
+    fs.stat(requestedPath + '.md', function(ignoredErr, mdStats) {
+        // err is ok since we have a fallback coming up if this was not a direct hit
+        // found direct md file
+        if (mdStats && mdStats.isFile()) {
+            callback(null, requestedPath + '.md', mdStats);
+            return;
+        }
+        // check if the path was a dir that has index.md
+        const indexFilePath = path.join(requestedPath, 'index.md');
+        fs.stat(indexFilePath, function(ignoredErr, indexFileStats) {
+            if (indexFileStats && indexFileStats.isFile()) {
+                callback(null, indexFilePath, indexFileStats);
+                return;
+            }
+            // Custom error thrower
+            callback("Couldn't find file for " + requestedPath + ". Tried:\n - " + page + '.md\n - ' + page + '/index.md');
+        });
+    });
+};
 
-    fs.readFile(mdDocPath, 'utf8', function (err, mdFile) {
+var readMdFileFromBaseDir = function (res, baseDir, mdDoc, jadePage = 'page', options = {}) {
+    const requestedPath = path.join(__dirname, baseDir);
+    findFilePath(requestedPath, mdDoc, function (err, pathToFile, stats) {
         if (err) {
             console.error(err);
             return res.render('404');
         }
 
-        options.content = md(mdFile);
-        fs.stat(mdDocPath, function (err, stats) {
+        fs.readFile(pathToFile, 'utf8', function (err, mdFile) {
             if (err) {
                 console.error(err);
                 return res.render('404');
             }
+            // md to html
+            options.content = md(mdFile);
             if (stats && stats.mtime) {
                 options.content += '<p>Last modified: ' + stats.mtime + '</p>';
             }
@@ -64,9 +85,8 @@ var readMdFile = function (req, res, mdDoc, jadePage, options) {
             );
             res.render(jadePage, options);
         });
-
     });
-};
+}
 
 function getApiJson(funcName, req, res) {
     var version = req.param('version');
@@ -149,6 +169,30 @@ module.exports = {
     apiDoc : function (ver, bundle, callback) {
         apidocs.doc(ver, bundle, callback);
     },
+    gallery: function (req, res) {
+        let page = req.path.substring('gallery'.length + 1);
+        let filename = page + '.html';
+        var opts = getBreadCrumbOptions('gallery');
+        if (!page || page === '/') {
+            filename = 'gallery.json';
+        } else {
+            opts.breadcrumb.push([prettyPrint(page.substring(1)), '/gallery' + page]);
+        }
+        const requestedPath = path.join(__dirname, './generated/gallery/', filename);
+        fs.readFile(requestedPath, 'utf8', function (err, fileContents) {
+            if (err) {
+                res.sendStatus(404);
+                return;
+            }
+            if (filename === 'gallery.json') {
+                opts.gallery = JSON.parse(fileContents);
+                res.render('gallery', opts);
+            } else {
+                opts.content = fileContents;
+                res.render('page', opts);
+            }
+        });
+    },
     about: function (req, res) {
         res.render('about', getBreadCrumbOptions('about'));
     },
@@ -157,12 +201,6 @@ module.exports = {
     },
     documentation: function (req, res) {
         res.render('documentation', getBreadCrumbOptions('documentation'));
-    },
-    examples: function (req, res) {
-        res.render('examples', getBreadCrumbOptions('examples'));
-    },
-    challenge: function (req, res) {
-        res.render('challenge', getBreadCrumbOptions('challenge'));
     },
     oskari: function (req, res) {
         res.render('oskari', getBreadCrumbOptions('oskari'));
@@ -185,9 +223,29 @@ module.exports = {
         */
     },
     md: function (req, res) {
-        readMdFile(req, res, req.path);
+        readMdFileFromBaseDir(res, 'md', req.path);
+    },
+    community: function (req, res) {
+        readMdFileFromBaseDir(res, 'community', req.path.substring('community'.length + 1));
     },
     root: function (req, res) {
         res.render('index');
+    },
+    checkLatestVersion: function (req, res, next) {
+        if (req.url.indexOf('latest') === -1) {
+            next();
+            return;
+        }
+        var version = apidocs.getLatestVersion();
+        if (!version) {
+            console.log('version not found');
+            res.sendStatus(404);
+            return;
+        }
+        var url = req.url.replace(/\/latest\//, `/${version}/`);
+        console.log('redirecting to ' + url)
+        req.url = url;
+        next();
+        return;
     }
 };

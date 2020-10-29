@@ -1,6 +1,6 @@
 # Setup Redis for Oskari
 
-Redis is needed for communicating with WFS-services (the `transport` webapp) and statistical map functionalities (optional part of `oskari-map` webapp). Redis is used for caching and communication between `oskari-map` and `transport`. If you don't need these services you don't need Redis for Oskari.
+Redis is used for caching data for example from statistical datasources to provide a cleaner user experience for statistical map functionalities (optional part of `oskari-map` webapp).
 
 ### 1. Get Redis
 
