@@ -35,8 +35,8 @@ The initial applications can be described as JSON-files on the server code and i
 
 More information about Flyway and migrations:
 - https://flywaydb.org/
-- (Upgrading)(/documentation/backend/upgrading)
-- (Migration scripts)(/documentation/backend/upgrade_scripts)
+- [Upgrading](/documentation/backend/upgrading)
+- [Migration scripts](/documentation/backend/upgrade_scripts)
 
 The application specific migrations can of course be done however you want but this is a built-in option to use for migrating the database and can be used to modify the content on the database like adding or removing bundles from `oskari_appsetup_bundles`. Notice that these migrations are only run once so when it has been run, modifying the code doesn't get the migration run again. You will need to delete rows on the oskari_status_[your apps module] to the migrations to run again on a given database.
 
