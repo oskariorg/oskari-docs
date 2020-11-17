@@ -16,8 +16,8 @@ Oskari filter definition:
         "value": "road" || 10000 || true // equal comparison
         "in": ["tarmac","sand", "gravel"], // for multiple possible values (OR)
         "notIn": ["sand", "gravel"], // for multiple possible NOT values (OR)
-        "like": "tarm", // for a pattern *tarm*
-        "notLike": "tarm", // for a NOT pattern *tarm*
+        "like": "tarm*", // for a pattern tarm*
+        "notLike": "*tarm*", // for a NOT pattern *tarm*
 
         // Operators for numerical comparison
         "greaterThan": 60, // strictly greater than
@@ -25,7 +25,7 @@ Oskari filter definition:
         "lessThan": 80, // strictly  less than
         "atMost": 80, // less than or equal to
 
-        // Case sensivity for value, in and notIn operators
+        // Case sensivity for value, in, notIn, like and notLike operators
         "caseSensitive": false
     },
     "AND": [...], // to add multiple conditions with AND operator
