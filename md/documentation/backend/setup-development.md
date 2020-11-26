@@ -1,6 +1,6 @@
 # Setup Oskari development environment
 
-This document describes how to setup development environment for Oskari. 
+This document describes how to setup development environment for Oskari.
 
 ### Requirements
 
@@ -23,7 +23,7 @@ With commandline git:
 
     git clone https://github.com/oskariorg/oskari-server.git
 
-Note! You can also download the codes in zip format from Github, but for contributing any changes to Oskari git is mandatory. 
+Note! You can also download the codes in zip format from Github, but for contributing any changes to Oskari git is mandatory.
 Additional Maven modules can be contributed outside git though if they are compatible with the current develop/master branch, but this is not adviced.
 
 Note! The frontend source code is already available under `{jetty.base}/oskari-frontend` in the [Jetty bundle](/download). To update it you can replace it with code found in https://github.com/oskariorg/oskari-frontend.
@@ -44,7 +44,7 @@ Check that the oskari.version in pom.xml matches the project version of oskari-s
     cd sample-server-extension
     mvn clean install
 
-### 4. Copy updated/relevant artifacts under `{JETTY_HOME}/webapps`
+### 4. Copy updated/relevant artifacts under `{jetty.base}/webapps`
 
 Map functionality: sample-server-extension/webapp-map/target/oskari-map.war
 
