@@ -28,6 +28,7 @@
 }
 .panel-default.generated ul li {
 	list-style : none;
+    overflow-wrap: break-word;
 }
 #bundlecontent span.label.label-primary.rpc {
 	float : right;
@@ -39,6 +40,25 @@
 	float : right;
 	margin-left: 4px;
 	margin-right: 4px;
+}
+
+#bundlecontent p, span {
+	font-size: 1em;
+}
+#bundlecontent table {
+	font-size: 0.8em;
+}
+
+#bundlecontent tr {
+	vertical-align: top;
+}
+
+#bundlecontent td {
+	padding: 5px;
+}
+
+#bundlecontent tr:nth-child(even) {
+	background: #EFEFEF
 }
 
 .navi-section h4 {
