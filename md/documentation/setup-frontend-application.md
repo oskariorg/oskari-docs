@@ -8,4 +8,4 @@ Follow the instructions in README.md.
 
 ### Requirements
 
-Node 8.x / NPM 5.x
+Node 12.x / NPM 6.x
