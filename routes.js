@@ -1,7 +1,6 @@
 var fs = require('fs'),
     path = require('path'),
-    md = require('marked'),
-    _ = require('lodash');
+    md = require('marked');
 
 var apidocs = require('./lib/apidocs');
 
@@ -208,19 +207,6 @@ module.exports = {
 
     download: function (req, res) {
         res.render('download', getBreadCrumbOptions('download'));
-        // files are not updated currently so removing files from render model
-        // should get rid of the direct download part of the page
-        // TODO: enable when we actually have something relevant to show here
-        /*
-        fs.readdir(releaseDir, function (err, files) {
-            if (err) {
-                console.log(err);
-            }    
-            res.render('download', {
-                files: files
-            });
-        })
-        */
     },
     md: function (req, res) {
         readMdFileFromBaseDir(res, 'md', req.path);
