@@ -4,7 +4,7 @@
  */
 
 var Navigo = require('navigo');
-var router = new Navigo('/api/events', true);
+var router = new Navigo('/', { hash: true });
 
 function eventNavigation(selector) {
 
@@ -126,20 +126,24 @@ function eventNavigation(selector) {
             });
         }
         // -------------- ROUTING ----------------
-        router.on('#:version/:ns/:bundle/event/:name', function (params) {
-            if(params.version !== currentVersion) {
-                selector.val(params.version);
-                APIDOC.versionChanged(params.version, true);
-            }
-            APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/event/' + params.name);
-        });
-        router.on('#:version', function (params) {
-            if(params.version !== currentVersion) {
-                selector.val(params.version);
-                selector.trigger('change');
-            }
-            APIDOC.versionChanged(params.version);
-        });
+        router
+            .on('/:version/:ns/:bundle/event/:name', function (value) {
+                var params = value.data;
+                if(params.version !== currentVersion) {
+                    selector.val(params.version);
+                    APIDOC.versionChanged(params.version, true);
+                }
+                APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/event/' + params.name);
+            })
+            .on('/:version', function (params) {
+                var requestedVersion = params.data.version;
+                if(requestedVersion !== currentVersion) {
+                    selector.val(requestedVersion);
+                    selector.trigger('change');
+                }
+                APIDOC.versionChanged(requestedVersion);
+            })
+            .resolve();
 
 /*
         router.on(function () {

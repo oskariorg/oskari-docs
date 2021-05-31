@@ -3,7 +3,7 @@
  * Registers in global 'APIDOC' variable
  */
 var Navigo = require('navigo');
-var router = new Navigo('/api/requests', true);
+var router = new Navigo('/', { hash: true });
 
 function requestNavigation(selector) {
 
@@ -125,20 +125,25 @@ function requestNavigation(selector) {
             });
         }
         // -------------- ROUTING ----------------
-        router.on('#:version/:ns/:bundle/request/:name', function (params) {
-            if(params.version !== currentVersion) {
-                selector.val(params.version);
-                APIDOC.versionChanged(params.version, true);
-            }
-            APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/request/' + params.name);
-        });
-        router.on('#:version', function (params) {
-            if(params.version !== currentVersion) {
-                selector.val(params.version);
-                selector.trigger('change');
-            }
-            APIDOC.versionChanged(params.version);
-        });
+        router
+            .on('/:version/:ns/:bundle/request/:name', function (value) {
+                var params = value.data;
+                if(params.version !== currentVersion) {
+                    selector.val(params.version);
+                    APIDOC.versionChanged(params.version, true);
+                }
+                APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/request/' + params.name);
+            })
+            .on('/:version', function (params) {
+                var requestedVersion = params.data.version;
+                if(requestedVersion !== currentVersion) {
+                    selector.val(requestedVersion);
+                    selector.trigger('change');
+                }
+                APIDOC.versionChanged(requestedVersion);
+            })
+            .resolve();
+
 /*
         router.on(function () {
             // no route match
