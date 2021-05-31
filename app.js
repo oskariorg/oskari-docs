@@ -67,6 +67,7 @@ app.use('/apires', express.static(apiResDir));
 
 // generated jsdocs
 app.use('/jsdoc', routes.checkLatestVersion);
+app.use('/jsdoc/*', routes.checkLatestVersion);
 app.use('/jsdoc', express.static(path.join(__dirname, 'generated/jsdoc')));
 
 // generated db documentation
