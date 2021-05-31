@@ -88,19 +88,18 @@ var readMdFileFromBaseDir = function (res, baseDir, mdDoc, jadePage = 'page', op
 }
 
 function getApiJson(funcName, req, res) {
-    var version = req.param('version');
-    if(version) {
-        apidocs[funcName](version, function(json) {
-            res.send(json);
-        });
-        return;
+    var version = req.query.version;
+    if(!version || version === 'latest') {
+        // return latest if we didn't get any param
+        //  or determine what the latest is when requested specifically
+        version = apidocs.getLatestVersion();
     }
-    // return latest if we didn't get any param
-    apidocs.getVersions(function(values) {
-        var latestVersion = values[0];
-        apidocs[funcName](latestVersion, function(json) {
+    apidocs[funcName](version, function(json) {
+        if (!json) {
+            res.sendStatus(404);
+        } else {
             res.send(json);
-        });
+        }
     });
 }
 
@@ -118,7 +117,7 @@ function getApiPage(type, req, res) {
             res.render(pageName, { versions : [], api: [] });
             return;
         }
-        var latestVersion = versions[0];
+        var latestVersion = apidocs.getLatestVersion();
         // TODO: do this in parallel instead of seq
         apidocs[functionName](latestVersion, function(api) {
             apidocs.log(latestVersion, function(log) {
