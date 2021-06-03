@@ -6,8 +6,7 @@ This document describes the source management process used by the Oskari project
 
 ![Oskari git flow overview](/images/documentation/gitflow.svg)
 
-Read Atlassian's awesome [Git Flow documentation](https://www.atlassian.com/git/tutorials/comparing-
-workflows/gitflow-workflow) for more information.
+Read Atlassian's awesome [Git Flow documentation](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for more information.
 
 ## Branches & Repos
 
