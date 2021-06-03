@@ -126,7 +126,7 @@ function requestNavigation(selector) {
         }
         // -------------- ROUTING ----------------
         router
-            .on('/:version/:ns/:bundle/request/:name', function (value) {
+            .on(':version/:ns/:bundle/request/:name', function (value) {
                 var params = value.data;
                 if(params.version !== currentVersion) {
                     selector.val(params.version);
@@ -134,7 +134,7 @@ function requestNavigation(selector) {
                 }
                 APIDOC.showBundleDoc(params.version, params.ns + '/' + params.bundle + '/request/' + params.name);
             })
-            .on('/:version', function (params) {
+            .on(':version', function (params) {
                 var requestedVersion = params.data.version;
                 if(requestedVersion !== currentVersion) {
                     selector.val(requestedVersion);
