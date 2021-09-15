@@ -23,12 +23,13 @@ All of the fields and objects defined here are optional in the Oskari style JSON
         "color": "#000000", // stroke color
         "width": 1, // stroke width
         "lineDash": "solid", // line dash, supported: dash, dashdot, dot, longdash, longdashdot and solid
-        "lineCap": "round", // line cap, supported: mitre, round and square
+        "lineCap": "round", // line cap, supported: butt, round and square
+        "lineJoin": "round" // line corner, supported: bevel, round and miter
         "area": {
             "color": "#000000", // area stroke color
             "width": 1, // area stroke width
             "lineDash": "dot", // area line dash
-            "lineJoin": "round" // area line corner
+            "lineJoin": "round" // area line corner, supported: bevel, round and miter
         }
     },
     "text": { // text style
