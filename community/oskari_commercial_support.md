@@ -21,8 +21,8 @@ If your organisation provides Oskari services commercially and is not found on t
     </tr>
     </tr>
       <tr>
-      <td><a href="https://www.cybercom.com/" target="_blank"><img src="https://www.cybercom.com/static/cybercom/img/cybercom_logox2.png" wifth="300" alt="Cybercom Ltd"></a></td>
-      <td>-</td>
+      <td><a href="https://www.cybercom.com/" target="_blank"><img src="https://cybercom.com/images/18.2a539f43171ac274cae213a/1588146659657/cybercom_blue.svg"></a></td>
+      <td>"From best practices to next practices, we use new technology, digitalisation, and innovation to support our customers in designing efficient business solutions with a positive social impact."</td>
     </tr>
       <tr>
       <td><a href="http://www.gispo.fi/" target="_blank"><img src="https://www.gispo.fi/~gispo/wp-content/themes/gispo/gispologosvg.svg" wifth="300" alt="Gispo Ltd"></a></td>
@@ -38,7 +38,7 @@ If your organisation provides Oskari services commercially and is not found on t
       </tr>
       <tr>
       <td><a href="https://www.siili.com/?gclid=EAIaIQobChMI7oT4j8iG6wIVh94YCh3Vog-dEAAYASAAEgLcgvD_BwE" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fi/thumb/a/a2/Siili_Solutionsin_logo.svg/383px-Siili_Solutionsin_logo.svg.png" wifth="300" alt="Siili Solutions"></a></td>
-      <td>-</td>
+      <td>"Siili is a unique combination of a digital agency and a technology powerhouse. We believe in human-centricity in everything we deliver."</td>
     </tr>
       <tr>
       <td><a href="https://www.sitowise.com/en" target="_blank"><img src="/images/logo/sitowise.png" wifth="300" alt="Sitowise Ltd"></a></td>
