@@ -37,7 +37,7 @@ If your organisation provides Oskari services commercially and is not found on t
       <td>-</td>
       </tr>
       <tr>
-      <td><a href="https://www.siili.com/?gclid=EAIaIQobChMI7oT4j8iG6wIVh94YCh3Vog-dEAAYASAAEgLcgvD_BwE" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fi/thumb/f/f4/Siili_logo_text_8_spikes_Black_RGB_28042020.png/1024px-Siili_logo_text_8_spikes_Black_RGB_28042020.png" wifth="300" alt="Siili Solutions"></a></td>
+      <td><a href="https://www.siili.com/?gclid=EAIaIQobChMI7oT4j8iG6wIVh94YCh3Vog-dEAAYASAAEgLcgvD_BwE" target="_blank"><img src="/images/logo/siili.png" wifth="300" alt="Siili Solutions"></a></td>
       <td>-</td>
     </tr>
       <tr>
