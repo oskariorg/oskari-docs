@@ -37,7 +37,7 @@ If your organisation provides Oskari services commercially and is not found on t
       <td>-</td>
       </tr>
       <tr>
-      <td><a href="https://www.siili.com/?gclid=EAIaIQobChMI7oT4j8iG6wIVh94YCh3Vog-dEAAYASAAEgLcgvD_BwE" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/fi/thumb/a/a2/Siili_Solutionsin_logo.svg/383px-Siili_Solutionsin_logo.svg.png" width="300" alt="Siili Solutions"></a></td>
+      <td><a href="https://www.siili.com/?gclid=EAIaIQobChMI7oT4j8iG6wIVh94YCh3Vog-dEAAYASAAEgLcgvD_BwE" target="_blank"><img src="/images/logo/siili.png" width="300" alt="Siili Solutions"></a></td>
       <td>"Siili is a unique combination of a digital agency and a technology powerhouse. We believe in human-centricity in everything we deliver."</td>
     </tr>
       <tr>
