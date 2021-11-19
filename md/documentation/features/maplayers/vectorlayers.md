@@ -4,7 +4,7 @@ Vector features can come from WFS or OGC API Features endpoint and displaying th
 
 For example localized names can be given for feature properties with a JSON-configuration on the `attributes` column.
 
-For example a consider a GeoJSON presentation of a vector feature like this:
+For example consider a GeoJSON presentation of a vector feature like this:
 
 ```
 {
@@ -18,8 +18,8 @@ For example a consider a GeoJSON presentation of a vector feature like this:
     }
 }
 ```
-You could configure the database with:
-```
+You could configure `oskari_maplayer.attributes` with:
+```json
 {
   "data": {
     "filter": [
@@ -54,12 +54,12 @@ You could configure the database with:
         "params": {
             "link": true
         }
-      }
+      },
       "LINK": {
         "type": "link"
       }
     }
-  }
+  },
   "maxFeatures": 1000,
   "namespaceURL": "http://www.oskari.org"
 }
@@ -79,7 +79,7 @@ Where:
 ### Filter
 
 You can also configure the filter with language specific handling:
-```
+```json
 {
   "data": {
     "filter": {
