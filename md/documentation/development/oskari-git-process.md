@@ -118,15 +118,10 @@ Develop branch version should always be the next version + "-SNAPSHOT". For an e
     # checkout to branch that should have the version updated
     git checkout {branch}
 
-    # Edit the version number on src/oskari.js
-    nano src/oskari.js
-
-    # rebuild the core (writes a new version of bundles/bundle.js)
-    cd tools
-    npm run core
+    # Edit the version number on package.json
+    nano package.json
 
     # Commit the changes to Git
-    cd ..
     git add .
     git commit -m 'Bump version'
     git push
