@@ -1,6 +1,6 @@
-var fs = require('fs'),
-    path = require('path'),
-    md = require('marked');
+const fs = require('fs');
+const path = require('path');
+const { marked: md } = require('marked');
 
 var apidocs = require('./lib/apidocs');
 
