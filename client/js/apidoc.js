@@ -6,9 +6,9 @@
         return;
     }
     */
-    var bundleNavi = require('./apidoc_bundle');
     var type = selector.attr('data-type');
     if(type === 'bundles') {
+        var bundleNavi = require('./apidoc_bundle');
         bundleNavi(selector);
     } else if(type === 'requests') {
         var requestNavi = require('./apidoc_request');
