@@ -34,7 +34,7 @@ If your organisation provides Oskari services commercially and is not found on t
       </tr>
       <tr>
       <td><a href="https://phz.fi/" target="_blank"><img src="https://ric.phz.fi/aHR0cHM6Ly9waHouZmkvYXBwL3VwbG9hZHMvMjAxOC8wMS9jcm9wcGVkLWZ1bGxzdGFja2xvZ28tMi5wbmc=?width=1280" wifth="300" alt="PHZ"></a></td>
-      <td>-</td>
+      <td>"PHZ Full Stack is a consulting company focusing on large, meaningful projects. We do not focus on any particular technology or product, but aim at solving each problem with a suitable technology."</td>
       </tr>
       <tr>
       <td><a href="https://www.siili.com/?gclid=EAIaIQobChMI7oT4j8iG6wIVh94YCh3Vog-dEAAYASAAEgLcgvD_BwE" target="_blank"><img src="/images/logo/siili.png" width="300" alt="Siili Solutions"></a></td>
