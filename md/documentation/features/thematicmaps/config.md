@@ -145,7 +145,10 @@ The metadataFile configuration allows linking more metadata for indicators in th
         "source": {
             "fi": "Väestörakenne"
         },
-        "valueType": "percentage",
+        "isRatio": true,
+        "base": 100,
+        "min": -100,
+        "max": 500,
         "decimalCount": 1,
         "timerange": {
             "start": "1987",
@@ -155,13 +158,12 @@ The metadataFile configuration allows linking more metadata for indicators in th
         "nextUpdate": "29.3.2017"
     }, ...]
 
-The "code" value is used to map the indicator between the metadata JSON and data from the PxWeb API and id should match the indicator id. Timerange can be used to configure indicator specific timeranges if they are all in the same .px file. Updated and nextUpdate are shown in the UI with the indicator description. ValueType can have one of 5 different values:
-
-- `percentage`: map type = `choropleth`, color scale = `Quantitative`
-- `relative change`: map type = `choropleth`, color scale = `Diverging`
-- `ratio`: map type = `choropleth`, color scale = `Quantitative`
-- `count`: map type = `point symbols`
-- `split`: map type = `point symbols`
+- `code` value is used to map the indicator between the metadata JSON and data from the PxWeb API and id should match the indicator id.
+- `timerange` can be used to configure indicator specific timeranges if they are all in the same .px file. 
+- `updated` and `nextUpdate` are shown in the UI with the indicator description. 
+- `isRatio` (optional boolean): `true` for `choropleth`, `false` for `points`
+- `base` (optional number): with number value the classification `distribution` is set to `Diverging`. Missing or non-numeric value `distribution` defaults to `Quantitative`
+- `min` and `max` describe the data but is not used by the frontend currently
 
 #### SotkaNET
 
