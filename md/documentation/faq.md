@@ -10,6 +10,18 @@ You found a bug? Can you repeat it? Yes: File a bug report at [GitHub issues](ht
 - Include helpful information: Oskari version, browser, steps to reproduce the error
 - Press Submit new issue-button
 
+## Handling dates and timestamps
+
+- For database: Use column of type `timestamp with time zone`
+- For Java: Use `java.time.OffsetDateTime` with `ZoneOffset.UTC`
+- For JSON: Use ISO string like `2022-05-16T10:40:33.594Z`
+- For Javascript value objects: Use `Date`
+- For rendering in the UI: Format only while rendering (not in model)
+
+Also:
+- Use NOT NULL in database for creation date with default value to current timestamp
+- Prefer updating modification date in code rather than db triggers
+
 ## Where can I find help with my Oskari issues?
 
 All the discussion channels are listed [here](http://oskari.org/about). It is higly recomended to ask Oskari related issues by sending a query to [Oskari user mailing list](https://lists.osgeo.org/mailman/listinfo/oskari-user) or chat in [Oskari Gitter](https://gitter.im/oskariorg/chat).
