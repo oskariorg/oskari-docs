@@ -26,7 +26,7 @@ Oskari is not a software you can set up by just pushing a execute button. It is 
 
 If you want to provide improvements to Oskari, here are some steps to do it:
 
-1. Open the Oskari source code in your project. Remember to follow the guidelines and [How-to-model](/documentation/development/how-to-contribute). Share your plans also openly through [Oskari Roadmap in GitHub](https://github.com/oskariorg/oskari-docs/labels/roadmap), so other developers know what to you are up to.
+1. Open the Oskari source code in your project. Remember to follow the guidelines and [How-to](/documentation/development/how-to-contribute). Share your plans also openly through [Oskari Roadmap in GitHub](https://github.com/oskariorg/oskari-docs/labels/roadmap), so other developers know what to you are up to.
 2. Test and report bugs.
 3. Discuss and ask support.
 4. Remember that adding new features to Oskari main development line are discussed and decided by Oskarin PSC.  If the developed feature is not suitable for the main development line, it can be added as a Community Plugin. 
