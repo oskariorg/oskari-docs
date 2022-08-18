@@ -1,0 +1,96 @@
+{
+    "type": "FeatureCollection",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "EPSG:3857"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 1,
+                "name": "Palace of Parliament",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Palace_Of_Parliament_Bucharest.jpg",
+                "attr": "CC0",
+                "txt": "The Palace of the Parliament (Romanian: Palatul Parlamentului) is the seat of the Parliament of Romania. It is located on Dealul Arsenalului in the national capital city of central Bucharest (Sector 5)."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2904047.22,
+                    5531838.90
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 2,
+                "name": "Old Town",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Sunset_in_the_Old_Town_-_Bucharest%2C_Romania_-_Travel_photography_%2835031271856%29.jpg/1920px-Sunset_in_the_Old_Town_-_Bucharest%2C_Romania_-_Travel_photography_%2835031271856%29.jpg",
+                "attr": "By Giuseppe Milo from Dublin, Ireland - Sunset in the Old Town - Bucharest, Romania - Travel photography, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=62639335",
+                "txt": "The Old Town is located in the center of Bucharest, Romania and is popular throughout the world for its nightlife."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2905533.33,
+                    5532420.35
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 3,
+                "name": "Revolution Square",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pia%C5%A3a_Revolu%C5%A3iei_-_panoramio.jpg/1024px-Pia%C5%A3a_Revolu%C5%A3iei_-_panoramio.jpg",
+                "attr": "De la Mister No, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=54638602",
+                "txt": "Revolution Square (Romanian: Piața Revoluției) is a square in central Bucharest, on Calea Victoriei. Known as Piața Palatului (Palace Square) until 1989, it was later renamed after the Romanian Revolution of December 1989."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2904888.79,
+                    5533666.00
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 4,
+                "name": "National Museum of Romanian History",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Museo_Nacional_de_Historia_de_Ruman%C3%ADa%2C_Bucarest%2C_Ruman%C3%ADa%2C_2016-05-29%2C_DD_63.jpg/1280px-Museo_Nacional_de_Historia_de_Ruman%C3%ADa%2C_Bucarest%2C_Ruman%C3%ADa%2C_2016-05-29%2C_DD_63.jpg",
+                "attr": "Diego Delso, delso.photo, License CC-BY-SA",
+                "txt": "The National Museum of Romanian History (Romanian: Muzeul Național de Istorie a României) is a museum located on Calea Victoriei in Bucharest, Romania, which contains Romanian historical artifacts from prehistoric times up to modern times."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2904909.94,
+                    5532454.65
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 5,
+                "name": "Romanian Athenaeum",
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Ateneul_Rom%C3%A2n_-_Gradina.jpg/800px-Ateneul_Rom%C3%A2n_-_Gradina.jpg",
+                "attr": "By Mihai Petre - Own work, CC BY-SA 3.0 ro, https://commons.wikimedia.org/w/index.php?curid=16572272",
+                "txt": "The Romanian Athenaeum (Romanian: Ateneul Român) is a concert hall in the center of Bucharest, Romania and a landmark of the Romanian capital city."
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2905138.15,
+                    5533990.30
+                ]
+            }
+        }
+    ]
+}
