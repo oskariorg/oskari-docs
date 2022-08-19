@@ -38,7 +38,7 @@ HELPER.getFeatures()
       const panel = HELPER.createFeaturePanel(feature);
 
       // on click -> update feature style
-      panel.on("click", () => featureClicked(feature.properties.id));
+      panel.on("click", () => featureClicked(feature.properties.id, true));
 
       listUI.append(panel);
     });
@@ -68,7 +68,7 @@ function setFeatureStyle(id, style) {
 
 let selectedFeature = null;
 
-function featureClicked(id) {
+function featureClicked(id, fromMenu) {
   if (id === selectedFeature) {
     return;
   }
@@ -80,6 +80,13 @@ function featureClicked(id) {
   // update the selected feature and highlight the feature
   selectedFeature = id;
   setFeatureStyle(id, STYLES.selected);
+  if (fromMenu) {
+    // this makes the map move when feature is clicked on navigation bar
+    channel.postRequest("MapModulePlugin.ZoomToFeaturesRequest", [
+      { layer: [LAYER_ID] },
+      { id: [id] }
+    ]);
+  }
 }
 
 channel.handleEvent("FeatureEvent", function (data) {
