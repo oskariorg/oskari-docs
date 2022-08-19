@@ -1,96 +1,408 @@
 {
     "type": "FeatureCollection",
+    "name": "attractions",
     "crs": {
-        "type": "name",
-        "properties": {
-            "name": "EPSG:3857"
-        }
+      "type": "name",
+      "properties": { "name": "EPSG:3857" }
     },
     "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "id": 1,
-                "name": "Palace of Parliament",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Palace_Of_Parliament_Bucharest.jpg",
-                "attr": "CC0",
-                "txt": "The Palace of the Parliament (Romanian: Palatul Parlamentului) is the seat of the Parliament of Romania. It is located on Dealul Arsenalului in the national capital city of central Bucharest (Sector 5)."
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    2904047.22,
-                    5531838.90
-                ]
-            }
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "946018387",
+          "@id": "node/946018387",
+          "amenity": "cafe",
+          "name": "Caffè Concerto Paszkowski",
+          "toilets:wheelchair": "no",
+          "tourism": "attraction",
+          "wheelchair": "limited",
+          "wikidata": "Q1025546",
+          "wikipedia": "it:Paszkowski",
+          "addr:housenumber": null,
+          "addr:street": null,
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "name:ru": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "id": 2,
-                "name": "Old Town",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Sunset_in_the_Old_Town_-_Bucharest%2C_Romania_-_Travel_photography_%2835031271856%29.jpg/1920px-Sunset_in_the_Old_Town_-_Bucharest%2C_Romania_-_Travel_photography_%2835031271856%29.jpg",
-                "attr": "By Giuseppe Milo from Dublin, Ireland - Sunset in the Old Town - Bucharest, Romania - Travel photography, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=62639335",
-                "txt": "The Old Town is located in the center of Bucharest, Romania and is popular throughout the world for its nightlife."
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    2905533.33,
-                    5532420.35
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "id": 3,
-                "name": "Revolution Square",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pia%C5%A3a_Revolu%C5%A3iei_-_panoramio.jpg/1024px-Pia%C5%A3a_Revolu%C5%A3iei_-_panoramio.jpg",
-                "attr": "De la Mister No, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=54638602",
-                "txt": "Revolution Square (Romanian: Piața Revoluției) is a square in central Bucharest, on Calea Victoriei. Known as Piața Palatului (Palace Square) until 1989, it was later renamed after the Romanian Revolution of December 1989."
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    2904888.79,
-                    5533666.00
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "id": 4,
-                "name": "National Museum of Romanian History",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Museo_Nacional_de_Historia_de_Ruman%C3%ADa%2C_Bucarest%2C_Ruman%C3%ADa%2C_2016-05-29%2C_DD_63.jpg/1280px-Museo_Nacional_de_Historia_de_Ruman%C3%ADa%2C_Bucarest%2C_Ruman%C3%ADa%2C_2016-05-29%2C_DD_63.jpg",
-                "attr": "Diego Delso, delso.photo, License CC-BY-SA",
-                "txt": "The National Museum of Romanian History (Romanian: Muzeul Național de Istorie a României) is a museum located on Calea Victoriei in Bucharest, Romania, which contains Romanian historical artifacts from prehistoric times up to modern times."
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    2904909.94,
-                    5532454.65
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "id": 5,
-                "name": "Romanian Athenaeum",
-                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Ateneul_Rom%C3%A2n_-_Gradina.jpg/800px-Ateneul_Rom%C3%A2n_-_Gradina.jpg",
-                "attr": "By Mihai Petre - Own work, CC BY-SA 3.0 ro, https://commons.wikimedia.org/w/index.php?curid=16572272",
-                "txt": "The Romanian Athenaeum (Romanian: Ateneul Român) is a concert hall in the center of Bucharest, Romania and a landmark of the Romanian capital city."
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    2905138.15,
-                    5533990.30
-                ]
-            }
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252756.565422378713265, 5430218.185425264760852]
         }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "946019247",
+          "@id": "node/946019247",
+          "amenity": "cafe",
+          "name": "Le Giubbe Rosse",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": "limited",
+          "wikidata": "Q1025547",
+          "wikipedia": "it:Caffè Le Giubbe Rosse",
+          "addr:housenumber": "13r",
+          "addr:street": "Piazza della Repubblica",
+          "phone": "+39 055 212280",
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252781.18929374194704, 5430085.207123842090368]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "3740621395",
+          "@id": "node/3740621395",
+          "amenity": null,
+          "name": "I Mosaici di Lastrucci",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": null,
+          "addr:street": null,
+          "phone": null,
+          "craft": "handicraft",
+          "description:en": "Mosaic",
+          "website": "http://www.imosaicidilastrucci.it/",
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1253998.935467428062111, 5429720.197247915901244]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "4129833608",
+          "@id": "node/4129833608",
+          "amenity": null,
+          "name": "Porta della Mandorla",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": "5",
+          "addr:street": "Piazza del Duomo",
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": "yes",
+          "name:it": "Porta della Mandorla",
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1253075.095013334415853, 5430431.515855947509408]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "4241487614",
+          "@id": "node/4241487614",
+          "amenity": "marketplace",
+          "name": "Mercato di San Lorenzo",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": "yes",
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": null,
+          "addr:street": "Piazza del Mercato Centrale",
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": "Firenze",
+          "addr:postcode": "50123",
+          "building": "market",
+          "level": "0",
+          "name:en": "San Lorenzo's Market",
+          "opening_hours": "A.M.",
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252713.373459950787947, 5430908.28204199578613]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "4701406592",
+          "@id": "node/4701406592",
+          "amenity": "place_of_worship",
+          "name": "Cappella dei Magi",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": "Q737232",
+          "wikipedia": null,
+          "addr:housenumber": null,
+          "addr:street": null,
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": "Magi Chapel",
+          "opening_hours": null,
+          "denomination": "catholic",
+          "religion": "christian",
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252996.481188936391845, 5430706.888680554926395]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "5058828321",
+          "@id": "node/5058828321",
+          "amenity": null,
+          "name": "Palazzo dei Congressi",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": "1",
+          "addr:street": "Piazza Adua",
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": "Palazzo dei Congressi",
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252271.835831668460742, 5431157.84447592869401]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "5188361676",
+          "@id": "node/5188361676",
+          "amenity": "food_court",
+          "name": "Mercato Centrale",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": "Q3854843",
+          "wikipedia": "it:Mercato Centrale (Firenze)",
+          "addr:housenumber": "4",
+          "addr:street": "Piazza del Mercato Centrale",
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": "Firenze",
+          "addr:postcode": "50123",
+          "building": "market",
+          "level": "1",
+          "name:en": "Central Market",
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": "http://www.mercatocentrale.it/",
+          "internet_access": "wifi"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252682.25966227427125, 5430956.30690666474402]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "6548893485",
+          "@id": "node/6548893485",
+          "amenity": null,
+          "name": "Cortile di Michelozzo",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": null,
+          "addr:street": null,
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1252946.999675278784707, 5429799.94075997825712]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "8037518285",
+          "@id": "node/8037518285",
+          "amenity": null,
+          "name": "Bizzarri Spezie",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": null,
+          "addr:street": null,
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1253067.091141946613789, 5429957.364154275506735]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "9741439318",
+          "@id": "node/9741439318",
+          "amenity": null,
+          "name": "il Duomo",
+          "toilets:wheelchair": null,
+          "tourism": "attraction",
+          "wheelchair": null,
+          "wikidata": null,
+          "wikipedia": null,
+          "addr:housenumber": null,
+          "addr:street": null,
+          "phone": null,
+          "craft": null,
+          "description:en": null,
+          "website": null,
+          "entrance": null,
+          "name:it": null,
+          "addr:city": null,
+          "addr:postcode": null,
+          "building": null,
+          "level": null,
+          "name:en": null,
+          "opening_hours": null,
+          "denomination": null,
+          "religion": null,
+          "contact:website": null,
+          "internet_access": null
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [1253062.13742460636422, 5430396.875147529877722]
+        }
+      }
     ]
-}
+  }
+  
