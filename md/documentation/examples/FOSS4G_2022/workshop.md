@@ -45,18 +45,22 @@ Note! If you have some webserver running on your laptop you can just as easily u
 - Pan the map to show Firenze as the attractions are going to be around there (or search with `Florence City Italy` to set the location)
 5. Click `Save` and copy the HTML-snippet for an iframe to your clipboard
 
-```
+```html
 <iframe src="https://demo.oskari.org/?lang=en&uuid=93235644-944d-466c-85c0-46945f75ff33" allow="geolocation" style="border: none; width: 100%; height: 100%;"></iframe>
 ```
 Note! The uuid-parameter value is different for each embedded map so use your own instead of copy-pasting the above.
 
 If you want to skip this phase you can use our example embedded map instead and control the location and zoom with parameters:
-```
+```html
 <iframe src="https://demo.oskari.org/example?zoomLevel=15&coord=1253022_5429840" allow="geolocation" style="border: none; width: 100%; height: 100%;"></iframe>
 ```
 
 6. Open `index.html` in your CodeSandbox project and replace `<div id="map"></div>` with the iframe.
 7. Add `id="map"` on the `iframe` tag so our styles (in `src/main.css`) affect it
+```html
+<iframe id="map" ...></iframe>
+```
+
 8. You can also change things like the `<title>` and texts on the page under `<body>` on `index.html` if you want to customize the page further.
 
 ## First contact
@@ -153,7 +157,11 @@ The template already includes a navigation element as a placeholder for the side
 } 
 ```
 
-After this the map doesn't cover the whole page any more and we have a side panel next to it with a heading 'Attractions in Bucharest'.
+After this the map doesn't cover the whole page any more and we have a side panel next to it with a heading 'Attractions in Bucharest'. However the right side of the map is pushed off-screen and we can fix that by modifying `index.html` by reducing the `iframe` width to 75%:
+
+```html
+<iframe ... style="border: none; width: 75%; height: 100%;"></iframe>
+```
 
 ## List attractions on side panel
 
