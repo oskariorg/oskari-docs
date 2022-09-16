@@ -1,6 +1,6 @@
 # Setup Oskari development environment
 
-This document describes how to setup development environment for Oskari. 
+This document describes how to setup development environment for Oskari.
 
 ### Requirements
 
@@ -23,7 +23,7 @@ With commandline git:
 
     git clone https://github.com/oskariorg/oskari-server.git
 
-Note! You can also download the codes in zip format from Github, but for contributing any changes to Oskari git is mandatory. 
+Note! You can also download the codes in zip format from Github, but for contributing any changes to Oskari git is mandatory.
 Additional Maven modules can be contributed outside git though if they are compatible with the current develop/master branch, but this is not adviced.
 
 Note! The frontend source code is already available under `{jetty.base}/oskari-frontend` in the [Jetty bundle](/download). To update it you can replace it with code found in https://github.com/oskariorg/oskari-frontend.
@@ -35,17 +35,24 @@ This will build all modules that Oskari server is composed of.
     cd oskari-server
     mvn clean install
 
-### 3. Copy updated/relevant artifacts under `{JETTY_HOME}/webapps`
+### 3. Fetch sample-server-extension source code and compile it
 
-- Map functionality: oskari-server/webapp-map/target/oskari-map.war
-- WFS services: oskari-server/webapp-transport/target/transport.war
+To test your changes on a running web app you can use sample-server-extension to create a webapp using your modified version of oskari-server.
+Check that the oskari.version in pom.xml matches the project version of oskari-server you built.
 
-### 4. (Optional) To update geoserver extensions:
+    git clone https://github.com/oskariorg/sample-server-extension.git
+    cd sample-server-extension
+    mvn clean install
+
+### 4. Copy updated/relevant artifacts under `{jetty.base}/webapps`
+
+Map functionality: sample-server-extension/webapp-map/target/oskari-map.war
+
+### 5. (Optional) To update geoserver extensions:
 
 a) Run `mvn clean install` in `oskari-server/geoserver-ext/wps`
 
 b) Copy updated artifacts to `{jetty.base}/webapps/geoserver/WEB-INF/lib`:
-- oskari-server/geoserver-ext/OskariMarkFactory/target/OskariMarkFactory-[version].jar
 - oskari-server/geoserver-ext/wps/IntersectionFeatureCollection2/target/IntersectionFeatureCollection2-2.13.2.jar
 - oskari-server/geoserver-ext/wps/oskari_point_stacker/target/oskari_point_stacker-2.13.2.jar
 - oskari-server/geoserver-ext/wps/ZoneSectorFeatureCollection/target/ZoneSectorFeatureCollection-2.13.2.war

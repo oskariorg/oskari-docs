@@ -1,13 +1,13 @@
 # Component architecture
 
-## Backend components in oskari-server
+## Webapp for oskari-server
 
-There are three different web applications for Oskari backend functionality at the moment:
+Packaged as `oskari-map.war` in [sample-server-extension](https://github.com/oskariorg/sample-server-extension/tree/master/webapp-map).
 
-* `webapp-map` is the basis for Oskari backend functionality. It produces the map pages and handles AJAX requests.
-* `transport` handles most of the WFS operations.
+It handles most of the server side functionality alone using GeoServer for user generated content (myplaces, userlayers, analysis).
+The webapp is extensible and can be compiled from oskari-server components and built on them to create your own geoportal/web mapping server.
 
-The backend components are layered as services, controls, interfaces (though only `webapp-map` uses this extensively at the moment).
+The backend is layered as services, controls, interfaces (though only `webapp-map` uses this extensively at the moment).
 
 ![Component layers](/images/architecture/components.png)
 
@@ -46,7 +46,7 @@ Functions:
 The interface-modules build on top of the control-modules. Basically an HTTP interface with reference implementations for:
 
 * HTTP Servlet: `oskari-server/servlet-map`
-* Webapp: `oskari-server/webapp-map`
+* Webapp: `sample-server-extension/webapp-map`
 
 Responsible for:
 
@@ -63,7 +63,6 @@ Responsible for:
     * Nginx
     * Jetty/Oskari-server
     * Jetty/Geoserver
-    * Jetty/Transport
 
 * Database server
     * Postgres/Database
@@ -82,7 +81,7 @@ All in one:
 All in one:
 
 * Proxy: Nginx
-* Oskari-map + Geoserver + Transport: Jetty
+* Oskari-map + Geoserver
 
 ### Case Liikennevirasto
 

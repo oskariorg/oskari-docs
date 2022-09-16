@@ -1,13 +1,12 @@
 # Upgrading
 
-When upgrading Oskari version the database schema needs to be upgraded as well. As of version 1.31.0 Oskari-server
-will be upgraded an existing database automatically using http://flywaydb.org/. This requires a manual upgrade to
- 1.30.0 database schema using steps described at the end of this document. After this the upgrade is automatic and
- the purpose of this document is to describe the procedure and provide insight for debugging on possible error scenarios.
+When upgrading Oskari version the database schema might require upgrading as well. The upgrading and initialization of an empty database is
+done automatically with migration scripts using http://flywaydb.org/.
+This document describes the procedure and provides insight for debugging on possible error scenarios.
 
-The migration happens when the updated webapp is started. The software version is recorded into the database and each
- upgrade script that is tagged with a later version is executed in version sequence on startup and the current
-  database status is updated so the next startup won't trigger the same upgrades.
+The migration happens when the webapp is started. The software version is recorded into the database and each
+ upgrade script that is tagged/named with a later version than have been run before is executed in version sequence on startup
+ and the current database status is updated so the next startup won't trigger the same migrations.
 
 The upgrade is done with a modular setup with these default modules:   
  - `oskari`: this is the base database for Oskari
@@ -15,8 +14,8 @@ The upgrade is done with a modular setup with these default modules:
  - `analysis`: these are tables/triggers etc for the analysis functionality
  - `userlayer`: these are tables/triggers etc for the data importing functionality
 
- The optional upgrade is done a modular setup with these modules:
- - `sample`: these are tables/triggers etc for the sample view functionality (same as http://demo.oskari.org page). Nb! This module can override some configs etc on your database.
+ Oskari-based server-extensions can also use a migration module to initialize the database content and applications setups.
+ For example the sample-server-extension uses the `example` module to initialize a couple dataproviders, default users, an application specific bundle, application setups (collection of bundles to be shown as geoportal for the user) and layers to the database as content.
 
 The default non-core module settings are defined in `oskari.properties` and can be overridden in `oskari-ext.properties`:
 
@@ -24,12 +23,18 @@ The default non-core module settings are defined in `oskari.properties` and can 
     db.additional.modules=myplaces,analysis,userlayer
 
 Each module keeps track of it's state using a database table named `oskari_status_[module]`. The core database status is tracked
-in table named `oskari_status`. Each module can also have their own datasource which needs to be accessible via JNDI. By default
-a common datasource is used (`jdbc/OskariPool`).
+in table named `oskari_status`. Each module can also have their own datasource providing the database connections. By default a common datasource is used that is configured in oskari-ext.properties file:
+```
+db.url=jdbc:postgresql://localhost:5432/oskaridb
+```
 
-The upgrade scripts can be found in Github:
+The built-in migration scripts can be found in Github:
  - SQL: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/resources/flyway
  - Java: https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/java/flyway
+
+ For the sample-server-extension they are in the application repository:
+- SQL: https://github.com/oskariorg/sample-server-extension/tree/master/app-resources/src/main/resources/flyway/example
+- Java: https://github.com/oskariorg/sample-server-extension/tree/master/app-resources/src/main/java/flyway/example
 
 ## Troubleshooting
 
@@ -196,7 +201,7 @@ Any customized application can setup the automatic migration by adding some conf
 providing the application specific upgrade scripts. Applications are treated as modules that can opt-in on using the
  automatic upgrade by defining a module in `oskari-ext.properties` (here we add a module called `myapplication`):
 
-    db.additional.modules=myplaces,analysis,userlayer,myapplication
+    db.additional.modules=myplaces, analysis, userlayer, myapplication
 
 By default a modules upgrade scripts are discovered from classpath in location `/flyway/[module]`. This includes both SQL
 and Java upgrade-files so for Java the package needs to be `flyway.[module]`. If you want to change the default script location or 
@@ -204,7 +209,7 @@ provide alternatives, you can specify a comma-separated list in `oskari-ext.prop
 
     db.myapplication.script.locations=/flyway/myapplication,/upgrade/scripts/in/here/also
 
-Note! If you define a custom module it needs to have at least one upgrade script (in each script location).
+Note! If you define a custom module it needs to have at least one upgrade script.
 Otherwise Flyway will log it as an error. Instructions for writing scripts can be found in the
  [Writing upgrade scripts](upgrade_scripts) document.
 
@@ -235,38 +240,4 @@ Modules can be added when the functionality is needed so when `myplaces` functio
     db.additional.modules=asdi, myplaces
 
 ASDI also has an example for modifying the views when a new feature (frontend bundle) is added or zoomlevels are tuned:
-https://github.com/arctic-sdi/oskari-server-extensions/tree/develop/server-extension/src/main/java/flyway/asdi
-
-## Pre 1.31.0 manual upgrades
-
-The database needs to be updated manually to a state of version 1.30.x. After this the automatic upgrades kicks in,
- BUT expects the manual upgrades have been done until version 1.30.x.
-
-Database upgrade SQL scripts are located under `oskari-server/content-resources/src/main/resources/sql/upgrade/{version}`. SQL scripts can also be found behind these links in github:
-- https://github.com/oskariorg/oskari-server/tree/master/content-resources/src/main/resources/sql/upgrade
-- https://github.com/oskariorg/oskari-server/tree/develop/content-resources/src/main/resources/sql/upgrade
-
-There's also `node.js` based upgrade tool under `oskari-server/content-resources/db-upgrade` which is mainly used for updating database content, for instance for adding plugins to the default view.
-This is replaced by the Java upgrades on Oskari 1.31.0.
-
-Upgrade scripts can also update content on the database so use caution and check them before running.
-You can also ask if you don't know how it will affect your system.
-
-Release notes on `oskari-server` root are also worth checking out and if anything is broken, please tell us so we can fix it/add documentation.
-
-### Upgrade instructions for version 1.17 maplayers refactoring
-
-
-1) Run SQLs in oskari-server\content-resources\src\main\resources\sql\upgrade\1.17\oskari_maplayer.sql
-
-2) Go to "oskari-server\content-resources\db-upgrade"
-
-3) Modify config.js to match your database settings (see template file config.js.example)
-
-4) Run "SCRIPT=oskari_maplayers_migration node app.js"
-
-5) Things to check for successful migration:
-* Each maplayer in portti_maplayer should now be found in oskari_maplayer
-* oskari_maplayer should now also contain base/grouplayers that were previously found in portti_layerclass
-* oskari_layergroup should now contain all organizations from portti_layerclass, but NOT base/grouplayers from portti_layerclass
-* inspirethemes are now linked for maplayer via a linking table oskari_maplayer_themes (layers can belong to multiple themes on db level - not fully implemented throughout the system)are located under `oskari-server/docs/upgrade/1.17.md`
+https://github.com/arctic-sdi/oskari-server-extensions/tree/develop/asdi-resources/src/main/java/flyway

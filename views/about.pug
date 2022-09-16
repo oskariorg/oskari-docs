@@ -1,83 +1,64 @@
 extends layout
 
 block main
-  h1 About this site
+  h1 About Oskari
 
   div.row
     div.col-md-12
-      p This is a support site for the Oskari software containing technical instructions for using, configuring and developing the software. The documentation on this site assumes the reader is somewhat familiar with the basic
-        | geographical protocols used extensively in GIS applications, such as
-        | WMS (Web Map Service) and WFS (Web Feature Service). Also, experience in
-        | JavaScript and/or Java development is required to read and understand the frontend and
-        | the backend documentation, respectively.
+        p Oskari is an open source software for building web maps and displaying and analyzing geospatial data. Oskari supports the EU directive INSPIRE and OGC standards. 
+        p This site contains technical instructions for using, configuring and developing the software. The documentation on this site assumes the reader is somewhat familiar with the basic geographical protocols used extensively in GIS applications, such as WMS (Web Map Service) and WFS (Web Feature Service).
+        p Also, experience in JavaScript and/or Java development is required to read and understand the developer documentation.
 
-    div.col-md-12
-    
-      div.col-md-6
+    div.col-md-4
+      h2 Follow Oskari
+      div.col-md-12
         div.panel.panel-info
           div.panel-heading
             :markdown-it
-              ### Mailing list ([Oskari-user@lists.osgeo.org](mailto:Oskari-user@lists.osgeo.org))
-              The mailinglist is the main contact point for anything Oskari related. If you have something Oskari related on you mind ask for ideas or support from the mailing list.
-              It can be used to discuss anything between developers, PSC and other interested parties of the community. 
-              The mailing list is open and search engines can find the discussion threads. This helps finding solutions for already asked questions.
-
-              ### Gitter ([gitter.im/oskariorg/chat](https://gitter.im/oskariorg/chat))
-              For things that are more easily dealt with in a chat environment instead of emails. 
-              If you need to ask something really quick, use Gitter. Remember Gitter is really good for instant messaging, but bear in mind that the history of the discussions might not be easily found. 
-              So we encourage to use the mailing list. Please chat in English so everyone can participate in the discussion.
-
+  
               ### Twitter [@oskari.org](https://twitter.com/oskari_org)
               Follow us at Twitter to get additional exposure to the community.
 
-              ### Developer blog ([oskariorg.github.io/](https://oskariorg.github.io/))
+              ### [Developer blog](https://oskariorg.github.io/)
               Developer blog contains memos from the PSC-meetings and and is the place for posts about development related experiences.
 
-              ### Meetups ([meetup.com](https://www.meetup.com/Oskari-Your-geospatial-friend/))
+              ### [Meetups or webinars](https://www.meetup.com/Oskari-Your-geospatial-friend/)
               Host an Oskari event or join them. We'll try to arrange Oskari-meetups every two months - you can always ask us for a visit!
               
-              ### Newsletter([Order here](https://oskari.us17.list-manage.com/subscribe/post?u=253c109a78589154d2a011276&id=5f8a9cf6a6))
-              Oskari newsletter will be sent 4 times a year. Subscribe Oskari news to your email.
-              
-              ### Oskari Community Manager ([info@oskari.org](mailto:info@oskari.org)) 
-              Contact Oskari Community Manager if you want to share your project or use case in these web pages or have some other Oskari Community issues on your mind. 
-             
-      div.col-md-6
+    div.col-md-4
+      h2 Ask for help
+      div.col-md-12
         div.panel.panel-info
           div.panel-heading
             :markdown-it
-              ### Source code
+              Or give us a hint what you are up to.
+              ### [Oskari-user@lists.osgeo.org](mailto:Oskari-user@lists.osgeo.org)
+              The mailing list is the main contact point for anything Oskari related. If you have something Oskari related on you mind ask for ideas or support from the mailing list.
 
-              #### Sample app
-              The sample app can be used as a template for building your own Oskari-based geoportal.
-              Select functionalities you want to include and add your own application specific customizations for your needs like initial map layers, users etc.
-              The sample app uses Oskari as dependency on npm for frontend and Maven for server.
-              This is the app you get from the [download](/download) page.
-              * [Sample frontend app](https://github.com/oskariorg/sample-application) built on top of oskari-frontend
-              * [Sample server / Java webapp](https://github.com/oskariorg/sample-server-extension) built on top of oskari-server
-              * [Sample configurations](https://github.com/oskariorg/sample-configs) for running the Oskari services
+              It can be used to discuss anything between developers, PSC and other interested parties of the community. 
 
-              #### Source code for Oskari
-              * [Oskari frontend](https://github.com/oskariorg/oskari-frontend) Javascript-based code to use on your app
-              * [Oskari server](https://github.com/oskariorg/oskari-server) Maven-packaged Java code to use on your app
-              * [RPC client library](https://github.com/oskariorg/rpc-client) for controlling embedded maps
-              * [Oskari frontend community modules](https://github.com/oskariorg/oskari-frontend-contrib) additional frontend bundles for more functionality
-              * [Code and content for this site](https://github.com/oskariorg/oskari-docs)
+              The mailing list is open and search engines can find the discussion threads. This helps finding solutions for already asked questions.
 
-              ### Issue tracking
-              Reporting issues for any part of Oskari: [GitHub issues](https://github.com/oskariorg/oskari-docs/issues)
+              ### [Gitter](https://gitter.im/oskariorg/chat)
+              For things that are more easily dealt with in a chat environment instead of emails. 
 
-              ### Roadmap
-              Features that are planned on being added by the community:
-              [GitHub roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap)
+              If you need to ask something really quick or need more interactive collaboration you can use Gitter.
+              The history of the chat discussions are lost rather quickly so we encourage to use the mailing list.
+              Please chat in English so everyone can participate in the discussion.
 
-              Ones without additional "approved" label are still under consideration.
-
+    div.col-md-4
+      h2 Share your work
+      div.col-md-12
+        div.panel.panel-info
+          div.panel-heading
+            :markdown-it
               ### Contributing
               If you have any additions, suggestions or corrections to the content of the site or Oskari in general you can report an 
               [issue](https://github.com/oskariorg/oskari-docs/issues) on GitHub or better yet make
               a [pull request](/documentation/development/how-to-contribute).
 
               Your help is greatly appreciated!
+              ### [License](/documentation/development/license)
 
-              [License](/documentation/development/license)
+              ### [Mail to us](mailto:info@oskari.org) 
+              Contact Oskari Community Manager if you want to share your project or use case in these web pages or have some other Oskari Community issues on your mind. 

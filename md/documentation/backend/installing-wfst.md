@@ -16,7 +16,7 @@ This bundle needs Oskari version 1.36 or above
 
 ### Back-end
 
-This functionality needs Oskari version 1.36 or above  (oskari-map.war and transport.war)
+This functionality needs Oskari version 1.36 or above  (oskari-map.war)
 
 ##### Database
 

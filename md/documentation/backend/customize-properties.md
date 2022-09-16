@@ -25,20 +25,20 @@ Examples:
 
 The properties also setup various url links for search service, GIS metadata, GeoServer myplaces, print service, etc that needs to be modified to match the server environment.
 
+## Environment variables
 
-### Configuration for transport (WFS-service integration)
+Environment variables can also be used to append or override any property set in properties files. Any set environment variable will take precedence over a property in properties files following the two rules:
+* To avoid issues with casing and dots with environment variables all environment variables have to be uppercased and use underscores (`_`) instead of dots (`.`)
+* To avoid conflicts with environment variables meant for other processes Oskari expects all environment variables to be prefixed with `OSKARI_`
 
-Config options for `transport-ext.properties` for controlling when to stop sending requests to WFS-services that don't answer fast enough
-(service might be slowed down by getting too many requests and we don't want to pile up requests that will fail):
+Examples:
 
-    # Timeout WFS-requests after 25 seconds by default
-    oskari.transport.job.timeoutms = 25000
+    # oskari-ext.properties
+    db.url=jdbc:postgresql://localhost:5432/oskaridb
+    db.username=oskari
+    db.password=oskari
 
-    # milliseconds as observation window for counting failures before stop sending more WFS-requests to a problematic service (defaults 100 seconds)
-    oskari.transport.rollingwindow = 100000
-
-    # amount of WFS-requests that need to fail/layer in rolling window to do a cooldown (circuit break)
-    oskari.transport.failrequests = 5
-
-    # milliseconds to wait after circuit break until start sending new WFS-requests to problematic WFS-service (defaults 20 seconds)
-    oskari.transport.sleepwindow = 20000
+    # Using environment variables to override the configuration (bash example)
+    export OSKARI_DB_URL=jdbc:postgresql://localhost:2345/oskaridb
+    export OSKARI_DB_USERNAME=oskari2
+    export OSKARI_DB_PASSWORD=my-password

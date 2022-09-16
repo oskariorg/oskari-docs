@@ -119,9 +119,9 @@ Datasource config:
         "url" : "http://ec.europa.eu/eurostat"
     }
 
-#### PxWEB
+#### PxWeb
 
-PX-Web is a widely used statistics software that offers an API for accessing the data.
+PxWeb is a widely used statistics software that offers an API for accessing the data.
 
 Code: https://github.com/oskariorg/oskari-server/blob/develop/service-statistics-pxweb/src/main/java/fi/nls/oskari/control/statistics/plugins/pxweb/PxwebStatisticalDatasourceFactory.java
 
@@ -131,8 +131,39 @@ Datasource config:
         "url" : "http://some.pxweb.com/statdb",
         "regionKey" : "name of the attribute for the region id in stats data",
         "ignoredVariables": ["optional config", "any", "attributes", "that", "should", "be", "ignored"],
-        "timeVariable": "Optional config for id of the variable that describes time like 'year'. This is used for time-series functionality."
+        "timeVariable": "Optional config for id of the variable that describes time like 'year'. This is used for time-series functionality.",
+        "metadataFile": "/file/in/classpath.json (optional)"
     }
+
+The metadataFile configuration allows linking more metadata for indicators in the datasource like source for data, name/descriptions overrides for values from the API and configuring the type of data for selecting if it will be visualized as choropleth or point symbols by default etc. The value should point to a file in the server classpath. The format of the JSON is an array with objects like:
+
+    [{
+        "code": "M408",
+        "desc": {
+            "fi": "Taajama-aste tarkoittaa taajamissa asuvien osuutta väestöstä, jonka sijainti tunnetaan. Taajamaksi määritellään kaikki vähintään 200 asukkaan rakennusryhmät, joissa rakennusten välinen etäisyys ei yleensä ole 200 metriä suurempi"
+        },
+        "source": {
+            "fi": "Väestörakenne"
+        },
+        "isRatio": true,
+        "base": 100,
+        "min": -100,
+        "max": 500,
+        "decimalCount": 1,
+        "timerange": {
+            "start": "1987",
+            "end": "2015"
+        },
+        "updated": "1.4.2016",
+        "nextUpdate": "29.3.2017"
+    }, ...]
+
+- `code` value is used to map the indicator between the metadata JSON and data from the PxWeb API and id should match the indicator id.
+- `timerange` can be used to configure indicator specific timeranges if they are all in the same .px file. 
+- `updated` and `nextUpdate` are shown in the UI with the indicator description. 
+- `isRatio` (optional boolean): `true` for `choropleth`, `false` for `points`
+- `base` (optional number): with number value the classification `distribution` is set to `Diverging`. Missing or non-numeric value `distribution` defaults to `Quantitative`
+- `min` and `max` describe the data but is not used by the frontend currently
 
 #### SotkaNET
 
@@ -153,7 +184,7 @@ Not all datasources have data for all of the regionsets so as the last step you 
 
 
     INSERT INTO 
-        oskari_statistical_layer(datasource_id, layer_id, config)
+        oskari_statistical_datasource_regionsets(datasource_id, layer_id, config)
     VALUES(
         (SELECT id FROM oskari_statistical_datasource 
             WHERE locale like '%Health and Welfare%'),
@@ -168,7 +199,7 @@ The current layer configuration options are listed below.
 
 Doesn't use layer config, but could be used to detect which layer is used for which type of areas (NUTS 1,2,3).
 
-### PxWEB
+### PxWeb
 
 Doesn't use layer config, but could be used to detect which layer is used for which type of areas in the statistics data or provide a fully qualified class name for doing the layer/statistics data mapping for more involved functionality.
 

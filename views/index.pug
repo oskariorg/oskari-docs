@@ -27,15 +27,15 @@ block prelude
             li(data-target="#carouselMain", data-slide-to="5")
           div.carousel-inner(role="listbox")
             div.item.active
-              <img alt="" class="third-slide carousel-image img responsive" src="/images/gallery/lounaistieto.png">
+              <img alt="Geoportal: Lounaistieto" class="third-slide carousel-image img responsive" src="/images/gallery/lounaistieto.png">
             div.item
-              <img alt="" class="first-slide carousel-image img-responsive" src="/images/gallery/suomifi.png">
+              <img alt="Geoportal for suomi.fi maps" class="first-slide carousel-image img-responsive" src="/images/gallery/suomifi.png">
             div.item
-              <img alt="" class="second-slide carousel-image img-responsive" src="/images//gallery/example_mapsite.png">
+              <img alt="App build using embedded map from suomi.fi maps" class="second-slide carousel-image img-responsive" src="/images/gallery/example_mapsite.png">
             div.item
-              <img alt="" class="second-slide carousel-image img-responsive" src="/images//gallery/asdi.png">
+              <img alt="Geoportal: Acrtic-SDI" class="second-slide carousel-image img-responsive" src="/images/gallery/asdi.png">
             div.item
-              <img alt="" class="second-slide carousel-image img-responsive" src="/images//gallery/nls_is.png">
+              <img alt="Geoportal: Iceland" class="second-slide carousel-image img-responsive" src="/images/gallery/nls_is.png">
             div.item
               <a href="https://wiki.osgeo.org/wiki/Oskari_Incubation_Status" target="_blank"><img alt="" class="second-slide carousel-image img-responsive" src="/images/OSGeo_incubation.svg"></a>
 
@@ -50,32 +50,34 @@ block main
           * [About](/about)
           * [Gallery](/gallery) 
           * [Community](/community/oskari_community)
+          * [Geoportal demo app](https://demo.oskari.org)
           * [Blog](https://oskariorg.github.io/)
           * [FAQ](/documentation/faq)
-          * [Oskari user mailing list](Oskari-user@lists.osgeo.org)
+          * [Oskari user mailing list](mailto:Oskari-user@lists.osgeo.org)
 
     div.col-md-4
       h2 Oskari Project owner
       div.panel-body
         :markdown-it
           * [Roadmap](https://github.com/oskariorg/oskari-docs/labels/roadmap)
-          * [Release notes](https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNotes.md)
+          * [Release notes frontend](https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNotes.md)
+          * [Release notes server](https://github.com/oskariorg/oskari-server/blob/master/ReleaseNotes.md)
           * [Bundles](/api/bundles)
-          * [RPC Guide](guides/rpc-step-by-step)
+          * [Guide for controlling embedded maps / RPC](/examples/rpc-api/rpc_example.html)
           * [Found a bug? Report an issue](https://github.com/oskariorg/oskari-docs/issues)
 
     div.col-md-4
       h2 Oskari Developer
       div.panel-body
         :markdown-it
-          * [Documentation guidelines](documentation/development/guidelines)
-          * [How to contribute](documentation/development/how-to-contribute)
-          * [Frontend](https://github.com/oskariorg/oskari-frontend)
-          * [Backend](https://github.com/oskariorg/oskari-server)
+          * [Documentation guidelines](/documentation/development/guidelines)
+          * [How to contribute](/documentation/development/how-to-contribute)
+          * [GitHub: frontend](https://github.com/oskariorg/oskari-frontend)
+          * [GitHub: backend](https://github.com/oskariorg/oskari-server)
           * [Bundles](https://oskari.org/documentation/core-concepts/oskari-bundle)
           * [Requests](https://oskari.org/documentation/core-concepts/oskari-request)
           * [Events](https://oskari.org/documentation/core-concepts/oskari-event)
-          * [RPC (Oskari API)](https://oskari.org/examples/rpc-api/rpc_example.html)
+          * [Controlling embedded maps / RPC](https://oskari.org/examples/rpc-api/rpc_example.html)
           * [Ask for help in Gitter](https://gitter.im/oskariorg/chat) 
 
   <hr>
@@ -127,7 +129,7 @@ block main
      div.col-md-4
         div.panel.panel-warning
            div.panel-heading
-             h4 <a href="mailto:Oskari-user@lists.osgeo.org" target=_blank">Join our Oskari mailing list</a>
+             h4 <a href="mailto:Oskari-user@lists.osgeo.org">Join our Oskari mailing list</a>
      div.col-md-4
         div.panel.panel-warning
            div.panel-heading

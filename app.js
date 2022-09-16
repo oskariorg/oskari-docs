@@ -54,7 +54,7 @@ app.get('/api/events.json', routes.eventsJSON);
 app.get('/apidoc/:ver/*', function(req, res) {
     routes.apiDoc(req.params.ver, req.params[0], function(content) {
         if(!content) {
-            res.send(404);
+            res.sendStatus(404);
             return;
         }
         res.send(content);
@@ -67,6 +67,7 @@ app.use('/apires', express.static(apiResDir));
 
 // generated jsdocs
 app.use('/jsdoc', routes.checkLatestVersion);
+app.use('/jsdoc/*', routes.checkLatestVersion);
 app.use('/jsdoc', express.static(path.join(__dirname, 'generated/jsdoc')));
 
 // generated db documentation

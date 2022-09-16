@@ -12,6 +12,18 @@
 
 ## Configuration
 
+### Create database tables to oskaridb database for myplaces result storage
+
+Enable Flyway-module `myplaces` on `oskari-ext.properties`:
+
+    db.additional.modules=[...], myplaces
+
+# Note! Everything below is outdated
+
+But might give you hints what is required for my places to work
+
+---
+
 ### Create a view
 
 [Create a new view](/documentation/backend/database-populate#adding-a-new-view) with `myplaces2` and `mapwfs2` bundles (edit the view to match your environment and remove the config for `myplaces2` if you prefer to cofigure using properties file instead):
@@ -79,11 +91,6 @@ The config for `myplaces2` bundle gets generated from the properties above. You 
 
     # Default if not defined: 'oskari:my_places_categories'
     layerDefaults.wmsName : <myplaces.xmlns.prefix> + ':my_places_categories'
-
-
-### Install WFS transport service
-
-Look at [setting up transport wfs service](/documentation/backend/installing-transport) (*skip this if already installed*).
 
 ### Test Oskari
 

@@ -26,7 +26,7 @@ Oskari is not a software you can set up by just pushing a execute button. It is 
 
 If you want to provide improvements to Oskari, here are some steps to do it:
 
-1. Open the Oskari source code in your project. Remember to follow the guidelines and [How-to-model](/documentation/development/how-to-contribute). Share your plans also openly through [Oskari Roadmap in GitHub](https://github.com/oskariorg/oskari-docs/labels/roadmap), so other developers know what to you are up to.
+1. Open the Oskari source code in your project. Remember to follow the guidelines and [How-to](/documentation/development/how-to-contribute). Share your plans also openly through [Oskari Roadmap in GitHub](https://github.com/oskariorg/oskari-docs/labels/roadmap), so other developers know what to you are up to.
 2. Test and report bugs.
 3. Discuss and ask support.
 4. Remember that adding new features to Oskari main development line are discussed and decided by Oskarin PSC.  If the developed feature is not suitable for the main development line, it can be added as a Community Plugin. 
@@ -63,6 +63,18 @@ See [GitHub](https://github.com/oskariorg/oskari-frontend/blob/master/ReleaseNot
 - https://github.com/oskariorg/oskari-server/blob/master/ReleaseNotes.md
 
 The database schema and content is upgraded automatically when you start the newly build application. Read more about [automatic upgrades in Oskari](https://oskari.org/documentation/backend/upgrading).
+
+## Handling dates and timestamps
+
+- For database: Use column of type `timestamp with time zone`
+- For Java: In general use `java.time.Instant`. For interacting with database use `java.time.OffsetDateTime` with `ZoneOffset.UTC`
+- For JSON: Use ISO string like `2022-05-16T10:40:33.594Z`
+- For Javascript value objects: Use `Date`
+- For rendering in the UI: Format only while rendering (not in model)
+
+Also:
+- Use NOT NULL in database for creation date with default value to current timestamp
+- Prefer updating modification date in code rather than db triggers
 
 # FAQ for users
 

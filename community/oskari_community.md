@@ -8,9 +8,17 @@ In 2011 Oskari's source code was opened because the interest within other organi
 
 The start of the actual Oskari community was in 2014 when a network for Oskari users was established in Finland and the Joint Development Forum was founded. Now we have tens of organisations involved in Finland and abroad! 
 
-Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the [community goals and tasks](community_goals.md) and join the development!
+Development is not just coding, it can be bug reporting, finding funding or marketing. Read  the [community goals and tasks](community_goals) and join the development!
 
 If you can't find resources for developing, you can always try to set up a crowd funding plan. We help you to market it through our Oskari newsletter and other media.
+
+## Joint development
+
+We encourage you to join Oskari development in different ways. 
+
+If you wish to implement a new feature for Oskari, let the world know about it by creating [an issue of your idea to GitHub](https://github.com/oskariorg/oskari-docs/issues) and describe it well. Check also the [Community goals](/community/community_goals). There have been cases where multiple organizations have the same requirement and have been able to combine resources to make things happen but this isn't possible if information isn't shared!
+
+Here is a [template for creating Oskari OIP](https://github.com/oskariorg/oskari-docs/wiki/Improvement-Proposal-Template) (Oskari improvement proposal). For larger changes affecting rest of the system this is the preferred way of describing changes. These change proposals are processed by the PSC (Project steering committee) for additional assurance that the change is good for the community and the software as a whole.
 
 ### Community documents
 
@@ -20,6 +28,7 @@ If you can't find resources for developing, you can always try to set up a crowd
 - [Oskari style guide](/community/styleguide)
 - [Crowdfunding](/community/crowdfunding)
 - [Privacy policy](/community/privacy-policy)
+- [Companies offering commercial support for Oskari](/community/oskari_commercial_support)
 
 ### Individuals
 
@@ -31,13 +40,13 @@ In late 2016 [Oskari PSC](https://github.com/oskariorg/oskari-docs/wiki/Project-
 
 ### Joint Development Forum
 
-Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF.md).
+Joint Development Forum is a tight group of organisations that have an interest in developing Oskari togerther. It is formed by several organisational members providing funding for joint development, communication and bug fixing. Read more about the [JDF](JDF).
 
 ### Community members
 
-It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. Tell us how you are going to take advantage of Oskari, it can be software development, arranging meetups, education - all activities are encouraged. If you want to join the Oskari network as a organizational member, describe your [organisation and development ideas on Oskari here](https://docs.google.com/forms/d/e/1FAIpQLSd2KZOQeJ5xDivG-X0r0HzMArHcRU6DRbb1hpS1uUS87VrY3w/viewform). 
+It is totally free to be part of the Community. Organisational members have the opportunity to apply for the JDF as annual representatives of the community members. The new community members are elected every spring. Tell us how you are going to take advantage of Oskari, it can be software development, arranging meetups, education - all activities are encouraged. If you want to join the Oskari network as a organizational member or want to change your description, please contact info@oskari.org or make a pull request and describe your [organisation and development ideas on Oskari here](https://github.com/oskariorg/oskari-docs/blob/master/community/oskari_community.md). 
 
-Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. If you want to change your description, please contact info@oskari.org or make a [pull request](https://github.com/oskariorg/oskari-docs/blob/master/community/oskari_community.md). 
+Allready now we have lot's of organisations involved! We welcome also members from outside Finland 😉. Here is a list of all organisational members. 
 
 <table class="table table-striped">
   <thead>
@@ -51,9 +60,9 @@ Allready now we have lot's of organisations involved! We welcome also members fr
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td><a href="http://www.cgi.fi/" target="_blank">CGI Finland LTd
+      <td><a href="http://www.cgi.fi/" target="_blank">CGI Finland Ltd
           </a></td>
-      <td>-</td>
+      <td>CGI offers consulting on Oskari related topics, mainly software development and maintenance. Contact: Jan Wolski</td>
       <td></td>
     </tr>
     <tr>
@@ -129,7 +138,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <tr>
       <th scope="row">13</th>
       <td><a href="http://www.gispo.fi/" target="_blank">Gispo Ltd</a></td>
-      <td>"We offer training, conculting, development and maintanence on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
+      <td>"We offer training, consulting, development and maintenance on Oskari based services and can facilitate crowdfunding efforts for Oskari. We are currently providing the Oskari communication coordinator activities for the JDF." - Pekka Sarkola, Gispo Ltd</td>
       <td>-</td>
     </tr>
       <tr>
@@ -225,80 +234,86 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <td>-</td>
       <td>-</td>
     </tr>
-      <tr>
+     <tr>
       <th scope="row">29</th>
-      <td><a href="https://www.pulakka.com/" target="_blank">Pulakka Lab </a></td>
+      <td><a href="https://phz.fi/" target="_blank">PHZ Full Stack</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
       <th scope="row">30</th>
-      <td><a href="http://www.reaktor.fi/" target="_blank">Reaktor Ltd</a></td>
+      <td><a href="https://www.pulakka.com/" target="_blank">Pulakka Lab </a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
       <th scope="row">31</th>
-      <td><a href="http://www.avi.fi" target="_blank">Regional Authorities in Finland</a></td>
+      <td><a href="http://www.reaktor.fi/" target="_blank">Reaktor Ltd</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
       <th scope="row">32</th>
+      <td><a href="http://www.avi.fi" target="_blank">Regional Authorities in Finland</a></td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+      <tr>
+      <th scope="row">33</th>
       <td><a href="https://www.varsinais-suomi.fi/en/" target="_blank"><img src="/images/logo/vsl.png" width="200" alt="Regional Council of Southwest Finland / Lounaistieto"></a></td>
       <td>Regional Council of Southwest Finland is providing Lounaistieto information service together with other organisations. Oskari is used within <a href="https://karttapalvelu.lounaistieto.fi/" target="_blank">Lounaistieto map service</a>. Contact: Natalia Räikkönen</td>
       <td>Joint membership with City of Turku</td>
     </tr>
       <tr>
-      <th scope="row">33</th>
+      <th scope="row">34</th>
       <td><a href="https://www.sitowise.com/en" target="_blank"><img src="/images/logo/sitowise.png" width="200" alt="Sitowise Ltd"></a></td>
       <td>"Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava," Jan Lindbom, Sitowise Ltd. Sitowise provides its customers the full range of built environment services from planning to expert and digital services. Sitowise has a vast experience and strong expertise with developing Oskari-based GIS solutions for different types of organisations, making Sitowise one of the global leaders with Oskari knowledge.Sitowise Oskari services include consulting, training and software development. Oskari is also used in Sitowise products, such as the map-based participatory survey tool Harava. Sitowise has been a part of the Oskari development from the beginning by acquiring Dimenteq in the beginning of February 2018. Contact: Jani Levonen.</td>
       <td>Community representative</td>
     </tr>
       <tr>
-      <th scope="row">34</th>
+      <th scope="row">35</th>
       <td><a href="http://www.spatineo.com/" target="_blank">Spatineo Ltd</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
      <tr>
-      <th scope="row">35</th>
+      <th scope="row">36</th>
       <td><a href="http://www.stat.fi/" target="_blank"><img src="/images/logo/statistics.png" width="200" alt="Statistics Finland"></a></td>
       <td>Statistics Finland is involved in the development of statistical data utilization and thematic mapping properties in Oskari. Project owner: Rina Tammisto, Statistics Finland</td>
       <td>Member</td>
     </tr>
       <tr>
-      <th scope="row">36</th>
+      <th scope="row">37</th>
       <td><a href="https://www.suomenlatu.fi/en/" target="_blank">Suomen latu</a></td>
       <td>-</td>
       <td>-</td>
     </tr>
       <tr>
-      <th scope="row">37</th>
+      <th scope="row">38</th>
       <td><a href="http://www.tut.fi/fi/pori/index.htm" target="_blank">Tampere University of Technology</a></td>
       <td>"We have expertise in management of large data masses and imagery analysis and provide courses on GIS, image handling and pattern recognition. Now Oskari is being installed as part of MIKÄ DATA project where data based services are created for farmers." - Petri Linna</td>
       <td>-</td>
     </tr>
       <tr>
-      <th scope="row">38</th>
+      <th scope="row">39</th>
       <td><a href="https://www.ubigu.fi/en/" target="_blank">Ubigu Ltd</a></td>
-      <td>"We offer consulting, installation and maintanence services for Oskari"  Marko Kauppi, Ubigu</td>
+      <td>"We offer consulting, installation and maintenance services for Oskari"  Marko Kauppi, Ubigu</td>
       <td>-</td>
     </tr>
       <tr>
-      <th scope="row">39</th>
+      <th scope="row">40</th>
       <td>Unelmakouluprojekti</td>
       <td>-</td>
       <td>-</td>
     </tr>
      <tr>
-      <th scope="row">40</th>
+      <th scope="row">41</th>
       <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="Väylä Finnish Transport Infrastructure Agency"></a></td>
       <td>The Finnish Transport Infrastructure Agency Väylä is actively involved in Oskari joint development. At the moment a download service has been developed in the organisation using Oskari and a feedback system using Oskari in the background have been released. Project owner: Markku Pitkänen – The Finnish Transport Infrastructure Agency. Contact: Markku Pitkänen, Jenni Silvennoinen</td>
       <td>Member</td>
     </tr>
       <tr>
-      <th scope="row">41</th>
+      <th scope="row">42</th>
       <td><a href="https://www.xamk.fi/en/frontpage/" target="_blank">XAMK</a></td>
       <td>"We want to utilize Oskari in our research and education when suitable project needs web based GIS solution. In education we use Oskari as an example of open source development and map based services. We hope to utilize Oskari even more in the future" Esa Hannus, XAMK.</td>
       <td>-</td>

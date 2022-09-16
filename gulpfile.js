@@ -1,40 +1,66 @@
-var gulp   = require('gulp'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    less   = require('gulp-less'),
-    minify = require('gulp-minify-css'),
-    prefix = require('gulp-autoprefixer'),
-    path   = require('path'),
-    minJs  = 'main.min.js',
-    minCss = 'main.min.css';
+var gulp   = require('gulp');
+var concat = require('gulp-concat');
+var less   = require('gulp-less');
+var uglify = require('gulp-uglify');
+var cleanCSS = require('gulp-clean-css');
+var prefix = require('gulp-autoprefixer');
+var path   = require('path');
+var globby = require('globby');
+var through = require('through2');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var browserify = require('browserify');
+
+var minJs  = 'main.min.js';
+var minCss = 'main.min.css';
 
 gulp.task('scripts', function() {
-    var browserify = require('gulp-browserify');
-    // Minify and concatenate all JavaScript files (except vendor scripts)
-    return gulp
-        .src(['./client/js/**/*.js', '!client/js/vendor/**'])
+
+    var bundledStream = through(); // create a stream
+    bundledStream
+        .pipe(source('./client/js/main.js')) // file name or path to be built
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(concat(minJs))
-        .pipe(browserify({
-        // debug inserts source mapping which makes the file twice as large
-          //debug : !gulp.env.production
-        }))
-        //.pipe(uglify())
+        .on('error', console.log)
         .pipe(gulp.dest('./public/js'));
+
+    globby(['./client/js/**/*.js', '!client/js/vendor/**']).then(function(entries) {
+        // hack in browserify processing
+        var b = browserify({ entries: entries });
+
+        b.bundle()
+            .on('error', function(err) {
+                console.log('Error is ' + err.message);
+                this.emit('end');
+            })
+            .pipe(bundledStream); // pipe the Browserify stream into the stream
+    });
+    return bundledStream;
 });
 
 gulp.task('rpc-client', function() {
-    var rename = require('gulp-rename');
-    var browserify = require('gulp-browserify');
-    //var client = require('oskari-rpc');
+    var bundledStream = through(); // create a stream
+    bundledStream
+        .pipe(source('./public/js/rpc/rpc-client.js')) // file name or path to be built
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(concat('rpc-client.min.js'))
+        .on('error', console.log)
+        .pipe(gulp.dest('./public/js/rpc'));
 
-    // Single entry point to browserify 
-    gulp.src('./public/js/rpc/rpc-client.js')
-        .pipe(browserify({
-        // debug inserts source mapping which makes the file twice as large
-          //debug : !gulp.env.production
-        }))
-        .pipe(rename('rpc-client.min.js'))
-        .pipe(gulp.dest('./public/js/rpc'))
+    globby(['./public/js/rpc/rpc-client.js']).then(function(entries) {
+        // hack in browserify processing
+        var b = browserify({ entries: entries });
+
+        b.bundle()
+            .on('error', function(err) {
+                console.log('Error is ' + err.message);
+                this.emit('end');
+            })
+            .pipe(bundledStream); // pipe the Browserify stream into the stream
+    });
+    return bundledStream;
 });
 
 gulp.task('stylesheets', function() {
@@ -44,7 +70,7 @@ gulp.task('stylesheets', function() {
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
         .pipe(concat(minCss))
-        .pipe(minify())
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(prefix('last 2 versions', '> 1%', 'ie 8'))
         .pipe(gulp.dest('./public/css'));
 });
@@ -110,7 +136,7 @@ function clearDir (directory, callback) {
     var rimraf = require("rimraf");
     rimraf(directory, callback);
 }
-function generateJsDocs (configPath, destination) {
+function generateJsDocs (configPath, destination, done) {
     console.log(`Generating jsDoc to ${destination}`);
     var exec = require('child_process').exec;
     exec(`jsdoc -c ${configPath} -d ${destination}`, function (err, stdout, stderr) {
@@ -121,6 +147,7 @@ function generateJsDocs (configPath, destination) {
             console.log(stderr);
         }
         console.log(`${configPath} processed`);
+        done();
     });
 }
 
@@ -140,7 +167,7 @@ gulp.task('oskari-api-struct', function(done) {
     });
 });
 
-gulp.task('oskari-api', ['oskari-api-struct'], function() {
+gulp.task('oskari-api', gulp.series('oskari-api-struct', function (done) {
     console.log('oskari-api');
 
     // Clean the destPath
@@ -174,13 +201,13 @@ gulp.task('oskari-api', ['oskari-api-struct'], function() {
                 if (err) {
                     return;
                 }
-                generateJsDocs(configPath, destination);
+                generateJsDocs(configPath, destination, done);
             });
         })
     });
-});
+}));
 
-gulp.task('oskari-gallery-struct', function(done) {
+gulp.task('oskari-gallery-struct', function (done) {
     console.log('oskari-gallery-struct creates gallery.json in ' + getGalleryLocation());
 
     var destPath = getGalleryLocation();
@@ -196,7 +223,7 @@ gulp.task('oskari-gallery-struct', function(done) {
     });
 });
 
-gulp.task('oskari-gallery', ['oskari-gallery-struct'], function() {
+gulp.task('oskari-gallery', gulp.series('oskari-gallery-struct', function() {
     console.log('oskari-gallery');
 
     var destPath = getGalleryLocation();
@@ -204,13 +231,12 @@ gulp.task('oskari-gallery', ['oskari-gallery-struct'], function() {
     var index = JSON.parse(fs.readFileSync(destPath + '/gallery.json'));
     console.log('Creating gallery based on:', index);
     // create the docs and provide the index
-    gulp.src('./community/gallery/*')
+    return gulp.src('./community/gallery/*')
         .pipe(galleryGenerator(index))
         .pipe(gulp.dest(destPath));
-    console.log('gallery done');
-});
+}));
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'stylesheets', 'livereload', 'watch']);
+gulp.task('default', gulp.series('scripts', 'stylesheets', 'livereload', 'watch'));
 // The build task
-gulp.task('build', ['scripts', 'stylesheets']);
+gulp.task('build', gulp.series('scripts', 'stylesheets'));

@@ -227,13 +227,3 @@ http://www.oskari.org/documentation/bundles/framework/mapanalysis
 * Users can view the features and edit their attributes
 * Features get added to the grid when the user clicks on the map. Alt and Ctrl keys can be used as modifiers
 * A proxy is needed in case features are fetched via WFS
-
-### Features in the 2016 roadmap
-​
-* Improvements and additions to RPC API functionalities
-* Oskari 2.0 - even more modularity
-* Improved mobile device support
-* Support for 3D visualization
-* Quality improvements and code restructuring
-* Thematic mapping tools with access to several types of statistical data (JSON, JSON-stat, SDMX)
-* Coordinate system changeable on-the-fly
