@@ -23,10 +23,10 @@ If your organisation is willing to support JDF work, please contact Communicatio
 Rina Tammisto, Statistics Finland
 
 **Communication Coordinator**:
-Sanna Jokela, Gispo Ltd
+Tuuli Wallenius, Sitowise Oy
 
 **Technical Coordinator**:
-Timo Aarnio & Sami Mäkinen, National Land Survey of Finland
+Sami Mäkinen, National Land Survey of Finland
 
 **Members:**
 
