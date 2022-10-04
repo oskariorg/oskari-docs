@@ -33,7 +33,6 @@ Sami Mäkinen, National Land Survey of Finland
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Organisation</th>
       <th scope="col">Member</th>
       <th scope="col">Info</th>
@@ -41,74 +40,57 @@ Sami Mäkinen, National Land Survey of Finland
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
       <td><a href="http://www.helsinki.fi/" target="_blank"><img src="/images/logo/hki.png" width="200" alt="City of Helsinki">
           </a></td>
       <td>Outi Hermans</td>
       <td></td>
     </tr>
     <tr>
-      <th scope="row">2</th>
       <td><a href="http://www.joensuu.fi/" target="_blank"><img src="/images/logo/joensuu.png" width="200" alt="City of Joensuu"></a></td>
       <td>Jarno Kinnunen</td>
       <td>Community representative</td>
     </tr>
     <tr>
-      <th scope="row">3</th>
       <td><a href="http://www.tampere.fi/" target="_blank"><img src="/images/logo/tre.png" width="200" alt="City of Tampere"></a></td>
       <td>Jussi Tahvanainen</td>
       <td></td>
     </tr>
-      <tr>
-      <th scope="row">4</th>
-      <td><a href="http://www.turku.fi/" target="_blank"><img src="/images/logo/turku.png" width="200" alt="City of Turku"></a></td>
-      <td>Harri Soini</td>
-      <td>Joint membership with Regional Council of Southwest Finland</td>
-    </tr>
-     <tr>
-      <th scope="row">5</th>
+    <tr>
       <td><a href="https://dvv.fi/en/individuals" target="_blank"><img src="/images/logo/dvv.png" width="200" alt="Digital and population data services agency"></a></td>
-      <td>Jari Suhonen</td>
+      <td>Terhi Tuokkola</td>
       <td></td>
     </tr>
      <tr>
-      <th scope="row">6</th>
       <td><a href="https://www.museovirasto.fi/en/" target="_blank"><img src="/images/logo/nba.png" width="200" alt="Finnish Heritage Agency"></a></td>
-      <td>Minna Ryyppö</td>
+      <td>Juho Karuaho</td>
       <td></td>
     </tr>
      <tr>
-      <th scope="row">7</th>
       <td><a href="https://www.hsy.fi/" target="_blank"><img src="/images/logo/hsy.png" width="200" alt="Helsinki Region Environmental services"></a></td>
       <td>Henna-Kaisa Stjernberg</td>
       <td></td>
     </tr>
     <tr>
-      <th scope="row">8</th>
       <td><a href="https://www.maanmittauslaitos.fi/" target="_blank"><img src="/images/logo/nls.png" width="200" alt="National Land Survey of Finland"></a></td>
-      <td>Timo Aarnio, Jaakko Viitala</td>
+      <td>Sami Mäkinen, Johanna Siltala</td>
       <td></td>
     </tr>
     <tr>
-      <th scope="row">9</th>
       <td><a href="https://www.lounaistieto.fi/" target="_blank"><img src="/images/logo/vsl.png" width="200" alt="Regional Council of Southwest Finland / Lounaistieto"></a></td>
       <td>Natalia Räikkönen</td>
       <td>Joint membership with City of Turku</td>
     </tr>
     <tr>
-      <th scope="row">10</th>
       <td><a href="https://www.sitowise.com/en" target="_blank"><img src="/images/logo/sitowise.png" width="200" alt="Sitowise Ltd"></a></td>
-      <td>Jani Levonen</td>
+      <td>Hanna Visuri</td>
       <td>Community representative</td>
     </tr>
      <tr>
-      <th scope="row">11</th>
       <td><a href="http://www.stat.fi/" target="_blank"><img src="/images/logo/statistics.png" width="200" alt="Statistics Finland"></a></td>
-      <td>Rina Tammisto</td>
+      <td>Tuuli Pihlajamaa</td>
       <td>Community representative</td>
     </tr>
      <tr>
-      <th scope="row">12</th>
       <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="Väylä Finnish Transport Infrastructure Agency"></a></td>
       <td>Markku Pitkänen, Jenni Silvennoinen</td>
       <td>Community representative</td>
@@ -119,6 +101,13 @@ Sami Mäkinen, National Land Survey of Finland
 **Former Community representatives**:
 Thank you for your work and participation in Oskari Joint Development Forum work! It has been a huge asset to Oskari community!
 
+- Timo Aarnio
+- Jaakko Viitala
+- Jari Suhonen
+- Jani Levonen
+- Minna Ryyppö
+- Anna Mustajoki
+- Rina Tammisto
 - Minna Huovinen, Sitowise Ltd (2019)
 - Eeva Lehtonen, Natural Resources Institute Finland (2019)
 - Marko Kauppi, Ubigu Ltd (2018)
