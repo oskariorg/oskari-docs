@@ -17,7 +17,7 @@ If your organisation is willing to support JDF work, please contact Communicatio
 [JDF memos](https://github.com/oskariorg/oskari-docs/tree/master/community/memos/) are available in Finnish.
 
 
-### Members of JDF in 2020
+### Members of JDF in 2022
 
 **Head of Board**
 Rina Tammisto, Statistics Finland
@@ -42,13 +42,8 @@ Sami Mäkinen, National Land Survey of Finland
     <tr>
       <td><a href="http://www.helsinki.fi/" target="_blank"><img src="/images/logo/hki.png" width="200" alt="City of Helsinki">
           </a></td>
-      <td>Outi Hermans</td>
+      <td>-Unknown-</td>
       <td></td>
-    </tr>
-    <tr>
-      <td><a href="http://www.joensuu.fi/" target="_blank"><img src="/images/logo/joensuu.png" width="200" alt="City of Joensuu"></a></td>
-      <td>Jarno Kinnunen</td>
-      <td>Community representative</td>
     </tr>
     <tr>
       <td><a href="http://www.tampere.fi/" target="_blank"><img src="/images/logo/tre.png" width="200" alt="City of Tampere"></a></td>
@@ -101,6 +96,7 @@ Sami Mäkinen, National Land Survey of Finland
 **Former Community representatives**:
 Thank you for your work and participation in Oskari Joint Development Forum work! It has been a huge asset to Oskari community!
 
+- Outi Hermans
 - Timo Aarnio
 - Jaakko Viitala
 - Jari Suhonen
