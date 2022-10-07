@@ -122,9 +122,13 @@ Hover options describes how to visualize layer's features on hover and what kind
 ```
 
 ## Optional styles
+
 The styling definitions for optional style is same as above. Features that uses optional style are filtered with [Oskari filter](/documentation/examples/oskari-filter) definition by features' property keys and values. To filter features by different property keys you can use AND or OR operators.
 
+You can pass the optional styles array with the key `optionalStyles` when you pass the base style with key `featureStyle` in for example [AddFeaturesToMapRequest](/api/requests/#/latest/mapping/mapmodule/request/addfeaturestomaprequest.md).
+
 ### Optional style examples
+
 To define style which is affected to featuers which regionCode is '091'.
 ```javascript
 [{
@@ -185,13 +189,13 @@ To define style which is affected to features which surface property is 'tarmac'
 ```
 
 ## Related bundles
-[WFSVector](/api/bundles/#unreleased/mapping/wfsvector)
+[WFSVector](/api/bundles/#/latest/mapping/wfsvector)
 
 ## Related API
-[AddFeaturesToMapRequest](/api/requests/#unreleased/mapping/mapmodule/request/addfeaturestomaprequest)
+[AddFeaturesToMapRequest](/api/requests/#/latest/mapping/mapmodule/request/addfeaturestomaprequest.md)
 
 
-[VectorLayerRequest](/api/requests/#unreleased/mapping/mapmodule/request/vectorlayerrequest)
+[VectorLayerRequest](/api/requests/#/latest/mapping/mapmodule/request/vectorlayerrequest.md)
 
 ## RPC examples
 [Add or remove vector features](/examples/rpc-api/rpc_example.html)
