@@ -2,7 +2,7 @@
 title: Helsinki Environmental Service open data map portal
 description: Three different Oskari instances. One open for public use, one for extranet use and one for intranet use for internal actions. 
 date: 2019-02-14
-image: /images/gallery/hsy_blominmaki_louhinta.png
+image: /images/gallery/HSY_pipelinetool.png
 ---
 
 *Date: 2019-02-14*
@@ -27,13 +27,6 @@ our customers have a possibility to download some of the datasets we provide, us
 Some of the datasets are also available through the open service in realtime, like air quality.
 
 We use Oskari also to create news to public about certain phenomena using the embedded map functionality Oskari provides.
-
-The embedded map is for example used when HSY wants to steer some projects like the mining work at Blominmäki hill at City of Espoo. 
-The contractor updates the mining activities by clicking the map - a tool created on top of the embedded map using Oskari API.
-
-<img src="/images/gallery/hsy_blominmaki_louhinta.png" class="img-responsive"/>
-
-*Embedded map is used to collect information from the contractor about the progress of mining operations in Blominmäki Espoo.* 
 
 ### Internal Oskari bundles serve HSY's versatile needs
 The extranet service is mainly used to deliver datasets to certain user groups like consultants, 
