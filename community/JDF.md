@@ -42,7 +42,7 @@ Sami Mäkinen, National Land Survey of Finland
     <tr>
       <td><a href="http://www.helsinki.fi/" target="_blank"><img src="/images/logo/hki.png" width="200" alt="City of Helsinki">
           </a></td>
-      <td>-Unknown-</td>
+      <td>Teijo Salminen</td>
       <td></td>
     </tr>
     <tr>
