@@ -67,8 +67,9 @@ The database schema and content is upgraded automatically when you start the new
 ## Handling dates and timestamps
 
 - For database: Use column of type `timestamp with time zone`
-- For Java: In general use `java.time.Instant`. For interacting with database use `java.time.OffsetDateTime` with `ZoneOffset.UTC`
-- For JSON: Use ISO string like `2022-05-16T10:40:33.594Z`
+- For Java: In general use `java.time.Instant`
+- For interacting with database use `java.time.OffsetDateTime` with `ZoneOffset.UTC`
+- For JSON: Use ISO string like `2022-05-16T10:40:33.594Z` (use `DateTimeFormatter.ISO_INSTANT`)
 - For Javascript value objects: Use `Date`
 - For rendering in the UI: Format only while rendering (not in model)
 
