@@ -40,13 +40,12 @@ The usual extension point is `BasicMapModulePlugin`([GitHub](https://github.com/
 For more lower level plugin you can extend `AbstractMapModulePlugin` ([GitHub](https://github.com/oskariorg/oskari-frontend/blob/develop/bundles/mapping/mapmodule/plugin/AbstractMapModulePlugin.js)).
 
 ```javascript
-Oskari.clazz.define('Oskari.mapframework.bundle.coordinatetool.plugin.CoordinateToolPlugin',
+Oskari.clazz.define('Oskari.mybundle.MyPlugin',
     function (config) {
         // _name is referenced in base class as part of getName()
-        this._name = 'CoordinateToolPlugin';
+        this._name = 'MyPlugin';
         // clazz is used for publisher functionality to identify plugins that can or can't be in the same container
-        this._clazz =
-            'Oskari.mapframework.bundle.coordinatetool.plugin.CoordinateToolPlugin';
+        this._clazz = 'Oskari.mybundle.MyPlugin';
         // _index is used to sort plugins that are shown in the same plugin container
         // the number is relative to other plugins values
         // the lower the number, the closer the edge of the screen it's shown (either on top or bottom)
@@ -57,7 +56,8 @@ Oskari.clazz.define('Oskari.mapframework.bundle.coordinatetool.plugin.Coordinate
         this._defaultLocation = 'top right';
     }, {
         _createControlElement: function () {
-            return jQuery('<div class="mapplugin coordinatetool"></div>');
+            // the root element for plugin should have the classes "mapplugin" and one that identifies the plugin
+            return jQuery('<div class="mapplugin myplugin"></div>');
         },
         _startPluginImpl: function () {
             // starting point of the plugin, called on mapmodule.startPlugin(plugin)
