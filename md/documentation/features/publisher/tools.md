@@ -1,6 +1,45 @@
 # Publisher tools
 
-Functionalities can provide a tool object that publisher discover by querying Oskari for classes with protocol `Oskari.mapframework.publisher.Tool` (TODO: elaborate what this means).
+Functionalities can provide a tool object that the `publisher` functionalities discover by querying Oskari for classes with protocol `Oskari.mapframework.publisher.Tool` (See example tool class below with `'protocol': ['Oskari.mapframework.publisher.Tool']`).
+
+```javascript
+Oskari.clazz.define('Oskari.mapframework.publisher.tool.CoordinateTool', function () {},
+{
+    getTool: function () {
+        return {
+            id: 'Oskari.mybundle.MyPlugin',
+            title: 'UI label for the tool',
+            config: {
+                ...(this.state.pluginConfig || {})
+            }
+        };
+    },
+
+    bundleName: 'mytool',
+
+    init: function (data) {
+        if (!data || !data.configuration[this.bundleName]) {
+            return;
+        }
+        var conf = data.configuration[this.bundleName].conf || {};
+        this.storePluginConf(conf);
+        this.setEnabled(true);
+    },
+    getValues: function () {
+        if (!this.isEnabled()) {
+            return null;
+        }
+        return {
+            [this.bundleName]: {
+                whatever: 'config'
+            }
+        }
+    }
+}, {
+    'extend': ['Oskari.mapframework.publisher.tool.AbstractPluginTool'],
+    'protocol': ['Oskari.mapframework.publisher.Tool']
+});
+```
 
 When the user starts the publisher:
 1) `UIChangeEvent` is sent to notify other functioanalities to shut themselves down to avoid conflicts for screen space.
@@ -27,9 +66,13 @@ Many of these are handled by the `publisher/tools/AbstractPluginTool` base class
     - LogoPlugin isn't displayed as a selection to user as it's always included. However a tool is provided for it to allow user to select the placement for the logo on the embedded map.
 - `isDisabled()` related to isDisplayed(). This allows the selection to be shown even if user can't select it. A tooltip can be included to show the user why the tool is disabled. An example is that map legeneds selection is shown but is disabled if layers on the map don't have legend available.
 - `stop()` called when the user exits publisher functionality. The tool should clean up after itself on this function (for example shutting down things added to the map while on publisher).
-- `getTool()` TODO: add documentation
+- `getTool()` This should return an object with keys:
+    - id: the value should match a plugin class name that this tool controls. If this doesn't control a plugin it can be any unique value, but then you need to override some of the functions in base class
+    - title: This should return a label that is shown to the user as a selection what this tool does
+    - config: This should return the plugin config that the tool.init() received when the tool is started
+    - TODO: add documentation as there can be others as well (something that handles )
 
 For older jQuery-based tools:
 - `getExtraOptions()` should return a jQuery-object that allows users to do additional selections for the tool.
 For React-based tools:
-- `getComponent()` TODO: add documentation
+- `getComponent()` This is used by new tools that create the tool "extra options" using React. TODO: add documentation
