@@ -11,6 +11,8 @@ The plugins can either:
 - add support for different types of map layers (some are included by default like plugins for OGC standards WMS, WMTS, WFS etc)
 - add controls for the user to click on the map that interact with the map somehow
 
+The `publisher` functionality in Oskari also works best out-of-the-box on the user selecting functionalities on the map when the functionalities are provided by map plugins.
+
 ## Usage of plugins with map module
 
 1) Get reference to mapmodule
