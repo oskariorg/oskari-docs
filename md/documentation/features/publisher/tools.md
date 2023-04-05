@@ -19,9 +19,7 @@ Oskari.clazz.define('Oskari.mybundle.publisher.MyPluginTool', function () {},
             id: 'Oskari.mybundle.MyPlugin',
             // title is the UI label for the tool
             title: Oskari.getMsg('mybundle', 'tool.label'),
-            config: {
-                ...(this.state.pluginConfig || {})
-            }
+            config: this.state.pluginConfig || {}
         };
     },
     // process the embedded map "data"/app setup and detect if this tool was enabled on it
@@ -48,6 +46,50 @@ Oskari.clazz.define('Oskari.mybundle.publisher.MyPluginTool', function () {},
     'extend': ['Oskari.mapframework.publisher.tool.AbstractPluginTool'],
     'protocol': ['Oskari.mapframework.publisher.Tool']
 });
+```
+
+With ES class syntax:
+```javascript
+const AbstractPublisherTool = Oskari.clazz.get('Oskari.publisher.AbstractPublisherTool');
+const BUNDLE_ID = 'mybundle';
+class MyPluginTool extends AbstractPublisherTool {
+    getTool () {
+        return {
+            id: 'Oskari.mybundle.MyPlugin',
+            // title is the UI label for the tool
+            title: Oskari.getMsg(BUNDLE_ID, 'tool.label'),
+            config: this.state.pluginConfig || {}
+        };
+    }
+    // process the embedded map "data"/app setup and detect if this tool was enabled on it
+    init (data) {
+        if (!data || !data.configuration[BUNDLE_ID]) {
+            return;
+        }
+        const conf = data.configuration[BUNDLE_ID].conf || {};
+        this.storePluginConf(conf);
+        this.setEnabled(true);
+    }
+    // return values to be saved based on if this tool was enabled or not
+    getValues () {
+        if (!this.isEnabled()) {
+            return null;
+        }
+        return {
+            [BUNDLE_ID]: {
+                whatever: 'config'
+            }
+        }
+    }
+}
+
+// Attach protocol to make this discoverable by Oskari publisher
+Oskari.clazz.defineES('Oskari.publisher.MyPluginTool',
+    MyPluginTool,
+    {
+        'protocol': ['Oskari.mapframework.publisher.Tool']
+    }
+);
 ```
 
 When the user starts the publisher:
