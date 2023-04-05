@@ -1,6 +1,9 @@
 # Publisher tools
 
-Bundles in Oskari can provide a tool object that the `publisher` bundle/functionality discovers by querying Oskari for classes with protocol `Oskari.mapframework.publisher.Tool` (See example tool class below with `'protocol': ['Oskari.mapframework.publisher.Tool']`).
+Bundles in Oskari can provide a tool object(/Oskari clazz) that the `publisher` bundle/functionality discovers at runtime. This allows bundles to extend the publisher user-interface by adding new options for the user to see when that particular bundle is part of an application.
+
+The tools are discovered by querying Oskari for classes with protocol `Oskari.mapframework.publisher.Tool`
+ (See example tool class below with `'protocol': ['Oskari.mapframework.publisher.Tool']`).
 
 ```javascript
 Oskari.clazz.define('Oskari.mybundle.publisher.MyPluginTool', function () {},
@@ -8,7 +11,7 @@ Oskari.clazz.define('Oskari.mybundle.publisher.MyPluginTool', function () {},
     // in which group this tools should be in. Every group gets its own panel in publisher UI
     group: 'data',
     // bundleName is used only by this tool
-    bundleName: 'mytool',
+    bundleName: 'mybundle',
     // definition of what plugin is controlled by this tool
     // and what is its starting configuration when the tool is enabled
     getTool: function () {
