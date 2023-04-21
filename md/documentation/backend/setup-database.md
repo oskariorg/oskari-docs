@@ -7,8 +7,8 @@ PostGIS extension for serving content and authenticating users.
 
 ### Assumes pre-installed:
 
-* [PostgreSQL 9+](http://www.postgresql.org/) (Known to work with 9.6, 10.x, 11)
-* [PostGIS](http://postgis.net/) (developed using 2.4.0)
+* [PostgreSQL 11+](http://www.postgresql.org/) (Known to work with 11, 12, 14 mainly affected by the FlywayDB version we use. Developed using 14)
+* [PostGIS](http://postgis.net/) (developed using 3)
 
 ### 1. Create empty database with PostGIS extension
 
