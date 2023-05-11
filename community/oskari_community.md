@@ -70,13 +70,13 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <td><a href="http://www.helsinki.fi/" target="_blank"><img src="/images/logo/hki.png" width="200" alt="City of Helsinki">
           </a></td>
       <td>Helsinki City is a member of Oskari Joint Development Forum. Contact for the City of Helsinki is Outi Hermans.</td>
-      <td>Member</td>
+      <td>-</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td><a href="http://www.joensuu.fi/" target="_blank"><img src="/images/logo/joensuu.png" width="200" alt="City of Joensuu"></a></td>
       <td> "The aim of City of Joensuu is to utilize Oskari map service as a platform for geospatial knowledge management." - Jarno Kinnunen</td>
-      <td>Community representative</td>
+      <td>-</td>
     </tr>
     <tr>
       <th scope="row">4</th>
@@ -280,7 +280,7 @@ Allready now we have lot's of organisations involved! We welcome also members fr
       <th scope="row">36</th>
       <td><a href="http://www.stat.fi/" target="_blank"><img src="/images/logo/statistics.png" width="200" alt="Statistics Finland"></a></td>
       <td>Statistics Finland is involved in the development of statistical data utilization and thematic mapping properties in Oskari. Project owner: Rina Tammisto, Statistics Finland</td>
-      <td>Member</td>
+      <td>-</td>
     </tr>
       <tr>
       <th scope="row">37</th>

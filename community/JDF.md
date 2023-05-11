@@ -40,12 +40,6 @@ Sami Mäkinen, National Land Survey of Finland
   </thead>
   <tbody>
     <tr>
-      <td><a href="http://www.helsinki.fi/" target="_blank"><img src="/images/logo/hki.png" width="200" alt="City of Helsinki">
-          </a></td>
-      <td>Teijo Salminen</td>
-      <td></td>
-    </tr>
-    <tr>
       <td><a href="http://www.tampere.fi/" target="_blank"><img src="/images/logo/tre.png" width="200" alt="City of Tampere"></a></td>
       <td>Jussi Tahvanainen</td>
       <td></td>
@@ -81,11 +75,6 @@ Sami Mäkinen, National Land Survey of Finland
       <td>Community representative</td>
     </tr>
      <tr>
-      <td><a href="http://www.stat.fi/" target="_blank"><img src="/images/logo/statistics.png" width="200" alt="Statistics Finland"></a></td>
-      <td>Tuuli Pihlajamaa</td>
-      <td>Community representative</td>
-    </tr>
-     <tr>
       <td><a href="https://vayla.fi/web/en" target="_blank"><img src="/images/logo/vayla.png" width="200" alt="Väylä Finnish Transport Infrastructure Agency"></a></td>
       <td>Markku Pitkänen, Jenni Silvennoinen</td>
       <td>Community representative</td>
@@ -96,6 +85,8 @@ Sami Mäkinen, National Land Survey of Finland
 **Former Community representatives**:
 Thank you for your work and participation in Oskari Joint Development Forum work! It has been a huge asset to Oskari community!
 
+- Teijo Salminen
+- Tuuli Pihlajamaa
 - Outi Hermans
 - Timo Aarnio
 - Jaakko Viitala
