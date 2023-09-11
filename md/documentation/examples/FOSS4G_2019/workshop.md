@@ -469,7 +469,7 @@ Sources for this workshop: https://github.com/oskariorg/oskari-docs/tree/master/
 Additional resources for pushing forward:
 
 - https://oskari.org/
-- https://oskari.org/examples/rpc-api/rpc_example.html
+- https://oskari.org/examples/rpc-api/
 - https://oskari.org/api/requests
 - https://oskari.org/api/events
 - https://www.oskari.org/documentation/examples/oskari-style

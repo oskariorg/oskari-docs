@@ -93,7 +93,7 @@ Check access rights. It might be that users with guest-role (most of the people 
 
 ## How do I tailor my embedded maps?
 
-Embedded maps can be tweaked to be in contact with your web site and provide more information to users using code snippets called RPC (Remote Process Call). So you can get the map to talk with your site. See the [RPC example codes](http://oskari.org/examples/rpc-api/rpc_example.html) or [follow the workshop example](http://oskari.org/documentation/examples/FOSS4G_2019/workshop).
+Embedded maps can be tweaked to be in contact with your web site and provide more information to users using code snippets called RPC (Remote Process Call). So you can get the map to talk with your site. See the [RPC example codes](http://oskari.org/examples/rpc-api/) or [follow the workshop example](http://oskari.org/documentation/examples/FOSS4G_2019/workshop).
 
 
 

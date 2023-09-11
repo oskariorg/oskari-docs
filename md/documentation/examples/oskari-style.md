@@ -198,4 +198,4 @@ To define style which is affected to features which surface property is 'tarmac'
 [VectorLayerRequest](/api/requests/#/latest/mapping/mapmodule/request/vectorlayerrequest.md)
 
 ## RPC examples
-[Add or remove vector features](/examples/rpc-api/rpc_example.html)
+[Add or remove vector features](/examples/rpc-api/)

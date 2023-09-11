@@ -189,7 +189,7 @@
 * Customizable size (preset size, fill space available)
 * Find my location
 * RPC API for interaction with the web site where the map is embedded
-* RPC API features are listed separately here: http://oskari.org/examples/rpc-api/rpc_example.html
+* RPC API features are listed separately here: http://oskari.org/examples/rpc-api/
 
 ### Thematic Maps (requires backend)
 

@@ -33,7 +33,7 @@ Finding fishing restrictions from the service is fairly easy. The only problem i
 
 ### Suomi.fi-maps provides a solid background for up-to-date data
 
-The detailed information from the various fishing restrictions are shown on an embedded map created with Suomi.fi-maps ([using Oskari API](https://oskari.org/examples/rpc-api/rpc_example.html)). Suomi.fi-maps is an electronic service for public sector authorities in Finland.
+The detailed information from the various fishing restrictions are shown on an embedded map created with Suomi.fi-maps ([using Oskari API](https://oskari.org/examples/rpc-api/)). Suomi.fi-maps is an electronic service for public sector authorities in Finland.
 
 The restriction data is updated every weekday. The information will soon also provide an overview of demanded catch measurements and close seasons that concern larger regions.
 

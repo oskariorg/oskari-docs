@@ -18,7 +18,7 @@ One of the features of Oskari is the ability to define a map that can be embedde
 
 ### Examples
 
-- [Introduction to RPC](https://oskari.org/examples/rpc-api/rpc_example.html)
+- [Introduction to RPC](https://oskari.org/examples/rpc-api/)
 - Tutorials how to work with RPC:
     - [FOSS4G 2019 Bucharest workshop](/documentation/examples/FOSS4G_2019/workshop) with the sources available in [GitHub](https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2019)
     - [FOSS4G 2022 Firenze workshop](/documentation/examples/FOSS4G_2022/workshop) with the sources available in [GitHub](https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2022)
