@@ -30,22 +30,23 @@ The JavaScript API documentation is created from source comments/annotations usi
 
 ## Editors
 
-* [Sublime Text](http://www.sublimetext.com/) is the Oskari team's editor of choice for JavaScript development
-* [IntelliJ IDEA](http://www.jetbrains.com/idea/) has been found useful IDE for Oskari Java development.
-* If you're developing on a Windows machine, we recommend using [Cygwin](http://cygwin.com/)
+* [VS Code](https://code.visualstudio.com/) is the Oskari team's editor of choice for JavaScript development
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/) has been found useful IDE for Oskari Java development.
+* If you're developing on a Windows machine, we recommend using [cmder](https://cmder.app/)
 
 ## Profiler
 
 <div class="row">
     <div class="col-md-2">
-        [![YoutKit profiler](/images/yourkit2.png)](http://www.yourkit.com)
+        <img src="/images/logo/yourkit.png" />
     </div>
     <div class="col-md-10">
-        YourKit supports Oskari open source project with its full-featured Java Profiler.
-        YourKit, LLC is the creator of innovative and intelligent tools for profiling Java and .NET applications. Take a look at YourKit's leading software products:
-
-        [YourKit Java Profiler](http://www.yourkit.com/java/profiler/index.jsp)
-        and
-        [YourKit .NET Profiler](http://www.yourkit.com/.net/profiler/index.jsp)
+        For any profiling purposes YourKit has been very useful in debugging hard to solve issues while developing Oskari.
+        YourKit supports open source projects with innovative and intelligent tools for monitoring and profiling Java and .NET applications.
+        YourKit is the creator of <a href="https://www.yourkit.com/java/profiler/" target="_blank" rel="noopener noreferrer">YourKit Java Profiler</a>, 
+        <a href="https://www.yourkit.com/dotnet-profiler/features/" target="_blank" rel="noopener noreferrer">YourKit .NET Profiler</a>, and 
+        <a href="https://www.yourkit.com/youmonitor/download/" target="_blank" rel="noopener noreferrer">YourKit YouMonitor</a>.
     </div>
 </div>
+
+

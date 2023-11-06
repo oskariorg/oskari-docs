@@ -69,7 +69,7 @@ var readMdFileFromBaseDir = function (res, baseDir, mdDoc, jadePage = 'page', op
             // md to html
             options.content = md(mdFile);
             if (stats && stats.mtime) {
-                options.content += '<p>Last modified: ' + stats.mtime + '</p>';
+                options.content += '<p style="margin-top: 2em;">Last modified: ' + stats.mtime + '</p>';
             }
             options.breadcrumb = mdDoc.split('/').slice(1).map(
                 function (c, i, a) {
