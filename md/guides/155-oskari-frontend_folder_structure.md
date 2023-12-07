@@ -1,3 +1,4 @@
+
 # Oskari-frontend directory structure
 
 ## Directory Structure
