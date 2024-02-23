@@ -103,43 +103,8 @@ The projection can be configured to the database with the following kind of SQL.
 
 # User-generated content
 
-For user content like myplaces, analysis and userlayers one "native" projection is required for Geoserver config. 
-The easiest way to do this is use the "setup" webapp provided in the Jetty Oskari package. It uses the geoserver REST API to configure workspace, stores, layers and styles for user-generated content.
-The code is available in [Github](https://github.com/oskariorg/oskari-server/tree/master/webapp-setup) and a precompiled deployable war-file is included in the Jetty-package available for 
-download on [Oskari.org](/download). Just deploy the webapp and access it in browser.
-
-Accessing the webapp will ask for the native projection to use for user-generated content and configure the geoserver configured in oskari-ext.properties:
-
-    geoserver.url=http://localhost:8080/geoserver
-    geoserver.user=admin
-    geoserver.password=geoserver
-
-It's also possible to configure geoserver instance for each functionality with properties:
-
-    geoserver.[module].url=http://localhost:8080/geoserver
-    geoserver.[module].user=admin
-    geoserver.[module].password=geoserver
-
-Where `[module]` is one of: `myplaces`, `analysis`, `userlayer`. The databases that are configured as stores follow a similar pattern with properties:
-
-    db.url=jdbc:postgresql://localhost:5432/oskaridb
-    db.username=postgres
-    db.password=admin
-
-And/or
+Datastores for different user-generated modules can be configured per module, where `[module]` is one of: `myplaces`, `analysis`, `userlayer`.
 
     db.[module].url=jdbc:postgresql://localhost:5432/oskaridb
     db.[module].username=postgres
     db.[module].password=admin
-
-After the configuration has been run the result will show additional info if you need to change any properties for these functionalities to work.
-
-## Setting up the geoserver config:
-
-1. Delete everything under `{jetty.home}/geoserver_data`. The setup webapp can't update the config but only create it from scratch.
-2. Move `{jetty.home}/setup.war` to `{jetty.home}/webapps/setup.war`
-3. Restart Jetty
-4. Open the browser at `http://localhost:8080/setup`
-5. Type in for example `EPSG:3067` to the form that opens and click the button. This configures the geoserver stores/layers used by Oskari based on the properties in oskari-ext.properties
-6. Shutdown Jetty, remove the `setup.war` from webapps and start the Jetty
-
