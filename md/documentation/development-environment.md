@@ -40,7 +40,7 @@ only UNIX End-Of-Line markers, and never DOS/Windows End-Of-Line markers.
 #### 1.2 Oskari source code
 
 The `github.com/oskariorg/oskari-frontend` repository contains the frontend JavaScript, CSS and HTML source
-code. It assumes being served from webserver path /Oskari with a capital O so you can checkout the repository under the name `Oskari` or configure the webserver to do this. The [Jetty bundle](/download) is configured properly for this. 
+code. It assumes being served from webserver path /Oskari with a capital O so you can checkout the repository under the name `Oskari` or configure the webserver to do this. The [Jetty bundle](/download) is configured properly for this.
 
 The `github.com/oskariorg/oskari-server` contains the Oskari serverside code.
 
@@ -77,13 +77,13 @@ exception of maximum line length of 120 characters.
 A properly installed Java Development Kit should report version 8, or some update version of it, in
 response to the command line command
 
-    
+
     java -version
 
 Maven, on the other hand, should report both its own version, as well as the Java version, in
 reponse to the command line command
 
-    
+
     mvn --version
 
 #### 2.3 JavaScript and HTML development tools
@@ -117,12 +117,12 @@ GUI tool, if you prefer, to connect to the PostgreSQL server.
 To validate a successful installation of PostGIS, use your connection to the PostgreSQL database to
 execute the PostGIS version query
 
-    
+
     SELECT PostGIS_full_version();
 
 Your Redis installation can be checked with the command line command
 
-    
+
     redis-cli info
 
 #### 2.5 Application server - Jetty
@@ -142,20 +142,6 @@ WAR `classes`-directory. These can be overridden with oskari-ext.properties file
 
 The servlet in the WAR will attempt to connect to a pre-existing PostgreSQL database using the
 settings specified in the `oskari(-ext).properties` file.
-
-
-#### 2.7 GeoServer and customization components
-
-The Oskari service contains various functionality, such as the [my places](/documentation/backend/enabling-myplaces) and
-[analysis](/documentation/backend/enabling-analyse) modules, which depend on a
-functional and customized GeoServer installation.
-
-Currently, the customized GeoServer configuration data directory can be found inside the 
-[Jetty bundle](/download) under `{JETTY_HOME}/geoserver_data`.
-`oskari-server/geoserver-ext` module collection contains various GeoServer extension
-Maven projects, which need to be built according to the module documentation
-referred to above (prebuilt on the Jetty bundle).
-
 
 * * *
 
