@@ -4,21 +4,20 @@ See [requirements](requirements) for enabling the code that powers the thematic 
 
 ## Adding regionsets as maplayers
 
-Regionsets used for thematic maps are configured in pretty much the same way you might register a wms-layer for Oskari database:
+Regionsets used for thematic maps are configured in pretty much the same way you might register a WFS-layer for Oskari database:
 
     INSERT INTO oskari_maplayer(type, url,
                         name, dataprovider_id,
                         locale,
                         attributes, internal, srs_name)
     VALUES(
-        'statslayer', 'http://mydomain.com/geoserver/wms',
+        'statslayer', 'http://mydomain.com/geoserver/wfs',
         'mylayer', (SELECT MAX(id) FROM oskari_dataprovider),
         '{ "en" : {
             "name":"Municipalities"
         }}',
         '{
             "statistics" : {
-                "featuresUrl":"http://mydomain.com/geoserver/oskari/wfs",
                 "regionIdTag":"id",
                 "nameIdTag":"name"
             }
@@ -26,20 +25,16 @@ Regionsets used for thematic maps are configured in pretty much the same way you
 
 Where
 - type of the layer is 'statslayer'
-- the url and name should match a layer in a WFS-service (The URL isn't used for anything but permission mapping at this point)
+- the url and name should match a layer in a WFS-service
 - locale is a JSON object with language code at the first level and UI-name of the layer/regionset as the name value. It supports multiple languages as any other maplayers in Oskari.
-- groupId is a link to the data provider/organization that provides the layer
+- dataprovider_id is a link to the data provider/organization that provides the layer
 - additional configuration for the attributes column are:
 
-- featuresUrl: URL for corresponding WFS-service. It's used to read all the features to create a list of regions in the region set (this URL is used for now instead of the actual url-field)
+    - regionIdTag: feature attribute that is the unique id for that region (like municipality/postal/zip code). This is used to map statistics data to a region
+    - nameIdTag: feature attribute that has the name for the region (this is shown to the end-user as the region name)
+    - featuresUrl: (*deprecated*) URL for corresponding WFS-service. It's used to read all the features to create a list of regions in the region set (this URL can be used to override the actual url-field. It was useful when we used both wms and wfs layers, but now it's considered deprecated and only the main url should be used.)
 
-- regionIdTag: feature attribute that is the unique id for that region (like municipality/postal/zip code). This is used to map statistics data to a region
-
-- nameIdTag: feature attribute that has the name for the region (this is shown to the end-user as the region name)
-
-You can use the bundled geoserver to host the regionset layer or use a WFS-service from an external provider.
-
-*Note! Add the [view permissions](/documentation/backend/permissions) for the layer so  users can see it.*
+*Note! Add the [view permissions](/documentation/backend/permissions) for the layer so users can see it.*
 
 ### Regionset as JSON resource
 
@@ -158,7 +153,7 @@ The metadataFile configuration allows linking more metadata for indicators in th
         "nextUpdate": "29.3.2017"
     }, ...]
 
-- `code` value is used to map the indicator between the metadata JSON and data from the PxWeb API and id should match the indicator id.
+- `code` value is used to map the indicator between the metadata JSON and data from the PxWeb API and id should match the indicator id. This is used to map the metadata to the indicator. Everything else is optional.
 - `timerange` can be used to configure indicator specific timeranges if they are all in the same .px file. 
 - `updated` and `nextUpdate` are shown in the UI with the indicator description. 
 - `isRatio` (optional boolean): `true` for `choropleth`, `false` for `points`
@@ -211,7 +206,7 @@ Uses config:
         "regionType" : "kunta"
     }
 
-The value of "regionType" should match the "category" value  (like "kunta") in Sotkanet regions response. It's used to filter out indicators that the service has, but which don't have a regionset in the Oskari instance and as such can't be visualized in Oskari. Sotkanet data responses include data for all the regionsets and the same config is used to filter the data before it's passed to the frontend in Oskari.
+The value of "regionType" should match the "category" value  (like "kunta") in Sotkanet regions response (https://sotkanet.fi/rest/1.1/regions). The regionType value is case-insensitive. It's used to filter out indicators that the service has, but which don't have a regionset in the Oskari instance and as such can't be visualized in Oskari. Sotkanet data responses include data for all the regionsets and the same config is used to filter the data before it's passed to the frontend in Oskari.
 
 # Known issues
 

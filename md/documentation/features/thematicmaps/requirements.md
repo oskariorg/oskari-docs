@@ -23,13 +23,13 @@ For bundling in the user interface you will need to include the `statsgrid` bund
 If you always show it for users you should use this to include it on the application:
 
 ```javascript
-import 'oskari-loader!oskari-frontend/packages/statistics/statsgrid/bundle.js';
+import 'oskari-loader!oskari-frontend/bundles/statistics/statsgrid/bundle.js';
 ```
 
 OR if you want to show it to only some users you can reduce the amount of code all users need to download by using the "lazy loader". For example on the embedded map application you want to use this since most of the embedded maps don't usually include thematic maps:
 
 ```javascript
-import 'oskari-lazy-loader?statsgrid!oskari-frontend/packages/statistics/statsgrid/bundle.js';
+import 'oskari-lazy-loader?statsgrid!oskari-frontend/bundles/statistics/statsgrid/bundle.js';
 ```
 
 After modifying the main.js you will need to run `npm run build` to update the build artifacts in the `dist/[version]` folder.
