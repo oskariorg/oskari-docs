@@ -4,7 +4,7 @@
 
 Packaged as `oskari-map.war` in [sample-server-extension](https://github.com/oskariorg/sample-server-extension/tree/master/webapp-map).
 
-It handles most of the server side functionality alone using GeoServer for user generated content (myplaces, userlayers, analysis).
+It handles most of the server side functionality alone.
 The webapp is extensible and can be compiled from oskari-server components and built on them to create your own geoportal/web mapping server.
 
 The backend is layered as services, controls, interfaces (though only `webapp-map` uses this extensively at the moment).
@@ -62,7 +62,6 @@ Responsible for:
 * Application servers - Oskari-map
     * Nginx
     * Jetty/Oskari-server
-    * Jetty/Geoserver
 
 * Database server
     * Postgres/Database

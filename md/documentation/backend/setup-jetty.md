@@ -30,7 +30,7 @@ The zip includes Howto.md, jetty-distribution-9.4.12.v20180830 (referred as `{je
 
     java -jar ../jetty-distribution-9.4.12.v20180830/start.jar
 
-Note that for folder references like the GeoServer datadir it's important where you run the command/what is the working directory so run the command in oskari-server folder and refer to start.jar under the {jetty.home}:
+Note that for folder references it's important where you run the command/what is the working directory so run the command in oskari-server folder and refer to start.jar under the {jetty.home}:
 
 5) After Jetty is up and running open a browser with URL
 
@@ -55,12 +55,6 @@ Database (Postgres with postgis extension)
 - db name: oskaridb
 - db user: oskari/oskari
 
-GeoServer (provided in Jetty bundle)
-- url: http://localhost:8080/geoserver
-- user: admin/geoserver
-- datadir: {jetty.base}/geoserver_data (configurable in {jetty.base}/start.d/oskari.ini)
-- if local GeoServer content doesn't seem to work correctly (log shows "feature not on screen" or SRID errors) -> try logging into GeoServer and reload the feature type under layers (my_places_categories, user_layer_data_style, analysis_data_style). This is probably due to GeoServer starting before Oskari has created the database. We are exploring the option to configure GeoServer through it's REST API to workaround this and preconfigured datadir.
-
 Oskari (provided in Jetty bundle)
 - url: http://localhost:8080/
 
@@ -68,8 +62,7 @@ Oskari (provided in Jetty bundle)
 
 ### Removing the unnecessary parts
 
-Oskari-server can run with just the oskari-map webapp. If you don't need all the features, you can remove them from under `{jetty.base}/webapps`:
-- user content functionalities: you can remove `geoserver` folder
+Oskari-server can run with just the oskari-map webapp. If you don't need all the features, you can remove them from under `{jetty.base}/webapps`.
 
 You will also need to remove the corresponding parts of the UI so users don't have access to them. This is done by removing "bundles" from "appsetups" (these are Oskari concepts: bundles provide  functionalities and appsetup defines which bundles are used in your app) and currently it needs to be done by modifying the database content. Bundles are linked to appsetups in the database table `portti_view_bundle_seq` and functionalities are removed from the UI by deleting rows from the table.
 
@@ -85,7 +78,6 @@ You will also need to remove the corresponding parts of the UI so users don't ha
     java -jar ${jetty.home}/start.jar jetty.http.port=8080
 
 - change `{jetty.base}/resources/oskari-ext.properties` where ever `8080` is referenced
-- check the "Using external Geoserver" below (also refers to localhost:8080 port)
 
 ### Proxy settings
 
@@ -104,12 +96,6 @@ If you need a proxy to access internet you can configure it in `{jetty.base}/sta
 	db.url=jdbc:postgresql://[host]:[port]/[dbname]
 	db.username=[user]
 	db.password=[passwd]
-
-Stores in GeoServer needs to be updated and re-enabled for myplaces/analysis/userlayers to work
-
-### Using external GeoServer
-- `{jetty.base}/resources/oskari-ext.properties` needs to be updated (multiple geoserver references)
-- layers pointing to local GeoServer in database needs to be updated (table: oskari_maplayer - columns: url, username and password)
 
 ### Using external Redis
 `{jetty.base}/resources/oskari-ext.properties` needs to be updated

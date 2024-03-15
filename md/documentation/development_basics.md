@@ -9,7 +9,7 @@ Oskari is developed originally by National Land Survey of Finland but nowadays t
 
 ## Developing frontend
 
-Oskari user interface is implemented as a collection of reusable bundles. Bundles are used as uniform containers to ship and share new functionality to the application setups. Oskari uses standard Open Source components such as OpenLayers, GeoTools, GeoServer, Jackson and jQuery. The developed Open Source code stitches these applications together and makes it possible to extend the functionality of the platform in a coordinated manner. 
+Oskari user interface is implemented as a collection of reusable bundles. Bundles are used as uniform containers to ship and share new functionality to the application setups. Oskari uses standard Open Source components such as OpenLayers, GeoTools, Jackson and jQuery. The developed Open Source code stitches these applications together and makes it possible to extend the functionality of the platform in a coordinated manner.
 
 Oskari Frontend is implemented in JavaScript.
 
