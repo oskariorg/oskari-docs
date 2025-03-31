@@ -9,6 +9,10 @@ In this workshop we will:
 3. Add attractions in Firenze to the map
 4. Add interaction between the map and the page to get information about the attractions.
 
+The guide has 10 steps in total. At the end, we’ve listed some common errors you might face and their solutions.
+
+You will not need any prior experience on Oskari or coding, yet a basic knowledge of JavaScript or coding in general can provide helpful and give you a bit more insight to the workshop.
+
 ## 1. Initial preparations
 
 In this workshop we use a web page called CodeSandbox for the development so you only need a web browser (like Chrome). You don't need to install any software or setup a server.
@@ -18,7 +22,7 @@ In this workshop we use a web page called CodeSandbox for the development so you
 
 As an example and a starting point the template has a full screen placeholder for a map that is lime green. 
 
-![A screenshot from the preview - a lime green placeholder.](image.png)
+![A screenshot from the preview - a lime green placeholder.](images_for_guide/lime.png)
 
 The template also includes helper scripts that will let us skip some of the coding that is not related to Oskari.
 
@@ -39,7 +43,7 @@ You should now have a CodeSandbox project that you can edit with files:
 - src/styles.js
 - index.html
 - package.json
-- poi.json ==> this file contains sights from Firenze, you can create your own POI data e.g. with QGIS using the same coordinate system as the embedded map from Oskari (`EPSG:3857` for this instance)
+- poi.json ==> this file contains sights from Firenze. You can create your own POI data e.g. with QGIS using the same coordinate system as the embedded map from Oskari (`EPSG:3857` for this instance)
 
 ## 3. Adding the map aka "It's not easy being green"
 
@@ -192,9 +196,14 @@ After this the map doesn't cover the whole page any more and we have a side pane
 
 ## 7. List attractions on side panel
 
-We can modify the code where we added attractions to the map (in `src/index.js`) to also add them to the side panel on the page. There's some more helper functions to help you with this. They get you easy access to the HTML elements (`HELPER.getFeatureUI()` gives you reference to the side panel) on the page and output HTML for a given feature (`HELPER.createFeaturePanel()`) so you don't have to type it in yourself. 
+We can modify the code where we added attractions to the map (in `src/index.js`) to also add them to the side panel on the page. There's some more helper functions to help you with this. They get you: 
+* an easy access to the HTML elements on the page (`HELPER.getFeatureUI()` gives you reference to the side panel)
+* an output HTML for a given feature so you don't have to type it in yourself (`HELPER.createFeaturePanel()`)
 
-Each attraction will be listed in it's own collapsible panel so that the information can be seen by clicking the name of the attraction. We add code for populating the side panel to the same getFeatures() handling we used in previous step. You should **replace** the previous `HELPER.getFeatures()` functions with the following one:
+
+Each attraction will be listed in it's own collapsible panel so that the information can be seen by clicking the name of the attraction. We add code for populating the side panel to the same getFeatures() handling we used in previous step. 
+
+You should **replace** the previous `HELPER.getFeatures()` functions with the following one:
 
 ```javascript
 HELPER.getFeatures().then(function(geojson) {
@@ -217,9 +226,17 @@ HELPER.getFeatures().then(function(geojson) {
 
 After this you should see the attractions on the side panel. Now we need to add some functionality to create the link between the side panel and the map.
 
+If you get an error message saying "ReferenceError: LAYER_ID is not defined", see if you have deleted the following from `src/index.js`:
+
+```
+  const LAYER_ID = "attractions";
+```
+
 ## 8. Highlight the attraction on map
 
-Next we will add interaction between the side panel and the map. We want to highlight features on the map when they are clicked on the panel. Feature styles can be updated  using the same request as adding features (`AddFeaturesToMapRequest`) but giving a filter object matching feature properties that is used to identify feature(s) to be updated and the updated style. Here we use id to select a single feature as we only want to change the style of one feature.
+Next we will add interaction between the side panel and the map. We want to highlight features on the map when they are clicked on the panel. 
+
+Feature styles can be updated  using the same request as adding features (`AddFeaturesToMapRequest`) but giving a filter object matching feature properties that is used to identify feature(s) to be updated and the updated style. Here we use id to select a single feature as we only want to change the style of one feature.
 
 Let's add a helper function in `src/index.js` to update a style of a feature by id:
 
@@ -232,7 +249,7 @@ function setFeatureStyle (id, style) {
 }
 ```
 
-Now let's modify the code that adds attractions to the UI and add a click listener on each attraction panel to update the style of the matching feature. Again, you can **replace** the `HELPER.getFeatures()` function with the following one:
+Now let's modify the code that adds attractions to the UI and add a click listener on each attraction panel to update the style of the matching feature. Again, you can **replace** the previous `HELPER.getFeatures()` function with the following one:
 
 ```javascript
 HELPER.getFeatures().then(function(geojson) {
@@ -315,6 +332,7 @@ channel.handleEvent("MapClickedEvent", function (data) {
 });
 */
 const LAYER_ID = "attractions";
+
 HELPER.getFeatures()
   .then(function (geojson) {
     let listUI = HELPER.getFeatureUI();
@@ -369,9 +387,9 @@ function featureClicked(id) {
 
 Now we know where the attractions are on a map but what if we want to know which feature on the map is which attraction? We need to react to feature clicks on the map and highlight the matching attraction on the side panel.
 
-## Catching clicks
+## 9. Catching clicks
 
-When a feature is clicked on the map a `FeatureEvent` is triggered. It is also triggered when a feature is added or removed but we want to focus on clicks and the event has an `operation` property to indicate what actually happened. The event also includes any features that were "hit" by the click. Let's listen to `FeatureEvent` and highlight the name of the clicked feature from the side panel.
+When a feature is clicked on the map a `FeatureEvent` is triggered. It is also triggered when a feature is added or removed but we want to focus on clicks. The event has an `operation` property to indicate what actually happened. The event also includes any features that were "hit" by the click. Let's listen to `FeatureEvent` and highlight the name of the clicked feature from the side panel.
 
 This snippet should be added to `scripts/index.js`:
 
@@ -394,7 +412,7 @@ channel.handleEvent('FeatureEvent', function(data) {
   }
 });
 ```
-We use the same `featureClicked()` function as before but add one line `HELPER.highlightMenu(id)`:
+We use the same `featureClicked()` function as before but **add one line: `HELPER.highlightMenu(id);`**.
 
 ```javascript
 function featureClicked(id) {
@@ -402,12 +420,13 @@ function featureClicked(id) {
     return;
   }
   HELPER.highlightMenu(id);
+
   ... the rest of the function...
 }
 ```
-The `highlightMenu()` function highlights the attraction on the side panel and is part of the helper functions as it's just HTML handling which is not the focus of this workshop. By using the same function we get the benefit of not needing to care if the feature was clicked on the map or on the menu and can just do the stuff that should happen if an attraction is selected by any means.
+The `highlightMenu()` function highlights the attraction on the side panel and is a part of the helper functions as it's just HTML handling (which is not the focus of this workshop). By using the same function we get the benefit of not needing to care if the feature was clicked on the map or on the menu and can just do the stuff that should happen if an attraction is selected by any means.
 
-Now the index.js should include the following functions:
+Now the `src/index.js` should include the following functions:
 
 ```javascript
 import { HELPER } from "./helper";
@@ -434,6 +453,7 @@ channel.handleEvent("MapClickedEvent", function (data) {
   );
 });
 */
+
 const LAYER_ID = "attractions";
 HELPER.getFeatures()
   .then(function (geojson) {
@@ -507,7 +527,7 @@ channel.handleEvent("FeatureEvent", function (data) {
 ```
 Our app is almost ready now. We have attractions on the side panel and on the map and we get the information about them no matter how we select them. Next we make it easier to see what attraction the feature is by hovering on it.
 
-## Hovering like there's no tomorrow
+## 10. Hovering like there's no tomorrow
 
 To make it easier to identify attractions on the map we are going to show the name of the attraction when the mouse cursor is on top of it. For getting a hover style on the map we need to initialize the layer we are using with `VectorLayerRequest`.
 
@@ -530,23 +550,40 @@ Now you should see a small popup next to an attraction when you move your mouse 
 
 ## Thank you!!
 
-Sources for this workshop: https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/FOSS4G_2022
+Sources for this workshop: https://github.com/oskariorg/oskari-docs/tree/master/md/documentation/examples/RPC_workshop_2025
 
 Additional resources for pushing forward:
 
-- https://oskari.org/
-- https://oskari.org/examples/rpc-api/
-- https://oskari.org/api/requests
-- https://oskari.org/api/events
-- https://www.oskari.org/documentation/examples/oskari-style
-- https://github.com/oskariorg
-- https://twitter.com/oskari_org
-- https://gitter.im/oskariorg/chat
+- The official website: https://oskari.org/
+
+Documentation on RPC:
+- https://oskari.org/examples/rpc-api/#/
+- https://oskari.org/documentation/api/requests/3.0.0
+- https://oskari.org/documentation/api/events/3.0.0
+- https://github.com/oskariorg/oskari-docs/blob/master/md/documentation/examples/oskari-style.md
+
+Other related pages:
+- GitHub: https://github.com/oskariorg
+- Chat: https://gitter.im/oskariorg/chat
 - Mailing list: Oskari-user@lists.osgeo.org
  
  ## Disclaimers and things to look out for
 
- Note that we will be erasing the database on demo.oskari.org periodically so the embedded maps published today might not be there tomorrow. You can setup your own Oskari instance by following the instructions on https://oskari.org.
+### 404 - Not found
+ 
+ We will be erasing the database on demo.oskari.org periodically so the embedded maps published today might not be there tomorrow. If your map gets deleted, you will see a "404 - Not found" message on your RPC demo. You might also get the message if you've made a typo in the address of your embedded map. You can setup your own Oskari instance by following the instructions on https://oskari.org/documentation/docs/latest/3-Setup-instructions#Setup-instructions.
+
+### JavaScript code not working
+
+If you encounter errors when typing in JavaScript code, first see if you've copy pasted the code correctly. If the error still appears and you have no prior expertise on JavaScript, you can copy paste the error message to your preferred search engine / AI helper to see how the code could be fixed to function properly.
+
+### Map not functioning as expected
+
+In some cases the map might not function even though the code is correct. For example, the points of interest might disappear when the map is moved or you don't get even the "Map clicked!" pop up window to show up. In these cases the code is usually correct yet the preview window of CodeSandBox hasn't updated the preview window. You can refresh the preview by clicking the Refresh button next to the address bar of the preview widow.
+
+![A screenshot where the refresh button is highlighted](images_for_guide/refresh.png)
+
+### Notes on further developing RPC-based apps
 
 If you want to use React when building an RPC-based app we have an example of such https://github.com/oskariorg/rpc-client/tree/master/examples/react
 
